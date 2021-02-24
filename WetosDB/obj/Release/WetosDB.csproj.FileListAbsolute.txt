@@ -1,0 +1,50 @@
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\bin\Release\WetosDB.dll.config
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\bin\Release\WetosDB.dll
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\bin\Release\WetosDB.pdb
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\bin\Release\Common.Logging.Core.dll
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\bin\Release\Common.Logging.dll
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\bin\Release\Quartz.dll
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\bin\Release\Common.Logging.pdb
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\bin\Release\Common.Logging.xml
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\bin\Release\Common.Logging.Core.pdb
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\bin\Release\Common.Logging.Core.xml
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\bin\Release\Quartz.pdb
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\bin\Release\Quartz.xml
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\obj\Release\WetosDB.dll
+E:\FINALWEEK2017\FLAGSHIP\JULY 2017\16 JULY 2017\CODE\WetosDB\obj\Release\WetosDB.pdb
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\30 DEC 2017\CODE\WetosDB\bin\Release\WetosDB.dll.config
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\30 DEC 2017\CODE\WetosDB\bin\Release\WetosDB.dll
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\30 DEC 2017\CODE\WetosDB\bin\Release\WetosDB.pdb
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\30 DEC 2017\CODE\WetosDB\obj\Release\WetosDB.dll
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\30 DEC 2017\CODE\WetosDB\obj\Release\WetosDB.pdb
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\01 JAN 2018\CODE\WetosDB\bin\Release\WetosDB.dll.config
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\01 JAN 2018\CODE\WetosDB\bin\Release\WetosDB.dll
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\01 JAN 2018\CODE\WetosDB\bin\Release\WetosDB.pdb
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\01 JAN 2018\CODE\WetosDB\obj\Release\WetosDB.dll
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\01 JAN 2018\CODE\WetosDB\obj\Release\WetosDB.pdb
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\01 JAN 2018\CODE\WetosDB\obj\Release\WetosDB.csprojResolveAssemblyReference.cache
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\02 JAN 2018\CODE\WetosDB\bin\Release\WetosDB.dll.config
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\02 JAN 2018\CODE\WetosDB\bin\Release\WetosDB.dll
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\02 JAN 2018\CODE\WetosDB\bin\Release\WetosDB.pdb
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\02 JAN 2018\CODE\WetosDB\obj\Release\WetosDB.dll
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\02 JAN 2018\CODE\WetosDB\obj\Release\WetosDB.pdb
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\02 JAN 2018\CODE\WetosDB\obj\Release\WetosDB.csprojResolveAssemblyReference.cache
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\04 JAN 2018\CODE\WetosDB\bin\Release\WetosDB.dll.config
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\04 JAN 2018\CODE\WetosDB\bin\Release\WetosDB.dll
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\04 JAN 2018\CODE\WetosDB\bin\Release\WetosDB.pdb
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\04 JAN 2018\CODE\WetosDB\obj\Release\WetosDB.dll
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\04 JAN 2018\CODE\WetosDB\obj\Release\WetosDB.pdb
+E:\PROJECT2017\LNT NAGAR ATTEN\L & T Nagar Merge Final Code\FINAL COPY\2018\04 JAN 2018\CODE\WetosDB\obj\Release\WetosDB.csprojResolveAssemblyReference.cache
+F:\PROJECT2020\Eviska\08 FEB 2020\WetosDB\bin\Release\WetosDB.dll.config
+F:\PROJECT2020\Eviska\08 FEB 2020\WetosDB\bin\Release\WetosDB.dll
+F:\PROJECT2020\Eviska\08 FEB 2020\WetosDB\bin\Release\WetosDB.pdb
+F:\PROJECT2020\Eviska\08 FEB 2020\WetosDB\obj\Release\WetosDB.csprojResolveAssemblyReference.cache
+F:\PROJECT2020\Eviska\08 FEB 2020\WetosDB\obj\Release\WetosDB.dll
+F:\PROJECT2020\Eviska\08 FEB 2020\WetosDB\obj\Release\WetosDB.pdb
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosDB\bin\Release\WetosDB.dll.config
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosDB\bin\Release\WetosDB.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosDB\bin\Release\WetosDB.pdb
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosDB\obj\Release\WetosDB.csprojAssemblyReference.cache
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosDB\obj\Release\WetosDB.csproj.CoreCompileInputs.cache
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosDB\obj\Release\WetosDB.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosDB\obj\Release\WetosDB.pdb

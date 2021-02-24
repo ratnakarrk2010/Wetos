@@ -1,0 +1,198 @@
+﻿@model IEnumerable<WetosDB.Adjustment>
+
+@{
+    ViewBag.Title = "AdjustmentEntryIndex";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+ @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<h2>AdjustmentEntryIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            EmployeeId
+        </th>
+        <th>
+            TranDate
+        </th>
+        <th>
+            ShiftId
+        </th>
+        <th>
+            Login
+        </th>
+        <th>
+            LogOut
+        </th>
+        <th>
+            Login1
+        </th>
+        <th>
+            LogOut1
+        </th>
+        <th>
+            Early
+        </th>
+        <th>
+            Late
+        </th>
+        <th>
+            WorkingHrs
+        </th>
+        <th>
+            ExtraHrs
+        </th>
+        <th>
+            SanctionedCOHrs
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            ActualStatus
+        </th>
+        <th>
+            OTInTime
+        </th>
+        <th>
+            OTOutTime
+        </th>
+        <th>
+            PreviousLogin
+        </th>
+        <th>
+            PreviousLogOut
+        </th>
+        <th>
+            PreviousLogin1
+        </th>
+        <th>
+            PreviousLogOut1
+        </th>
+        <th>
+            PreviousShiftId
+        </th>
+        <th>
+            TStatus
+        </th>
+        <th>
+            PostinFlag
+        </th>
+        <th>
+            Lock
+        </th>
+        <th>
+            Remark
+        </th>
+        <th>
+            LateCount
+        </th>
+        <th>
+            CompanyId
+        </th>
+        <th>
+            BranchId
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @item.EmployeeId
+        </td>
+        <td>
+            @String.Format("{0:g}", item.TranDate)
+        </td>
+        <td>
+            @item.ShiftId
+        </td>
+        <td>
+            @String.Format("{0:g}", item.Login)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.LogOut)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.Login1)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.LogOut1)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.Early)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.Late)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.WorkingHrs)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.ExtraHrs)
+        </td>
+        <td>
+            @item.SanctionedCOHrs
+        </td>
+        <td>
+            @item.Status
+        </td>
+        <td>
+            @item.ActualStatus
+        </td>
+        <td>
+            @String.Format("{0:g}", item.OTInTime)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.OTOutTime)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.PreviousLogin)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.PreviousLogOut)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.PreviousLogin1)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.PreviousLogOut1)
+        </td>
+        <td>
+            @item.PreviousShiftId
+        </td>
+        <td>
+            @item.TStatus
+        </td>
+        <td>
+            @item.PostinFlag
+        </td>
+        <td>
+            @item.Lock
+        </td>
+        <td>
+            @item.Remark
+        </td>
+        <td>
+            @item.LateCount
+        </td>
+        <td>
+            @item.CompanyId
+        </td>
+        <td>
+            @item.BranchId
+        </td>
+         <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DailyTrnId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DailyTrnId })
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.DailyTrnId })*@
+        </td>
+    </tr>
+}
+
+</table>
+

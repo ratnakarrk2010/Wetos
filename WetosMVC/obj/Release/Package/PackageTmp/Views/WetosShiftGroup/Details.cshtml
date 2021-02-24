@@ -1,0 +1,187 @@
+﻿@model WetosDB.VwShiftGroupDetail
+@{
+    ViewBag.Title = "Details";
+}
+<div>
+    <section class="content-header">
+ <h1>
+       Shift Group
+        <small>Details</small>
+      </h1>
+      <ol class="breadcrumb">
+       <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Masters</li>
+        <li><a href="@Url.Action("Index","WetosShiftGroup")"><i class="fa fa-arrow-left"></i> Shift Group</a></li>
+        <li><a href="#">Details</a></li>
+     
+      </ol>
+
+        @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+      <div>
+      <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>
+     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+
+      </div>
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+    </section>
+</div>
+<section class="content">
+     
+          <div class="box">
+          <div class="box-header">
+              @*<h3 class="box-title">Shift Group Details</h3>*@
+            </div>
+
+            <!-- /.box-header -->
+            <div class="box-body">
+
+
+
+    <div class="row">
+    <div class="col-md-4">Rotation Code</div>
+    <div class="col-md-8">@Html.DisplayFor(model => model.RotationCode)
+    </div>
+    </div>
+      <br />
+    <div class="row">
+    <div class="col-md-4">Rotation Name</div>
+    <div class="col-md-8">@Html.DisplayFor(model => model.RotationName)
+    </div>
+    </div>
+     <br />
+    <div class="row">
+    <div class="col-md-4">Rotation On Day Basis</div>
+    <div class="col-md-8">@Html.DisplayFor(model => model.RotationOnDayBasis)
+    </div>
+    </div>
+         <br />
+    <div class="row">
+    <div class="col-md-4">Rotation On Month Basis</div>
+    <div class="col-md-8">@Html.DisplayFor(model => model.RotationOnMonthBasis)
+    </div>
+    </div>
+   
+     <br />    
+
+     <div class="row">
+    <div class="col-md-4">Rotation On Weekly Basis</div>
+    <div class="col-md-8">@Html.DisplayFor(model => model.RotationOnWeeklyBasis)
+    </div>
+    </div>
+         <br />
+    <div class="row">
+    <div class="col-md-4">Shifts Changes</div>
+    <div class="col-md-8">@Html.DisplayFor(model => model.ShiftsChanges)
+    </div>
+    </div>
+         <br />
+    <div class="row">
+    <div class="col-md-4">Branch Name</div>
+    <div class="col-md-8">@Html.DisplayFor(model => model.BranchName)
+    </div>
+    </div>
+         <br />
+    <div class="row">
+    <div class="col-md-4">Company Name</div>
+    <div class="col-md-8">@Html.DisplayFor(model => model.CompanyName)
+    </div>
+    </div>
+    
+ <br />
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RotationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+    <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*<div class="display-label">RotationCode</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RotationCode)
+    </div>
+
+    <div class="display-label">RotationName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RotationName)
+    </div>*@
+
+   @* <div class="display-label">RotationOnDayBasis</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RotationOnDayBasis)
+    </div>
+
+    <div class="display-label">RotationOnMonthBasis</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RotationOnMonthBasis)
+    </div>*@
+
+   @* <div class="display-label">RotationOnWeeklyBasis</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RotationOnWeeklyBasis)
+    </div>
+
+    <div class="display-label">ShiftsChanges</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ShiftsChanges)
+    </div>*@
+
+    @*<div class="display-label">BranchId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BranchId)
+    </div>
+
+    <div class="display-label">CompanyId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyId)
+    </div>*@
+
+
+
+
+     @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('a.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@

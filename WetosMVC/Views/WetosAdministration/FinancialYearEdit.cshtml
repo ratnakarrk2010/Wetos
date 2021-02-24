@@ -1,0 +1,199 @@
+﻿@model WetosMVCMainApp.Models.FinancialYearModel
+@{
+    ViewBag.Title = "Financial Year Edit";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<style type="text/css">
+    .row
+    {
+        margin-bottom: 10px;
+    }
+</style>
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+<h1>Financial Year
+ <small>Edit</small>
+</h1>
+      <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Administration</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">Finanacial Year</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back " data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+      
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+    </section>
+        <br />
+        <section class="content">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <div class="box box-primary">
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.FinancialId)
+
+     <div class="row">
+        <div class="editor-label col-md-2">
+    Company  <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-5">
+         @*added by atul on 28th june 2017*@
+         <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-user" aria-hidden="true"></i>
+                  </div>
+          @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
+          <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.CompanyId)
+            </div>
+        </div>
+       </div> 
+       </div>
+        <br />
+    
+     <div class="row">
+        <div class="editor-label col-md-2">
+    Branch Name <span style="color:Red;font-size:18px" >*</span>
+        </div>
+         <div class="editor-field col-md-5">
+          @*added by atul on 28th june 2017*@
+         <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-institution" aria-hidden="true"></i>
+                  </div>
+          @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList" })
+          <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.BranchId)
+            </div>
+            </div>
+        </div>
+       </div> 
+<br />
+    
+    
+              <div class="row">
+            <div class="col-md-6">
+             <div class="form-group">
+               Financial Name   <span style="color:Red;font-size:18px" >*</span>
+                @*added by atul on 28th june 2017*@
+         <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-user" aria-hidden="true"></i>
+                  </div>
+                 @Html.TextBoxFor(model => model.FinancialName, new { @class = "form-control pull-right" })
+                   </div>
+            </div>
+            </div>
+           
+            </div>
+    
+    <div class="row">
+     <div class="col-md-4">
+               <div class="form-group">
+               Start Date <span style="color:Red;font-size:18px" >*</span>
+
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="StartDate" id="StartDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.StartDate)" />
+                </div>
+                 @*@Html.ValidationMessageFor(model => model.FromDate)*@
+              </div>
+              </div>
+              </div><br/>
+    
+    <div class="row">
+     <div class="col-md-4">
+               <div class="form-group">
+               End Date <span style="color:Red;font-size:18px" >*</span>
+
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="EndDate" id="EndDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.EndDate)" />
+                </div>
+                 @*@Html.ValidationMessageFor(model => model.FromDate)*@
+              </div>
+              </div>
+              </div><br/>
+    
+    <div>
+            <input type="submit" value="Save" />
+        </div>
+}
+</div>
+</div>
+</div>
+</section>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+
+        //Date picker
+        $('.datepicker').datepicker({
+
+            format: "dd-M-yyyy",
+
+            autoclose: true
+        });
+
+    });
+</script>
+<script type="text/jscript">
+    //    $(document).ready(function () {
+    //        $('a.back').click(function () {
+    //            parent.history.back();
+    //            return false;
+    //        });
+    //    });
+
+    // Above Code Commented and below modified code added by Shalaka on 27th DEC 2017 -- Start
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+    // Above Code Commented and below modified code added by Shalaka on 27th DEC 2017 --- End
+
+    function goBack() {
+        window.history.back();
+    }
+</script>

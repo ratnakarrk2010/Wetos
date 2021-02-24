@@ -1,0 +1,3331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WetosDBEntityModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="WetosDBEntityModelStoreContainer">
+    <EntitySet Name="AttendanceYear" EntityType="WetosDBEntityModel.Store.AttendanceYear" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AuditLog" EntityType="WetosDBEntityModel.Store.AuditLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AuditTrail" EntityType="WetosDBEntityModel.Store.AuditTrail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BloodGroup" EntityType="WetosDBEntityModel.Store.BloodGroup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Branch" EntityType="WetosDBEntityModel.Store.Branch" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CalendarStatus" EntityType="WetosDBEntityModel.Store.CalendarStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommanData" EntityType="WetosDBEntityModel.Store.CommanData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Company" EntityType="WetosDBEntityModel.Store.Company" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompOff" EntityType="WetosDBEntityModel.Store.CompOff" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompOffApplication" EntityType="WetosDBEntityModel.Store.CompOffApplication" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CondoneTrn" EntityType="WetosDBEntityModel.Store.CondoneTrn" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CumulativeCompOff" EntityType="WetosDBEntityModel.Store.CumulativeCompOff" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CumulativeCompOffApplication" EntityType="WetosDBEntityModel.Store.CumulativeCompOffApplication" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CumulativeManualCompOff" EntityType="WetosDBEntityModel.Store.CumulativeManualCompOff" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DailyTransaction" EntityType="WetosDBEntityModel.Store.DailyTransaction" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeclaredHoliday" EntityType="WetosDBEntityModel.Store.DeclaredHoliday" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Department" EntityType="WetosDBEntityModel.Store.Department" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Designation" EntityType="WetosDBEntityModel.Store.Designation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Device" EntityType="WetosDBEntityModel.Store.Device" store:Type="Tables" store:Schema="dbo" store:Name="Device">
+      <DefiningQuery>SELECT 
+      [Device].[DeviceId] AS [DeviceId], 
+      [Device].[DeviceName] AS [DeviceName], 
+      [Device].[DeviceNo] AS [DeviceNo], 
+      [Device].[DISPLAYNAME] AS [DISPLAYNAME]
+      FROM [dbo].[Device] AS [Device]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Division" EntityType="WetosDBEntityModel.Store.Division" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DropdownData" EntityType="WetosDBEntityModel.Store.DropdownData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employee" EntityType="WetosDBEntityModel.Store.Employee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeeExtraDetail" EntityType="WetosDBEntityModel.Store.EmployeeExtraDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeeGroup" EntityType="WetosDBEntityModel.Store.EmployeeGroup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeeGroupDetail" EntityType="WetosDBEntityModel.Store.EmployeeGroupDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeeGrouptype" EntityType="WetosDBEntityModel.Store.EmployeeGrouptype" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeeLifeCycle" EntityType="WetosDBEntityModel.Store.EmployeeLifeCycle" store:Type="Tables" store:Schema="dbo" store:Name="EmployeeLifeCycle">
+      <DefiningQuery>SELECT 
+      [EmployeeLifeCycle].[LifeCycleId] AS [LifeCycleId], 
+      [EmployeeLifeCycle].[EmployeeId] AS [EmployeeId], 
+      [EmployeeLifeCycle].[EmployeeCode] AS [EmployeeCode], 
+      [EmployeeLifeCycle].[ResignedOn] AS [ResignedOn], 
+      [EmployeeLifeCycle].[ResignationAcceptedOn] AS [ResignationAcceptedOn], 
+      [EmployeeLifeCycle].[AppointmentAcceptedOn] AS [AppointmentAcceptedOn], 
+      [EmployeeLifeCycle].[AppointmentLetterIssued] AS [AppointmentLetterIssued], 
+      [EmployeeLifeCycle].[ConfirmLetterIssued] AS [ConfirmLetterIssued], 
+      [EmployeeLifeCycle].[RelievingLetterissued] AS [RelievingLetterissued], 
+      [EmployeeLifeCycle].[ExpLetterIssue] AS [ExpLetterIssue], 
+      [EmployeeLifeCycle].[ServiceAgree] AS [ServiceAgree], 
+      [EmployeeLifeCycle].[LastModifiedOn] AS [LastModifiedOn], 
+      [EmployeeLifeCycle].[LoggedInUser] AS [LoggedInUser], 
+      [EmployeeLifeCycle].[ResignationAcceptedOrNot] AS [ResignationAcceptedOrNot]
+      FROM [dbo].[EmployeeLifeCycle] AS [EmployeeLifeCycle]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EmployeeType" EntityType="WetosDBEntityModel.Store.EmployeeType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ExceptionEntry" EntityType="WetosDBEntityModel.Store.ExceptionEntry" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FinancialYear" EntityType="WetosDBEntityModel.Store.FinancialYear" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GlobalSetting" EntityType="WetosDBEntityModel.Store.GlobalSetting" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Grade" EntityType="WetosDBEntityModel.Store.Grade" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HeadCode" EntityType="WetosDBEntityModel.Store.HeadCode" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HeadType" EntityType="WetosDBEntityModel.Store.HeadType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HoliDay" EntityType="WetosDBEntityModel.Store.HoliDay" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LeaveApplication" EntityType="WetosDBEntityModel.Store.LeaveApplication" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LeaveBalance" EntityType="WetosDBEntityModel.Store.LeaveBalance" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LeaveBalanceBackupData" EntityType="WetosDBEntityModel.Store.LeaveBalanceBackupData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LeaveCredit" EntityType="WetosDBEntityModel.Store.LeaveCredit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LeaveEncash" EntityType="WetosDBEntityModel.Store.LeaveEncash" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LeaveMaster" EntityType="WetosDBEntityModel.Store.LeaveMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Location" EntityType="WetosDBEntityModel.Store.Location" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ManualCompOff" EntityType="WetosDBEntityModel.Store.ManualCompOff" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MonthDetails" EntityType="WetosDBEntityModel.Store.MonthDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NavMenu" EntityType="WetosDBEntityModel.Store.NavMenu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="News" EntityType="WetosDBEntityModel.Store.News" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Notification" EntityType="WetosDBEntityModel.Store.Notification" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ODLateEarly" EntityType="WetosDBEntityModel.Store.ODLateEarly" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ODTour" EntityType="WetosDBEntityModel.Store.ODTour" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OtHrs" EntityType="WetosDBEntityModel.Store.OtHrs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Religion" EntityType="WetosDBEntityModel.Store.Religion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoleDef" EntityType="WetosDBEntityModel.Store.RoleDef" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoleNavMenu" EntityType="WetosDBEntityModel.Store.RoleNavMenu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoleTypes" EntityType="WetosDBEntityModel.Store.RoleTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RuleEngine" EntityType="WetosDBEntityModel.Store.RuleEngine" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RuleFlags" EntityType="WetosDBEntityModel.Store.RuleFlags" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Rules" EntityType="WetosDBEntityModel.Store.Rules" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RulesMaster" EntityType="WetosDBEntityModel.Store.RulesMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RuleTransaction" EntityType="WetosDBEntityModel.Store.RuleTransaction" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Schedular" EntityType="WetosDBEntityModel.Store.Schedular" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Shift" EntityType="WetosDBEntityModel.Store.Shift" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShiftPatternRule" EntityType="WetosDBEntityModel.Store.ShiftPatternRule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShiftRotation" EntityType="WetosDBEntityModel.Store.ShiftRotation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShiftSchedule" EntityType="WetosDBEntityModel.Store.ShiftSchedule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShiftSchedulePattern" EntityType="WetosDBEntityModel.Store.ShiftSchedulePattern" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShiftSwapReplace" EntityType="WetosDBEntityModel.Store.ShiftSwapReplace" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SqlQuery" EntityType="WetosDBEntityModel.Store.SqlQuery" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblFamilyDetail" EntityType="WetosDBEntityModel.Store.TblFamilyDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UploadCompanyDocument" EntityType="WetosDBEntityModel.Store.UploadCompanyDocument" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UploadDocument" EntityType="WetosDBEntityModel.Store.UploadDocument" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRoles" EntityType="WetosDBEntityModel.Store.UserRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="WetosDBEntityModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VIEWREPORTS" EntityType="WetosDBEntityModel.Store.VIEWREPORTS" store:Type="Views" store:Schema="dbo" store:Name="VIEWREPORTS">
+      <DefiningQuery>SELECT 
+      [VIEWREPORTS].[DailyTrnId] AS [DailyTrnId], 
+      [VIEWREPORTS].[EmployeeId] AS [EmployeeId], 
+      [VIEWREPORTS].[EmployeeCode] AS [EmployeeCode], 
+      [VIEWREPORTS].[EmployeeTypeId] AS [EmployeeTypeId], 
+      [VIEWREPORTS].[FirstName] AS [FirstName], 
+      [VIEWREPORTS].[LastName] AS [LastName], 
+      [VIEWREPORTS].[MiddleName] AS [MiddleName], 
+      [VIEWREPORTS].[ConfirmDate] AS [ConfirmDate], 
+      [VIEWREPORTS].[JoiningDate] AS [JoiningDate], 
+      [VIEWREPORTS].[Leavingdate] AS [Leavingdate], 
+      [VIEWREPORTS].[TranDate] AS [TranDate], 
+      [VIEWREPORTS].[ShiftId] AS [ShiftId], 
+      [VIEWREPORTS].[Login] AS [Login], 
+      [VIEWREPORTS].[LogOut] AS [LogOut], 
+      [VIEWREPORTS].[Early] AS [Early], 
+      [VIEWREPORTS].[Late] AS [Late], 
+      [VIEWREPORTS].[WorkingHrs] AS [WorkingHrs], 
+      [VIEWREPORTS].[ExtraHrs] AS [ExtraHrs], 
+      [VIEWREPORTS].[SanctionedCOHrs] AS [SanctionedCOHrs], 
+      [VIEWREPORTS].[Status] AS [Status], 
+      [VIEWREPORTS].[CompanyId] AS [CompanyId], 
+      [VIEWREPORTS].[CompanyName] AS [CompanyName], 
+      [VIEWREPORTS].[BranchId] AS [BranchId], 
+      [VIEWREPORTS].[BranchName] AS [BranchName], 
+      [VIEWREPORTS].[DepartmentId] AS [DepartmentId], 
+      [VIEWREPORTS].[DepartmentName] AS [DepartmentName], 
+      [VIEWREPORTS].[DesignationId] AS [DesignationId], 
+      [VIEWREPORTS].[DesignationName] AS [DesignationName], 
+      [VIEWREPORTS].[EmployeeTypeName] AS [EmployeeTypeName], 
+      [VIEWREPORTS].[GradeId] AS [GradeId], 
+      [VIEWREPORTS].[GradeName] AS [GradeName], 
+      [VIEWREPORTS].[LateCount] AS [LateCount], 
+      [VIEWREPORTS].[ReportingPersonName] AS [ReportingPersonName], 
+      [VIEWREPORTS].[Gender] AS [Gender]
+      FROM [dbo].[VIEWREPORTS] AS [VIEWREPORTS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Vw_CompOffApplicationIndex" EntityType="WetosDBEntityModel.Store.Vw_CompOffApplicationIndex" store:Type="Views" store:Schema="dbo" store:Name="Vw_CompOffApplicationIndex">
+      <DefiningQuery>SELECT 
+      [Vw_CompOffApplicationIndex].[EmployeeId] AS [EmployeeId], 
+      [Vw_CompOffApplicationIndex].[FromDate] AS [FromDate], 
+      [Vw_CompOffApplicationIndex].[FromDateStatus] AS [FromDateStatus], 
+      [Vw_CompOffApplicationIndex].[ToDate] AS [ToDate], 
+      [Vw_CompOffApplicationIndex].[ToDateStatus] AS [ToDateStatus], 
+      [Vw_CompOffApplicationIndex].[Purpose] AS [Purpose], 
+      [Vw_CompOffApplicationIndex].[StatusId] AS [StatusId], 
+      [Vw_CompOffApplicationIndex].[ExtrasHoursDate] AS [ExtrasHoursDate], 
+      [Vw_CompOffApplicationIndex].[RejectReason] AS [RejectReason], 
+      [Vw_CompOffApplicationIndex].[FirstName] AS [FirstName], 
+      [Vw_CompOffApplicationIndex].[LastName] AS [LastName], 
+      [Vw_CompOffApplicationIndex].[MiddleName] AS [MiddleName], 
+      [Vw_CompOffApplicationIndex].[Text] AS [Text], 
+      [Vw_CompOffApplicationIndex].[MarkedAsDelete] AS [MarkedAsDelete], 
+      [Vw_CompOffApplicationIndex].[CompOffId] AS [CompOffId], 
+      [Vw_CompOffApplicationIndex].[EmployeeCode] AS [EmployeeCode]
+      FROM [dbo].[Vw_CompOffApplicationIndex] AS [Vw_CompOffApplicationIndex]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Vw_CumulativeCompOffApplicationIndex" EntityType="WetosDBEntityModel.Store.Vw_CumulativeCompOffApplicationIndex" store:Type="Views" store:Schema="dbo" store:Name="Vw_CumulativeCompOffApplicationIndex">
+      <DefiningQuery>SELECT 
+      [Vw_CumulativeCompOffApplicationIndex].[EmployeeId] AS [EmployeeId], 
+      [Vw_CumulativeCompOffApplicationIndex].[FromDate] AS [FromDate], 
+      [Vw_CumulativeCompOffApplicationIndex].[FromDateStatus] AS [FromDateStatus], 
+      [Vw_CumulativeCompOffApplicationIndex].[ToDate] AS [ToDate], 
+      [Vw_CumulativeCompOffApplicationIndex].[ToDateStatus] AS [ToDateStatus], 
+      [Vw_CumulativeCompOffApplicationIndex].[Purpose] AS [Purpose], 
+      [Vw_CumulativeCompOffApplicationIndex].[StatusId] AS [StatusId], 
+      [Vw_CumulativeCompOffApplicationIndex].[ExtrasHoursDate] AS [ExtrasHoursDate], 
+      [Vw_CumulativeCompOffApplicationIndex].[RejectReason] AS [RejectReason], 
+      [Vw_CumulativeCompOffApplicationIndex].[FirstName] AS [FirstName], 
+      [Vw_CumulativeCompOffApplicationIndex].[LastName] AS [LastName], 
+      [Vw_CumulativeCompOffApplicationIndex].[MiddleName] AS [MiddleName], 
+      [Vw_CumulativeCompOffApplicationIndex].[Text] AS [Text], 
+      [Vw_CumulativeCompOffApplicationIndex].[CompOffApplicationId] AS [CompOffApplicationId], 
+      [Vw_CumulativeCompOffApplicationIndex].[MarkedAsDelete] AS [MarkedAsDelete]
+      FROM [dbo].[Vw_CumulativeCompOffApplicationIndex] AS [Vw_CumulativeCompOffApplicationIndex]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwActiveEmployee" EntityType="WetosDBEntityModel.Store.VwActiveEmployee" store:Type="Views" store:Schema="dbo" store:Name="VwActiveEmployee">
+      <DefiningQuery>SELECT 
+      [VwActiveEmployee].[EmployeeId] AS [EmployeeId], 
+      [VwActiveEmployee].[EmployeeCode] AS [EmployeeCode], 
+      [VwActiveEmployee].[EmployeeTypeId] AS [EmployeeTypeId], 
+      [VwActiveEmployee].[FirstName] AS [FirstName], 
+      [VwActiveEmployee].[LastName] AS [LastName], 
+      [VwActiveEmployee].[MiddleName] AS [MiddleName], 
+      [VwActiveEmployee].[Address1] AS [Address1], 
+      [VwActiveEmployee].[Address2] AS [Address2], 
+      [VwActiveEmployee].[MailAddress] AS [MailAddress], 
+      [VwActiveEmployee].[Title] AS [Title], 
+      [VwActiveEmployee].[Gender] AS [Gender], 
+      [VwActiveEmployee].[CardNumber] AS [CardNumber], 
+      [VwActiveEmployee].[DefaultShift] AS [DefaultShift], 
+      [VwActiveEmployee].[BloodGroupId] AS [BloodGroupId], 
+      [VwActiveEmployee].[ReligionId] AS [ReligionId], 
+      [VwActiveEmployee].[DesignationId] AS [DesignationId], 
+      [VwActiveEmployee].[DepartmentId] AS [DepartmentId], 
+      [VwActiveEmployee].[EmployeeReportingId] AS [EmployeeReportingId], 
+      [VwActiveEmployee].[GradeId] AS [GradeId], 
+      [VwActiveEmployee].[MarritalStatus] AS [MarritalStatus], 
+      [VwActiveEmployee].[Email] AS [Email], 
+      [VwActiveEmployee].[Telephone1] AS [Telephone1], 
+      [VwActiveEmployee].[Telephone2] AS [Telephone2], 
+      [VwActiveEmployee].[Moblie] AS [Moblie], 
+      [VwActiveEmployee].[BirthDate] AS [BirthDate], 
+      [VwActiveEmployee].[ConfirmDate] AS [ConfirmDate], 
+      [VwActiveEmployee].[JoiningDate] AS [JoiningDate], 
+      [VwActiveEmployee].[Leavingdate] AS [Leavingdate], 
+      [VwActiveEmployee].[PFYN] AS [PFYN], 
+      [VwActiveEmployee].[PFNO] AS [PFNO], 
+      [VwActiveEmployee].[PANNO] AS [PANNO], 
+      [VwActiveEmployee].[ESICNO] AS [ESICNO], 
+      [VwActiveEmployee].[ESICDCD] AS [ESICDCD], 
+      [VwActiveEmployee].[BankCode] AS [BankCode], 
+      [VwActiveEmployee].[BankNo] AS [BankNo], 
+      [VwActiveEmployee].[LICNo] AS [LICNo], 
+      [VwActiveEmployee].[ActiveFlag] AS [ActiveFlag], 
+      [VwActiveEmployee].[SwipeFlag] AS [SwipeFlag], 
+      [VwActiveEmployee].[SalPDFlag] AS [SalPDFlag], 
+      [VwActiveEmployee].[DeptHeadFlag] AS [DeptHeadFlag], 
+      [VwActiveEmployee].[WeeklyOff1] AS [WeeklyOff1], 
+      [VwActiveEmployee].[WeeklyOff2] AS [WeeklyOff2], 
+      [VwActiveEmployee].[First] AS [First], 
+      [VwActiveEmployee].[Second] AS [Second], 
+      [VwActiveEmployee].[Third] AS [Third], 
+      [VwActiveEmployee].[Fourth] AS [Fourth], 
+      [VwActiveEmployee].[Fifth] AS [Fifth], 
+      [VwActiveEmployee].[CompanyId] AS [CompanyId], 
+      [VwActiveEmployee].[BranchId] AS [BranchId], 
+      [VwActiveEmployee].[DivisionId] AS [DivisionId], 
+      [VwActiveEmployee].[EmployeeReportingId2] AS [EmployeeReportingId2], 
+      [VwActiveEmployee].[Picture] AS [Picture], 
+      [VwActiveEmployee].[SeperationRemark] AS [SeperationRemark]
+      FROM [dbo].[VwActiveEmployee] AS [VwActiveEmployee]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwBranchDetails" EntityType="WetosDBEntityModel.Store.VwBranchDetails" store:Type="Views" store:Schema="dbo" store:Name="VwBranchDetails">
+      <DefiningQuery>SELECT 
+      [VwBranchDetails].[BranchId] AS [BranchId], 
+      [VwBranchDetails].[BranchName] AS [BranchName], 
+      [VwBranchDetails].[Address1] AS [Address1], 
+      [VwBranchDetails].[Address2] AS [Address2], 
+      [VwBranchDetails].[Telephone] AS [Telephone], 
+      [VwBranchDetails].[FAX] AS [FAX], 
+      [VwBranchDetails].[Email] AS [Email], 
+      [VwBranchDetails].[CompanyName] AS [CompanyName], 
+      [VwBranchDetails].[LocationName] AS [LocationName], 
+      [VwBranchDetails].[MarkedAsDelete] AS [MarkedAsDelete]
+      FROM [dbo].[VwBranchDetails] AS [VwBranchDetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwCumulativeManualCompOffList" EntityType="WetosDBEntityModel.Store.VwCumulativeManualCompOffList" store:Type="Views" store:Schema="dbo" store:Name="VwCumulativeManualCompOffList">
+      <DefiningQuery>SELECT 
+      [VwCumulativeManualCompOffList].[CMCompOffId] AS [CMCompOffId], 
+      [VwCumulativeManualCompOffList].[EmployeeId] AS [EmployeeId], 
+      [VwCumulativeManualCompOffList].[FromDate] AS [FromDate], 
+      [VwCumulativeManualCompOffList].[ExtraWorkingHrs] AS [ExtraWorkingHrs], 
+      [VwCumulativeManualCompOffList].[CompOffPurpose] AS [CompOffPurpose], 
+      [VwCumulativeManualCompOffList].[StatusId] AS [StatusId], 
+      [VwCumulativeManualCompOffList].[CompOffBalance] AS [CompOffBalance], 
+      [VwCumulativeManualCompOffList].[BranchId] AS [BranchId], 
+      [VwCumulativeManualCompOffList].[CompanyId] AS [CompanyId], 
+      [VwCumulativeManualCompOffList].[RejectReason] AS [RejectReason], 
+      [VwCumulativeManualCompOffList].[MarkedAsDelete] AS [MarkedAsDelete], 
+      [VwCumulativeManualCompOffList].[EmployeeCode] AS [EmployeeCode], 
+      [VwCumulativeManualCompOffList].[FirstName] AS [FirstName], 
+      [VwCumulativeManualCompOffList].[MiddleName] AS [MiddleName], 
+      [VwCumulativeManualCompOffList].[LastName] AS [LastName], 
+      [VwCumulativeManualCompOffList].[StatusName] AS [StatusName], 
+      [VwCumulativeManualCompOffList].[LoginTime] AS [LoginTime], 
+      [VwCumulativeManualCompOffList].[LogoutTime] AS [LogoutTime], 
+      [VwCumulativeManualCompOffList].[IsPaidHoliday] AS [IsPaidHoliday], 
+      [VwCumulativeManualCompOffList].[IsWeekOff] AS [IsWeekOff], 
+      [VwCumulativeManualCompOffList].[CompOffHours] AS [CompOffHours], 
+      [VwCumulativeManualCompOffList].[IsWeekDay] AS [IsWeekDay], 
+      [VwCumulativeManualCompOffList].[IsInPunchInNextDay] AS [IsInPunchInNextDay], 
+      [VwCumulativeManualCompOffList].[IsOutPunchInNextDay] AS [IsOutPunchInNextDay]
+      FROM [dbo].[VwCumulativeManualCompOffList] AS [VwCumulativeManualCompOffList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwDepartmentDetails" EntityType="WetosDBEntityModel.Store.VwDepartmentDetails" store:Type="Views" store:Schema="dbo" store:Name="VwDepartmentDetails">
+      <DefiningQuery>SELECT 
+      [VwDepartmentDetails].[DepartmentId] AS [DepartmentId], 
+      [VwDepartmentDetails].[DepartmentCode] AS [DepartmentCode], 
+      [VwDepartmentDetails].[DepartmentName] AS [DepartmentName], 
+      [VwDepartmentDetails].[CompanyName] AS [CompanyName], 
+      [VwDepartmentDetails].[BranchName] AS [BranchName], 
+      [VwDepartmentDetails].[MarkedAsDelete] AS [MarkedAsDelete]
+      FROM [dbo].[VwDepartmentDetails] AS [VwDepartmentDetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwDesignationDetails" EntityType="WetosDBEntityModel.Store.VwDesignationDetails" store:Type="Views" store:Schema="dbo" store:Name="VwDesignationDetails">
+      <DefiningQuery>SELECT 
+      [VwDesignationDetails].[DesignationId] AS [DesignationId], 
+      [VwDesignationDetails].[DesignationCode] AS [DesignationCode], 
+      [VwDesignationDetails].[DesignationName] AS [DesignationName], 
+      [VwDesignationDetails].[CompanyName] AS [CompanyName], 
+      [VwDesignationDetails].[BranchName] AS [BranchName], 
+      [VwDesignationDetails].[DepartmentName] AS [DepartmentName], 
+      [VwDesignationDetails].[MarkedAsDelete] AS [MarkedAsDelete]
+      FROM [dbo].[VwDesignationDetails] AS [VwDesignationDetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwEmployeeGroupDetails" EntityType="WetosDBEntityModel.Store.VwEmployeeGroupDetails" store:Type="Views" store:Schema="dbo" store:Name="VwEmployeeGroupDetails">
+      <DefiningQuery>SELECT 
+      [VwEmployeeGroupDetails].[EmployeeGroupId] AS [EmployeeGroupId], 
+      [VwEmployeeGroupDetails].[EmployeeGroupName] AS [EmployeeGroupName], 
+      [VwEmployeeGroupDetails].[CompanyName] AS [CompanyName], 
+      [VwEmployeeGroupDetails].[BranchName] AS [BranchName], 
+      [VwEmployeeGroupDetails].[MarkedAsDelete] AS [MarkedAsDelete]
+      FROM [dbo].[VwEmployeeGroupDetails] AS [VwEmployeeGroupDetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwGradeDetails" EntityType="WetosDBEntityModel.Store.VwGradeDetails" store:Type="Views" store:Schema="dbo" store:Name="VwGradeDetails">
+      <DefiningQuery>SELECT 
+      [VwGradeDetails].[GradeId] AS [GradeId], 
+      [VwGradeDetails].[GradeName] AS [GradeName], 
+      [VwGradeDetails].[CompanyName] AS [CompanyName], 
+      [VwGradeDetails].[EmployeeTypeName] AS [EmployeeTypeName], 
+      [VwGradeDetails].[BranchName] AS [BranchName], 
+      [VwGradeDetails].[MarkedAsDelete] AS [MarkedAsDelete]
+      FROM [dbo].[VwGradeDetails] AS [VwGradeDetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwLeaveApplicationIndex" EntityType="WetosDBEntityModel.Store.VwLeaveApplicationIndex" store:Type="Views" store:Schema="dbo" store:Name="VwLeaveApplicationIndex">
+      <DefiningQuery>SELECT 
+      [VwLeaveApplicationIndex].[EmployeeCode] AS [EmployeeCode], 
+      [VwLeaveApplicationIndex].[FirstName] AS [FirstName], 
+      [VwLeaveApplicationIndex].[LastName] AS [LastName], 
+      [VwLeaveApplicationIndex].[MiddleName] AS [MiddleName], 
+      [VwLeaveApplicationIndex].[LeaveApplicationId] AS [LeaveApplicationId], 
+      [VwLeaveApplicationIndex].[EmployeeId] AS [EmployeeId], 
+      [VwLeaveApplicationIndex].[LeaveType] AS [LeaveType], 
+      [VwLeaveApplicationIndex].[FromDate] AS [FromDate], 
+      [VwLeaveApplicationIndex].[FromDayStatus] AS [FromDayStatus], 
+      [VwLeaveApplicationIndex].[ToDate] AS [ToDate], 
+      [VwLeaveApplicationIndex].[ToDayStatus] AS [ToDayStatus], 
+      [VwLeaveApplicationIndex].[AppliedDays] AS [AppliedDays], 
+      [VwLeaveApplicationIndex].[ActualDays] AS [ActualDays], 
+      [VwLeaveApplicationIndex].[Purpose] AS [Purpose], 
+      [VwLeaveApplicationIndex].[Status] AS [Status], 
+      [VwLeaveApplicationIndex].[RejectReason] AS [RejectReason], 
+      [VwLeaveApplicationIndex].[BranchId] AS [BranchId], 
+      [VwLeaveApplicationIndex].[CompanyId] AS [CompanyId], 
+      [VwLeaveApplicationIndex].[Text] AS [Text], 
+      [VwLeaveApplicationIndex].[MarkedAsDelete] AS [MarkedAsDelete], 
+      [VwLeaveApplicationIndex].[IsLWP] AS [IsLWP], 
+      [VwLeaveApplicationIndex].[LWP] AS [LWP], 
+      [VwLeaveApplicationIndex].[TotalDeductableDays] AS [TotalDeductableDays], 
+      [VwLeaveApplicationIndex].[LeaveConsumed] AS [LeaveConsumed], 
+      [VwLeaveApplicationIndex].[IsPreSandwichCase] AS [IsPreSandwichCase], 
+      [VwLeaveApplicationIndex].[PreSandwichdays] AS [PreSandwichdays], 
+      [VwLeaveApplicationIndex].[PostSandwichdays] AS [PostSandwichdays], 
+      [VwLeaveApplicationIndex].[PreSandwichCaseLeaveID] AS [PreSandwichCaseLeaveID], 
+      [VwLeaveApplicationIndex].[PostSandwichCaseLeaveID] AS [PostSandwichCaseLeaveID]
+      FROM [dbo].[VwLeaveApplicationIndex] AS [VwLeaveApplicationIndex]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwLocationNameInCompany" EntityType="WetosDBEntityModel.Store.VwLocationNameInCompany" store:Type="Views" store:Schema="dbo" store:Name="VwLocationNameInCompany">
+      <DefiningQuery>SELECT 
+      [VwLocationNameInCompany].[CompanyName] AS [CompanyName], 
+      [VwLocationNameInCompany].[CompanyId] AS [CompanyId], 
+      [VwLocationNameInCompany].[LocationId] AS [LocationId], 
+      [VwLocationNameInCompany].[Address1] AS [Address1], 
+      [VwLocationNameInCompany].[Address2] AS [Address2], 
+      [VwLocationNameInCompany].[Email] AS [Email], 
+      [VwLocationNameInCompany].[PAN] AS [PAN], 
+      [VwLocationNameInCompany].[Telephone] AS [Telephone], 
+      [VwLocationNameInCompany].[Fax] AS [Fax], 
+      [VwLocationNameInCompany].[LocationName] AS [LocationName], 
+      [VwLocationNameInCompany].[MarkedAsDelete] AS [MarkedAsDelete], 
+      [VwLocationNameInCompany].[City] AS [City], 
+      [VwLocationNameInCompany].[PINCode] AS [PINCode]
+      FROM [dbo].[VwLocationNameInCompany] AS [VwLocationNameInCompany]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwNewsList" EntityType="WetosDBEntityModel.Store.VwNewsList" store:Type="Views" store:Schema="dbo" store:Name="VwNewsList">
+      <DefiningQuery>SELECT 
+      [VwNewsList].[NewsId] AS [NewsId], 
+      [VwNewsList].[Type] AS [Type], 
+      [VwNewsList].[Info] AS [Info], 
+      [VwNewsList].[NewsDate] AS [NewsDate], 
+      [VwNewsList].[CompanyId] AS [CompanyId], 
+      [VwNewsList].[BranchId] AS [BranchId], 
+      [VwNewsList].[EmployeeId] AS [EmployeeId], 
+      [VwNewsList].[EmployeeGroupId] AS [EmployeeGroupId], 
+      [VwNewsList].[NewsFor] AS [NewsFor], 
+      [VwNewsList].[Active] AS [Active], 
+      [VwNewsList].[NewsEndDate] AS [NewsEndDate], 
+      [VwNewsList].[BranchName] AS [BranchName], 
+      [VwNewsList].[CompanyName] AS [CompanyName], 
+      [VwNewsList].[EmployeeGroupName] AS [EmployeeGroupName]
+      FROM [dbo].[VwNewsList] AS [VwNewsList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwODTravelIndex" EntityType="WetosDBEntityModel.Store.VwODTravelIndex" store:Type="Views" store:Schema="dbo" store:Name="VwODTravelIndex">
+      <DefiningQuery>SELECT 
+      [VwODTravelIndex].[EmployeeCode] AS [EmployeeCode], 
+      [VwODTravelIndex].[FirstName] AS [FirstName], 
+      [VwODTravelIndex].[LastName] AS [LastName], 
+      [VwODTravelIndex].[MiddleName] AS [MiddleName], 
+      [VwODTravelIndex].[ODTourId] AS [ODTourId], 
+      [VwODTravelIndex].[EmployeeId] AS [EmployeeId], 
+      [VwODTravelIndex].[ODTourType] AS [ODTourType], 
+      [VwODTravelIndex].[FromDate] AS [FromDate], 
+      [VwODTravelIndex].[ToDate] AS [ToDate], 
+      [VwODTravelIndex].[ODDayStatus] AS [ODDayStatus], 
+      [VwODTravelIndex].[ODDayStatus1] AS [ODDayStatus1], 
+      [VwODTravelIndex].[AppliedDay] AS [AppliedDay], 
+      [VwODTravelIndex].[ActualDay] AS [ActualDay], 
+      [VwODTravelIndex].[Place] AS [Place], 
+      [VwODTravelIndex].[Purpose] AS [Purpose], 
+      [VwODTravelIndex].[Status] AS [Status], 
+      [VwODTravelIndex].[OdTourHeadCode] AS [OdTourHeadCode], 
+      [VwODTravelIndex].[RejectReason] AS [RejectReason], 
+      [VwODTravelIndex].[BranchId] AS [BranchId], 
+      [VwODTravelIndex].[CompanyId] AS [CompanyId], 
+      [VwODTravelIndex].[JourneyType] AS [JourneyType], 
+      [VwODTravelIndex].[TransportType] AS [TransportType], 
+      [VwODTravelIndex].[Text] AS [Text], 
+      [VwODTravelIndex].[MarkedAsDelete] AS [MarkedAsDelete]
+      FROM [dbo].[VwODTravelIndex] AS [VwODTravelIndex]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwRuleTransaction" EntityType="WetosDBEntityModel.Store.VwRuleTransaction" store:Type="Views" store:Schema="dbo" store:Name="VwRuleTransaction">
+      <DefiningQuery>SELECT 
+      [VwRuleTransaction].[Formula] AS [Formula], 
+      [VwRuleTransaction].[SubCode] AS [SubCode], 
+      [VwRuleTransaction].[HeadCode] AS [HeadCode], 
+      [VwRuleTransaction].[Active] AS [Active], 
+      [VwRuleTransaction].[CompanyId] AS [CompanyId], 
+      [VwRuleTransaction].[BranchId] AS [BranchId], 
+      [VwRuleTransaction].[EmployeeGroupId] AS [EmployeeGroupId], 
+      [VwRuleTransaction].[RuleTransId] AS [RuleTransId], 
+      [VwRuleTransaction].[Expr1] AS [Expr1], 
+      [VwRuleTransaction].[Expr2] AS [Expr2], 
+      [VwRuleTransaction].[Expr3] AS [Expr3], 
+      [VwRuleTransaction].[RuleName] AS [RuleName], 
+      [VwRuleTransaction].[CompanyName] AS [CompanyName], 
+      [VwRuleTransaction].[BranchName] AS [BranchName], 
+      [VwRuleTransaction].[EmployeeGroupName] AS [EmployeeGroupName]
+      FROM [dbo].[VwRuleTransaction] AS [VwRuleTransaction]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwShiftDetails" EntityType="WetosDBEntityModel.Store.VwShiftDetails" store:Type="Views" store:Schema="dbo" store:Name="VwShiftDetails">
+      <DefiningQuery>SELECT 
+      [VwShiftDetails].[ShiftId] AS [ShiftId], 
+      [VwShiftDetails].[ShiftName] AS [ShiftName], 
+      [VwShiftDetails].[FirstInTime] AS [FirstInTime], 
+      [VwShiftDetails].[FirstOutTime] AS [FirstOutTime], 
+      [VwShiftDetails].[LunchEndTime] AS [LunchEndTime], 
+      [VwShiftDetails].[LunchStartTime] AS [LunchStartTime], 
+      [VwShiftDetails].[LunchTime] AS [LunchTime], 
+      [VwShiftDetails].[WorkingHours] AS [WorkingHours], 
+      [VwShiftDetails].[LunchTimeExcludeFlag] AS [LunchTimeExcludeFlag], 
+      [VwShiftDetails].[NightShiftFlag] AS [NightShiftFlag], 
+      [VwShiftDetails].[SecondInTime] AS [SecondInTime], 
+      [VwShiftDetails].[SecondOutTime] AS [SecondOutTime], 
+      [VwShiftDetails].[CompanyName] AS [CompanyName], 
+      [VwShiftDetails].[BranchName] AS [BranchName], 
+      [VwShiftDetails].[ShiftType] AS [ShiftType], 
+      [VwShiftDetails].[MarkedAsDelete] AS [MarkedAsDelete], 
+      [VwShiftDetails].[ShiftCode] AS [ShiftCode]
+      FROM [dbo].[VwShiftDetails] AS [VwShiftDetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VwShiftGroupDetails" EntityType="WetosDBEntityModel.Store.VwShiftGroupDetails" store:Type="Views" store:Schema="dbo" store:Name="VwShiftGroupDetails">
+      <DefiningQuery>SELECT 
+      [VwShiftGroupDetails].[RotationCode] AS [RotationCode], 
+      [VwShiftGroupDetails].[RotationId] AS [RotationId], 
+      [VwShiftGroupDetails].[RotationName] AS [RotationName], 
+      [VwShiftGroupDetails].[RotationOnDayBasis] AS [RotationOnDayBasis], 
+      [VwShiftGroupDetails].[RotationOnMonthBasis] AS [RotationOnMonthBasis], 
+      [VwShiftGroupDetails].[RotationOnWeeklyBasis] AS [RotationOnWeeklyBasis], 
+      [VwShiftGroupDetails].[ShiftsChanges] AS [ShiftsChanges], 
+      [VwShiftGroupDetails].[CompanyName] AS [CompanyName], 
+      [VwShiftGroupDetails].[BranchName] AS [BranchName]
+      FROM [dbo].[VwShiftGroupDetails] AS [VwShiftGroupDetails]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="BRANCHID_CENTER_FK" Association="WetosDBEntityModel.Store.BRANCHID_CENTER_FK">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="Division" EntitySet="Division" />
+    </AssociationSet>
+    <AssociationSet Name="COMPANYID_CENTER_FK" Association="WetosDBEntityModel.Store.COMPANYID_CENTER_FK">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Division" EntitySet="Division" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Branch_Company" Association="WetosDBEntityModel.Store.FK_Branch_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Branch" EntitySet="Branch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CondoneTrn_Branch_BranchId" Association="WetosDBEntityModel.Store.FK_CondoneTrn_Branch_BranchId">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="CondoneTrn" EntitySet="CondoneTrn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CondoneTrn_Company_CompanyId" Association="WetosDBEntityModel.Store.FK_CondoneTrn_Company_CompanyId">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="CondoneTrn" EntitySet="CondoneTrn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeclaredHoliday_Branch" Association="WetosDBEntityModel.Store.FK_DeclaredHoliday_Branch">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="DeclaredHoliday" EntitySet="DeclaredHoliday" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_Branch_BranchId" Association="WetosDBEntityModel.Store.FK_Department_Branch_BranchId">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_Company_CompanyId" Association="WetosDBEntityModel.Store.FK_Department_Company_CompanyId">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Designation_Branch" Association="WetosDBEntityModel.Store.FK_Designation_Branch">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="Designation" EntitySet="Designation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Designation_Branch_BranchId" Association="WetosDBEntityModel.Store.FK_Designation_Branch_BranchId">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="Branch1" EntitySet="Branch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Designation_Company" Association="WetosDBEntityModel.Store.FK_Designation_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Designation" EntitySet="Designation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeGroup_Branch_BranchId" Association="WetosDBEntityModel.Store.FK_EmployeeGroup_Branch_BranchId">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="EmployeeGroup" EntitySet="EmployeeGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeGroup_Company_CompanyId" Association="WetosDBEntityModel.Store.FK_EmployeeGroup_Company_CompanyId">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="EmployeeGroup" EntitySet="EmployeeGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeGroupDetail_Employee_EmployeeId" Association="WetosDBEntityModel.Store.FK_EmployeeGroupDetail_Employee_EmployeeId">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="EmployeeGroupDetail" EntitySet="EmployeeGroupDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeGroupDetail_EmployeeGroup_EmployeeGroupId" Association="WetosDBEntityModel.Store.FK_EmployeeGroupDetail_EmployeeGroup_EmployeeGroupId">
+      <End Role="EmployeeGroup" EntitySet="EmployeeGroup" />
+      <End Role="EmployeeGroupDetail" EntitySet="EmployeeGroupDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FinancialYear_Branch_BranchId" Association="WetosDBEntityModel.Store.FK_FinancialYear_Branch_BranchId">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="FinancialYear" EntitySet="FinancialYear" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FinancialYear_Company_CompanyId" Association="WetosDBEntityModel.Store.FK_FinancialYear_Company_CompanyId">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="FinancialYear" EntitySet="FinancialYear" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grade_Branch_BranchId" Association="WetosDBEntityModel.Store.FK_Grade_Branch_BranchId">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="Grade" EntitySet="Grade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grade_Company_CompanyId" Association="WetosDBEntityModel.Store.FK_Grade_Company_CompanyId">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Grade" EntitySet="Grade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grade_Grade_EmployeeTypeId" Association="WetosDBEntityModel.Store.FK_Grade_Grade_EmployeeTypeId">
+      <End Role="EmployeeType" EntitySet="EmployeeType" />
+      <End Role="Grade" EntitySet="Grade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HeadCode_Branch_BranchId" Association="WetosDBEntityModel.Store.FK_HeadCode_Branch_BranchId">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="HeadCode" EntitySet="HeadCode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HeadCode_Company_CompanyId" Association="WetosDBEntityModel.Store.FK_HeadCode_Company_CompanyId">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="HeadCode" EntitySet="HeadCode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HeadCode_HeadType_HeadTypeId" Association="WetosDBEntityModel.Store.FK_HeadCode_HeadType_HeadTypeId">
+      <End Role="HeadType" EntitySet="HeadType" />
+      <End Role="HeadCode" EntitySet="HeadCode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HeadType_Branch_BranchId" Association="WetosDBEntityModel.Store.FK_HeadType_Branch_BranchId">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="HeadType" EntitySet="HeadType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HeadType_Company_CompanyId" Association="WetosDBEntityModel.Store.FK_HeadType_Company_CompanyId">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="HeadType" EntitySet="HeadType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_News_Branch_BranchId" Association="WetosDBEntityModel.Store.FK_News_Branch_BranchId">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="FK_News_Company_CompanyId" Association="WetosDBEntityModel.Store.FK_News_Company_CompanyId">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="FK_News_Employee_EmployeeId" Association="WetosDBEntityModel.Store.FK_News_Employee_EmployeeId">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rules_HeadCode_HeadCodeId" Association="WetosDBEntityModel.Store.FK_Rules_HeadCode_HeadCodeId">
+      <End Role="HeadCode" EntitySet="HeadCode" />
+      <End Role="Rules" EntitySet="Rules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rules_HeadType_HeadeTypeId" Association="WetosDBEntityModel.Store.FK_Rules_HeadType_HeadeTypeId">
+      <End Role="HeadType" EntitySet="HeadType" />
+      <End Role="Rules" EntitySet="Rules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rules_RuleFlags_RuleFlagId" Association="WetosDBEntityModel.Store.FK_Rules_RuleFlags_RuleFlagId">
+      <End Role="RuleFlags" EntitySet="RuleFlags" />
+      <End Role="Rules" EntitySet="Rules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shift_Company_CompanyId" Association="WetosDBEntityModel.Store.FK_Shift_Company_CompanyId">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Shift" EntitySet="Shift" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShiftRotation_Branch" Association="WetosDBEntityModel.Store.FK_ShiftRotation_Branch">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="ShiftRotation" EntitySet="ShiftRotation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShiftRotation_Company" Association="WetosDBEntityModel.Store.FK_ShiftRotation_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="ShiftRotation" EntitySet="ShiftRotation" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AttendanceYear">
+    <Key>
+      <PropertyRef Name="AttendanceYearId" />
+    </Key>
+    <Property Name="AttendanceYearId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AttendanceYearName" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="MarkedAsDelete" Type="int" />
+    <Property Name="Series" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrevFYId" Type="int" />
+    <Property Name="NextFYId" Type="int" />
+  </EntityType>
+  <EntityType Name="AuditLog">
+    <Key>
+      <PropertyRef Name="AuditLogId" />
+    </Key>
+    <Property Name="AuditLogId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LoginUserId" Type="int" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="AuditDate" Type="datetime" />
+    <Property Name="FormName" Type="nchar" MaxLength="50" />
+    <Property Name="AuditMode" Type="nchar" MaxLength="50" />
+    <Property Name="OldRecord" Type="nchar" MaxLength="1000" />
+    <Property Name="NewRecord" Type="nchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="AuditTrail">
+    <Key>
+      <PropertyRef Name="Logid" />
+    </Key>
+    <Property Name="Logid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LogDate" Type="smalldatetime" />
+    <Property Name="Action" Type="nvarchar" Nullable="false" MaxLength="1024" />
+    <Property Name="userid" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="UserRoleNo" Type="int" Nullable="false" />
+    <Property Name="y_id" Type="int" Nullable="false" />
+    <Property Name="SoftwareVersion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="SessionId" Type="int" Nullable="false" />
+    <Property Name="MachineIP" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="MachineNo" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="BloodGroup">
+    <Key>
+      <PropertyRef Name="BloodGroupId" />
+    </Key>
+    <Property Name="BloodGroupId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BloodGroupName" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="BranchId" />
+    </Key>
+    <Property Name="BranchId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BranchName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="LocationId" Type="int" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="100" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="15" />
+    <Property Name="FAX" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CalendarStatus">
+    <Key>
+      <PropertyRef Name="CalendarStatusId" />
+    </Key>
+    <Property Name="CalendarStatusId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CalendarStatus" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="StatusFor" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CommanData">
+    <Key>
+      <PropertyRef Name="cd_id" />
+    </Key>
+    <Property Name="EmployeeCode" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="CmnDate" Type="datetime" Nullable="false" />
+    <Property Name="CmnTime" Type="datetime" Nullable="false" />
+    <Property Name="DeviceNo" Type="int" />
+    <Property Name="Status" Type="nvarchar" MaxLength="5" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="DeviceName" Type="varchar" MaxLength="50" />
+    <Property Name="cd_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AttendanceYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="CompanyId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LocationId" Type="int" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="15" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="PAN" Type="nvarchar" MaxLength="12" />
+    <Property Name="CST" Type="nvarchar" MaxLength="12" />
+    <Property Name="EXC" Type="nvarchar" MaxLength="12" />
+    <Property Name="TDS" Type="nvarchar" MaxLength="12" />
+    <Property Name="SGNNM" Type="nvarchar" MaxLength="20" />
+    <Property Name="SGNPlace" Type="nvarchar" MaxLength="20" />
+    <Property Name="TAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="PINCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="CompanyBankAccNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="ContactPerson" Type="nvarchar" MaxLength="200" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="100" />
+    <Property Name="BankAddr1" Type="nvarchar" MaxLength="200" />
+    <Property Name="BankAddr2" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="CompOff">
+    <Key>
+      <PropertyRef Name="CompOffId" />
+    </Key>
+    <Property Name="CompOffId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="WoDate" Type="datetime" Nullable="false" />
+    <Property Name="CoDate" Type="datetime" />
+    <Property Name="ShiftId" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="LoginTime" Type="datetime" Nullable="false" />
+    <Property Name="LogOutTime" Type="datetime" Nullable="false" />
+    <Property Name="TotalHrs" Type="datetime" />
+    <Property Name="CoHours" Type="datetime" />
+    <Property Name="DayStatus" Type="char" MaxLength="25" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="RejectReason" Type="nvarchar" MaxLength="50" />
+    <Property Name="AppStatus" Type="char" MaxLength="10" />
+    <Property Name="WrkDayStatus" Type="nvarchar" MaxLength="7" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompOffApplicationID" Type="int" />
+    <Property Name="ManualCompOffId" Type="int" />
+    <Property Name="BalanceCoHours" Type="datetime" />
+    <Property Name="AppliedBy" Type="int" />
+    <Property Name="AppliedOn" Type="datetime" />
+    <Property Name="SanctionedBy" Type="int" />
+    <Property Name="SanctionedOn" Type="datetime" />
+    <Property Name="CancelledBy" Type="int" />
+    <Property Name="CancelledOn" Type="datetime" />
+    <Property Name="FinancialYearId" Type="int" />
+    <Property Name="AttendanceYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="CompOffApplication">
+    <Key>
+      <PropertyRef Name="CompOffId" />
+    </Key>
+    <Property Name="CompOffId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="FromDateStatus" Type="int" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="ToDateStatus" Type="int" />
+    <Property Name="Purpose" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="RejectReason" Type="varchar" MaxLength="50" />
+    <Property Name="ExtrasHoursDate" Type="varchar" MaxLength="250" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="EffectiveDate" Type="datetime" />
+    <Property Name="AppliedBy" Type="int" />
+    <Property Name="AppliedOn" Type="datetime" />
+    <Property Name="SanctionedBy" Type="int" />
+    <Property Name="SanctionedOn" Type="datetime" />
+    <Property Name="CancelledBy" Type="int" />
+    <Property Name="CancelledOn" Type="datetime" />
+    <Property Name="FinancialYearId" Type="int" />
+    <Property Name="AttendanceYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="CondoneTrn">
+    <Key>
+      <PropertyRef Name="CondoneId" />
+    </Key>
+    <Property Name="CondoneId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ShiftId" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="TransportId" Type="int" Nullable="false" />
+    <Property Name="CondoneDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="25" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="255" />
+    <Property Name="LateEarly" Type="nvarchar" MaxLength="11" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="DivisionId" Type="int" />
+    <Property Name="Employeelist" Type="nvarchar(max)" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="AttendanceYearId" Type="int" />
+    <Property Name="AppliedBy" Type="int" />
+    <Property Name="AppliedOn" Type="datetime" />
+    <Property Name="SanctionBy" Type="int" />
+    <Property Name="SanctionedOn" Type="datetime" />
+    <Property Name="CancelledBy" Type="int" />
+    <Property Name="CancelledOn" Type="datetime" />
+    <Property Name="StatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="CumulativeCompOff">
+    <Key>
+      <PropertyRef Name="CompOffId" />
+    </Key>
+    <Property Name="CompOffId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="WoDate" Type="datetime" Nullable="false" />
+    <Property Name="CoDate" Type="datetime" />
+    <Property Name="ShiftId" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="LoginTime" Type="datetime" Nullable="false" />
+    <Property Name="LogOutTime" Type="datetime" Nullable="false" />
+    <Property Name="TotalHrs" Type="datetime" />
+    <Property Name="CoHours" Type="int" />
+    <Property Name="DayStatus" Type="char" MaxLength="25" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="RejectReason" Type="nvarchar" MaxLength="50" />
+    <Property Name="AppStatus" Type="char" MaxLength="10" />
+    <Property Name="WrkDayStatus" Type="nvarchar" MaxLength="7" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompOffApplicationID" Type="int" />
+    <Property Name="ManualCompOffId" Type="int" />
+    <Property Name="BalanceCoHours" Type="int" />
+    <Property Name="UsedCoHours" Type="int" />
+    <Property Name="AppliedBy" Type="int" />
+    <Property Name="AppliedOn" Type="datetime" />
+    <Property Name="SanctionedBy" Type="int" />
+    <Property Name="SanctionedOn" Type="datetime" />
+    <Property Name="CancelledBy" Type="int" />
+    <Property Name="CancelledOn" Type="datetime" />
+    <Property Name="AttedanceYearId" Type="int" />
+    <Property Name="FinancialYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="CumulativeCompOffApplication">
+    <Key>
+      <PropertyRef Name="CompOffApplicationId" />
+    </Key>
+    <Property Name="CompOffApplicationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="FromDateStatus" Type="int" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="ToDateStatus" Type="int" />
+    <Property Name="Purpose" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="RejectReason" Type="varchar" MaxLength="50" />
+    <Property Name="ExtrasHoursDate" Type="varchar" MaxLength="250" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="EffectiveDate" Type="datetime" />
+    <Property Name="CompOffHours" Type="int" />
+    <Property Name="CompOffId" Type="nvarchar" MaxLength="255" />
+    <Property Name="AppliedBy" Type="int" />
+    <Property Name="AppliedOn" Type="datetime" />
+    <Property Name="SanctionedBy" Type="int" />
+    <Property Name="SanctionedOn" Type="datetime" />
+    <Property Name="CancelledBy" Type="int" />
+    <Property Name="CancelledOn" Type="datetime" />
+    <Property Name="FinancialYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="CumulativeManualCompOff">
+    <Key>
+      <PropertyRef Name="CMCompOffId" />
+    </Key>
+    <Property Name="CMCompOffId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="FromDate" Type="datetime" Nullable="false" />
+    <Property Name="ExtraWorkingHrs" Type="datetime" Nullable="false" />
+    <Property Name="CompOffPurpose" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="CompOffBalance" Type="float" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="RejectReason" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="LoginTime" Type="datetime" />
+    <Property Name="LogoutTime" Type="datetime" />
+    <Property Name="IsAutoEntry" Type="int" />
+    <Property Name="IsOutPunchInNextDay" Type="bit" />
+    <Property Name="IsInPunchInNextDay" Type="bit" />
+    <Property Name="CompOffHours" Type="int" />
+    <Property Name="IsWeekDay" Type="bit" />
+    <Property Name="IsWeekOff" Type="bit" />
+    <Property Name="IsPaidHoliday" Type="bit" />
+    <Property Name="EffectiveDate" Type="datetime" />
+    <Property Name="AppliedBy" Type="int" />
+    <Property Name="AppliedOn" Type="datetime" />
+    <Property Name="SanctionedBy" Type="int" />
+    <Property Name="SanctioedOn" Type="datetime" />
+    <Property Name="CancelledBy" Type="int" />
+    <Property Name="CancelledOn" Type="datetime" />
+    <Property Name="FinancialYearId" Type="int" />
+    <Property Name="AttendanceYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="DailyTransaction">
+    <Key>
+      <PropertyRef Name="DailyTrnId" />
+    </Key>
+    <Property Name="DailyTrnId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="TranDate" Type="datetime" Nullable="false" />
+    <Property Name="ShiftId" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="Login" Type="datetime" Nullable="false" />
+    <Property Name="LogOut" Type="datetime" Nullable="false" />
+    <Property Name="Login1" Type="datetime" />
+    <Property Name="LogOut1" Type="datetime" />
+    <Property Name="Early" Type="datetime" />
+    <Property Name="Late" Type="datetime" />
+    <Property Name="WorkingHrs" Type="datetime" />
+    <Property Name="ExtraHrs" Type="datetime" />
+    <Property Name="SanctionedCOHrs" Type="nvarchar" MaxLength="25" />
+    <Property Name="Status" Type="nvarchar" MaxLength="6" />
+    <Property Name="ActualStatus" Type="nvarchar" MaxLength="6" />
+    <Property Name="OTInTime" Type="datetime" />
+    <Property Name="OTOutTime" Type="datetime" />
+    <Property Name="PreviousLogin" Type="datetime" />
+    <Property Name="PreviousLogOut" Type="datetime" />
+    <Property Name="PreviousLogin1" Type="datetime" />
+    <Property Name="PreviousLogOut1" Type="datetime" />
+    <Property Name="PreviousShiftId" Type="nvarchar" MaxLength="10" />
+    <Property Name="TStatus" Type="nvarchar" MaxLength="10" />
+    <Property Name="PostinFlag" Type="char" MaxLength="2" />
+    <Property Name="Lock" Type="char" MaxLength="2" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="LateCount" Type="int" />
+    <Property Name="LeaveDeducted" Type="bit" />
+    <Property Name="LeaveTypeDeducted" Type="nvarchar" MaxLength="50" />
+    <Property Name="EarlyCount" Type="int" />
+    <Property Name="ProcessDayValue" Type="numeric" Scale="2" />
+    <Property Name="MonthlySalaryMasterId" Type="int" />
+    <Property Name="PayrollDayValue" Type="nchar" MaxLength="10" />
+    <Property Name="AttendanceYearId" Type="int" />
+    <Property Name="FinancialYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="DeclaredHoliday">
+    <Key>
+      <PropertyRef Name="DeclaredHolidayId" />
+    </Key>
+    <Property Name="DeclaredHolidayId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="HolidayDate" Type="datetime" Nullable="false" />
+    <Property Name="Type" Type="bit" Nullable="false" />
+    <Property Name="CompWorkDay1" Type="datetime" Nullable="false" />
+    <Property Name="CompWorkDay2" Type="datetime" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="250" />
+    <Property Name="DivisionId" Type="int" />
+    <Property Name="MarkASDelete" Type="int" />
+    <Property Name="AttendanceYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentCode" Type="nvarchar" MaxLength="15" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Designation">
+    <Key>
+      <PropertyRef Name="DesignationId" />
+    </Key>
+    <Property Name="DesignationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DesignationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DesignationCode" Type="nvarchar" MaxLength="6" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.Device' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="DeviceId" />
+      <PropertyRef Name="DeviceName" />
+      <PropertyRef Name="DeviceNo" />
+      <PropertyRef Name="DISPLAYNAME" />
+    </Key>
+    <Property Name="DeviceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceName" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="DeviceNo" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="DISPLAYNAME" Type="nvarchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="DIVISIONID" />
+    </Key>
+    <Property Name="DIVISIONID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DIVISIONNAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="DIVISIONCODE" Type="nvarchar" MaxLength="100" />
+    <Property Name="COMPANYID" Type="int" />
+    <Property Name="BRANCHID" Type="int" />
+  </EntityType>
+  <EntityType Name="DropdownData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TypeId" Type="int" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Text" Type="nvarchar" MaxLength="50" />
+    <Property Name="Value" Type="int" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeCode" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="EmployeeTypeId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="25" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="255" />
+    <Property Name="MailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="6" />
+    <Property Name="Gender" Type="nvarchar" Nullable="false" MaxLength="6" />
+    <Property Name="CardNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="DefaultShift" Type="nvarchar" MaxLength="10" />
+    <Property Name="BloodGroupId" Type="int" />
+    <Property Name="ReligionId" Type="int" />
+    <Property Name="DesignationId" Type="int" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="EmployeeReportingId" Type="int" />
+    <Property Name="GradeId" Type="int" />
+    <Property Name="MarritalStatus" Type="nvarchar" MaxLength="1" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telephone1" Type="nvarchar" MaxLength="20" />
+    <Property Name="Telephone2" Type="nvarchar" MaxLength="20" />
+    <Property Name="Moblie" Type="nvarchar" MaxLength="15" />
+    <Property Name="BirthDate" Type="datetime" />
+    <Property Name="ConfirmDate" Type="datetime" />
+    <Property Name="JoiningDate" Type="datetime" />
+    <Property Name="Leavingdate" Type="datetime" />
+    <Property Name="PFYN" Type="bit" />
+    <Property Name="PFNO" Type="nvarchar" MaxLength="20" />
+    <Property Name="PANNO" Type="nvarchar" MaxLength="20" />
+    <Property Name="ESICNO" Type="nvarchar" MaxLength="20" />
+    <Property Name="ESICDCD" Type="nvarchar" MaxLength="20" />
+    <Property Name="BankCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="BankNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="LICNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="ActiveFlag" Type="bit" />
+    <Property Name="SwipeFlag" Type="nvarchar" MaxLength="20" />
+    <Property Name="SalPDFlag" Type="bit" />
+    <Property Name="DeptHeadFlag" Type="nvarchar" MaxLength="10" />
+    <Property Name="WeeklyOff1" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="WeeklyOff2" Type="nvarchar" MaxLength="50" />
+    <Property Name="First" Type="bit" />
+    <Property Name="Second" Type="bit" />
+    <Property Name="Third" Type="bit" />
+    <Property Name="Fourth" Type="bit" />
+    <Property Name="Fifth" Type="bit" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="DivisionId" Type="int" />
+    <Property Name="EmployeeReportingId2" Type="int" />
+    <Property Name="Picture" Type="image" />
+    <Property Name="WeeklyHalfDay" Type="nvarchar" MaxLength="50" />
+    <Property Name="SeperationRemark" Type="nvarchar(max)" />
+    <Property Name="ResignationDate" Type="datetime" />
+    <Property Name="NoticePeriod" Type="int" />
+  </EntityType>
+  <EntityType Name="EmployeeExtraDetail">
+    <Key>
+      <PropertyRef Name="EmployeeDetailID" />
+    </Key>
+    <Property Name="EmployeeDetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="Qualification" Type="nvarchar" MaxLength="255" />
+    <Property Name="PFNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="BankAccountNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ESICNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="LaptopNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="OtherPaasingYear" Type="nvarchar" MaxLength="50" />
+    <Property Name="HSCPassingYear" Type="nvarchar" MaxLength="50" />
+    <Property Name="GraduationPassingYear" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostGraduationPassingYear" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExperienceBeforeFlagship" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExperienceWithFlagship" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmployeeCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="GraduationQualification" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostGraduationQualification" Type="nvarchar" MaxLength="50" />
+    <Property Name="OtherGraduationQualification" Type="nvarchar" MaxLength="50" />
+    <Property Name="LeaveEffectiveFromDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EmployeeGroup">
+    <Key>
+      <PropertyRef Name="EmployeeGroupId" />
+    </Key>
+    <Property Name="EmployeeGroupId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeGroupName" Type="nvarchar" MaxLength="25" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeGroupDetail">
+    <Key>
+      <PropertyRef Name="EmployeeGroupDetailId" />
+    </Key>
+    <Property Name="EmployeeGroupDetailId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeGroupId" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeGrouptype">
+    <Key>
+      <PropertyRef Name="EmployeeGroupTypeId" />
+    </Key>
+    <Property Name="EmployeeGroupTypeId" Type="numeric" Nullable="false" Precision="4" />
+    <Property Name="EmployeeGroupTypeName" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.EmployeeLifeCycle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="EmployeeLifeCycle">
+    <Key>
+      <PropertyRef Name="LifeCycleId" />
+    </Key>
+    <Property Name="LifeCycleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="EmployeeCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ResignedOn" Type="datetime" />
+    <Property Name="ResignationAcceptedOn" Type="datetime" />
+    <Property Name="AppointmentAcceptedOn" Type="datetime" />
+    <Property Name="AppointmentLetterIssued" Type="bit" />
+    <Property Name="ConfirmLetterIssued" Type="bit" />
+    <Property Name="RelievingLetterissued" Type="bit" />
+    <Property Name="ExpLetterIssue" Type="bit" />
+    <Property Name="ServiceAgree" Type="datetime" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+    <Property Name="LoggedInUser" Type="int" />
+    <Property Name="ResignationAcceptedOrNot" Type="bit" />
+  </EntityType>
+  <EntityType Name="EmployeeType">
+    <Key>
+      <PropertyRef Name="EmployeeTypeId" />
+    </Key>
+    <Property Name="EmployeeTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeTypeName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExceptionEntry">
+    <Key>
+      <PropertyRef Name="ExceptionId" />
+    </Key>
+    <Property Name="ExceptionId" Type="numeric" Nullable="false" Precision="10" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="ExceptionDate" Type="datetime" />
+    <Property Name="ShiftId" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="LoginTime" Type="datetime" Nullable="false" />
+    <Property Name="LogOutTime" Type="datetime" Nullable="false" />
+    <Property Name="Login2Time" Type="datetime" />
+    <Property Name="LogOut2Time" Type="datetime" />
+    <Property Name="Late" Type="datetime" />
+    <Property Name="Early" Type="datetime" />
+    <Property Name="WorkingHrs" Type="datetime" />
+    <Property Name="ExtraHrs" Type="datetime" />
+    <Property Name="ActualDayStatus" Type="char" MaxLength="4" />
+    <Property Name="PreviousLoginTime" Type="datetime" />
+    <Property Name="PreviousLogOutTime" Type="datetime" />
+    <Property Name="PreviousLogin2Time" Type="datetime" />
+    <Property Name="PreviousLogOut2Time" Type="datetime" />
+    <Property Name="PreviousEarly" Type="datetime" />
+    <Property Name="PreviousLate" Type="datetime" />
+    <Property Name="PreviousWrokingHrs" Type="datetime" />
+    <Property Name="PreviousExtraHrs" Type="datetime" />
+    <Property Name="PreviousDayStatus" Type="char" MaxLength="4" />
+    <Property Name="PreviousShiftId" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="RejectReason" Type="nvarchar" MaxLength="250" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="DailyTrnId" Type="int" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="IsOutPunchInNextDay" Type="bit" />
+    <Property Name="IsInPunchInNextDay" Type="bit" />
+    <Property Name="EffectiveDate" Type="datetime" />
+    <Property Name="Purpose" Type="nvarchar" MaxLength="1000" />
+    <Property Name="AppliedBy" Type="int" />
+    <Property Name="AppliedOn" Type="datetime" />
+    <Property Name="SanctionedBy" Type="int" />
+    <Property Name="SanctionedOn" Type="datetime" />
+    <Property Name="CancelledBy" Type="int" />
+    <Property Name="CancelledOn" Type="datetime" />
+    <Property Name="FinancialYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="FinancialYear">
+    <Key>
+      <PropertyRef Name="FinancialYearId" />
+    </Key>
+    <Property Name="FinancialYearId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FinancialName" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="MarkedAsDelete" Type="int" />
+    <Property Name="Series" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrevFYId" Type="int" />
+    <Property Name="NextFYId" Type="int" />
+  </EntityType>
+  <EntityType Name="GlobalSetting">
+    <Key>
+      <PropertyRef Name="SettingId" />
+    </Key>
+    <Property Name="SettingId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SettingText" Type="nvarchar" MaxLength="255" />
+    <Property Name="SettingValue" Type="nvarchar" MaxLength="255" />
+    <Property Name="SettingType" Type="int" />
+  </EntityType>
+  <EntityType Name="Grade">
+    <Key>
+      <PropertyRef Name="GradeId" />
+    </Key>
+    <Property Name="GradeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="GradeName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="EmployeeTypeId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HeadCode">
+    <Key>
+      <PropertyRef Name="HeadCodeId" />
+    </Key>
+    <Property Name="HeadCodeId" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="HeadTypeId" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="25" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="HeadCodeTypeFlag" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="ActiveFlag" Type="bit" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HeadType">
+    <Key>
+      <PropertyRef Name="HeadTypeId" />
+    </Key>
+    <Property Name="HeadTypeId" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HoliDay">
+    <Key>
+      <PropertyRef Name="HoliDayId" />
+    </Key>
+    <Property Name="HoliDayId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="HLType" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="ReligionId" Type="int" Nullable="false" />
+    <Property Name="FromDate" Type="datetime" Nullable="false" />
+    <Property Name="ToDate" Type="datetime" Nullable="false" />
+    <Property Name="Criteria" Type="nvarchar" MaxLength="25" />
+    <Property Name="Description" Type="nvarchar" MaxLength="150" />
+    <Property Name="DayStatus" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="Branchid" Type="int" Nullable="false" />
+    <Property Name="DivisionId" Type="int" />
+    <Property Name="FinancialYearId" Type="int" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LeaveApplication">
+    <Key>
+      <PropertyRef Name="LeaveApplicationId" />
+    </Key>
+    <Property Name="LeaveApplicationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="LeaveType" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="FromDate" Type="datetime" Nullable="false" />
+    <Property Name="FromDayStatus" Type="int" />
+    <Property Name="ToDate" Type="datetime" Nullable="false" />
+    <Property Name="ToDayStatus" Type="int" />
+    <Property Name="AppliedDays" Type="float" />
+    <Property Name="ActualDays" Type="float" />
+    <Property Name="Purpose" Type="nvarchar" MaxLength="255" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="RejectReason" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="IsPostSandwichCase" Type="bit" />
+    <Property Name="IsLWP" Type="bit" />
+    <Property Name="LWP" Type="float" />
+    <Property Name="TotalDeductableDays" Type="float" />
+    <Property Name="LeaveConsumed" Type="float" />
+    <Property Name="IsPreSandwichCase" Type="bit" />
+    <Property Name="PreSandwichdays" Type="float" />
+    <Property Name="PostSandwichdays" Type="float" />
+    <Property Name="PreSandwichCaseLeaveID" Type="int" />
+    <Property Name="PostSandwichCaseLeaveID" Type="int" />
+    <Property Name="DocPath" Type="nvarchar(max)" />
+    <Property Name="DocFileName" Type="nvarchar" MaxLength="255" />
+    <Property Name="DocFolder" Type="nvarchar" MaxLength="255" />
+    <Property Name="EffectiveDate" Type="datetime" />
+    <Property Name="LeaveAddress" Type="nvarchar" MaxLength="1024" />
+    <Property Name="AltContactNo" Type="nvarchar" MaxLength="25" />
+    <Property Name="AppliedBy" Type="int" />
+    <Property Name="AppliedOn" Type="datetime" />
+    <Property Name="SanctionedBy" Type="int" />
+    <Property Name="SanctionedOn" Type="datetime" />
+    <Property Name="CancelledBy" Type="int" />
+    <Property Name="CancelledOn" Type="datetime" />
+    <Property Name="FinancialYearId" Type="int" />
+    <Property Name="AttendanceYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="LeaveBalance">
+    <Key>
+      <PropertyRef Name="LeaveBalanceId" />
+    </Key>
+    <Property Name="LeaveBalanceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="LeaveType" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="PreviousBalance" Type="float" />
+    <Property Name="CurrentBalance" Type="float" />
+    <Property Name="LeaveUsed" Type="float" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="FinacialYearId" Type="int" />
+    <Property Name="AttendanceYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="LeaveBalanceBackupData">
+    <Key>
+      <PropertyRef Name="LeaveBalanceId" />
+    </Key>
+    <Property Name="LeaveBalanceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="LeaveType" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="PreviousBalance" Type="float" />
+    <Property Name="CurrentBalance" Type="float" />
+    <Property Name="LeaveUsed" Type="float" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="FinancialYearId" Type="int" />
+    <Property Name="AttendanceYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="LeaveCredit">
+    <Key>
+      <PropertyRef Name="LeaveCreditId" />
+    </Key>
+    <Property Name="LeaveCreditId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="FinancialYearId" Type="int" Nullable="false" />
+    <Property Name="LeaveType" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="Availed" Type="float" />
+    <Property Name="CarryForward" Type="float" />
+    <Property Name="Encash" Type="float" />
+    <Property Name="OpeningBalance" Type="float" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="ApplicableEffectiveDate" Type="datetime" />
+    <Property Name="ApplicableEffectiveEndDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LeaveEncash">
+    <Key>
+      <PropertyRef Name="LeaveEncashId" />
+    </Key>
+    <Property Name="LeaveEncashId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="FinancialYearId" Type="int" Nullable="false" />
+    <Property Name="LeaveCode" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+    <Property Name="EncashValue" Type="float" Nullable="false" />
+    <Property Name="RejectReason" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="EncashDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LeaveMaster">
+    <Key>
+      <PropertyRef Name="LeaveId" />
+    </Key>
+    <Property Name="LeaveCode" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="LeaveName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LeaveDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoOfDaysAllowedInYear" Type="float" />
+    <Property Name="MaxNoOfTimesAllowedInYear" Type="float" />
+    <Property Name="MaxNoOfLeavesAllowedAtaTime" Type="float" />
+    <Property Name="MaxNoOfLeavesAllowedInMonth" Type="float" />
+    <Property Name="AccumulationAllowedOrNot" Type="bit" />
+    <Property Name="MaxAccumulationDays" Type="float" />
+    <Property Name="EncashmentAllowedOrNot" Type="bit" />
+    <Property Name="NoOfDaysEncashed" Type="float" />
+    <Property Name="NegativeBalanceAllowed" Type="bit" />
+    <Property Name="IsCarryForword" Type="bit" />
+    <Property Name="WOBetLevConsiderLeave" Type="bit" />
+    <Property Name="HHBetLevConsiderLeave" Type="bit" />
+    <Property Name="ISHalfAllowed" Type="bit" />
+    <Property Name="EmployeeGrpId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="LeaveType" Type="bit" />
+    <Property Name="LeaveCreditTypeId" Type="int" />
+    <Property Name="ApplicableToMaleFemale" Type="varchar" MaxLength="1" />
+    <Property Name="LeaveId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IsLeaveCombination" Type="bit" />
+    <Property Name="MinNoofLeaveAllowedatatime" Type="float" />
+    <Property Name="EmployeeTypeId" Type="int" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="IsInsufficientBalAllowed" Type="bit" />
+    <Property Name="IsPendingLeaveConsider" Type="bit" />
+    <Property Name="IsAttachmentNeeded" Type="bit" />
+    <Property Name="AttachmentRequiredForMinNoOfLeave" Type="float" />
+    <Property Name="Prefix" Type="nvarchar" MaxLength="50" />
+    <Property Name="Suffix" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LocationName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="City" Type="nvarchar" MaxLength="20" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ManualCompOff">
+    <Key>
+      <PropertyRef Name="ManualCompOffId" />
+    </Key>
+    <Property Name="ManualCompOffId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="FromDate" Type="datetime" Nullable="false" />
+    <Property Name="ExtraWorkingHrs" Type="datetime" Nullable="false" />
+    <Property Name="CompOffPurpose" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="CompOffBalance" Type="float" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="RejectReason" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="LoginTime" Type="datetime" />
+    <Property Name="LogoutTime" Type="datetime" />
+    <Property Name="IsAutoEntry" Type="int" />
+    <Property Name="IsOutPunchInNextDay" Type="bit" />
+    <Property Name="IsInPunchInNextDay" Type="bit" />
+    <Property Name="CompOffHours" Type="datetime" />
+    <Property Name="IsWeekDay" Type="bit" />
+    <Property Name="IsWeekOff" Type="bit" />
+    <Property Name="IsPaidHoliday" Type="bit" />
+    <Property Name="EffectiveDate" Type="datetime" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="100" />
+    <Property Name="AppliedBy" Type="int" />
+    <Property Name="AppliedOn" Type="datetime" />
+    <Property Name="SanctionedBy" Type="int" />
+    <Property Name="SanctionedOn" Type="datetime" />
+    <Property Name="CancelledBy" Type="int" />
+    <Property Name="CancelledOn" Type="datetime" />
+    <Property Name="FinancialYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="MonthDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="MonthName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="NoOdDays" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="NavMenu">
+    <Key>
+      <PropertyRef Name="navmenuId" />
+    </Key>
+    <Property Name="navmenuId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="parId" Type="int" Nullable="false" />
+    <Property Name="navmenuname" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="navlink" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="srno" Type="int" Nullable="false" />
+    <Property Name="active" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Info" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="NewsDate" Type="datetime" Nullable="false" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="EmployeeGroupId" Type="int" />
+    <Property Name="NewsFor" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="NewsEndDate" Type="datetime" />
+    <Property Name="FinacialYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="NotificationID" />
+    </Key>
+    <Property Name="NotificationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FromID" Type="int" />
+    <Property Name="ToID" Type="int" />
+    <Property Name="SendDate" Type="datetime" />
+    <Property Name="ReadFlag" Type="bit" />
+    <Property Name="ReadDate" Type="datetime" />
+    <Property Name="NotificationContent" Type="nvarchar(max)" />
+    <Property Name="AttendanceYearId" Type="int" />
+    <Property Name="FinancialYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="ODLateEarly">
+    <Key>
+      <PropertyRef Name="ODTourId" />
+    </Key>
+    <Property Name="ODTourId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="ODTourType" Type="nchar" Nullable="false" MaxLength="30" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="ODDayStatus" Type="int" />
+    <Property Name="AppliedDay" Type="float" Nullable="false" />
+    <Property Name="ActualDay" Type="float" Nullable="false" />
+    <Property Name="Place" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Purpose" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="OdTourHeadCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="RejectReason" Type="nvarchar" MaxLength="150" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="TransportType" Type="nvarchar" MaxLength="50" />
+    <Property Name="JourneyType" Type="int" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="ODDayStatus1" Type="int" />
+    <Property Name="ODLoginTime" Type="datetime" />
+    <Property Name="ODLogOutTime" Type="datetime" />
+    <Property Name="IsInPunchInNextDay" Type="bit" />
+    <Property Name="IsOutPunchInNextDay" Type="bit" />
+    <Property Name="EffectiveDate" Type="datetime" />
+    <Property Name="PurposeDescription" Type="nvarchar" MaxLength="1024" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="255" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="255" />
+    <Property Name="CSRNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="AppliedBy" Type="int" />
+    <Property Name="AppliedOn" Type="datetime" />
+    <Property Name="SanctionedBy" Type="int" />
+    <Property Name="SanctionedOn" Type="datetime" />
+    <Property Name="CancelledBy" Type="int" />
+    <Property Name="CancelledOn" Type="datetime" />
+    <Property Name="FinancialYearId" Type="int" />
+    <Property Name="AttendanceYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="ODTour">
+    <Key>
+      <PropertyRef Name="ODTourId" />
+    </Key>
+    <Property Name="ODTourId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="ODTourType" Type="nchar" Nullable="false" MaxLength="30" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="ODDayStatus" Type="int" />
+    <Property Name="AppliedDay" Type="float" Nullable="false" />
+    <Property Name="ActualDay" Type="float" Nullable="false" />
+    <Property Name="Place" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Purpose" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="OdTourHeadCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="RejectReason" Type="nvarchar" MaxLength="150" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="TransportType" Type="nvarchar" MaxLength="50" />
+    <Property Name="JourneyType" Type="int" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="ODDayStatus1" Type="int" />
+    <Property Name="ODLoginTime" Type="datetime" />
+    <Property Name="ODLogOutTime" Type="datetime" />
+    <Property Name="IsInPunchInNextDay" Type="bit" />
+    <Property Name="IsOutPunchInNextDay" Type="bit" />
+    <Property Name="EffectiveDate" Type="datetime" />
+    <Property Name="PurposeDescription" Type="nvarchar" MaxLength="1024" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="255" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="255" />
+    <Property Name="CSRNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="AppliedBy" Type="int" />
+    <Property Name="AppliedOn" Type="datetime" />
+    <Property Name="SanctionedBy" Type="int" />
+    <Property Name="SanctionedOn" Type="datetime" />
+    <Property Name="CancelledBy" Type="int" />
+    <Property Name="CancelledOn" Type="datetime" />
+    <Property Name="FinancialYearId" Type="int" />
+    <Property Name="AttendanceYearId" Type="int" />
+  </EntityType>
+  <EntityType Name="OtHrs">
+    <Key>
+      <PropertyRef Name="OtId" />
+    </Key>
+    <Property Name="OtId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OtEmpId" Type="int" />
+    <Property Name="OtTranDate" Type="datetime" />
+    <Property Name="OtExtraHrs" Type="datetime" />
+    <Property Name="OtStatusId" Type="int" />
+    <Property Name="OtDesignationId" Type="int" />
+    <Property Name="OtBranchId" Type="int" />
+    <Property Name="OtCompanyId" Type="int" />
+    <Property Name="OtEffectiveDate" Type="datetime" />
+    <Property Name="LoginTime" Type="datetime" />
+    <Property Name="LogOutTime" Type="datetime" />
+    <Property Name="Shift" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Religion">
+    <Key>
+      <PropertyRef Name="ReligionId" />
+    </Key>
+    <Property Name="ReligionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ReligionName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="MarkedAsDelete" Type="int" />
+  </EntityType>
+  <EntityType Name="RoleDef">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="RoleDescription" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="MarkedAsDelete" Type="int" />
+  </EntityType>
+  <EntityType Name="RoleNavMenu">
+    <Key>
+      <PropertyRef Name="rnmId" />
+    </Key>
+    <Property Name="rnmId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="roleId" Type="int" Nullable="false" />
+    <Property Name="y_id" Type="int" Nullable="false" />
+    <Property Name="navmenuId" Type="int" Nullable="false" />
+    <Property Name="displayOrder" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoleTypes">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="RuleEngine">
+    <Key>
+      <PropertyRef Name="RuleEngineId" />
+    </Key>
+    <Property Name="RuleId" Type="int" Nullable="false" />
+    <Property Name="Formula" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SubCode" Type="nchar" MaxLength="10" />
+    <Property Name="HeadCode" Type="nchar" MaxLength="10" />
+    <Property Name="Active" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="RuleEngineId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RuleType" Type="nvarchar" MaxLength="50" />
+    <Property Name="RuleUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="RuleName" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="RuleFlags">
+    <Key>
+      <PropertyRef Name="RuleFlagId" />
+    </Key>
+    <Property Name="RuleFlagId" Type="numeric" Nullable="false" Precision="4" />
+    <Property Name="RuleFlagName" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Rules">
+    <Key>
+      <PropertyRef Name="RuleId" />
+    </Key>
+    <Property Name="RuleId" Type="int" Nullable="false" />
+    <Property Name="RuleName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ErrorMessage" Type="nvarchar" MaxLength="250" />
+    <Property Name="SerialNo" Type="numeric" />
+    <Property Name="HeadeTypeId" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="HeadCodeId" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="RuleDataType" Type="nvarchar" MaxLength="2" />
+    <Property Name="FlagId" Type="numeric" Nullable="false" Precision="4" />
+  </EntityType>
+  <EntityType Name="RulesMaster">
+    <Key>
+      <PropertyRef Name="RuleId" />
+    </Key>
+    <Property Name="RuleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RuleName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ErrorMessage" Type="nvarchar" MaxLength="250" />
+    <Property Name="HeadCode" Type="nvarchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="RuleTransaction">
+    <Key>
+      <PropertyRef Name="RuleTransId" />
+    </Key>
+    <Property Name="RuleId" Type="int" Nullable="false" />
+    <Property Name="EmployeeGroupId" Type="int" Nullable="false" />
+    <Property Name="Formula" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SubCode" Type="nchar" MaxLength="10" />
+    <Property Name="HeadCode" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Active" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="RuleTransId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Schedular">
+    <Key>
+      <PropertyRef Name="ScheduleId" />
+    </Key>
+    <Property Name="ScheduleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SchedularName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ScheduleType" Type="int" />
+    <Property Name="StartTime" Type="datetime" />
+    <Property Name="EndTime" Type="datetime" />
+    <Property Name="FrequencyInMin" Type="int" />
+    <Property Name="RepeatCycle" Type="int" />
+    <Property Name="SchedularStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="Shift">
+    <Key>
+      <PropertyRef Name="ShiftId" />
+    </Key>
+    <Property Name="ShiftCode" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="ShiftName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ShiftType" Type="nvarchar" MaxLength="20" />
+    <Property Name="FirstInTime" Type="datetime" Nullable="false" />
+    <Property Name="FirstOutTime" Type="datetime" Nullable="false" />
+    <Property Name="SecondInTime" Type="datetime" />
+    <Property Name="SecondOutTime" Type="datetime" />
+    <Property Name="LunchStartTime" Type="datetime" />
+    <Property Name="LunchEndTime" Type="datetime" />
+    <Property Name="LunchTime" Type="datetime" />
+    <Property Name="LunchTimeExcludeFlag" Type="bit" />
+    <Property Name="WorkingHours" Type="datetime" Nullable="false" />
+    <Property Name="NightShiftFlag" Type="bit" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="ShiftId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="IsOutPunchInNextDay" Type="bit" />
+  </EntityType>
+  <EntityType Name="ShiftPatternRule">
+    <Key>
+      <PropertyRef Name="ShiftPatternRuleId" />
+    </Key>
+    <Property Name="ShiftPatternRuleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ShiftPatternName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="ShiftPatternShortName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="ShiftPatternDescription" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="WeekRuleId" Type="int" Nullable="false" />
+    <Property Name="NoofDays" Type="decimal" Nullable="false" Precision="6" Scale="2" />
+    <Property Name="DayPattern" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="ShiftPattern" Type="nvarchar" Nullable="false" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="ShiftRotation">
+    <Key>
+      <PropertyRef Name="RotationId" />
+    </Key>
+    <Property Name="RotationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RotationCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="RotationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RotationOnDayBasis" Type="int" />
+    <Property Name="RotationOnMonthBasis" Type="nvarchar" MaxLength="50" />
+    <Property Name="RotationOnWeeklyBasis" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShiftsChanges" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShiftSchedule">
+    <Key>
+      <PropertyRef Name="ShiftScheduleId" />
+    </Key>
+    <Property Name="ShiftScheduleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RotationId" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="EmployeeGroupId" Type="int" />
+    <Property Name="ShiftMonth" Type="int" Nullable="false" />
+    <Property Name="ShiftYear" Type="int" Nullable="false" />
+    <Property Name="Day1" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day2" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day3" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day4" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day5" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day6" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day7" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day8" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day9" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day10" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day11" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day12" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day13" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day14" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day15" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day16" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day17" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day18" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day19" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day20" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day21" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day22" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day23" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day24" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day25" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day26" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day27" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day28" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day29" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day30" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day31" Type="nvarchar" MaxLength="10" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShiftSchedulePattern">
+    <Key>
+      <PropertyRef Name="ShiftSchedulePatternId" />
+    </Key>
+    <Property Name="ShiftSchedulePatternId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="EmployeeGroupId" Type="int" />
+    <Property Name="ShiftMonth" Type="int" />
+    <Property Name="ShiftYear" Type="int" />
+    <Property Name="DayCount" Type="int" Nullable="false" />
+    <Property Name="Day1" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day2" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day3" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day4" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day5" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day6" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day7" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day8" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day9" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day10" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day11" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day12" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day13" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day14" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day15" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day16" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day17" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day18" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day19" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day20" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day21" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day22" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day23" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day24" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day25" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day26" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day27" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day28" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day29" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day30" Type="nvarchar" MaxLength="10" />
+    <Property Name="Day31" Type="nvarchar" MaxLength="10" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="PatternDescription" Type="nvarchar" MaxLength="10" />
+    <Property Name="EffectiveStartDate" Type="datetime" />
+    <Property Name="EffectiveEndDate" Type="datetime" />
+    <Property Name="ShiftPatternId" Type="int" />
+  </EntityType>
+  <EntityType Name="ShiftSwapReplace">
+    <Key>
+      <PropertyRef Name="ShiftSRId" />
+    </Key>
+    <Property Name="ShiftSRId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FromEmployeeId" Type="int" Nullable="false" />
+    <Property Name="ToEmployeeId" Type="int" />
+    <Property Name="ShiftId" Type="nchar" MaxLength="10" />
+    <Property Name="FromDate" Type="datetime" Nullable="false" />
+    <Property Name="ToDate" Type="datetime" Nullable="false" />
+    <Property Name="ApplyFor" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Status" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="RejectReason" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SqlQuery">
+    <Key>
+      <PropertyRef Name="SqlQueryId" />
+    </Key>
+    <Property Name="SqlQueryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SqlQueryName" Type="nvarchar(max)" />
+    <Property Name="SqlQueryDescription" Type="nvarchar(max)" />
+    <Property Name="SqlQuery" Type="nvarchar(max)" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Deleted" Type="int" />
+  </EntityType>
+  <EntityType Name="TblFamilyDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Relation" Type="nvarchar" MaxLength="255" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="Picture" Type="image" />
+    <Property Name="Gender" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="UploadCompanyDocument">
+    <Key>
+      <PropertyRef Name="DocID" />
+    </Key>
+    <Property Name="DocID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DocContentType" Type="nvarchar" MaxLength="255" />
+    <Property Name="DocType" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocDescription" Type="nvarchar" MaxLength="255" />
+    <Property Name="DocStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExtraDetails" Type="nvarchar(max)" />
+    <Property Name="DocPath" Type="nvarchar(max)" />
+    <Property Name="DocFolder" Type="nvarchar" MaxLength="255" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="UploadDocument">
+    <Key>
+      <PropertyRef Name="DocID" />
+    </Key>
+    <Property Name="DocID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="DocContentType" Type="nvarchar" MaxLength="255" />
+    <Property Name="DocType" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocDescription" Type="nvarchar" MaxLength="255" />
+    <Property Name="DocStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExtraDetails" Type="nvarchar(max)" />
+    <Property Name="DocPath" Type="nvarchar(max)" />
+    <Property Name="DocFolder" Type="nvarchar" MaxLength="255" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="UserRoleId" />
+    </Key>
+    <Property Name="UserRoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoleTypeId" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="MenuId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="AccessRights" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="DepartmentId" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="RoleTypeId" Type="int" Nullable="false" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+    <Property Name="LocationList" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyList" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchList" Type="nvarchar" MaxLength="2000" />
+    <Property Name="DepartmentList" Type="nvarchar" />
+    <Property Name="MenuId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="MastersRights" Type="nvarchar" MaxLength="50" />
+    <Property Name="AttendanceRights" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApplicationsRights" Type="nvarchar" MaxLength="50" />
+    <Property Name="SanctionsRights" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReportsRights" Type="nvarchar" MaxLength="50" />
+    <Property Name="AdministrationRights" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatesRights" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="DivisionList" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="DesignationId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VIEWREPORTS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VIEWREPORTS">
+    <Key>
+      <PropertyRef Name="DailyTrnId" />
+      <PropertyRef Name="EmployeeId" />
+      <PropertyRef Name="EmployeeCode" />
+      <PropertyRef Name="EmployeeTypeId" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="TranDate" />
+      <PropertyRef Name="ShiftId" />
+      <PropertyRef Name="Login" />
+      <PropertyRef Name="LogOut" />
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="CompanyName" />
+      <PropertyRef Name="BranchId" />
+      <PropertyRef Name="BranchName" />
+      <PropertyRef Name="DepartmentId" />
+      <PropertyRef Name="DesignationId" />
+      <PropertyRef Name="EmployeeTypeName" />
+      <PropertyRef Name="Gender" />
+    </Key>
+    <Property Name="DailyTrnId" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="EmployeeCode" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="EmployeeTypeId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="25" />
+    <Property Name="ConfirmDate" Type="datetime" />
+    <Property Name="JoiningDate" Type="datetime" />
+    <Property Name="Leavingdate" Type="datetime" />
+    <Property Name="TranDate" Type="datetime" Nullable="false" />
+    <Property Name="ShiftId" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="Login" Type="datetime" Nullable="false" />
+    <Property Name="LogOut" Type="datetime" Nullable="false" />
+    <Property Name="Early" Type="datetime" />
+    <Property Name="Late" Type="datetime" />
+    <Property Name="WorkingHrs" Type="datetime" />
+    <Property Name="ExtraHrs" Type="datetime" />
+    <Property Name="SanctionedCOHrs" Type="nvarchar" MaxLength="25" />
+    <Property Name="Status" Type="nvarchar" MaxLength="6" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="BranchName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DesignationId" Type="int" Nullable="false" />
+    <Property Name="DesignationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmployeeTypeName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="GradeId" Type="int" />
+    <Property Name="GradeName" Type="nvarchar" MaxLength="25" />
+    <Property Name="LateCount" Type="int" />
+    <Property Name="ReportingPersonName" Type="nvarchar" MaxLength="51" />
+    <Property Name="Gender" Type="nvarchar" Nullable="false" MaxLength="6" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.Vw_CompOffApplicationIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Vw_CompOffApplicationIndex">
+    <Key>
+      <PropertyRef Name="MarkedAsDelete" />
+      <PropertyRef Name="CompOffId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="FromDateStatus" Type="int" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="ToDateStatus" Type="int" />
+    <Property Name="Purpose" Type="varchar" MaxLength="50" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="ExtrasHoursDate" Type="varchar" MaxLength="250" />
+    <Property Name="RejectReason" Type="varchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="25" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="25" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="25" />
+    <Property Name="Text" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="CompOffId" Type="int" Nullable="false" />
+    <Property Name="EmployeeCode" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.Vw_CumulativeCompOffApplicationIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Vw_CumulativeCompOffApplicationIndex">
+    <Key>
+      <PropertyRef Name="CompOffApplicationId" />
+      <PropertyRef Name="MarkedAsDelete" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="FromDateStatus" Type="int" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="ToDateStatus" Type="int" />
+    <Property Name="Purpose" Type="varchar" MaxLength="50" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="ExtrasHoursDate" Type="varchar" MaxLength="250" />
+    <Property Name="RejectReason" Type="varchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="25" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="25" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="25" />
+    <Property Name="Text" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompOffApplicationId" Type="int" Nullable="false" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwActiveEmployee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwActiveEmployee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+      <PropertyRef Name="EmployeeCode" />
+      <PropertyRef Name="EmployeeTypeId" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Gender" />
+      <PropertyRef Name="DesignationId" />
+      <PropertyRef Name="DepartmentId" />
+      <PropertyRef Name="WeeklyOff1" />
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="BranchId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeCode" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="EmployeeTypeId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="25" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="255" />
+    <Property Name="MailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="6" />
+    <Property Name="Gender" Type="nvarchar" Nullable="false" MaxLength="6" />
+    <Property Name="CardNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="DefaultShift" Type="nvarchar" MaxLength="10" />
+    <Property Name="BloodGroupId" Type="int" />
+    <Property Name="ReligionId" Type="int" />
+    <Property Name="DesignationId" Type="int" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="EmployeeReportingId" Type="int" />
+    <Property Name="GradeId" Type="int" />
+    <Property Name="MarritalStatus" Type="nvarchar" MaxLength="1" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telephone1" Type="nvarchar" MaxLength="20" />
+    <Property Name="Telephone2" Type="nvarchar" MaxLength="20" />
+    <Property Name="Moblie" Type="nvarchar" MaxLength="15" />
+    <Property Name="BirthDate" Type="datetime" />
+    <Property Name="ConfirmDate" Type="datetime" />
+    <Property Name="JoiningDate" Type="datetime" />
+    <Property Name="Leavingdate" Type="datetime" />
+    <Property Name="PFYN" Type="bit" />
+    <Property Name="PFNO" Type="nvarchar" MaxLength="20" />
+    <Property Name="PANNO" Type="nvarchar" MaxLength="20" />
+    <Property Name="ESICNO" Type="nvarchar" MaxLength="20" />
+    <Property Name="ESICDCD" Type="nvarchar" MaxLength="20" />
+    <Property Name="BankCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="BankNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="LICNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="ActiveFlag" Type="bit" />
+    <Property Name="SwipeFlag" Type="nvarchar" MaxLength="20" />
+    <Property Name="SalPDFlag" Type="bit" />
+    <Property Name="DeptHeadFlag" Type="nvarchar" MaxLength="10" />
+    <Property Name="WeeklyOff1" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="WeeklyOff2" Type="nvarchar" MaxLength="50" />
+    <Property Name="First" Type="bit" />
+    <Property Name="Second" Type="bit" />
+    <Property Name="Third" Type="bit" />
+    <Property Name="Fourth" Type="bit" />
+    <Property Name="Fifth" Type="bit" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="DivisionId" Type="int" />
+    <Property Name="EmployeeReportingId2" Type="int" />
+    <Property Name="Picture" Type="image" />
+    <Property Name="SeperationRemark" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwBranchDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwBranchDetails">
+    <Key>
+      <PropertyRef Name="BranchId" />
+      <PropertyRef Name="BranchName" />
+      <PropertyRef Name="CompanyName" />
+      <PropertyRef Name="LocationName" />
+      <PropertyRef Name="MarkedAsDelete" />
+    </Key>
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="BranchName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="100" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="15" />
+    <Property Name="FAX" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LocationName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwCumulativeManualCompOffList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwCumulativeManualCompOffList">
+    <Key>
+      <PropertyRef Name="CMCompOffId" />
+      <PropertyRef Name="EmployeeId" />
+      <PropertyRef Name="FromDate" />
+      <PropertyRef Name="ExtraWorkingHrs" />
+      <PropertyRef Name="CompOffPurpose" />
+      <PropertyRef Name="StatusId" />
+      <PropertyRef Name="CompOffBalance" />
+      <PropertyRef Name="BranchId" />
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="MarkedAsDelete" />
+    </Key>
+    <Property Name="CMCompOffId" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="FromDate" Type="datetime" Nullable="false" />
+    <Property Name="ExtraWorkingHrs" Type="datetime" Nullable="false" />
+    <Property Name="CompOffPurpose" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="CompOffBalance" Type="float" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="RejectReason" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="EmployeeCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="25" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="25" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="25" />
+    <Property Name="StatusName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LoginTime" Type="datetime" />
+    <Property Name="LogoutTime" Type="datetime" />
+    <Property Name="IsPaidHoliday" Type="bit" />
+    <Property Name="IsWeekOff" Type="bit" />
+    <Property Name="CompOffHours" Type="int" />
+    <Property Name="IsWeekDay" Type="bit" />
+    <Property Name="IsInPunchInNextDay" Type="bit" />
+    <Property Name="IsOutPunchInNextDay" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwDepartmentDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwDepartmentDetails">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+      <PropertyRef Name="CompanyName" />
+      <PropertyRef Name="BranchName" />
+      <PropertyRef Name="MarkedAsDelete" />
+    </Key>
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="DepartmentCode" Type="nvarchar" MaxLength="15" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BranchName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwDesignationDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwDesignationDetails">
+    <Key>
+      <PropertyRef Name="DesignationId" />
+      <PropertyRef Name="CompanyName" />
+      <PropertyRef Name="BranchName" />
+      <PropertyRef Name="MarkedAsDelete" />
+    </Key>
+    <Property Name="DesignationId" Type="int" Nullable="false" />
+    <Property Name="DesignationCode" Type="nvarchar" MaxLength="6" />
+    <Property Name="DesignationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BranchName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwEmployeeGroupDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwEmployeeGroupDetails">
+    <Key>
+      <PropertyRef Name="EmployeeGroupId" />
+      <PropertyRef Name="CompanyName" />
+      <PropertyRef Name="BranchName" />
+      <PropertyRef Name="MarkedAsDelete" />
+    </Key>
+    <Property Name="EmployeeGroupId" Type="int" Nullable="false" />
+    <Property Name="EmployeeGroupName" Type="nvarchar" MaxLength="25" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BranchName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwGradeDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwGradeDetails">
+    <Key>
+      <PropertyRef Name="GradeId" />
+      <PropertyRef Name="GradeName" />
+      <PropertyRef Name="CompanyName" />
+      <PropertyRef Name="EmployeeTypeName" />
+      <PropertyRef Name="BranchName" />
+      <PropertyRef Name="MarkedAsDelete" />
+    </Key>
+    <Property Name="GradeId" Type="int" Nullable="false" />
+    <Property Name="GradeName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="EmployeeTypeName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="BranchName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwLeaveApplicationIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwLeaveApplicationIndex">
+    <Key>
+      <PropertyRef Name="EmployeeCode" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="LeaveApplicationId" />
+      <PropertyRef Name="EmployeeId" />
+      <PropertyRef Name="LeaveType" />
+      <PropertyRef Name="FromDate" />
+      <PropertyRef Name="ToDate" />
+      <PropertyRef Name="BranchId" />
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="MarkedAsDelete" />
+    </Key>
+    <Property Name="EmployeeCode" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="25" />
+    <Property Name="LeaveApplicationId" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="LeaveType" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="FromDate" Type="datetime" Nullable="false" />
+    <Property Name="FromDayStatus" Type="int" />
+    <Property Name="ToDate" Type="datetime" Nullable="false" />
+    <Property Name="ToDayStatus" Type="int" />
+    <Property Name="AppliedDays" Type="float" />
+    <Property Name="ActualDays" Type="float" />
+    <Property Name="Purpose" Type="nvarchar" MaxLength="255" />
+    <Property Name="Status" Type="int" />
+    <Property Name="RejectReason" Type="nvarchar" MaxLength="50" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="IsLWP" Type="bit" />
+    <Property Name="LWP" Type="float" />
+    <Property Name="TotalDeductableDays" Type="float" />
+    <Property Name="LeaveConsumed" Type="float" />
+    <Property Name="IsPreSandwichCase" Type="bit" />
+    <Property Name="PreSandwichdays" Type="float" />
+    <Property Name="PostSandwichdays" Type="float" />
+    <Property Name="PreSandwichCaseLeaveID" Type="int" />
+    <Property Name="PostSandwichCaseLeaveID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwLocationNameInCompany' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwLocationNameInCompany">
+    <Key>
+      <PropertyRef Name="CompanyName" />
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="LocationId" />
+      <PropertyRef Name="LocationName" />
+      <PropertyRef Name="MarkedAsDelete" />
+    </Key>
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="LocationId" Type="int" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="PAN" Type="nvarchar" MaxLength="12" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="15" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="15" />
+    <Property Name="LocationName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="PINCode" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwNewsList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwNewsList">
+    <Key>
+      <PropertyRef Name="NewsId" />
+      <PropertyRef Name="Info" />
+      <PropertyRef Name="NewsDate" />
+      <PropertyRef Name="NewsFor" />
+      <PropertyRef Name="Active" />
+      <PropertyRef Name="BranchName" />
+      <PropertyRef Name="CompanyName" />
+    </Key>
+    <Property Name="NewsId" Type="int" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Info" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="NewsDate" Type="datetime" Nullable="false" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="EmployeeGroupId" Type="int" />
+    <Property Name="NewsFor" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="NewsEndDate" Type="datetime" />
+    <Property Name="BranchName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="EmployeeGroupName" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwODTravelIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwODTravelIndex">
+    <Key>
+      <PropertyRef Name="EmployeeCode" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="ODTourId" />
+      <PropertyRef Name="EmployeeId" />
+      <PropertyRef Name="ODTourType" />
+      <PropertyRef Name="AppliedDay" />
+      <PropertyRef Name="ActualDay" />
+      <PropertyRef Name="Place" />
+      <PropertyRef Name="Purpose" />
+      <PropertyRef Name="BranchId" />
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="MarkedAsDelete" />
+    </Key>
+    <Property Name="EmployeeCode" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="25" />
+    <Property Name="ODTourId" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="ODTourType" Type="nchar" Nullable="false" MaxLength="30" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="ODDayStatus" Type="int" />
+    <Property Name="ODDayStatus1" Type="int" />
+    <Property Name="AppliedDay" Type="float" Nullable="false" />
+    <Property Name="ActualDay" Type="float" Nullable="false" />
+    <Property Name="Place" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Purpose" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Status" Type="int" />
+    <Property Name="OdTourHeadCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="RejectReason" Type="nvarchar" MaxLength="150" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="JourneyType" Type="int" />
+    <Property Name="TransportType" Type="nvarchar" MaxLength="50" />
+    <Property Name="Text" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwRuleTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwRuleTransaction">
+    <Key>
+      <PropertyRef Name="Formula" />
+      <PropertyRef Name="HeadCode" />
+      <PropertyRef Name="Active" />
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="BranchId" />
+      <PropertyRef Name="EmployeeGroupId" />
+      <PropertyRef Name="RuleTransId" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="Expr2" />
+      <PropertyRef Name="Expr3" />
+      <PropertyRef Name="CompanyName" />
+      <PropertyRef Name="BranchName" />
+    </Key>
+    <Property Name="Formula" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SubCode" Type="nchar" MaxLength="10" />
+    <Property Name="HeadCode" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Active" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+    <Property Name="EmployeeGroupId" Type="int" Nullable="false" />
+    <Property Name="RuleTransId" Type="int" Nullable="false" />
+    <Property Name="Expr1" Type="int" Nullable="false" />
+    <Property Name="Expr2" Type="int" Nullable="false" />
+    <Property Name="Expr3" Type="int" Nullable="false" />
+    <Property Name="RuleName" Type="nvarchar" MaxLength="250" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BranchName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="EmployeeGroupName" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwShiftDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwShiftDetails">
+    <Key>
+      <PropertyRef Name="ShiftId" />
+      <PropertyRef Name="ShiftName" />
+      <PropertyRef Name="FirstInTime" />
+      <PropertyRef Name="FirstOutTime" />
+      <PropertyRef Name="WorkingHours" />
+      <PropertyRef Name="CompanyName" />
+      <PropertyRef Name="BranchName" />
+      <PropertyRef Name="MarkedAsDelete" />
+      <PropertyRef Name="ShiftCode" />
+    </Key>
+    <Property Name="ShiftId" Type="int" Nullable="false" />
+    <Property Name="ShiftName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="FirstInTime" Type="datetime" Nullable="false" />
+    <Property Name="FirstOutTime" Type="datetime" Nullable="false" />
+    <Property Name="LunchEndTime" Type="datetime" />
+    <Property Name="LunchStartTime" Type="datetime" />
+    <Property Name="LunchTime" Type="datetime" />
+    <Property Name="WorkingHours" Type="datetime" Nullable="false" />
+    <Property Name="LunchTimeExcludeFlag" Type="bit" />
+    <Property Name="NightShiftFlag" Type="bit" />
+    <Property Name="SecondInTime" Type="datetime" />
+    <Property Name="SecondOutTime" Type="datetime" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BranchName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ShiftType" Type="nvarchar" MaxLength="20" />
+    <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
+    <Property Name="ShiftCode" Type="nvarchar" Nullable="false" MaxLength="4" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Wetos_ESVoffice.dbo.VwShiftGroupDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="VwShiftGroupDetails">
+    <Key>
+      <PropertyRef Name="RotationId" />
+      <PropertyRef Name="CompanyName" />
+      <PropertyRef Name="BranchName" />
+    </Key>
+    <Property Name="RotationCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="RotationId" Type="int" Nullable="false" />
+    <Property Name="RotationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RotationOnDayBasis" Type="int" />
+    <Property Name="RotationOnMonthBasis" Type="nvarchar" MaxLength="50" />
+    <Property Name="RotationOnWeeklyBasis" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShiftsChanges" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BranchName" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="BRANCHID_CENTER_FK">
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Division" Type="WetosDBEntityModel.Store.Division" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="Division">
+        <PropertyRef Name="BRANCHID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="COMPANYID_CENTER_FK">
+    <End Role="Company" Type="WetosDBEntityModel.Store.Company" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Division" Type="WetosDBEntityModel.Store.Division" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="Division">
+        <PropertyRef Name="COMPANYID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Branch_Company">
+    <End Role="Company" Type="WetosDBEntityModel.Store.Company" Multiplicity="1" />
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="Branch">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CondoneTrn_Branch_BranchId">
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="1" />
+    <End Role="CondoneTrn" Type="WetosDBEntityModel.Store.CondoneTrn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="CondoneTrn">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CondoneTrn_Company_CompanyId">
+    <End Role="Company" Type="WetosDBEntityModel.Store.Company" Multiplicity="1" />
+    <End Role="CondoneTrn" Type="WetosDBEntityModel.Store.CondoneTrn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="CondoneTrn">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeclaredHoliday_Branch">
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="1" />
+    <End Role="DeclaredHoliday" Type="WetosDBEntityModel.Store.DeclaredHoliday" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="DeclaredHoliday">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_Branch_BranchId">
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="1" />
+    <End Role="Department" Type="WetosDBEntityModel.Store.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_Company_CompanyId">
+    <End Role="Company" Type="WetosDBEntityModel.Store.Company" Multiplicity="1" />
+    <End Role="Department" Type="WetosDBEntityModel.Store.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Designation_Branch">
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="1" />
+    <End Role="Designation" Type="WetosDBEntityModel.Store.Designation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="Designation">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Designation_Branch_BranchId">
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="1" />
+    <End Role="Branch1" Type="WetosDBEntityModel.Store.Branch" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="Branch1">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Designation_Company">
+    <End Role="Company" Type="WetosDBEntityModel.Store.Company" Multiplicity="1" />
+    <End Role="Designation" Type="WetosDBEntityModel.Store.Designation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="Designation">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeGroup_Branch_BranchId">
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="1" />
+    <End Role="EmployeeGroup" Type="WetosDBEntityModel.Store.EmployeeGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="EmployeeGroup">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeGroup_Company_CompanyId">
+    <End Role="Company" Type="WetosDBEntityModel.Store.Company" Multiplicity="1" />
+    <End Role="EmployeeGroup" Type="WetosDBEntityModel.Store.EmployeeGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="EmployeeGroup">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeGroupDetail_Employee_EmployeeId">
+    <End Role="Employee" Type="WetosDBEntityModel.Store.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmployeeGroupDetail" Type="WetosDBEntityModel.Store.EmployeeGroupDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="EmployeeGroupDetail">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeGroupDetail_EmployeeGroup_EmployeeGroupId">
+    <End Role="EmployeeGroup" Type="WetosDBEntityModel.Store.EmployeeGroup" Multiplicity="1" />
+    <End Role="EmployeeGroupDetail" Type="WetosDBEntityModel.Store.EmployeeGroupDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeGroup">
+        <PropertyRef Name="EmployeeGroupId" />
+      </Principal>
+      <Dependent Role="EmployeeGroupDetail">
+        <PropertyRef Name="EmployeeGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FinancialYear_Branch_BranchId">
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="1" />
+    <End Role="FinancialYear" Type="WetosDBEntityModel.Store.FinancialYear" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="FinancialYear">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FinancialYear_Company_CompanyId">
+    <End Role="Company" Type="WetosDBEntityModel.Store.Company" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FinancialYear" Type="WetosDBEntityModel.Store.FinancialYear" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="FinancialYear">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grade_Branch_BranchId">
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="1" />
+    <End Role="Grade" Type="WetosDBEntityModel.Store.Grade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="Grade">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grade_Company_CompanyId">
+    <End Role="Company" Type="WetosDBEntityModel.Store.Company" Multiplicity="1" />
+    <End Role="Grade" Type="WetosDBEntityModel.Store.Grade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="Grade">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grade_Grade_EmployeeTypeId">
+    <End Role="EmployeeType" Type="WetosDBEntityModel.Store.EmployeeType" Multiplicity="1" />
+    <End Role="Grade" Type="WetosDBEntityModel.Store.Grade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeType">
+        <PropertyRef Name="EmployeeTypeId" />
+      </Principal>
+      <Dependent Role="Grade">
+        <PropertyRef Name="EmployeeTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HeadCode_Branch_BranchId">
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="1" />
+    <End Role="HeadCode" Type="WetosDBEntityModel.Store.HeadCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="HeadCode">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HeadCode_Company_CompanyId">
+    <End Role="Company" Type="WetosDBEntityModel.Store.Company" Multiplicity="1" />
+    <End Role="HeadCode" Type="WetosDBEntityModel.Store.HeadCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="HeadCode">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HeadCode_HeadType_HeadTypeId">
+    <End Role="HeadType" Type="WetosDBEntityModel.Store.HeadType" Multiplicity="1" />
+    <End Role="HeadCode" Type="WetosDBEntityModel.Store.HeadCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeadType">
+        <PropertyRef Name="HeadTypeId" />
+      </Principal>
+      <Dependent Role="HeadCode">
+        <PropertyRef Name="HeadTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HeadType_Branch_BranchId">
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="1" />
+    <End Role="HeadType" Type="WetosDBEntityModel.Store.HeadType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="HeadType">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HeadType_Company_CompanyId">
+    <End Role="Company" Type="WetosDBEntityModel.Store.Company" Multiplicity="1" />
+    <End Role="HeadType" Type="WetosDBEntityModel.Store.HeadType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="HeadType">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_News_Branch_BranchId">
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="0..1" />
+    <End Role="News" Type="WetosDBEntityModel.Store.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_News_Company_CompanyId">
+    <End Role="Company" Type="WetosDBEntityModel.Store.Company" Multiplicity="0..1" />
+    <End Role="News" Type="WetosDBEntityModel.Store.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_News_Employee_EmployeeId">
+    <End Role="Employee" Type="WetosDBEntityModel.Store.Employee" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="News" Type="WetosDBEntityModel.Store.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rules_HeadCode_HeadCodeId">
+    <End Role="HeadCode" Type="WetosDBEntityModel.Store.HeadCode" Multiplicity="1" />
+    <End Role="Rules" Type="WetosDBEntityModel.Store.Rules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeadCode">
+        <PropertyRef Name="HeadCodeId" />
+      </Principal>
+      <Dependent Role="Rules">
+        <PropertyRef Name="HeadCodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rules_HeadType_HeadeTypeId">
+    <End Role="HeadType" Type="WetosDBEntityModel.Store.HeadType" Multiplicity="1" />
+    <End Role="Rules" Type="WetosDBEntityModel.Store.Rules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeadType">
+        <PropertyRef Name="HeadTypeId" />
+      </Principal>
+      <Dependent Role="Rules">
+        <PropertyRef Name="HeadeTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rules_RuleFlags_RuleFlagId">
+    <End Role="RuleFlags" Type="WetosDBEntityModel.Store.RuleFlags" Multiplicity="1" />
+    <End Role="Rules" Type="WetosDBEntityModel.Store.Rules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RuleFlags">
+        <PropertyRef Name="RuleFlagId" />
+      </Principal>
+      <Dependent Role="Rules">
+        <PropertyRef Name="FlagId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Shift_Company_CompanyId">
+    <End Role="Company" Type="WetosDBEntityModel.Store.Company" Multiplicity="1" />
+    <End Role="Shift" Type="WetosDBEntityModel.Store.Shift" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="Shift">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShiftRotation_Branch">
+    <End Role="Branch" Type="WetosDBEntityModel.Store.Branch" Multiplicity="1" />
+    <End Role="ShiftRotation" Type="WetosDBEntityModel.Store.ShiftRotation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="ShiftRotation">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShiftRotation_Company">
+    <End Role="Company" Type="WetosDBEntityModel.Store.Company" Multiplicity="1" />
+    <End Role="ShiftRotation" Type="WetosDBEntityModel.Store.ShiftRotation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="ShiftRotation">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SP_ActiveEmployeeAsOnDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FromDate" Type="datetime" Mode="In" />
+    <Parameter Name="ToDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_ActiveEmployeeInEmployeeMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_ActiveEmployeeInEmployeeMasterNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_BranchAdminList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_CondoneTrnListView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_CumulativeManualCOSanctionIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_DeclaredHolidayListView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_DisplayShiftOnCalendar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+    <Parameter Name="InputMonth" Type="int" Mode="In" />
+    <Parameter Name="InputYear" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_EmployeeDetailsOnEmployeeMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_EmployeeProfile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_EmployeeTimeLine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_ExceptionEntryListView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_ExceptionSanctionIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_FactoryReset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_get_audit_trail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="FromDate" Type="datetime" Mode="In" />
+    <Parameter Name="ToDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_get_Notifications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="employeeid" Type="int" Mode="In" />
+    <Parameter Name="TodaysDate" Type="smalldatetime" Mode="In" />
+  </Function>
+  <Function Name="sp_get_RoleNavmenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="yid" Type="int" Mode="In" />
+    <Parameter Name="roleid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_get_Roleuser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="roleid" Type="int" Mode="In" />
+    <Parameter Name="y_id" Type="int" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_get_user_role_menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userId" Type="int" Mode="In" />
+    <Parameter Name="y_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetAssignedRuleForSelectedEmployeeGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InputEmployeeGroupId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetAssignRuleData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="EmployeeGroupId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetAttendanceDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+    <Parameter Name="FromDate" Type="datetime" Mode="In" />
+    <Parameter Name="ToDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_GetAttendanceIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+    <Parameter Name="CurrentMonth" Type="int" Mode="In" />
+    <Parameter Name="CurrentYear" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetBranchList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetCompanyList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetDailyTransactionList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FromDate" Type="datetime" Mode="In" />
+    <Parameter Name="ToDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_GetDailyTransactionListForCumulativeCompOff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmpId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetDailyTransactionListForCumulativeCompOffNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmpId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetDepartmentwiseLateEmployeeCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="AllowedLateCount" Type="int" Mode="In" />
+    <Parameter Name="FDATE" Type="datetime" Mode="In" />
+    <Parameter Name="TDATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_GetEmployeeCSVForReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fdate" Type="datetime" Mode="In" />
+    <Parameter Name="Tdate" Type="datetime" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="EmployeeTypeId" Type="int" Mode="In" />
+    <Parameter Name="DepartmentId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetEmployeeCSVForReportFilter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fdate" Type="datetime" Mode="In" />
+    <Parameter Name="Tdate" Type="datetime" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="EmployeeTypeId" Type="int" Mode="In" />
+    <Parameter Name="DepartmentId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetEmployeeCSVForReportFilterNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fdate" Type="datetime" Mode="In" />
+    <Parameter Name="Tdate" Type="datetime" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="EmployeeTypeId" Type="int" Mode="In" />
+    <Parameter Name="DepartmentId" Type="int" Mode="In" />
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetEmployeeCSVForReportNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fdate" Type="datetime" Mode="In" />
+    <Parameter Name="Tdate" Type="datetime" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="EmployeeTypeId" Type="int" Mode="In" />
+    <Parameter Name="DepartmentId" Type="int" Mode="In" />
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetEmployeeCSVForReportNewDept" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fdate" Type="datetime" Mode="In" />
+    <Parameter Name="Tdate" Type="datetime" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="EmployeeTypeId" Type="int" Mode="In" />
+    <Parameter Name="DepartmentId" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetEmployeeGroupDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_GetEmployeeListForMessaging" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InputEmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetEmployeeListNotExistInLoginTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_GetEmployeeListReportingTome" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InputEmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetEncashmentList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetFinancialYearDataList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_GetHRList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_GetLeaveApproverList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InputEmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetLeaveCreditDataList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FinancialName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetManualCompOffList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InputEmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetNotifications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetProcessedSalaryList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FinancialYearId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetSanctionerList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InputEmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_HolidayListView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_InsertExcelDataForEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="MiddleName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyName" Type="nvarchar" Mode="In" />
+    <Parameter Name="JoiningDate" Type="datetime" Mode="In" />
+    <Parameter Name="ConfirmDate" Type="datetime" Mode="In" />
+    <Parameter Name="BirthDate" Type="datetime" Mode="In" />
+    <Parameter Name="Telephone1" Type="nvarchar" Mode="In" />
+    <Parameter Name="Telephone2" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmailAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="Gender" Type="nvarchar" Mode="In" />
+    <Parameter Name="MarritalStatus" Type="nvarchar" Mode="In" />
+    <Parameter Name="DepartmentName" Type="nvarchar" Mode="In" />
+    <Parameter Name="DesignationName" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmployeeReportingId" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmployeeReportingId2" Type="nvarchar" Mode="In" />
+    <Parameter Name="Present_Address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Permanent_Address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PanNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Leavingdate" Type="datetime" Mode="In" />
+    <Parameter Name="BranchName" Type="nvarchar" Mode="In" />
+    <Parameter Name="DivisionName" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmployeeGroupName" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmployeeType" Type="nvarchar" Mode="In" />
+    <Parameter Name="GradeId" Type="nvarchar" Mode="In" />
+    <Parameter Name="ShiftCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="WeekOff1" Type="nvarchar" Mode="In" />
+    <Parameter Name="WeekOff2" Type="nvarchar" Mode="In" />
+    <Parameter Name="First" Type="bit" Mode="In" />
+    <Parameter Name="Second" Type="bit" Mode="In" />
+    <Parameter Name="Third" Type="bit" Mode="In" />
+    <Parameter Name="Fourth" Type="bit" Mode="In" />
+    <Parameter Name="Fifth" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="SP_InsertExcelDataForEmployeeWithESSAndDeleteFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="MiddleName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyName" Type="nvarchar" Mode="In" />
+    <Parameter Name="JoiningDate" Type="datetime" Mode="In" />
+    <Parameter Name="ConfirmDate" Type="datetime" Mode="In" />
+    <Parameter Name="BirthDate" Type="datetime" Mode="In" />
+    <Parameter Name="Telephone1" Type="nvarchar" Mode="In" />
+    <Parameter Name="Telephone2" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmailAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="Gender" Type="nvarchar" Mode="In" />
+    <Parameter Name="MarritalStatus" Type="nvarchar" Mode="In" />
+    <Parameter Name="DepartmentName" Type="nvarchar" Mode="In" />
+    <Parameter Name="DesignationName" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmployeeReportingId" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmployeeReportingId2" Type="nvarchar" Mode="In" />
+    <Parameter Name="Present_Address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Permanent_Address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PanNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Leavingdate" Type="datetime" Mode="In" />
+    <Parameter Name="BranchName" Type="nvarchar" Mode="In" />
+    <Parameter Name="DivisionName" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmployeeGroupName" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmployeeType" Type="nvarchar" Mode="In" />
+    <Parameter Name="GradeId" Type="nvarchar" Mode="In" />
+    <Parameter Name="ShiftCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="WeekOff1" Type="nvarchar" Mode="In" />
+    <Parameter Name="WeekOff2" Type="nvarchar" Mode="In" />
+    <Parameter Name="First" Type="bit" Mode="In" />
+    <Parameter Name="Second" Type="bit" Mode="In" />
+    <Parameter Name="Third" Type="bit" Mode="In" />
+    <Parameter Name="Fourth" Type="bit" Mode="In" />
+    <Parameter Name="Fifth" Type="bit" Mode="In" />
+    <Parameter Name="IsESSApplicable" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="SP_LeaveApplicationDetailsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+    <Parameter Name="FromDate" Type="datetime" Mode="In" />
+    <Parameter Name="ToDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_LeaveBalanceDataList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FinancialName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SP_LeaveCalculationSheet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FROMDATE" Type="datetime" Mode="In" />
+    <Parameter Name="TODATE" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_LeaveCalculationSheetNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AsOnDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_LeaveEncashSanctionIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_LeaveSanctionIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_LeaveTableData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_LeaveTableDataEX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+    <Parameter Name="FinancialYearId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_LeaveTableDataNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+    <Parameter Name="AsOnDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_ManualCOSanctionIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_POSTINGGetRequiredEmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_ShiftScheduleList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_UpdateLeaveApplicationAuditLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LeaveApplicationid" Type="int" Mode="In" />
+    <Parameter Name="EmpId" Type="int" Mode="In" />
+    <Parameter Name="LeaveType" Type="varchar" Mode="In" />
+    <Parameter Name="FromDate" Type="datetime" Mode="In" />
+    <Parameter Name="ToDate" Type="datetime" Mode="In" />
+    <Parameter Name="FromDayStatus" Type="int" Mode="In" />
+    <Parameter Name="ToDayStatus" Type="int" Mode="In" />
+    <Parameter Name="AppliedDays" Type="float" Mode="In" />
+    <Parameter Name="ActualDays" Type="float" Mode="In" />
+    <Parameter Name="Purpose" Type="nvarchar" Mode="In" />
+    <Parameter Name="status" Type="varchar" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="LoginUserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_UPDATELeaveBalanceBeforePosting" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Trandate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_UpdateODTravelAuditLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ODTourId" Type="int" Mode="In" />
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+    <Parameter Name="ODTourType" Type="nvarchar" Mode="In" />
+    <Parameter Name="FromDate" Type="datetime" Mode="In" />
+    <Parameter Name="ToDate" Type="datetime" Mode="In" />
+    <Parameter Name="ODDayStatus" Type="nvarchar" Mode="In" />
+    <Parameter Name="ODDayStatus1" Type="nvarchar" Mode="In" />
+    <Parameter Name="AppliedDay" Type="float" Mode="In" />
+    <Parameter Name="ActualDay" Type="float" Mode="In" />
+    <Parameter Name="Place" Type="nvarchar" Mode="In" />
+    <Parameter Name="Purpose" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="LoginUserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_UserListForResetPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_UserTableForView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_Vw_CompOffApplicationIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Vw_CumulativeCompOffApplicationIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_VwActiveEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_VwCumulativeManualCompOffList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_VwLeaveApplicationIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_VwManualCompOffList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_VwODEarlyLateIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_VwODTravelIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_WetosGetEmployeeCompOffSanction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_WetosGetEmployeeCumulativeCompOffSanction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_WetosGetEmployeeODLateEarlySanction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_WetosGetEmployeeODTravelSanction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPPostingprocess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Trandate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SPPostingprocessForAllBranchAndPrevDayForShiftG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Trandate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SPPostingprocessForALLEmployeeForAutoShiftWithNS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Trandate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SPPostingprocessForAutoShiftWithNS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Trandate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_Report_EmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_Rpt_GetTimeCard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fdate" Type="datetime" Mode="In" />
+    <Parameter Name="Tdate" Type="datetime" Mode="In" />
+    <Parameter Name="Empid" Type="varchar(max)" Mode="In" />
+    <Parameter Name="DepartmentListId" Type="varchar(max)" Mode="In" />
+    <Parameter Name="BranchListId" Type="varchar" Mode="In" />
+    <Parameter Name="CompanyListId" Type="varchar" Mode="In" />
+    <Parameter Name="RoleTypeId" Type="varchar" Mode="In" />
+    <Parameter Name="ReportingId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateDailyTrans_Lock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PLockStatus" Type="char" Mode="In" />
+    <Parameter Name="PBranchID" Type="int" Mode="In" />
+    <Parameter Name="PCompanyID" Type="int" Mode="In" />
+    <Parameter Name="PFromDate" Type="datetime" Mode="In" />
+    <Parameter Name="PToDate" Type="datetime" Mode="In" />
+    <Parameter Name="PEmployeeList" Type="varchar(max)" Mode="In" />
+  </Function>
+</Schema>

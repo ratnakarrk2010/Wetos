@@ -1,0 +1,113 @@
+﻿@model IEnumerable<wetosdb.sp_getemployeegroupdetail_result>
+@{
+    ViewBag.Title = "Assign Employee Group Master";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+ @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+            <h1>Assign Employee Group Master
+                <small>List</small>
+                 <span data-toggle="tooltip" title="Add Company" style="float:right;font-weight:800" onclick="OnAddCompanyClick();">
+                 @Html.ActionLink(" ", "Create", new { }, new { @class = "fa fa-plus-circle", title = "Assign Employee Group", style = "color:#428bca;font-size:19px" })</span>
+            </h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Administration</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "WetosAssignEmployeeGroup")">Assign Employee Group </a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>  
+           
+        </section>
+        <section class="content">
+           @* <div>      
+                <span class="btn btn-default" style="float:left;font-weight:200; cursor:pointer" "tooltip" title = "Click here to add new company">@Html.ActionLink("Add New Company", "Create")</span>
+            </div>   
+            *@
+            
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+              
+                            <div class="box-body">
+                           
+                                <table id="AssignEmployeeGroupMaster" class="table table-bordered table-striped">  @*Added by Pushkar For datatable on 25 OCT 2016*@
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                                Employee Name
+                                            </td>
+                                            <td>
+                                                Group Name
+                                            </td>
+                                           
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                          <tr>      
+                                            <td>                                            
+                                                @item.EmployeeCode - @item.FirstName @item.MiddleName @item.LastName
+                                            </td>
+                                            <td>
+                                                @item.EmployeeGroupName
+                                            </td>
+                                           
+                                        </tr>
+                                        }
+                                    </tbody>
+                                <tfoot></tfoot>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>                    
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+    </div>
+</div>
+
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+<script type="text/jscript">
+
+    $(function () {
+        $("#AssignEmployeeGroupMaster").DataTable();
+    });
+
+</script>

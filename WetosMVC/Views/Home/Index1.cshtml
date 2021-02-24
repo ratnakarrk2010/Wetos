@@ -1,0 +1,171 @@
+﻿@model WetosDB.DailyTransaction
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index1</h2>
+
+<span style="text-align:right">
+ <a href="@Url.Action("Calander", "Home")">View Calander
+</span>
+
+<fieldset class="table table-striped" style="width: auto; height: auto;">
+    <legend>SP_GetDailyTransaction_Result</legend>
+
+    <div class="display-label">DailyTrnId</div>
+    <div class="display-field">@Model.DailyTrnId</div>
+
+    <div class="display-label">EmployeeId</div>
+    <div class="display-field">@Model.EmployeeId</div>
+
+    <div class="display-label">TranDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.TranDate)</div>
+
+    <div class="display-label">ShiftId</div>
+    <div class="display-field">@Model.ShiftId</div>
+
+    <div class="display-label">Login</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Login)</div>
+
+    <div class="display-label">LogOut</div>
+    <div class="display-field">@String.Format("{0:g}", Model.LogOut)</div>
+
+    <div class="display-label">Login1</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Login1)</div>
+
+    <div class="display-label">LogOut1</div>
+    <div class="display-field">@String.Format("{0:g}", Model.LogOut1)</div>
+
+    <div class="display-label">Early</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Early)</div>
+
+    <div class="display-label">Late</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Late)</div>
+
+    <div class="display-label">WorkingHrs</div>
+    <div class="display-field">@String.Format("{0:g}", Model.WorkingHrs)</div>
+
+    <div class="display-label">ExtraHrs</div>
+    <div class="display-field">@String.Format("{0:g}", Model.ExtraHrs)</div>
+
+    <div class="display-label">SanctionedCOHrs</div>
+    <div class="display-field">@Model.SanctionedCOHrs</div>
+
+    <div class="display-label">Status</div>
+    <div class="display-field">@Model.Status</div>
+
+    <div class="display-label">ActualStatus</div>
+    <div class="display-field">@Model.ActualStatus</div>
+
+    <div class="display-label">OTInTime</div>
+    <div class="display-field">@String.Format("{0:g}", Model.OTInTime)</div>
+
+    <div class="display-label">OTOutTime</div>
+    <div class="display-field">@String.Format("{0:g}", Model.OTOutTime)</div>
+
+    <div class="display-label">PreviousLogin</div>
+    <div class="display-field">@String.Format("{0:g}", Model.PreviousLogin)</div>
+
+    <div class="display-label">PreviousLogOut</div>
+    <div class="display-field">@String.Format("{0:g}", Model.PreviousLogOut)</div>
+
+    <div class="display-label">PreviousLogin1</div>
+    <div class="display-field">@String.Format("{0:g}", Model.PreviousLogin1)</div>
+
+    <div class="display-label">PreviousLogOut1</div>
+    <div class="display-field">@String.Format("{0:g}", Model.PreviousLogOut1)</div>
+
+    <div class="display-label">PreviousShiftId</div>
+    <div class="display-field">@Model.PreviousShiftId</div>
+
+    <div class="display-label">TStatus</div>
+    <div class="display-field">@Model.TStatus</div>
+
+    <div class="display-label">PostinFlag</div>
+    <div class="display-field">@Model.PostinFlag</div>
+
+    <div class="display-label">Lock</div>
+    <div class="display-field">@Model.Lock</div>
+
+    <div class="display-label">Remark</div>
+    <div class="display-field">@Model.Remark</div>
+
+    <div class="display-label">CompanyId</div>
+    <div class="display-field">@Model.CompanyId</div>
+
+    <div class="display-label">BranchId</div>
+    <div class="display-field">@Model.BranchId</div>
+
+    <div class="display-label">LateCount</div>
+    <div class="display-field">@Model.LateCount</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+    <div>
+
+        
+        <!-- Left side column. contains the logo and sidebar -->
+        
+
+        <!-- Content Wrapper. Contains page content -->
+        <div>
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>Calendar
+       
+                    <small>Control panel</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+                    <li class="active">Calendar</li>
+                </ol>
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    
+                    <!-- /.col -->
+                    <div class="col-md-9">
+                        <div class="box box-primary">
+                            <div class="box-body no-padding">
+                                <!-- THE CALENDAR -->
+                                <div id="calendar"></div>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /. box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        
+
+        <!-- Control Sidebar -->
+        
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery 2.2.3 -->
+
+<script type="text/javascript">
+
+
+</script>
+  
+
+

@@ -1,0 +1,571 @@
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\obj\Debug\WetosMVCMainApp.csprojResolveAssemblyReference.cache
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\obj\Debug\RdlCompile.cache
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\obj\Debug\RdlCompile.compiled
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\WetosMVC.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\WetosMVC.pdb
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\Antlr3.Runtime.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\DotNetOpenAuth.Core.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\EntityFramework.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\Microsoft.Web.Infrastructure.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\Newtonsoft.Json.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\Quartz.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Net.Http.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Net.Http.Formatting.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Net.Http.WebRequest.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Web.Helpers.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Web.Http.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Web.Http.WebHost.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Web.Mvc.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Web.Optimization.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Web.Razor.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\WebGrease.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\WebMatrix.Data.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\WebMatrix.WebData.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\WETOS.Util.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\WetosDB.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\WetosDB.pdb
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\Antlr3.Runtime.pdb
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\Newtonsoft.Json.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\Quartz.pdb
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\Quartz.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Web.Optimization.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\EntityFramework.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Net.Http.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Net.Http.Formatting.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Net.Http.WebRequest.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Web.Helpers.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Web.Http.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Web.Http.WebHost.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Web.Mvc.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\System.Web.Razor.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\WebMatrix.Data.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\WebMatrix.WebData.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\DotNetOpenAuth.Core.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\obj\Debug\WetosMVC.dll
+F:\PROJECT2020\Eviska\14 FEB 2020\WetosMVC\obj\Debug\WetosMVC.pdb
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\WetosMVC.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\WetosMVC.pdb
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\Antlr3.Runtime.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.Core.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\EntityFramework.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\Microsoft.Web.Infrastructure.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\Newtonsoft.Json.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\Quartz.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\System.Net.Http.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\System.Net.Http.WebRequest.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\System.Web.Helpers.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\System.Web.Mvc.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\System.Web.Optimization.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\System.Web.Razor.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\WebGrease.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\WebMatrix.Data.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\WebMatrix.WebData.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\WETOS.Util.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\WetosDB.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\WetosDB.pdb
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\Antlr3.Runtime.pdb
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\Newtonsoft.Json.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\Quartz.pdb
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\Quartz.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\System.Web.Optimization.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\EntityFramework.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\System.Net.Http.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\System.Net.Http.WebRequest.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\System.Web.Helpers.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\System.Web.Mvc.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\System.Web.Razor.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\WebMatrix.Data.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\WebMatrix.WebData.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.Core.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\obj\Debug\WetosMVCMainApp.csprojResolveAssemblyReference.cache
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\obj\Debug\RdlCompile.cache
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\obj\Debug\RdlCompile.compiled
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\obj\Debug\WetosMVC.dll
+D:\Project 2020\#WETOS DZIRE FINAL\21 FEB 2020\WetosMVC\obj\Debug\WetosMVC.pdb
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\obj\Debug\WetosMVCMainApp.csprojResolveAssemblyReference.cache
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\obj\Debug\RdlCompile.cache
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\obj\Debug\RdlCompile.compiled
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\WetosMVC.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\WetosMVC.pdb
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\Antlr3.Runtime.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.Core.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\EntityFramework.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\Microsoft.Web.Infrastructure.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\Newtonsoft.Json.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\Quartz.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Net.Http.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Net.Http.Formatting.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Net.Http.WebRequest.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Web.Helpers.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Web.Http.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Web.Http.WebHost.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Web.Mvc.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Web.Optimization.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Web.Razor.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\WebGrease.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\WebMatrix.Data.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\WebMatrix.WebData.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\WETOS.Util.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\WetosDB.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\WetosDB.pdb
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\Antlr3.Runtime.pdb
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\Newtonsoft.Json.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\Quartz.pdb
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\Quartz.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Web.Optimization.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\EntityFramework.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Net.Http.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Net.Http.Formatting.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Net.Http.WebRequest.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Web.Helpers.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Web.Http.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Web.Http.WebHost.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Web.Mvc.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\System.Web.Razor.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\WebMatrix.Data.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\WebMatrix.WebData.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.Core.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\obj\Debug\WetosMVC.dll
+F:\PROJECT2020\Eviska\21 FEB 2020\WetosMVC\obj\Debug\WetosMVC.pdb
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\obj\Debug\WetosMVCMainApp.csprojResolveAssemblyReference.cache
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\obj\Debug\RdlCompile.cache
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\obj\Debug\RdlCompile.compiled
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\WetosMVC.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\WetosMVC.pdb
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\Antlr3.Runtime.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\DotNetOpenAuth.Core.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\EntityFramework.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\Microsoft.Web.Infrastructure.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\Newtonsoft.Json.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\Quartz.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Net.Http.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Net.Http.Formatting.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Net.Http.WebRequest.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Web.Helpers.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Web.Http.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Web.Http.WebHost.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Web.Mvc.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Web.Optimization.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Web.Razor.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\WebGrease.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\WebMatrix.Data.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\WebMatrix.WebData.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\WETOS.Util.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\WetosDB.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\WetosDB.pdb
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\Antlr3.Runtime.pdb
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\Newtonsoft.Json.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\Quartz.pdb
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\Quartz.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Web.Optimization.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\EntityFramework.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Net.Http.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Net.Http.Formatting.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Net.Http.WebRequest.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Web.Helpers.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Web.Http.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Web.Http.WebHost.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Web.Mvc.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\System.Web.Razor.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\WebMatrix.Data.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\WebMatrix.WebData.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\DotNetOpenAuth.Core.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\obj\Debug\WetosMVC.dll
+F:\PROJECT2020\Eviska\01 MAR 2020\WetosMVC\obj\Debug\WetosMVC.pdb
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\WetosMVC.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\WetosMVC.pdb
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\Antlr3.Runtime.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.Core.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\EntityFramework.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\Microsoft.Web.Infrastructure.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\Newtonsoft.Json.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\Quartz.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Net.Http.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Net.Http.Formatting.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Net.Http.WebRequest.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Web.Helpers.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Web.Http.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Web.Http.WebHost.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Web.Mvc.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Web.Optimization.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Web.Razor.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\WebGrease.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\WebMatrix.Data.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\WebMatrix.WebData.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\WETOS.Util.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\WetosDB.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\WetosDB.pdb
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\Antlr3.Runtime.pdb
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\Newtonsoft.Json.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\Quartz.pdb
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\Quartz.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Web.Optimization.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\EntityFramework.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Net.Http.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Net.Http.Formatting.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Net.Http.WebRequest.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Web.Helpers.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Web.Http.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Web.Http.WebHost.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Web.Mvc.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\System.Web.Razor.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\WebMatrix.Data.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\WebMatrix.WebData.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.Core.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\obj\Debug\WetosMVCMainApp.csprojResolveAssemblyReference.cache
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\obj\Debug\RdlCompile.cache
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\obj\Debug\RdlCompile.compiled
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\obj\Debug\WetosMVC.dll
+F:\PROJECT2020\Eviska\23 april 2020\23 APRIL 2020\WetosMVC\obj\Debug\WetosMVC.pdb
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\WetosMVC.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\WetosMVC.pdb
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\Antlr3.Runtime.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.Core.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\EntityFramework.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\Microsoft.Web.Infrastructure.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\Newtonsoft.Json.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\Quartz.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Net.Http.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Net.Http.Formatting.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Net.Http.WebRequest.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Web.Helpers.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Web.Http.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Web.Http.WebHost.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Web.Mvc.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Web.Optimization.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Web.Razor.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\WebGrease.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\WebMatrix.Data.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\WebMatrix.WebData.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\WETOS.Util.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\WetosDB.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\WetosDB.pdb
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\Antlr3.Runtime.pdb
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\Newtonsoft.Json.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\Quartz.pdb
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\Quartz.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Web.Optimization.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\EntityFramework.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Net.Http.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Net.Http.Formatting.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Net.Http.WebRequest.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Web.Helpers.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Web.Http.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Web.Http.WebHost.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Web.Mvc.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\System.Web.Razor.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\WebMatrix.Data.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\WebMatrix.WebData.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.Core.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\obj\Debug\WetosMVCMainApp.csprojResolveAssemblyReference.cache
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\obj\Debug\RdlCompile.cache
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\obj\Debug\RdlCompile.compiled
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\obj\Debug\WetosMVC.dll
+F:\PROJECT2020\Eviska\25 April 2020\25 APRIL 2020\WetosMVC\obj\Debug\WetosMVC.pdb
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\WetosMVC.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\WetosMVC.pdb
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\Antlr3.Runtime.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\DotNetOpenAuth.Core.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\EntityFramework.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\Microsoft.Web.Infrastructure.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\Newtonsoft.Json.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\Quartz.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Net.Http.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Net.Http.Formatting.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Net.Http.WebRequest.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Web.Helpers.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Web.Http.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Web.Http.WebHost.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Web.Mvc.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Web.Optimization.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Web.Razor.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\WebGrease.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\WebMatrix.Data.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\WebMatrix.WebData.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\WETOS.Util.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\WetosDB.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\WetosDB.pdb
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\Antlr3.Runtime.pdb
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\Newtonsoft.Json.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\Quartz.pdb
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\Quartz.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Web.Optimization.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\EntityFramework.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Net.Http.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Net.Http.Formatting.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Net.Http.WebRequest.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Web.Helpers.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Web.Http.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Web.Http.WebHost.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Web.Mvc.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\System.Web.Razor.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\WebMatrix.Data.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\WebMatrix.WebData.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\DotNetOpenAuth.Core.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\obj\Debug\WetosMVCMainApp.csprojResolveAssemblyReference.cache
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\obj\Debug\RdlCompile.cache
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\obj\Debug\RdlCompile.compiled
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\obj\Debug\WetosMVC.dll
+F:\PROJECT2020\Eviska\04 MAY 2020\WetosMVC\obj\Debug\WetosMVC.pdb
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\WetosMVC.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\WetosMVC.pdb
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\Antlr3.Runtime.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\DotNetOpenAuth.Core.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\EntityFramework.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\Microsoft.Web.Infrastructure.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\Newtonsoft.Json.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\Quartz.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Net.Http.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Net.Http.Formatting.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Net.Http.WebRequest.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Web.Helpers.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Web.Http.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Web.Http.WebHost.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Web.Mvc.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Web.Optimization.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Web.Razor.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\WebGrease.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\WebMatrix.Data.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\WebMatrix.WebData.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\WETOS.Util.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\WetosDB.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\WetosDB.pdb
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\Antlr3.Runtime.pdb
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\Newtonsoft.Json.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\Quartz.pdb
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\Quartz.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Web.Optimization.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\EntityFramework.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Net.Http.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Net.Http.Formatting.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Net.Http.WebRequest.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Web.Helpers.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Web.Http.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Web.Http.WebHost.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Web.Mvc.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\System.Web.Razor.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\WebMatrix.Data.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\WebMatrix.WebData.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\DotNetOpenAuth.Core.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\obj\Debug\WetosMVCMainApp.csprojResolveAssemblyReference.cache
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\obj\Debug\RdlCompile.cache
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\obj\Debug\RdlCompile.compiled
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\obj\Debug\WetosMVC.dll
+F:\PROJECT2020\Eviska\MAY 2020\11 MAY 2020\WetosMVC\obj\Debug\WetosMVC.pdb
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\WetosMVC.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\WetosMVC.pdb
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\Antlr3.Runtime.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.Core.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\EntityFramework.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\Microsoft.Web.Infrastructure.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\Newtonsoft.Json.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\Quartz.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Net.Http.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Net.Http.Formatting.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Net.Http.WebRequest.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Helpers.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Http.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Http.WebHost.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Mvc.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Optimization.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Razor.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\WebGrease.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\WebMatrix.Data.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\WebMatrix.WebData.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\WETOS.Util.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\WetosDB.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\WetosDB.pdb
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\Antlr3.Runtime.pdb
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\Newtonsoft.Json.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\Quartz.pdb
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\Quartz.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Optimization.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\EntityFramework.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Net.Http.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Net.Http.Formatting.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Net.Http.WebRequest.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Helpers.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Http.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Http.WebHost.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Mvc.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Razor.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\WebMatrix.Data.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\WebMatrix.WebData.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.Core.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\obj\Debug\WetosMVCMainApp.csprojResolveAssemblyReference.cache
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\obj\Debug\RdlCompile.cache
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\obj\Debug\RdlCompile.compiled
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\obj\Debug\WetosMVC.dll
+F:\PROJECT2020\Eviska\JULY 2020\20 JULY 2020\WetosMVC\obj\Debug\WetosMVC.pdb
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\WetosMVC.dll.config
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\WetosMVC.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\WetosMVC.pdb
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Antlr3.Runtime.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.Core.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\EntityFramework.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Microsoft.ReportViewer.Common.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Microsoft.ReportViewer.WebForms.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Microsoft.ReportViewer.WinForms.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Microsoft.Web.Infrastructure.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Newtonsoft.Json.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Quartz.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Net.Http.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Net.Http.Formatting.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Net.Http.WebRequest.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Helpers.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Http.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Http.WebHost.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Mvc.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Optimization.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Razor.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\WebGrease.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\WebMatrix.Data.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\WebMatrix.WebData.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\WETOS.Util.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\WetosDB.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\WetosDB.pdb
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\WetosDB.dll.config
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Antlr3.Runtime.pdb
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Newtonsoft.Json.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Quartz.pdb
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Quartz.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Optimization.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\EntityFramework.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Net.Http.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Net.Http.Formatting.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Net.Http.WebRequest.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Helpers.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Http.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Http.WebHost.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Mvc.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\System.Web.Razor.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\WebMatrix.Data.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\WebMatrix.WebData.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.AspNet.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.Core.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OAuth.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\obj\Debug\WetosMVCMainApp.csprojAssemblyReference.cache
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\obj\Debug\WetosMVCMainApp.csproj.CoreCompileInputs.cache
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\obj\Debug\WetosMVCMainApp.csproj.CopyComplete
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\obj\Debug\WetosMVC.dll
+D:\RatnakarKulkarni\to Bhaskar Kulkarni\Code\23 JULY 2020\20 JULY 2020\WetosMVC\obj\Debug\WetosMVC.pdb

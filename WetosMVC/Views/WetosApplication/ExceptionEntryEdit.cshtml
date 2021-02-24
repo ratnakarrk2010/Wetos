@@ -1,0 +1,420 @@
+﻿@model WetosMVCMainApp.Models.ExceptionEntryModel
+@{
+    ViewBag.Title = "Attendance Regularization Edit";
+}
+
+@{var active = ViewBag.active;}
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/InputMask")
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+      <h1>
+        Attendance Regularization
+        <small>Edit</small>
+      </h1>
+         <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Applications</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                           <a href="@Url.Action("ExceptionEntryListView", "WetosApplication")">Attendance Regularization</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back " data-toggle="tooltip"  title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>
+<br />
+ </section>
+        <section class="content">
+      
+          <div class="box">
+            
+           
+            <!-- /.box-header -->
+            <div class="box-body">
+                 <div class="box-header">
+
+@using (Html.BeginForm())
+{
+    
+    @Html.HiddenFor(model => model.EmployeeId)      
+    @Html.HiddenFor(model => model.DailyTrnId)
+        
+      
+    @Html.HiddenFor(model => model.BranchId)
+    @Html.HiddenFor(model => model.CompanyId)
+    @Html.HiddenFor(model => model.Early)
+    @Html.HiddenFor(model => model.EmployeeId)
+    @Html.HiddenFor(model => model.ExtraHrs)
+    @Html.HiddenFor(model => model.Late)
+    @Html.HiddenFor(model => model.TranDate)
+    
+    @Html.HiddenFor(model => model.PreviousShiftId)
+        @Html.HiddenFor(model => model.WorkingHrs)
+        @Html.HiddenFor(model => model.Status)
+         
+        @Html.HiddenFor(model => model.MySelf)
+
+    @Html.HiddenFor(model => model.PreviousLoginTime)
+            @Html.HiddenFor(model => model.PreviousLogOutTime)
+
+    @Html.ValidationSummary(true)
+     <input type="text" id="active" value="@active" style="display:none"/>
+    <fieldset>
+
+    <div class="row">
+         <div class = "col-md-6">
+          <div class = "col-md-4" style="color:#4476a2">
+         <label> Employee Name</label>
+        </div>
+           <div class="col-md-8" style="color:Green">
+      <label>  @ViewBag.EmployeeCode - @ViewBag.EmployeeName</label>
+           
+        </div>
+       </div>
+ 
+        <div class="col-md-6">
+        <div class="col-md-6">
+        <div class = "col-md-6"  style="color:#4476a2">
+         <label> Entry Date</label>
+        </div>
+        <div class="col-md-6" style="color:Green">
+        
+         @{var Exception = Model.ExceptionDate == null ? "" : Model.ExceptionDate.ToString("dd-MMM-yyyy");}
+             <label>@Exception</label>
+          
+        </div>
+       </div>
+       <div class="col-md-6">
+        <div class = "col-md-4"  style="color:#4476a2">
+         <label>  Status</label>
+        </div>
+        <div class="col-md-8"  style="color:Green">
+       @* @{ var LoginTime = Model.Login.ToShortTimeString();}*@
+           @* @Html.TextBoxFor(model => LoginTime, new { name = "LoginTime", style = "width:250px" })*@
+            @* Updated by Rajas on 2 MARCH 2017 START*@
+          <label>  @Model.DailyTranStatus</label>
+              @* Updated by Rajas on 2 MARCH 2017 END*@
+        </div>
+      </div>
+        </div>
+         </div>
+      <hr />
+       
+        <div class = "row">
+      <div class = "col-md-6 col-xs-12 col-sm-12 col-lg-6">
+      <div class = "row">
+         <div class = "col-md-4">
+            Original Shift <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="col-md-8">
+           @* @Html.EditorFor(model => model.ShiftId)*@
+            @* TAKEN PreviousShiftId INSTEAD OF ShiftId by SHRADDHA ON 15 JAN 2018*@
+            @Html.DropDownListFor(a => a.PreviousShiftId, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { style = "width:250px;", @class = "form-control select2", disabled = "disabled" })
+            @*@Html.ValidationMessageFor(model => model.ShiftId)*@
+        </div>
+        </div>
+        <br/>
+         @* Updated by Rajas on 18 JUNE 2017 START*@
+        <div class="row">
+         <div class = "col-md-4">
+            Original Login Time
+        </div>
+        <div class="col-md-8">
+      <input type="text" name="Login" id="" readonly="readonly" disabled="disabled" value="@Model.PreviousLoginTime.Value.ToString("HH:mm:ss")" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+        </div>
+        </div>
+        <br />
+        @* Updated by Rajas on 18 JUNE 2017 END*@
+         @* Updated by Rajas on 18 JUNE 2017 START*@
+              <div class = "row">
+          <div class="col-md-4">
+           Original LogOut Time
+        </div>
+        <div class="col-md-8">
+        <input type="text" name="LogOut" id="" readonly="readonly" disabled="disabled" value="@Model.PreviousLogOutTime.Value.ToString("HH:mm:ss")" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+        </div>
+        </div>
+        <br />
+        @* Updated by Rajas on 18 JUNE 2017 END*@
+        <div class="row">
+          <div class="col-md-4">
+            Reason <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="col-md-8">
+         @Html.DropDownList("Reason", (IEnumerable<SelectListItem>)@ViewBag.ExceptionReasonList, new { @class = "form-control select2" })
+              @*@Html.DropDownList("Reason", new List<SelectListItem>() { new SelectListItem { Text = "Forgot To Punch", Value = "Forgot To Punch" }, new SelectListItem { Text = "Card Not Issued", Value = "Card Not Issued" }, new SelectListItem { Text = "Card Not brought", Value = "Card Not brought" }, new SelectListItem { Text = "Machine was Not Working", Value = "Machine was Not Working" }, new SelectListItem { Text = "Card not working", Value = "Card not working" }, new SelectListItem { Text = "Extended Shift", Value = "Extended Shift" }, new SelectListItem { Text = "Out Door Duty", Value = "Out Door Duty" }, new SelectListItem { Text = "Card lost", Value = "Card lost" }, new SelectListItem { Text = "Special Approval", Value = "Special Approval" } }, "Select", new { style = "width:250px;", @class = "form-control select2" })*@
+           </div>
+        </div>
+        <br />
+         @*Commented By Anagha on 11 June 2018
+            As Not Needed For Tekman*@
+        @*<div class="row">
+          <div class="col-md-4">
+             Effective Date
+        </div>
+        <div class="col-md-6">
+         <input type="text" name="EffectiveDate" id="EffectiveDate" class="form-control datepicker"/>*@
+              @*@Html.DropDownList("Reason", new List<SelectListItem>() { new SelectListItem { Text = "Forgot To Punch", Value = "Forgot To Punch" }, new SelectListItem { Text = "Card Not Issued", Value = "Card Not Issued" }, new SelectListItem { Text = "Card Not brought", Value = "Card Not brought" }, new SelectListItem { Text = "Machine was Not Working", Value = "Machine was Not Working" }, new SelectListItem { Text = "Card not working", Value = "Card not working" }, new SelectListItem { Text = "Extended Shift", Value = "Extended Shift" }, new SelectListItem { Text = "Out Door Duty", Value = "Out Door Duty" }, new SelectListItem { Text = "Card lost", Value = "Card lost" }, new SelectListItem { Text = "Special Approval", Value = "Special Approval" } }, "Select", new { style = "width:250px;", @class = "form-control select2" })*@
+          @* </div>
+        </div>
+        <br />*@
+      </div>
+       <div class = "col-md-6 col-xs-12 col-sm-12 col-lg-6">
+       <div class = "row">
+         <div class = "col-md-4">
+           New Shift <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="col-md-8">
+           @* @Html.EditorFor(model => model.ShiftId)*@
+            @Html.DropDownListFor(a => a.ShiftId, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { style = "width:250px;", @class = "form-control select2" })
+            @*@Html.ValidationMessageFor(model => model.ShiftId)*@
+        </div>
+        </div>
+        <br/>
+        <div class = "row">
+          <div class="col-md-4" style="padding-right:0px !important">
+            Is In time in next day? <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="col-md-8">
+        <input type="checkbox" id="IsInPunchInNextDay" value = "@Model.IsInPunchInNextDay" name= "IsInPunchInNextDay"/>
+        </div>
+        </div>
+         <div class="row">
+         <div class = "col-md-4">
+            Login Time <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="col-md-8">
+      <input type="text" name="LoginTime" id="LoginTime" value="@Model.LoginTime.ToString("HH:mm")" data-inputmask="'mask': ['', '99:99']" data-mask/>
+        </div>
+        </div>
+        
+        <br />
+        <div class = "row">
+          <div class="col-md-4" style="padding-right:0px !important">
+            Is Out time on next day? <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="col-md-8">
+        <input type="checkbox" id="IsOutPunchInNextDay" value = "@Model.IsOutPunchInNextDay" name= "IsOutPunchInNextDay"/>
+        </div>
+        </div>
+        <div class = "row">
+          <div class="col-md-4">
+            LogOut Time <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="col-md-8">
+        <input type="text" name="LogOutTime" id="LogOutTime" value="@Model.LogOutTime.ToString("HH:mm")" data-inputmask="'mask': ['', '99:99']" data-mask/>
+        </div>
+        </div>
+        
+        
+        <br/>
+        <div  class = "row" id="RemarkBox" style="display:none">
+        <div class="col-md-4">
+            Remark <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="col-md-8">
+                  @Html.TextAreaFor(model => model.Remark)
+           
+        </div>
+       </div>
+       <br />
+      </div>
+      </div>
+
+
+           <div class="row">
+        
+        <div class="col-md-2">
+        <div class="editor-label">
+           Purpose Description 
+        </div>
+        </div>
+        <div class="col-md-6">
+        <div class="editor-field">
+      
+       <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-list-ul"></i>
+  	</div> 
+         @Html.TextAreaFor(a => a.Description, new { @class = "form-control" , style = "width:250px;"})
+            
+        </div></div></div>
+
+        </div>
+
+
+
+        <p>
+            <input type="submit"  onclick="showloading();" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+
+
+</div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+           </div>
+          <!-- /.box -->
+      
+      <!-- /.row -->
+    </section>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+
+        //Date picker
+        $('.datepicker').datepicker({
+            format: "dd-M-yyyy",
+            autoclose: true
+        });
+
+
+
+        $("#Reason").change(function () {
+            var reasonvalue = $("#Reason").val();
+            if (reasonvalue == 9) {
+                $("#RemarkBox").css("display", "inline");
+            }
+            else {
+                $("#RemarkBox").css("display", "none");
+            }
+        });
+
+//        //iCheck for checkbox and radio inputs
+//        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+//            checkboxClass: 'icheckbox_minimal-blue',
+//            radioClass: 'iradio_minimal-blue'
+//        });
+//        //Red color scheme for iCheck
+//        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+//            checkboxClass: 'icheckbox_minimal-red',
+//            radioClass: 'iradio_minimal-red'
+//        });
+//        //Flat red color scheme for iCheck
+//        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+//            checkboxClass: 'icheckbox_flat-green',
+//            radioClass: 'iradio_flat-green'
+//        });
+
+        //Colorpicker
+        $(".my-colorpicker1").colorpicker();
+        //color picker with addon
+        $(".my-colorpicker2").colorpicker();
+
+        //Timepicker
+        $(".timepicker").timepicker({
+            showInputs: false
+        });
+    });
+
+
+</script>
+<script type="text/javascript">
+
+    $("[data-mask]").inputmask();
+
+</script>
+@* Added by Rajas on 2 MARCH 2017 for Data masking, END *@
+<script type="text/jscript">
+    $('.back').click(function () {
+        //alert("2");
+        parent.history.back();
+        return false;
+    });
+</script>
+<script type="text/jscript">
+    // Added by Rajas on 29 JULY 2017 START
+    // Handle garbage value in input textbox
+    $("#Login").inputmask("h:s");
+    $("#LogOut").inputmask("h:s");
+    // Added by Rajas on 29 JULY 2017 END
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ @*CODE ADDED BY SHRADDHA ON 15 JAN 2018 START*@
+<script type="text/javascript">
+    $("#ShiftId").change(function () {
+        var ShiftId = $("#ShiftId").val();
+        var CompanyId = $("#CompanyId").val();
+        var BranchId = $("#BranchId").val();
+        //alert(ShiftId);
+        $.ajax({
+            url: '@Url.Content("~/WetosApplication/GetLoginLogoutTimeForSelectedShift")',
+            type: "POST",
+            dataType: "json",
+            data: { ShiftCode: ShiftId, CompanyId: CompanyId, BranchId: BranchId }, // CODE IsOutPunchInNextDay ADDED BY SHRADDHA ON 15 JAN 2018
+            success: function (data) {
+                //alert(data);
+                $("#WorkHours").val(data);
+
+                $("#LoginTime").val(data[0]);
+                $("#LogOutTime").val(data[1]);
+            },
+            error: function (data) {
+                $("#LoginTime").val("00:00");
+                $("#LogOutTime").val("00:00");
+            }
+        });
+    });
+
+    //CODE ADDED BY SHRADDHA ON 15 JAN 2018 FOR IsOutPunchInNextDay START
+    $("#IsOutPunchInNextDay").on('change', function () {
+        //alert("In fucntion");
+        if ($(this).is(':checked')) {
+            $(this).attr('value', 'true');
+        } else {
+            $(this).attr('value', 'false');
+        }
+
+    });
+    //CODE ADDED BY SHRADDHA ON 15 JAN 2018 FOR IsOutPunchInNextDay END
+
+    //CODE ADDED BY SHRADDHA ON 15 JAN 2018 FOR IsInPunchInNextDay START
+    $("#IsInPunchInNextDay").on('change', function () {
+        if ($(this).is(':checked')) {
+            $(this).attr('value', 'true');
+            $("#IsOutPunchInNextDay").prop('value', 'true');
+            $("#IsOutPunchInNextDay").attr('disabled', true);
+            $("#IsOutPunchInNextDay").prop("checked", "checked");
+        } else {
+            $(this).attr('value', 'false');
+            $("#IsOutPunchInNextDay").attr('disabled', false);
+
+        }
+
+    });
+    //CODE ADDED BY SHRADDHA ON 15 JAN 2018 FOR IsInPunchInNextDay END
+</script>
+@*CODE ADDED BY SHRADDHA ON 15 JAN 2018 END*@

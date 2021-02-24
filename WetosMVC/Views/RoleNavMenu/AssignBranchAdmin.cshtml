@@ -1,0 +1,212 @@
+﻿@model WetosMVCMainApp.Models.AssignHRManagerModel
+@*title added by atul on 28 june 2017----start*@
+@{
+    ViewBag.Title = "Assign Branch Admin";
+}
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+    
+          <h1>Assign and Remove Branch Admin
+        </h1>
+      @if (@ViewBag.Message != string.Empty)
+      { 
+          <h6 style="color:Green">@ViewBag.Message
+          </h6>
+      }
+    <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Administration</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "WetosHoliday")">Assign HR Manager </a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>  
+    <div style="clear: both;"></div>
+
+    
+
+</section>
+        <section class="content">
+       @using (Html.BeginForm())
+       {
+           @Html.ValidationSummary()
+           Html.HiddenFor(model => model.RoleId);
+                <div class="box-body">
+                 
+                 <div class="row">
+                 <div class="col-md-4">
+               <div class="form-group">
+               Select Employee<span style="color:Red;font-size:18px" >*</span>
+                          <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-university"></i>
+                  </div>
+              @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", id = "selectemployee" })
+        </div>
+        
+        </div>
+        </div>
+
+        <div class="col-md-4">
+               <div class="form-group">
+               Role<span style="color:Red;font-size:18px" >*</span>
+                          <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-university"></i>
+                  </div>
+              @Html.DropDownListFor(a => a.RoleId, (IEnumerable<SelectListItem>)@ViewBag.RoleDef, new { @class = "form-control select2", id = "RoleId", @disabled = "disabled" })
+        </div>
+        
+        </div>
+        </div>
+        </div>
+             
+                       <div class="row">
+                 <div class="col-md-4">
+               <div class="form-group">
+               Select Company<span style="color:Red;font-size:18px" >*</span>
+                          <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-university"></i>
+                  </div>
+              @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.Company, "Select", new { @class = "form-control select2 multiselect", @multiple = "multiple", id = "CompanyddlList" , style="color:black;"})
+        </div>
+        
+        </div>
+        </div>
+
+        <div class="col-md-4">
+               <div class="form-group">
+               Select Branch<span style="color:Red;font-size:18px" >*</span>
+                          <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-university"></i>
+                  </div>
+              @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.Branch, "Select", new { @class = "form-control select2 multiselect", @multiple = "multiple", id = "BranchddlList" })
+        </div>
+        
+        </div>
+        </div>
+        </div>
+                       <div class="col-md-4 col-md-offset-4">
+                       <input type="submit" value="Submit" />
+                       </div> 
+                </div>
+                <!-- /.box -->
+       }
+<!-- /.box -->
+<!-- /.row -->
+ </section>
+
+ <div id="BranchAdminView">
+    
+    @{Html.RenderPartial("BranchAdminPartialList", Model);}
+    
+    </div>
+    </div>
+</div>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+
+        $.ajax({
+            url: '@Url.Content("~/WetosLeave/GetCompany")',
+            type: "POST",
+            dataType: "json",
+            data: {},
+            success: function (data) {
+                if (data.length == 1) {
+                    //alert(data);
+                    //alert("1");
+                    //alert(data[0].Companyid);
+                    $("#CompanyddlList").val(data[0].Companyid);
+                    $("#CompanyddlList").trigger('change')
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+    $(function () {
+        //Initialize Select2 Elements
+        $(".multiselect").select2();
+        $(".select2").select2(); $(".select2").select2();
+    });
+
+    $("#CompanyddlList").change(function () {
+
+        // alert("GET Branch");
+
+        isDirty = false;
+        var abc = $("#CompanyddlList").val().toString();
+
+        $.ajax({
+            url: '@Url.Content("~/RoleNavMenu/GetBranch")',
+            type: "POST",
+            dataType: "json",
+            data: { Companyid: abc },
+            success: function (data) {
+                $("#BranchddlList").empty();
+
+                $("#BranchddlList").append("<option value=" + "0" + ">" + "Select" + "</option>");
+                for (var i = 0; i < data.length; i++) {
+                    $("#BranchddlList").append("<option value=" + "" + data[i].BranchId + "" + ">" + data[i].BranchName + "</option>");
+                }
+            },
+            error: function (data) {
+                //                alert("ERROR");
+                //                alert(data);
+
+                for (var i = 0; i < data.length; i++) {
+
+                    // alert(states[i].Group_name);
+                    // states.option.selected = true;
+                    $("#BranchddlList").append("<option value=" + "" + data[i].BranchId + "" + ">" + data[i].BranchName + "</option>");
+                    //$("#DepartmentddlList").append("<option value=" + "" + data[i].DepartmentId + "" + ">" + data[i].DepartmentName + "</option>");
+                    SelectEmployeeList();
+                }
+            }
+        });
+
+    });
+
+    
+
+
+</script>
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}

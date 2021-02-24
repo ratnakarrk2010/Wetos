@@ -1,0 +1,536 @@
+﻿@model WetosMVCMainApp.Models.LeaveModel
+@{
+    ViewBag.Title = "Leave Application Edit";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+            <h1> Leave Application<small>Edit </small></h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <i class="fa fa-home"></i>
+                                <a href="@Url.Action("Index", "Home")">Home </a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                             <a href="#">Applications</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="#"> Leave Application</a>
+                            </li>
+                            <li class="pull-right">
+                                <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                    <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                    <i class="fa fa-calendar"></i>
+                                    <span>@DateTime.Now.ToLongDateString()</span>                           
+                                </div>
+                            </li>              
+                        </ul>
+                    </div>
+                </div> 
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box box-primary">
+           
+            <!-- /.box-header -->
+          
+            @using (Html.BeginForm("LeaveApplicationEdit", "WetosApplication", FormMethod.Post, new { id = "LeaveApplicationForm" }))
+            {
+    <div style="color:Red;font-size:12px">
+        @Html.Raw(Server.HtmlDecode(Html.ValidationSummary(false).ToString()))  
+        @Html.HiddenFor(model => model.ActualDays)
+        @Html.HiddenFor(model => model.LeaveApplicationId)
+        @Html.HiddenFor(model => model.MarkedAsDelete)
+        @Html.Hidden("SandwitchCase", (string)@ViewBag.SandwitchCaseMsg, new { id = "SandwitchCase" })
+
+        @Html.HiddenFor(model => model.LeaveName) 
+        @Html.HiddenFor(model => model.EmployeeId) 
+         @Html.HiddenFor(model => model.CompanyId) 
+          @Html.HiddenFor(model => model.Branchid) 
+        
+        @*ADDED BY MSJ 22 JULY 2017 *@
+        <input type="hidden" name="IsPreSandwichCase" value="@Html.AttributeEncode(Model.IsPreSandwichCase)" id="IsPreSandwichCase" />
+        <input type="hidden" name="IsPostSandwichCase" value="@Html.AttributeEncode(Model.IsPostSandwichCase)" id="IsPostSandwichCase" />
+        <input type="hidden" name="IsLWP" value="@Html.AttributeEncode(Model.IsLWP)" id="IsLWP" />
+    </div>      
+    <fieldset>
+        <div class="box-body">
+            <div class="col-md-6">
+              @*  @if (@Model == null || @Model.MySelf == false)
+                {
+                    <div class="row">
+
+                        <div class="col-md-4">
+
+                            <div id="EmployeeName" class="form-group">
+                                Employee Name <span style="color: Red; font-size: 18px">*</span>
+
+                                @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeCodeAndNameList, "Select", new { @class = "form-control select2", id = "EmployeeId", style = "width:500px" })
+
+                            </div>
+                        </div>
+                    </div>
+             
+                }
+                else
+                {
+                    @Html.HiddenFor(model => model.EmployeeId) 
+                }*@
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            From Date <span style="color: Red; font-weight: 700">*</span>
+                            @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />
+
+
+                                                       
+                            </div>
+                                                
+                            <!-- /.input group -->
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                                                 
+                            From Day Status <span class="fa fa-question-circle" data-toggle="tooltip" style="cursor: pointer" title="Select respective applicable choice for from day leave, First half or second half for Half day and Full day"></span>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                            @Html.DropDownListFor(a => a.FromDayStatus, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusListFromDate" })
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            To Date  <span style="color: Red; font-weight: 700">*</span>
+                            @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ToDate" id="ToDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ToDate)" />
+
+                                                      
+                            </div>
+                                                   
+                        </div>
+                        <!-- /.input group -->
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+                            To Day Status <span class="fa fa-question-circle" data-toggle="tooltip" style="cursor: pointer" title="Select respective applicable choice for to day leave, First half or second half for Half day and Full day"></span>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                            @Html.DropDownListFor(a => a.ToDayStatus, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusListToDate" })
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            Leave Type <span style="color: Red; font-weight: 700">*</span>
+                            @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                                         
+                                        <i class="fa fa-clock-o"></i>
+                                </div>
+                            @Html.DropDownListFor(a => a.LeaveId, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeList, "Select", new { @class = "form-control select2", id = "LeaveTypeList" })
+                                                   
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            Leave Purpose   <span style="color: Red; font-weight: 700">*</span>
+                                                   
+                                                   
+                            @Html.TextAreaFor(model => model.Purpose, 1, 300, new { @class = "form-control pull-right" })
+                                                    
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="box-footer">
+                                            <p>
+                                                @*Added BY MSJ ON 25 july 2017 START*@
+                                                @*<input type="submit"  onclick="showloading();" id="create" value="Save" class="btn btn-primary" />*@
+                                                 <input type="button" id="create" value="Apply" onclick="CheckInitialValidationBeforeSubmit()" class="btn btn-primary" />
+                                            </p>
+                                        </div>
+            </div>
+            <div class="col-md-6">
+                <div id="LeaveData">
+                    @Html.Partial("LeaveDataView")
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div id="LeaveDataViewForLeaveBalance">
+                @Html.Partial("LeaveDataViewForLeaveBalance")
+            </div>
+        </div>
+    </fieldset>
+            }   
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="ErrorDiv" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body" id="ErrorBody">
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="SubmitBtn"
+                    style="display: none">
+                    Submit</button>
+                <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                    Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="SandwitchCasediv" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Sandwich case detected in leave application, your @Model.DayDeduct days will be
+                deducted. Do you still want to apply the leave?
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" onclick="showloading();" class="col-md-2  btn btn-primary"
+                    id="OkBtn">
+                    Yes</button>
+                <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                    Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery 2.2.3 -->
+<!-- Page script -->
+<script src="@Url.Content("~/Scripts/daterangepicker.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")" type="text/javascript"></script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#EmployeeCode").css('display', 'none');
+        //        $("#EmployeeName").css('display', 'none');
+
+        $("#Errormsg1").val("");
+
+    });
+
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+
+        //Date picker
+        $('.datepicker').datepicker({
+
+            format: "dd-M-yyyy",
+
+            autoclose: true
+        });
+
+    });
+
+</script>
+<script type="text/javascript">
+
+    $("input[name='group1']").on('change', function () {
+        if ($(this).val() == 'Self') {
+            $("#EmployeeCode").css('display', 'none');
+            $("#EmployeeName").css('display', 'none');
+        }
+
+        else if ($(this).val() == 'Other') {
+            //            $(".select2").css('visibility', 'visible');
+            $("#EmployeeCode").css('display', 'inline');
+            $("#EmployeeName").css('display', 'inline');
+        }
+
+    });
+
+    // Added by Rajas on 15 JULY 2017 START
+    // Trigger ToDate from FromDate
+    $("#FromDate").change(function () {
+        var fromdate = $("#FromDate").val();
+        // alert(fromdate);
+        $("#ToDate").val(fromdate).trigger('change');
+
+    });
+
+    // Trigger ToDateStatus from FromDateStaus
+    $("#LeaveStatusListFromDate").change(function () {
+        var status = $("#LeaveStatusListFromDate").val();
+        // alert(fromdate);
+        $("#LeaveStatusListToDate").val(status).trigger('change');
+
+    });
+    // Added by Rajas on 15 JULY 2017 END
+
+    // $('select[name="EmployeeCode1"]').on('change', function() {
+    $("#EmployeeCode1").change(function () {
+        var EmployeeId = $("#EmployeeCode1").val();
+
+        //alert(EmployeeId);
+
+        $.ajax({
+            url: '@Url.Content("~/WetosApplication/AjaxPopulateDropdown")',
+            type: "POST",
+
+            data: { EmployeeId: EmployeeId },  // + extractLast(request.term)
+            success: function (data) {
+                //alert("Selected Text: " + data.EmployeeName + " Value: " + data.EmployeeId);
+
+                $("#EmployeeName1").val(data.EmployeeId).trigger('change');
+
+            }
+        });
+
+    });
+
+    $("#EmployeeName1").change(function () {
+        // alert($("#Group_code").val());
+        isDirty = false;
+        var employeeid = +$("#EmployeeName1").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosApplication/GetLeaveFromEmployee")',
+            type: "POST",
+            dataType: "json",
+            data: { Employeeid: employeeid },
+            success: function (data) {
+
+                $("#LeaveTypeList").empty();
+
+                $("#LeaveTypeList").append("<option value=" + "0" + ">" + "Select" + "</option>");
+
+                for (var i = 0; i < data.length; i++) {
+
+                    //alert(states[i].Group_name);
+                    // states.option.selected = true;
+
+                    $("#LeaveTypeList").append("<option value=" + "" + data[i].LeaveTypeID + "" + ">" + data[i].LeaveType + "</option>");
+
+                    //
+                    getLeaveDataList();
+                }
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+    function getLeaveDataList() {
+        //        alert("in function");
+        var EmpId = $("#EmployeeName1").val();
+        //        alert("before redirect");
+        //        alert(EmpId);
+        $.ajax({
+            url: '@Url.Content("~/WetosApplication/LeaveDataView")',
+            type: "POST",
+            data: { EmpId: EmpId },
+            success: function (data) {
+
+                //alert("Success");
+
+                // CLEAR html
+                $("#DisplaySalary").html("");
+
+                // update new html FROM data in pv
+                $("#LeaveData").html(data);
+                $.ajax({
+                    url: '@Url.Content("~/WetosApplication/LeaveDataViewForLeaveBalance")',
+                    type: "POST",
+                    data: { EmpId: EmpId },
+                    success: function (data) {
+
+                        //alert("Success");
+
+                        // CLEAR html
+                        $("#DisplaySalary").html("");
+
+                        // update new html FROM data in pv
+                        $("#LeaveDataViewForLeaveBalance").html(data);
+
+                    }
+                });
+            }
+        });
+    }
+
+</script>
+<script type="text/jscript">
+
+    $(document).ready(function () {
+        var SandwitchCase = $("#SandwitchCase").val();
+        var DaysDeduct = $("#DayDeduct").val();
+        $("#DayDeduct").css('display', 'none');
+        //alert(DaysDeduct);
+
+        if (SandwitchCase == "true") {
+            $('#SandwitchCasediv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#OkBtn', function () {
+
+                    $("#LeaveApplicationForm").submit();
+
+                });
+
+        }
+
+        if (DaysDeduct > 0.0) {
+            $('#DaysDeductdiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#YesBtn', function () {
+
+                    $("#LeaveApplicationForm").submit();
+
+                });
+        }
+
+    });
+
+
+    //    ADDED BY SHRADDHA ON 21 JULY 2017
+    function CheckInitialValidationBeforeSubmit() {
+        showloading();
+        var FromDate = $("#FromDate").val();
+        //alert(FromDate);
+        var ToDate = $("#ToDate").val();
+        //alert(ToDate);
+        var FromDayStatus = $("#LeaveStatusListFromDate").val();
+        //alert(FromDayStatus);
+        var ToDayStatus = $("#LeaveStatusListToDate").val();
+        //alert(ToDayStatus);
+        var LeaveId = $("#LeaveTypeList").val();
+        //alert(LeaveId);
+        var EmployeeId = $("#EmployeeId").val();
+        //alert(EmployeeId);
+        var LeaveApplicationId = $("#LeaveApplicationId").val();
+        //alert(EmployeeId);
+
+        // check leave id
+        if (LeaveId == null || LeaveId == "") {
+            alert("Please Select Proper leave type");
+            return false;
+        }
+
+        if (ToDayStatus == null || ToDayStatus == "") {
+            alert("Please Select Proper To day status");
+            return false;
+        }
+
+        if (FromDayStatus == null || FromDayStatus == "") {
+            alert("Please Select Proper From day status");
+            return false;
+        }
+
+        if (FromDate == null || FromDate == "") {
+            alert("Please enter From date");
+            return false;
+        }
+
+        if (ToDate == null || ToDate == "") {
+            alert("Please enter To date");
+            return false;
+        }
+
+        // check is valid condition for leave edit
+        $.ajax({
+            url: '@Url.Content("~/WetosApplication/CheckInitialValidationBeforeSubmit")',
+            dataType: "json",
+            data: { FromDate: FromDate, ToDate: ToDate, FromDayStatus: FromDayStatus, ToDayStatus: ToDayStatus, LeaveId: LeaveId, EmployeeId: EmployeeId, LeaveApplicationId: LeaveApplicationId },
+            success: function (data) {
+                if (data.RetStat == true) {
+
+                    $("#LeaveApplicationForm").submit();
+                    hideloading();
+                }
+                else {
+                    if (data.IsFormSubmittable == true && data.RetStat == false) {
+                        $('#ErrorDiv').modal({ backdrop: data.ErrorMessage, keyboard: false })
+                        {
+                            hideloading();
+                            $('#ErrorBody').html(data.ErrorMessage);
+                            $('#SubmitBtn').css("display", "inline");
+                        }
+
+                        $('#ErrorDiv').modal({ backdrop: data.ErrorMessage, keyboard: false })
+                                .one('click', '#SubmitBtn', function () {
+                                    $("#LeaveApplicationForm").submit();
+                                    hideloading();
+                                });
+                    }
+                    else {
+                        $('#ErrorDiv').modal({ backdrop: data.ErrorMessage, keyboard: false })
+                        {
+                            hideloading();
+                            $('#ErrorBody').html(data.ErrorMessage);
+                        }
+                    }
+                }
+            },
+            error: function (data) {
+                alert("Error");
+                hideloading();
+            }
+        });
+    }
+     
+</script>

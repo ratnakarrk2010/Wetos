@@ -1,0 +1,75 @@
+﻿@model WetosMVCMainApp.Models.FinancialYear
+
+<html>
+
+<body class="skin-blue sidebar-mini">
+    <div class="wrapper">
+        <div class="content-wrapper" style="margin-left: 0px !important">
+            <header class="main-header">
+         
+    <!-- Logo -->
+   <a  href="@Url.Action("DailyTransactionIndex", "ManagerDashBoard")" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>H</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b></b></span>
+        
+     
+    </a>
+    <nav class="navbar navbar-static-top">
+        <span class="pull-right" style="color:white">Welcome @ViewData["user"]</span>
+    </nav>
+  </header>
+            @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
+            @using (Html.BeginForm())
+            {
+                <div class="login-box" style="width:400px !important;margin-top:50px">
+                    <div class="form-signin">
+                        <center>
+                            <div>
+                                <a href="#" style="font-size: 20px;color:black">Select Financial Year</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                            </div>
+                            <br />
+                            <div>
+                                 @Html.DropDownListFor(a => a.financialyear, new List<SelectListItem>() { new SelectListItem { Text = "2016-17", Value = "1" }, new SelectListItem { Text = "2015-16", Value = "2" }, new SelectListItem { Text = "2014-15", Value = "3" } }, new { style = "width:60%; height:5%" })
+                            @Html.ValidationMessageFor(model => model.financialyear)
+                            </div>
+                        </center>
+                        <form class="form-control">
+                        @*<div class="editor-label">
+                @Html.LabelFor(m => m.UserName)
+            </div>*@
+                        
+                        @*<div class="editor-label">
+                @Html.LabelFor(m => m.Password)
+            </div>*@<br />
+                        @*<div class="editor-field">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter Password" })
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>*@ @*<div class="editor-label">
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe)
+            </div>*@
+                        <div style="text-align: center">
+                            <input type="submit" value="Ok" class="btn btn-primary " style="width: 20%" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="submit" value="Cancel" class="btn  btn-primary " style="width: 20%" />
+                        </div>
+                        </form>
+                        @*<p>
+                Please enter your username and password. @Html.ActionLink("Register", "Register")
+                if you don't have an account.
+            </p>*@
+                    </div>
+                </div>
+    
+    
+            }
+        </div>
+    </div>
+</body>
+</html>
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+  
+}

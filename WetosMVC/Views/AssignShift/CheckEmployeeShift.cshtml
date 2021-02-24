@@ -1,0 +1,53 @@
+﻿
+<div class="modal-body">
+    Shift already assigned to this group , you want to reassign shift?
+</div>
+<div class="modal-footer">
+    <button id="btnclose" type="button" class="btn default" data-dismiss="modal">No</button>
+    <input type="submit" class="btn blue" value="Yes" onclick="valid()" />
+</div>
+
+@*<div class="modal fade" id="basic"  tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Warning !!!</h4>
+            </div>
+            <div class="modal-body">
+                Shift already assigned to this group , you want to reassign shift?
+            </div>
+            <div class="modal-footer">
+                <button id="no" type="button" class="btn default" data-dismiss="modal">No</button>
+                <button type="submit" class="btn blue">Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>*@
+
+<script>
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+  
+}
+    
+
+    $('#btnclose').click(function () {
+        $('#Detail').html('').dialog({
+        }).dialog('close');
+    });
+
+    function valid() {
+        //$("#btnsubmit").click();
+        document.forms["Create"].submit();
+        $('#Detail').html('').dialog({
+        }).dialog('close');
+    }
+
+</script>
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+  
+}

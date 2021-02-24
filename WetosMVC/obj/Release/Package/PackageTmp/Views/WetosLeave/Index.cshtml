@@ -1,0 +1,285 @@
+﻿@model WetosMVCMainApp.Models.LeaveCompBranchDeptModel 
+
+@{
+    ViewBag.Title = "Leave Master List";
+}
+
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+      <h1>
+        Leave Master
+        <small>List</small>
+      </h1>
+      <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "WetosLeave")">Leave</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor: pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i>@*<a href="#" >Back</a>*@
+
+                                </span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                            @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+                        </li>
+                    </ul>
+                </div>
+            </div>
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+</section>
+        <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            
+            <div class="box-body">
+@using (Html.BeginForm())
+{
+    <div style="color: Red; font-size: 12px">
+    @Html.ValidationSummary(true)
+    </div>
+     @*Added by Rajas on 29 DEC 2016 For custom error message START*@
+            <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessage("Error")
+            </div>
+    
+  <div>
+     <div class="form-group col-md-12" id="CompanyList">
+       <div class="editor-label">
+            Company<span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field">
+         @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+        <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-suitcase"></i>
+  	</div> 
+
+         @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2", style = "width:500px", id = "CompanyddlList" })
+         <div style="color: Red; font-size: 12px">
+    @Html.ValidationMessageFor(model => model.CompanyId)
+    </div>
+        </div>
+        </div>
+      
+      </div>
+      </div>
+
+<div>
+        <div class="form-group col-md-12" id="BranchList">
+         <div class="editor-label">
+           Branch
+        </div>
+        <div class="editor-field" >
+         @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+        <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-institution"></i>
+  	</div> 
+
+         @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", style = "width:500px", id = "BranchddlList" })
+         <div style="color: Red; font-size: 12px">
+          @Html.ValidationMessageFor(model => model.BranchId)
+          </div>
+          </div>
+        </div>
+
+       </div>
+       </div>
+
+<div>
+     <div class="form-group col-md-12" id="EmployeeGroupList">
+       <div class="editor-label">
+        Employee Group
+        </div>
+        <div class="editor-field">
+         @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+        <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-users"></i>
+  	</div> 
+
+         @Html.DropDownListFor(a => a.EmployeeGrpId, (IEnumerable<SelectListItem>)ViewBag.EmployeeGroupList, "Select", new { @class = "form-control select2", style = "width:500px", id = "EmployeeGroupddlList" })
+         <div style="color: Red; font-size: 12px">
+          @Html.ValidationMessageFor(model => model.EmployeeGrpId)
+          </div>
+          </div>
+        </div>
+      
+      </div>
+      </div>
+
+      @*<input type="button" id="AddNew" value="Add new leave" class="btn btn-primary"/>*@         
+  
+    @*<p> <input type="button" value="Get Leave applicable" class="btn btn-primary" id="BtnGetLeave"/>*@
+    <p><input type="submit" value="Add New Leave" class="btn btn-default tooltip" style="cursor:pointer; float:left" title = "Click to Create new Leave details"/>    </p>
+}
+</div>
+</div>
+</div>
+</div>
+</section>
+        <div id="GetLeave">
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    // Added by Rajas on 29 DEC 2016 for on change enable the dropdown start
+    $(document).ready(function () {
+        //        $("#BranchddlList").prop("disabled", true);
+        //        $("#EmployeeGroupddlList").prop("disabled", true);
+    });
+    // Added by Rajas on 29 DEC 2016 for on change enable the dropdown End
+
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+    });
+
+    //    $("#AddNew").click(function () {
+    //        var CompanyId = $("#CompanyddlList").val();
+    //        alert(CompanyId);
+    //        var BranchId = $("#BranchddlList").val();
+    //        var EmployeeGroupId = $("#EmployeeGroupddlList").val();
+    //        $.ajax({
+    //            url: '@Url.Content("~/WetosLeave/Create")',
+    //            type: "POST",
+    //            //dataType: "json",
+    //            data: { CompanyId: CompanyId, BranchId: BranchId, EmployeeGroupId: EmployeeGroupId },
+    //            success: function (data) {
+    //                alert(YES);
+    //                //$("#GetLeave").html(data);
+    //            }
+    //        });
+    //    });
+
+    //    $("#BtnGetLeave").click(function () {
+
+    //        var CompanyId = $("#CompanyddlList").val();
+    //        //alert(CompanyId);
+    //        var BranchId = $("#BranchddlList").val();
+    //        var EmployeeGroupId = $("#EmployeeGroupddlList").val();
+
+    //        $.ajax({
+    //            url: '@Url.Content("~/WetosLeave/GetLeaveDetails")',
+    //            //url: '@Url.Content("~/WetosLeave/GetLeaveDetails")',
+    //            type: "GET",
+    //            //dataType: "json",
+    //            data: { CompanyId: CompanyId, BranchId: BranchId, EmployeeGroupId: EmployeeGroupId },
+    //            success: function (data) {
+    //                //alert("");
+    //                $("#GetLeave").html(data);
+    //            }
+    //        });
+
+    //    });
+
+
+    $("#EmployeeGroupddlList").change(function () {
+
+        var CompanyId = $("#CompanyddlList").val();
+        //alert(CompanyId);
+        var BranchId = $("#BranchddlList").val();
+        var EmployeeGroupId = $("#EmployeeGroupddlList").val();
+
+        $.ajax({
+            url: '@Url.Content("~/WetosLeave/GetLeaveDetails")',
+            type: "GET",
+            //dataType: "json",
+            data: { CompanyId: CompanyId, BranchId: BranchId, EmployeeGroupId: EmployeeGroupId },
+            success: function (data) {
+                //alert("");
+                $("#GetLeave").html(data);
+            }
+        });
+    });
+
+    // Added by Rajas on 27 DEC 2016 to fill drop down list on selection of other drop down
+    $("#CompanyddlList").change(function () {
+        //alert($("#Application_ID").val());
+        isDirty = false;
+        var companyid = $("#CompanyddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosLeave/GetBranch")',
+            type: "POST",
+            dataType: "json",
+            data: { Companyid: companyid },
+            success: function (data) {
+                $("#BranchddlList").empty();
+                $("#BranchddlList").append("<option value=" + "0" + ">" + "Select" + "</option>"); // Added by Rajas on 27 FEB 2017
+                for (var i = 0; i < data.length; i++) {
+                    $("#BranchddlList").prop("disabled", false);
+                    $("#BranchddlList").append("<option value=" + "" + data[i].BranchId + "" + ">" + data[i].BranchName + "</option>");
+
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+    $("#BranchddlList").change(function () {
+        // alert($("#Group_code").val());
+        isDirty = false;
+        //ADDED COMPANY ID BY SHRADDHA IN INPUT PARAMETERS SO THAT WE CAN GET GROUP BASED ON BRANCH AS WELL AS COMPANY
+        var companyid = $("#CompanyddlList").val();
+        var branchid = $("#BranchddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosLeave/GetEmployeeGroup")',
+            type: "POST",
+            dataType: "json",
+            data: { Branchid: branchid, Companyid: companyid },
+            success: function (data) {
+                $("#EmployeeGroupddlList").empty();
+                $("#EmployeeGroupddlList").append("<option value=" + "0" + ">" + "Select" + "</option>"); // Added by Rajas on 27 FEB 2017
+                for (var i = 0; i < data.length; i++) {
+                    $("#EmployeeGroupddlList").append("<option value=" + "" + data[i].EmployeeGroupId + "" + ">" + data[i].EmployeeGroupName + "</option>");
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ 

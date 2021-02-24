@@ -1,0 +1,256 @@
+﻿@{
+    ViewBag.Title = "Shift Pattern Create";
+}
+@{
+    var message = TempData["AlertMessage"] ?? string.Empty;
+    
+}
+<style type="text/css">
+   @* body
+    {
+        overflow-x: scroll !important;
+    }*@
+   
+    label
+    {
+        font-weight: normal;
+    }
+    
+    .row
+    {
+        margin-bottom: 10px;
+    }
+</style>
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+      <h1>
+        Shift Pattern
+        <small>Create</small>
+      </h1>
+       <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">Shift Pattern </a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" data-toggle="tooltip" class="back " title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>  
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+          
+ </section>
+        <section class="content">
+<div class="row">
+<div class="col-xs-12 col-md-12 col-lg-12">         
+<div class="box">
+
+<div class="box-body">
+ 
+                @using (Html.BeginForm("Create", "ShiftPattern", FormMethod.Post, new { id = "Create", name = "Create" }))
+                {
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Shift Pattern Name</label>
+                        <div class="col-md-7">
+                        @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                         <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-list-ul"></i>
+  	</div> 
+
+                            <input type="text" class="form-control" placeholder="Enter a Shift Pattern Name" name="txtShiftPatternName" id="txtShiftPatternName" />
+                        </div>
+                        </div>
+                    </div>
+     <br/>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Shift Pattern Short Name</label>
+                        <div class="col-md-7">
+                        @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                         <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-list-ul"></i>
+  	</div> 
+                            <input type="text" class="form-control" placeholder="Enter a Shift Pattern Short Name" name="txtShortName" id="txtShortName" />
+                            </div>
+                        </div>
+                    </div>
+     <br/>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Shift Pattern Description</label>
+                        <div class="col-md-7">
+                        @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                         <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-file-text-o"></i>
+  	</div> 
+                            <input type="text" class="form-control" placeholder="Enter a Shift Pattern Description" name="txtDescription" id="txtDescription" />
+                            </div>
+                        </div>
+                    </div>
+                     <br/>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Start Day</label>
+                        <div class="col-md-7">
+                        @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                         <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-calendar"></i>
+  	</div> 
+                            @Html.DropDownList("StartDay", new List<SelectListItem>() { new SelectListItem { Text = "MONDAY", Value = "MONDAY" },
+                           new SelectListItem { Text = "TUESDAY", Value = "TUESDAY" },
+                           new SelectListItem { Text = "WEDNESDAY", Value = "WEDNESDAY" }, 
+                           new SelectListItem { Text = "THURSDAY", Value = "THURSDAY" },
+                           new SelectListItem { Text = "FRIDAY", Value = "FRIDAY" }, 
+                           new SelectListItem { Text = "SATURDAY", Value = "SATURDAY" }, 
+                           new SelectListItem { Text = "SUNDAY", Value = "SUNDAY" } },
+                           "Select", new { @class = "form-control" })
+                        </div>
+                        </div>
+                    </div>
+     <br/>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">No.of Days</label>
+                        <div class="col-md-7">
+                        @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                        <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-calendar"></i>
+  	</div> 
+                            <input type="text" class="form-control" placeholder="Enter a No. Of Days" name="txtNoOfDays" id="txtNoOfDays" onblur="CheckDays()" />
+                        </div>
+                        </div>
+                    </div>
+    <br />
+@*<div class="form-group">
+                        <label class="col-md-3 control-label">Week Rule:</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" placeholder="Enter a No. Of Days" name="txtWeekRule" id="txtWeekRule"/>
+                            @Html.DropDownList("weekrule", null, "--Select--", new { @class = "form-control" })
+                            
+                        </div>
+                    </div>*@
+                    <div style="padding-left:15px">
+                    <p>
+                    <input type="button" class="btn green " id="btnDraw" name="btnDraw" value="Draw" />
+                   </p>
+                   </div>
+                        <div id="div_shiftpatt">
+                        
+                    </div>
+                     </fieldset>
+                }
+            </div>
+</div>
+</div>
+</div>
+
+</section>
+    </div>
+</div>
+<script type="text/jscript">
+    $(document).ready(function () {
+
+        //Above code added by Shalaka on 28th DEC 2017 -- Start
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+        //Above code added by Shalaka on 28th DEC 2017 -- End
+
+    });
+</script>
+<script type="text/javascript">
+
+    $('body').ajaxStart(function () {
+        $(this).css({ 'cursor': 'wait' });
+    }).ajaxStop(function () {
+        $(this).css({ 'cursor': 'default' });
+    });
+
+    $("#btnDraw").click(function () {
+        CheckDays();
+        var StartDay = $("#StartDay").val();
+        $.ajax({
+
+            url: '@Url.Content("~/ShiftPattern/DrawPattern")',
+            data: JSON.stringify({ noofdays: $("#txtNoOfDays").val(), StartDay: StartDay }),
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                $("#div_shiftpatt").html(result);
+            },
+            error: function (result)
+            { }
+        });
+    });
+
+    function valid(e) {
+        if ($("#txtShiftPatternName").val() == "") {
+            $("#alert").html("Please enter Shift Pattern Name");
+            $('#alert').addClass("alert alert-danger");
+        }
+        else if ($("#txtShortName").val() == "") {
+            $("#alert").html("Please enter Shift Pattern Short Name");
+            $('#alert').addClass("alert alert-danger");
+        }
+        else if ($("#txtNoOfDays").val() == "") {
+            $("#alert").html("Please enter No.Of Days");
+            $('#alert').addClass("alert alert-danger");
+        }
+        else {
+            $('#alert').html('');
+            $("#alert").removeClass("alert alert-danger");
+            document.forms["Create"].submit();
+        }
+    }
+
+    function CheckDays() {
+        if ($("#txtNoOfDays").val() < 7) {
+            alert("Please enter no. of days greater than or equal to 7 ");
+            $("#txtNoOfDays").val('');
+            return false;
+        }
+
+    }
+
+    //    $("#weekrule").change(function () {
+
+    //        $.ajax({
+
+    //            url: '@Url.Content("~/ShiftPattern/GetWeekRuleInfo")',
+    //            data: JSON.stringify({weekruleid : $("#weekrule").val()}),
+    //            type: 'POST',
+    //            contentType: 'application/json; charset=utf-8',
+    //            dataType: 'json',
+    //            success: function (result) {
+    //                $("#hid_weekrule").val(result);
+    //            },
+    //            error:function(result)
+    //            {}
+
+    //        });
+
+    //    });
+
+</script>

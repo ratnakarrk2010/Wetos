@@ -1,0 +1,419 @@
+﻿@model IEnumerable<WetosDB.SP_GetAttendanceIndex_Result>
+@{
+    ViewBag.Title = "Attendance";
+}
+@{var ODTOURApplicationIsAvailable = Session["ODTOURApplicationIsAvailable"];}
+@{var CompOffApplicationIsAvailable = Session["CompOffApplicationIsAvailable"];}
+@{var LeaveApplicationIsAvailable = Session["LeaveApplicationIsAvailable"];}
+@*<h2>DailyTransactionIndex</h2>*@
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    
+                </div>
+                <div class="box-body">
+         <div id="dialogf5" style="display: none">
+    <div id="ProductSearch">
+    </div>
+</div>  
+<div class="col-md-2">Total Days
+        <label>@ViewBag.TotalDays</label>
+        </div>
+          <div class="col-md-2">Absent Days
+        <label>@ViewBag.AbsentDays</label>
+        </div>
+         <div class="col-md-2">Present Days
+        <label>@ViewBag.PresentDays</label>
+        </div>  
+         <div class="col-md-2">Late By Days
+        <label>@ViewBag.LateByDays</label>
+        </div>      
+        <div class="col-md-2">Weekly Off Days
+        <label>@ViewBag.WeekOffDays</label>
+        </div>        
+<table id="dailyTransaction"  class="table table-bordered table-striped">
+<thead>
+    <tr align="center">
+        @*<td></td>*@
+        @*<td>
+            EmployeeId
+        </td>*@
+        <td>
+            Date
+        </td>
+        @*<td>
+            ShiftId
+        </td>*@
+        <td>
+            Login
+        </td>
+        <td>
+            LogOut
+            </td>
+       @* </td>
+        <td>
+            Login1
+        </td>
+        <td>
+            LogOut1
+        </td>*@
+       <td>
+            Early Going
+        </td>
+        <td>
+            Late Coming
+        </td>
+        <td>
+            Working Hrs
+        </td>
+        <td>
+            Extra Hrs
+        </td>
+       @* <td>
+            SanctionedCOHrs
+        </td>*@
+        <td>
+            Status
+        </td>
+             
+       @* <td>
+            ActualStatus
+        </td>
+        <td>
+            OTInTime
+        </td>
+        <td>
+            OTOutTime
+        </td>
+        <td>
+            PreviousLogin
+        </td>
+        <td>
+            PreviousLogOut
+        </td>
+        <td>
+            PreviousLogin1
+        </td>
+        <td>
+            PreviousLogOut1
+        </td>
+        <td>
+            PreviousShiftId
+        </td>
+        <td>
+            TStatus
+        </td>
+        <td>
+            PostinFlag
+        </td>
+        <td>
+            Lock
+        </td>*@
+        <td>
+            
+        </td>
+           <td>
+           Late Count
+        </td>
+      @*  <td>
+            CompanyId
+        </td>
+        <td>
+            BranchId
+        </td>
+        <td>
+            LateCount
+        </td>*@
+       @* <td>Action</td>
+         *@
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+    
+   
+     <tr align="right">
+     
+      @*  <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DailyTrnId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DailyTrnId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DailyTrnId })
+        </td>
+        <td>
+            @item.EmployeeId
+        </td>*@
+        
+   @* @if (item.StatusName == "WO" || item.StatusName == "WWWW")
+    {
+    <td>
+        <div style="background-color:Orange;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>
+            @String.Format("{0:g}", item.TranDate.ToString("dd-MMM-yyyy"))
+        </td>
+    }
+    else if (item.StatusName == "PPPP")
+    {
+        <td>
+        <div style="background-color:LightGreen;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>
+            @String.Format("{0:g}", item.TranDate.ToString("dd-MMM-yyyy"))
+        </td>
+    }
+    else if (item.StatusName == "AAAA")
+    {
+      <td>
+        <div style="background-color:Red;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>
+            @String.Format("{0:g}", item.TranDate.ToString("dd-MMM-yyyy"))
+        </td>
+    }
+    else
+    { *@
+    <td align="center">
+        
+            @String.Format("{0:g}", item.TranDate.ToString("dd-MMM-yyyy"))
+         
+       
+        </td>
+    @*}*@
+        @*<td>
+            @item.ShiftId
+        </td>*@
+        <td>
+        @if (item.Login.Hour == 00 && item.Login.Minute == 00 && item.Login.Second == 00)
+        { 
+        <span>----</span>
+        }
+        else
+        {
+            @String.Format("{0:g}", item.Login)
+        }
+        </td>
+        <td>
+         @if (item.LogOut.Hour == 00 && item.LogOut.Minute == 00 && item.LogOut.Second == 00)
+         { 
+        <span>----</span>
+         }
+         else
+         {
+            @String.Format("{0:g}", item.LogOut)
+         }
+        </td>
+        @*<td>
+            @String.Format("{0:g}", item.Login1)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.LogOut1)
+        </td>*@
+        <td>
+        @if (item.Early != null)
+        {
+            @String.Format("{0:g}", item.Early.Value.ToString("HH:mm"))
+        }
+        else
+        { 
+        <span>----</span>
+        }
+        </td>
+        <td>
+         @if (item.Late != null)
+         {
+            @String.Format("{0:g}", item.Late.Value.ToString("HH:mm"))
+         }
+         else
+         {
+         <span>----</span>
+         }
+        </td>
+        <td>
+        @if (item.WorkingHrs != null)
+        {
+            @String.Format("{0:g}", item.WorkingHrs.Value == null ? "" : item.WorkingHrs.Value.ToString("HH:mm"))
+        }
+        else
+        {
+
+        }
+        </td>
+        <td>
+         @if (item.ExtraHrs != null)
+         {
+            @String.Format("{0:g}", item.ExtraHrs.Value == null ? "" : item.ExtraHrs.Value.ToString("HH:mm"))
+         }
+         else { }
+        </td>
+        @*<td>
+            @item.SanctionedCOHrs
+        </td>*@
+       
+       <td align="center"> 
+       @if (item.StatusName == "WO" || item.StatusName == "WWWW")
+       {
+             <div style="color:Purple;font-weight:700"> WOWO</div>
+       }
+       else if (item.StatusName == "WOWO")
+       {
+                <div style="color:Purple;font-weight:700"> @item.StatusName</div>
+                @*<div style="background-color:Purple;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+       }
+       else if (item.StatusName == "PLPL")
+       {
+           <div style="color:#1c325d;font-weight:700"> @item.StatusName</div>
+               @* <div style="background-color:#1c325d;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+       }
+       else if (item.StatusName == "WPWP")
+       {
+           <div style="color:Aqua;font-weight:700"> @item.StatusName</div>
+                @*<div style="background-color:Aqua;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+       }
+       else if (item.StatusName == "PPPP")
+       {
+           <div style="color:Green;font-weight:700"> @item.StatusName</div>
+                 @* <div style="background-color:Green;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+              
+       }
+       else if (item.StatusName == "AAAA")
+       { 
+           <div style="color:Red;font-weight:700"> @item.StatusName</div>
+           @*<div style="background-color:Red;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+       }
+       else if (item.StatusName == "AAPP")
+       {
+           <div style="color:#f91cb8;font-weight:700"> @item.StatusName</div>
+                 @* <div style="background-color:#f91cb8;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+              
+       }
+       else if (item.StatusName == "AAPP^")
+       {
+           <div style="color:#f91cb8;font-weight:700"> @item.StatusName</div>
+                 @* <div style="background-color:#f91cb8;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+              
+       }
+       else if (item.StatusName == "PPAA^")
+       {
+           <div style="color:#f91cb8;font-weight:700"> @item.StatusName</div>
+                  @*<div style="background-color:#f91cb8;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+              
+       }
+       else if (item.StatusName == "PPAA^")
+       {
+           <div style="color:#f91cb8;font-weight:700"> @item.StatusName</div>
+                 @* <div style="background-color:#f91cb8;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div> *@  
+              
+       }
+       else if (item.StatusName == "PPPP*")
+       {
+           <div style="color:#3a87ad;font-weight:700"> @item.StatusName</div>
+                 @* <div style="background-color:#3a87ad;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>  *@
+
+       }
+       else if (item.StatusName == "HHHH")
+       {
+           <div style="color:Orange;font-weight:700"> @item.StatusName</div>
+                 @* <div style="background-color:#3a87ad;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>  *@
+
+       }
+       else
+       {
+           //CODE ADDED BY SHRADDHA ON 30 OCT 2017 START
+       <div style="color:Black;font-weight:700"> @item.StatusName</div>
+           @*  //CODE ADDED BY SHRADDHA ON 30 OCT 2017 END*@
+       }
+         
+           
+        </td>
+          <td>
+            @item.Remark
+        </td>
+          <td>
+            @item.LateCount
+        </td>
+     @* <td>
+      @if (item.StatusName == "AAAA")
+      { 
+      
+        
+          @Html.ActionLink("Apply Leave", "ApplyLeaveForSpecificDay", new { id = item.DailyTrnId, @class = "btn btn-primary" }) <span>|</span>
+          @Html.ActionLink("Apply OD", "ApplyODForSpecificDay", new { id = item.DailyTrnId, @class = "btn btn-primary" }) <span>|</span>
+            @Html.ActionLink("Apply CompOff", "ApplyCompOffForSpecificDay", new { id = item.DailyTrnId, @class = "btn btn-primary" })                                                                                                                         
+      }
+      else
+      {
+
+      }
+      </td>*@
+       
+        @*<td>
+
+            @item.ActualStatus
+        </td>
+        <td>
+            @String.Format("{0:g}", item.OTInTime)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.OTOutTime)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.PreviousLogin)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.PreviousLogOut)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.PreviousLogin1)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.PreviousLogOut1)
+        </td>
+        <td>
+            @item.PreviousShiftId
+        </td>
+        <td>
+            @item.TStatus
+        </td>
+        <td>
+            @item.PostinFlag
+        </td>
+        <td>
+            @item.Lock
+        </td>*@
+      
+        @*<td>
+            @item.CompanyId
+        </td>
+        <td>
+            @item.BranchId
+        </td>
+        <td>
+            @item.LateCount
+        </td>*@
+    </tr>
+}
+   
+   </tbody>   
+    
+<tfoot></tfoot>
+
+</table>
+
+
+        
+ </div>
+                <!-- /.box -->
+            </div>
+        </div>
+
+    </div>
+    <!-- /.box -->
+
+    <!-- /.row -->
+</section>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#dailyTransaction").DataTable();
+    });
+
+    
+</script>

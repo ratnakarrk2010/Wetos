@@ -1,0 +1,1350 @@
+﻿@model WetosMVCMainApp.Models.EmployeeModel
+@{
+    ViewBag.Title = "Employee Master Edit";
+}
+@*<script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/select2.full.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>*@
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<style type="text/css">
+    .wizard-step
+    {
+        display: none;
+    }
+    .wizard-confirmation
+    {
+        display: none;
+    }
+    .wizard-nav
+    {
+    }
+    .wizard-nav input[type="button"]
+    {
+        width: 100px;
+    }
+    
+    .tabbable-custom > .nav-tabs > li.active1
+    {
+        border-top: 3px solid #c0a825;
+    }
+    .tabbable-custom > .nav-tabs > li.active2
+    {
+        border-top: 3px solid #2123cb;
+    }
+    .tabbable-custom > .nav-tabs > li.active3
+    {
+        border-top: 3px solid #09892e;
+    }
+    .tabbable-custom > .nav-tabs > li.active4
+    {
+        border-top: 3px solid #f50cd1;
+    }
+    .row
+    {
+        height: 45px;
+    }
+</style>
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+      <h1>
+        Employee Master
+        <small>Edit</small>
+      </h1>
+      <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "WetosEmployee")">Employee </a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>  
+    <div style="clear: both;">
+    </div>
+
+ </section>
+        <section class="content">
+          <div class="box">
+             <!-- /.box-header -->
+            <div class="box-body">
+        <div class="row profile">
+            <div class="col-md-12">
+                <!--BEGIN TABS-->
+                <div class="tabbable tabbable-custom tabbable-full-width nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                <li class="active"><a style="cursor:default" href="#PersonalInfo">Employee Details </a></li>
+                        <li class="active1"><a style="cursor:default" href="#OverView">Basic Details </a></li>
+                        
+                    @*  <li  class="active2"><a style="cursor:default" href="#EDUCATIONALInfo">Educational Details </a></li>*@
+                       <li class="active2"><a style="cursor:default" href="#JobInfo">Official Details </a></li>
+                        
+                    </ul>
+                    <br />
+@using (Html.BeginForm("Edit", "WetosEmployee", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Telephone2)
+    @Html.HiddenFor(model => model.BankNo)
+    @Html.HiddenFor(model => model.LICNo)
+    @Html.HiddenFor(model => model.DeptHeadFlag)
+    @Html.HiddenFor(model => model.BankCode)
+    @Html.HiddenFor(model => model.EmployeeId)
+    @Html.HiddenFor(model => model.PFNO)
+    @Html.HiddenFor(model => model.ESICDCD)
+    @Html.HiddenFor(model => model.ESICNO)
+    @Html.HiddenFor(model => model.SwipeFlag)
+      @Html.HiddenFor(model => model.Picture)
+    <fieldset>
+    
+  <div class="tab-content">
+    
+        <div class="tab-pane active wizard-step" id="PersonalInfo">
+        <div>
+        <h4>Personal Details</h4><legend></legend>
+        </div>
+        <div class="row">
+        <div class=" col-md-5 row">
+        <div  class=" col-md-5">
+           Employee Code<span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div   class="col-md-7">
+        <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-user" aria-hidden="true"></i>
+                  </div>
+            @Html.TextBoxFor(model => model.EmployeeCode, new { style = "width:100px !important" }) 
+           <div style="color:Red;font-size:12px"> @Html.ValidationMessageFor(model => model.EmployeeCode)</div>
+        </div>
+        </div>
+        </div>
+         <div class=" col-md-3">
+          <div class="editor-label col-md-4">
+          Prefix
+        </div>
+        <div class="editor-field ">
+        @Html.TextBoxFor(model => model.Prefix)
+      
+           <div style="color:Red;font-size:12px"> @Html.ValidationMessageFor(model => model.Prefix)</div>
+        </div>
+         </div>
+         <div class=" col-md-3">
+        
+        <div class="editor-label col-md-4">
+           Gender<span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field ">
+        @Html.RadioButtonFor(model => model.Sex, "M") Male
+        @Html.RadioButtonFor(model => model.Sex, "F") Female
+      
+           <div style="color:Red;font-size:12px">  
+           @Html.ValidationMessageFor(model => model.Sex)</div>
+        </div>
+        
+         </div>
+        </div>
+       
+      
+        <div class="row">
+       <div class="col-md-2">
+           Employee Name<span style="color:Red;font-size:18px" >*</span>
+        </div>
+        
+          <div class="row">
+        <div class="col-md-3">
+        <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-user" aria-hidden="true"></i>
+                  </div> 
+        @Html.TextBoxFor(model => model.FirstName, new { @placeholder = "First Name", style = "width:100% !important" })
+        <div style="color:Red;font-size:12px;width:175px">  @Html.ValidationMessageFor(model => model.FirstName)</div>
+        </div>
+        </div>
+        <div class="col-md-3">
+        <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-user" aria-hidden="true"></i>
+                  </div> 
+        @Html.TextBoxFor(model => model.MiddleName, new { @placeholder = "Father Name", style = "width:100% !important " })
+        <div style="color:Red;font-size:12px;width:175px">  @Html.ValidationMessageFor(model => model.MiddleName)</div>
+        </div>
+        </div>
+        <div class="col-md-3">
+        <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-user" aria-hidden="true"></i>
+                  </div> 
+        @Html.TextBoxFor(model => model.LastName, new { @placeholder = "Last Name", style = "width:100% !important " })
+        <div style="color:Red;font-size:12px;width:175px">  @Html.ValidationMessageFor(model => model.LastName)</div>
+        </div>
+        </div>
+       
+         </div>
+        </div>
+
+     
+        <div class="row">
+        <div class="col-md-6">
+           <div class="row">
+        <div class="editor-label  col-md-4">
+           Present Address
+        </div>
+        <div class="editor-field   col-md-8">
+            @Html.TextAreaFor(model => model.Address1, new { @placeholder = "Enter Present Address here", style = "width:90% !important ;height: auto" })
+             <div style="color:Red;font-size:12px;width:300px"> 
+            @Html.ValidationMessageFor(model => model.Address1)
+            </div>
+        </div>
+        </div>
+      <br />
+         <br />
+           <div class="row">
+        <div class="editor-label  col-md-4">
+           Telephone
+        </div>
+        <div class="editor-field   col-md-8">
+        <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-phone-square" aria-hidden="true"></i>
+                  </div> 
+            @Html.TextBoxFor(model => model.Telephone1)
+            <div style="color:Red;font-size:12px"> 
+            @Html.ValidationMessageFor(model => model.Telephone1)
+            </div>
+        </div>
+        </div>
+        </div>
+      
+           <div class="row">
+        <div class="editor-label  col-md-4">
+          Personal Email Id
+        </div>
+        <div class="editor-field   col-md-8">
+        <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-envelope" aria-hidden="true"></i>
+                  </div> 
+            @Html.TextBoxFor(model => model.Email, new { style = "width: 200px;height: auto;" })
+            <div style="color:Red;font-size:12px">
+            @Html.ValidationMessageFor(model => model.Email)
+            </div>
+            </div>
+        </div>
+        </div>
+       
+           <div class="row">
+        <div class="editor-label  col-md-4">
+           Religion
+        </div>
+        <div class="editor-field   col-md-8">
+        <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-home" aria-hidden="true"></i>
+                  </div> 
+            @Html.DropDownListFor(a => a.ReligionId, (IEnumerable<SelectListItem>)@ViewBag.ReligionNameList, "Select", new { @class = "form-control select2", style = "width:200px" })
+           @*<div style="color:Red;font-size:12px"> @Html.ValidationMessageFor(model => model.ReligionId)</div>*@
+        </div>
+        </div>
+        </div>
+      
+           <div class="row">
+        <div class="editor-label  col-md-4">
+           Birth Date@*<span style="color:Red;font-size:18px" >*</span>*@ @*COMMENTED BY SHRADDHA ON 19 JULY 2017 AS PER SUGGESTED BY MSJ*@
+        </div>
+        <div class="editor-field col-md-6">
+            <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="BirthDate" id="BirthDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.BirthDate)" , readonly="readonly" />
+              
+                   </div>
+         <div style="color:Red;font-size:12px">   @Html.ValidationMessageFor(model => model.BirthDate)</div>
+        </div>
+        </div>
+        
+
+         <div class="row">
+        <div class="editor-label  col-md-4">
+           Joining Date<span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-6">
+            <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="JoiningDate" id="JoiningDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.JoiningDate)", readonly="readonly" />
+                  
+                   </div>
+          <div style="color:Red;font-size:12px">  @Html.ValidationMessageFor(model => model.JoiningDate)</div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="editor-label  col-md-4">
+           Leave Applicable from Date<span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-6">
+            <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                   <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="LeaveEffectiveFromDate" id="LeaveEffectiveFromDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.LeaveEffectiveFromDate)" />
+                   </div>
+          <div style="color:Red;font-size:12px">  @Html.ValidationMessageFor(model => model.LeaveEffectiveFromDate)</div>
+        </div>
+        </div>
+      
+        </div>
+        <div class="col-md-6">
+                  <div class="row">
+        <div class="editor-label  col-md-4">
+           Permanent Address 
+        </div>
+        <div class="editor-field col-md-8">
+             @Html.TextAreaFor(model => model.Address2, new { @placeholder = "Enter Permanent Address here", style = "width:90% !important ;height: auto" })
+              <div style="color:Red;font-size:12px;width:300px"> 
+            @Html.ValidationMessageFor(model => model.Address2)
+            </div>
+        </div>
+        </div>
+       <br />
+         <br />
+      
+           <div class="row">
+        <div class="editor-label  col-md-4">
+          Mobile No.
+        </div>
+        <div class="editor-field   col-md-8">
+         <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-mobile" aria-hidden="true"></i>
+                  </div> 
+            @Html.TextBoxFor(model => model.Moblie)
+            <div style="color:Red;font-size:12px"> 
+            @Html.ValidationMessageFor(model => model.Moblie)
+            </div>
+            </div>
+        </div>
+        </div>
+       
+         <div class="row">
+        <div class="editor-label  col-md-4">
+           Email Id
+        </div>
+        <div class="editor-field   col-md-8">
+        <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-envelope" aria-hidden="true"></i>
+                  </div> 
+            @Html.TextBoxFor(model => model.MailAddress, new { style = "width: 200px;height: auto;" })
+            <div style="color:Red;font-size:12px">
+            @Html.ValidationMessageFor(model => model.MailAddress)
+            </div>
+            </div>
+        </div>
+        </div>
+        
+           <div class="row">
+        <div class="editor-label  col-md-4">
+           Marital Status
+        </div>
+        <div class="editor-field   col-md-8">
+        @Html.RadioButtonFor(model => model.MarritalStatus, "M", new { @checked = true }) Married
+        @Html.RadioButtonFor(model => model.MarritalStatus, "U") Unmarried
+            @Html.ValidationMessageFor(model => model.MarritalStatus)
+        </div>
+        </div>
+       
+           <div class="row">
+        <div class="editor-label  col-md-4">
+           Blood Group
+        </div>
+        <div class="editor-field   col-md-8">
+          <div class="input-group date">
+          <div class="input-group-addon">
+          <i class="fa fa-tint" aria-hidden="true"></i>
+          </div> 
+            @Html.DropDownListFor(a => a.BloodGroupId, (IEnumerable<SelectListItem>)@ViewBag.BloodGroupNameList, "Select", new { @class = "form-control select2", style = "width:200px" })
+      @*<div style="color:Red;font-size:12px">  @Html.ValidationMessageFor(model => model.BloodGroupId)</div>*@
+        </div>
+        </div>
+        </div>
+       
+            <div class="row">
+        <div class="editor-label  col-md-4">
+           Confirmation Date
+        </div>
+        <div class="editor-field col-md-6">
+            <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ConfirmDate" id="ConfirmDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ConfirmDate)" />
+                
+                   </div>
+         <div style="color:Red;font-size:12px">   @Html.ValidationMessageFor(model => model.ConfirmDate)</div>
+        </div>
+        </div>
+        
+           <div class="row">
+        <div class="editor-label  col-md-4">
+           Last Date
+        </div>
+        <div class="editor-field col-md-6">
+            <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                 @{DateTime DefaultDate = Convert.ToDateTime(Model.Leavingdate);}
+                 @if (DefaultDate == Model.Leavingdate)
+                 {
+                    <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="Leavingdate"/> 
+                 }
+                 else
+                 {
+                     <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="Leavingdate" id="Leavingdate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.Leavingdate)" />
+                 }
+                  
+                
+                   </div>
+        <div style="color:Red;font-size:12px">    @Html.ValidationMessageFor(model => model.Leavingdate)</div>
+        </div>
+        </div>
+       
+        </div>
+        </div>
+       </div>
+       
+      <div class="tab-pane wizard-step" id="OverView">
+      <div>
+              
+       <h4>Basic Details</h4>
+        <legend></legend>
+       </div>
+    <div class="col-md-12">
+    <div class="col-md-9">
+    <div class="row">
+       <div class="editor-label col-md-4">
+      Company Name <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-8">
+       <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-suitcase" aria-hidden="true"></i>
+                  </div> 
+        @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyNameList, "Select", new { @class = "form-control select2", style = "width:400px !important", id = "CompanyddlList" })
+       <div style="color:Red;font-size:12px">
+        @Html.ValidationMessageFor(model => model.CompanyId)</div>
+        </div>
+        </div>
+        </div> 
+        
+         <div class="row">
+       <div class="editor-label col-md-4">
+     Branch Name <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-8">
+      <div class="input-group date">
+         <div class="input-group-addon">
+         <i class="fa fa-university" aria-hidden="true"></i>
+         </div> 
+        @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchNameList, "Select", new { @class = "form-control select2", style = "width:400px !important", id = "BranchddlList" })
+              </div>
+         <div style="color:Red;font-size:12px"> 
+       @Html.ValidationMessageFor(model => model.BranchId)</div>
+        </div>
+        </div> 
+         <div class="row">
+       <div class="editor-label col-md-4">
+     Department Name <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-8">
+      <div class="input-group date">
+   <div class="input-group-addon">
+   <i class="fa fa-briefcase" aria-hidden="true"></i>
+   </div> 
+        @Html.DropDownListFor(a => a.DepartmentId, (IEnumerable<SelectListItem>)@ViewBag.DepartmentNameList, "Select", new { @class = "form-control select2", style = "width:400px !important", id = "DepartmentddlList" })
+      
+        </div>
+         <div style="color:Red;font-size:12px">
+        @Html.ValidationMessageFor(model => model.DepartmentId)</div>
+        </div> 
+        </div>
+         <div class="row">
+       <div class="editor-label col-md-4">
+     Division Name <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-8">
+       <div class="input-group date">
+        <div class="input-group-addon">
+         <i class="fa fa-file-text-o" aria-hidden="true"></i>
+         </div> 
+        @Html.DropDownListFor(a => a.DivisionId, (IEnumerable<SelectListItem>)@ViewBag.DivisionNameList, "Select", new { @class = "form-control select2", style = "width:400px !important", id = "DivisionddlList" })
+        <div style="color:Red;font-size:12px"> @Html.ValidationMessageFor(model => model.DivisionId)</div>
+        </div>
+        </div>
+        </div> 
+         <div class="row">
+       <div class="editor-label col-md-4">
+     Employee Type <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-8">
+      <div class="input-group date">
+   <div class="input-group-addon">
+   <i class="fa fa-user" aria-hidden="true"></i>
+   </div> 
+        @Html.DropDownListFor(a => a.EmployeeTypeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeTypeNameList, "Select", new { @class = "form-control select2", style = "width:400px !important", id = "EmployeeTypeddlList" })
+       <div style="color:Red;font-size:12px"> @Html.ValidationMessageFor(model => model.EmployeeTypeId)</div>
+        </div>
+        </div> 
+        </div>
+
+        @* Added by Rajas on 18 FEB 2017 START*@
+        <div class="row">
+       <div class="editor-label col-md-4">
+     Employee Group <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-8">
+        <div class="input-group date">
+   <div class="input-group-addon">
+   <i class="fa fa-users" aria-hidden="true"></i>
+   </div> 
+        @Html.DropDownListFor(a => a.EmployeeGroupId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeGroupNameList, "Select", new { @class = "form-control select2", style = "width:400px !important", id = "EmployeeGroupddlList" })
+       
+        </div>
+        <div style="color:Red;font-size:12px">
+        @Html.ValidationMessageFor(model => model.EmployeeGroupId)</div>
+        </div>
+        </div> 
+         @* Added by Rajas on 18 FEB 2017 END*@
+
+         <div class="row">
+       <div class="editor-label col-md-4">
+         Grade <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-8">
+              <div class="input-group date">
+   <div class="input-group-addon">
+   <i class="fa fa-file-text-o" aria-hidden="true"></i>
+   </div>
+        @Html.DropDownListFor(a => a.GradeId, (IEnumerable<SelectListItem>)@ViewBag.GradeNameList, "Select", new { @class = "form-control select2", style = "width:400px !important" })
+       
+        </div>
+         <div style="color:Red;font-size:12px">
+        @Html.ValidationMessageFor(model => model.GradeId)
+        </div>
+        </div>
+        </div> 
+
+         <div class="row">
+       <div class="editor-label col-md-4">
+     Designation Name <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-8">
+         <div class="input-group date">
+   <div class="input-group-addon">
+   <i class="fa fa-info" aria-hidden="true"></i>
+   </div> 
+        @Html.DropDownListFor(a => a.DesignationId, (IEnumerable<SelectListItem>)@ViewBag.DesignationNameList, "Select", new { @class = "form-control select2", style = "width:400px !important", id = "DesignationddlList" })
+      <div style="color:Red;font-size:12px">  @Html.ValidationMessageFor(model => model.DesignationId)</div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-md-3">
+        <div >
+        <div id="img_preview" style="height:250px;width:250px">
+        @* Added by Rajas on 20 FEB 2017 to display uploaded profile picture START*@
+         @if (@Model.Picture != null)
+         {
+           <img src="@Url.Action("getImg", "Account", new { id = @Model.EmployeeId })"  class="img-circle" height="250" width="250" alt="Person Image" />
+         }
+         else
+         {
+             //ADDED CODE BY SHRADDHA FOR GETTING GENDER WISE PROFILE PICTURE START
+             if (@Model.Sex == "Female")
+             {
+                <img src="@Url.Content("~/images/UserImageGirl.jpg")"  class="img-circle" height="250" width="250" alt="Person Image"  />
+             }
+             else
+             {
+                 <img src="@Url.Content("~/images/userimage.jpg")"  class="img-circle" height="250" width="250" alt="Person Image" />
+             }
+             //ADDED CODE BY SHRADDHA FOR GETTING GENDER WISE PROFILE PICTURE END
+         }
+         @* Added by Rajas on 20 FEB 2017 to display uploaded profile picture END*@
+
+        
+        </div>
+         <div style="color:Red;font-size:10px">
+   @Html.ValidationMessage("Error")
+     </div>
+         <div>
+        <label for="LabelPicture" style="margin-left:60px">
+     
+        <input type="file"name="UploadFileEmployee"  id="InputPicture"  /></label>
+
+        </div>
+
+        </div>
+
+        </div>
+        </div>
+        </div>
+   @*<div class="tab-pane wizard-step" id="EDUCATIONALInfo">
+       <div class="col-md-12">
+       <h4>Educational Details</h4><legend></legend>
+       </div>
+      
+        
+       <div class="row">
+        <div class="col-md-6">
+           <div class="row">
+        <div class="editor-label  col-md-5">
+        Qualification (Post Graduation)
+        </div>
+        <div class="editor-field   col-md-7">
+        <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                  </div> 
+            @Html.TextBoxFor(model => model.PostGraduationQualification)
+            @Html.ValidationMessageFor(model => model.PostGraduationQualification)
+        </div>
+        </div>
+        </div>
+        <br />
+
+        <div class="row">
+        <div class="editor-label  col-md-5">
+        Qualification (Graduation)
+        </div>
+        <div class="editor-field   col-md-7">
+        <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                  </div> 
+            @Html.TextBoxFor(model => model.GraduationQualification)
+            @Html.ValidationMessageFor(model => model.GraduationQualification)
+        </div>
+        </div>
+        </div>
+        <br />
+
+        <div class="row">
+        <div class="editor-label  col-md-5">
+        Qualification (Other)
+        </div>
+        <div class="editor-field   col-md-7">
+        <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                  </div> 
+            @Html.TextBoxFor(model => model.OtherGraduationQualification)
+            @Html.ValidationMessageFor(model => model.OtherGraduationQualification)
+        </div>
+        </div>
+        </div>
+        <br />
+
+      
+           <div class="row">
+        <div class="editor-label  col-md-5">
+           Experience before Flagship
+        </div>
+        <div class="editor-field   col-md-7">
+        <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                  </div> 
+            @Html.TextBoxFor(model => model.PrevExperience)
+          <div style="color:Red;font-size:12px">  @Html.ValidationMessageFor(model => model.PrevExperience)</div>
+        </div>
+        </div>
+        </div>
+        <br />
+     <div class="row">
+        <div class="editor-label  col-md-5">
+        ESIC No.
+        </div>
+        <div class="editor-field   col-md-7">
+                  <div class="input-group date">
+     <div class="input-group-addon">
+     <i class="fa fa-bank" aria-hidden="true"></i>
+     </div> 
+            @Html.TextBoxFor(model => model.ESICNO)
+            @Html.ValidationMessageFor(model => model.ESICNO)
+        </div>
+        </div>
+        </div>
+        <br />
+        </div>
+        <div class="col-md-6">
+              
+           
+
+          <div class="row">
+        <div class="editor-label  col-md-5">
+          Passing Year (Post Graduation)
+        </div>
+        <div class="editor-field  col-md-7">
+                  <div class="input-group date">
+     <div class="input-group-addon">
+     <i class="fa fa-calendar" aria-hidden="true"></i>
+     </div> 
+            @Html.TextBoxFor(model => model.PostGradPassingYear)
+            @Html.ValidationMessageFor(model => model.GradPassingYear)
+        </div>
+        </div>
+        </div>
+        <br />
+         <div class="row">
+        <div class="editor-label  col-md-5">
+          Passing Year (Graduation)
+        </div>
+        <div class="editor-field  col-md-7">
+                  <div class="input-group date">
+     <div class="input-group-addon">
+     <i class="fa fa-calendar" aria-hidden="true"></i>
+     </div> 
+            @Html.TextBoxFor(model => model.GradPassingYear)
+            @Html.ValidationMessageFor(model => model.GradPassingYear)
+        </div>
+        </div>
+        </div>
+        <br />
+
+          <div class="row">
+        <div class="editor-label  col-md-5">
+          Passing Year (Others)
+        </div>
+        <div class="editor-field  col-md-7">
+                  <div class="input-group date">
+     <div class="input-group-addon">
+     <i class="fa fa-calendar" aria-hidden="true"></i>
+     </div> 
+            @Html.TextBoxFor(model => model.OtherPassingYear)
+            @Html.ValidationMessageFor(model => model.OtherPassingYear)
+        </div>
+        </div>
+        </div>
+        <br />
+           <div class="row">
+        <div class="editor-label  col-md-5">
+         Experience with Flagship 
+        </div>
+        <div class="editor-field col-md-7">
+                  <div class="input-group date">
+     <div class="input-group-addon">
+     <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+     </div> 
+            @Html.TextBoxFor(model => model.FlagshipExperience)
+            @Html.ValidationMessageFor(model => model.FlagshipExperience)
+        </div>
+        </div>
+        </div>
+        <br />
+        <div class="row">
+        <div class="editor-label  col-md-5">
+        PF No.
+        </div>
+        <div class="editor-field   col-md-7">
+                  <div class="input-group date">
+     <div class="input-group-addon">
+     <i class="fa fa-bank" aria-hidden="true"></i>
+     </div> 
+            @Html.TextBoxFor(model => model.PFNO)
+            @Html.ValidationMessageFor(model => model.PFNO)
+        </div>
+        </div>
+        </div>
+        <br />
+        </div>
+        </div>
+        </div>*@
+        <div class="tab-pane  wizard-step" id="JobInfo">
+               <div>
+              
+       <h4>Official Details</h4>
+        <legend></legend>
+       </div>
+      
+        <div class="row">
+        <div class="col-md-6">
+         
+           <div class="row">
+        <div class="editor-label  col-md-5">
+          Week Off One<span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-7">
+         <div class="input-group date">
+     <div class="input-group-addon">
+     <i class="fa fa-calendar" aria-hidden="true"></i>
+     </div> 
+         @Html.DropDownListFor(a => a.WeeklyOff1, (IEnumerable<SelectListItem>)@ViewBag.DayDdlList, "Select", new { @class = "form-control select2", style = "width:200px" })
+        
+           <div style="color:Red;font-size:12px"> @Html.ValidationMessageFor(model => model.WeeklyOff1)
+           </div>
+           </div>
+        </div>
+        </div>
+      
+
+         <div class="row">
+        <div class="editor-label  col-md-5">
+          Select Week Off Day
+        </div>
+        <div class="editor-field">
+         @Html.CheckBoxFor(model => model.First.Value) First
+            @Html.CheckBoxFor(model => model.Second.Value) Second
+            @Html.CheckBoxFor(model => model.Third.Value) Third
+            @Html.CheckBoxFor(model => model.Fourth.Value) Fourth
+            @Html.CheckBoxFor(model => model.Fifth.Value) Fifth
+       
+
+        </div>
+        </div>
+      
+           <div class="row">
+        <div class="editor-label  col-md-5">
+          Reporting to (Approver) @*<span style="color:Red;font-size:18px" >*</span>*@ @*COMMENTED BY SHRADDHA ON 19 JULY 2017 AS PER SUGGESTED BY MSJ*@
+        </div>
+        <div class="editor-field  col-md-7">
+        <div class="input-group date">
+     <div class="input-group-addon">
+     <i class="fa fa-user" aria-hidden="true"></i>
+     </div> 
+           @Html.DropDownListFor(a => a.EmployeeReportingId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", style = "width:200px" })
+            <div style="color:Red;font-size:12px">
+            @Html.ValidationMessageFor(model => model.EmployeeReportingId)
+            </div>
+            </div>
+        </div>
+        </div>
+      
+   <div class="row">
+        <div class="editor-label  col-md-5">
+          Card No.
+        </div>
+
+        <div class="editor-field  col-md-7">
+        <div class="input-group date">
+     <div class="input-group-addon">
+     <i class="fa fa-university" aria-hidden="true"></i>
+     </div> 
+            @Html.TextBoxFor(model => model.CardNumber) 
+          <div style="color:Red;font-size:12px">  @Html.ValidationMessageFor(model => model.CardNumber)</div>
+        </div>
+        </div>
+        </div>
+     
+        </div>
+        <div class="col-md-6">
+        <div class="row">
+        <div class="editor-label  col-md-5">
+          Week Off Two
+        </div>
+        <div class="editor-field  col-md-7">
+        <div class="input-group date">
+     <div class="input-group-addon">
+     <i class="fa fa-calendar" aria-hidden="true"></i>
+     </div> 
+         @Html.DropDownListFor(a => a.WeeklyOff2, (IEnumerable<SelectListItem>)@ViewBag.DayDdlList, "Select", new { @class = "form-control select2", style = "width:200px" })
+           
+            @Html.ValidationMessageFor(model => model.WeeklyOff2)
+        </div>
+        </div>
+        </div>
+       
+             <div class="row">
+        <div class="editor-label  col-md-5">
+            Default Shift <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-7">
+         <div class="input-group date">
+                 <div class="input-group-addon">
+                 <i class="fa fa-clock-o" aria-hidden="true"></i>
+                 </div> 
+        @Html.DropDownListFor(a => a.DefaultShift, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2", style = "width:200px", id = "ShiftddList" })
+        
+           <div style="color:Red;font-size:12px"> 
+            @Html.ValidationMessageFor(model => model.DefaultShift)
+            </div>
+            </div>
+        </div>
+        </div>
+       
+           
+           <div class="row">
+        <div class="editor-label  col-md-5">
+         Reporting to (Sanction) @*<span style="color:Red;font-size:18px" >*</span>*@ @*COMMENTED BY SHRADDHA ON 19 JULY 2017 AS PER SUGGESTED BY MSJ*@
+        </div>
+        <div class="editor-field  col-md-7">
+         <div class="input-group date">
+                 <div class="input-group-addon">
+                 <i class="fa fa-user" aria-hidden="true"></i>
+                 </div> 
+             @Html.DropDownListFor(a => a.EmployeeReportingId2, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", style = "width:200px" })
+          </div>
+        </div>
+        </div>
+      
+                      
+        </div>
+        </div>
+
+         <div>
+       
+        <legend></legend>
+        </div>
+        <div class="row">
+     
+        
+        <div class="col-md-6">
+          <div class="row">
+        <div class="editor-label col-md-5">
+          PAN No.
+        </div>
+        <div class="editor-field  col-md-7 ">
+         <div class="input-group date">
+                 <div class="input-group-addon">
+                 <i class="fa fa-university" aria-hidden="true"></i>
+                 </div> 
+            @Html.TextBoxFor(model => model.PANNO)
+            @Html.ValidationMessageFor(model => model.PANNO)
+        </div>
+        </div> 
+        </div>       
+</div>
+      
+        </div>
+         </div>
+         <div class="tab-pane " id="abc">
+        </div>
+       </div>
+        <div class="col-md-offset-4 wizard-nav">
+            <input type="button" id="wizard-prev" value="Previous" />
+            <input type="button" id="wizard-next" value="Next" />
+            <input type="submit" id="wizard-submit" value="Submit" />
+        </div>
+      
+        
+    </fieldset>
+    
+}
+
+            </div>
+            </div>
+            </div>
+            </div>
+    
+</div>
+
+    </section>
+    </div>
+</div>
+@*<div id="EmployeeSave" style="width: 30% !important; height: 20% !important;
+    z-index: 1000000; background-color: White; top: 0%; left: 40%" class="modal show fade">
+    <div class="modal-body">
+       Do you want to save Employee details?
+    </div>
+    <div class="modal-footer">
+        <center>
+            <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="ButtonSave">
+                Yes</button>
+            <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                Cancel</button></center>
+    </div>
+</div>*@
+<script type="text/javascript">
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Date picker
+        $('.datepicker').datepicker({
+
+            format: "dd-M-yyyy",
+
+            autoclose: true
+        });
+
+    });
+
+    //$("#wizard-submit").click(function () {
+    //    var $form = $(this).closest('form');
+    //   // alert(id);
+    //    $('#EmployeeSave').modal({ backdrop: 'static', keyboard: false })
+    //            .one('click', '#ButtonSave', function () {
+    //                $("#EmployeeEdit").submit();
+    //            });
+
+
+
+    //});
+
+    // Added by Rajas on 27 DEC 2016 to fill drop down list on selection of other drop down
+    $("#CompanyddlList").change(function () {
+        var companyid = $("#CompanyddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosEmployee/GetBranch")',
+            type: "POST",
+            dataType: "json",
+            data: { Companyid: companyid },
+            success: function (data) {
+                //alert("success");
+                $("#BranchddlList").empty();
+                //alert("success empty data");
+                $("#BranchddlList").append("<option value=" + "0" + ">" + "Select" + "</option>"); // Added by Rajas on 27 FEB 2017
+                for (var i = 0; i < data.length; i++) {
+
+                    //alert("in func");
+                    // states.option.selected = true;
+                    $("#BranchddlList").append("<option value=" + "" + data[i].BranchId + "" + ">" + data[i].BranchName + "</option>");
+
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+    $("#BranchddlList").change(function () {
+        // alert($("#Group_code").val());
+        isDirty = false;
+        var branchid = $("#BranchddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosEmployee/GetDepartment")',
+            type: "POST",
+            dataType: "json",
+            data: { Branchid: branchid },
+            success: function (data) {
+                $("#DepartmentddlList").empty();
+                $("#DepartmentddlList").append("<option value=" + "0" + ">" + "Select" + "</option>"); // Added by Rajas on 27 FEB 2017
+                for (var i = 0; i < data.length; i++) {
+
+                    //alert(states[i].Group_name);
+                    // states.option.selected = true;
+                    $("#DepartmentddlList").append("<option value=" + "" + data[i].DepartmentId + "" + ">" + data[i].DepartmentName + "</option>");
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+    $("#DepartmentddlList").change(function () {
+        // alert($("#Group_code").val());
+        isDirty = false;
+        var deptid = +$("#DepartmentddlList").val();
+        var companyid = +$("#CompanyddlList").val();
+        var branchid = +$("#BranchddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosEmployee/GetDesignation")',
+            type: "POST",
+            dataType: "json",
+            data: { Departmentid: deptid, companyid: companyid, branchid: branchid },
+            success: function (data) {
+                $("#DesignationddlList").empty();
+                $("#DesignationddlList").append("<option value=" + "0" + ">" + "Select" + "</option>"); // Added by Rajas on 27 FEB 2017
+                for (var i = 0; i < data.length; i++) {
+
+                    $("#DesignationddlList").append("<option value=" + "" + data[i].DesignationId + "" + ">" + data[i].DesignationName + "</option>");
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+    $("#BranchddlList").change(function () {
+        var companyid = +$("#CompanyddlList").val();
+        var branchid = +$("#BranchddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosEmployee/GetEmployeeGroup")',
+            type: "POST",
+            dataType: "json",
+            data: { Companyid: companyid, Branchid: branchid },
+            success: function (data) {
+                //alert("success");
+                $("#EmployeeGroupddlList").empty();
+                //alert("success empty data");
+                $("#EmployeeGroupddlList").append("<option value=" + "0" + ">" + "Select" + "</option>"); // Added by Rajas on 27 FEB 2017
+                for (var i = 0; i < data.length; i++) {
+
+                    //alert("in func");
+                    // states.option.selected = true;
+                    $("#EmployeeGroupddlList").append("<option value=" + "" + data[i].EmployeeGroupId + "" + ">" + data[i].EmployeeGroupName + "</option>");
+
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+    // Added by Rajas on 2 JUNE 2017
+    $("#BranchddlList").change(function () {
+        var companyid = +$("#CompanyddlList").val();
+        var branchid = +$("#BranchddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosEmployee/GetShift")',
+            type: "POST",
+            dataType: "json",
+            data: { Companyid: companyid, Branchid: branchid },
+            success: function (data) {
+                //alert("success");
+                $("#ShiftddList").empty();
+                //alert("success empty data");
+                $("#ShiftddList").append("<option value=" + "0" + ">" + "Select" + "</option>"); // Added by Rajas on 27 FEB 2017
+                for (var i = 0; i < data.length; i++) {
+
+                    //alert("in func");
+                    // states.option.selected = true;
+                    $("#ShiftddList").append("<option value=" + "" + data[i].ShiftId + "" + ">" + data[i].ShiftCode + "</option>");
+
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+</script>
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_preview').html("<img src='" + e.target.result + "' height='200' width='200'/>");
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // Picture replaced with InputPicture Updated on 7 MARCH 2017 by Rajas
+    $("#InputPicture").change(function () {
+        readURL(this);
+    });
+</script>
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<script type="text/jscript">
+
+    $("#JoiningDate").change(function () {
+
+        //alert("call");
+        CalcuateConfirmDate();
+    });
+    //alert("START");
+    //Start
+    function CalcuateConfirmDate() {
+
+        //alert();
+        var joindate = $("#JoiningDate").val();
+        //alert(joindate);
+        //var jan312009 = new Date(joindate.getYear(), joindate.getMonth(), joindate.getDate());
+        // alert(jan312009);
+        var confirmdate = joindate.setMonth(joindate.getMonth() + 6);
+        //alert(confirmdate);
+
+        $("#ConfirmDate").val(confirmdate).trigger("change");
+    }
+
+</script>
+<script type="text/javascript">
+    function DisplayStep() {
+        var selectedStep = null;
+        var firstInputError = $("input.input-validation-error:first"); // check for any invalid input fields
+        if (firstInputError.length) {
+            selectedStep = $(".wizard-confirmation");
+            if (selectedStep && selectedStep.length) { // the confirmation step should be initialized and selected if it exists present
+                UpdateConfirmation();
+            }
+            else {
+                selectedStep = firstInputError.closest(".wizard-step"); // the first step with invalid fields should be displayed
+            }
+        }
+        if (!selectedStep || !selectedStep.length) {
+            selectedStep = $(".wizard-step:first"); // display first step if no step has invalid fields
+        }
+
+        $(".wizard-step:visible").hide(); // hide the step that currently is visible
+        selectedStep.fadeIn(); // fade in the step that should become visible
+
+        // enable/disable the prev/next/submit buttons
+        if (selectedStep.prev().hasClass("wizard-step")) {
+            $("#wizard-prev").show();
+        }
+        else {
+            $("#wizard-prev").hide();
+        }
+        if (selectedStep.next().hasClass("wizard-step")) {
+            $("#wizard-submit").hide();
+            $("#wizard-next").show();
+        }
+        else {
+            $("#wizard-next").hide();
+            $("#wizard-submit").show();
+        }
+    }
+
+    function PrevStep() {
+        var currentStep = $(".wizard-step:visible"); // get current step
+
+        if (currentStep.prev().hasClass("wizard-step")) { // is there a previous step?
+
+            currentStep.hide().prev().fadeIn();  // hide current step and display previous step
+
+            $("#wizard-submit").hide(); // disable wizard-submit button
+            $("#wizard-next").show(); // enable wizard-next button
+
+            if (!currentStep.prev().prev().hasClass("wizard-step")) { // disable wizard-prev button?
+                $("#wizard-prev").hide();
+            }
+        }
+    }
+
+    function NextStep() {
+        var currentStep = $(".wizard-step:visible"); // get current step
+
+        //var validator = $("form").validate(); // get validator
+        
+        //alert(validator);
+        var valid = true;
+
+        //        currentStep.find("input:not(:blank)").each(function () { // ignore empty fields, i.e. allow the user to step through without filling in required fields
+        //            if (!validator.element(this)) { // validate every input element inside this step
+        //                valid = false;
+        //            }
+        //        });
+
+
+        currentStep.find("input").each(function () { // ignore empty fields, i.e. allow the user to step through without filling in required fields
+//            if (!validator.element(this)) { // validate every input element inside this step
+//                valid = false;
+//            }
+        });
+//        if (!valid)
+//            return; // exit if invalid
+
+        if (currentStep.next().hasClass("wizard-step")) { // is there a next step?
+
+            if (currentStep.next().hasClass("wizard-confirmation")) { // is the next step the confirmation?
+                UpdateConfirmation();
+            }
+
+            currentStep.hide().next().fadeIn();  // hide current step and display next step
+
+            $("#wizard-prev").show(); // enable wizard-prev button
+
+            if (!currentStep.next().next().hasClass("wizard-step")) { // disable wizard-next button and enable wizard-submit?
+                $("#wizard-next").hide();
+                $("#wizard-submit").show();
+            }
+        }
+    }
+
+    function Submit() {
+        if ($("form").valid()) { // validate all fields, including blank required fields
+            $("form").submit();
+        }
+        else {
+            DisplayStep(); // validation failed, redisplay correct step
+        }
+    }
+
+    function UpdateConfirmation() {
+        UpdateValidationSummary();
+        var fieldList = $("<ol/>");
+        $(".wizard-step:not(.wizard-confirmation)").find("input").each(function () {
+            var input = this;
+            var value;
+            switch (input.type) {
+                case "hidden":
+                    return;
+                case "checkbox":
+                    value = input.checked;
+                    break;
+                default:
+                    value = input.value;
+            }
+            var name = $('label[for="' + input.name + '"]').text();
+            fieldList.append("<li><label>" + name + "</label><span>" + value + "&nbsp;</span></li>");
+        });
+        $("#field-summary").children().remove();
+        $("#field-summary").append(fieldList);
+    }
+
+    function UpdateValidationSummary() {
+        var validationSummary = $("#validation-summary");
+        if (!validationSummary.find(".validation-summary-errors").length) { // check if validation errors container already exists, and if not create it
+            $('<div class="validation-summary-errors"><ul></ul></div>').appendTo(validationSummary);
+        }
+        var errorList = $(".validation-summary-errors ul");
+        errorList.find("li.field-error").remove(); // remove any field errors that might have been added earlier, leaving any server errors intact
+        $('.field-validation-error').each(function () {
+            var element = this;
+            $('<li class="field-error">' + element.innerText + '</li>').appendTo(errorList); // add the current field errors
+        });
+        if (errorList.find("li").length) {
+            $("#validation-summary span").show();
+        }
+        else {
+            $("#validation-summary span").hide();
+        }
+    }
+    $(function () {
+        // attach click handlers to the nav buttons
+        $("#wizard-prev").click(function () { PrevStep(); });
+        $("#wizard-next").click(function () { NextStep(); });
+        $("#wizard-submit").click(function () { Submit(); });
+
+        // display the first step (or the confirmation if returned from server with errors)
+        DisplayStep();
+    });
+
+  
+</script>

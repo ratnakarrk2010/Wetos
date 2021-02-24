@@ -1,0 +1,176 @@
+﻿@{
+    ViewBag.Title = "";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+      <h1>
+        Leave Sanction
+        <small></small>  @*Modified by Pushkar 0n 4 FEB 2017 for Create*@
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>  @*Modified by Pushkar 0n 4 FEB 2017 for Breadcrumb*@
+        <li class="active">Sanction</li>
+        <li class="active">Leave Sanction</li>
+        <li class="active"></li>   @*Modified by Pushkar 0n 4 FEB 2017 for Breadcrumb*@
+        <li><span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span></li> @*ADDED by Pushkar 0n 4 FEB 2017 for Breadcrumb*@
+        @*<li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>*@
+      
+      </ol>
+       <br />
+     
+      <div style="clear: both;"></div>
+
+     
+          
+ </section>
+        <section class="content">
+<div class="row">
+<div class="col-xs-12 col-md-12 col-lg-12">         
+<div class="box">
+<div class="box-header">           
+</div>
+<div class="box-body">
+@*<div class="row">
+              <div class="col-md-4">
+               <div class="form-group">
+               From Date <span style="color:Red;font-size:18px" >*</span>
+
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate"  />
+                </div>
+              </div>
+              </div>
+              <div class="col-md-4">
+               <div class="form-group">
+               To Date <span style="color:Red;font-size:18px" >*</span>
+
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ToDate" id="ToDate" />
+                 
+                </div>
+              </div>
+              </div>
+              
+              </div>*@
+
+               <div class="row">
+      <div class="col-md-3">
+      <div class="editor-label">
+           Select Criteria
+        </div>
+        <div class="editor-field">
+         @Html.DropDownList("StatusObj", new SelectList(ViewBag.StatusList), "Select", new { @class = "form-control select2", @id = "Status" })
+        </div>
+      </div>
+      </div>
+      <br/>
+              <input type="button" value="Search" class="btn btn-primary" onclick="getSanctionList()"/>
+              <div id="results"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+
+        //Date picker
+        $('.datepicker').datepicker({
+
+            format: "dd-M-yyyy",
+
+            autoclose: true
+        });
+
+    });
+
+    // Added by Rajas on 27 DEC 2016 to fill drop down list on selection of other drop down
+    $("#CompanyddlList").change(function () {
+        //alert($("#Application_ID").val());
+        isDirty = false;
+        var companyid = $("#CompanyddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosApplication/GetBranch")',
+            type: "POST",
+            dataType: "json",
+            data: { Companyid: companyid },
+            success: function (data) {
+                $("#BranchddlList").empty();
+                for (var i = 0; i < data.length; i++) {
+
+                    //alert(states[i].Group_name);
+                    // states.option.selected = true;
+                    $("#BranchddlList").append("<option value=" + "" + data[i].BranchId + "" + ">" + data[i].BranchName + "</option>");
+
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+
+    function getSanctionList() {
+
+        //var companyId = $("#CompanyddlList").val();
+        //alert(companyId);
+
+        //var BranchId = $("#BranchddlList").val();
+        // alert(BranchId);
+        //var FromDate = $("#FromDate").val();
+
+        var selectCriteria = $("#Status").val();
+        alert(selectCriteria);
+
+        //var ToDate = $("#ToDate").val();
+
+        $.ajax({
+            url: '@Url.Content("~/WetosSanctions/LeaveSanctionIndex")',
+
+            type: "GET",
+            //            data: { companyId: companyId, BranchId: BranchId, FromDate: FromDate, ToDate: ToDate },
+            data: { selectCriteria: selectCriteria },
+            success: function (data) {
+
+                $("#results").html(data);
+
+            }
+        });
+
+
+    }
+
+</script>
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+</script>

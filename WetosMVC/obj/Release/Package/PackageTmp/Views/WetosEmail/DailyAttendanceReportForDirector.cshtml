@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WetosMVC.Controllers.WetosEmailController.DailyAttendanceDataCls>
+
+<table class="table table-bordered table-striped">
+    <tr>
+       @* <th></th>*@
+        <th>
+            Employee Name
+        </th>
+        <th>
+            Current Day In Time
+        </th>
+        <th>
+            Previous Day Out Time - Status
+        </th>
+      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+        <td>
+            @item.EmployeeName
+        </td>
+      
+        <td>
+            @String.Format("{0:g}", item.CurrentDay)  @item.InTime
+        </td>
+          <td>
+            @String.Format("{0:g}", item.PreviousDay) @item.OutTime - @item.Status
+        </td>
+      
+    </tr>
+}
+
+</table>
+

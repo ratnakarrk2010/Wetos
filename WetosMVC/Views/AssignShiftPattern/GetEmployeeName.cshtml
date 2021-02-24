@@ -1,0 +1,210 @@
+﻿@model IEnumerable<WetosDB.EmployeeGroup>
+@{
+    int i = 0;
+    int g = 0;
+    //List<MarsData.vCompBrDivDeptDesigEmpGrpDetail> vlist = new List<MarsData.vCompBrDivDeptDesigEmpGrpDetail>();
+    //vlist = ViewBag.vlist;
+    //string emp_ids = @ViewBag.shift_not_assigned;
+    //string[] ids = emp_ids.Split(',');
+    int flag = 0;
+    int j = 0;
+    //List<MarsData.vEmployeeDetail> vEmployeeDetail = new List<MarsData.vEmployeeDetail>();
+    //vEmployeeDetail = ViewBag.shift_not_assigned;
+    string rule_name = "";
+    string old_rule_name = "";
+                    //List<MarsData.vRuleTypeMaster> shift_rule = new List<MarsData.vRuleTypeMaster>();
+                    // shift_rule = ViewBag.shift_rule;                
+}
+<div class="col-md- portlet box blue" id="List">
+    <div class="col-md- portlet-title">
+      
+        <div class="text-center">
+            <div class="form-group">
+                <label class="col-md-3 control-label">Employee Group List:</label>
+                 <input type="button" id="btnAssignNewShift" name="btnAssignNewShift" class="btn btn-default" value="Assign Shift" style="display: none" />
+                <input type="hidden" id="h_ruleid" name="h_ruleid" value="@ViewBag.ruleid" />
+               
+                <button type="button" class="btn green" id="btnsave" name="btnsave" onclick="GetShiftOnFirstDay()">Save</button>
+                
+                
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md- portlet-body">
+        
+        <div id="" class="col-md-" style="height: auto; overflow-y: auto;">
+            <table class="table table-bordered" id="tableemployeename">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="Chkall" name="Chkall" /></th>
+                        <th>Employee Group Name</th>
+                        @*<th>Employee Code</th>*@
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        // g = g + 1;
+                        // e_id = Convert.ToInt32(ids[i]);
+                        j++;
+                        // var e_id = vEmployeeDetail.Where(a => a.EmployeeId == item.EmployeeId).FirstOrDefault();
+                        //if (@item.NewOrOld == "*")
+                        //{
+                        //    flag = 1;
+                 
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="sn_chk-@j" name="sn_chk-@j" />
+                            </td>
+                            <td class="danger">@item.EmployeeGroupName</td>
+                            <td>
+                                <input type="hidden" id="hid_sn_empid-@j" name="hid_sn_empid-@j" value="@item.EmployeeGroupId" />
+                            </td>
+                        </tr>@*
+                        }
+                        else
+                        {*@
+                   
+                        @*<tr>
+                            <td>
+                                <input type="checkbox" id="chk-@j" name="chk-@j" checked="checked" />
+                            </td>
+                            <td class="success">@item.Title&nbsp;@item.fullname</td>
+                            <td>@item.EmployeeCode
+                                <input type="hidden" id="hid_empid-@i" name="hid_empid-@i" value="@item.EmployeeId" />
+                            </td>
+                        </tr>
+                        }*@
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<div class="row" style="padding-left: 20px; padding-right: 10px;">
+    <input type="hidden" id="hidflagtrueids" name="hidflagtrueids" value="" />
+    @*<label style="width: 205px">Number of enteries selected: </label>
+    <input type="text" id="hidcountvalue" name="hidcountvalue" value="0" style="border-color: transparent; background-color: none; background: transparent; width: 50px" disabled />*@
+
+
+
+    <input type="hidden" id="hidvalue" name="hidvalue"  value="@i" />
+    <input type="hidden" id="hidvalueJ" name="hidvalueJ" value="@j" />
+    <input type="hidden" id="hid_flag" name="hid_flag" value="@flag" />
+</div>
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#btnAssignNewShift").show();
+        $("#hidflagtrueids").val("");
+        if ($("#hidvalue").val() > 0 || $("#hidvalue").val() == "") {
+            $("#btnsave").show();
+        }
+        else {
+            $("#btnsave").hide();
+        }
+
+        if ($("#hid_flag").val() == 1) {
+            $("#div_rule").show();
+            $("#btnAssignNewShift").show();
+        }
+    });
+
+    $("#btnAssignNewShift").click(function () {
+        showloading();
+        var jcount = $("#hidvalueJ").val();
+        var sn_emp_id = "";
+        for (var j = 1; j <= jcount; j++) {
+            if ($('#sn_chk-' + j).is(':checked').toString() == 'true') {
+                if (sn_emp_id == "") {
+                    sn_emp_id = $("#hid_sn_empid-" + j).val();
+                }
+                else {
+                    sn_emp_id = sn_emp_id + "-" + $("#hid_sn_empid-" + j).val();
+                }
+            }
+        }
+
+
+        $.ajax({
+            url: '@Url.Content("~/AssignShiftPattern/AssignShiftToShiftNotAssigned")',
+            data: JSON.stringify({ fromdate: $("#from").val(), todate: $("#to").val(), sn_emp_id: sn_emp_id, empShiftPatternid: $("#shiftpatt_ids").val(), shift_rule: $("#shift_rule").val() }),
+            type: 'post',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+
+                if (result.insert_flag == 0) {
+                    alert("Please select at least one employee");
+                }
+                else {
+                    alert("Shift Pattern assigned Successfully.");
+                    $("#Detail").html(result);
+
+                }
+            },
+            error: function (result) {
+                hideloading();
+            }
+        });
+
+        hideloading();
+    });
+
+    $("#Chkall").change(function () {
+        var h = $('#hidvalueJ').val();
+        //        alert(h);
+        if (this.checked) {
+            for (var k = 1; k <= h; k++) {
+                $('#sn_chk-' + k).prop('checked', true);
+                $("#chk-" + k).prop('checked', true);
+                // $('#sn_chk-' + k).attr("disabled", "disabled")
+            }
+        }
+        else {
+            for (var k = 1; k <= h; k++) {
+                $('#sn_chk-' + k).prop('checked', false);
+                $("#chk-" + k).prop('checked', false);
+                //$('#sn_chk-' + k).removeAttr("disabled");
+            }
+        }
+    });
+
+
+    function TransactForinterest(tranid, i) {
+
+        var TotalCount = parseInt($('#hidcountvalue').val());
+        var tranlist = document.getElementById("hidflagtrueids");
+
+
+        if (tranlist != null) {
+            if (tranlist.value.toString().indexOf("-" + tranid + "-") >= 0) {
+
+                tranlist.value = tranlist.value.replace("-" + tranid + "-" + ",", "");
+
+                TotalCount = TotalCount - 1;
+
+            }
+            else {
+                tranlist.value = tranlist.value + "-" + tranid + "-" + ",";
+
+                TotalCount = TotalCount + 1;
+
+            }
+        }
+        $('#hidcountvalue').val(TotalCount);
+
+    }
+
+
+</script>

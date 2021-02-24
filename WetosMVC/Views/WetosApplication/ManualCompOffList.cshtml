@@ -1,0 +1,171 @@
+﻿@model IEnumerable<WetosDB.SP_GetManualCompOffList_Result>
+@{
+    ViewBag.Title = "ManualCompOffList";
+}
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+            <h1>Manual Comp Off
+                <small>List</small>
+                 <span class="btn blue" data-toggle="tooltip" title="Apply Manual Comp Off" style="float:right;font-weight:800" onclick="OnAddCompanyClick();">@Html.ActionLink(" ", "ManualCompOffApplicationIndex", new { }, new { @class = "fa fa-plus-square", style = "color:white" })</span>
+            </h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Application</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ManualCompOffList", "WetosApplication")">Manual Comp Off </a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back " data-toggle="tooltip"  title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>  
+           
+        </section>
+        <section class="content">
+           @* <div>      
+                <span class="btn btn-default" style="float:left;font-weight:200; cursor:pointer" "tooltip" title = "Click here to add new company">@Html.ActionLink("Add New Company", "Create")</span>
+            </div>   
+            *@
+            
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+              
+                            <div class="box-body">
+                           
+                                <table id="ManualCOMaster" class="table table-bordered table-striped">  @*Added by Pushkar For datatable on 25 OCT 2016*@
+                                    <thead>
+    <tr>
+        @*<th></th>*@
+        
+        <th>
+           Emp. Name
+        </th>
+        <th>
+            FromDate
+        </th>
+        <th>
+            Extra Working Hours
+        </th>
+        <th>
+            CompOff Purpose
+        </th>
+        <th>
+            Status
+        </th>
+        @*<th>
+            CompOffBalance
+        </th>*@
+        @*<th>
+            BranchId
+        </th>
+        <th>
+            CompanyId
+        </th>*@
+        <th>
+            Reject Reason
+        </th>
+        <th>Action</th>
+    </tr>
+    </thead>
+                                    <tbody>
+@foreach (var item in Model)
+{
+    <tr>
+      @*  <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ManualCompOffId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ManualCompOffId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ManualCompOffId })
+        </td>*@
+       @* <td>
+            @item.EmployeeId
+        </td>*@
+        <td>
+            @item.EmployeeCode - @item.FirstName @item.MiddleName @item.LastName
+        </td>
+        <td>
+            @item.FromDate
+        </td>
+        <td>
+            @String.Format("{0:g}", item.ExtraWorkingHrs)
+        </td>
+        <td>
+            @item.CompOffPurpose
+        </td>
+        <td>
+        
+            @item.StatusName
+        </td>
+       @* <td>
+            @String.Format("{0:F}", item.CompOffBalance)
+        </td>*@
+       @* <td>
+            @item.BranchId
+        </td>
+        <td>
+            @item.CompanyId
+        </td>*@
+        <td>
+            @item.RejectReason
+        </td>
+          <td>
+                                              <span data-toggle="tooltip" title="Edit">
+                                                @Html.ActionLink(" ", "ManualCompOffEdit", new { id = item.ManualCompOffId }, new { @class = "fa fa-pencil-square-o" })</span> |
+                                                @*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
+                                                <span data-toggle="tooltip" title="Delete">
+                                                @Html.ActionLink(" ", "Delete", new { id = item.ManualCompOffId }, new { @class = "fa fa-trash" })
+                                                </span>
+                                            </td>
+    </tr>
+}
+  </tbody>
+                                <tfoot></tfoot>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>                    
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+    </div>
+</div>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ @*Added by Pushkar For datatable on 25 OCT 2016-------start*@
+<script type="text/jscript">
+
+    $(function () {
+        $("#ManualCOMaster").DataTable();
+    });
+
+</script>
+@*Added by Pushkar For datatable on 25 OCT 2016-------end*@ 

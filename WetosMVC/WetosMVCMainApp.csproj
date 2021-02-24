@@ -1,0 +1,1488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{466A8C7A-3055-4069-A4A1-7FC6281F704A}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WetosMVC</RootNamespace>
+    <AssemblyName>WetosMVC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.87.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="MathParser.org-mXparser.Net40, Version=4.1.1.0, Culture=neutral, PublicKeyToken=0fbab7add73ed6e2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MathParser.org-mXparser.Net40.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WebForms.10.0.40219.1\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.10.0.40219.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Quartz">
+      <HintPath>..\packages\Quartz.2.4.1\lib\net40\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages.Administration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.3.12153\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="WETOS.Util">
+      <HintPath>.\WETOS.Util.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AssignRuleController.cs" />
+    <Compile Include="Controllers\AssignShiftPatternController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DropdownDataController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManagerDashboardController.cs" />
+    <Compile Include="Controllers\RoleNavMenuController.cs" />
+    <Compile Include="Controllers\SessionExpireController.cs" />
+    <Compile Include="Controllers\ShiftPatternController.cs" />
+    <Compile Include="Controllers\WetosAdministrationController.cs" />
+    <Compile Include="Controllers\WetosApplicationController.cs" />
+    <Compile Include="Controllers\WetosApplicationForOtherController.cs" />
+    <Compile Include="Controllers\WetosAssignEmployeeGroupController.cs" />
+    <Compile Include="Controllers\WetosAttendanceController.cs" />
+    <Compile Include="Controllers\WetosBloodGroupController.cs" />
+    <Compile Include="Controllers\WetosBranchController.cs" />
+    <Compile Include="Controllers\WetosChartController.cs" />
+    <Compile Include="Controllers\WetosCompanyController.cs" />
+    <Compile Include="Controllers\WetosCumulativeCompOffUtilizeController.cs" />
+    <Compile Include="Controllers\WetosCumulativeCompOffController.cs" />
+    <Compile Include="Controllers\WetosDashboardController.cs" />
+    <Compile Include="Controllers\WetosDeclaredHolidayController.cs" />
+    <Compile Include="Controllers\WetosDepartmentController.cs" />
+    <Compile Include="Controllers\WetosDesignationController.cs" />
+    <Compile Include="Controllers\WetosDeviceMasterController.cs" />
+    <Compile Include="Controllers\WetosEmailController.cs" />
+    <Compile Include="Controllers\WetosEmployeeController.cs" />
+    <Compile Include="Controllers\WetosEmployeeGroupController.cs" />
+    <Compile Include="Controllers\WetosEmployeeSingleViewController.cs" />
+    <Compile Include="Controllers\WetosEmployeeTypeController.cs" />
+    <Compile Include="Controllers\WetosErrorMessageController.cs" />
+    <Compile Include="Controllers\WetosFinancialYearController.cs" />
+    <Compile Include="Controllers\WetosGlobalSettingController.cs" />
+    <Compile Include="Controllers\WetosGradeController.cs" />
+    <Compile Include="Controllers\WetosHolidayController.cs" />
+    <Compile Include="Controllers\WetosLeaveController.cs" />
+    <Compile Include="Controllers\WetosLeaveTransactionController.cs" />
+    <Compile Include="Controllers\WetosLocationController.cs" />
+    <Compile Include="Controllers\WetosManualCOController.cs" />
+    <Compile Include="Controllers\WetosNavMenuMasterController.cs" />
+    <Compile Include="Controllers\WetosNewsController.cs" />
+    <Compile Include="Controllers\WetosPhysicalLocationController.cs" />
+    <Compile Include="Controllers\WetosReligionController.cs" />
+    <Compile Include="Controllers\WetosReportsController.cs" />
+    <Compile Include="Controllers\WetosRoleController.cs" />
+    <Compile Include="Controllers\WetosRuleTransactionController.cs" />
+    <Compile Include="Controllers\WetosSanctionsController.cs" />
+    <Compile Include="Controllers\WetosSchedularController.cs" />
+    <Compile Include="Controllers\WetosSchedulingController.cs" />
+    <Compile Include="Controllers\WetosShiftController.cs" />
+    <Compile Include="Controllers\WetosShiftGroupController.cs" />
+    <Compile Include="Controllers\WetosShiftScheduleController.cs" />
+    <Compile Include="Controllers\WetosShiftSchedulePatternController.cs" />
+    <Compile Include="Controllers\WetosSqlQueryController.cs" />
+    <Compile Include="Controllers\WetosTimelineController.cs" />
+    <Compile Include="Controllers\WetosUpdatesController.cs" />
+    <Compile Include="Datasets\DailyMailAttendenceReport.Designer.cs" />
+    <Compile Include="Datasets\FlagshipHRMSDataSet.Designer.cs" />
+    <Compile Include="Datasets\FlagshipHRMSDataSet1.Designer.cs" />
+    <Compile Include="Datasets\Form16DataDataSet.Designer.cs" />
+    <Compile Include="Datasets\MonthSalaryDataDataSet.Designer.cs" />
+    <Compile Include="Datasets\SummarySheetDataSet.Designer.cs" />
+    <Compile Include="Datasets\SummarySheetDataSet1.Designer.cs" />
+    <Compile Include="Datasets\WetosBSVData.cs">
+      <DependentUpon>WetosBSVData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\WetosBSVData.Designer.cs">
+      <DependentUpon>WetosBSVData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\WetosBSVData1.Designer.cs" />
+    <Compile Include="Datasets\ESVDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ESVDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\Cryptography.cs" />
+    <Compile Include="Extensions\EmailUtil.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AdvanceSalarySanctionModel.cs" />
+    <Compile Include="Models\AllModels.cs" />
+    <Compile Include="Models\AnnualDisbusment.cs" />
+    <Compile Include="Models\CalendarEvent.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\CompanyLoanSanctionModel.cs" />
+    <Compile Include="Models\CustomIdentity.cs" />
+    <Compile Include="Models\CustomPrincipal.cs" />
+    <Compile Include="Models\GlobalSettingsConstant.cs" />
+    <Compile Include="Models\HolidayInputModel.cs" />
+    <Compile Include="Models\LeaveBalanceDetails.cs" />
+    <Compile Include="Models\LeaveDetails.cs" />
+    <Compile Include="Models\MessageModel.cs" />
+    <Compile Include="Models\MvcHelpers.cs" />
+    <Compile Include="Models\OTCalculation.cs" />
+    <Compile Include="Models\PayRollModel.cs" />
+    <Compile Include="Models\ServiceUtility.cs" />
+    <Compile Include="Models\SessionPersisterController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\ShiftPattern.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ChartsConcrete.cs" />
+    <Compile Include="Repository\ICharts.cs" />
+    <Compile Include="Utilities\ClientConstants.cs" />
+    <Compile Include="Utilities\CryptorEngine.cs" />
+    <Compile Include="Utilities\DateTimeConvertor.cs" />
+    <Compile Include="Utilities\Message.cs" />
+    <Compile Include="Utilities\WETOSSession.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Common.Logging.Core.dll" />
+    <Content Include="bin\Common.Logging.dll" />
+    <Content Include="bin\WetosMVC.dll" />
+    <Content Include="bin\WetosMVC.pdb" />
+    <Content Include="Content\AdminLTE.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\components.css" />
+    <Content Include="Content\custom.css" />
+    <Content Include="Content\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
+    <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\autoFill.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\autoFill.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\autoFill.dataTables.css" />
+    <Content Include="Content\DataTables\css\autoFill.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\autoFill.foundation.css" />
+    <Content Include="Content\DataTables\css\autoFill.foundation.min.css" />
+    <Content Include="Content\DataTables\css\autoFill.jqueryui.css" />
+    <Content Include="Content\DataTables\css\autoFill.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\autoFill.semanticui.css" />
+    <Content Include="Content\DataTables\css\autoFill.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\buttons.bootstrap.css" />
+    <Content Include="Content\DataTables\css\buttons.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\buttons.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\buttons.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\buttons.dataTables.css" />
+    <Content Include="Content\DataTables\css\buttons.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\buttons.foundation.css" />
+    <Content Include="Content\DataTables\css\buttons.foundation.min.css" />
+    <Content Include="Content\DataTables\css\buttons.jqueryui.css" />
+    <Content Include="Content\DataTables\css\buttons.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\buttons.semanticui.css" />
+    <Content Include="Content\DataTables\css\buttons.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.bootstrap.css" />
+    <Content Include="Content\DataTables\css\colReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\colReorder.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.dataTables.css" />
+    <Content Include="Content\DataTables\css\colReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.foundation.css" />
+    <Content Include="Content\DataTables\css\colReorder.foundation.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.jqueryui.css" />
+    <Content Include="Content\DataTables\css\colReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.semanticui.css" />
+    <Content Include="Content\DataTables\css\colReorder.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTables\css\dataTables.foundation.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTables\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.material.css" />
+    <Content Include="Content\DataTables\css\dataTables.material.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.semanticui.css" />
+    <Content Include="Content\DataTables\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.uikit.css" />
+    <Content Include="Content\DataTables\css\dataTables.uikit.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.bootstrap.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.dataTables.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.foundation.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.foundation.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.jqueryui.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.semanticui.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.bootstrap.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.dataTables.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.foundation.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.foundation.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.jqueryui.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.semanticui.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\DataTables\css\keyTable.bootstrap.css" />
+    <Content Include="Content\DataTables\css\keyTable.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\keyTable.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\keyTable.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\keyTable.dataTables.css" />
+    <Content Include="Content\DataTables\css\keyTable.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\keyTable.foundation.css" />
+    <Content Include="Content\DataTables\css\keyTable.foundation.min.css" />
+    <Content Include="Content\DataTables\css\keyTable.jqueryui.css" />
+    <Content Include="Content\DataTables\css\keyTable.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\keyTable.semanticui.css" />
+    <Content Include="Content\DataTables\css\keyTable.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\responsive.bootstrap.css" />
+    <Content Include="Content\DataTables\css\responsive.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\responsive.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\responsive.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\responsive.dataTables.css" />
+    <Content Include="Content\DataTables\css\responsive.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\responsive.foundation.css" />
+    <Content Include="Content\DataTables\css\responsive.foundation.min.css" />
+    <Content Include="Content\DataTables\css\responsive.jqueryui.css" />
+    <Content Include="Content\DataTables\css\responsive.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\responsive.semanticui.css" />
+    <Content Include="Content\DataTables\css\responsive.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.bootstrap.css" />
+    <Content Include="Content\DataTables\css\rowGroup.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\rowGroup.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.dataTables.css" />
+    <Content Include="Content\DataTables\css\rowGroup.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.foundation.css" />
+    <Content Include="Content\DataTables\css\rowGroup.foundation.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.jqueryui.css" />
+    <Content Include="Content\DataTables\css\rowGroup.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.semanticui.css" />
+    <Content Include="Content\DataTables\css\rowGroup.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.bootstrap.css" />
+    <Content Include="Content\DataTables\css\rowReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\rowReorder.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.dataTables.css" />
+    <Content Include="Content\DataTables\css\rowReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.foundation.css" />
+    <Content Include="Content\DataTables\css\rowReorder.foundation.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.jqueryui.css" />
+    <Content Include="Content\DataTables\css\rowReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.semanticui.css" />
+    <Content Include="Content\DataTables\css\rowReorder.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\scroller.bootstrap.css" />
+    <Content Include="Content\DataTables\css\scroller.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\scroller.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\scroller.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\scroller.dataTables.css" />
+    <Content Include="Content\DataTables\css\scroller.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\scroller.foundation.css" />
+    <Content Include="Content\DataTables\css\scroller.foundation.min.css" />
+    <Content Include="Content\DataTables\css\scroller.jqueryui.css" />
+    <Content Include="Content\DataTables\css\scroller.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\scroller.semanticui.css" />
+    <Content Include="Content\DataTables\css\scroller.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\select.bootstrap.css" />
+    <Content Include="Content\DataTables\css\select.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\select.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\select.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\select.dataTables.css" />
+    <Content Include="Content\DataTables\css\select.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\select.foundation.css" />
+    <Content Include="Content\DataTables\css\select.foundation.min.css" />
+    <Content Include="Content\DataTables\css\select.jqueryui.css" />
+    <Content Include="Content\DataTables\css\select.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\select.semanticui.css" />
+    <Content Include="Content\DataTables\css\select.semanticui.min.css" />
+    <Content Include="Content\DataTables\images\details_close.png" />
+    <Content Include="Content\DataTables\images\details_open.png" />
+    <Content Include="Content\DataTables\images\sort_asc.png" />
+    <Content Include="Content\DataTables\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables\images\sort_both.png" />
+    <Content Include="Content\DataTables\images\sort_desc.png" />
+    <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
+    <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\datepicker3.css" />
+    <Content Include="Content\daterangepicker.css" />
+    <Content Include="Content\finalStyle.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fullcalendar.css" />
+    <Content Include="Content\fullcalendar.min.css" />
+    <Content Include="Content\fullcalendar.print.css" />
+    <Content Include="Content\fullcalendar.print.min.css" />
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\ionicons.css" />
+    <Content Include="Content\jquery-ui-1.8.17.custom.css" />
+    <Content Include="Content\layout.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\progress-wizard.min.css" />
+    <Content Include="Content\select2.min.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\themes\base\bootstrap.min.js" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\_all-skins.min.css" />
+    <Content Include="Filters\ErrorLog\myFile.txt" />
+    <Content Include="Extensions\WETOS.Util.dll" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\12.jpg" />
+    <Content Include="Images\34.jpg" />
+    <Content Include="Images\67.jpg" />
+    <Content Include="Images\Companylogo.jpg" />
+    <Content Include="Images\Companylogo.png" />
+    <Content Include="Images\tekman-250x250.jpg" />
+    <Content Include="Scripts\app.min.js" />
+    <Content Include="Scripts\BarChart.js" />
+    <Content Include="Scripts\basic.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Chart.bundle.js" />
+    <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
+    <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\autoFill.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.foundation.js" />
+    <Content Include="Scripts\DataTables\autoFill.foundation.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.jqueryui.js" />
+    <Content Include="Scripts\DataTables\autoFill.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.semanticui.js" />
+    <Content Include="Scripts\DataTables\autoFill.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\buttons.colVis.js" />
+    <Content Include="Scripts\DataTables\buttons.colVis.min.js" />
+    <Content Include="Scripts\DataTables\buttons.flash.js" />
+    <Content Include="Scripts\DataTables\buttons.flash.min.js" />
+    <Content Include="Scripts\DataTables\buttons.foundation.js" />
+    <Content Include="Scripts\DataTables\buttons.foundation.min.js" />
+    <Content Include="Scripts\DataTables\buttons.html5.js" />
+    <Content Include="Scripts\DataTables\buttons.html5.min.js" />
+    <Content Include="Scripts\DataTables\buttons.jqueryui.js" />
+    <Content Include="Scripts\DataTables\buttons.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\buttons.print.js" />
+    <Content Include="Scripts\DataTables\buttons.print.min.js" />
+    <Content Include="Scripts\DataTables\buttons.semanticui.js" />
+    <Content Include="Scripts\DataTables\buttons.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.autoFill.js" />
+    <Content Include="Scripts\DataTables\dataTables.autoFill.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.buttons.js" />
+    <Content Include="Scripts\DataTables\dataTables.buttons.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.colReorder.js" />
+    <Content Include="Scripts\DataTables\dataTables.colReorder.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedColumns.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedColumns.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedHeader.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.foundation.js" />
+    <Content Include="Scripts\DataTables\dataTables.foundation.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.jqueryui.js" />
+    <Content Include="Scripts\DataTables\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.keyTable.js" />
+    <Content Include="Scripts\DataTables\dataTables.keyTable.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.material.js" />
+    <Content Include="Scripts\DataTables\dataTables.material.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.responsive.js" />
+    <Content Include="Scripts\DataTables\dataTables.responsive.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowGroup.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowGroup.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowReorder.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowReorder.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.scroller.js" />
+    <Content Include="Scripts\DataTables\dataTables.scroller.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.select.js" />
+    <Content Include="Scripts\DataTables\dataTables.select.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.semanticui.js" />
+    <Content Include="Scripts\DataTables\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.uikit.js" />
+    <Content Include="Scripts\DataTables\dataTables.uikit.min.js" />
+    <Content Include="Scripts\DataTables\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables\jquery.dataTables.min.js" />
+    <Content Include="Scripts\DataTables\responsive.bootstrap.js" />
+    <Content Include="Scripts\DataTables\responsive.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\responsive.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\responsive.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\responsive.foundation.js" />
+    <Content Include="Scripts\DataTables\responsive.foundation.min.js" />
+    <Content Include="Scripts\DataTables\responsive.jqueryui.js" />
+    <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\responsive.semanticui.js" />
+    <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
+    <Content Include="Scripts\daterangepicker.js" />
+    <Content Include="Scripts\demo.js" />
+    <Content Include="Scripts\DoughnutChartData.js" />
+    <Content Include="Scripts\fastclick.js" />
+    <Content Include="Scripts\fullcalendar.js" />
+    <Content Include="Scripts\fullcalendar.min.js" />
+    <Content Include="Scripts\fullcalendar\fullcalendar.js" />
+    <Content Include="Scripts\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Scripts\fullcalendar\gcal.js" />
+    <Content Include="Scripts\fullcalendar\gcal.min.js" />
+    <Content Include="Scripts\fullcalendar\locale-all.js" />
+    <Content Include="Scripts\iCheck\all.css" />
+    <Content Include="Scripts\iCheck\flat\aero%402x.png" />
+    <Content Include="Scripts\iCheck\flat\aero.css" />
+    <Content Include="Scripts\iCheck\flat\aero.png" />
+    <Content Include="Scripts\iCheck\flat\blue%402x.png" />
+    <Content Include="Scripts\iCheck\flat\blue.css" />
+    <Content Include="Scripts\iCheck\flat\blue.png" />
+    <Content Include="Scripts\iCheck\flat\flat%402x.png" />
+    <Content Include="Scripts\iCheck\flat\flat.css" />
+    <Content Include="Scripts\iCheck\flat\flat.png" />
+    <Content Include="Scripts\iCheck\flat\green%402x.png" />
+    <Content Include="Scripts\iCheck\flat\green.css" />
+    <Content Include="Scripts\iCheck\flat\green.png" />
+    <Content Include="Scripts\iCheck\flat\grey%402x.png" />
+    <Content Include="Scripts\iCheck\flat\grey.css" />
+    <Content Include="Scripts\iCheck\flat\grey.png" />
+    <Content Include="Scripts\iCheck\flat\orange%402x.png" />
+    <Content Include="Scripts\iCheck\flat\orange.css" />
+    <Content Include="Scripts\iCheck\flat\orange.png" />
+    <Content Include="Scripts\iCheck\flat\pink%402x.png" />
+    <Content Include="Scripts\iCheck\flat\pink.css" />
+    <Content Include="Scripts\iCheck\flat\pink.png" />
+    <Content Include="Scripts\iCheck\flat\purple%402x.png" />
+    <Content Include="Scripts\iCheck\flat\purple.css" />
+    <Content Include="Scripts\iCheck\flat\purple.png" />
+    <Content Include="Scripts\iCheck\flat\red%402x.png" />
+    <Content Include="Scripts\iCheck\flat\red.css" />
+    <Content Include="Scripts\iCheck\flat\red.png" />
+    <Content Include="Scripts\iCheck\flat\yellow%402x.png" />
+    <Content Include="Scripts\iCheck\flat\yellow.css" />
+    <Content Include="Scripts\iCheck\flat\yellow.png" />
+    <Content Include="Scripts\iCheck\flat\_all.css" />
+    <Content Include="Scripts\iCheck\futurico\futurico%402x.png" />
+    <Content Include="Scripts\iCheck\futurico\futurico.css" />
+    <Content Include="Scripts\iCheck\futurico\futurico.png" />
+    <Content Include="Scripts\iCheck\icheck.js" />
+    <Content Include="Scripts\iCheck\icheck.min.js" />
+    <Content Include="Scripts\iCheck\line\aero.css" />
+    <Content Include="Scripts\iCheck\line\blue.css" />
+    <Content Include="Scripts\iCheck\line\green.css" />
+    <Content Include="Scripts\iCheck\line\grey.css" />
+    <Content Include="Scripts\iCheck\line\line%402x.png" />
+    <Content Include="Scripts\iCheck\line\line.css" />
+    <Content Include="Scripts\iCheck\line\line.png" />
+    <Content Include="Scripts\iCheck\line\orange.css" />
+    <Content Include="Scripts\iCheck\line\pink.css" />
+    <Content Include="Scripts\iCheck\line\purple.css" />
+    <Content Include="Scripts\iCheck\line\red.css" />
+    <Content Include="Scripts\iCheck\line\yellow.css" />
+    <Content Include="Scripts\iCheck\line\_all.css" />
+    <Content Include="Scripts\iCheck\minimal\aero%402x.png" />
+    <Content Include="Scripts\iCheck\minimal\aero.css" />
+    <Content Include="Scripts\iCheck\minimal\aero.png" />
+    <Content Include="Scripts\iCheck\minimal\blue%402x.png" />
+    <Content Include="Scripts\iCheck\minimal\blue.css" />
+    <Content Include="Scripts\iCheck\minimal\blue.png" />
+    <Content Include="Scripts\iCheck\minimal\green%402x.png" />
+    <Content Include="Scripts\iCheck\minimal\green.css" />
+    <Content Include="Scripts\iCheck\minimal\green.png" />
+    <Content Include="Scripts\iCheck\minimal\grey%402x.png" />
+    <Content Include="Scripts\iCheck\minimal\grey.css" />
+    <Content Include="Scripts\iCheck\minimal\grey.png" />
+    <Content Include="Scripts\iCheck\minimal\minimal%402x.png" />
+    <Content Include="Scripts\iCheck\minimal\minimal.css" />
+    <Content Include="Scripts\iCheck\minimal\minimal.png" />
+    <Content Include="Scripts\iCheck\minimal\orange%402x.png" />
+    <Content Include="Scripts\iCheck\minimal\orange.css" />
+    <Content Include="Scripts\iCheck\minimal\orange.png" />
+    <Content Include="Scripts\iCheck\minimal\pink%402x.png" />
+    <Content Include="Scripts\iCheck\minimal\pink.css" />
+    <Content Include="Scripts\iCheck\minimal\pink.png" />
+    <Content Include="Scripts\iCheck\minimal\purple%402x.png" />
+    <Content Include="Scripts\iCheck\minimal\purple.css" />
+    <Content Include="Scripts\iCheck\minimal\purple.png" />
+    <Content Include="Scripts\iCheck\minimal\red%402x.png" />
+    <Content Include="Scripts\iCheck\minimal\red.css" />
+    <Content Include="Scripts\iCheck\minimal\red.png" />
+    <Content Include="Scripts\iCheck\minimal\yellow%402x.png" />
+    <Content Include="Scripts\iCheck\minimal\yellow.css" />
+    <Content Include="Scripts\iCheck\minimal\yellow.png" />
+    <Content Include="Scripts\iCheck\minimal\_all.css" />
+    <Content Include="Scripts\iCheck\polaris\polaris%402x.png" />
+    <Content Include="Scripts\iCheck\polaris\polaris.css" />
+    <Content Include="Scripts\iCheck\polaris\polaris.png" />
+    <Content Include="Scripts\iCheck\square\aero%402x.png" />
+    <Content Include="Scripts\iCheck\square\aero.css" />
+    <Content Include="Scripts\iCheck\square\aero.png" />
+    <Content Include="Scripts\iCheck\square\blue%402x.png" />
+    <Content Include="Scripts\iCheck\square\blue.css" />
+    <Content Include="Scripts\iCheck\square\blue.png" />
+    <Content Include="Scripts\iCheck\square\green%402x.png" />
+    <Content Include="Scripts\iCheck\square\green.css" />
+    <Content Include="Scripts\iCheck\square\green.png" />
+    <Content Include="Scripts\iCheck\square\grey%402x.png" />
+    <Content Include="Scripts\iCheck\square\grey.css" />
+    <Content Include="Scripts\iCheck\square\grey.png" />
+    <Content Include="Scripts\iCheck\square\orange%402x.png" />
+    <Content Include="Scripts\iCheck\square\orange.css" />
+    <Content Include="Scripts\iCheck\square\orange.png" />
+    <Content Include="Scripts\iCheck\square\pink%402x.png" />
+    <Content Include="Scripts\iCheck\square\pink.css" />
+    <Content Include="Scripts\iCheck\square\pink.png" />
+    <Content Include="Scripts\iCheck\square\purple%402x.png" />
+    <Content Include="Scripts\iCheck\square\purple.css" />
+    <Content Include="Scripts\iCheck\square\purple.png" />
+    <Content Include="Scripts\iCheck\square\red%402x.png" />
+    <Content Include="Scripts\iCheck\square\red.css" />
+    <Content Include="Scripts\iCheck\square\red.png" />
+    <Content Include="Scripts\iCheck\square\square%402x.png" />
+    <Content Include="Scripts\iCheck\square\square.css" />
+    <Content Include="Scripts\iCheck\square\square.png" />
+    <Content Include="Scripts\iCheck\square\yellow%402x.png" />
+    <Content Include="Scripts\iCheck\square\yellow.css" />
+    <Content Include="Scripts\iCheck\square\yellow.png" />
+    <Content Include="Scripts\iCheck\square\_all.css" />
+    <Content Include="Scripts\jqueri.ui.min.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery-datatables-editable_jquery.dataTables.js" />
+    <Content Include="Scripts\jquery-ui-1.8.17.custom.min.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.inputmask.date.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask.js" />
+    <Content Include="Scripts\jspdf.debug.js" />
+    <Content Include="Scripts\lang-all.js" />
+    <Content Include="Scripts\layout.js" />
+    <Content Include="Scripts\LineChartData.js" />
+    <Content Include="Scripts\locale\af.js" />
+    <Content Include="Scripts\locale\ar-dz.js" />
+    <Content Include="Scripts\locale\ar-kw.js" />
+    <Content Include="Scripts\locale\ar-ly.js" />
+    <Content Include="Scripts\locale\ar-ma.js" />
+    <Content Include="Scripts\locale\ar-sa.js" />
+    <Content Include="Scripts\locale\ar-tn.js" />
+    <Content Include="Scripts\locale\ar.js" />
+    <Content Include="Scripts\locale\bg.js" />
+    <Content Include="Scripts\locale\ca.js" />
+    <Content Include="Scripts\locale\cs.js" />
+    <Content Include="Scripts\locale\da.js" />
+    <Content Include="Scripts\locale\de-at.js" />
+    <Content Include="Scripts\locale\de-ch.js" />
+    <Content Include="Scripts\locale\de.js" />
+    <Content Include="Scripts\locale\el.js" />
+    <Content Include="Scripts\locale\en-au.js" />
+    <Content Include="Scripts\locale\en-ca.js" />
+    <Content Include="Scripts\locale\en-gb.js" />
+    <Content Include="Scripts\locale\en-ie.js" />
+    <Content Include="Scripts\locale\en-nz.js" />
+    <Content Include="Scripts\locale\es-do.js" />
+    <Content Include="Scripts\locale\es.js" />
+    <Content Include="Scripts\locale\et.js" />
+    <Content Include="Scripts\locale\eu.js" />
+    <Content Include="Scripts\locale\fa.js" />
+    <Content Include="Scripts\locale\fi.js" />
+    <Content Include="Scripts\locale\fr-ca.js" />
+    <Content Include="Scripts\locale\fr-ch.js" />
+    <Content Include="Scripts\locale\fr.js" />
+    <Content Include="Scripts\locale\gl.js" />
+    <Content Include="Scripts\locale\he.js" />
+    <Content Include="Scripts\locale\hi.js" />
+    <Content Include="Scripts\locale\hr.js" />
+    <Content Include="Scripts\locale\hu.js" />
+    <Content Include="Scripts\locale\id.js" />
+    <Content Include="Scripts\locale\is.js" />
+    <Content Include="Scripts\locale\it.js" />
+    <Content Include="Scripts\locale\ja.js" />
+    <Content Include="Scripts\locale\kk.js" />
+    <Content Include="Scripts\locale\ko.js" />
+    <Content Include="Scripts\locale\lb.js" />
+    <Content Include="Scripts\locale\locale-all.js" />
+    <Content Include="Scripts\locale\lt.js" />
+    <Content Include="Scripts\locale\lv.js" />
+    <Content Include="Scripts\locale\mk.js" />
+    <Content Include="Scripts\locale\ms-my.js" />
+    <Content Include="Scripts\locale\ms.js" />
+    <Content Include="Scripts\locale\nb.js" />
+    <Content Include="Scripts\locale\nl-be.js" />
+    <Content Include="Scripts\locale\nl.js" />
+    <Content Include="Scripts\locale\nn.js" />
+    <Content Include="Scripts\locale\pl.js" />
+    <Content Include="Scripts\locale\pt-br.js" />
+    <Content Include="Scripts\locale\pt.js" />
+    <Content Include="Scripts\locale\ro.js" />
+    <Content Include="Scripts\locale\ru.js" />
+    <Content Include="Scripts\locale\sk.js" />
+    <Content Include="Scripts\locale\sl.js" />
+    <Content Include="Scripts\locale\sr-cyrl.js" />
+    <Content Include="Scripts\locale\sr.js" />
+    <Content Include="Scripts\locale\sv.js" />
+    <Content Include="Scripts\locale\th.js" />
+    <Content Include="Scripts\locale\tr.js" />
+    <Content Include="Scripts\locale\uk.js" />
+    <Content Include="Scripts\locale\vi.js" />
+    <Content Include="Scripts\locale\zh-cn.js" />
+    <Content Include="Scripts\locale\zh-tw.js" />
+    <Content Include="Scripts\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\PieChartData.js" />
+    <Content Include="Scripts\select2.full.min.js" />
+    <Content Include="Scripts\session-timeout-idle-init.js" />
+    <Content Include="Scripts\session-timeout_idle_jquery.idletimeout.js" />
+    <Content Include="Scripts\session-timeout_idle_jquery.idletimer.js" />
+    <Content Include="Scripts\utils.js" />
+    <Content Include="Scripts\WebCam\webcam.js" />
+    <Content Include="Scripts\WebCam\webcam.min.js" />
+    <Content Include="Scripts\WebCam\webcam.swf" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="docs\" />
+    <Folder Include="User_Data\Candidate_Documents\" />
+    <Folder Include="User_Data\Company_Documents\" />
+    <Folder Include="User_Data\Document_Upload\" />
+    <Folder Include="User_Data\download\" />
+    <Folder Include="User_Data\Employee_Official_Documents\" />
+    <Folder Include="User_Data\Import_Data\" />
+    <Folder Include="User_Data\InvestmentDeclaration\" />
+    <Folder Include="User_Data\Upload_Files\" />
+    <Folder Include="User_Data\Upload_image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WetosDB\WetosDB.csproj">
+      <Project>{323178E9-C2FD-49BB-9D88-8ACB94D1AD7E}</Project>
+      <Name>WetosDB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\MenuHelper.cshtml" />
+    <None Include="App_Data\WETOS.ini" />
+    <None Include="Content\DataTables\css\common.scss" />
+    <None Include="Content\DataTables\css\mixins.scss" />
+    <None Include="Content\DataTables\css\semanticui.scss" />
+    <None Include="Datasets\DailyMailAttendenceReport.xsc">
+      <DependentUpon>DailyMailAttendenceReport.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DailyMailAttendenceReport.xsd" />
+    <None Include="Datasets\DailyMailAttendenceReport.xss">
+      <DependentUpon>DailyMailAttendenceReport.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\FlagshipHRMSDataSet.xsc">
+      <DependentUpon>FlagshipHRMSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\FlagshipHRMSDataSet.xsd" />
+    <None Include="Datasets\FlagshipHRMSDataSet.xss">
+      <DependentUpon>FlagshipHRMSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Form16DataDataSet.xsd" />
+    <None Include="Datasets\job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\MonthSalaryDataDataSet.xsd" />
+    <None Include="Datasets\SummarySheetDataSet.xsc">
+      <DependentUpon>SummarySheetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\SummarySheetDataSet.xsd" />
+    <None Include="Datasets\SummarySheetDataSet.xss">
+      <DependentUpon>SummarySheetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\WetosBSVData.xsc">
+      <DependentUpon>WetosBSVData.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\WetosBSVData.xsd" />
+    <None Include="Datasets\WetosBSVData.xss">
+      <DependentUpon>WetosBSVData.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\ESVDataSet.xsc">
+      <DependentUpon>ESVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\ESVDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ESVDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\ESVDataSet.xss">
+      <DependentUpon>ESVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="fonts\fontawesome-webfont.eot" />
+    <None Include="fonts\fontawesome-webfont.ttf" />
+    <None Include="fonts\fontawesome-webfont.woff" />
+    <None Include="fonts\FontAwesome.otf" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\AssignRule\AssignRuleIndex.cshtml" />
+    <Content Include="Views\AssignRule\BranchList.cshtml" />
+    <Content Include="Views\AssignRule\EmployeeGroupList.cshtml" />
+    <Content Include="Views\AssignRule\GetNavMenuData.cshtml" />
+    <Content Include="Views\AssignRule\GetRulesData.cshtml" />
+    <Content Include="Views\AssignShiftPattern\GetEmployeeName.cshtml" />
+    <Content Include="Views\AssignShiftPattern\GetShiftOnFirstDay.cshtml" />
+    <Content Include="Views\AssignShiftPattern\Index.cshtml" />
+    <Content Include="Views\Dashboard\EmployeeDashboard.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Dashboard\HRDashboard.cshtml" />
+    <Content Include="Views\Dashboard\ShowCalendarofReportingToMe.cshtml" />
+    <Content Include="Views\ManagerDashboard\Backup Calendar Index.cshtml" />
+    <Content Include="Views\ManagerDashboard\CalendarIndex.cshtml" />
+    <Content Include="Views\ManagerDashboard\DailyTransactionIndex.cshtml" />
+    <Content Include="Views\ManagerDashboard\Director.cshtml" />
+    <Content Include="Views\ManagerDashboard\EmployeeReportingindex.cshtml" />
+    <Content Include="Views\Home\Birthday.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\BirthdayListView.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\Calender.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\ChangePasswordForPopup.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\Confirmation.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\ConfirmationListView.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\MessageDetails.cshtml" />
+    <Content Include="Views\Home\Newmessage.cshtml" />
+    <Content Include="Views\Home\Notification.cshtml" />
+    <Content Include="Views\Home\NotificationContent.cshtml" />
+    <Content Include="Views\Home\PopupTestCode.cshtml" />
+    <Content Include="Views\Home\ReadMore.cshtml" />
+    <Content Include="Views\Home\SelfConfirmation.cshtml" />
+    <Content Include="Views\ManagerDashboard\HRManager.cshtml" />
+    <Content Include="Views\ManagerDashboard\Index.cshtml" />
+    <Content Include="Views\ManagerDashboard\Manager.cshtml" />
+    <Content Include="Views\RoleNavMenu\GetNavMenuData.cshtml" />
+    <Content Include="Views\RoleNavMenu\GetUsersData.cshtml" />
+    <Content Include="Views\RoleNavMenu\RoleNavMenu.cshtml" />
+    <Content Include="Views\RoleNavMenu\YearList.cshtml" />
+    <Content Include="Views\ShiftPattern\Create.cshtml" />
+    <Content Include="Views\Shared\_LayoutBlank.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Decimal.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Double.cshtml" />
+    <Content Include="Views\ShiftPattern\DrawPattern.cshtml" />
+    <Content Include="Views\WetosAdministration\AuditLogs.cshtml" />
+    <Content Include="Views\WetosAdministration\BulkUsers.cshtml" />
+    <Content Include="Views\WetosAdministration\BulkUsersList.cshtml" />
+    <Content Include="Views\WetosAdministration\CommonSettings.cshtml" />
+    <Content Include="Views\WetosAdministration\DataProcessing.cshtml" />
+    <Content Include="Views\WetosAdministration\ExportPayRoll.cshtml" />
+    <Content Include="Views\WetosAdministration\FileProcessing.cshtml" />
+    <Content Include="Views\WetosAdministration\FinancialYearCreate.cshtml" />
+    <Content Include="Views\WetosAdministration\FinancialYearEdit.cshtml" />
+    <Content Include="Views\WetosAdministration\FinancialYearIndex.cshtml" />
+    <Content Include="Views\WetosAdministration\GetAuditTrail.cshtml" />
+    <Content Include="Views\WetosAdministration\GetRulesForCommonSettings.cshtml" />
+    <Content Include="Views\WetosAdministration\ImportData.cshtml" />
+    <Content Include="Views\WetosAdministration\LeaveBalanceCreate.cshtml" />
+    <Content Include="Views\WetosAdministration\LeaveBalanceEdit.cshtml" />
+    <Content Include="Views\WetosAdministration\LeaveBalanceIndex.cshtml" />
+    <Content Include="Views\WetosAdministration\LeaveCreditCreate.cshtml" />
+    <Content Include="Views\WetosAdministration\LeaveCreditDetails.cshtml" />
+    <Content Include="Views\WetosAdministration\LeaveCreditEdit.cshtml" />
+    <Content Include="Views\WetosAdministration\LeaveCreditIndex.cshtml" />
+    <Content Include="Views\WetosAdministration\LockUnlock.cshtml" />
+    <Content Include="Views\WetosAdministration\ProvideRightToEmployeeForLogin.cshtml" />
+    <Content Include="Views\WetosAdministration\ResetPassword.cshtml" />
+    <Content Include="Views\WetosAdministration\ResetPasswordForSelectedEmployee.cshtml" />
+    <Content Include="Views\WetosAdministration\SatuatoryReport.cshtml" />
+    <Content Include="Views\WetosAdministration\SelectEmployeeForChangePassword.cshtml" />
+    <Content Include="Views\WetosAdministration\SelectEmployeeForUploadDocumentList.cshtml" />
+    <Content Include="Views\WetosAdministration\UploadDocumentList.cshtml" />
+    <Content Include="Views\WetosAdministration\UploadDocuments.cshtml" />
+    <Content Include="Views\WetosAdministration\UserRights.cshtml" />
+    <Content Include="Views\WetosAdministration\UserRightsCreate.cshtml" />
+    <Content Include="Views\ShiftPattern\DrawPatternForEdit.cshtml" />
+    <Content Include="Views\ShiftPattern\Edit.cshtml" />
+    <Content Include="Views\ShiftPattern\Index.cshtml" />
+    <Content Include="Views\WetosAdministration\DataProcessForIndividualEmployee.cshtml" />
+    <Content Include="Views\WetosAdministration\UserRightsUserList.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\CompOffApplication.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\CompOffApplication1.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\CompOffApplicationEdit.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\CompOffApplicationIndex.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\EncashmentApplication.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\EncashmentApplicationDelete.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\EncashmentApplicationEdit.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\EncashmentIndex.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\ExceptionEntry.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\ExceptionEntryApply.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\ExceptionEntryEdit.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\ExceptionEntryIndex.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\ExceptionEntryListView.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\LeaveApplicationEdit.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\LeaveApplicationIndex.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\ODTravelApplication.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\ODtravelEdit.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\ODTravelIndex.cshtml" />
+    <Content Include="Views\WetosApplication\CompOffApplication.cshtml" />
+    <Content Include="Views\WetosApplication\CompOffApplication1.cshtml" />
+    <Content Include="Views\WetosApplication\CompOffApplicationEdit.cshtml" />
+    <Content Include="Views\WetosApplication\CompOffApplicationIndex.cshtml" />
+    <Content Include="Views\WetosApplication\CopyofLeaveApplication.cshtml" />
+    <Content Include="Views\WetosApplication\EncashmentApplication.cshtml" />
+    <Content Include="Views\WetosApplication\EncashmentApplicationDelete.cshtml" />
+    <Content Include="Views\WetosApplication\EncashmentApplicationEdit.cshtml" />
+    <Content Include="Views\WetosApplication\EncashmentIndex.cshtml" />
+    <Content Include="Views\WetosApplication\ExceptionEntry.cshtml" />
+    <Content Include="Views\WetosApplication\ExceptionEntryApply.cshtml" />
+    <Content Include="Views\WetosApplication\ExceptionEntryEdit.cshtml" />
+    <Content Include="Views\WetosApplication\ExceptionEntryIndex.cshtml" />
+    <Content Include="Views\WetosApplication\ExceptionEntryListView.cshtml" />
+    <Content Include="Views\WetosApplication\GetLeaveApplicationExtraDetails.cshtml" />
+    <Content Include="Views\WetosApplication\LeaveApplication.cshtml" />
+    <Content Include="Views\WetosApplication\LeaveApplicationEdit.cshtml" />
+    <Content Include="Views\WetosApplication\LeaveApplicationForOther.cshtml" />
+    <Content Include="Views\WetosApplication\LeaveApplicationIndex.cshtml" />
+    <Content Include="Views\WetosApplication\LeaveDataView.cshtml" />
+    <Content Include="Views\WetosApplication\LeaveDataViewForLeaveBalance.cshtml" />
+    <Content Include="Views\WetosApplication\ManualCompOffApplicationCreate.cshtml" />
+    <Content Include="Views\WetosApplication\ManualCompOffApplicationIndex.cshtml" />
+    <Content Include="Views\WetosApplication\ManualCompOffCreate.cshtml" />
+    <Content Include="Views\WetosApplication\ManualCompOffList.cshtml" />
+    <Content Include="Views\WetosApplication\ODTravelApplication.cshtml" />
+    <Content Include="Views\WetosApplication\ODtravelEdit.cshtml" />
+    <Content Include="Views\WetosApplication\ODTravelIndex.cshtml" />
+    <Content Include="Views\WetosAttendance\Adjustment.cshtml" />
+    <Content Include="Views\WetosAttendance\AdjustmentEntry.cshtml" />
+    <Content Include="Views\WetosAttendance\AdjustmentEntryIndex.cshtml" />
+    <Content Include="Views\WetosAttendance\AdjustmentIndex.cshtml" />
+    <Content Include="Views\WetosAttendance\CondoneEntry.cshtml" />
+    <Content Include="Views\WetosAttendance\CondoneEntryEdit.cshtml" />
+    <Content Include="Views\WetosAttendance\CondoneEntryIndex.cshtml" />
+    <Content Include="Views\WetosAttendance\DeclaredHoliday.cshtml" />
+    <Content Include="Views\WetosAttendance\HolidayEdit.cshtml" />
+    <Content Include="Views\WetosAttendance\HolidayEntry.cshtml" />
+    <Content Include="Views\WetosAttendance\HolidayList.cshtml" />
+    <Content Include="Views\WetosAttendance\ShiftSchedule.cshtml" />
+    <Content Include="Views\WetosBloodGroup\Create.cshtml" />
+    <Content Include="Views\WetosBloodGroup\Details.cshtml" />
+    <Content Include="Views\WetosBloodGroup\Edit.cshtml" />
+    <Content Include="Views\WetosBloodGroup\Index.cshtml" />
+    <Content Include="Views\WetosBranch\Create.cshtml" />
+    <Content Include="Views\WetosBranch\Delete.cshtml" />
+    <Content Include="Views\WetosBranch\Details.cshtml" />
+    <Content Include="Views\WetosBranch\Edit.cshtml" />
+    <Content Include="Views\WetosBranch\Index.cshtml" />
+    <Content Include="Views\WetosChart\BarChart.cshtml" />
+    <Content Include="Views\WetosChart\DoughnutChart.cshtml" />
+    <Content Include="Views\WetosChart\Index.cshtml" />
+    <Content Include="Views\WetosChart\LineChart.cshtml" />
+    <Content Include="Views\WetosChart\PieChart.cshtml" />
+    <Content Include="Views\WetosCompany\Create.cshtml" />
+    <Content Include="Views\WetosCompany\Delete.cshtml" />
+    <Content Include="Views\WetosCompany\Details.cshtml" />
+    <Content Include="Views\WetosCompany\Edit.cshtml" />
+    <Content Include="Views\WetosCompany\Index.cshtml" />
+    <Content Include="Views\WetosDashboard\Index.cshtml" />
+    <Content Include="Views\WetosDeclaredHoliday\Create.cshtml" />
+    <Content Include="Views\WetosDeclaredHoliday\Details.cshtml" />
+    <Content Include="Views\WetosDeclaredHoliday\Edit.cshtml" />
+    <Content Include="Views\WetosDeclaredHoliday\Index.cshtml" />
+    <Content Include="Views\WetosDepartment\Create.cshtml" />
+    <Content Include="Views\WetosDepartment\Delete.cshtml" />
+    <Content Include="Views\WetosDepartment\Details.cshtml" />
+    <Content Include="Views\WetosDepartment\Edit.cshtml" />
+    <Content Include="Views\WetosDepartment\Index.cshtml" />
+    <Content Include="Views\WetosDesignation\Create.cshtml" />
+    <Content Include="Views\WetosDesignation\Delete.cshtml" />
+    <Content Include="Views\WetosDesignation\Details.cshtml" />
+    <Content Include="Views\WetosDesignation\Edit.cshtml" />
+    <Content Include="Views\WetosDesignation\Index.cshtml" />
+    <Content Include="Views\WetosDeviceMaster\Create.cshtml" />
+    <Content Include="Views\WetosDeviceMaster\Details.cshtml" />
+    <Content Include="Views\WetosDeviceMaster\Edit.cshtml" />
+    <Content Include="Views\WetosDeviceMaster\Index.cshtml" />
+    <Content Include="Views\WetosEmail\DailyAttendanceReportForDirector.cshtml" />
+    <Content Include="Views\WetosEmployeeGroup\Create.cshtml" />
+    <Content Include="Views\WetosEmployeeGroup\Delete.cshtml" />
+    <Content Include="Views\WetosEmployeeGroup\Details.cshtml" />
+    <Content Include="Views\WetosEmployeeGroup\Edit.cshtml" />
+    <Content Include="Views\WetosEmployeeGroup\Index.cshtml" />
+    <Content Include="Views\WetosEmployeeType\Create.cshtml" />
+    <Content Include="Views\WetosEmployeeType\Delete.cshtml" />
+    <Content Include="Views\WetosEmployeeType\Details.cshtml" />
+    <Content Include="Views\WetosEmployeeType\Edit.cshtml" />
+    <Content Include="Views\WetosEmployeeType\Index.cshtml" />
+    <Content Include="Views\WetosEmployee\AllEmployees.cshtml" />
+    <Content Include="Views\WetosEmployee\Create.cshtml" />
+    <Content Include="Views\WetosEmployee\Details.cshtml" />
+    <Content Include="Views\WetosEmployee\Edit.cshtml" />
+    <Content Include="Views\WetosEmployee\Index.cshtml" />
+    <Content Include="Views\WetosEmployee\profile.cshtml" />
+    <Content Include="Views\WetosEmployee\ViewProfile.cshtml" />
+    <Content Include="Views\WetosGlobalSetting\Create.cshtml" />
+    <Content Include="Views\WetosGlobalSetting\Details.cshtml" />
+    <Content Include="Views\WetosGlobalSetting\Edit.cshtml" />
+    <Content Include="Views\WetosGlobalSetting\Index.cshtml" />
+    <Content Include="Views\WetosGrade\Create.cshtml" />
+    <Content Include="Views\WetosGrade\Delete.cshtml" />
+    <Content Include="Views\WetosGrade\Details.cshtml" />
+    <Content Include="Views\WetosGrade\Edit.cshtml" />
+    <Content Include="Views\WetosGrade\Index.cshtml" />
+    <Content Include="Views\WetosHoliday\Create.cshtml" />
+    <Content Include="Views\WetosHoliday\Delete.cshtml" />
+    <Content Include="Views\WetosHoliday\Details.cshtml" />
+    <Content Include="Views\WetosHoliday\Edit.cshtml" />
+    <Content Include="Views\WetosHoliday\Index.cshtml" />
+    <Content Include="Views\WetosLeave\Create.cshtml" />
+    <Content Include="Views\WetosLeave\Delete.cshtml" />
+    <Content Include="Views\WetosLeave\Details.cshtml" />
+    <Content Include="Views\WetosLeave\Edit.cshtml" />
+    <Content Include="Views\WetosLeave\GetLeaveDetails.cshtml" />
+    <Content Include="Views\WetosLeave\Index.cshtml" />
+    <Content Include="Views\WetosLocation\Create.cshtml" />
+    <Content Include="Views\WetosLocation\Delete.cshtml" />
+    <Content Include="Views\WetosLocation\Details.cshtml" />
+    <Content Include="Views\WetosLocation\Edit.cshtml" />
+    <Content Include="Views\WetosLocation\Index.cshtml" />
+    <Content Include="Views\WetosNews\Create.cshtml" />
+    <Content Include="Views\WetosNews\Edit.cshtml" />
+    <Content Include="Views\WetosNews\Index.cshtml" />
+    <Content Include="Views\WetosPhysicalLocation\Create.cshtml" />
+    <Content Include="Views\WetosPhysicalLocation\Details.cshtml" />
+    <Content Include="Views\WetosPhysicalLocation\Edit.cshtml" />
+    <Content Include="Views\WetosPhysicalLocation\Index.cshtml" />
+    <Content Include="Views\WetosReligion\Create.cshtml" />
+    <Content Include="Views\WetosReligion\Details.cshtml" />
+    <Content Include="Views\WetosReligion\Edit.cshtml" />
+    <Content Include="Views\WetosReligion\Index.cshtml" />
+    <Content Include="Views\WetosReports\AttendanceReport.cshtml" />
+    <Content Include="Views\WetosReports\AuditLog.cshtml" />
+    <Content Include="Views\WetosReports\DailyReportsIndex.cshtml" />
+    <Content Include="Views\WetosReports\GetEmployeeList.cshtml" />
+    <Content Include="Views\WetosReports\HolidayListIndex.cshtml" />
+    <Content Include="Views\WetosReports\LeaveApplication.cshtml" />
+    <Content Include="Views\WetosReports\LeaveBalance.cshtml" />
+    <Content Include="Views\WetosReports\LeaveCalculationReport.cshtml" />
+    <Content Include="Views\WetosLeaveTransaction\GetLeaveApplicationExtraDetails.cshtml" />
+    <Content Include="Views\WetosLeaveTransaction\Index.cshtml" />
+    <Content Include="Views\WetosLeaveTransaction\LeaveApplication.cshtml" />
+    <Content Include="Views\WetosLeaveTransaction\LeaveApplicationEdit.cshtml" />
+    <Content Include="Views\WetosLeaveTransaction\LeaveApplicationIndex.cshtml" />
+    <Content Include="Views\WetosLeaveTransaction\LeaveDataView.cshtml" />
+    <Content Include="Views\WetosLeaveTransaction\LeaveDataViewForLeaveBalance.cshtml" />
+    <Content Include="Views\WetosLeaveTransaction\LeaveSanctionIndex.cshtml" />
+    <Content Include="Views\WetosLeaveTransaction\LeaveSanctionPV.cshtml" />
+    <Content Include="Views\WetosManualCO\ManualCompOffCreate.cshtml" />
+    <Content Include="Views\WetosManualCO\ManualCompOffEdit.cshtml" />
+    <Content Include="Views\WetosManualCO\ManualCompOffList.cshtml" />
+    <Content Include="Views\WetosManualCO\ManualCOSanctionIndex.cshtml" />
+    <Content Include="Views\WetosManualCO\ManualCOSanctionPV.cshtml" />
+    <Content Include="Views\WetosReports\DailyReportsIndexHR.cshtml" />
+    <Content Include="Views\WetosReports\LeaveSheet.cshtml" />
+    <Content Include="Views\WetosReports\MasterReportIndex.cshtml" />
+    <Content Include="Views\WetosReports\MIS.cshtml" />
+    <Content Include="Views\WetosReports\MisReportsIndex.cshtml" />
+    <Content Include="Views\WetosReports\MonthlyReportsIndex.cshtml" />
+    <Content Include="Views\WetosReports\PaySlipReport.cshtml" />
+    <Content Include="Views\WetosReports\RequisitionApplication.cshtml" />
+    <Content Include="Views\WetosRole\Create.cshtml" />
+    <Content Include="Views\WetosRole\Delete.cshtml" />
+    <Content Include="Views\WetosRole\Details.cshtml" />
+    <Content Include="Views\WetosRole\Edit.cshtml" />
+    <Content Include="Views\WetosRole\List.cshtml" />
+    <Content Include="Views\WetosRuleTransaction\Create.cshtml" />
+    <Content Include="Views\WetosRuleTransaction\Details.cshtml" />
+    <Content Include="Views\WetosRuleTransaction\Edit.cshtml" />
+    <Content Include="Views\WetosRuleTransaction\Index.cshtml" />
+    <Content Include="Views\WetosSanctions\CompOffIndex.cshtml" />
+    <Content Include="Views\WetosSanctions\CompOffSanction.cshtml" />
+    <Content Include="Views\WetosSanctions\COSanctionPV.cshtml" />
+    <Content Include="Views\WetosSanctions\ExceptionSanction.cshtml" />
+    <Content Include="Views\WetosSanctions\ExceptionSanctionEdit.cshtml" />
+    <Content Include="Views\WetosSanctions\ExceptionSanctionIndex.cshtml" />
+    <Content Include="Views\WetosSanctions\ExceptionSanctionPV.cshtml" />
+    <Content Include="Views\WetosSanctions\LeaveEncashSanction.cshtml" />
+    <Content Include="Views\WetosSanctions\LeaveEncashSanctionIndex.cshtml" />
+    <Content Include="Views\WetosSanctions\LeaveSanction.cshtml" />
+    <Content Include="Views\WetosSanctions\LeaveSanctionIndex.cshtml" />
+    <Content Include="Views\WetosSanctions\LeaveSanctionPV.cshtml" />
+    <Content Include="Views\WetosSanctions\LeaveSanctionView.cshtml" />
+    <Content Include="Views\WetosSanctions\ODTravelSanction.cshtml" />
+    <Content Include="Views\WetosSanctions\ODTravelSanctionIndex.cshtml" />
+    <Content Include="Views\WetosSanctions\ODTravelSanctionPV.cshtml" />
+    <Content Include="Views\WetosSchedular\Create.cshtml" />
+    <Content Include="Views\WetosSchedular\Index.cshtml" />
+    <Content Include="Views\WetosShiftGroup\Create.cshtml" />
+    <Content Include="Views\WetosShiftGroup\Details.cshtml" />
+    <Content Include="Views\WetosShiftGroup\Edit.cshtml" />
+    <Content Include="Views\WetosShiftGroup\Index.cshtml" />
+    <Content Include="Views\WetosShiftSchedule\Create.cshtml" />
+    <Content Include="Views\WetosShiftSchedule\Edit.cshtml" />
+    <Content Include="Views\WetosShiftSchedule\Index.cshtml" />
+    <Content Include="Views\WetosShift\Copy of Index.cshtml" />
+    <Content Include="Views\WetosShift\Create.cshtml" />
+    <Content Include="Views\WetosShift\Delete.cshtml" />
+    <Content Include="Views\WetosShift\Details.cshtml" />
+    <Content Include="Views\WetosShift\Edit.cshtml" />
+    <Content Include="Views\WetosReports\MonthlyReportsIndexHR.cshtml" />
+    <Content Include="Views\WetosReports\SendAutoMailThroughEmail.cshtml" />
+    <Content Include="Views\WetosShiftSchedulePattern\Edit.cshtml" />
+    <Content Include="Views\WetosShiftSchedulePattern\Index.cshtml" />
+    <Content Include="Views\WetosShift\Index.cshtml" />
+    <Content Include="Views\WetosUpdates\UploadCompanyPolicies.cshtml" />
+    <Content Include="Views\WetosUpdates\ViewCompanyPolicies.cshtml" />
+    <Content Include="Views\WetosViews\CreateView.cshtml" />
+    <Content Include="Views\WetosViews\IndexView.cshtml" />
+    <Content Include="Views\WetosAssignEmployeeGroup\Index.cshtml" />
+    <Content Include="Views\WetosReports\LNTReportsIndex.cshtml" />
+    <Content Include="Views\WetosReports\LNTReportsIndexHR.cshtml" />
+    <Content Include="Views\WetosReports\LNTDailyReportsIndex.cshtml" />
+    <Content Include="Views\WetosReports\LNTMonthlyReportsIndex.cshtml" />
+    <Content Include="Views\WetosReports\LNTYearlyReportsIndex.cshtml" />
+    <Content Include="Views\WetosReports\LNTMonthlyReportsIndexHR.cshtml" />
+    <Content Include="Views\WetosReports\LNTDailyReportsIndexHR.cshtml" />
+    <Content Include="Views\WetosReports\LNTYearlyReportsIndexHR.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\WetosAdministration\FactoryReset.cshtml" />
+    <Content Include="Views\WetosAdministration\HTMLToPDF.cshtml" />
+    <Content Include="Views\WetosAdministration\ExceptionEntryPV.cshtml" />
+    <Content Include="Views\WetosSchedular\Edit.cshtml" />
+    <Content Include="Views\WetosCumulativeCompOff\CumulativeCompOffIndex.cshtml" />
+    <Content Include="Views\WetosCumulativeCompOff\DailyTransactioExtraHoursView.cshtml" />
+    <Content Include="Views\WetosCumulativeCompOff\CumulativeCompOffCreate.cshtml" />
+    <Content Include="Views\WetosCumulativeCompOff\CumulativeCompOffApplication.cshtml" />
+    <Content Include="Views\RoleNavMenu\AssignBranchAdmin.cshtml" />
+    <Content Include="Views\WetosCumulativeCompOffUtilize\CompOffApplication.cshtml" />
+    <Content Include="Views\WetosCumulativeCompOffUtilize\CompOffApplicationEdit.cshtml" />
+    <Content Include="Views\WetosCumulativeCompOffUtilize\CompOffApplicationIndex.cshtml" />
+    <Content Include="Views\WetosLeaveTransaction\GetAttendanceDetails.cshtml" />
+    <Content Include="Views\WetosCumulativeCompOff\CumulativeCOSanctionIndex.cshtml" />
+    <Content Include="Views\WetosCumulativeCompOff\CumulativeCOSanctionPV.cshtml" />
+    <Content Include="Views\WetosCumulativeCompOffUtilize\CumulativeCompOffIndex.cshtml" />
+    <Content Include="Views\WetosCumulativeCompOffUtilize\CumulativeCOSanctionPV.cshtml" />
+    <Content Include="Views\WetosCumulativeCompOff\CumulativeCompOffCreatePV.cshtml" />
+    <Content Include="Views\WetosCumulativeCompOffUtilize\CumulativeCompOffApplicationPV.cshtml" />
+    <Content Include="Views\WetosTimeline\Index.cshtml" />
+    <Content Include="Views\WetosApplicationForOther\EncashmentLeaveData.cshtml" />
+    <Content Include="Views\WetosDeclaredHoliday\Delete.cshtml" />
+    <Content Include="Views\WetosApplication\ODLateEarly.cshtml" />
+    <Content Include="Views\WetosApplication\ODLateEarlyIndex.cshtml" />
+    <Content Include="Views\WetosApplication\ODLateEarlyEdit.cshtml" />
+    <Content Include="Views\WetosApplication\ODLateEarlyApplication.cshtml" />
+    <Content Include="Views\WetosSanctions\ODLateEarlySanctionIndex.cshtml" />
+    <Content Include="Views\WetosSanctions\ODLateEarlySanctionPV.cshtml" />
+    <Content Include="Views\ManagerDashboard\EmpDailyTransaction.cshtml" />
+    <Content Include="Views\ManagerDashboard\EmpDailyTransactionExPV.cshtml" />
+    <Content Include="Views\ManagerDashboard\EmpDailyTransactionEx.cshtml" />
+    <Content Include="Views\WetosReligion\Delete.cshtml" />
+    <Content Include="Views\Account\Registration.cshtml" />
+    <Content Include="Views\Shared\_alerts.cshtml" />
+    <Content Include="Views\DropdownData\Create.cshtml" />
+    <Content Include="Views\DropdownData\Delete.cshtml" />
+    <Content Include="Views\DropdownData\Details.cshtml" />
+    <Content Include="Views\DropdownData\Edit.cshtml" />
+    <Content Include="Views\DropdownData\Index.cshtml" />
+    <Content Include="Views\WetosNavMenuMaster\Create.cshtml" />
+    <Content Include="Views\WetosNavMenuMaster\Delete.cshtml" />
+    <Content Include="Views\WetosNavMenuMaster\Details.cshtml" />
+    <Content Include="Views\WetosNavMenuMaster\Edit.cshtml" />
+    <Content Include="Views\WetosNavMenuMaster\Index.cshtml" />
+    <Content Include="Views\WetosFinancialYear\Create.cshtml" />
+    <Content Include="Views\WetosFinancialYear\Delete.cshtml" />
+    <Content Include="Views\WetosFinancialYear\Details.cshtml" />
+    <Content Include="Views\WetosFinancialYear\Edit.cshtml" />
+    <Content Include="Views\WetosFinancialYear\Index.cshtml" />
+    <Content Include="Views\WetosEmployeeSingleView\AllEmployees.cshtml" />
+    <Content Include="Views\WetosEmployeeSingleView\Create.cshtml" />
+    <Content Include="Views\Home\PhotoCapture.cshtml" />
+    <None Include="Views\WetosEmployeeSingleView\Create.cshtml.bak" />
+    <Content Include="Views\WetosEmployeeSingleView\Details.cshtml" />
+    <Content Include="Views\WetosEmployeeSingleView\Edit.cshtml" />
+    <None Include="Views\WetosEmployeeSingleView\Edit.cshtml.bak" />
+    <Content Include="Views\WetosEmployeeSingleView\Index.cshtml" />
+    <Content Include="Views\WetosEmployeeSingleView\profile.cshtml" />
+    <Content Include="Views\WetosEmployeeSingleView\ViewProfile.cshtml" />
+    <None Include="Views\WetosSanctions\LeaveEncashSanctionPV.cshtml" />
+    <Content Include="Views\WetosSqlQuery\Index.cshtml" />
+    <Content Include="Views\WetosSqlQuery\Details.cshtml" />
+    <Content Include="Views\WetosSqlQuery\Create.cshtml" />
+    <Content Include="Views\WetosSqlQuery\Edit.cshtml" />
+    <Content Include="Views\WetosSqlQuery\Delete.cshtml" />
+    <Content Include="Views\WetosSqlQuery\SQLQueryCreate.cshtml" />
+    <Content Include="Views\WetosSqlQuery\SQLQueryListPV.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\AbsenteeismReport.rdlc" />
+    <EmbeddedResource Include="Reports\AttendanceSummaryReport.rdlc" />
+    <EmbeddedResource Include="Reports\BranchMasterReport.rdlc" />
+    <EmbeddedResource Include="Reports\CompanyMasterReport.rdlc" />
+    <EmbeddedResource Include="Reports\ContinuousAbsentismReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyOTSummaryReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyOTReport.rdlc" />
+    <EmbeddedResource Include="Reports\CurrentDayReport.rdlc" />
+    <EmbeddedResource Include="Reports\DailyAttendance.rdlc" />
+    <EmbeddedResource Include="Reports\DailyEarlyDepartureReport.rdlc" />
+    <EmbeddedResource Include="Reports\DailyLateEarlyReport.rdlc" />
+    <EmbeddedResource Include="Reports\DailyLongAbsenteeismReport.rdlc" />
+    <EmbeddedResource Include="Reports\DailyMailAttendenceReport.rdlc" />
+    <EmbeddedResource Include="Reports\DailyMultiplePunchingReport.rdlc" />
+    <EmbeddedResource Include="Reports\DailyOverStayReport.rdlc" />
+    <EmbeddedResource Include="Reports\DepartmentMasterReport.rdlc" />
+    <EmbeddedResource Include="Reports\DesignationMasterReport.rdlc" />
+    <EmbeddedResource Include="Reports\EmployeeGroupMasterReport.rdlc" />
+    <EmbeddedResource Include="Reports\EmployeeMasterReport.rdlc" />
+    <EmbeddedResource Include="Reports\EmployeePerformanceReport.rdlc" />
+    <EmbeddedResource Include="Reports\EmployeesDetailLeaveReport.rdlc" />
+    <EmbeddedResource Include="Reports\FamilyDetailsReport.rdlc" />
+    <EmbeddedResource Include="Reports\GradeMasterReport.rdlc" />
+    <EmbeddedResource Include="Reports\HolidayMasterReport.rdlc" />
+    <EmbeddedResource Include="Reports\LateComingReport.rdlc" />
+    <EmbeddedResource Include="Reports\LateSummaryReport.rdlc" />
+    <EmbeddedResource Include="Reports\LeaveApplicationReport.rdlc" />
+    <EmbeddedResource Include="Reports\LeaveBalanceReport.rdlc" />
+    <EmbeddedResource Include="Reports\LunchLateEmployeeReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyAdditionListReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyAttendanceReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyLateEarlyReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyLeftReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyLossofPayReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyMuster.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyMusterReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyPerformanceReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlySalaryAbsentismReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlySalaryOutputReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlySalaryShiftAllowanceReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyShiftChartReport.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlyWorkingHoursReport.rdlc" />
+    <EmbeddedResource Include="Reports\PreviousDayAttendanceReport.rdlc" />
+    <EmbeddedResource Include="Reports\RelievingLetter.rdlc" />
+    <EmbeddedResource Include="Reports\RequisitionApplication.rdlc" />
+    <EmbeddedResource Include="Reports\ShiftMasterReport.rdlc" />
+    <EmbeddedResource Include="Reports\ShiftRotationMasterReport.rdlc" />
+    <EmbeddedResource Include="Reports\SwipeMovementReport.rdlc" />
+    <EmbeddedResource Include="Reports\TimeCardReportOLD.rdlc" />
+    <EmbeddedResource Include="Reports\YearlyEncashLeaveReport.rdlc" />
+    <EmbeddedResource Include="Reports\YearlyLeaveReport.rdlc" />
+    <EmbeddedResource Include="Reports\YearlyPerformanceReportGeneric.rdlc" />
+    <EmbeddedResource Include="Reports\YearlyPerformanceReportMaleWise.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50806</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50806/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

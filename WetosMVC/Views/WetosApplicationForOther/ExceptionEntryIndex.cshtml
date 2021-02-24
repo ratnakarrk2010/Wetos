@@ -1,0 +1,125 @@
+﻿@model IEnumerable<WetosDB.SP_GetDailyTransactionList_Result>
+@{
+    ViewBag.Title = "Exception Entry";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+ @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<section class="content">
+          <div class="box">
+             <!-- /.box-header -->
+            <div class="box-body">
+<table id="Exception" class="table table-striped dataTables_wrapper form-inline dt-bootstrap">
+<thead>
+    <tr>
+        <td>
+            Date
+        </td>
+        <td>
+            Emp.Code
+        </td>
+        <td>
+            Employee Name
+        </td>
+        <td>
+            Shift
+        </td>
+        <td>
+           Login
+        </td>
+        <td>
+           LogoutDate
+        </td>
+         <td>
+           LogoutTime
+        </td>
+        <td>
+            Working Hour
+        </td>
+        <td>
+           Status
+        </td>
+        <td>
+            Reason
+        </td>
+         <td>Action</td>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+          @{var TranDate = item.TranDate.ToString("dd-MMM-yyyy");}
+          @TranDate
+        </td>
+        <td>
+            @String.Format("{0:g}", item.EmployeeCode)
+        </td>
+        <td>
+            @item.EmployeeCode - @item.FirstName @item.LastName
+        </td>
+        <td>
+            @item.ShiftId
+        </td>
+        <td>
+            @item.Login.ToString("HH:mm")  @* Updated by Rajas on 16 FEB 2017  *@
+        </td>
+         <td>
+         @{var LogOut = item.LogOut.ToString("dd-MMM-yyyy");}
+          @LogOut
+            
+        </td>
+          <td>
+            @item.LogOut.ToString("HH:mm")  @* Updated by Rajas on 16 FEB 2017  *@
+        </td>
+        
+        <td>
+        @{var WorkHours = item.WorkingHrs == null ? "00:00" : item.WorkingHrs.Value.ToString("HH:mm");}  @* Updated by Rajas on 16 FEB 2017  *@
+        @WorkHours
+           
+        </td>
+        <td> @item.Status</td>
+       @* @Html.DropDownList("Reason", new List<SelectListItem>() { new SelectListItem { Text = "Forgot To Punch", Value = "Forgot To Punch" }, new SelectListItem { Text = "Ms.", Value = "Ms." }, new SelectListItem { Text = "Card Not Issued", Value = "Card Not Issued" }, new SelectListItem { Text = "Card Not brought", Value = "Card Not brought" }, new SelectListItem { Text = "Machine was Not Working", Value = "Machine was Not Working" }, new SelectListItem { Text = "Card not working", Value = "Card not working" }, new SelectListItem { Text = "Extended Shift", Value = "Extended Shift" }, new SelectListItem { Text = "Out Door Duty", Value = "Out Door Duty" }, new SelectListItem { Text = "Card lost", Value = "Card lost" }, new SelectListItem { Text = "Special Approval", Value = "Special Approval" } }, new { style = "width:150px;" })*@
+        <td>
+            @item.Remark
+        </td>
+         <td>
+          @*  @Html.ActionLink("Apply", "ExceptionEntryApply", new { EmployeeId = item.EmployeeId, TranDate = item.TranDate })*@
+             <span data-toggle="tooltip" title="Apply exception entry">
+           @Html.ActionLink(" ", "ExceptionEntryApply", new { EmployeeId = item.EmployeeId, TranDate = item.TranDate }, new { @class = "fa fa-pencil-square-o" })
+           </span>
+        </td>
+      
+    </tr>
+}
+</tbody>
+<tfoot></tfoot>
+</table>
+
+ <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+           </div>
+          <!-- /.box -->
+      
+      <!-- /.row -->
+    </section>
+<script type="text/javascript">
+    $(function () {
+
+        $("#Exception").DataTable();
+
+    });
+</script>
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+</script>

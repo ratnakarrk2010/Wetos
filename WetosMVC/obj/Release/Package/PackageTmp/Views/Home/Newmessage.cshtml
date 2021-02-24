@@ -1,0 +1,220 @@
+﻿@model WetosMVCMainApp.Models.MessageModel
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/CKEditor")
+<link href="@Url.Content("~/Content/select2.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/select2.full.min.js")" type="text/javascript"></script>
+<div id="div_readmore">
+</div>
+<div class="portlet box purple ">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-gift"></i>New Message
+        </div>
+    </div>
+    <div class="portlet-body form">
+        @using (Html.BeginForm())
+        {
+@*<form class="form-horizontal" role="form" method="post" action="@Url.Content("~/Home/SendMessage")">*@
+            @Html.HiddenFor(model => model.FromEmpId)
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    </label>
+                    <div id="alert">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">
+                        To
+                    </label>
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(a => a.ToEmpTypeId, (IEnumerable<SelectListItem>)ViewBag.MessageSendToList, "Select", new { @class = "form-control select2", id = "ToEmpTypeId", @name = "ToEmpTypeId" })
+                    </div>
+                </div>
+                <div class="form-group" id="IndividualEmployees" style="display: none">
+                    <label class="col-md-3 control-label">
+                        Select Emp.
+                    </label>
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(a => a.ToEmpId, (IEnumerable<SelectListItem>)ViewBag.EmployeeList, "Select", new { @class = "form-control select2", id = "ToEmpId", @name = "ToEmpId" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">
+                        Subject
+                    </label>
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(a => a.MessageSubject, (IEnumerable<SelectListItem>)ViewBag.MessageSubjectList, "Select", new { @class = "form-control select2", id = "MessageSubject", @name = "MessageSubject" })
+                        @*  @Html.TextBoxFor(a => a.MessageSubject, new { @placeholder = "Message Subject", @name = "MessageSubject", @class = "form-control input-sm" })*@
+                        @*<input class="form-control input-sm" placeholder="Message Subject" type="text" id="txtmsgsubject"
+                        name="txtmsgsubject" />*@
+                        <br />
+                        <input class="form-control input-sm" style="display: none" placeholder="Please enter message subject here"
+                            type="text" id="MessageSubjectText" name="MessageSubjectText" />
+                    </div>
+                </div>
+                @*  <div class="form-group">
+                <label class="col-md-2 control-label">
+                    Type :</label>
+                <div class="col-md-9">
+                    @Html.DropDownList("msgType", null, "--Select--", new { @class = "form-control input-sm" })
+                </div>
+            </div>*@
+                <div class="form-group">
+                    <label class="col-md-3 control-label">
+                        Message
+                    </label>
+                    <div class="col-md-9">
+                        @Html.TextAreaFor(a => a.MessageContent, 10, 80, new { @placeholder = "Message Content", @name = "MessageContent", @class = "form-control input-sm" })
+                        @*<textarea class="form-control" name="editor1" id="txtmsgcontent" rows="10" cols="80">*@
+                        @*<textarea class="form-control" rows="5" style="resize: none" id="txtmsgcontent" name="txtmsgcontent"></textarea>*@
+                    </div>
+                </div>
+                <div class="form-actions fluid">
+                    <div class="col-md-offset-2 col-md-9">
+                        <button type="submit" id="BtnSubmit" class="btn btn-md green">
+                            Send Message
+                        </button>
+                        @*ADDED CODE BY SHRADDHA ON 23 JAN 2017 FOR SENDING EMAIL START*@
+                        <input type="button" value="Send Email " class="btn btn-md red" id="SendEmail" onclick="Valid(event)" />
+                        @* <a href="@Url.Action("emailpage","WetosEmail")" class="btn blue" id="btnback">emailpage</a>*@
+                        @*ADDED CODE BY SHRADDHA ON 23 JAN 2017 FOR SENDING EMAIL END*@@*           <a  class="btn default" onclick="@Url.Content("~/Home/ReadMore")">Cancel</a>*@
+                        <a href="@Url.Action("Index")" class="btn blue" id="btnback">Back To List</a>
+                    </div>
+                </div>
+            </div>
+@*</form>*@
+        }
+    </div>
+</div>
+<script type="text/javascript">
+
+    function SendMessage() {
+        var ToEmpTypeId = $("#ToEmpTypeId").val();
+        alert(ToEmpTypeId);
+        var MessageSubject = $("#MessageSubject").val();
+        alert(MessageSubject);
+        var MessageContent = $("#MessageContent").val();
+        alert(MessageContent);
+        var FromEmpId = $("#FromEmpId").val();
+        alert(FromEmpId);
+        var MessageSubjectText = $("#MessageSubjectText").val();
+        alert(MessageSubjectText);
+        var ToEmpId = $("#ToEmpId").val();
+        alert(ToEmpId);
+        //        $.ajax({
+        //            url: '@Url.Content("~/Home/SendMessage")',
+        //            type: "POST",
+        //            //datatype: "json",
+        //            data: { ToEmpTypeId: ToEmpTypeId, MessageSubject: MessageSubject, MessageContent: MessageContent, FromEmpId: FromEmpId, MessageSubjectText: MessageSubjectText, ToEmpId: ToEmpId },
+        //            success: function (data) {
+
+        //            },
+        //            error: function (data) {
+
+        //            }
+        //        });
+        $.ajax({
+            url: '@Url.Content("~/Home/SendMessage")',
+            type: "Get",
+            //datatype: "json",
+            data: { ToEmpTypeId: ToEmpTypeId, MessageSubject: MessageSubject, MessageContent: MessageContent, FromEmpId: FromEmpId, MessageSubjectText: MessageSubjectText, ToEmpId: ToEmpId },
+            success: function (data) {
+
+            },
+            error: function (data) {
+
+            }
+        });
+    }
+    $(document).ready(function () {
+        $("#IndividualEmployees").css("display", "none");
+        $("#MessageSubjectText").css("display", "none");
+        var ToEmpTypeId = $("#ToEmpTypeId").val();
+        if (ToEmpTypeId == 5) {
+            $("#IndividualEmployees").css("display", "inline");
+        }
+        else {
+            $("#IndividualEmployees").css("display", "none");
+        }
+    });
+
+    $("#ToEmpTypeId").change(function () {
+        var ToEmpTypeId = $("#ToEmpTypeId").val();
+        if (ToEmpTypeId == 5) {
+            $("#IndividualEmployees").css("display", "inline");
+            var employeeid = +$("#FromEmpId").val();
+            $.ajax({
+                url: '@Url.Content("~/Home/EmployeesReportingtoMe")',
+                type: "POST",
+                dataType: "json",
+                data: { EmployeeId: employeeid },
+                success: function (data) {
+
+                    $("#ToEmpId").empty();
+
+                    $("#ToEmpId").append("<option value=" + "0" + ">" + "Select" + "</option>");
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        $("#ToEmpId").append("<option value=" + "" + data[i].EmployeeId + "" + ">" + data[i].EmployeeName + "</option>");
+
+                    }
+                },
+                error: function (data) {
+                    //alert("hello");
+                }
+
+            });
+        }
+        else {
+            $("#IndividualEmployees").css("display", "none");
+        }
+    });
+
+    $("#MessageSubject").change(function () {
+        var ToEmpTypeId = $("#MessageSubject").val();
+        if (ToEmpTypeId == 2) {
+            $("#MessageSubjectText").css("display", "inline");
+        }
+        else {
+            $("#MessageSubjectText").css("display", "none");
+        }
+    });
+
+    
+</script>
+<script type="text/javascript">
+    $(function () {
+
+        $(".select2").select2();
+
+
+
+    });
+    CKEDITOR.replace('MessageContent');
+</script>
+@*ADDED SCRIPT BY SHRADDHA ON 23 JAN 2017 FOR SENDING EMAIL START*@
+<script type="text/javascript">
+    $("#SendEmail").click(function () {
+        var ToEmpId = $("#ToEmpId").val();
+        var message = $("#MessageContent").val();
+        var subject = $("#MessageSubject").val();
+        // alert();
+        $.ajax({
+            url: "~/WetosEmail/SendEmail",
+            type: "Get",
+            //datatype: "json",
+            data: { sel_messageto: ToEmpId, subject: subject, message: message },
+            success: function (data) {
+
+            },
+            error: function (data) {
+
+            }
+        });
+    });
+
+</script>
+@*ADDED SCRIPT BY SHRADDHA ON 23 JAN 2017 FOR SENDING EMAIL END*@ 

@@ -1,0 +1,112 @@
+﻿@model List<WetosDB.sp_get_Roleuser_Result>
+@{
+         
+    int i = 1;
+   
+}
+@*@System.Web.Optimization.Styles.Render("~/Content/Icheck")
+ @System.Web.Optimization.Scripts.Render("~/bundles/Icheck")*@
+
+
+<div style="height: 50%; overflow-y: scroll;">
+@*<table  style="width:80%"><tr>
+    <th >
+    
+
+     <input  class="form-control" type="text" name="searchUserName" id="searchUserName" />
+     
+      </th>
+     <th> <span style="margin-left:-20px" class="fa fa-search"></span></th>
+    </tr></table>*@
+    <table>
+    
+        <tr>
+            <th colspan="2" style="font-size: 20px; text-align: center; border-bottom: solid 1px;">Users 
+            </th>
+            
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="chkusers" name="chkusers" onclick="GetSlectAll()" />
+            </td>
+            <td>UserName
+            </td>
+            
+        </tr>
+
+        @foreach (var UR in Model)
+        {
+            <tr>
+                <td></td>
+                <td style="text-align: right;">
+                    @if (UR.flag == 0)
+                    {
+                        <input type="checkbox" id="chkuser-@i" name="chkuser-@i" onclick="GetChekdata(@i,@UR.EmployeeId);"/>
+                    }
+                    else
+                    {
+                        <input type="checkbox" id="chkuser-@i" name="chkuser-@i"  checked="checked"  onclick="GetChekdata(@i,@UR.EmployeeId);"/>
+                    }
+                    <input type="hidden" id="hiduser-@i" name="hiduser" value="@UR.EmployeeId" />
+
+
+                </td>
+                <td>
+                  @UR.EmployeeCode - @UR.Name
+                </td>
+            </tr>
+                    i = i + 1;
+        }
+    </table>
+</div>
+
+
+<input type="hidden" id="hidvalue" name="hidvalue" value="@i" />
+<script type="text/javascript">
+
+    function GetSlectAll() {
+
+        for (var j = 1; j <= $('#hidvalue').val(); j++) {
+
+            if ($('#chkusers').is(':checked').toString() == 'true') {
+
+
+                $('#chkuser-' + parseInt(j)).attr('checked', true);
+            }
+
+            else {
+
+                $('#chkuser-' + parseInt(j)).attr('checked', false);
+            }
+        }
+    }
+
+
+    function GetChekdata(i, Userid) {
+
+        $.ajax({
+            url: '@Url.Content("~/RoleNavMenu/GetCheckDatas")',
+            data: JSON.stringify({ Roleid: $('#RoleDef').val(), uid: Userid }),
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                if (result != 's') {
+                    if ($('#chkuser-' + parseInt(i)).is(':checked').toString() == 'true') {
+                        //alert(result);
+                        return false;
+                    }
+                }
+            },
+            error: function (result) {
+                // alert("No data Available");
+            }
+        });
+
+    }
+
+   
+    
+  
+  
+</script>

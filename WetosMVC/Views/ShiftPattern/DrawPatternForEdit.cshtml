@@ -1,0 +1,61 @@
+﻿@model WetosMVCMainApp.Models.ShiftPatternRuleModel
+
+@{      
+    string shift_name = null;
+    string old_shift_name = null; 
+}
+<style type="text/css">
+    .content
+    {
+        overflow: auto !important;
+    }
+</style>
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <table style="overflow-x: scroll" class="table table-bordered">
+            <thead>
+                <tr>
+                    @foreach (var wd in Model.ShiftPatternList) // TO MARK START DAY HEADER START
+                    {
+                        <td>@wd.DayName
+                        </td>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                   @for (int ni = 0; ni <= Model.NoofDays; ni++)
+                    {
+                        <td>
+                            <select id="cboShift-@ni" name="cboShift-@ni" class="form-control"  style="width:100px;">
+                                @foreach (var opt in Model.ShiftList)
+                                {
+                                    shift_name = opt.ShiftCode;
+                                    if (shift_name != old_shift_name)
+                                    {
+                                    <option value="@opt.ShiftCode">@opt.ShiftCode</option>
+                                    }
+                                    old_shift_name = opt.ShiftCode;
+                                }
+                                <option value="WO">WO</option>
+                            </select>
+
+                        </td>
+                    }
+                    @*Added by MSJ on 15th DEC 2017 --- End*@
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+@*<input type="hidden" id="hid_icount" name="hid_icount" value="@i" />
+<input type="hidden" id="hid_day_pattern" name="hid_day_pattern" value="@day_pattern" />*@
+<div class="form-group">
+    <label class="col-md-3 control-label">
+    </label>
+    <div class="col-md-7">
+        <input type="submit" style="" value="submit" class="btn blue" />
+        @* @ActionHelper.ShowAction("ShiftPattern", "Submit-Submit", "#", "visibile", "", "valid(event)")*@
+        <a class="btn default" href="@Url.Action("Index")">Back to List</a>
+    </div>
+</div>

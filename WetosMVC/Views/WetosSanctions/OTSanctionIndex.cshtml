@@ -1,0 +1,186 @@
+﻿@model IEnumerable<WetosDB.SP_OTSanctionIndex_Result>
+@{
+    ViewBag.Title = "OTSanctionIndex";
+}
+
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+
+
+<div class="page-content-wrapper" id="page_content">
+    <section class="content-header" id="page_content">
+
+      <h1>
+       OT Sanction
+        <small>Index</small>
+      </h1>
+        <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                          
+                         <a href="#">Sanctions</a>
+
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">OT Sanction</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span> @DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>
+      <div style="clear: both;"></div>
+
+      
+
+    </section>
+    <div class="container" style="margin-right: 100px; overflow: auto;">
+    </div>
+    <section class="content">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            @using (Html.BeginForm(null, null, FormMethod.Post))
+                            {
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationSummary(true)
+                                    @{int LoginEmployee = Convert.ToInt32(Session["EmployeeNo"]);}
+                                </div>
+    
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="editor-label">
+                                            Select Criteria
+                                        </div>
+                                        <div class="editor-field">
+                                         @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                         <div class="input-group date">
+                                          <div class="input-group-addon">
+                                          <i  class="fa fa-list-ul"></i>
+  	                                            </div>
+                                                @*CODE REPLACED BY SHRADDHA ON 12 SEP 2017 START*@
+                                                @Html.DropDownList("StatusObj", (IEnumerable<SelectListItem>)@ViewBag.StatusList, "Select", new { @class = "form-control select2", @id = "Status", onchange = "getSanctionListPV()" })
+                                                @* @Html.DropDownList("StatusObj", new SelectList(ViewBag.StatusList), "Select", new { @class = "form-control select2", @id = "Status", onchange = "getSanctionListPV()" })*@
+                                                @*CODE REPLACED BY SHRADDHA ON 12 SEP 2017 END*@  
+                                            
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <br />                               
+                                
+                                <div id="results">
+                                    @Html.Partial("OTSanctionPV")
+                                </div>
+                                <center><input type="submit" class="btn btn-primary" value="Save"/> </center> 
+                            }
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+   
+    <!-- /.row -->
+    </section>
+</div>
+
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>
+
+<script type="text/jscript">
+    $(function () {
+
+        $("#OTSanction").DataTable();
+
+    });
+</script>
+
+<script type="text/javascript">
+
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+    });
+    </script>
+    <script type="text/javascript">
+
+        function getSanctionList() {
+
+            var AppCheck = $("#Status").val();
+
+            Url = '@Url.Action("OTSanctionIndex", "WetosSanctions", new { selectCriteria = "abc" })'.replace("abc", AppCheck);
+            //window.location.href = Url;
+            window.open(Url, "_self");
+
+        }
+
+        function getSanctionListPV() {
+
+            var selectCriteria = $("#Status").val();
+            //alert(selectCriteria);
+
+            //var ToDate = $("#ToDate").val();
+
+            $.ajax({
+                url: '@Url.Content("~/WetosSanctions/OTSanctionPV")',
+                type: "POST",
+                data: { selectCriteria: selectCriteria },
+                success: function (data) {
+
+                    $("#results").html(data);
+                    $("#LeaveSanctionabc").DataTable();
+                }
+            });
+
+
+        }
+
+        $(document).ready(function () {
+            // alert();
+            $("#RejectReasonText").attr("disabled", true);
+            $("#RejectReasonText").attr("autocomplete", "off");
+        });
+
+        $("#RejectReasonCheck").change(function () {
+            var RejectReasonCheck = $("#RejectReasonCheck").is(':checked') ? "1" : "0";
+            if (RejectReasonCheck == "1") {
+                $("#RejectReasonText").attr("disabled", false);
+            }
+            else {
+                $("#RejectReasonText").attr("disabled", true);
+            }
+        });
+    </script>

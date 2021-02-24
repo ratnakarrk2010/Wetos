@@ -1,0 +1,92 @@
+﻿@model WetosDB.HoldSalary
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>HoldSalary</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EmployeeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmployeeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Reason)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Reason)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HoldStatus)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HoldStatus)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SalaryHoldBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SalaryHoldBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SalaryHoldOn)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SalaryHoldOn)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SalaryUnHoldBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SalaryUnHoldBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SalaryUnHoldOn)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SalaryUnHoldOn)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FromSalaryMonth)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FromSalaryMonth)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FromSalaryYear)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FromSalaryYear)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ToSalaryMonth)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ToSalaryMonth)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ToSalaryYear)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ToSalaryYear)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.HoldSalaryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

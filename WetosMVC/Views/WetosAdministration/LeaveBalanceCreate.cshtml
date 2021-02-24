@@ -1,0 +1,356 @@
+﻿@model WetosMVCMainApp.Models.LeaveBalanceModel
+@{
+    ViewBag.Title = "Leave Balance Create";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<style type="text/css">
+    .row
+    {
+        margin-bottom: 10px;
+    }
+</style>
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+<h1>Leave Balance
+ <small>Create</small>
+</h1>
+       <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Administration</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">Leave Balance</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back " data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+     @* <div>
+      <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>*@
+     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+
+      @*</div>*@
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+      </section>
+        <section class="content">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <div class="box">
+            
+            <!-- /.box-header -->
+            <div class="box-body">
+
+
+@using (Html.BeginForm("LeaveBalanceCreate", "WetosAdministration", FormMethod.Post, new { id = "EditLeaveBal" }))
+{
+    @Html.ValidationSummary(true)
+   
+    
+  
+     <div class="row">
+   
+        <div class="col-md-2">
+    Company  <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="col-md-5">
+          <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-suitcase" aria-hidden="true"></i>
+                  </div> 
+          @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
+          <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.CompanyId)
+            </div>
+            </div>
+        </div>
+     </div>
+     
+       <div class="row">
+        <div class="col-md-2">
+    Branch Name <span style="color:Red;font-size:18px" >*</span>
+        </div>
+         <div class="col-md-5">
+           <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-university" aria-hidden="true"></i>
+                  </div> 
+          @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList" })
+          <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.BranchId)
+            </div>
+        </div>
+        </div>
+       </div>
+     
+         
+    
+     <div class="row">
+        <div class="col-md-2">
+     Employee Name     @* @Html.LabelFor(model => model.EmployeeId)*@
+        </div>
+        <div class="col-md-5">
+          <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-user" aria-hidden="true"></i>
+                  </div> 
+            @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", id = "EmployeeddlList" })
+            @Html.ValidationMessageFor(model => model.EmployeeId)
+        </div>
+        </div>
+        </div> 
+         
+    <div class="row">
+        <div class="col-md-2">
+      Leave Type
+        </div>
+        <div class="col-md-5">
+          <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-user" aria-hidden="true"></i>
+                  </div> 
+            @Html.DropDownListFor(a => a.LeaveType, (IEnumerable<SelectListItem>)@ViewBag.LeaveTypeList, "Select", new { @class = "form-control select2", id = "LeaveTypeddlList" })
+            @Html.ValidationMessageFor(model => model.LeaveType)
+        </div>
+        </div>
+        </div>  
+
+         
+    <div class="row">
+        <div class="col-md-2">
+        Previous Balance
+    @* @Html.LabelFor(model => model.Availed)*@
+        </div>
+        <div class="col-md-5">
+          <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-user" aria-hidden="true"></i>
+                  </div> 
+            @Html.EditorFor(model => model.PreviousBalance)
+            @Html.ValidationMessageFor(model => model.PreviousBalance)
+        </div>
+        </div>
+        </div> 
+
+         
+    <div class="row">
+        <div class="col-md-2">
+        Current Balance
+           @* @Html.LabelFor(model => model.CarryForward)*@
+        </div>
+        <div class="col-md-5">
+          <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-user" aria-hidden="true"></i>
+                  </div> 
+            @Html.EditorFor(model => model.CurrentBalance)
+            @Html.ValidationMessageFor(model => model.CurrentBalance)
+        </div>
+        </div>
+        </div> 
+
+         
+    <div class="row">
+        <div class="col-md-2">
+    Leave Used
+            @*@Html.LabelFor(model => model.Encash)*@
+        </div>
+        <div class="col-md-5">
+          <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-user" aria-hidden="true"></i>
+                  </div> 
+            @Html.EditorFor(model => model.LeaveUsed)
+            @Html.ValidationMessageFor(model => model.LeaveUsed)
+        </div>
+        </div>
+        </div> 
+
+         
+    
+      <p>
+           <input id="LeaveBalEditBtn" type="button" value="Save" class="btn btn-default" style="cursor:pointer; float:left" title = "Click to update leave balance entry"/>
+                                     <span  class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title = "Click to go back to Leave balance list">@Html.ActionLink("Back to List", "LeaveBalanceIndex")</span>
+        </p>
+   
+}
+
+
+
+</div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    </div>
+</div>
+<div id="LeaveBaldiv" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Do you want to Add Leave balance Entry?
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="AddBtn">
+                    Yes</button>
+                <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                    Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+
+        //Date picker
+        $('.datepicker').datepicker({
+
+            format: "dd-M-yyyy",
+
+            autoclose: true
+        });
+
+    });
+
+    $("#EmployeeddlList").change(function () {
+        //alert($("#EmployeeddlList").val());
+        isDirty = false;
+        var employeeid = +$("#EmployeeddlList").val();
+        var companyid = +$("#CompanyddlList").val();
+        var branchid = +$("#BranchddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosAdministration/GetLeaveType")',
+            type: "POST",
+            dataType: "json",
+            data: { employeeid: employeeid, companyid: companyid, branchid: branchid },
+            success: function (data) {
+                $("#LeaveTypeddlList").empty();
+                $("#LeaveTypeddlList").append("<option value=" + "0" + ">" + "Select" + "</option>"); // Added by Rajas on 27 FEB 2017
+                for (var i = 0; i < data.length; i++) {
+
+                    //alert("In function");
+                    // states.option.selected = true;
+                    $("#LeaveTypeddlList").append("<option value=" + "" + data[i].LeaveId + "" + ">" + data[i].LeaveType + "</option>");
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+    // Added by Rajas on 27 DEC 2016 to fill drop down list on selection of other drop down
+    $("#CompanyddlList").change(function () {
+        isDirty = false;
+        var companyid = $("#CompanyddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosAdministration/GetBranch")',
+            type: "POST",
+            dataType: "json",
+            data: { Companyid: companyid },
+            success: function (data) {
+                //alert("success");
+                $("#BranchddlList").empty();
+                //alert("success-empty");
+                $("#BranchddlList").append("<option value=" + "0" + ">" + "Select" + "</option>");
+                // alert("success-select");
+                for (var i = 0; i < data.length; i++) {
+                    //alert("success-in func");
+
+                    $("#BranchddlList").append("<option value=" + "" + data[i].BranchId + "" + ">" + data[i].BranchName + "</option>");
+
+                }
+
+            },
+            error: function (data) {
+                alert("Error");
+            }
+        });
+    });
+
+    $("#BranchddlList").change(function () {
+
+        isDirty = false;
+        var branchid = +$("#BranchddlList").val();
+        var Companyid = +$("#CompanyddlList").val();
+       
+        $.ajax({
+            url: '@Url.Content("~/WetosAdministration/GetEmployee")',
+            type: "POST",
+            dataType: "json",
+            data: { Companyid: Companyid, Branchid: branchid },
+            success: function (data) {
+
+                $("#EmployeeddlList").empty();
+                $("#EmployeeddlList").append("<option value=" + "0" + ">" + "Select" + "</option>");
+
+                for (var i = 0; i < data.length; i++) {
+
+                    $("#EmployeeddlList").append("<option value=" + "" + data[i].EmployeeId + "" + ">" + data[i].EmployeeName + "</option>");
+
+                }
+
+            },
+            error: function (data) {
+                alert("Error");
+            }
+        });
+    });
+
+    $("#LeaveBalEditBtn").click(function () {
+        //alert("Click");
+        var $form = $(this).closest('form');
+        $('#LeaveBaldiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#AddBtn', function () {
+                    $("#EditLeaveBal").submit();
+
+                });
+
+    });
+</script>
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+</script>

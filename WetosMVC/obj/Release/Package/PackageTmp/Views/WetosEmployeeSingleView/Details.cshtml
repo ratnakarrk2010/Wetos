@@ -1,0 +1,420 @@
+﻿@model WetosDB.SP_EmployeeDetailsNew_Result
+@{
+    ViewBag.Title = "Details";
+}
+<section class="content-header">
+      <h1>
+        Employee Master
+        <small>Details</small>
+      </h1>
+                <ol class="breadcrumb">
+              <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
+              <li class="active">Masters</li>
+        <li><a href="@Url.Action("Index","WetosCompany")"><i class="fa fa-arrow-left"></i>Employee</a></li>
+       @* <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>*@
+        @*<li><a href="#">Company Master</a></li>*@
+        <li class="active">Details</li>
+      </ol>
+
+          @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+      <div>
+      <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>
+     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+
+      </div>
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+      </section>
+
+<section class="content">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+      <div class="box">
+            <div class="box-header">
+              
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+    <div class="row">
+
+    <div class="col-md-6">
+    <div class="row">
+    <div class="display-label col-md-4">Employee Name</div>
+    <div class="display-field">@Model.FirstName @Model.MiddleName @Model.LastName</div>
+    </div>
+    <br />
+    
+     <div class="row">
+    <div class="display-label col-md-4">Present Address</div>
+    <div class="display-field">@Model.Address1</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Permenent Address</div>
+    <div class="display-field">@Model.Address2</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Email Id</div>
+    <div class="display-field">@Model.MailAddress</div>
+    </div>
+    <br />
+    @* <div class="row">
+    <div class="display-label col-md-4">DefaultShift</div>
+    <div class="display-field">@Model.DefaultShift</div>
+    </div>
+    <br />*@
+     <div class="row">
+    <div class="display-label col-md-4">EmployeeReportingId</div>
+    <div class="display-field">@Model.Reporting_Person</div>
+    </div>
+    <br />
+   @*  <div class="row">
+    <div class="display-label col-md-4">Grade Name</div>
+    <div class="display-field">@Model.GradeName</div>
+    </div>
+    <br />*@
+     <div class="row">
+    <div class="display-label col-md-4">Personal Email Id</div>
+    <div class="display-field">@Model.Email</div>
+    </div>
+    <br />
+    @* <div class="row">
+    <div class="display-label col-md-4">Mobile</div>
+    <div class="display-field">@Model.Telephone1</div>
+    </div>
+    <br />*@
+    
+     <div class="row">
+    <div class="display-label col-md-4">Moblie No.</div>
+    <div class="display-field">@Model.Moblie</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Gaurdian No.</div>
+    <div class="display-field">@Model.Telephone1</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Confirmation Date</div>
+    <div class="display-field">@String.Format("{0:g}", Model.ConfirmDate)</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Last Date</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Leavingdate)</div>
+    </div>
+    <br />
+   @*  <div class="row">
+    <div class="display-label col-md-4">PFYN</div>
+    <div class="display-field">@Model.PFYN</div>
+    </div>
+    <br />*@
+   @*  <div class="row">
+    <div class="display-label col-md-4">PFNO</div>
+    <div class="display-field">@Model.PFNO</div>
+    </div>
+    <br />*@
+     <div class="row">
+    <div class="display-label col-md-4">PAN No.</div>
+    <div class="display-field">@Model.PANNO</div>
+    </div>
+    <br />
+    @* <div class="row">
+    <div class="display-label col-md-4">ESICNO</div>
+    <div class="display-field">@Model.ESICNO</div>
+ </div>
+    <br />*@
+   @* <div class="row">
+    <div class="display-label col-md-4">ESICDCD</div>
+    <div class="display-field">@Model.ESICDCD</div>
+    </div>
+    <br />*@
+     @*<div class="row">
+    <div class="display-label col-md-4">BankCode</div>
+    <div class="display-field">@Model.BankCode</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">BankNo</div>
+    <div class="display-field">@Model.BankNo</div>
+    </div>
+    <br />*@
+    @* <div class="row">
+    <div class="display-label col-md-4">LICNo</div>
+    <div class="display-field">@Model.LICNo</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">ActiveFlag</div>
+    <div class="display-field">@Model.ActiveFlag</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">SwipeFlag</div>
+    <div class="display-field">@Model.SwipeFlag</div>
+ </div>
+    <br />
+    <div class="row">
+    <div class="display-label col-md-4">SalPDFlag</div>
+    <div class="display-field">@Model.SalPDFlag</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">DeptHeadFlag</div>
+    <div class="display-field">@Model.DeptHeadFlag</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">WeeklyOff2</div>
+    <div class="display-field">@Model.WeeklyOff2</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">First</div>
+    <div class="display-field">@Model.First</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Second</div>
+    <div class="display-field">@Model.Second</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Third</div>
+    <div class="display-field">@Model.Third</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Fourth</div>
+    <div class="display-field">@Model.Fourth</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Fifth</div>
+    <div class="display-field">@Model.Fifth</div>
+    </div>
+
+    <br />
+      <div class="row">
+    <div class="display-label col-md-4">Division Name</div>
+    <div class="display-field">@Model.DIVISIONNAME</div>
+    </div>
+    <br />*@
+     <div class="row">
+    <div class="display-label col-md-4">EmployeeReportingId2</div>
+    <div class="display-field">@Model.Leave_Approver</div>
+    </div>
+    <br />
+    @* <div class="row">
+    <div class="display-label col-md-4">Salary PM</div>
+    <div class="display-field">@Model.SalaryPM</div>
+    </div>
+    <br />*@
+    </div>
+    <div class="col-md-6">
+   
+   @*  <div class="row">
+    <div class="display-label col-md-4">Salary AM</div>
+    <div class="display-field">@Model.SalaryAM</div>
+    </div>
+    <br />*@
+     <div class="row">
+    <div class="display-label col-md-4">Qualification</div>
+    <div class="display-field">@Model.Qualification</div>
+    </div>
+    <br />
+    <div class="row">
+    <div class="display-label col-md-4">Institute</div>
+    <div class="display-field">@Model.Institute</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Year of Passing</div>
+    <div class="display-field">@Model.PassingYear</div>
+    </div>
+    <br />
+     @*<div class="row">
+    <div class="display-label col-md-4">Subject</div>
+    <div class="display-field">@Model.Subject</div>
+    </div>
+    <br />*@
+   @*  <div class="row">
+    <div class="display-label col-md-4">FatherName</div>
+    <div class="display-field">@Model.FatherName</div>
+    </div>
+    <br />
+    <div class="row">
+    <div class="display-label col-md-4">SpouseName</div>
+    <div class="display-field">@Model.SpouseName</div>
+    </div>
+    <br />*@
+     <div class="row">
+    <div class="display-label col-md-4">Basic</div>
+    <div class="display-field">@Model.Basic</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">HRA</div>
+    <div class="display-field">@Model.HRA</div>
+    </div>
+    <br />
+   @*  <div class="row">
+    <div class="display-label col-md-4">Conveyance</div>
+    <div class="display-field">@Model.Conveyance</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">EDUAllowance</div>
+    <div class="display-field">@Model.EDUAllowance</div>
+    </div>
+    <br />*@
+     <div class="row">
+    <div class="display-label col-md-4">Medical</div>
+    <div class="display-field">@Model.Medical</div>
+    </div>
+    <br />
+   @*  <div class="row">
+    <div class="display-label col-md-4">SplAllowance</div>
+    <div class="display-field">@Model.SplAllowance</div>
+    </div>
+    <br />*@
+     <div class="row">
+    <div class="display-label col-md-4">LTA</div>
+    <div class="display-field">@Model.LTA</div>
+    </div>
+    <br />
+  @*   <div class="row">
+    <div class="display-label col-md-4">WashAllowance</div>
+    <div class="display-field">@Model.WashAllowance</div>
+    </div>
+    <br />*@
+     <div class="row">
+    <div class="display-label col-md-4">Gross Salary</div>
+    <div class="display-field">@Model.GrossSalary</div>
+    </div>
+    <br />
+    @* <div class="row">
+    <div class="display-label col-md-4">ConsFee</div>
+    <div class="display-field">@Model.ConsFee</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">MobileAllowance</div>
+    <div class="display-field">@Model.MobileAllowance</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">CarPetrol</div>
+    <div class="display-field">@Model.CarPetrol</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Sodexho</div>
+    <div class="display-field">@Model.Sodexho</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Driver</div>
+    <div class="display-field">@Model.Driver</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">TolalGrossSalary</div>
+    <div class="display-field">@Model.TolalGrossSalary</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">TakeHomeSalary</div>
+    <div class="display-field">@Model.TakeHomeSalary</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Bonus</div>
+    <div class="display-field">@Model.Bonus</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">CTCWithoutBonus</div>
+    <div class="display-field">@Model.CTCWithoutBonus</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">CTCWithBonus</div>
+    <div class="display-field">@Model.CTCWithBonus</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">MotherName</div>
+    <div class="display-field">@Model.MotherName</div>
+    </div>
+    <br />*@
+     <div class="row">
+    <div class="display-label col-md-4">Zone</div>
+    <div class="display-field">@Model.Zone</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">Previous Experience</div>
+    <div class="display-field">@Model.PrevExperience</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">BSV Experience</div>
+    <div class="display-field">@Model.BSVExperience</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">State</div>
+    <div class="display-field">@Model.State</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label col-md-4">ZipCode</div>
+    <div class="display-field">@Model.ZipCode</div>
+    </div>
+    <br />
+     <div class="row">
+    <div class="display-label">Transfer Date</div>
+    <div class="display-field">@String.Format("{0:g}", Model.TransferDate)</div>
+    </div>
+    </div>
+    <br />
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.EmployeeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+ </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+           </div>
+          <!-- /.box -->
+      
+      <!-- /.row -->
+    </section>
+
+
+  @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('a.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+    $("input[type=text]").attr('disabled', true);
+    $("input[type=radio]").attr('disabled', true);
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@

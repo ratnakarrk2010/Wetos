@@ -1,0 +1,385 @@
+﻿@model IEnumerable<WetosDB.SP_VwODEarlyLateIndex_Result>
+@{
+    ViewBag.Title = "Late/Early Status Details List";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+ @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+      <h1>
+        Late/Early Status Details
+        <small>List</small>
+        
+
+         @if (@ViewBag.ForOthers == "true")
+         {
+                    
+             <span data-toggle="tooltip" title="Apply for Late/Early" style="float:right;font-weight:800" onclick="OnBtnODTravelClick();">
+             @Html.ActionLink(" ", "ODLateEarlyApplication", new { Myself = true }, new { @class = "fa fa-plus-circle", title = "Apply for OD/Travel", style = "color:#428bca;font-size:19px" })</span>
+        
+         }
+                @if (@ViewBag.ForOthers == "false")
+                {
+                     <span data-toggle="tooltip" title="Apply for Late/Early" style="float:right;font-weight:800" onclick="OnBtnODTravelClick();">
+                     @Html.ActionLink(" ", "ODLateEarlyApplication", new { Myself = false }, new { @class = "fa fa-plus-circle", title = "Apply for OD/Travel", style = "color:#428bca;font-size:19px" })</span>
+                }
+        
+      </h1>
+      
+      <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Applications</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">Late/Early</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back " data-toggle="tooltip"  title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+      
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+
+    </section>
+        <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            
+            <div class="box-body">
+             @using (Html.BeginForm("ODLateEarlyIndex", "WetosApplication", FormMethod.Post, new { id = "Form" }))
+             {
+    <div style="color: Red; font-size: 12px">
+    @Html.ValidationSummary(true)
+    </div>
+
+<table id="ODTravelApplication" class="table table-bordered table-striped">  @*Added by Pushkar For datatable on 25 OCT 2016*@
+
+<thead>
+
+    <tr>
+       @* <td></td>*@
+        <td>
+            Name
+        </td>
+        <td>
+            Late/Early Type
+        </td>
+        <td>
+            From Date
+        </td>
+        <td>
+            To Date
+        </td>
+        <td>
+            From Day Status
+        </td>
+         <td>
+            To Day Status
+        </td>
+        <td>
+            Applied Days
+        </td>
+       @* <td>
+            Actual Day
+        </td>*@
+        <td>
+            Place
+        </td>
+        <td>
+            Purpose
+        </td>
+        <td>
+            Status
+        </td>
+      @*  <td>
+            OdTourHeadCode
+        </td>*@
+        <td>
+            Reject/cancel Reason
+        </td>
+       @* <td>
+            BranchId
+        </td>
+        <td>
+            CompanyId
+        </td>
+        <td>
+            ODDayStatus1
+        </td>
+        <td>
+            JourneyType
+        </td>
+        <td>
+            TransportType
+        </td>*@
+        <td>For Editing</td>
+    </tr>
+    </thead>
+
+    <tbody>
+
+@foreach (var item in Model)
+{
+    @*Updated on 17 Nov 2016 for datetime format start*@
+    <tr>
+     @{ DateTime ToDate = Convert.ToDateTime(item.ToDate);
+        DateTime FromDate = Convert.ToDateTime(item.FromDate);
+        }
+      @*  <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ODTourId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ODTourId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ODTourId })
+        </td>*@
+        <td>
+            @item.EmployeeCode - @item.FirstName @item.MiddleName @item.LastName
+        </td>
+        <td>
+            @item.ODTourType
+        </td>
+
+        <td>
+            @FromDate.ToString("dd-MMM-yyyy")
+        </td>
+        <td>
+          @ToDate.ToString("dd-MMM-yyyy")
+        </td>
+        @*End*@
+
+         @*//Modified By Shraddha on 13 DEC 2016 to show text in place of ODDayStatus id start*@
+          @if (item.ODDayStatus1 != null)
+          {
+              if (item.ODDayStatus == 1)
+              { 
+       <td>  Full Day</td>
+              }
+              else if (item.ODDayStatus == 2)
+              { 
+            <td>  First Half</td>
+              }
+              else if (item.ODDayStatus == 3)
+              { 
+            <td>  Second Half</td>
+              }
+              else
+              {
+         <td></td>
+              }
+          }
+          else
+          {
+         <td></td>
+          }
+         @*//Modified By Shraddha on 13 DEC 2016 to show text in place of ODDayStatus id end*@
+         @if (item.ODDayStatus1 != null)
+         {
+         @*//Modified By Shraddha on 13 DEC 2016 to show text in place of ODDayStatus1 id start*@
+             if (item.ODDayStatus1 == 1)
+             { @* ODDayStatus1 replaced with ODDayStatus by Rajas on 17 FEB 2017 *@
+         
+       <td>  Full Day</td>
+             }
+             else if (item.ODDayStatus1 == 2)
+             { @* ODDayStatus1 replaced with ODDayStatus by Rajas on 17 FEB 2017 *@
+         
+            <td>  First Half</td>
+             }
+             else if (item.ODDayStatus1 == 3)
+             { @* ODDayStatus1 replaced with ODDayStatus by Rajas on 17 FEB 2017 *@
+          
+            <td>  Second Half</td>
+             }
+             else
+             {
+         <td> </td>
+             }
+         }
+         else
+         {
+         <td> </td>
+         }
+         @*//Modified By Shraddha on 13 DEC 2016 to show text in place of ODDayStatus1 id end*@
+        
+        <td class="quantity">
+            @String.Format("{0:F}", item.AppliedDay)
+        </td>
+       @* <td>;
+            @String.Format("{0:F}", item.ActualDay)
+        </td>*@
+        <td>
+            @item.Place
+        </td>
+        <td>
+            @item.Purpose
+        </td>
+        <td>
+            @item.Text
+        </td>
+       @* <td>
+            @item.OdTourHeadCode
+        </td>*@
+        <td>
+            @item.RejectReason
+        </td>
+       @* <td>
+            @item.BranchId
+        </td>
+        <td>
+            @item.CompanyId
+        </td>
+        <td>
+            @item.ODDayStatus1
+        </td>
+        <td>
+            @item.JourneyType
+        </td>
+        <td>
+            @item.TransportType
+        </td>*@
+        <td>
+        @if (item.Status == 1)
+        {
+        
+            <span data-toggle="tooltip" title="Edit">
+                                                @Html.ActionLink(" ", "ODLateEarlyEdit", new { id = item.ODTourId }, new { @class = "fa fa-pencil-square-o" })</span><span>|</span>
+                                                @*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
+                                                <span data-toggle="tooltip" title="Delete">
+                                                @*@Html.ActionLink(" ", "ODTravelDelete", new { id = item.ODTourId }, new { @class = "fa fa-trash" })*@
+                                                <span style="color:#428bca;cursor:pointer" class = "fa fa-trash" onclick ="DeleteODTravelApplication(@item.ODTourId)"></span>
+                                                </span>      
+        }
+        else
+        {
+            //Commented By Shraddha on 12 DEC 2016 Because b=not necessary Code
+         @*@Html.ActionLink("Edit", "ODtravelIndex")*@
+        }
+            </td>
+    </tr>
+}
+
+</tbody>
+
+<tfoot>
+                
+                </tfoot>
+
+</table>
+             }
+
+</div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 25 JULY 2017 FOR ALERT POPUP START*@
+<div id="DeleteDiv" style="width: 40% !important; height: 20% !important; z-index: 1000000;
+    background-color: White; top: 2%; left: 30%" class="modal fade"> @*REMOVED SHOW CLASS TAKEN MODAL FADE CLASS INSTEAD OF MODAL SHOW FADE CLASS BY SHRADDHA ON 09 FEB 2018 BECAUSE IT WAS CREATING CLICKING ISSUE*@
+    <div class="modal-body">
+        Do you want to Delete this OD/Travel application?
+    </div>
+    <div class="modal-footer">
+        <center>
+            <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="btnDelete">
+                Yes</button>
+            <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                Cancel</button></center>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 25 JULY 2017 FOR ALERT POPUP END*@ @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ @*Added by Pushkar For datatable on 25 OCT 2016-------start*@
+<script type="text/jscript">
+    $(function () {
+
+        $("#ODTravelApplication").DataTable({
+            "ordering": false   // Added by Rajas on 29 AUGUST 2017
+        });
+
+    });
+
+    function Delete() {
+        alert("In function");
+        //        var $form = $(this).closest('form');
+        //        $('#ODDiv').modal({ backdrop: 'static', keyboard: false })
+        //                .one('click', '#btnYes', function () {
+        //                    alert("click");
+
+        $("#Form").submit();
+        // });
+    }
+</script>
+@*Added by Pushkar For datatable on 25 OCT 2016-------end*@ @*Added by Shalaka For progress ring on 21st June 2017*----Start*@
+<script type="text/javascript">
+
+    // OnBtnODTravelClick function to Apply for OD/Travel
+    function OnBtnODTravelClick() {
+        showloading();
+    }
+    
+</script>
+@*End*@
+<script type="text/javascript">
+    function DeleteODTravelApplication(ODTourId) {
+
+        $('#DeleteDiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#btnDelete', function () {
+                    $.ajax({
+
+                        url: '@Url.Content("~/WetosApplication/ODLateEarlyDelete")',
+                        type: "GET",
+                        // dataType: "json",
+                        data: { id: ODTourId },
+                        success: function (data) {
+                            alert("Late/Early is deleted successfully.");
+                            window.location.reload();
+                        },
+                        error: function (data) {
+                            alert("Error");
+                        }
+                    });
+
+                });
+    }
+</script>

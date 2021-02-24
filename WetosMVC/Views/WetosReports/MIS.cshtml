@@ -1,0 +1,154 @@
+﻿@{
+    ViewBag.Title = "MIS";
+    Layout = null;
+}
+<h2>
+    MIS</h2>
+<title>Graphs</title>
+<link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+<div>
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                Country:
+                <select id="ddlCountries">
+                    <option value="USA">USA</option>
+                    <option value="Germany">Germany</option>
+                    <option value="France">France</option>
+                    <option value="Brazil">Brazil</option>
+                </select>
+                <table id="rblChartType" border="0">
+                    <tr>
+                        <td>
+                            <input type="radio" name="ChartType" value="1" checked="checked" />Pie
+                        </td>
+                        <td>
+                            <input type="radio" name="ChartType" value="2" />Doughnut
+                        </td>
+                        <td>
+                            <input type="radio" name="ChartType" value="3" />Bar
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="dvChart">
+                </div>
+            </td>
+            <td>
+                <div id="dvLegend">
+                </div>
+            </td>
+            <td>
+                <div id="chart">
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+@*<div id="chart" style="height: 450px;">
+</div>
+<script type="text/javascript">
+//    $(function () {
+
+//        // Create a Bar Chart with Morris
+//        var chart = Morris.Bar({
+//            // ID of the element in which to draw the chart.
+//            element: 'chart',
+//            data: [0, 0], // Set initial data (ideally you would provide an array of default data)
+//            xkey: 'date', // Set the key for X-axis
+//            ykeys: ['value'], // Set the key for Y-axis
+//            labels: ['Orders'] // Set the label when bar is rolled over
+//        });
+
+//        // Fire off an AJAX request to load the data
+//        $.ajax({
+//            type: "POST",
+//            dataType: 'json',
+//            url: '@Url.Content("~/WetosReports/AjaxMethod2")', // This is the URL to the API
+//            data: "{MonthlyWorkingHoursReport: '" + $("#employeeId").val() + $("#WorkingHrs").val() + "'}", // Passing a parameter to the API to specify number of days
+//            success: function (response) {
+//                alert(response);
+//                alert();
+//                chart.setData(response);
+//                $("#mchart").html(response);
+//            },
+//            error: function (response) {
+//                alert(response);
+//            }
+//        });
+//        //        .done(function (data) {
+//        //            alert(JSON.parse(data));
+//        //            chart.setData(data);
+//        //        })
+//        //        .fail(function (data) {
+
+//        //            alert("error occured");
+//        //        });
+//    });
+</script>*@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://cdn.jsdelivr.net/excanvas/r3/excanvas.js" type="text/javascript"></script>
+<script src="http://cdn.jsdelivr.net/chart.js/0.2/Chart.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        LoadChart();
+        $("#employeeId").bind("change", function () {
+            LoadChart();
+        });
+        $("#rblChartType input").bind("click", function () {
+            LoadChart();
+        });
+    });
+    function LoadChart() {
+
+        var chartType = parseInt($("#rblChartType input:checked").val());
+        $.ajax({
+            type: "POST",
+            url: '@Url.Content("~/WetosReports/AjaxMethod")',
+            data: "{MonthlyWorkingHoursReport: '" + $("#employeeId").val() + $("#WorkingHrs").val() + "'}",
+            contentType: "application/json; charset=utf-8",
+            dataType: "text",
+            success: function (response) {
+                $("#dvChart").html("");
+                $("#dvLegend").html("");
+                $("#chart").html("");
+                var data = eval(response);
+                var el = document.createElement('canvas');
+                $("#dvChart")[0].appendChild(el);
+
+                //Fix for IE 8
+                if ($.browser.msie && $.browser.version == "8.0") {
+                    G_vmlCanvasManager.initElement(el);
+                }
+                var ctx = el.getContext('2d');
+                var userStrengthsChart;
+                switch (chartType) {
+                    case 1:
+                        userStrengthsChart = new Chart(ctx).Pie(data);
+                        break;
+                    case 2:
+                        userStrengthsChart = new Chart(ctx).Doughnut(data);
+                        break;
+                    case 3:
+                        userStrengthsChart = new Chart(ctx).Bar(data);
+                        break;
+                }
+                for (var i = 0; i < data.length; i++) {
+                    var div = $("<div />");
+                    div.css("margin-bottom", "10px");
+                    div.html("<span style = 'display:inline-block;height:10px;width:10px;background-color:" + data[i].color + "'></span> " + data[i].text);
+                    $("#dvLegend").append(div);
+                }
+            },
+            failure: function (response) {
+                alert('There was an error.');
+            }
+        });
+    }
+</script>

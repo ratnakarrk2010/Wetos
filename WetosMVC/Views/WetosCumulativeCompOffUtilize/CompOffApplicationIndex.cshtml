@@ -1,0 +1,323 @@
+﻿@model IEnumerable<WetosDB.SP_Vw_CumulativeCompOffApplicationIndex_Result>
+@{
+    ViewBag.Title = "Cumulative Comp Off Status Details List";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+      <h1>
+       Cumulative Comp Off Status Details
+        <small>List</small>
+         <span data-toggle="tooltip" title="Apply for CompOff" style="float:right;font-weight:800" onclick="OnBtnApplyforCompoff();">
+         @if (@ViewBag.ForOthers == "true")
+                 {
+            
+                 <span data-toggle="tooltip" title="Apply Cumulative Comp Off utilize" style="float:right;font-weight:800" onclick="OnAddCompanyClick();">
+                 @Html.ActionLink(" ", "CompOffApplication", new { Myself = true }, new { @class = "fa fa-plus-circle", title = "Apply Cumulative Comp Off utilize", style = "color:#428bca;font-size:19px" })</span>
+                 }
+         else if (@ViewBag.ForOthers == "false")
+                 {
+                    <span data-toggle="tooltip" title="Apply Cumulative Comp Off utilize" style="float:right;font-weight:800" onclick="OnAddCompanyClick();">
+                 @Html.ActionLink(" ", "CompOffApplication", new { Myself = false }, new { @class = "fa fa-plus-circle", title = "Apply Cumulative Comp Off utilize", style = "color:#428bca;font-size:19px" })</span>
+                 }
+                 else
+                 { 
+                 <span data-toggle="tooltip" title="Apply Cumulative Comp Off utilize" style="float:right;font-weight:800" onclick="OnAddCompanyClick();">
+                 @Html.ActionLink(" ", "CompOffApplication", new { Myself = true }, new { @class = "fa fa-plus-circle", title = "Apply Cumulative Comp Off utilize", style = "color:#428bca;font-size:19px" })</span>
+                 }
+         @*@Html.ActionLink(" ", "CompOffApplication", new { }, new { @class = "fa fa-plus-circle", title = "Apply for CompOff", style = "color:#428bca;font-size:19px" })*@
+         </span>
+         
+      </h1>
+      @*<ol class="breadcrumb">
+       <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Applications</li>
+        <li class="active">CompOff Application</li>
+        <li><span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span></li>
+      
+      </ol>*@
+      <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Applications</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("CompOffApplicationIndex", "WetosCumulativeCompOffUtilize")">Cumulative CompOff</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back " data-toggle="tooltip"  title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+     
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+
+    </section>
+        <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+           
+            <div class="box-body">
+ @using (Html.BeginForm("CompOffApplicationIndex", "WetosApplication", FormMethod.Post, new { id = "Form" }))
+ {
+    <div style="color: Red; font-size: 12px">
+    @Html.ValidationSummary(true)
+    </div>
+
+<table id="CompOffApplication" class="table table-bordered table-striped">  @*Added by Pushkar For datatable on 25 OCT 2016*@
+<thead>
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            From Date
+        </td>
+        <td>
+            From Date Status
+        </td>
+        <td>
+            To Date
+        </td>
+        <td>
+            To Date Status
+        </td>
+        <td>
+            Purpose
+        </td>
+        <td>
+            Status
+        </td>
+        <td>
+            Reject/Cancel Reason
+        </td>
+        @*<td>
+            Extra Hours
+        </td>*@
+        <td>Action</td>
+    </tr>
+    </thead>
+    <tbody>
+
+@foreach (var item in Model)
+{
+    <tr>
+    @{ DateTime ToDate = Convert.ToDateTime(item.ToDate);
+       DateTime FromDate = Convert.ToDateTime(item.FromDate);
+        }
+        <td>
+            @*@item.FirstName @item.LastName*@
+            @item.EmployeeCode - @item.FirstName @item.MiddleName @item.LastName
+        </td>
+        <td>
+            @FromDate.ToString("dd-MMM-yyyy")
+        </td>
+        
+
+        @*//Modified By Shraddha on 13 DEC 2016 to show text in place of FROMDATESTATUS id start*@
+         @if (item.FromDateStatus == 1)
+         { 
+       <td>  Full Day</td>
+         }
+         else if (item.FromDateStatus == 2)
+         { 
+            <td>  First Half</td>
+         }
+         else if (item.FromDateStatus == 3)
+         { 
+            <td>  Second Half</td>
+         }
+         else { }
+         @*//Modified By Shraddha on 13 DEC 2016 to show text in place of FROMDATESTATUS id end*@
+        <td>
+            @ToDate.ToString("dd-MMM-yyyy")
+        </td>
+        @*//Modified By Shraddha on 13 DEC 2016 to show text in place of TODATESTATUS id start*@
+        @if (item.ToDateStatus == 1)
+        { 
+       <td>  Full Day</td>
+        }
+        else if (item.ToDateStatus == 2)
+        { 
+            <td>  First Half</td>
+        }
+        else if (item.ToDateStatus == 3)
+        { 
+            <td>  Second Half</td>
+        }
+        else { }
+          @*//Modified By Shraddha on 13 DEC 2016 to show text in place of TODATESTATUS id End*@
+        <td>
+            @item.Purpose
+        </td>
+        <td>
+            @item.Text
+        </td>
+        <td>
+            @item.RejectReason
+        </td>
+        @*<td>
+            @item.ExtrasHoursDate
+        </td>*@
+        <td>
+        @if (item.StatusId == 1)
+        {
+        
+           
+            <span data-toggle="tooltip" title="Edit">
+                                                @Html.ActionLink(" ", "CompOffApplicationEdit", new { id = item.CompOffApplicationId }, new { @class = "fa fa-pencil-square-o" })</span> 
+                                                @*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
+                                                <span data-toggle="tooltip" title="Delete">
+                                               @* @Html.ActionLink(" ", "CompOffApplicationDelete", new { id = item.CompOffId }, new { @class = "fa fa-trash" })*@
+                                               <span style="color:#428bca;cursor:pointer" class = "fa fa-trash" onclick ="DeleteCompoffApplication(@item.CompOffApplicationId)"></span>
+                                                </span>    
+        }
+        else
+        {
+            //Commented By Shraddha on 12 DEC 2016 Because b=not necessary Code
+        @* @Html.ActionLink("Edit", "CompOffApplicationIndex")*@
+        }
+            </td>
+    </tr>
+}
+</tbody>
+</table>
+ }
+</div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 25 JULY 2017 FOR ALERT POPUP START*@
+<div id="DeleteDiv" style="width: 40% !important; height: 20% !important; z-index: 1000000;
+    background-color: White; top: 2%; left: 30%" class="modal fade">
+    @*REMOVED SHOW CLASS TAKEN MODAL FADE CLASS INSTEAD OF MODAL SHOW FADE CLASS BY SHRADDHA ON 09 FEB 2018 BECAUSE IT WAS CREATING CLICKING ISSUE*@
+    <div class="modal-body">
+        Do you want to Delete this CompOff application?
+    </div>
+    <div class="modal-footer">
+        <center>
+            <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="btnDelete">
+                Yes</button>
+            <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                Cancel</button></center>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 25 JULY 2017 FOR ALERT POPUP END*@ @*Added by Rajas For back breadcrumb -------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>
+@*Added by Rajas For back breadcrumb on 17 Nov 2016---------end*@
+<script type="text/jscript">
+    $(function () {
+
+        $("#CompOffApplication").DataTable();
+
+    });
+</script>
+@*Added by Rajas For datatable-------end*@
+<script type="text/jscript">
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+
+        //Date picker
+        $('.datepicker').datepicker({
+
+            format: "dd-M-yyyy",
+
+            autoclose: true
+        });
+
+    });
+
+    function Delete() {
+        //        alert("In function");
+        //        var $form = $(this).closest('form');
+        //        $('#CODiv').modal({ backdrop: 'static', keyboard: false })
+        //                .one('click', '#btnYes', function () {
+        //                    alert("click");
+
+        $("#Form").submit();
+        // });
+
+    }
+</script>
+@*Added by Shalaka For progress ring on 21st June 2017*----Start*@
+<script type="text/javascript">
+
+    // OnBtnApplyforCompoff function to Apply for CompOff
+    function OnBtnApplyforCompoff() {
+        showloading();
+    }
+    
+</script>
+@*End*@
+<script type="text/javascript">
+    function DeleteCompoffApplication(CompOffId) {
+
+        $('#DeleteDiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#btnDelete', function () {
+                    $.ajax({
+
+                        url: '@Url.Content("~/WetosCumulativeCompOffUtilize/CumulativeCompOffApplicationDelete")',
+                        type: "GET",
+                        // dataType: "json",
+                        data: { CompOffApplicationId: CompOffId },
+                        success: function (data) {
+                            alert("CompOff Entry is deleted successfully.");
+                            window.location.reload();
+                        },
+                        error: function (data) {
+                            alert("Error");
+                        }
+                    });
+
+                });
+    }
+</script>

@@ -1,0 +1,280 @@
+﻿@model List<WetosDB.sp_get_RoleNavmenu_Result>
+@{
+         
+    int i = 1;
+    int j = 1;
+    int n = 1;
+}
+<span style="font-size: 20px; text-align: center; border-bottom: solid 1px; margin-bottom: 10px;">
+    <text>Menu</text>
+</span>
+<div class="well">
+    <table style="height: 100%; width: 100%;">
+        @foreach (var item in Model.Where(s => s.parId == 0))
+        {
+            <tr>
+                @if (@item.navmenuname != null)
+                {
+                    <th style="text-align: left">
+                        @if (item.flag == 0)
+                        {
+                            <input type="checkbox" id="chkmenu-@i" name="chkmenu-@i" onclick="GetParentChecked(@item.navmenuId,@i)" />
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="chkmenu-@i" name="chkmenu-@i"  checked="checked" onclick="GetParentChecked(@item.navmenuId,@i)"/>
+                        }
+                        <input type="hidden" id="hidMainParent-@i" name="hidMainParent-@i" value="@item.navmenuId" />
+                        @item.navmenuname
+                    </th>
+                }
+            </tr>
+  
+            <tr>
+                <td>
+                    <table>
+                        @if (item.navmenuname != null)
+                        {
+                            foreach (var child in Model.Where(s => s.parId == item.navmenuId && s.parId != 0))
+                            {
+                            <tr>
+                                <td style="text-align: left; margin-left: 30px;">
+                                    @if (@child.flag == 0)
+                                    {
+                                        <text>*</text>
+                                        <input type="checkbox" id="chkchild-@j" name="chkchild-@j" onclick="GetSubChildChecked(@child.parId,@child.navmenuId,@j,@i)" />
+                                    }
+                                    else
+                                    {
+                                        <text>*</text>
+                                        <input type="checkbox" id="chkchild-@j" name="chkchild-@j"  checked="checked"  onclick="GetSubChildChecked(@child.parId,@child.navmenuId,@j,@i)"/>
+
+                                    }
+                                    <input type="hidden" id="hidParid-@j" name="hidParid-@j" value="@child.parId" />
+                                    <input type="hidden" id="hidNavmenuid-@j" name="hidNavmenuid-@j" value="@child.navmenuId" />
+                                    @child.navmenuname
+                                </td>
+                            </tr>
+                                    foreach (var subchild in Model.Where(p => p.parId == child.navmenuId && p.parId != 0))
+                                    {
+                            <tr>
+                                <td style="text-align: left; padding-left: 40px;">
+                                    @if (@subchild.flag == 0)
+                                    {
+                                         
+                                        <input type="checkbox" id="chksubchild-@n" name="chksubchild-@n" onclick="GetChildChecked(@subchild.parId,@n,@j)" />
+                                    }
+                                    else
+                                    {
+                                        
+                                        <input type="checkbox" id="chksubchild-@n" name="chksubchild-@n"  checked="checked"  onclick="GetChildChecked(@subchild.parId,@n,@j)"/>
+                                    }
+                                    <input type="hidden" id="hidSubParid-@n" name="hidSubParid-@n" value="@subchild.parId" />
+                                    <input type="hidden" id="hidSubNavmenuid-@n" name="hidSubNavmenuid-@n" value="@subchild.navmenuId" />
+                                    @subchild.navmenuname
+                                </td>
+                            </tr>
+                                    n++;
+                                    }
+
+                                    ++j;
+                            }
+
+                            ++i;
+
+                        }
+                    </table>
+                </td>
+            </tr>
+        }
+    </table>
+    <div style="vertical-align: top;" id="UserSpecificdata">
+    </div>
+</div>
+<input type="hidden" id="hidparentid" name="hidparentid" value="@i" />
+<input type="hidden" id="hidchildid" name="hidchildid" value="@j" />
+<input type="hidden" id="hidsubchild" name="hidsubchild" value="@n" />
+<script type="text/javascript">
+
+
+    function GetParentChecked(Parentid, i) {
+
+        if ($('#chkmenu-' + i).is(':checked').toString() == 'true') {
+
+            for (var j = 1; j <= $('#hidchildid').val(); j++) {
+
+                if (Parentid == $('#hidParid-' + j).val()) {
+                    $('#chkchild-' + parseInt(j)).attr('checked', true)
+                    GetSubChildChecked('', $("#hidNavmenuid-" + j).val(), j);
+                    //for(var k = 1;k<= $("#hidsubchild").val();k++)
+                    //{
+
+                    //    if ($('#chkchild-' + j).is(':checked').toString() == 'true') {
+
+                    //        $("#chksubchild-"+parseInt(k)).attr('checked',true)
+                    //    }
+                    //}
+                }
+            }
+        }
+
+        else {
+
+            for (var j = 1; j <= $('#hidchildid').val(); j++) {
+
+                if (Parentid == $('#hidParid-' + j).val()) {
+                    $('#chkchild-' + parseInt(j)).attr('checked', false)
+
+                    for (var k = 1; k <= $("#hidsubchild").val(); k++) {
+
+                        $("#chksubchild-" + parseInt(k)).attr('checked', false)
+
+                    }
+                }
+
+            }
+
+        }
+    }
+
+    function GetSubChildChecked(mainParId, ParId, i, pi) {
+        var Flag = 0;
+        if ($('#chkchild-' + i).is(':checked').toString() == 'true') {
+
+            for (var k = 1; k <= $("#hidparentid").val(); k++) {
+                if (mainParId == $("#hidMainParent-" + k).val()) {
+                    $('#chkmenu-' + parseInt(k)).attr('checked', true)
+                }
+            }
+
+            for (var j = 1; j <= $('#hidsubchild').val(); j++) {
+
+                if (ParId == $('#hidSubParid-' + j).val()) {
+
+                    $('#chksubchild-' + parseInt(j)).attr('checked', true)
+
+                }
+            }
+        }
+        else {
+
+            var m = 1;
+            //for(var ii = 1;ii<=$("#hidparentid").val();ii++)
+            //{
+            for (var j = m; j <= $("#hidchildid").val(); j++) {
+                if ($('#chkchild-' + j).is(':checked').toString() == 'false') {
+                    Flag = 1;
+                    m++;
+                    break;
+                }
+                else {
+                    Flag = 0;
+                }
+
+
+            }
+
+            if (Flag == 1) {
+                $("#chkmenu-" + pi).attr('checked', false)
+                Flag = 0;
+            }
+            else {
+                $("#chkmenu-" + pi).attr('checked', true);
+            }
+
+            for (var j = 1; j <= $('#hidchildid').val(); j++) {
+
+                if (parentid == $('#hidParid-' + j).val()) {
+
+                    if ($('#chkchild-' + j).is(':checked').toString() == 'true') {
+
+                        Flag = Flag + 1;
+
+                    }
+                }
+            }
+
+
+            if (Flag == 0) {
+                $('#chkmenu-' + parseInt(i)).attr('checked', false);
+                //  $('#chkchild-'+pi).attr('checked',false);
+            }
+
+            else {
+                $('#chkmenu-' + parseInt(i)).attr('checked', true);
+                // $('#chkchild-'+pi).attr('checked',true);
+            }
+
+            //}
+
+            //for (var j = 1; j <= $('#hidchildid').val(); j++) {
+            //    if (ParId == $('#hidSubParid-' + k).val()) {
+            //        $("#chksubchild-"+parseInt(k)).attr('checked',false)
+            //    }
+            //}
+            for (var k = 1; k <= $("#hidsubchild").val(); k++) {
+                if (ParId == $('#hidSubParid-' + k).val()) {
+
+                    $("#chksubchild-" + parseInt(k)).attr('checked', false)
+                    $("#chkmenu-" + pi).attr('checked', false);
+
+                }
+            }
+
+        }
+    }
+
+
+
+    function GetChildChecked(parentid, i, pi) {
+        var Flag = 0;
+
+        for (var j = 1; j <= $('#hidchildid').val(); j++) {
+
+            if (parentid == $('#hidParid-' + j).val()) {
+
+                if ($('#chkchild-' + j).is(':checked').toString() == 'true') {
+
+                    Flag = Flag + 1;
+
+                }
+            }
+        }
+        for (var k = 1; k <= $("#hidsubchild").val(); k++) {
+            if (parentid == $('#hidSubParid-' + k).val()) {
+
+                if ($('#chksubchild-' + k).is(':checked').toString() == 'true') {
+
+                    Flag = Flag + 1;
+
+                }
+            }
+        }
+
+
+        if (Flag == 0) {
+            $('#chkmenu-' + parseInt(i)).attr('checked', false);
+            $('#chkchild-' + pi).attr('checked', false);
+        }
+
+        else {
+            $('#chkmenu-' + parseInt(i)).attr('checked', true);
+            $('#chkchild-' + pi).attr('checked', true);
+        }
+
+
+
+
+
+    }
+
+
+    
+
+    
+  
+  
+</script>
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}

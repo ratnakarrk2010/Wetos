@@ -1,0 +1,915 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutBlank.cshtml";
+}
+@model WetosDB.SP_EmployeeProfile_Result
+@*ADDED BY SHRADDHA ON 09 FEB 2017 FOR SHOWING DIFFERENT IMAGES FOR DIFFERENT GENDER START *@
+@{ string UserGender = Session["Gender"].ToString(); }
+@*ADDED BY SHRADDHA ON 09 FEB 2017 FOR SHOWING DIFFERENT IMAGES FOR DIFFERENT GENDER END*@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<!-- END PAGE LEVEL STYLES -->
+
+<style type="text/css">
+    table.table-bordered.dataTable > thead
+    {
+        background-color: #003399;
+        font-weight: 700;
+        color: White;
+    }
+
+     table.table.table-bordered.table-striped > thead {
+    
+    background-color: #003399;
+        font-weight: 700;
+        color: White;
+    }
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th
+    {
+        padding: 2px;
+        font-size: 12px;
+    }
+    .breadcrumb
+    {
+        padding: 2px 2px;
+    }
+    .box-body
+    {
+        padding: 0px;
+    }
+    .back .tooltips
+    {
+        font-size:0px !important;
+    }
+</style>
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                <!-- END PAGE TITLE & BREADCRUMB-->
+                <section class="content-header">
+                    <h1>Employee Profile (View Mode)
+                    </h1>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="page-breadcrumb breadcrumb">
+                                <li>
+                                    <i class="fa fa-home"></i>
+                                    <a href="#">Home </a>@*@Url.Action("Index", "Home")*@
+                                    <i class="fa fa-angle-right"></i>
+                                </li>
+                                <li>
+                                    <a href="#">Masters</a>
+                                    <i class="fa fa-angle-right"></i>
+                                </li>
+                                <li>
+                                    <a href="#">Employee </a>@*@Url.Action("Index", "WetosEmployee")*@
+                                </li>
+                                <li class="pull-right">
+                                    <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                        <span style="cursor: pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                        <i class="fa fa-calendar"></i>
+                                        <span>@DateTime.Now.ToLongDateString()</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="clear: both;">
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN PAGE CONTENT-->
+        <!-- ----------------------------------------------------------ADDED BY RAJAS ON 1 OCT 2016----------------------------------- -->
+        <section class="content">
+            <div class="box">
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row profile">
+                        <div class="col-md-12">
+                            <!--BEGIN TABS-->
+                            <div class="tabbable tabbable-custom tabbable-full-width nav-tabs-custom">
+
+                                <div>
+                                    <div id="OverView">
+                                        <div class="row">
+
+
+                                            <div class="col-md-9">
+                                                <div class="row">
+                                                    <div class="col-md-10 profile-info">
+                                                        @* Replaced Title with Employee Code by Rajas on 24 MARCH 2017*@
+                                                        <h3>@Model.FirstName @Model.MiddleName @Model.LastName </h3>
+                                                        <p>
+                                                            <text style="font-weight: 500; font-size: medium">
+                                                    Employee Code - @Model.EmployeeCode
+                                                    </text>
+                                                        </p>
+                                                        <p>
+                                                            <text>
+                                                    @Model.Address1 @Model.Address2 @*@Model.State*@
+                                                    </text>
+                                                        </p>
+                                                        <p class="row">
+
+                                                            <text class="col-md-6">
+                                                    @(Model.Email != "" ? "Email :" : "")
+                                                        <a href="#">@Model.Email </a> 
+                                                    </text>
+
+
+                                                            <text class="col-md-6">
+                                                     @(Model.Moblie != "" ? "Contact :" : "")
+                                                        @Model.Moblie
+                                                    </text>
+
+                                                        </p>
+                                                        @*    <a>
+                                                <p id="status" onclick="editstatus()">
+                                                    @Model.staus
+                                                </p>
+                                            </a>
+                                            <div id="div_editstatus">
+                                                <textarea type="text" class="form-control" id="txtStatus" name="txtStatus"></textarea>
+                                                <button type="button" class="btn green" id="btnupdate" name="btnupdate" onclick="Update()">Update</button>
+                                                <button type="button" class="btn red" id="btncancel" name="btncancel" onclick="Cancel()">Cancel</button>
+                                            </div>
+                                            <p>
+                                                <text>Email : <a href="#">@Model.Email </a>Contact : @Model.Mobile1</text>
+                                            </p>*@
+                                                        <p class="row">
+                                                            @*<li><i class="fa fa-map-marker"></i>@Model.countryname
+                                                </li>*@
+                                                            <text class="col-md-6">
+                                                    <text>Birth Date:</text>
+                                                    @string.Format("{0:dd-MM-yyyy}", Model.BirthDate)
+                                                </text>
+                                                            <text class="col-md-6">
+                                                    <text>Joining Date:</text>
+                                                    @string.Format("{0:dd-MM-yyyy}", Model.JoiningDate)
+                                                </text>
+
+                                                            @* <li>
+                                                    <i class="fa fa-star"></i>Top Seller
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-heart"></i>BASE Jumping
+                                                </li>*@
+                                                        </p>
+                                                         <p class="row">
+                                                <text  class="col-md-6">
+                                                    <text>Confirmation Date:</text>
+                                                    @string.Format("{0:dd-MM-yyyy}", Model.ConfirmDate)
+                                                </text>
+                                                <text  class="col-md-6">
+                                                    <text>Employee Group: @ViewBag.EmployeeGroup</text>
+                                                </text>
+                                            </p>
+                                                        <p class="row">
+                                                            <text class="col-md-6">
+                                                    Company: @Model.CompanyName
+                                                    </text>
+
+
+                                                            <text class="col-md-6">
+                                                     Branch: @Model.BranchName
+                                                    </text>
+
+                                                        </p>
+                                                        <p class="row">
+
+
+                                                            <text class="col-md-6">
+                                                     Department: @Model.DepartmentName
+                                                    </text>
+                                                            <text class="col-md-6">
+                                                     Designation: @Model.DesignationName
+                                                    </text>
+
+                                                        </p>
+
+                                                        <p class="row">
+
+
+                                                            <text class="col-md-6">
+                                                     Reporting To(Approver): @Model.Reporting_Person
+                                                    </text>
+                                                            <text class="col-md-6">
+                                                     Reporting To(Sanctioner): @Model.Leave_Approver
+                                                    </text>
+
+                                                        </p>
+
+                                                    </div>
+                                                    <!--end col-md-8-->
+                                                    @*<div class="col-md-4">
+                                            <div class="portlet sale-summary">
+                                                <div class="portlet-title">
+                                                    <div class="caption">
+                                                        Leave Summary
+                                                    </div>
+                                                    @*<div class="tools">
+                                                        <a class="reload" href="javascript:;"></a>
+                                                    </div>*@
+                                                </div>
+                                                @*<div class="portlet-body">
+                                        <ul class="list-unstyled">
+                                            <li><span class="sale-info"></span>
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <td>
+                                                            Leave Type
+                                                        </td>
+                                                        <td>
+                                                            No Of Leave
+                                                        </td>
+                                                        <td>
+                                                            Leaves Utilized
+                                                        </td>
+                                                        <td>
+                                                            Applied Leaves
+                                                        </td>
+                                                        <td>
+                                                            Balance Leave
+                                                        </td>
+                                                    </tr>
+                                                    @foreach (var i in leaves)
+                                                                {
+                                                                    <tr>
+                                                                        <td>@i.LeaveTypeName
+                                                                        </td>
+                                                                        <td>@i.NoofLeaves
+                                                                        </td>
+                                                                        <td>@i.LeavesUtilised
+                                                                        </td>
+                                                                        <td>@i.LeavesAppliedButNotApproved
+                                                                        </td>
+                                                                        <td>@i.LeaveBalance
+                                                                        </td>
+                                                                    </tr>
+                                                                }
+                                                </table>
+                                            </li>
+                                        </ul>
+                                    </div>*@ @*   <div class="portlet-body">
+                                                    <ul class="list-unstyled">
+                                                        <li>
+                                                            <span class="sale-info">TODAY SOLD <i class="fa fa-img-up"></i>
+                                                            </span>
+                                                            <span class="sale-num">23 </span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="sale-info">WEEKLY SALES <i class="fa fa-img-down"></i>
+                                                            </span>
+                                                            <span class="sale-num">87 </span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="sale-info">TOTAL SOLD </span>
+                                                            <span class="sale-num">2377 </span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="sale-info">EARNS </span>
+                                                            <span class="sale-num">$37.990 </span>
+                                                        </li>
+                                                    </ul>
+                                                </div>*@
+                                            </div>
+
+                                            <div class="col-md-3">
+
+                                                <div id="img_preview" style="height: 250px; width: 250px;margin-top:40px">
+                                                    @*   @if (Model.Picture == null)
+        {
+         <img src="@Url.Content("~/images/userimage.jpg")" class="user-image" alt="User Image" />
+        }
+        else
+        {
+            <img src="@Url.Action("getImg", "Account", new { id = @Model.EmployeeId })" height="200" width="200" alt="Person Image" />
+        
+        }*@
+
+                                                    @if (Model.Picture != null)
+                                                    {
+                                                        <img src="@Url.Action("getImg", "Account", new { id = @Model.EmployeeId })"  height="200" width="200" alt="Person Image" />
+                                                    }
+                                                    else
+                                                    {
+                                                        //ADDED CODE BY SHRADDHA FOR GETTING GENDER WISE PROFILE PICTURE START
+                                                        if (@UserGender == "Female" || @UserGender == "F")
+                                                        {
+                                                        <img src="@Url.Content("~/images/UserImageGirl.jpg")"  height="200" width="200" alt="Person Image"  />
+                                                        }
+                                                        else
+                                                        {
+                                                        <img src="@Url.Content("~/images/userimage.jpg")"  height="200" width="200" alt="Person Image" />
+                                                        }
+                                                        //ADDED CODE BY SHRADDHA FOR GETTING GENDER WISE PROFILE PICTURE END
+                                                    }
+                                                    @* <img src="../../images/userimage.jpg" class="user-image" alt="User Image" />*@
+
+                                                </div>
+                                                <div style="color: Red; font-size: 10px">
+                                                    @Html.ValidationMessage("Error")
+                                                </div>
+                                              
+                                        </div>
+
+                                    </div>
+
+                                    <div class = "col-md-12">
+                        <div class="tab-content">
+                                             <h4>Leave Balance Details as on @DateTime.Now.ToString("MMM-yyyy")</h4>
+      
+      <table id="LeaveTypes" class="table table-bordered table-striped" style="width: 100%; height: auto;border:1px solid Black;border-collapse:inherit" >
+       @if (ViewBag.LeaveTableview == "1")
+       {
+        <thead>
+            <tr>
+                <td align="center">Leave Type</td>
+                @*<td align="center">Opening Balance</td>*@
+                <td align="center">Opening Balance for @DateTime.Now.ToString("MMM-yyyy")</td>
+                
+               <td align="center">Allowed Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                <td align="center">Applied Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                @*<td align="center">Pending Leaves</td>*@
+                <td align="center">Total Deductable Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                <td align="center">Paid Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                <td align="center">UnPaid Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                
+               @*  <td align="center">Pending Leaves</td>*@
+                 <td align="center">Closing Leave Balance @DateTime.Now.ToString("MMM-yyyy")</td>
+            </tr>
+        </thead>
+            <tbody>
+                @foreach (var LBItem in ViewBag.LeaveBalanceDetailsVB)
+                {
+                    <tr>
+                        <td align="center"> @LBItem.LeaveType</td>
+                        @* <td class = "quantity"> @LBItem.OpeningBalance</td>*@
+                         @{var OpeningLeavesOnCurrentDay = Convert.ToDouble(LBItem.OpeningBalance);}
+                         @if (LBItem.LeaveUsed == 0)
+                         {
+
+                             OpeningLeavesOnCurrentDay = (Convert.ToDouble(LBItem.OpeningBalance) - Convert.ToDouble(LBItem.LeaveUsed));
+                         }
+                         else
+                         {
+                             OpeningLeavesOnCurrentDay = (Convert.ToDouble(LBItem.OpeningBalance) - Convert.ToDouble(LBItem.LeaveUsed)) + Convert.ToDouble(LBItem.TotalPaidLeaves);
+
+                         }
+                    @* @{var OpeningLeavesOnCurrentDay = ((Convert.ToDouble(LBItem.OpeningBalance) - LeaveConsumed);}*@
+                         
+                       <td class = "quantity"> @OpeningLeavesOnCurrentDay</td>
+                         @*@{var AllowedLeavesOnCurrentDay = (LBItem.LeaveAllowed - Convert.ToDecimal(LBItem.LeaveUsed));}
+                         <td class = "quantity"> @AllowedLeavesOnCurrentDay</td>*@
+                        <td class = "quantity"> @Convert.ToDouble(LBItem.LeaveAllowed)</td>
+                         @{var PendingLeaves = Convert.ToDouble(LBItem.TotalDeductableDays) - Convert.ToDouble(LBItem.LeaveUsedAsOnDate);}
+                        @if (LBItem.TotalPaidLeaves == 0)
+                        {
+                            PendingLeaves = Convert.ToDouble(LBItem.TotalDeductableDays) - Convert.ToDouble(LBItem.TotalPaidLeaves);
+                        }
+                        
+                        @{}
+                         <td class = "quantity">  @Convert.ToDouble(LBItem.TotalAppliedDays)</td>
+                        @* @if (PendingLeaves == 0)
+                         {
+                          <td class = "quantity">@PendingLeaves</td>
+                         }
+                         else
+                         {
+                         <td  style="font-weight:800;color:Red" class = "quantity">@PendingLeaves</td>
+                         }*@
+                         @{var TotalDeductableDays = Convert.ToDouble(LBItem.TotalDeductableDays) - PendingLeaves;}
+                         <td class = "quantity">  @Convert.ToDouble(LBItem.TotalDeductableDays)</td> @*@TotalDeductableDays*@
+                         @{var TotalPaidLeaves = Convert.ToDouble(LBItem.TotalPaidLeaves) - PendingLeaves;}
+                         <td class = "quantity"> @Convert.ToDouble(LBItem.TotalPaidLeaves)</td> @*TotalPaidLeaves*@
+
+                         <td class = "quantity"> @Convert.ToDouble(LBItem.TotalUnPaidLeaves)</td>
+                         
+                        @*<td style ="color:Red" class = "quantity"> @LBItem.Pending</td>*@
+                        @{var ClosingLeavesOnCurrentDay = (Convert.ToDouble(LBItem.OpeningBalance) - Convert.ToDouble(LBItem.LeaveUsed));}
+                       @* <td class = "quantity">@LBItem.CurrentBalance</td>*@
+                       <td class = "quantity"> @ClosingLeavesOnCurrentDay</td>
+                    </tr>
+                }
+            </tbody>
+       }
+       else
+       {
+           <thead>
+            <tr>
+                <td align="center">
+                    Leave Type
+                </td>
+                <td align="center">
+                    Opening Balance
+                </td>
+                @* <td align="center">Allowed Leaves</td>*@
+                <td align="center">
+                    Leave consumed
+                </td>
+                <td align="center">
+                    Pending
+                </td>
+                <td align="center">
+                    Current Balance for @DateTime.Now.ToString("MMM-yyyy")
+                </td>
+            </tr>
+        </thead>
+                 <tbody>
+            @foreach (var LBItem in ViewBag.LeaveBalanceDetailsVB)
+            {
+                <tr>
+                    <td align="center">
+                        @LBItem.LeaveType
+                    </td>
+                    @*<td class="quantity">@LBItem.LeaveUsed</td>*@
+                    <td class="quantity">
+                        @LBItem.OpeningBalance
+                    </td>
+                    @*<td class="quantity">@LBItem.LeaveAllowed</td>*@
+                    <td class="quantity">
+                        @LBItem.LeaveUsed
+                    </td>
+                    <td class="quantity">
+                        @LBItem.Pending
+                    </td>
+                    @{var OpeningLeavesOnCurrentDay = (LBItem.OpeningBalance - (Convert.ToDouble(LBItem.LeaveUsed) + Convert.ToDouble(LBItem.Pending)));}
+                    @*<td class = "quantity">@LBItem.CurrentBalance</td>*@
+                    <td class="quantity">
+                        @OpeningLeavesOnCurrentDay
+                    </td>
+                </tr>
+            }
+        </tbody>
+       }
+        <tfoot></tfoot>
+      </table>
+       </div>
+                        </div>
+
+                                  
+                                    <!--end col-md-4-->
+                                </div>
+                                <!--end row-->
+                                <div id="PersonalInfo">
+                                    <div class="profile-account">
+                                        <div class="col-md-12">
+                                            <div class="tab-content">
+                                                <div id="tab_1-1">
+                                                    <div class="form-horizontal">
+                                                        <h3 class="form-section">Personal Information</h3>
+                                                        <legend></legend>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        Title :
+                                                                    </div>
+                                                                    <div class="control-div col-md-6">@Model.Title</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        First Name :
+                                                                    </div>
+                                                                    <div class="control-div col-md-6">@Model.FirstName</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        Father/Husband Name :
+                                                                    </div>
+                                                                    <div class="control-div col-md-6">@Model.MiddleName</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        Last Name :
+                                                                    </div>
+                                                                    <div class="control-div col-md-6">@Model.LastName</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        Gender :
+                                                                    </div>
+                                                                    <div class="control-div col-md-6">
+                                                                        @if (Model.Gender == "F")
+                                                                        {<span>Female</span> }
+                                                                        else
+                                                                        {<span>Male</span> }
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        Date Of Birth :
+                                                                    </div>
+                                                                    @if (Model.BirthDate.ToString() != "")
+                                                                    {<div class="control-div col-md-6">
+                                                                            @Convert.ToDateTime(Model.BirthDate).ToString("dd/MM/yyyy")
+                                                                        </div> }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @*<div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="control-div col-md-6">
+                                                    Age : @Model.age
+                                                </div>
+                                                <div class="control-div col-md-6">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="control-div col-md-6">
+                                                    Marital Status : @Model.MarritalStatus
+                                                </div>
+                                                <div class="control-div col-md-6">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                                        @* <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="control-div col-md-4">
+                                                    Religion :
+                                                </div>
+                                                <div class="control-div col-md-">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                        </div>
+                                    </div>*@
+                                                        <h3 class="form-section">Address</h3>
+                                                        <legend></legend>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        Permenant Address :
+                                                                    </div>
+                                                                    <div class="control-div col-md-6">@Model.Address1</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        Present Address :
+                                                                    </div>
+                                                                    <div class="control-div col-md-6">@Model.Address2</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            @*<div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="control-div col-md-4">
+                                                    Address3 :
+                                                </div>
+                                                <div class="control-div col-md-6">
+                                                </div>
+                                            </div>
+                                        </div>*@
+                                                            @*<div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="control-div col-md-3">
+                                                    City : 
+                                                </div>
+                                                <div class="control-div col-md-6">
+                                                </div>
+                                            </div>
+                                        </div>*@
+                                                        </div>
+                                                        @* <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="control-div col-md-6">
+                                                    State :
+                                                </div>
+                                                <div class="control-div col-md-6">@Model.State</div>
+                                            </div
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="control-div col-md-6">
+                                                    Country :
+                                                </div>
+                                                <div class="control-div col-md-6">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        Mobile No. :
+                                                                    </div>
+                                                                    <div class="control-div col-md-6">@Model.Moblie</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        Mobile No. (Optional) :
+                                                                    </div>
+                                                                    <div class="control-div col-md-6">@Model.Telephone1</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        In Case Of Emergency Contact :
+                                                                    </div>
+                                                                    <div class="control-div col-md-6">@Model.Telephone2</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        Email address :
+                                                                    </div>
+                                                                    <div class="control-div col-md-6">@Model.Email</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        PAN Number :
+                                                                    </div>
+                                                                    <div class="control-div col-md-6">@Model.PANNO</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <div class="control-div col-md-6">
+                                                                        Active :
+                                                                    </div>
+                                                                    <div class="control-div col-md-6">
+                                                                        @* Updated by Rajas on 17 APRIL 2017 *@
+                                                                        @if (Model.ActiveFlag == true)
+                                                                        {
+                                                                            <span>Yes</span>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <span>No</span>
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="margiv-top-10">
+                                                            <div class="control-div col-md-2">
+                                                            </div>
+                                                            @*@Html.ActionLink(" ", "Edit", "", new { id = Model.EmployeeId, @class = "glyphicon glyphicon-pencil btn btn-primary", style = "cursor:pointer;border-radius:100%;font-size:15px;padding-top:5px;padding-left:-5px;height:35px;width:35px" })*@
+                                                            @*@Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeId,@class="btn btn-primary" })*@
+                                                            @*<a href="@Url.Action("edit_profile", new { id = Model.EmployeeId })" class="btn green">*@
+                                                            @*EDIT </a>*@@*<a href="@Url.Action("delete", new { id = Model.EmployeeId })" class="btn default">DELETE</a>*@
+                                                            @* <a href="@Url.Action("Index")" class="btn default">BACK TO LIST </a>*@
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end col-md-9-->
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="JobInfo">
+                                    <div class="profile-account">
+                                        <div class="col-md-12">
+                                            <div class="form-horizontal">
+                                                <h3 class="form-section">Job Information</h3>
+                                                <legend></legend>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <div class="control-div col-md-4">
+                                                                Company :
+                                                            </div>
+                                                            <div class="control-div col-md-8">@Model.CompanyName</div>
+                                                        </div>
+                                                    </div>
+                                                    @*<div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="control-div col-md-3">
+                                            Division :
+                                        </div>
+                                        <div class="control-div col-md-"></div>
+                                    </div>
+                                </div>*@
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <div class="control-div col-md-4">
+                                                                Branch :
+                                                            </div>
+                                                            <div class="control-div col-md-8">@Model.BranchName</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <div class="control-div col-md-4">
+                                                                Department :
+                                                            </div>
+                                                            <div class="control-div col-md-8">@Model.DepartmentName</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <div class="control-div col-md-4">
+                                                                Designation :
+                                                            </div>
+                                                            <div class="control-div col-md-8">@Model.DesignationName</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <div class="control-div col-md-4">
+                                                                Employee Code :
+                                                            </div>
+                                                            <div class="control-div col-md-8">@Model.EmployeeCode</div>
+                                                        </div>
+                                                    </div>
+                                                    @*<div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="control-div col-md-4">
+                                            Laptop No :
+                                        </div>
+                                        <div class="control-div col-md-">@Model.LaptopNo</div>
+                                    </div>
+                                </div>*@
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <div class="control-div col-md-4">
+                                                                Reportingn Person :
+                                                            </div>
+                                                            <div class="control-div col-md-8">@Model.Reporting_Person</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <div class="control-div col-md-4">
+                                                                Leave Approver :
+                                                            </div>
+                                                            <div class="control-div col-md-8">@Model.Leave_Approver
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @*<div class="row">
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="control-div col-md-4">
+                                            Confirmation Date :
+                                        </div>
+                                        <div class="control-div col-md-8">@String.Format("{0:dd-MM-yyyy}", @Model.ConfirmDate)
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="control-div col-md-4">
+                                            Joining Date :
+                                        </div>
+                                        <div class="control-div col-md-8">@String.Format("{0:dd-MM-yyyy}", Model.JoiningDate)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                                                @*   <div class="row">
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="control-div col-md-4">
+                                            Last Date :
+                                        </div>
+                                        <div class="control-div col-md-8">@String.Format("{0:dd-MM-yyyy}", @Model.Leavingdate)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="control-div col-md-3">
+                                           Employee PF :
+                                        </div>
+                                        <div class="control-div col-md-">@Model.EmployeePF</div>
+                                    </div>
+                                </div>
+                            </div>
+                          *@
+
+                                                @*<div class="form-group">
+														<div class="control-div col-md-2">Employee Reporting Id</div>
+														<div class="col-md-9"><input type="text" placeholder="" class="form-control"/></div>
+													</div>
+                                                    <div class="form-group">
+														<div class="control-div col-md-2">Employee Reporting Id2</div>
+														<div class="col-md-9"><input type="text" placeholder="" class="form-control"/></div>
+													</div>*@
+                                                <input type="hidden" value="@Model.EmployeeId" name="employeeid" id="employeeid"/>
+                                                <div class="margiv-top-10">
+                                                    <div class="control-div col-md-2">
+                                                    </div>
+                                                    @*@Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeId })*@
+
+                                                    @*<a href="@Url.Action("edit_profile", new { id = Model.EmployeeId })" class="btn green">*@
+                                                    @*EDIT </a>*@@*<a href="@Url.Action("delete", new { id = Model.EmployeeId })" class="btn default">DELETE</a>*@
+                                                    @*<a href="@Url.Action("Index")" class="btn default">BACK TO LIST </a>*@
+                                                </div>
+                                                <input type="hidden" id="hid_empid" name="hid_empid" value="@ViewBag.emp_id" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--tab_1_2-->
+
+
+            <!--end tab-pane-->
+    </div>
+
+    </section>
+</div>
+<!-- END PAGE CONTENT-->
+</div>
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<!-- END PAGE LEVEL SCRIPTS -->
+<!-- END JAVASCRIPTS -->
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_preview').html("<img src='" + e.target.result + "' />");
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#Picture").change(function () {
+        readURL(this);
+    });
+
+</script>
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('#goback').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>
+@*<script type="text/jscript">
+    $(function () {
+
+        $("#LeaveTypes").DataTable();
+
+    });
+</script>*@ 

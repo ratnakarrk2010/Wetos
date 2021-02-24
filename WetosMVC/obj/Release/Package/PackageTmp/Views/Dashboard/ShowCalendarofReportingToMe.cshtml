@@ -1,0 +1,75 @@
+﻿
+
+<input type="hidden" value="@ViewBag.SelectedEmployeeId" id="EmployeeIdOfSelectedEmployee" />
+
+
+<div class="row ">
+    <div id="caldiv" class="col-md-10 col-sm-10 col-xs-12">
+        <!-- BEGIN PORTLET-->
+        <div class="portlet box blue-madison calendar">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-calendar"></i>Calendar
+                </div>
+            </div>
+            <div class="portlet-body light-grey">
+                <div id="calendar">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        var date = new Date();
+        var d = date.getDate(),
+                    m = date.getMonth(),
+                    y = date.getFullYear();
+
+
+
+        var sourceFullView = { url: '/Home/GetEvents/' };
+        var sourceSummaryView = { url: '/Home/GetDiarySummary/' };
+        var CalLoading = true;
+        var start = moment($("#calendar").fullCalendar("getView").start).format("YYYY-MM-DD");
+        var EmployeeIdOfSelectedEmployee = $("#EmployeeIdOfSelectedEmployee").val();
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month'
+            },
+            defaultView: 'month',
+            editable: true,
+            allDaySlot: false,
+            selectable: true,
+            events: {
+
+                url: '/Home/GetTimeTableForSelectedEmployee/',
+                type: 'POST',
+                data: { start: start, EmployeeIdOfSelectedEmployee: EmployeeIdOfSelectedEmployee }
+            },
+
+            viewRender: function (view, element) {
+
+                if (!CalLoading) {
+                    if (view.name == 'month') {
+                        $('#calendar').fullCalendar('removeEventSource', sourceFullView);
+                        $('#calendar').fullCalendar('removeEvents');
+                        $('#calendar').fullCalendar('addEventSource', sourceSummaryView);
+                    }
+                    else {
+                        $('#calendar').fullCalendar('removeEventSource', sourceSummaryView);
+                        $('#calendar').fullCalendar('removeEvents');
+                        $('#calendar').fullCalendar('addEventSource', sourceFullView);
+                    }
+                }
+
+            }
+
+        });
+
+        CalLoading = false;
+
+    });
+</script>

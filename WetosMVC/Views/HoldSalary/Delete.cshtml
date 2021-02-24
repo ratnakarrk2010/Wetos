@@ -1,0 +1,95 @@
+﻿@model WetosDB.HoldSalary
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>HoldSalary</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EmployeeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmployeeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Reason)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Reason)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HoldStatus)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HoldStatus)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SalaryHoldBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SalaryHoldBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SalaryHoldOn)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SalaryHoldOn)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SalaryUnHoldBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SalaryUnHoldBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SalaryUnHoldOn)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SalaryUnHoldOn)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FromSalaryMonth)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FromSalaryMonth)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FromSalaryYear)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FromSalaryYear)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ToSalaryMonth)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ToSalaryMonth)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ToSalaryYear)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ToSalaryYear)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

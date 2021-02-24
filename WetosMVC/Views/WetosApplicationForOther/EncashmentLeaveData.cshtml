@@ -1,0 +1,127 @@
+﻿ 
+ 
+ <table id="LeaveTypes" class="table table-bordered table-striped" style="width: 100%; height: auto;border:1px solid Black;border-collapse:inherit" >
+       @if (ViewBag.LeaveTableview == "1")
+       {
+        <thead>
+            <tr>
+                <td align="center">Leave Type</td>
+                @*<td align="center">Opening Balance</td>*@
+                <td align="center">Opening Balance for @DateTime.Now.ToString("MMM-yyyy")</td>
+                
+               <td align="center">Allowed Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                <td align="center">Applied Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                @*<td align="center">Pending Leaves</td>*@
+                <td align="center">Total Deductable Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                <td align="center">Paid Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                <td align="center">UnPaid Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                
+               @*  <td align="center">Pending Leaves</td>*@
+                 <td align="center">Closing Leave Balance @DateTime.Now.ToString("MMM-yyyy")</td>
+            </tr>
+        </thead>
+            <tbody>
+                @foreach (var LBItem in ViewBag.LeaveBalanceDetailsVB)
+                {
+                    <tr>
+                        <td align="center"> @LBItem.LeaveType</td>
+                        @* <td class = "quantity"> @LBItem.OpeningBalance</td>*@
+                         @{var OpeningLeavesOnCurrentDay = Convert.ToDouble(LBItem.OpeningBalance);}
+                         @if (LBItem.LeaveUsed == 0)
+                         {
+
+                             OpeningLeavesOnCurrentDay = (Convert.ToDouble(LBItem.OpeningBalance) - Convert.ToDouble(LBItem.LeaveUsed));
+                         }
+                         else
+                         {
+                             OpeningLeavesOnCurrentDay = (Convert.ToDouble(LBItem.OpeningBalance) - Convert.ToDouble(LBItem.LeaveUsed)) + Convert.ToDouble(LBItem.TotalPaidLeaves);
+
+                         }
+                    @* @{var OpeningLeavesOnCurrentDay = ((Convert.ToDouble(LBItem.OpeningBalance) - LeaveConsumed);}*@
+                         
+                       <td class = "quantity"> @OpeningLeavesOnCurrentDay</td>
+                         @*@{var AllowedLeavesOnCurrentDay = (LBItem.LeaveAllowed - Convert.ToDecimal(LBItem.LeaveUsed));}
+                         <td class = "quantity"> @AllowedLeavesOnCurrentDay</td>*@
+                        <td class = "quantity"> @Convert.ToDouble(LBItem.LeaveAllowed)</td>
+                         @{var PendingLeaves = Convert.ToDouble(LBItem.TotalDeductableDays) - Convert.ToDouble(LBItem.LeaveUsedAsOnDate);}
+                        @if (LBItem.TotalPaidLeaves == 0)
+                        {
+                            PendingLeaves = Convert.ToDouble(LBItem.TotalDeductableDays) - Convert.ToDouble(LBItem.TotalPaidLeaves);
+                        }
+                        
+                        @{}
+                         <td class = "quantity">  @Convert.ToDouble(LBItem.TotalAppliedDays)</td>
+                        @* @if (PendingLeaves == 0)
+                         {
+                          <td class = "quantity">@PendingLeaves</td>
+                         }
+                         else
+                         {
+                         <td  style="font-weight:800;color:Red" class = "quantity">@PendingLeaves</td>
+                         }*@
+                         @{var TotalDeductableDays = Convert.ToDouble(LBItem.TotalDeductableDays) - PendingLeaves;}
+                         <td class = "quantity">  @Convert.ToDouble(LBItem.TotalDeductableDays)</td> @*@TotalDeductableDays*@
+                         @{var TotalPaidLeaves = Convert.ToDouble(LBItem.TotalPaidLeaves) - PendingLeaves;}
+                         <td class = "quantity"> @Convert.ToDouble(LBItem.TotalPaidLeaves)</td> @*TotalPaidLeaves*@
+
+                         <td class = "quantity"> @Convert.ToDouble(LBItem.TotalUnPaidLeaves)</td>
+                         
+                        @*<td style ="color:Red" class = "quantity"> @LBItem.Pending</td>*@
+                        @{var ClosingLeavesOnCurrentDay = (Convert.ToDouble(LBItem.OpeningBalance) - Convert.ToDouble(LBItem.LeaveUsed));}
+                       @* <td class = "quantity">@LBItem.CurrentBalance</td>*@
+                       <td class = "quantity"> @ClosingLeavesOnCurrentDay</td>
+                    </tr>
+                }
+            </tbody>
+       }
+       else
+       {
+           <thead>
+            <tr>
+                <td align="center">
+                    Leave Type
+                </td>
+                <td align="center">
+                    Opening Balance
+                </td>
+                @* <td align="center">Allowed Leaves</td>*@
+                <td align="center">
+                    Leave consumed
+                </td>
+                <td align="center">
+                    Pending
+                </td>
+                <td align="center">
+                    Current Balance for @DateTime.Now.ToString("MMM-yyyy")
+                </td>
+            </tr>
+        </thead>
+                 <tbody>
+            @foreach (var LBItem in ViewBag.LeaveBalanceDetailsVB)
+            {
+                <tr>
+                    <td align="center">
+                        @LBItem.LeaveType
+                    </td>
+                    @*<td class="quantity">@LBItem.LeaveUsed</td>*@
+                    <td class="quantity">
+                        @LBItem.OpeningBalance
+                    </td>
+                    @*<td class="quantity">@LBItem.LeaveAllowed</td>*@
+                    <td class="quantity">
+                        @LBItem.LeaveUsed
+                    </td>
+                    <td class="quantity">
+                        @LBItem.Pending
+                    </td>
+                    @{var OpeningLeavesOnCurrentDay = (LBItem.OpeningBalance - (Convert.ToDouble(LBItem.LeaveUsed) + Convert.ToDouble(LBItem.Pending)));}
+                    @*<td class = "quantity">@LBItem.CurrentBalance</td>*@
+                    <td class="quantity">
+                        @OpeningLeavesOnCurrentDay
+                    </td>
+                </tr>
+            }
+        </tbody>
+       }
+        <tfoot></tfoot>
+      </ta

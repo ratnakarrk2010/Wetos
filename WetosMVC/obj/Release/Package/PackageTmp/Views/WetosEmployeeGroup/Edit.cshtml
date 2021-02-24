@@ -1,0 +1,239 @@
+﻿@model WetosMVCMainApp.Models.EmployeeGroupModel
+@{
+    ViewBag.Title = "Employee Group Edit";
+}
+<style type="text/css">
+    .row
+    {
+        margin-bottom: 10px;
+    }
+</style>
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+<h1>Employee Group
+<small>Edit</small>
+</h1>
+@*<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>*@
+              <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "WetosEmployeeGroup")">Employee Group </a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back"id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>  
+    <div style="clear: both;">
+    </div>
+        <section class="content">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+      <div class="box">
+          
+            <!-- /.box-header -->
+            <div class="box-body">
+           @*  Yoir Form Structure Here*@
+
+
+@using (Html.BeginForm("Edit", "WetosEmployeeGroup", FormMethod.Post, new { id = "Form" }))
+{
+   <div style="color: Red; font-size: 12px">
+    @Html.ValidationSummary(true)
+    </div>
+    
+    @Html.HiddenFor(Model => Model.EmployeeGroupId)
+
+    // Updated by Rajas on 20 JULY 2017 to resolve Defect Id 7 from Defect Sheet by Ulka(Eviska)
+      @Html.HiddenFor(Model => Model.CompanyId)
+      @Html.HiddenFor(Model => Model.BranchId)
+   
+    @*Added by Rajas on 29 DEC 2016 For custom error message START*@
+            <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessage("Error")
+            </div>
+             @*Added by Rajas on 29 DEC 2016 For custom error message END*@
+     
+             <div class="row">
+        <div class="editor-label col-md-3">
+Company Name <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-5">
+         <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-suitcase"></i>
+  	</div> 
+
+          @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, "Select", new { @class = "form-control select2", id = "CompanyddlList", disabled = "disabled" })
+            <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.CompanyId)
+            </div>
+            </div>
+        </div>
+        </div>
+
+         
+
+        <div class="row">
+        <div class="editor-label col-md-3">
+   Branch Name <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-5">
+         <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-unversity"></i>
+  	</div> 
+
+          @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList", disabled = "disabled" })
+          <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.BranchId)
+            </div>
+        </div>
+        </div>
+        </div>
+
+         
+
+     <div class="row">
+        <div class="editor-label col-md-3">
+      Employee Group Name <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-5">
+         <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-users"></i>
+  	</div> 
+
+            @Html.TextBoxFor(model => model.EmployeeGroupName, new { @class = "form-control pull-right" })
+            <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.EmployeeGroupName)
+            </div>
+        </div>
+        </div> 
+        </div>
+         
+        <p>
+            <input type="button" id="BtnEG" value="Save" class="btn btn-default" style="cursor:pointer; float:left" title = "Click to save Employee group"/>
+            <span  class="btn btn-default" "tooltip" style="cursor:pointer; float:left; margin-left:10px" title = "Click to go back to employee group list">@Html.ActionLink("Back to Employee group list", "Index")</span>
+        </p>
+ 
+}
+
+</div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP START*@
+<div id="EmpGrpdiv" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Do you want to update Employee group?
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="btn">
+                    Yes</button>
+                <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                    Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP END*@
+<script type="text/javascript">
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+    });
+
+    // Added by Rajas on 27 DEC 2016 to fill drop down list on selection of other drop down
+    $("#CompanyddlList").change(function () {
+        //alert($("#Application_ID").val());
+        isDirty = false;
+        var companyid = $("#CompanyddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosEmployeeGroup/GetBranch")',
+            type: "POST",
+            dataType: "json",
+            data: { Companyid: companyid },
+            success: function (data) {
+                $("#BranchddlList").empty();
+                $("#BranchddlList").append("<option value=" + "0" + ">" + "Select" + "</option>");
+                for (var i = 0; i < data.length; i++) {
+
+                    //alert(states[i].Group_name);
+                    // states.option.selected = true;
+                    $("#BranchddlList").append("<option value=" + "" + data[i].BranchId + "" + ">" + data[i].BranchName + "</option>");
+
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+    //ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP START
+    $("#BtnEG").click(function () {
+
+        var $form = $(this).closest('form');
+        $('#EmpGrpdiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#btn', function () {
+
+                    $("#Form").submit();
+                });
+
+    });
+    //ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP END
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ 
+
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION START*@
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+ }
+ @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@

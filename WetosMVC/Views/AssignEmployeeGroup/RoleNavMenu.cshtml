@@ -1,0 +1,243 @@
+﻿@using (Html.BeginForm("RoleNavMenu", "RoleNavMenu", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.ValidationSummary(true)
+    <br />
+    
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        Assign Role Menu</div>
+                    @*  <div class="tools">
+                        <a href="javascript:;" class="collapse"></a>
+                        <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                        <a href="javascript:;" class="reload"></a>
+                        <a href="javascript:;" class="remove"></a>
+                    </div>*@
+                </div>
+                <div class="portlet-body">
+                    <div class="table-toolbar">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <span class="control-label">Company:</span>
+                                @Html.DropDownList("Company", null, "--SELECT--", new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-4">
+                                <span class="control-label">Year:</span>
+                                <div id="YearList">
+                                    <select class="form-control ">
+                                        <option>--SELECT--</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label">
+                                    Role :</label>
+                                @Html.DropDownList("RoleDef", null, "--SELECT--", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div id="UserSpecificdata" class="classyear_selector span3" @*style="height: 70%; overflow: auto; float: right;"*@>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="RoleReletedData" class="classyear_selector span8">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div_buttons" class="row-fluid span12" style="height: 60%;">
+                            <input type="button" value="Save" name="btnSave" id="btnSave" class="btn" />
+                            @* Button save should come as a popup for save or message?*@
+                            <input type="button" value="Reset" id="btncancel" class="btn" />
+                        </div>
+                        <hr2 />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="AssignDiv" style="width: 30% !important; height: 20% !important; z-index: 1000000;
+        background-color: White; top: 20%; left: 40%" class="modal show fade">
+        <div class="modal-body">
+            Role Assigned Successfully.
+        </div>
+        <div class="modal-footer">
+            <center>
+                <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="OkBtn">
+                    Ok</button>
+        </div>
+    </div>
+
+}
+<script type="text/javascript">
+    $('body').ajaxStart(function () {
+        $(this).css({ 'cursor': 'wait' });
+    }).ajaxStop(function () {
+        $(this).css({ 'cursor': 'default' });
+    });
+
+
+    $(document).ready(function () {
+
+        getyear();
+
+        $("#Year option:last-child").attr("selected", "selected");
+        $("#div_buttons").hide();
+        GetUserLists();
+        GetNavMenuLists();
+
+
+        $('#btnSave').click(function () {
+
+            var SubChildId = " ";
+            var NavMenuId = " ";
+            var ParId = " ";
+            for (var j = 1; j <= $('#hidchildid').val(); j++) {
+                if ($('#chkchild-' + j).is(':checked').toString() == 'true') {
+                    NavMenuId = NavMenuId + "," + $('#hidNavmenuid-' + j).val();
+                    ParId = ParId + "," + $('#hidParid-' + j).val()
+                }
+            }
+            for (var k = 1; k <= $("#hidsubchild").val(); k++) {
+                if ($('#chksubchild-' + k).is(':checked').toString() == 'true') {
+                    SubChildId = SubChildId + "," + $("#hidSubNavmenuid-" + k).val();
+                }
+            }
+
+            SubChildId = SubChildId.replace(" ,", "");
+            NavMenuId = NavMenuId.replace(" ,", "");
+            ParId = ParId.replace(" ,", "");
+
+            var Userid = " ";
+
+            for (var j = 1; j <= $('#hidvalue').val(); j++) {
+                if ($('#chkuser-' + j).is(':checked').toString() == 'true') {
+                    Userid = Userid + "," + $('#hiduser-' + j).val();
+                }
+            }
+
+            Userid = Userid.replace(" ,", "");
+
+            $.ajax({
+                url: '@Url.Content("~/RoleNavMenu/GetSave")',
+                data: JSON.stringify({ Roleid: $('#RoleDef').val(), SubChildId: SubChildId, childid: NavMenuId, parid: ParId, uid: Userid, Companyid: $('#Company').val(), Yearid: $('#Year').val() }),
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (result) {
+                    var $form = $(this).closest('form');
+                    $('#AssignDiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#OkBtn', function () {
+                    //alert(result);
+                });
+
+
+                },
+                error: function (result) {
+                    // alert("No data Available");
+                }
+            });
+        });
+
+    });
+
+
+    function GetNavMenuLists() {
+        $('#RoleReletedData').html("");
+        $("#div_buttons").hide();
+
+        $.ajax({
+            url: '@Url.Content("~/RoleNavMenu/GetNavMenuData")',
+            data: JSON.stringify({ Roleid: $('#RoleDef').val(), Companyid: $('#Company').val(), Yearid: $('#Year').val() }),
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                $('#RoleReletedData').html(result.RoleData);
+                $("#div_buttons").show();
+
+            },
+            error: function (result) {
+
+            }
+        });
+
+    }
+
+    function getyear() {
+        $('#RoleReletedData').html("");
+        $("#div_buttons").hide();
+        $.ajax({
+            url: '@Url.Content("~/RoleNavMenu/YearList")',
+            data: JSON.stringify({ Company: $('#Company').val() }),
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                $('#YearList').html(result.year);
+
+            },
+            error: function (result) {
+                // alert("No data Available");
+            }
+        });
+    }
+
+    function GetUserLists() {
+        $('#UserSpecificdata').html("");
+        $("#div_buttons").hide();
+        $.ajax({
+            url: '@Url.Content("~/RoleNavMenu/GetUsersData")',
+            data: JSON.stringify({ Roleid: $('#RoleDef').val(), Companyid: $('#Company').val(), Yearid: $('#Year').val() }),
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+
+                $('#UserSpecificdata').html(result.RoleData);
+
+            },
+            error: function (result) {
+                // alert("No data Available");
+            }
+        });
+    }
+
+    $('#Company').change(function () {
+
+        $("#div_buttons").hide();
+        $.ajax({
+            url: '@Url.Content("~/RoleNavMenu/YearList")',
+            data: JSON.stringify({ Company: $('#Company').val() }),
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                $('#YearList').html(result.year);
+
+            },
+            error: function (result) {
+                // alert("No data Available");
+            }
+        });
+
+    });
+
+    $('#btncancel').click(function () {
+        GetUserLists();
+        GetNavMenuLists();
+
+    });
+
+    $('#RoleDef').change(function () {
+        GetUserLists();
+        GetNavMenuLists();
+
+    });
+
+</script>
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,254 @@
+﻿@model IEnumerable<WetosDB.SP_GetAttendanceIndex_Result>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    
+                </div>
+                <div class="box-body">
+         <div id="dialogf5" style="display: none">
+    <div id="ProductSearch">
+    </div>
+</div>  
+<div class="col-md-2">Total Days
+        <label>@ViewBag.TotalDays</label>
+        </div>
+          <div class="col-md-2">Absent Days
+        <label>@ViewBag.AbsentDays</label>
+        </div>
+         <div class="col-md-2">Present Days
+        <label>@ViewBag.PresentDays</label>
+        </div>  
+         <div class="col-md-2">Late By Days
+        <label>@ViewBag.LateByDays</label>
+        </div>      
+        <div class="col-md-2">Weekly Off Days
+        <label>@ViewBag.WeekOffDays</label>
+        </div>        
+<table id="dailyTransaction"  class="table table-bordered table-striped">
+<thead>
+    <tr align="center">
+        
+        <td>
+            Date
+        </td>
+        
+        <td>
+            Login
+        </td>
+        <td>
+            LogOut
+            </td>
+       
+       <td>
+            Early Going
+        </td>
+        <td>
+            Late Coming
+        </td>
+        <td>
+            Working Hrs
+        </td>
+        <td>
+            Extra Hrs
+        </td>
+      
+        <td>
+            Status
+        </td>
+             
+      
+        <td>
+            
+        </td>
+           <td>
+           Late Count
+        </td>
+      
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+    
+   
+     <tr align="right">
+     
+     
+        
+  
+    <td align="center">
+        
+            @String.Format("{0:g}", item.TranDate.ToString("dd-MMM-yyyy"))
+         
+       
+        </td>
+   
+        <td>
+        @if (item.Login.Hour == 00 && item.Login.Minute == 00 && item.Login.Second == 00)
+        { 
+        <span>----</span>
+        }
+        else
+        {
+            @String.Format("{0:g}", item.Login)
+        }
+        </td>
+        <td>
+         @if (item.LogOut.Hour == 00 && item.LogOut.Minute == 00 && item.LogOut.Second == 00)
+         { 
+        <span>----</span>
+         }
+         else
+         {
+            @String.Format("{0:g}", item.LogOut)
+         }
+        </td>
+        
+        <td>
+        @if (item.Early != null)
+        {
+            @String.Format("{0:g}", item.Early.Value.ToString("HH:mm"))
+        }
+        else
+        { 
+        <span>----</span>
+        }
+        </td>
+        <td>
+         @if (item.Late != null)
+         {
+            @String.Format("{0:g}", item.Late.Value.ToString("HH:mm"))
+         }
+         else
+         {
+         <span>----</span>
+         }
+        </td>
+        <td>
+        @if (item.WorkingHrs != null)
+        {
+            @String.Format("{0:g}", item.WorkingHrs.Value == null ? "" : item.WorkingHrs.Value.ToString("HH:mm"))
+        }
+        else
+        {
+
+        }
+        </td>
+        <td>
+         @if (item.ExtraHrs != null)
+         {
+            @String.Format("{0:g}", item.ExtraHrs.Value == null ? "" : item.ExtraHrs.Value.ToString("HH:mm"))
+         }
+         else { }
+        </td>
+       
+       
+       <td align="center"> 
+       @if (item.StatusName == "WO" || item.StatusName == "WWWW")
+       {
+             <div style="color:Purple;font-weight:700"> WOWO</div>
+       }
+       else if (item.StatusName == "WOWO")
+       {
+                <div style="color:Purple;font-weight:700"> @item.StatusName</div>
+                @*<div style="background-color:Purple;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+       }
+       else if (item.StatusName == "PLPL")
+       {
+           <div style="color:#1c325d;font-weight:700"> @item.StatusName</div>
+               @* <div style="background-color:#1c325d;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+       }
+       else if (item.StatusName == "WPWP")
+       {
+           <div style="color:Aqua;font-weight:700"> @item.StatusName</div>
+                @*<div style="background-color:Aqua;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+       }
+       else if (item.StatusName == "PPPP")
+       {
+           <div style="color:Green;font-weight:700"> @item.StatusName</div>
+                 @* <div style="background-color:Green;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+              
+       }
+       else if (item.StatusName == "AAAA")
+       { 
+           <div style="color:Red;font-weight:700"> @item.StatusName</div>
+           @*<div style="background-color:Red;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+       }
+       else if (item.StatusName == "AAPP")
+       {
+           <div style="color:#f91cb8;font-weight:700"> @item.StatusName</div>
+                 @* <div style="background-color:#f91cb8;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+              
+       }
+       else if (item.StatusName == "AAPP^")
+       {
+           <div style="color:#f91cb8;font-weight:700"> @item.StatusName</div>
+                 @* <div style="background-color:#f91cb8;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+              
+       }
+       else if (item.StatusName == "PPAA^")
+       {
+           <div style="color:#f91cb8;font-weight:700"> @item.StatusName</div>
+                  @*<div style="background-color:#f91cb8;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>*@
+              
+       }
+       else if (item.StatusName == "PPAA^")
+       {
+           <div style="color:#f91cb8;font-weight:700"> @item.StatusName</div>
+                 @* <div style="background-color:#f91cb8;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div> *@  
+              
+       }
+       else if (item.StatusName == "PPPP*")
+       {
+           <div style="color:#3a87ad;font-weight:700"> @item.StatusName</div>
+                 @* <div style="background-color:#3a87ad;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>  *@
+
+       }
+       else if (item.StatusName == "HHHH")
+       {
+           <div style="color:Orange;font-weight:700"> @item.StatusName</div>
+                 @* <div style="background-color:#3a87ad;width:15px;height:15px;margin-top:-10px;margin-left:-10px"></div>  *@
+
+       }
+       else
+       {
+           //CODE ADDED BY SHRADDHA ON 30 OCT 2017 START
+       <div style="color:Black;font-weight:700"> @item.StatusName</div>
+         
+       }
+         
+           
+        </td>
+          <td>
+            @item.Remark
+        </td>
+          <td>
+            @item.LateCount
+        </td>
+    
+       
+        
+      
+       
+    </tr>
+}
+   
+   </tbody>   
+    
+<tfoot></tfoot>
+
+</table>
+
+
+        
+ </div>
+                <!-- /.box -->
+            </div>
+        </div>
+
+    </div>
+    <!-- /.box -->
+    <!-- /.row -->
+</section>          

@@ -1,0 +1,134 @@
+﻿@model IEnumerable<MarsData.sp_Get_Employee_List_From_EmpGroup_Result>
+@{
+    int i = 0;
+    int g = 0;
+                //List<MarsData.vCompBrDivDeptDesigEmpGrpDetail> vlist = new List<MarsData.vCompBrDivDeptDesigEmpGrpDetail>();
+                //vlist = ViewBag.vlist;
+    
+}
+<div class="row" style="padding-left: 20px; padding-right: 10px;">
+    <input type="hidden" id="hidflagtrueids" name="hidflagtrueids" value="" />
+    <label style="width: 205px">Number of enteries selected: </label>
+    <input type="text" id="hidcountvalue" name="hidcountvalue" value="0" style="border-color: transparent; background-color: none; background: transparent; width: 50px" disabled />
+    <table class="table table-bordered" id="tableemployeename">
+        <thead>
+            <tr>
+                @*<th>
+                   <input type="checkbox" id="Chkall" name="Chkall" /></th>*@
+                <th>Employee Name</th>
+                <th>Employee Code</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+               // g = g + 1;
+                i = i + 1;
+                <tr>
+                    <td>@item.Title&nbsp;@item.FirstName&nbsp;@item.MiddleName&nbsp;@item.LastName</td>
+                    <td>@item.EmployeeCode
+                        <input type="hidden" id="hid_empid-@i" name="hid_empid-@i" value="@item.EmployeeId" />
+                    </td>
+
+                </tr>
+               
+
+            }
+
+        </tbody>
+    </table>
+
+    <input type="hidden" id="hidvalue" name="hidvalue"  value="@i" />
+</div>
+
+
+@*<div class="row">
+     <div class="portlet box blue ">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-gift"></i>Group Details
+            </div>
+        </div>
+        <div class="portlet-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Division</th>
+                        <th>Branch</th>
+                        <th>Department</th>
+                        <th>Designation</th>
+                        <th>Category</th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+            </div>
+         </div>
+</div>*@
+
+<script>
+
+    $(document).ready(function () {
+        $("#hidflagtrueids").val("");
+    });
+
+    $("#Chkall").click(function () {
+        var aa = ' ';
+        if ($('#Chkall').is(':checked').toString() == 'true') {
+
+            for (var i = 0; i < $('#hidvalue').val() ; i++) {
+                $('#chk-' + i).attr('checked', true);
+                aa = aa + "-,-" + $('#hidtid-' + i).val();
+                aa = aa.replace('undefined-,-', '')
+            }
+            $('#hidcountvalue').val($('#hidvalue').val());
+        }
+
+        aa = aa.replace(' -,', '');
+        aa = aa.replace(',-undefined', '')
+        var bb = (aa.split(",").length);
+        $('#hidcountvalue').val(bb);
+
+        $('#hidflagtrueids').val(aa);
+
+        if ($('#Chkall').is(':checked').toString() == 'false') {
+            for (var i = 0; i < $('#hidvalue').val() ; i++) {
+                $('#chk-' + i).attr('checked', false);
+            }
+            $('#hidflagtrueids').val('');
+            $('#hidcountvalue').val(0);
+
+        }
+
+    });
+
+    function TransactForinterest(tranid, i) {
+
+        var TotalCount = parseInt($('#hidcountvalue').val());
+        var tranlist = document.getElementById("hidflagtrueids");
+
+
+        if (tranlist != null) {
+            if (tranlist.value.toString().indexOf("-" + tranid + "-") >= 0) {
+
+                tranlist.value = tranlist.value.replace("-" + tranid + "-" + ",", "");
+
+                TotalCount = TotalCount - 1;
+
+            }
+            else {
+                tranlist.value = tranlist.value + "-" + tranid + "-" + ",";
+
+                TotalCount = TotalCount + 1;
+
+            }
+        }
+        $('#hidcountvalue').val(TotalCount);
+
+    }
+
+
+</script>

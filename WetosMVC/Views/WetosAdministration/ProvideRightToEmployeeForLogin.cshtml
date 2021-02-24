@@ -1,0 +1,632 @@
+﻿@model List<WetosDB.SP_VwActiveEmployee_Result>
+@{
+    ViewBag.Title = "Provide Right To Employee For Login";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+@*<h2>Provide Login Right To Employee</h2>*@
+@using (Html.BeginForm())
+{
+    <div class="page-content-wrapper" id="page_content">
+        <div class="page-content">
+            <section class="content-header">
+      <h1>
+        Provide Login Right
+        <small>Employees</small>
+      </h1>
+       <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Employee Management </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Login User</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "WetosRuleTransaction")">Login User</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>
+      @*<ol class="breadcrumb">
+        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Employee Management</li>
+        <li class="active">Login Users</li>
+        <li><span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span></li>
+      
+      </ol>
+      <br />*@
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+     
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+
+    </section>
+            <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+            </div>
+            <div class="box-body">
+<table  id="UserRights" class="table table-bordered table-striped">
+<thead>
+    <tr>
+        <td>Select Employee</td>
+        <td>
+            Employee Code
+        </td>
+        
+        <td>
+            EmployeeName
+        </td>
+        @*<th>
+            LastName
+        </th>
+        <th>
+            MiddleName
+        </th>
+        <th>
+            Address1
+        </th>
+        <th>
+            Address2
+        </th>
+        <th>
+            MailAddress
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            CardNumber
+        </th>
+        <th>
+            DefaultShift
+        </th>
+        <th>
+            BloodGroupId
+        </th>
+        <th>
+            ReligionId
+        </th>
+        <th>
+            DesignationId
+        </th>
+        <th>
+            DepartmentId
+        </th>
+        <th>
+            EmployeeReportingId
+        </th>
+        <th>
+            GradeId
+        </th>
+        <th>
+            MarritalStatus
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Telephone1
+        </th>
+        <th>
+            Telephone2
+        </th>
+        <th>
+            Moblie
+        </th>
+        <th>
+            BirthDate
+        </th>
+        <th>
+            ConfirmDate
+        </th>
+        <th>
+            JoiningDate
+        </th>
+        <th>
+            Leavingdate
+        </th>
+        <th>
+            PFYN
+        </th>
+        <th>
+            PFNO
+        </th>
+        <th>
+            PANNO
+        </th>
+        <th>
+            ESICNO
+        </th>
+        <th>
+            ESICDCD
+        </th>
+        <th>
+            BankCode
+        </th>
+        <th>
+            BankNo
+        </th>
+        <th>
+            LICNo
+        </th>
+        <th>
+            ActiveFlag
+        </th>
+        <th>
+            SwipeFlag
+        </th>
+        <th>
+            SalPDFlag
+        </th>
+        <th>
+            DeptHeadFlag
+        </th>
+        <th>
+            WeeklyOff1
+        </th>
+        <th>
+            WeeklyOff2
+        </th>
+        <th>
+            First
+        </th>
+        <th>
+            Second
+        </th>
+        <th>
+            Third
+        </th>
+        <th>
+            Fourth
+        </th>
+        <th>
+            Fifth
+        </th>
+        <th>
+            CompanyId
+        </th>
+        <th>
+            BranchId
+        </th>
+        <th>
+            DivisionId
+        </th>
+        <th>
+            EmployeeReportingId2
+        </th>
+        <th>
+            SalaryPM
+        </th>
+        <th>
+            SalaryAM
+        </th>
+        <th>
+            Qualification
+        </th>
+        <th>
+            Institute
+        </th>
+        <th>
+            PassingYear
+        </th>
+        <th>
+            Subject
+        </th>
+        <th>
+            FatherName
+        </th>
+        <th>
+            SpouseName
+        </th>
+        <th>
+            Basic
+        </th>
+        <th>
+            HRA
+        </th>
+        <th>
+            Conveyance
+        </th>
+        <th>
+            EDUAllowance
+        </th>
+        <th>
+            Medical
+        </th>
+        <th>
+            SplAllowance
+        </th>
+        <th>
+            LTA
+        </th>
+        <th>
+            WashAllowance
+        </th>
+        <th>
+            GrossSalary
+        </th>
+        <th>
+            ConsFee
+        </th>
+        <th>
+            MobileAllowance
+        </th>
+        <th>
+            CarPetrol
+        </th>
+        <th>
+            Sodexho
+        </th>
+        <th>
+            Driver
+        </th>
+        <th>
+            TolalGrossSalary
+        </th>
+        <th>
+            TakeHomeSalary
+        </th>
+        <th>
+            Bonus
+        </th>
+        <th>
+            CTCWithoutBonus
+        </th>
+        <th>
+            CTCWithBonus
+        </th>
+        <th>
+            MotherName
+        </th>
+        <th>
+            Zone
+        </th>
+        <th>
+            PrevExperience
+        </th>
+        <th>
+            BSVExperience
+        </th>
+        <th>
+            State
+        </th>
+        <th>
+            ZipCode
+        </th>
+        <th>
+            TransferDate
+        </th>*@
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+          @Html.CheckBox("IsCheckedEmployeeId", new { id = item.EmployeeId })
+        </td>
+        <td>
+            @item.EmployeeCode
+        </td>
+        @*<td>
+            @item.EmployeeTypeId
+        </td>*@
+        <td>
+            @item.FirstName @item.MiddleName @item.LastName
+        </td>
+        @*<td>
+           
+        </td>
+        <td>
+           
+        </td>
+        <td>
+            @item.Address1
+        </td>
+        <td>
+            @item.Address2
+        </td>
+        <td>
+            @item.MailAddress
+        </td>
+        <td>
+            @item.Title
+        </td>
+        <td>
+            @item.Gender
+        </td>
+        <td>
+            @item.CardNumber
+        </td>
+        <td>
+            @item.DefaultShift
+        </td>
+        <td>
+            @item.BloodGroupId
+        </td>
+        <td>
+            @item.ReligionId
+        </td>
+        <td>
+            @item.DesignationId
+        </td>
+        <td>
+            @item.DepartmentId
+        </td>
+        <td>
+            @item.EmployeeReportingId
+        </td>
+        <td>
+            @item.GradeId
+        </td>
+        <td>
+            @item.MarritalStatus
+        </td>
+        <td>
+            @item.Email
+        </td>
+        <td>
+            @item.Telephone1
+        </td>
+        <td>
+            @item.Telephone2
+        </td>
+        <td>
+            @item.Moblie
+        </td>
+        <td>
+            @String.Format("{0:g}", item.BirthDate)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.ConfirmDate)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.JoiningDate)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.Leavingdate)
+        </td>
+        <td>
+            @item.PFYN
+        </td>
+        <td>
+            @item.PFNO
+        </td>
+        <td>
+            @item.PANNO
+        </td>
+        <td>
+            @item.ESICNO
+        </td>
+        <td>
+            @item.ESICDCD
+        </td>
+        <td>
+            @item.BankCode
+        </td>
+        <td>
+            @item.BankNo
+        </td>
+        <td>
+            @item.LICNo
+        </td>
+        <td>
+            @item.ActiveFlag
+        </td>
+        <td>
+            @item.SwipeFlag
+        </td>
+        <td>
+            @item.SalPDFlag
+        </td>
+        <td>
+            @item.DeptHeadFlag
+        </td>
+        <td>
+            @item.WeeklyOff1
+        </td>
+        <td>
+            @item.WeeklyOff2
+        </td>
+        <td>
+            @item.First
+        </td>
+        <td>
+            @item.Second
+        </td>
+        <td>
+            @item.Third
+        </td>
+        <td>
+            @item.Fourth
+        </td>
+        <td>
+            @item.Fifth
+        </td>
+        <td>
+            @item.CompanyId
+        </td>
+        <td>
+            @item.BranchId
+        </td>
+        <td>
+            @item.DivisionId
+        </td>
+        <td>
+            @item.EmployeeReportingId2
+        </td>
+        <td>
+            @item.SalaryPM
+        </td>
+        <td>
+            @item.SalaryAM
+        </td>
+        <td>
+            @item.Qualification
+        </td>
+        <td>
+            @item.Institute
+        </td>
+        <td>
+            @item.PassingYear
+        </td>
+        <td>
+            @item.Subject
+        </td>
+        <td>
+            @item.FatherName
+        </td>
+        <td>
+            @item.SpouseName
+        </td>
+        <td>
+            @item.Basic
+        </td>
+        <td>
+            @item.HRA
+        </td>
+        <td>
+            @item.Conveyance
+        </td>
+        <td>
+            @item.EDUAllowance
+        </td>
+        <td>
+            @item.Medical
+        </td>
+        <td>
+            @item.SplAllowance
+        </td>
+        <td>
+            @item.LTA
+        </td>
+        <td>
+            @item.WashAllowance
+        </td>
+        <td>
+            @item.GrossSalary
+        </td>
+        <td>
+            @item.ConsFee
+        </td>
+        <td>
+            @item.MobileAllowance
+        </td>
+        <td>
+            @item.CarPetrol
+        </td>
+        <td>
+            @item.Sodexho
+        </td>
+        <td>
+            @item.Driver
+        </td>
+        <td>
+            @item.TolalGrossSalary
+        </td>
+        <td>
+            @item.TakeHomeSalary
+        </td>
+        <td>
+            @item.Bonus
+        </td>
+        <td>
+            @item.CTCWithoutBonus
+        </td>
+        <td>
+            @item.CTCWithBonus
+        </td>
+        <td>
+            @item.MotherName
+        </td>
+        <td>
+            @item.Zone
+        </td>
+        <td>
+            @item.PrevExperience
+        </td>
+        <td>
+            @item.BSVExperience
+        </td>
+        <td>
+            @item.State
+        </td>
+        <td>
+            @item.ZipCode
+        </td>
+        <td>
+            @String.Format("{0:g}", item.TransferDate)
+        </td>*@
+    </tr>
+}
+
+</tbody>
+
+<tfoot></tfoot>
+</table>
+
+<center><input type="submit" id="btnSave" class="btn btn-primary" value="SAVE"/> </center> 
+</div>
+ 
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <div id="confirmSave" class="modal hide fade">
+                        <div class="modal-body">
+                            Do you want to Save Changes ?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="Save">
+                                Yes</button>
+                            <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                                Cancel</button>
+                        </div>
+                    </div>
+      <!-- /.row -->
+    </section>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    $(function () {
+
+        $("#UserRights").DataTable();
+
+    });
+</script>
+@*Added by Pushkar For datatable on 25 OCT 2016-------end*@ @*<script type="text/javascript">
+    $("#btnSave").click(function () {
+
+        var $form = $(this).closest('form');
+        $('#confirmSave').modal({ backdrop: 'static', keyboard: false })
+        .one('click', '#Save', function () {
+        });
+
+    });
+
+</script>*@ 

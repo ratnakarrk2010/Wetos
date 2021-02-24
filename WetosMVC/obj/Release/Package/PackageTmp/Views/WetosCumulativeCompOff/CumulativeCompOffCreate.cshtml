@@ -1,0 +1,158 @@
+﻿@model IEnumerable<WetosDB.SP_GetDailyTransactionListForCumulativeCompOffNew_Result>
+@{
+    ViewBag.Title = "CumulativeCompOffCreate";
+}
+@* Added by Shalaka on 28th NOV 2017 for Date Picker -- Start*@
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+@* Added by Shalaka on 28th NOV 2017 for Date Picker -- Start*@
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+            <h1>Cumulative Comp Off Earn
+       @*Create*@
+                <small>@*Leave Application*@
+                    Create </small>@*Modified by Pushkar 0n 6 FEB 2017*@
+            </h1>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">Applications</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("LeaveApplicationIndex", "WetosLeaveTransaction")">Cumulative Comp Off</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report" title="Today's date">
+                                <span style="cursor: pointer" class="back " title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+            <div>
+
+              @if (@ViewBag.Myself == "False")
+              {
+               <div class="row">
+                                                <div class="col-md-4">
+                                                    <div id="EmployeeName" class="form-group">
+                                                        Employee Name <span style="color: Red; font-size: 18px">*</span>
+
+                                                        @Html.DropDownList("EmployeeId", (IEnumerable<SelectListItem>)@ViewBag.EmployeeCodeAndNameList, "Select", new { @class = "form-control select2", id = "EmployeeId", style = "width:500px" })
+
+                                                    </div>
+                                                </div>
+                                            </div>
+              }
+              else
+              {
+                  <input type="text" style="display:none" value="@ViewBag.EmployeeId" id="Employee" />
+                  <input  type="text" style="display:none" value="@ViewBag.Myself" name="MySelf" id="Myself" />
+              }
+            </div>
+            
+            <div style="clear: both;"></div>
+
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+        </section>
+        <br />
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box box-primary">
+
+                       @using (Html.BeginForm("CumulativeCompOffCreate", "WetosCumulativeCompOff", FormMethod.Post, new { id = "DTMasterForm" }))
+                       {
+                            <div id = "CumulativeCompOffCreatePVDiv">
+                                    @Html.Partial("CumulativeCompOffCreatePV")
+                            </div> 
+                            <input  type="text" style="display:none" value="@ViewBag.Myself" name="MySelf" />
+                           <div class="row">
+
+                        <input type="button" id="BtnSubmit" value="Submit" /></div>
+                           
+                       }
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script type="text/jscript">
+
+    $(function () {
+        $("#DTMaster").DataTable();
+    });
+
+    $("#BtnSubmit").click(function () {
+        $("#DTMasterForm").submit();
+
+    });
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+    });
+
+</script>
+<script type="text/javascript">
+    $("#EmployeeId").change(function () {
+        var EmployeeId = $("#EmployeeId").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosCumulativeCompOff/CumulativeCompOffCreatePV")',
+            type: "POST",
+            data: { EmpId: EmployeeId },  // + extractLast(request.term)
+            success: function (data) {
+                $("#CumulativeCompOffCreatePVDiv").html(data);
+                $("#DTMaster").DataTable();
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        var Myself = $("#Myself").val();
+        if (Myself == "False") {
+            var EmployeeId = $("#EmployeeId").val();
+            $.ajax({
+                url: '@Url.Content("~/WetosCumulativeCompOff/CumulativeCompOffCreatePV")',
+                type: "POST",
+                data: { EmpId: EmployeeId },  // + extractLast(request.term)
+                success: function (data) {
+                    $("#CumulativeCompOffCreatePVDiv").html(data);
+                    $("#DTMaster").DataTable();
+                }
+            });
+        }
+        else {
+            var EmployeeId = $("#Employee").val();
+            $.ajax({
+                url: '@Url.Content("~/WetosCumulativeCompOff/CumulativeCompOffCreatePV")',
+                type: "POST",
+                data: { EmpId: EmployeeId },  // + extractLast(request.term)
+                success: function (data) {
+                    $("#CumulativeCompOffCreatePVDiv").html(data);
+                    $("#DTMaster").DataTable();
+                }
+            });
+        }
+    });
+</script>

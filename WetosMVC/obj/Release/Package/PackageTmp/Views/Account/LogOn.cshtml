@@ -1,0 +1,132 @@
+﻿@model WetosMVCMainApp.Models.LogOnModel
+@{  
+    ViewBag.Title = "WETOS D'zire - Log On";
+}
+
+@{Layout = "~/Views/Shared/_LayoutBlank.cshtml";}
+
+<style type="text/css">
+    .login-box
+    {
+        margin-top: 5% !important;
+    }
+    .page-content-wrapper
+    {
+    }
+    
+    body
+    {
+        background-color: White;
+    }
+    .btn-primary
+    {
+        background-color: #17466f;
+        border-color: #17466f;
+    }
+    .btn-primary : hover > .btn-primary
+    {
+        background-color: #17466f;
+        border-color: #17466f;
+    }
+</style>
+@*<div style="font-size: 15px; color: Red">@ViewBag.Message</div>*@
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+        <div class="col-md-offset-2 col-sm-offset-2 col-md-8  col-xs-12 col-sm-8 col-lg-8"
+            style="margin-top: 150px">
+            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6" style="height: 300px!important;
+                background-color: #17466f; -moz-box-shadow: 0 0 5px rgba(0,0,0,0.4); -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.4)">
+                <div class="col-md-offset-4 col-sm-offset-4 col-lg-offset-4 col-xs-offset-4 col-md-4 col-sm-4 col-lg-4 col-xs-4"
+                    style="margin-top: 70px;">
+                    <img src="@Url.Content("~/images/logo.png")" width="100" alt="image" />
+                </div>
+                <div class="col-md-offset-4 col-sm-offset-4 col-lg-offset-4 col-xs-offset-4 col-md-4 col-sm-4 col-lg-4 col-xs-4">
+                    <h5 style="text-align: center; font-weight: 600; color: White" class="logo__text">
+                        WETOS D'zire</h5>
+                </div>
+                <div class="col-md-offset-1 col-sm-offset-1 col-lg-offset-1 col-xs-offset-1 col-md-10 col-sm-10 col-lg-10 col-xs-10">
+                    <h3 style="font-weight: 600; text-align: center; color: White" class="logo__text">
+                        Web Enabled Time Office System</h3>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6" style="height: 300px !important;
+                background-color: White; -moz-box-shadow: 0 0 5px rgba(0,0,0,0.4); -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.4)">
+                <div class="container__child signup__form">
+                    <form action="#" method="post">
+                    <div style="text-align: center">
+                        <h3>
+                            Log In</h3>
+                    </div>
+                    <br />
+                    <div class="row" style= "padding-left:60px;" align="center">
+                        <div class="col-md-10 col-xs-10 col-sm-12 col-lg-10">
+                        <div class="form-group">
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "UserName" })
+                            </div>
+                            @*Commented by Shalaka on 29th DEC 2017 -- Start*@ @*<div class="col-md-10 col-xs-10 col-sm-10 col-lg-10">
+                                @Html.TextBoxFor(m => m.UserName)
+                            </div>*@ @*Commented by Shalaka on 29th DEC 2017 -- End*@
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding-left:60px;" align="center">
+                        <div class="col-md-10 col-xs-10 col-sm-12 col-lg-10">
+                    <div class="form-group">
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="fa fa-unlock-alt"></i>
+                            </div>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                        </div>
+                        @*Commented by Shalaka on 29th DEC 2017 -- Start*@ @*<div class="col-md-10 col-xs-10 col-sm-10 col-lg-10">
+                                @Html.PasswordFor(m => m.Password)
+                            </div>*@ @*Commented by Shalaka on 29th DEC 2017 -- End*@
+                    </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    @*<div class="col-xs-8">
+                        <div class="checkbox icheck" style="position:relative !important;margin-left:0px !important">
+                            @Html.CheckBoxFor(m => m.RememberMe, new { style = "position:relative !important;margin-left:0px !important" })
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>*@
+                    <!-- /.col -->
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                        @*  <button type="submit" class="btn btn-primary btn-block btn-flat">
+
+                            Sign In</button>*@
+                        <input type="submit" value="Sign In" class="btn btn-primary btn-block btn-flat" />
+                    </div>
+                    <!-- /.col -->
+                </div>
+                </form>
+            </div>
+@*<div class="social-auth-links text-center">
+      <p>- OR -</p>
+      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+        Facebook</a>
+      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+        Google+</a>
+    </div>*@
+            <!-- /.social-auth-links -->
+@*<a href="#">I forgot my password</a><br/>
+                <a href="#" class="text-center">Register a new membership</a><br />*@ @* @Html.ActionLink("Change Password", "ChangePassword","Account")*@
+@*<a href="" class="text-center"></a>*@
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+</div>
+}
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}

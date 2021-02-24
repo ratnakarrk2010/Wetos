@@ -1,0 +1,222 @@
+﻿@model WetosMVCMainApp.Models.RuleEngineModel
+@{
+    ViewBag.Title = "Rule Engine Edit Rule";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+@* Added by Rajas on 21 APRIL 2017 START*@
+<style type="text/css">
+    .select2-container--default .select2-selection--multiple .select2-selection__choice
+    {
+        background-color: #f8f8f8;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice
+    {
+        color: #0f0f0f;
+    }
+</style>
+@* Added by Rajas on 21 APRIL 2017 END*@
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+      <h1>
+        Rule Engine
+        <small>Edit Rule</small>
+      </h1>
+     <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Administration</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "WetosRuleTransaction")">Rule Engine </a>
+                        </li>
+                      <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>
+</section>
+        <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+             
+            </div>
+            <div class="box-body">
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+        @Html.HiddenFor(model => model.RuleEngineId)
+         @Html.HiddenFor(model => model.SubCode)
+          @Html.HiddenFor(model => model.HeadCode)
+            @Html.HiddenFor(model => model.RuleId)
+              @Html.HiddenFor(model => model.RuleName)
+    <div class="row">
+       <div class="editor-label col-md-2">
+      Rule Name
+        </div>
+        <div class="editor-field col-md-3">
+        @*@Html.EditorFor(model => model.CompanyId)*@
+         @*added by atul on 28th june 2017*@
+         <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-user" aria-hidden="true"></i>
+                  </div> 
+        @Html.DropDownListFor(a => a.RuleId, (IEnumerable<SelectListItem>)@ViewBag.RulesMasterList, "Select", new { @class = "form-control select2", @readonly = "readonly", disabled = "disabled" })
+        @Html.ValidationMessageFor(model => model.RuleId)
+        </div></div>
+        </div> <br/>
+    
+    
+    <div class="row">
+        <div class="editor-label col-md-2">
+            Formula
+        </div>
+        <div class="editor-field col-md-4">
+         @*added by atul on 28th june 2017*@
+         <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-calculator" aria-hidden="true"></i>
+                  </div> 
+            @Html.EditorFor(model => model.Formula)
+            @Html.ValidationMessageFor(model => model.Formula)
+        </div>
+        </div>
+        </div><br/>
+    <div class="row">
+        <div class="editor-label col-md-2">
+           Rule Unit
+        </div>
+        <div class="editor-field col-md-4">
+         @*added by atul on 28th june 2017*@
+         <div class="input-group date">
+          <div class="input-group-addon">
+                   <i class="fa fa-list-ul" aria-hidden="true"></i>
+                  </div> 
+            @Html.DropDownListFor(a => Model.RuleUnit, new List<SelectListItem>() { new SelectListItem { Text = "Select", Value = "Select" }, new SelectListItem { Text = "hh:mm:ss", Value = "hh:mm:ss" }, new SelectListItem { Text = "(TRUE/FALSE)", Value = "(TRUE/FALSE)" }, new SelectListItem { Text = "No.", Value = "No." }, new SelectListItem { Text = "Value", Value = "Value" } })
+            @Html.ValidationMessageFor(model => model.RuleUnit)
+      </div>
+        </div>
+        </div><br/>
+
+       @* <div class="row">
+        <div class="editor-label col-md-2">
+            Sub Code
+        </div>
+        <div class="editor-field col-md-4">
+            @Html.EditorFor(model => model.SubCode)
+            @Html.ValidationMessageFor(model => model.SubCode)
+        </div></div><br/>*@
+
+      @* <div class="row">
+        <div class="editor-label col-md-2">
+            Head Code
+        </div>
+        <div class="editor-field col-md-4">
+            @Html.EditorFor(model => model.HeadCode)
+            @Html.ValidationMessageFor(model => model.HeadCode)
+        </div></div><br/>*@
+
+        <div class="row">
+        <div class="editor-label col-md-2">
+            Active
+        </div>
+        <div class="editor-field col-md-4">
+         @Html.RadioButtonFor(model => model.Active, "A") Active
+          @Html.RadioButtonFor(model => model.Active, "N") Inactive
+            @Html.ValidationMessageFor(model => model.Active)
+        </div></div><br/>
+
+        
+
+         <p>
+           <input type="submit" id="" value="Save" class="btn btn-default" style="cursor:pointer; float:left" title = "Click to save Rule"/>
+            <span  class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title = "Click to go back to Rule list">@Html.ActionLink("Back to Rule list", "Index")</span>
+        </p>
+}
+</div>
+</div>
+</div>
+</div>
+</section>
+    </div>
+</div>
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>
+<script type="text/javascript">
+    // function start
+    $(function () {
+
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+        //Date picker
+        $('.datepicker').datepicker({
+
+            format: "dd/mm/yyyy",
+
+            autoclose: true
+        });
+
+        // function end
+
+        //Timepicker
+        $(".timepicker").timepicker({
+            showInputs: false
+        });
+    });
+
+    // MULTIPLE SELECTION SELECT2
+    // Added by Rajas on 21 APRIL 2017 START
+    $(".multiselect").select2();
+    $("#checkbox").click(function () {
+        //alert(multiselect);
+        if ($("#checkbox").is(':checked')) {
+            $(".multiselect > option").prop("selected", "selected");
+            $(".multiselect").trigger("change");
+        }
+        else {
+            //alert(multiselect);
+            $(".multiselect > option").removeAttr("selected");
+            $(".multiselect").trigger("change");
+        }
+    });
+    // Added by Rajas on 21 APRIL 2017 END
+
+</script>
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION START*@
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+ }
+ @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@

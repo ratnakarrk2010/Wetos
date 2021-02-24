@@ -1,0 +1,526 @@
+﻿@model List<WetosDB.SP_LeaveEncashSanctionIndex_Result>
+@{
+    int j = 0;
+}
+<table id="LeaveSanctionabc" class="table table-bordered table-striped">
+    @{int LoginEmployee = Convert.ToInt32(Session["EmployeeNo"]);}
+    @*Added by Pushkar For datatable on 25 OCT 2016*@
+    <thead>
+        <tr>
+            <td>
+                Cancel
+                <input type="radio" style="margin-right: 10px" id="ChkallCancel" name="checkall" />
+            </td>
+            <td>
+                Approve
+                <input type="radio" style="margin-right: 10px" id="ChkallApprove" name="checkall" />
+            </td>
+            <td>
+                Sanction
+                <input type="radio" style="margin-right: 10px" id="ChkallSanction" name="checkall" />
+            </td>
+            <td>
+                Reject
+                <input type="radio" style="margin-right: 10px" id="ChkallReject" name="checkall" />
+            </td>
+            <td>
+                Code
+            </td>
+            <td>
+                Name
+            </td>
+            <td>
+                Date
+            </td>
+            <td>
+                Encash Days
+            </td>
+            <td>
+                Status
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            j = i;
+            <tr>
+                @Html.HiddenFor(ModelItem => Model[i].LeaveEncashId)
+                @Html.HiddenFor(ModelItem => Model[i].EmployeeId)
+                @Html.HiddenFor(ModelItem => Model[i].CompanyId)
+                @Html.HiddenFor(ModelItem => Model[i].BranchId)
+                @Html.HiddenFor(ModelItem => Model[i].RejectReason)
+                @Html.HiddenFor(ModelItem => Model[i].EncashDate)
+                @Html.HiddenFor(ModelItem => Model[i].EmployeeReportingId)
+                @Html.HiddenFor(ModelItem => Model[i].EmployeeReportingId2)
+                @Html.Hidden("LoginEmployee_" + i, @LoginEmployee)
+                @* new {@Name = "check_" + i.ToString()}*@
+                <td>
+                    @if ((LoginEmployee == Model[i].EmployeeReportingId2 && (Model[i].StatusId == 5 || Model[i].StatusId == 3 || Model[i].StatusId == 6) || (LoginEmployee != Model[i].EmployeeReportingId2)))
+                    {
+                        @Html.RadioButtonFor(ModelItem => Model[i].StatusId, 5, new { @disabled = "disabled", @id = "StatusId1_" + @i })
+                    }
+                    else
+                    { 
+                        @Html.RadioButtonFor(ModelItem => Model[i].StatusId, 5, new { @id = "StatusId1_" + @i })
+                    }
+                </td>
+                <td>
+                    @if (LoginEmployee == Model[i].EmployeeReportingId && LoginEmployee != Model[i].EmployeeReportingId2 && (Model[i].StatusId == 1))
+                    {
+                        @Html.RadioButtonFor(ModelItem => Model[i].StatusId, 4, new { @id = "StatusId4_" + @i }) 
+                    }
+                    else
+                    {
+                        @Html.RadioButtonFor(ModelItem => Model[i].StatusId, 4, new { @disabled = "disabled", @id = "StatusId4_" + @i }) 
+                    }
+                </td>
+                <td>
+                    @if ((LoginEmployee == Model[i].EmployeeReportingId2 && LoginEmployee != Model[i].EmployeeReportingId && Model[i].StatusId == 4) || (LoginEmployee == Model[i].EmployeeReportingId2 && LoginEmployee == Model[i].EmployeeReportingId && Model[i].StatusId == 1))
+                    {
+                        @Html.RadioButtonFor(ModelItem => Model[i].StatusId, 2, new { @id = "StatusId2_" + @i })
+                    }
+                    else
+                    {
+                        @Html.RadioButtonFor(ModelItem => Model[i].StatusId, 2, new { @disabled = "disabled", @id = "StatusId2_" + @i }) 
+                    }
+                </td>
+                <td>
+                    @if (LoginEmployee == Model[i].EmployeeReportingId && LoginEmployee != Model[i].EmployeeReportingId2)
+                    {
+                        if (Model[i].StatusId == 4 || Model[i].StatusId == 1)
+                        {
+                        @Html.RadioButtonFor(ModelItem => Model[i].StatusId, 3, new { @id = "StatusId3_" + @i })
+                        }
+                        else
+                        {
+                       
+                        @Html.RadioButtonFor(ModelItem => Model[i].StatusId, 3, new { @disabled = "disabled", @id = "StatusId3_" + @i })
+                        }
+                    }
+                    else if (LoginEmployee == Model[i].EmployeeReportingId2)
+                    {
+                        if (Model[i].StatusId == 6 || Model[i].StatusId == 2 || Model[i].StatusId == 5)
+                        {
+                        @Html.RadioButtonFor(ModelItem => Model[i].StatusId, 6, new { @disabled = "disabled", @id = "StatusId6_" + @i })
+                        }
+                        else
+                        {
+                        @Html.RadioButtonFor(ModelItem => Model[i].StatusId, 6, new { @id = "StatusId6_" + @i })
+                        }
+                    }
+                </td>
+                <td>
+                    @Model[i].EmployeeCode
+                </td>
+                <td>
+                    @Model[i].EmployeeName
+                </td>
+                <td>
+                    @String.Format("{0:g}", Model[i].EncashDate.Value.ToString("dd-MMM-yyyy")) @*GIVEN dd-MMM-yyyy proper formating to Date by Shraddha on 23 NOV 2017*@
+                </td>
+                <td>
+                    @Model[i].EncashValue
+                </td>
+                <td>
+                    @Model[i].StatusName
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+            </td>
+            <td colspan="5">
+                <input type="checkbox" id="RejectReasonCheck" /><span></span> Please Enter Common
+                Reject/Cancel Reason here
+            </td>
+            <td colspan="8">
+                <input id="RejectReasonText" name="RejectReasonText" type="text" style="width: 500px !important" /><div
+                    style="color: Red; font-size: 12px">
+                    @Html.ValidationMessage("CustomError")
+                    @Html.ValidationMessage("Error")
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<div class="row">
+    <input type="hidden" id="hidvalueJ" name="hidvalueJ" value="@j" />
+    <input type="hidden" value="@ViewBag.Status" id="hideStatusValue"/>
+</div>
+@*SELECT/ DESELECT RADIO BUTTON JAVASCRIPT ADDED BY SHRADDHA ON 12 SEP 2017 START*@
+<script type="text/javascript">
+    $(function () {
+        var allRadios = $('input[type=radio]')
+        var radioChecked;
+
+        var setCurrent =
+                                        function (e) {
+                                            var obj = e.target;
+
+                                            radioChecked = $(obj).prop('checked');
+                                        }
+
+        var setCheck =
+                                    function (e) {
+
+                                        if (e.type == 'keypress' && e.charCode != 32) {
+                                            return false;
+                                        }
+
+                                        var obj = e.target;
+
+                                        if (radioChecked) {
+                                            $(obj).prop('checked', false);
+                                        } else {
+                                            $(obj).prop('checked', true);
+                                        }
+                                    }
+
+        $.each(allRadios, function (i, val) {
+            var label = $('label[for=' + $(this).attr("id") + ']');
+
+            $(this).bind('mousedown keydown', function (e) {
+                setCurrent(e);
+            });
+
+            label.bind('mousedown keydown', function (e) {
+                e.target = $('#' + $(this).attr("for"));
+                setCurrent(e);
+            });
+
+            $(this).bind('click', function (e) {
+                setCheck(e);
+            });
+
+        });
+    });
+</script>
+@*SELECT/ DESELECT RADIO BUTTON JAVASCRIPT ADDED BY SHRADDHA ON 12 SEP 2017 END*@
+<script type="text/javascript">
+    var StatusIdVal = $("#hideStatusValue").val();
+    //alert(StatusIdVal);
+    if (StatusIdVal == 4) {
+
+        $("#ChkallApprove").css("display", "none");
+
+    }
+    else if (StatusIdVal == 3 || StatusIdVal == 2) {
+
+        $("#ChkallApprove").css("display", "none");
+        $("#ChkallSanction").css("display", "none");
+        $("#ChkallReject").css("display", "none");
+
+    }
+
+
+
+    //    $(document).ready(function () {
+    //        alert("hi");
+    //        var StatusIdVal = $("#hideStatusValue").val();
+    //        alert(StatusIdVal);
+    //        if (StatusIdVal == 2 || StatusIdVal == 3) {
+
+    //            $("#ChkallApprove").attr("display", "none");
+
+    //        }
+    //    });
+
+    //    $("#ChkallCancel").change(function () {
+    //        var h = $('#hidvalueJ').val();
+
+    //        if (this.checked) {
+    //            //alert("checked");
+    //            //alert(h);
+    //            for (var k = 0; k <= h; k++) {
+    //                // alert(k);
+    //                $("#StatusId1_" + k).prop('checked', true);
+    //                // $("input[id='['+k+'].StatusId']").attr('checked', true);
+    //                //$('#[' + k + '].StatusId').prop('checked', true);
+    //                //alert("checked4");
+    //                // $('#sn_chk-' + k).attr("disabled", "disabled")
+    //            }
+    //        }
+    //        else {
+    //            for (var k = 0; k <= h; k++) {
+    //                // alert(k);
+    //                //alert("checked3");
+    //                $("#StatusId1_" + k).prop('checked', false);
+    //                //$('#sn_chk-' + k).prop('checked', false);
+    //                //$('#[' + k + '].StatusId').prop('checked', false);
+    //                //$("input[name='[' + k + '].StatusId']").attr('checked', false);
+    //                //$('#sn_chk-' + k).removeAttr("disabled");
+    //            }
+    //        }
+    //    });
+
+    //    $("#ChkallApprove").change(function () {
+    //        var h = $('#hidvalueJ').val();
+
+    //        if (this.checked) {
+
+    //            for (var k = 0; k <= h; k++) {
+
+    //                $("#StatusId4_" + k).prop('checked', true);
+    //                // $("input[id='['+k+'].StatusId']").attr('checked', true);
+    //                //$('#[' + k + '].StatusId').prop('checked', true);
+    //                //alert("checked4");
+    //                // $('#sn_chk-' + k).attr("disabled", "disabled")
+    //            }
+    //        }
+    //        else {
+    //            for (var k = 0; k <= h; k++) {
+    //                //alert("checked3");
+    //                $("#StatusId4_" + k).prop('checked', false);
+    //                //$('#sn_chk-' + k).prop('checked', false);
+    //                //$('#[' + k + '].StatusId').prop('checked', false);
+    //                //$("input[name='[' + k + '].StatusId']").attr('checked', false);
+    //                //$('#sn_chk-' + k).removeAttr("disabled");
+    //            }
+    //        }
+    //    });
+
+    //    $("#ChkallSanction").change(function () {
+    //        var h = $('#hidvalueJ').val();
+
+    //        if (this.checked) {
+    //            //alert("checked");
+    //            for (var k = 0; k <= h; k++) {
+
+    //                $("#StatusId2_" + k).prop('checked', true);
+    //                // $("input[id='['+k+'].StatusId']").attr('checked', true);
+    //                //$('#[' + k + '].StatusId').prop('checked', true);
+    //                //alert("checked4");
+    //                // $('#sn_chk-' + k).attr("disabled", "disabled")
+    //            }
+    //        }
+    //        else {
+    //            for (var k = 0; k <= h; k++) {
+    //                //alert("checked3");
+    //                $("#StatusId2_" + k).prop('checked', false);
+    //                //$('#sn_chk-' + k).prop('checked', false);
+    //                //$('#[' + k + '].StatusId').prop('checked', false);
+    //                //$("input[name='[' + k + '].StatusId']").attr('checked', false);
+    //                //$('#sn_chk-' + k).removeAttr("disabled");
+    //            }
+    //        }
+    //    });
+
+    //    $("#ChkallReject").change(function () {
+    //        var h = $('#hidvalueJ').val();
+
+    //        if (this.checked) {
+    //            //alert("checked");
+    //            for (var k = 0; k <= h; k++) {
+
+    //                $("#StatusId3_" + k).prop('checked', true);
+    //                // $("input[id='['+k+'].StatusId']").attr('checked', true);
+    //                //$('#[' + k + '].StatusId').prop('checked', true);
+    //                //alert("checked4");
+    //                // $('#sn_chk-' + k).attr("disabled", "disabled")
+    //            }
+    //        }
+    //        else {
+    //            for (var k = 0; k <= h; k++) {
+    //                //alert("checked3");
+    //                $("#StatusId3_" + k).prop('checked', false);
+    //                //$('#sn_chk-' + k).prop('checked', false);
+    //                //$('#[' + k + '].StatusId').prop('checked', false);
+    //                //$("input[name='[' + k + '].StatusId']").attr('checked', false);
+    //                //$('#sn_chk-' + k).removeAttr("disabled");
+    //            }
+    //        }
+    //    });
+
+    $("#ChkallCancel").click(function () {
+        var h = $('#hidvalueJ').val();
+
+        if (this.checked) {
+            //alert("checked");
+            //alert(h);
+            for (var k = 0; k <= h; k++) {
+                var EmployeeId = document.getElementsByName("[" + k + "].EmployeeId");
+                var EmployeeReportingId = document.getElementsByName("[" + k + "].EmployeeReportingId");
+                var EmployeeReportingId2 = document.getElementsByName("[" + k + "].EmployeeReportingId2");
+                var LoginEmployee = document.getElementsByName("LoginEmployee_" + k);
+                var LoginEmployeeVal = $(LoginEmployee).val();
+                var EmployeeReportingId2Val = $(EmployeeReportingId2).val();
+                var EmployeeReportingIdVal = $(EmployeeReportingId).val();
+                var EmployeeIdVal = $(EmployeeId).val();
+                if ($("#StatusId1_" + k).is(':enabled')) {
+                    if (LoginEmployeeVal == EmployeeReportingId2Val) {
+                        if ($("#StatusId1_" + k).is(':checked')) {
+
+                            $("#StatusId1_" + k).prop('checked', false);
+                        }
+                        else {
+                            $("#StatusId1_" + k).prop('checked', true);
+                        }
+
+                    }
+                    else {
+                        $("#StatusId1_" + k).prop('checked', false);
+                    }
+                }
+            }
+        }
+        else {
+            for (var k = 0; k <= h; k++) {
+                // alert(k);
+                //alert("checked3");
+                $("#StatusId1_" + k).prop('checked', false);
+                //$('#sn_chk-' + k).prop('checked', false);
+                //$('#[' + k + '].StatusId').prop('checked', false);
+                //$("input[name='[' + k + '].StatusId']").attr('checked', false);
+                //$('#sn_chk-' + k).removeAttr("disabled");
+            }
+        }
+    });
+
+
+
+    $("#ChkallApprove").click(function () {
+        var h = $('#hidvalueJ').val();
+        //alert();
+
+        if (this.checked) {
+
+            for (var k = 0; k <= h; k++) {
+                var EmployeeId = document.getElementsByName("[" + k + "].EmployeeId");
+                var EmployeeReportingId = document.getElementsByName("[" + k + "].EmployeeReportingId");
+                var EmployeeReportingId2 = document.getElementsByName("[" + k + "].EmployeeReportingId2");
+                var LoginEmployee = document.getElementsByName("LoginEmployee_" + k);
+                var LoginEmployeeVal = $(LoginEmployee).val();
+                var EmployeeReportingId2Val = $(EmployeeReportingId2).val();
+                var EmployeeReportingIdVal = $(EmployeeReportingId).val();
+                var EmployeeIdVal = $(EmployeeId).val();
+                if ($("#StatusId4_" + k).is(':enabled')) {
+                    if (LoginEmployeeVal == EmployeeReportingIdVal && LoginEmployeeVal != EmployeeReportingId2Val) {
+
+                        if ($("#StatusId4_" + k).is(':checked')) {
+
+                            $("#StatusId4_" + k).prop('checked', false);
+                        }
+                        else {
+                            $("#StatusId4_" + k).prop('checked', true);
+                        }
+
+                    }
+                    else {
+                        $("#StatusId4_" + k).prop('checked', false);
+                    }
+
+                }
+            }
+        }
+        else {
+            for (var k = 0; k <= h; k++) {
+                //alert("checked3");
+                $("#StatusId4_" + k).prop('checked', false);
+
+            }
+        }
+    });
+
+    $("#ChkallSanction").click(function () {
+        var h = $('#hidvalueJ').val();
+
+        if ($(this).prop("checked") == true) {
+
+            for (var k = 0; k <= h; k++) {
+
+                var EmployeeId = document.getElementsByName("[" + k + "].EmployeeId");
+                var EmployeeReportingId = document.getElementsByName("[" + k + "].EmployeeReportingId");
+                var EmployeeReportingId2 = document.getElementsByName("[" + k + "].EmployeeReportingId2");
+                var LoginEmployee = document.getElementsByName("LoginEmployee_" + k);
+                var LoginEmployeeVal = $(LoginEmployee).val();
+                var EmployeeReportingId2Val = $(EmployeeReportingId2).val();
+                var EmployeeReportingIdVal = $(EmployeeReportingId).val();
+                var EmployeeIdVal = $(EmployeeId).val();
+                if ($("#StatusId2_" + k).is(':enabled')) {
+                    if (LoginEmployeeVal == EmployeeReportingId2Val) {
+                        if ($("#StatusId2_" + k).is(':checked')) {
+
+                            $("#StatusId2_" + k).prop('checked', false);
+                        }
+                        else {
+                            $("#StatusId2_" + k).prop('checked', true);
+                        }
+
+                    }
+                    else {
+                        $("#StatusId2_" + k).prop('checked', false);
+                    }
+                }
+
+
+
+            }
+        }
+        else {
+
+            for (var k = 0; k <= h; k++) {
+                //alert("checked3");
+                $("#StatusId2_" + k).prop('checked', false);
+
+            }
+        }
+    });
+
+    $("#ChkallReject").click(function () {
+        var h = $('#hidvalueJ').val();
+
+        if (this.checked) {
+            for (var k = 0; k <= h; k++) {
+
+                var EmployeeId = document.getElementsByName("[" + k + "].EmployeeId");
+                var EmployeeReportingId = document.getElementsByName("[" + k + "].EmployeeReportingId");
+                var EmployeeReportingId2 = document.getElementsByName("[" + k + "].EmployeeReportingId2");
+                var LoginEmployee = document.getElementsByName("LoginEmployee_" + k);
+                var LoginEmployeeVal = $(LoginEmployee).val();
+                var EmployeeReportingId2Val = $(EmployeeReportingId2).val();
+                var EmployeeReportingIdVal = $(EmployeeReportingId).val();
+                var EmployeeIdVal = $(EmployeeId).val();
+
+                if (LoginEmployeeVal == EmployeeReportingIdVal && LoginEmployeeVal != EmployeeReportingId2Val) {
+                    if ($("#StatusId3_" + k).is(':enabled')) {
+                        if ($("#StatusId3_" + k).is(':checked')) {
+
+                            $("#StatusId3_" + k).prop('checked', false);
+                        }
+                        else {
+                            $("#StatusId3_" + k).prop('checked', true);
+                        }
+                    }
+                }
+                else if (LoginEmployeeVal == EmployeeReportingId2Val) {
+                    if ($("#StatusId6_" + k).is(':enabled')) {
+                        if ($("#StatusId6_" + k).is(':checked')) {
+
+                            $("#StatusId6_" + k).prop('checked', false);
+                        }
+                        else {
+                            $("#StatusId6_" + k).prop('checked', true);
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            for (var k = 0; k <= h; k++) {
+                $("#StatusId3_" + k).prop('checked', false);
+
+                $("#StatusId6_" + k).prop('checked', false);
+
+            }
+        }
+    });
+
+
+    $("#LeaveSanctionabc").DataTable({
+        "ordering": false   // Added by Rajas on 29 AUGUST 2017
+    });
+
+</script>

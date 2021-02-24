@@ -1,0 +1,55 @@
+﻿@{var httpContext = HttpContext.Current;
+  System.Web.Mvc.UrlHelper Url = new System.Web.Mvc.UrlHelper(httpContext.Request.RequestContext);}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/images/logo.png")"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+   
+    @System.Web.Optimization.Scripts.Render("~/bundles/modernizr")
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        name="viewport" />
+    <!--CSS Saction -->
+    <!-- Bootstrap 3.3.6 -->
+    @System.Web.Optimization.Styles.Render("~/Content/LayoutStyle")
+ 
+    @System.Web.Optimization.Styles.Render("~/Content/FinalStyle")
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+   
+    <!--JAVA Script Saction-->
+     @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jqueri.ui.min.js")" type="text/javascript"></script>
+  
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+    
+    <div class="wrapper">
+        
+       
+        <div class="content-wrapper" style="height: auto !important; min-height: auto !important">
+            <div class="page-content-wrapper">
+
+                @RenderBody()
+            </div>
+            <hr />
+            <div id="footer" class="page-footer">
+                <div class="page-footer-inner">
+                 
+                </div>
+            </div>
+          
+             
+             @RenderSection("scripts", required: false)
+        
+        </div>
+    </div>
+    <div class="control-sidebar-bg">
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿@model WetosDB.SqlQuery
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SqlQuery</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SqlQueryName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SqlQueryName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SqlQueryDescription)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SqlQueryDescription)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SqlQuery1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SqlQuery1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Deleted)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Deleted)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.SqlQueryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

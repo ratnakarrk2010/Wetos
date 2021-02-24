@@ -1,0 +1,79 @@
+﻿@model WetosDB.UploadCompanyDocument
+
+@{
+    ViewBag.Title = "ViewCompanyPolicies";
+}
+
+
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+       
+        <section class="content-header">
+            <h1>Company Policies
+        <small>View</small>
+            </h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">Updates</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">View Company Policies</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor: pointer" class="back " id="goback"><i class="fa fa-arrow-left"></i>@*<a href="#" >Back</a>*@
+
+                                </span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()
+                                </span>
+
+                            </div>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        
+            <div style="clear: both;"></div>
+
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+
+                    <div class="box">
+                        <div class="box-header">
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                        @if (ViewBag.IsFileAvailableOrNotFlag == true)
+                        {
+                          <a href="/Company_Documents/@Model.FileName" target="_Self">Click here to view Company Policies</a>
+                        }
+                        else { 
+                        <span>No Data available</span>
+                        }
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WetosDB.SP_GetAttendanceDetails_Result>
+@{
+    ViewBag.Title = "GetAttendanceDetails";
+    Layout = null;
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<table id="GetAttendanceDetails" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TranDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @{var TranDate = item.TranDate == null ? "" : item.TranDate.ToString("dd-MMM-yyyy");}
+                    @Html.DisplayFor(modelItem => TranDate)
+                </td>
+                <td>
+                    @item.EmployeeCode - @item.FirstName @item.LastName
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+    </tfoot>
+</table>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#GetAttendanceDetails').DataTable({
+
+        });
+    });
+</script>

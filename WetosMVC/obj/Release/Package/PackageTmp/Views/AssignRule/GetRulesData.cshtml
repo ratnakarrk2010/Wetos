@@ -1,0 +1,98 @@
+﻿@model List<WetosDB.SP_GetAssignedRuleForSelectedEmployeeGroup_Result>
+@{
+         
+    int i = 1;
+   
+}
+@{var EmployeeGroupId = ViewBag.EmployeeGroupId;}
+<div style="height: 50%; overflow-y: scroll;">
+    <table>
+        <tr>
+            <th colspan="2" style="font-size: 20px; text-align: center; border-bottom: solid 1px;">
+                Rules 
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="chkusers" name="chkusers" onclick="GetSlectAll()" />
+            </td>
+            <td>
+                Rule Name
+            </td>
+            <td>
+            </td>
+        </tr>
+        @foreach (var UR in Model)
+        {
+            <tr>
+                <td>
+                </td>
+                <td style="text-align: right;">
+                    @if (UR.flag == 1)
+                    {
+                        <input type="checkbox" id="chkuser-@i" name="chkuser-@i"  checked="checked"  onclick="GetChekdata(@i,@UR.RuleId);"/>
+                        
+                    }
+                    else
+                    {
+                        <input type="checkbox" id="chkuser-@i" name="chkuser-@i"   onclick="GetChekdata(@i,@UR.RuleId);"/>
+                    }
+                    @*  <input type="checkbox" id="chkuser-@i" name="chkuser-@i"  onclick="GetChekdata(@i,@UR.RuleId);"/>*@
+                    <input type="hidden" id="hiduser-@i" name="hiduser" value="@UR.RuleId" />
+                </td>
+                <td>
+                    @UR.RuleName
+                </td>
+            </tr>
+                    i = i + 1;
+        }
+    </table>
+</div>
+<input type="hidden" id="hidvalue" name="hidvalue" value="@i" />
+<script type="text/javascript">
+
+    function GetSlectAll() {
+
+        for (var j = 1; j <= $('#hidvalue').val(); j++) {
+
+            if ($('#chkusers').is(':checked').toString() == 'true') {
+
+                //alert(j);
+                $('#chkuser-' + parseInt(j)).attr('checked', true);
+            }
+
+            else {
+                //alert(j);
+                $('#chkuser-' + parseInt(j)).attr('checked', false);
+            }
+        }
+    }
+
+
+    function GetChekdata(i, RuleId) {
+
+        $.ajax({
+            url: '@Url.Content("~/AssignRule/GetCheckDatas")',
+            data: JSON.stringify({ uid: RuleId }),
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                if (result != 's') {
+                    if ($('#chkuser-' + parseInt(i)).is(':checked').toString() == 'true') {
+                        alert(result);
+                        return false;
+                    }
+                }
+            },
+            error: function (result) {
+                // alert("No data Available");
+            }
+        });
+
+    }
+
+    
+  
+  
+</script>

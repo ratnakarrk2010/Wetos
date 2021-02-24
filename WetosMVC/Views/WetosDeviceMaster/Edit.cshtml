@@ -1,0 +1,127 @@
+﻿@model WetosDB.Device
+@{
+    ViewBag.Title = "Edit";
+}
+<section class="content-header">
+<h1>Device Master
+ <small>Edit</small>
+</h1>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+              <ol class="breadcrumb">
+              <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Masters</li>
+        <li><a href="@Url.Action("Index", "WetosDeviceMaster")"><i class="fa fa-arrow-left"></i> Device </a></li>
+       @* <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>*@
+        <li class="active">Edit</li>
+      </ol>
+
+        @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+      <div>
+      <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>
+     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+
+      </div>
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+      </section>
+<section class="content">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+      <div class="box">
+            <div class="box-header">
+              
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+  
+        
+
+        @Html.HiddenFor(model => model.DeviceId)
+
+     <div class="row">
+        <div class="editor-label col-md-4">
+        Display Name   @*  @Html.LabelFor(model => model.DISPLAYNAME)*@
+        </div>
+        <div class="editor-field col-md-8">
+            @Html.EditorFor(model => model.DISPLAYNAME)
+            @Html.ValidationMessageFor(model => model.DISPLAYNAME)
+        </div>
+        </div> 
+
+        <br />
+        <div class="row">
+        <div class="editor-label col-md-4">
+          Device Name @*@Html.LabelFor(model => model.DeviceName)*@
+        </div>
+        <div class="editor-field col-md-8">
+            @Html.EditorFor(model => model.DeviceName)
+            @Html.ValidationMessageFor(model => model.DeviceName)
+        </div>
+        </div> 
+
+        <br />
+        <div class="row">
+        <div class="editor-label col-md-4">
+DeviceNo @* @Html.LabelFor(model => model.DeviceNo)*@
+        </div>
+        <div class="editor-field col-md-8">
+            @Html.EditorFor(model => model.DeviceNo)
+            @Html.ValidationMessageFor(model => model.DeviceNo)
+        </div>
+        </div> 
+
+        <br />
+       
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+</div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+
+    @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('a.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION START*@
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+ }
+ @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@

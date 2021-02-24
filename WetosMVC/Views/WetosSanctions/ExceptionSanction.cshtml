@@ -1,0 +1,222 @@
+﻿@model WetosDB.Exception
+@{
+    ViewBag.Title = "ExceptionSanction";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<section class="content-header">
+      <h1>
+        Exception Sanction
+        <small>Create</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="#">Sanctions</li>
+        <li><a href="active">Exception Sanction</a></li>
+       
+        @*<li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>*@
+      
+      </ol>
+      
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+      <div>
+      <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>
+     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+
+      </div>
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+          
+ </section>
+<section class="content">
+<div class="row">
+<div class="col-xs-12 col-md-12 col-lg-12">         
+<div class="box">
+<div class="box-header">           
+</div>
+<div class="box-body">
+@using (Html.BeginForm())
+{
+    
+    @Html.ValidationSummary(true) 
+    <fieldset>
+        @Html.HiddenFor(model => model.ExceptionId)
+        @Html.HiddenFor(a => a.ShiftId)
+        @Html.HiddenFor(a => a.PreviousExtraHrs)
+        @Html.HiddenFor(a => a.PreviousWrokingHrs)
+        @Html.HiddenFor(a => a.PreviousShiftId)
+        @Html.HiddenFor(a => a.PreviousDayStatus)
+        @Html.HiddenFor(a => a.BranchId)
+        @Html.HiddenFor(a => a.DailyTrnId)
+        @Html.HiddenFor(a => a.CompanyId)
+        @Html.HiddenFor(model => model.PreviousLate)
+        @Html.HiddenFor(a => a.PreviousEarly)
+        @Html.HiddenFor(a => a.PreviousLogOut2Time)
+        @Html.HiddenFor(a => a.PreviousLogin2Time)
+        @Html.HiddenFor(a => a.PreviousLoginTime)
+        @Html.HiddenFor(a => a.PreviousLogOutTime)
+        @Html.HiddenFor(a => a.ExtraHrs)
+        @Html.HiddenFor(a => a.WorkingHrs)
+        @Html.HiddenFor(a => a.CompanyId)
+        @Html.HiddenFor(a => a.Login2Time)
+        @Html.HiddenFor(a => a.LogOut2Time)
+        @Html.HiddenFor(a => a.LoginTime)
+        @Html.HiddenFor(a => a.LogOutTime)
+        @Html.HiddenFor(a => a.Late)
+        @Html.HiddenFor(a => a.Early)
+        <div class="row">
+            <div class="col-md-2">
+                <div class="editor-label">
+                    Status
+                </div>
+                <div class="editor-field">
+                 @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+    <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-list-ul"></i>
+  	</div>
+                    @Html.DropDownListFor(a => a.Status, (IEnumerable<SelectListItem>)@ViewBag.ExceptionSanctionList, "Select", new { @class = "form-control select2" })
+                    @* @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)*@
+                </div>
+            </div>
+            </div>
+            <div class="col-md-6">
+                <div class="editor-label">
+                    Employee Name
+                </div>
+                <div class="editor-field">
+                 @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+    <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-user"></i>
+  	</div>
+                    @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", disabled = "disabled" })
+                    @*@Html.EditorFor(model => model.EmployeeId)
+            @Html.ValidationMessageFor(model => model.EmployeeId)*@
+                </div>
+            </div>
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="editor-label">
+                Date
+            </div>
+            <div class="editor-field">
+             @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+    <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-calendar"></i>
+  	</div>
+                @Html.TextBoxFor(model => model.ExceptionDate, new { @readonly = "readonly", disabled = "disabled" })
+            </div>
+        </div>
+        <div>
+        <br />
+        <div class="form-group">
+            <div class="editor-label">
+                Login Time
+            </div>
+            <div class="editor-field">
+             @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+    <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-clock-o"></i>
+  	</div>
+                @Html.TextBoxFor(model => model.LoginTime, new { @readonly = "readonly", disabled = "disabled" })
+            </div>
+        </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="editor-label">
+                LogOut Time
+            </div>
+            <div class="editor-field">
+                      @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+    <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-clock-o"></i>
+  	</div>
+                @Html.TextBoxFor(model => model.LogOutTime, new { @readonly = "readonly", disabled = "disabled" })
+            </div>
+        </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="editor-label">
+                Reason
+            </div>
+            <div class="editor-field">
+                      @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+    <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-file-text-o"></i>
+  	</div>
+                @Html.TextBoxFor(model => model.Remark, new { @readonly = "readonly", disabled = "disabled" })
+            </div>
+        </div>
+        </div>
+        <br />
+        @*  Modified By Shraddha on 19 DEC 2016 that Reject Remark field is renamed with Remark and validation for rejected reason is commented. Manager can add remark with Sanctioning the leave also start*@
+        @*Display None is deleted by shraddha on 19 DEC 2016*@
+        <div class="form-group" id="RejectReason1">
+            <div class="editor-label">
+                Remark
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.RejectReason, new { style = "width:65%" })
+            </div>
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+    </div> 
+</div>
+</div>
+</section>
+@*Added by Shraddha For back breadcrumb on 20 DEC 2016---------Start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('a.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+@*Added by Shraddha For back breadcrumb on 20 DEC 2016---------end*@
+<script type="text/javascript">
+
+
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+
+        //Date picker
+        $('.datepicker').datepicker({
+            format: "dd-M-yyyy",
+
+            autoclose: true
+        });
+
+
+    });
+
+</script>

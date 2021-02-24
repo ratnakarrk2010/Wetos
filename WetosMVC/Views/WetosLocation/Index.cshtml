@@ -1,0 +1,163 @@
+﻿@model IEnumerable<WetosDB.Location>
+@{
+    ViewBag.Title = "Location Master List";
+}
+
+ @System.Web.Optimization.Styles.Render("~/Content/DataTable")
+ @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+ @System.Web.Optimization.Styles.Render("~/Content/Icheck")
+ @System.Web.Optimization.Scripts.Render("~/bundles/Icheck")
+<style type="text/css">
+    .row
+    {
+        margin-bottom: 10px;
+    }
+</style>
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+            <h1>Location Master <small>List</small>
+            <span  style="float:right;font-weight:800" onclick = "OnLocationMasterClick(); " > 
+            
+            @Html.ActionLink(" ", "Create", new { }, new { @class = "fa fa-plus-circle", title = "Add Location", style = "color:#428bca;font-size:19px" })
+            </span>
+            </h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "WetosLocation")">Location</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report" class="dashboard-date"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back"  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>
+      @*<ol class="breadcrumb">
+        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Masters</li>
+        <li class="active">Location</li>      
+      </ol>
+      <div>        
+      <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>
+      <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>      
+      <div style="clear: both;"></div> *@
+    </section>
+        <section class="content">
+       
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            
+            <div class="box-body">
+<table id="LocationMaster" class="table table-bordered table-striped">  @*Added by Pushkar For datatable on 25 OCT 2016*@
+
+<thead>
+
+    <tr>
+      <td>
+            Location Name
+        </td>
+        <td>
+            Address
+        </td>
+        <td>
+            City
+        </td>
+          <td  align="center">Action</td>
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+@foreach (var item in Model)
+{
+    <tr>
+        
+        <td>
+        <a href="@Url.Action("Details", "WetosLocation", new { id = item.LocationId })" style="cursor:pointer; float:left" title = "Click to check location details">
+            @item.LocationName</a>
+        </td>
+        <td>
+            @item.Address
+        </td>
+        <td>
+            @item.City
+        </td>
+        <td align="center">
+           
+
+             <span data-toggle="tooltip" title="Edit">
+                                                @Html.ActionLink(" ", "Edit", new { id = item.LocationId }, new { @class = "fa fa-pencil-square-o" })</span> |
+                                                @*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
+                                                <span data-toggle="tooltip" title="Delete">
+                                                @Html.ActionLink(" ", "Delete", new { id = item.LocationId }, new { @class = "fa fa-trash" })
+                                                </span>
+           
+        </td>
+    </tr>
+}
+</tbody>
+
+<tfoot>
+                
+                </tfoot>
+
+</table>
+
+</div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    </div>
+</div>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ @*Added by Pushkar For datatable on 25 OCT 2016-------start*@
+<script type="text/javascript">
+    $(function () {
+        $("#LocationMaster").DataTable();
+    });
+</script>
+@*Added by Pushkar For datatable on 25 OCT 2016-------end*@ @*Added by Shalaka For progress ring on 21st June 2017*----Start*@
+<script type="text/javascript">
+
+    // OnLocationMasterClick function to open Location Master page
+    function OnLocationMasterClick() {
+
+        showloading();
+    }
+    
+</script>
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}

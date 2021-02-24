@@ -1,0 +1,612 @@
+﻿@model List<MarsData.sp_Get_Employee_Count_EmployeeGroupwise_Result>
+@{
+    int i = 0;
+    var message = TempData["AlertMessage"] ?? string.Empty;
+}
+
+<style>
+    /*Here We will add some css for style our treeview*/
+    .collapse {
+        width: 15px;
+        background-image: url('../Images/ui-icons_454545_256x240.png');
+        background-repeat: no-repeat;
+        background-position: -36px -17px;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .expand {
+        width: 15px;
+        background-image: url('../Images/ui-icons_454545_256x240.png');
+        background-repeat: no-repeat;
+        background-position: -50px -17px;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .treeview ul {
+        font: 14px Arial, Sans-Serif;
+        margin: 0px;
+        padding-left: 20px;
+        list-style: none;
+    }
+
+    .treeview > li > a {
+        font-weight: bold;
+    }
+
+    .treeview li {
+    }
+
+        .treeview li a {
+            padding: 4px;
+            font-size: 12px;
+            display: inline-block;
+            text-decoration: none;
+            width: auto;
+        }
+</style>
+
+
+@using (Html.BeginForm("Create", "AssignShift", FormMethod.Post, new { name = "Create", id = "Create" }))
+{
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <h2>Assign Shift</h2>
+            <div class="form-horizontal">
+
+
+                @if (message != "")
+                {                           
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                        <strong>Success!</strong> @message
+                    </div>
+                }
+
+                <div class="form-body">
+
+
+                    <div id="EmployeeGroupList" class="scroller col-md-" style="overflow-y: scroll; height: 300px;">
+                        <div class="col-md- portlet box blue">
+                            <div class="col-md- portlet-title">
+                                <div class="caption">Group List</div>
+                            </div>
+                            <div class="col-md- portlet-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Company Name</th>
+                                            <th>Division Name</th>
+                                            <th>Branch Name</th>
+                                            <th>Department Name</th>
+                                            <th>Designation Name</th>
+                                            <th>Emp Type</th>
+                                            <th>No Of Emp</th>
+                                            <th>Select Group</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            i++;
+                                            <tr>
+                                                <td>@item.companyname</td>
+                                                <td>@item.DivisionName</td>
+                                                <td>@item.branchname</td>
+                                                <td>@item.departmentname</td>
+                                                <td>@item.DesignationName</td>
+                                                <td>@item.EmployeeTypeName</td>
+                                                <td>@item.noofemployees</td>
+                                                <td>
+                                                    <input type="checkbox" id="chkGroup-@i" name="chkGroup-@i" onclick="selectgroup(@i)"/>
+                                                    <input type="hidden" id="hid_empgrp-@i" name="hid_empgrp-@i" value="@item.EmployeeGroupId" />
+
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <input type="hidden" id="hid_total" name="hid_total" value="@i"/>
+
+                    <div style="border: solid 1px black; padding: 10px; background-color: #FAFAFA">
+                        <div class="treeview">
+                            <div class="row">
+
+                                <div id="elist" class="col-md-8">
+                                    <div class="col-md- portlet box blue" id="List">
+                                        <div class="col-md- portlet-title">
+                                            <div class="caption">List of Employees</div>
+                                        </div>
+                                        <div class="col-md- portlet-body">
+                                            <div class="table-toolbar ">
+                                                <div class="btn-group">
+                                                    <label class="control-label" id="empselected"></label>
+                                                </div>
+                                            </div>
+                                            <div id="EmployeeList" class="scroller col-md-" style="height: 400px; overflow-y: scroll;"></div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div id="div_rule" class="col-md-3">
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Rule:</label>
+                                        <input type="hidden" id="h_ruleid" name="h_ruleid" value="@ViewBag.ruleid" />
+                                        <div class="col-md-6">
+                                            @Html.DropDownList("subrule", null, "--Select--", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Period:</label>
+                                        <div class="col-md-6">
+                                            <div class="input-group input-large date-picker input-daterange" data-date-format="dd-mm-yyyy">
+                                                <input type="text" class="form-control" id="from" name="from" value="@DateTime.Now.ToString("dd-MM-yyyy")"/>
+                                                <span class="input-group-addon">to </span>
+                                                <input type="text" class="form-control" id="to" name="to" value="@DateTime.Now.ToString("dd-MM-yyyy")"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        @*<button type="button" class="btn blue" id="btncheck" name="btncheck" onclick="CheckShift(event)">Save</button>*@
+                                        @ActionHelper.ShowAction("ShiftPattern", "Submit-Submit", "#", "visibile", "", "Valid(event)")
+                                    </div>
+                                    <input type="hidden" id="hid_mindate" data-date-format="dd-mm-yyyy" name="hid_mindate" 
+                                value="@ViewBag.mindate" aria-readonly="true"/>
+
+                                    <div id="Detail"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+   
+}
+<script>
+    //function valid() {
+ 
+    //    document.forms["Create"].submit();
+    //}
+
+    $('body').ajaxStart(function () {
+        $(this).css({ 'cursor': 'wait' });
+    }).ajaxStop(function () {
+        $(this).css({ 'cursor': 'default' });
+    });
+
+    $(document).ready(function () {
+        ComponentsPickers.init();
+        $('#List').hide();
+        $("#div_rule").hide();
+        $('select').click(function () { $("#completed").text(""); });
+    });
+    
+    $('#subrule').change(function () {
+        
+        var empGroupid = "";
+        for(var j =1 ;j<=$("#hid_total").val();j++){
+            if($('#chkGroup-'+j).is(':checked').toString()=='true')
+            {
+                if(empGroupid != "")
+                {
+                    empGroupid = empGroupid +"," + $("#hid_empgrp-"+j).val();
+                }else{
+                    empGroupid = $("#hid_empgrp-"+j).val();
+                }
+                empGroupid = empGroupid.replace("undefined","");
+            }
+        }
+        $.ajax({
+            url: '@Url.Content("~/AssignShift/GetSubRules")',
+            data: JSON.stringify({ ruleid: $('#subrule').val(),empGroupid:empGroupid }),
+            type: 'post',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                $('#hid_mindate').val(result);
+            },
+            error: function (result) {
+
+            }
+        });
+
+    });
+
+    function CheckShift() {
+        var total = $("#hid_total").val();
+        var grp_id = "";
+        for (var i = 1; i <= total; i++) {
+            if ($('#chkGroup-' + i).attr('checked')) {
+                grp_id = grp_id + "-" + $("#hid_empgrp-" + i).val();
+            }
+        }
+        grp_id = grp_id.replace(" -", "");
+
+        $.ajax({
+            url: '@Url.Content("~/AssignShift/CheckEmployeeShift")',
+            data: JSON.stringify({ frmdate: $("#from").val(), todate: $("#to").val(), grp_id: grp_id }),
+            type: 'post',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                if (result.result > 0) {
+
+                    var res = $('#Detail').html(result.obj).dialog({
+                        modal: true,
+                        title: "Warning",
+                        width: 400,
+                        height: 250,
+                        top: 0,
+                        left: 10
+                    }).dialog('open');
+
+                    //$("a").attr("href", "#basic");
+
+                    //if (f == 0 || f == 1) {
+                    //    CheckShift();
+                    //    f++;
+                    //}
+                    //$("a").attr("href", "#basic");
+                    //var r = confirm("Shift already assigned to this group , you want to reassign shift?");
+                    ////alert(r.valueOf());
+
+                    //if (res.valueOf() == true) {
+                    //    document.forms["Create"].submit();
+                    //} else {
+                    //    x = "You pressed Cancel!";
+                    //    e.prevenDefault();
+                    //}
+                }
+                else {
+
+                    document.forms["Create"].submit();
+                }
+            },
+            error: function (result) {
+
+            }
+        });
+
+    }
+
+
+
+    //to check only single checkbox at a time
+
+    //$('input:checkbox').click(function () {
+    //    var id = $(this).attr('id');
+    //    alert(id);
+    //    for (var j = 1; j <= $("#hid_total").val() ; j++) {
+    //        var uc_id = "chkGroup-" + j;
+    //        if (id != uc_id) {
+    //            alert(uc_id);
+    //            jquery(uc_id).removeProp('checked');
+    //            //$("#chkGroup-" + j).removeProp('checked');
+    //            //document.getElementById('chkGroup-' + j).checked = false;
+    //        }
+           
+    //    }
+    //    $("#chkGroup-" + j).attr('checked','checked');
+    //});
+
+    //$('input:checkbox').click(function () {
+    //    alert("yes");
+    //    alert($(this).attr('name'));
+    //    alert($(this).siblings(':checked').attr('name'));
+    //    //If the most recently checked box is in a different group
+    //    if ($(this).attr('name') != $(this).siblings(':checked').attr('name')) {
+    //        //remove all checks apart from the group that the most recent check has been made
+    //        $(this).siblings(':checked').attr('checked', false);
+    //    }
+    //});
+
+
+    $("#EmployeeGroupList select").change(function () {
+
+        var groupname = parseInt($("#EmployeeGroupList select").val());
+        var branchname = parseInt($('#branch').val());
+        var departmentname = parseInt($('#dep').val());
+        var designation = parseInt($('#designation').val());
+        var divisionid = parseInt($('#division').val());
+        if (isNaN(groupname)) {
+            groupname = 0;
+        }
+        if (isNaN(branchname)) {
+            branchname = 0;
+        }
+        if (isNaN(departmentname)) {
+            departmentname = 0;
+        }
+        if (isNaN(designation)) {
+            designation = 0;
+        }
+        if (isNaN(divisionid)) {
+            divisionid = 0;
+        }
+        $.ajax({
+            url: '@Url.Content("~/AssignShift/GetEmployeeName")',
+            data: JSON.stringify({ groupname: groupname, branchname: branchname, departmentname: departmentname, designation: designation, divisionid: divisionid }),
+            type: 'post',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                $('#List').show();
+                $('#EmployeeList').html(result.EmployeeList);
+            },
+            error: function (result) {
+
+            }
+        });
+    });
+
+        $("#dep").change(function () {
+            var groupname = parseInt($("#EmployeeGroupList select").val());
+            var branchname = parseInt($('#branch').val());
+            var departmentname = parseInt($('#dep').val());
+            var designation = parseInt($('#designation').val());
+            var divisionid = parseInt($('#division').val());
+            if (isNaN(groupname)) {
+                groupname = 0;
+            }
+            if (isNaN(branchname)) {
+                branchname = 0;
+            }
+            if (isNaN(designation)) {
+                designation = 0;
+            }
+            if (isNaN(departmentname)) {
+                departmentname = 0;
+            }
+            if (isNaN(divisionid)) {
+                divisionid = 0;
+            }
+
+            $.ajax({
+                url: '@Url.Content("~/AssignShift/GetEmployeeName")',
+                data: JSON.stringify({ groupname: groupname, branchname: branchname, departmentname: departmentname, designation: designation, divisionid: divisionid }),
+                type: 'post',
+                contentType: 'application/json;charset=utf-8',
+                dataType: 'json',
+                success: function (result) {
+                    $('#List').show();
+                    $('#EmployeeList').html(result.EmployeeList);
+                },
+                error: function (result) {
+
+                }
+            });
+        });
+        $("#branch").change(function () {
+            var groupname = parseInt($("#EmployeeGroupList select").val());
+            var branchname = parseInt($('#branch').val());
+            var departmentname = parseInt($('#dep').val());
+            var designation = parseInt($('#designation').val());
+            var divisionid = parseInt($('#division').val());
+            if (isNaN(groupname)) {
+                groupname = 0;
+            }
+            if (isNaN(departmentname)) {
+                departmentname = 0;
+            }
+            if (isNaN(designation)) {
+                designation = 0;
+            }
+            if (isNaN(branchname)) {
+                branchname = 0;
+            }
+            if (isNaN(divisionid)) {
+                divisionid = 0;
+            }
+            $.ajax({
+                url: '@Url.Content("~/AssignShift/GetEmployeeName")',
+            data: JSON.stringify({ groupname: groupname, branchname: branchname, departmentname: departmentname, designation: designation, divisionid: divisionid }),
+            type: 'post',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                $('#List').show();
+                $('#EmployeeList').html(result.EmployeeList);
+            },
+            error: function (result) {
+
+            }
+        });
+    });
+    $("#designation").change(function () {
+        var groupname = parseInt($("#EmployeeGroupList select").val());
+        var branchname = parseInt($('#branch').val());
+        var departmentname = parseInt($('#dep').val());
+        var designation = parseInt($('#designation').val());
+        var divisionid = parseInt($('#division').val());
+
+        if (isNaN(groupname)) {
+            groupname = 0;
+        }
+        if (isNaN(branchname)) {
+            branchname = 0;
+        }
+        if (isNaN(departmentname)) {
+            departmentname = 0;
+        }
+        if (isNaN(designation)) {
+            designation = 0;
+        }
+        if (isNaN(divisionid)) {
+            divisionid = 0;
+        }
+
+        $.ajax({
+            url: '@Url.Content("~/AssignShift/GetEmployeeName")',
+            data: JSON.stringify({ groupname: groupname, branchname: branchname, departmentname: departmentname, designation: designation, divisionid: divisionid }),
+            type: 'post',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                $('#List').show();
+                $('#EmployeeList').html(result.EmployeeList);
+            },
+            error: function (result) {
+
+            }
+        });
+    });
+
+    $("#division").change(function () {
+        var groupname = parseInt($("#EmployeeGroupList select").val());
+        var branchname = parseInt($('#branch').val());
+        var departmentname = parseInt($('#dep').val());
+        var designation = parseInt($('#designation').val());
+        var divisionid = parseInt($('#division').val());
+        if (isNaN(groupname)) {
+            groupname = 0;
+        }
+        if (isNaN(branchname)) {
+            branchname = 0;
+        }
+        if (isNaN(departmentname)) {
+            departmentname = 0;
+        }
+        if (isNaN(designation)) {
+            designation = 0;
+        }
+        if (isNaN(divisionid)) {
+            divisionid = 0;
+        }
+
+        $.ajax({
+            url: '@Url.Content("~/AssignShift/GetEmployeeName")',
+            data: JSON.stringify({ groupname: groupname, branchname: branchname, departmentname: departmentname, designation: designation, divisionid: divisionid }),
+            type: 'post',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                $('#List').show();
+                $('#EmployeeList').html(result.EmployeeList);
+            },
+            error: function (result) {
+
+            }
+        });
+    });
+
+  
+
+   
+
+    function Valid(e) {
+        if ($('#hidvalue').val() == 0 && $('#hidcountvalue').val() == 0) {
+            alert("Please select employee");
+            e.preventDefault();
+            return false;
+        }
+        else{
+            document.forms["Create"].submit();
+        }
+
+    }
+
+    function selectgroup(i) {
+        
+        var empGroupid_CSV = "";
+       
+        for(var j =1 ;j<=$("#hid_total").val();j++){
+            if($('#chkGroup-'+j).is(':checked').toString()=='true')
+            {
+                if(empGroupid_CSV != "")
+                {
+                    empGroupid_CSV = empGroupid_CSV +"," + $("#hid_empgrp-"+j).val();
+                }else{
+                    empGroupid_CSV = $("#hid_empgrp-"+j).val();
+                }
+                
+            }
+          
+        }
+        empGroupid_CSV = empGroupid_CSV.replace("undefined","");
+
+        if(empGroupid_CSV != "")
+        {
+            $.ajax({
+                url: '@Url.Content("~/AssignShift/GetEmployeeName")',
+                data: JSON.stringify({empGroupid_CSV:empGroupid_CSV }),
+                type: 'post',
+                contentType: 'application/json;charset=utf-8',
+                dataType: 'json',
+                success: function (result) {
+                    if(result.EmployeeList != null)
+                    {
+                        $('#List').show();
+                        $("#div_rule").show();
+                        $('#EmployeeList').html(result.EmployeeList);
+                        $("#rule").val("");
+                        $("#div_subrule").html("");
+                        $("#subrule").val(0);
+                    }else{
+                        $("#rule").val(0);
+                        $("#hid_mindate").val("");
+                        $('#List').hide();
+                        $("#div_rule").hide();
+                        
+                    }
+                },
+                error: function (result) {
+
+                }
+            });
+        }
+        else{
+            $('#EmployeeList').html("Select Employee Group");
+            if(empGroupid_CSV != "")
+            {
+                $.ajax({
+                    url: '@Url.Content("~/AssignShift/GetEmployeeName")',
+                    data: JSON.stringify({empGroupid_CSV:empGroupid_CSV }),
+                    type: 'post',
+                    contentType: 'application/json;charset=utf-8',
+                    dataType: 'json',
+                    success: function (result) {
+                        if(result.EmployeeList != "" )
+                        {
+                            $('#List').show();
+                            $("#div_rule").show();
+                            $('#EmployeeList').html(result.EmployeeList);
+                            $("#rule").val("");
+                            $("#div_subrule").html("");
+                        }
+                        else{
+                            $("#rule").val(0);
+                            $("#hid_mindate").val("");
+                            $('#List').hide();
+                            $("#div_rule").hide();
+                        
+                        }
+                    },
+                    error: function (result) {
+
+                    }
+                });
+            }
+        }
+    }
+
+</script>
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+  
+}

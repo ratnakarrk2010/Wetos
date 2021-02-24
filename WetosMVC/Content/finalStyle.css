@@ -1,0 +1,439 @@
+﻿
+body
+{
+    font-family: "Trebuchet MS" , Verdana, Helvetica, Sans-Serif;
+}
+html, body
+{
+    min-height: 100%;
+    background-color: #fff;
+}
+
+
+#loading
+{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: block;
+    opacity: 0.5;
+    background-color: #fff;
+    z-index: 2000;
+    text-align: center;
+}
+#loading-image
+{
+    position: absolute;
+    top: 350px;
+    left: 630px;
+    z-index: 100;
+}
+
+/* CODE ADDED BY SHRADDHA ON 14 MARCH 2017 FOR QUANTITY TEXT ALIGN RIGHT START*/
+.quantity
+{
+    text-align: right !important;
+}
+/* CODE ADDED BY SHRADDHA ON 14 MARCH 2017 FOR QUANTITY TEXT ALIGN RIGHT END*/
+
+
+/*AdminLTE.min.Css*/
+.box
+{
+    border: none;
+    box-shadow: none !important;
+}
+
+.sidebar-menu > li:hover > a
+{
+    background-color: #94B716 !important;
+    border-left: none;
+}
+
+.content
+{
+    padding: 5px 0px !important;
+    margin-left: 5px;
+}
+
+
+.main-header
+{
+    max-height: 30px !important;
+}
+.content-wrapper, .right-side
+{
+    background-color: white;
+}
+
+/*.main-header .navbar
+{
+    max-height: 30px !important;
+}*/
+.navbar-nav > .user-menu > .dropdown-menu
+{
+    width: 230px !important;
+}
+
+.navbar-nav > li > a
+{
+    padding-bottom: 5px !important;
+}
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header
+{
+    height: auto !important;
+}
+/*layout.css*/
+.page-content-wrapper .page-content
+{
+    padding: 10px 10px !important;
+}
+
+.page-breadcrumb.breadcrumb
+{
+    margin-bottom: 1px !important;
+    margin-top: 1px !important;
+}
+
+.skin-blue .main-header .navbar .nav > li > a:hover, .skin-blue .main-header .navbar .nav > li > a:active, .skin-blue .main-header .navbar .nav > li > a:focus, .skin-blue .main-header .navbar .nav .open > a, .skin-blue .main-header .navbar .nav .open > a:hover, .skin-blue .main-header .navbar .nav .open > a:focus, .skin-blue .main-header .navbar .nav > .active > a
+{
+    background-color: transparent;
+}
+
+/*_all-skins.min.css*/
+.skin-blue .main-header .logo
+{
+    background-color: White;
+}
+.skin-blue .main-header .logo :hover
+{
+    background-color: white;
+    color: #4476a2;
+}
+
+.skin-blue .treeview-menu > li > a
+{
+    color: white;
+    font-size: 12px;
+}
+.main-header .logo .logo-lg
+{
+    color: #4476a2;
+}
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side
+{
+    background-color: #4476a2;
+}
+
+.skin-blue .sidebar-menu > li:hover > a, .skin-blue .sidebar-menu > li.active > a
+{
+    border-left: none;
+}
+
+.sidebar-menu .treeview-menu > li
+{
+    background-color: #4476a2;
+}
+.sidebar-menu .treeview-menu > li:hover
+{
+    /*background-color:#d64635 !important;*/
+    background-color: #4b8df8 !important;
+    font-weight: 900;
+}
+
+.sidebar-menu > li:hover > a
+{
+    /*background-color:#d64635 !important;*/
+    background-color: #4476a2 !important;
+    font-weight: 900;
+}
+/*.fa-circle-o {
+
+
+
+font-size:10px;
+}*/
+
+.skin-blue .main-header .navbar
+{
+    background-color: #4476a2 !important;
+}
+.sidebar-menu .treeview-menu > li > a > .fa-circle-o, .sidebar-menu .treeview-menu > li > a > .glyphicon, .sidebar-menu .treeview-menu > li > a > .ion
+{
+    font-size: 10px;
+}
+.sidebar-menu .treeview-menu > li
+{
+    padding: 1px;
+}
+
+.sidebar-menu .treeview-menu > li > a
+{
+    padding: 5px 5px 5px 20px;
+}
+.sidebar-menu > li > a
+{
+    /* padding: 10px 5px 10px 10px;*/
+    padding: 5px 5px 5px 3px;
+}
+
+.sidebar-menu .treeview-menu
+{
+    padding-left: 0px;
+}
+.skin-blue .main-header .navbar .sidebar-toggle:hover
+{
+    background-color: #fff;
+    color: black;
+}
+
+#footer
+{
+    position: relative;
+    bottom: 0;
+}
+/*
+
+.row
+{
+    height: 40px;
+}
+
+
+            */
+/*.alert
+{
+    padding: 05px 15px;
+    margin-bottom: 05px;
+} */
+.input-group-addon
+{
+    padding: 0px 0px;
+}
+
+
+/*@media screen and (min-width:500px) and (max-width:960px)
+{
+    .content-wrapper, .right-side
+    {
+        min-height: 480px !important;
+        height: auto !important;
+    }
+}
+
+@media screen and (min-width:961px) and (max-width:1200px)
+{
+    .content-wrapper, .right-side
+    {
+        min-height: 430px !important;
+        height: auto !important;
+    }
+}
+*/
+.tooltips
+{
+    font-size: 10px !important;
+}
+.page-breadcrumb.breadcrumb > li > a, .page-breadcrumb.breadcrumb > li > span
+{
+    font-size: 12px !important;
+}
+.content-header > h1
+{
+    font-size: 18px !important;
+    margin-bottom: 5px;
+}
+/*.btn
+{
+    padding: 0px 5px;
+}*/
+.form-control
+{
+    height: 30px;
+    font-size: 13px;
+}
+
+.content-wrapper, .right-side
+{
+    height: auto !important;
+}
+
+
+@media (max-width: 767px)
+{
+    .content-header
+    {
+        padding-top: 80px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px)
+{
+    .content-header
+    {
+        padding-top: 70px;
+    }
+    
+}
+@media (min-width: 992px)
+{
+    .content-header
+    {
+        padding: 0px 5px;
+    }
+    
+}
+
+.content-wrapper
+{
+   background-color:White !important; 
+    }
+
+/*.content-wrapper, .right-side
+    {
+         min-height: 100% !important;
+         height: auto !important;
+    }
+
+@media screen and (min-device-width:1024px) and (max-device-width:1280px)
+{
+    .content-wrapper, .right-side
+    {
+        min-height: 560px !important;
+        height: auto !important;
+    }
+
+}
+@media screen and (min-device-width:1024px) and (max-device-width:1280px)
+{
+    .content-wrapper, .right-side
+    {
+        min-height: 680px !important;
+        height: auto !important;
+    }
+}*/
+
+.sidebar-mini.sidebar-collapse .main-header .logo
+{
+    width:50px !important;
+    }
+    
+    .skin-blue .main-header .logo
+    {
+        background-color:White !important;
+        }
+        .skin-blue .main-header .logo:hover
+        {
+            background-color:White !important;
+            }
+            
+            
+            
+             /* SITE.CSS*/
+   /* styles for validation helpers */
+.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c4d;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.login-box
+    {
+        margin-top: 5% !important;
+    }
+    .page-content-wrapper
+    {
+    }
+    
+    body
+    {
+        background-color: White;
+    }
+    .btn-primary
+    {
+        background-color: #17466f;
+        border-color: #17466f;
+    }
+    .btn-primary : hover > .btn-primary
+    {
+        background-color: #17466f;
+        border-color: #17466f;
+    }
+    
+    table.table-bordered.dataTable > thead
+    {
+        background-color: #003399;
+        font-weight: 700;
+        color: White;
+        height: 30px;
+        vertical-align: middle;
+    }
+    
+    #top
+    {
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        padding: 0 10px;
+        line-height: 40px;
+        font-size: 12px;
+    }
+    
+    table.table.table-bordered.table-striped > thead
+    {
+        background-color: #003399;
+        font-weight: 700;
+        color: White;
+        height: 30px;
+        vertical-align: middle;
+    }
+    
+    .select2-container--default .select2-selection--single
+    {
+        border-radius: 0px !important;
+    }
+    
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th
+    {
+        padding: 6px;
+        font-size: 12px;
+    }
+    .breadcrumb
+    {
+        padding: 2px 2px;
+    }
+    .box-body
+    {
+        padding: 0px;
+    }
+    .back .tooltips
+    {
+        font-size: 0px !important;
+    }
+    #calendar
+    {
+        overflow-y: none;
+    }
+    
+   

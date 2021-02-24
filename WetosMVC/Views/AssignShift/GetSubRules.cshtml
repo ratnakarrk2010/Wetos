@@ -1,0 +1,113 @@
+﻿@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+<div class="form-group">
+
+
+    <label class="col-md-3 control-label">Period:</label>
+    <div class="col-md-8">
+        <div class="input-group input-large date-picker input-daterange" data-date-format="dd-mm-yyyy">
+            <input type="text" class="form-control" id="from" name="from" value="@DateTime.Now.ToString("dd-MM-yyyy")"/>
+            <span class="input-group-addon">to </span>
+            <input type="text" class="form-control" id="to" name="to" value="@DateTime.Now.ToString("dd-MM-yyyy")"/>
+        </div>
+    </div>
+    <!-- /input-group -->
+
+
+
+</div>
+
+<div class="text-center">
+    <button type="button" class="btn blue" id="btncheck" name="btncheck" onclick="CheckShift(event)">Save</button>
+    @*<button type="submit" class="btn blue" id="btnsubmit" name="btnsubmit" >Save</button>*@
+</div>
+
+<input type="hidden" id="hid_mindate" data-date-format="dd-mm-yyyy" name="hid_mindate" value="@ViewBag.mindate" aria-readonly="true"/>
+
+
+<script>
+    jQuery(document).ready(function () {
+        // initiate layout and plugins
+        //Metronic.init(); // init metronic core components
+        // Layout.init(); // init current layout
+        ComponentsPickers.init();
+        Metronic.init();
+        Layout.init();
+        var fd = $("#hid_mindate").val();
+        var f = 0;
+        $("#from").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            //dateFormat: "dd-mm-yy",
+            minDate: new Date(fd),
+            autoclose: true
+        });
+
+
+    });
+
+
+
+    function CheckShift() {
+        var total = $("#hid_total").val();
+        var grp_id = "";
+        for (var i = 1; i <= total; i++) {
+            if ($('#chkGroup-' + i).attr('checked')) {
+                grp_id = grp_id + "-" + $("#hid_empgrp-" + i).val();
+            }
+        }
+        grp_id = grp_id.replace(" -", "");
+
+        $.ajax({
+            url: '@Url.Content("~/AssignShift/CheckEmployeeShift")',
+            data: JSON.stringify({ frmdate: $("#from").val(), todate: $("#to").val(), grp_id: grp_id }),
+            type: 'post',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                if (result.result > 0) {
+
+                    var res = $('#Detail').html(result.obj).dialog({
+                        modal: true,
+                        title: "Warning",
+                        width: 400,
+                        height: 250,
+                        top: 0,
+                        left: 10
+                    }).dialog('open');
+
+                    //$("a").attr("href", "#basic");
+
+                    //if (f == 0 || f == 1) {
+                    //    CheckShift();
+                    //    f++;
+                    //}
+                    //$("a").attr("href", "#basic");
+                    //var r = confirm("Shift already assigned to this group , you want to reassign shift?");
+                    ////alert(r.valueOf());
+
+                    //if (res.valueOf() == true) {
+                    //    document.forms["Create"].submit();
+                    //} else {
+                    //    x = "You pressed Cancel!";
+                    //    e.prevenDefault();
+                    //}
+                }
+                else {
+
+                    document.forms["Create"].submit();
+                }
+            },
+            error: function (result) {
+
+            }
+        });
+
+    }
+
+
+</script>
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+  
+}

@@ -1,0 +1,472 @@
+﻿@model IEnumerable<WetosDB.SP_EmployeeListForResignationAndConfirmationNew_Result>
+
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+ @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+ @System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+                <h3>
+                    Manage Employee @*<small>/small>*@
+                </h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li><i class="fa fa-home"></i><a href="@Url.Action("Index", "Home")">Home</a> <i
+                                class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Employee Management </a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="@Url.Action("Index", "WetosEmployeeManagement")">Manage Employee </a></li>
+                            <li class="pull-right">
+                                <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                    <span style="cursor: pointer" class="back " id="goback"><i class="fa fa-arrow-left">
+                                    </i>@*<a href="#" >Back</a>*@ </span><i class="fa fa-calendar"></i><span>@DateTime.Now.ToLongDateString()
+                                    </span>
+                                </div>
+                                @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+      @*<span class="btn btn-default" "tooltip" title="Click to Generate HR Letter" style="float:left;font-weight:200">@Html.ActionLink("HR Letters", "HRLetters", "WetosEmployeeManagement")</span>*@
+      </div>
+              @*  <span style="float: left">@Html.ActionLink("Print", "Print", "WetosEmployeeManagement")</span>*@
+                <table id="EmployeeMaster" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td>
+                                Employee No
+                            </td>
+                            <td>
+                                Name
+                            </td>
+                            <td>
+                                Confirmation Date
+                            </td>
+                            <td>
+                                Type
+                            </td>
+                            <td>
+                                Resignation Acceptance
+                            </td>
+                            <td>
+                                Exit
+                            </td>
+                            <td>
+                                Confirm
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.EmployeeCode
+                                </td>
+                                <td> @if (item.ActiveFlag == null || item.ActiveFlag == true)
+                                     {
+                                  <span style="color:Green;font-weight:900">  @item.FirstName @item.MiddleName @item.LastName</span>
+                                     <div style="display: none">
+                                            Active</div>
+                                     }
+                                     else
+                                     { 
+                                       <span style="color:red;font-weight:900"> @item.FirstName @item.MiddleName @item.LastName</span>
+                                     <div style="display: none">
+                                            Resigned</div>
+                                     }
+                                </td>
+                                <td>
+                                    @String.Format("{0:g}", item.ConfirmDate == null ? "" : item.ConfirmDate.Value.ToString("dd-MMM-yyyy"))
+                                </td>
+                                <td>
+                                    @if (item.ConfirmDate <= DateTime.Now)
+                                    { 
+                                        <span>Permanent</span>
+                                    }
+                                   
+                                    @if ((item.ResignedOn != null && item.ResignationAcceptedOn == null) && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                    {
+                                        <span>Resigned</span>
+                                    }
+                                     @if ((item.ResignedOn != null && item.ResignationAcceptedOn != null) && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                     {
+                                         <span>On Notice Period</span>
+                                     }
+                                      @*ADDED HARD CODED VALUE byte SHRADDHA ON 20 JULY 2017 ASP PER SUGGESTED BY MSJ*@
+                                      @if ((item.ConfirmDate >= DateTime.Now || item.EmployeeGroupName.Trim().ToUpper() == "PROBATION") && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                      {
+                                          <span>Probation</span>
+                                      }
+                                </td>
+                                <td>
+                                    @if ((item.ResignedOn != null && item.ResignationAcceptedOn == null) && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                    { 
+                                        <input id="ResignationApprovedEmployee(@item.EmployeeId)" onchange="ResignationApprovedEmployee(@item.EmployeeId)" type="checkbox" />
+                                    }
+                                    else { }
+                                </td>
+                                <td>
+                                    @*@if ((item.EmployeeTypeId == 1 || item.EmployeeTypeId == 1) && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                    { 
+                                        <input id="ResignedEmployee(@item.EmployeeId)" onchange="ResignEmployee(@item.EmployeeId)" type="checkbox" />
+                                    }*@
+
+                                     @if ((item.ResignedOn != null && item.ResignationAcceptedOn != null) && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                     {  
+                                        <input id="ResignedEmployee(@item.EmployeeId)" onchange="ResignEmployee(@item.EmployeeId)" type="checkbox" />
+                                     }
+                                     else { }
+                                </td>
+                                
+                                <td>
+                              @*ADDED HARD CODED VALUE byte SHRADDHA ON 20 JULY 2017 ASP PER SUGGESTED BY MSJ*@
+                                    @if ((item.ConfirmDate >= DateTime.Now || item.EmployeeGroupName.Trim().ToUpper() == "PROBATION") && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                    { 
+                                        <input id="ConfirmCheck(@item.EmployeeId)"  onchange="ConfirmEmployee(@item.EmployeeId)" type="checkbox" />
+                                    }
+                                    else { }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                </table>
+                
+
+<div id="ResignEmployeediv" style="width: 30% !important; height: 38% !important;
+    z-index: 1000000; background-color: White; top: 5%; left: 40%" class="modal fade">
+    <div class="modal-body">
+        <div class="form-group">
+            Select Date <span style="color: Red; font-size: 18px">*</span>
+            <div class="input-group date">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                @Html.TextBox("ResignationDate", "", new { @class = "form-control pull-right datepicker" })
+                @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+            </div>
+            @*@Html.ValidationMessageFor(model => model.FromDate)*@
+            <!-- /.input group -->
+        </div>
+
+        <div class="form-group" id="ABC">
+            Employee Group <span style="color: Red; font-size: 18px">*</span>
+            <div class="input-group">
+               
+                 @Html.DropDownList("EmployeeGroupId", (IEnumerable<SelectListItem>)@ViewBag.EmployeeGroupNameList, "Select", new { @class = "form-control select2", @style = "width:300px", id = "EmployeeGroupddlList" })
+       
+               
+            </div>
+         
+        </div>
+
+        @*<div class="row" id="ABC">
+       <div class="editor-label col-md-5">
+     Employee Group <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-7">
+        @Html.DropDownList("EmployeeGroupId", (IEnumerable<SelectListItem>)@ViewBag.EmployeeGroupNameList, "Select", new { @class = "form-control select2", id = "EmployeeGroupddlList" })
+       
+        </div>
+        </div>*@
+    </div>
+    <div class="modal-footer">
+        <center>
+            <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="Resignbtn">
+                Yes</button>
+            <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                Cancel</button></center>
+    </div>
+</div>
+
+<div id="ConfirmLetter" style="width: 40% !important; height: 35% !important;z-index: 1002000; background-color: White; top: 60%; left: 35%"
+ class="modal fade"> @*REMOVED SHOW CLASS TAKEN MODAL FADE CLASS INSTEAD OF MODAL SHOW FADE CLASS BY SHRADDHA ON 09 FEB 2018 BECAUSE IT WAS CREATING CLICKING ISSUE*@
+    <div class="modal-body">
+        Please select report you want to print
+        
+        <hr />
+          <input type="radio" checked="checked" value="Confirm Letter with Increment" class="confirmval" name="confirmwith"/>Confirm Letter with Increment
+          <br />
+        <input type="radio" value="Confirm Letter without Increment"  class="confirmval" name="confirmwith" />Confirm Letter without Increment
+    </div>
+    <div class="modal-footer">
+        <center>
+      
+       
+            <button type="button" data-dismiss="modal" class="col-md-3  btn btn-primary" id="OkBtn">
+               ok </button>
+            <button type="button" data-dismiss="modal" class="col-md-3 btn btn-primary">
+                cancel </button></center>
+    </div>
+</div>
+ </section>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.datepicker').datepicker({
+
+        format: "dd-M-yyyy",
+
+        autoclose: true
+    });
+</script>
+<script type="text/jscript">
+    $(function () {
+
+        $("#EmployeeMaster").DataTable();
+
+    });
+
+ 
+</script>
+<script type="text/javascript">
+
+    function ResignEmployee(id) {
+        //alert(id);
+
+        var xyz = document.getElementById("ResignedEmployee(" + id + ")");
+        //alert(xyz.checked);
+        if (xyz.checked == true) {
+
+            var cmt = confirm('Do you really want to update resignation for this Employee?');
+            if (cmt == true) {
+                var $form = $(this).closest('form');
+                $('#ResignEmployeediv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#Resignbtn', function () {
+                    var ResignationDate = $("#ResignationDate").val();
+                    $.ajax({
+                        url: '@Url.Content("~/WetosEmployeeManagement/ResignEmployee")',
+                        type: "POST",
+                        // dataType: "json",
+                        data: { EmployeeId: id, ResignationDate: ResignationDate },
+                        success: function (data) {
+                            Print(id);
+
+                        },
+                        error: function (data) {
+                            //alert("hello");
+                        }
+                    });
+
+
+                });
+            }
+            else {
+
+            }
+        }
+        else {
+
+        }
+    }
+
+    function ResignationApprovedEmployee(id) {
+        //alert(id);
+
+        var xyz = document.getElementById("ResignationApprovedEmployee(" + id + ")");
+        //alert(xyz.checked);
+        if (xyz.checked == true) {
+
+            var cmt = confirm('Do you really want to Approve resignation for this Employee?');
+            if (cmt == true) {
+                var $form = $(this).closest('form');
+                $('#ResignEmployeediv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#Resignbtn', function () {
+                    var ResignationDate = $("#ResignationDate").val();
+                    $.ajax({
+                        url: '@Url.Content("~/WetosEmployeeManagement/ResignationApproveEmployee")',
+                        type: "POST",
+                        // dataType: "json",
+                        data: { EmployeeId: id, ResignationDate: ResignationDate },
+                        success: function (data) {
+                            Print(id);
+
+                        },
+                        error: function (data) {
+                            //alert("hello");
+                        }
+                    });
+
+
+                });
+            }
+            else {
+
+            }
+        }
+        else {
+
+        }
+    }
+</script>
+<script type="text/javascript">
+
+    function ConfirmEmployee(id) {
+        //alert(id);
+
+        var xyz = document.getElementById("ConfirmCheck(" + id + ")");
+        if (xyz.checked == true) {
+            //alert("Checked");
+            var cmt = confirm('Do you really want to update Confirmation for this Employee?');
+            if (cmt == true) {
+                $.ajax({
+                    url: '@Url.Content("~/WetosEmployeeManagement/GetEmployeeGroup")',
+                    type: "POST",
+                    // dataType: "json",
+                    data: { EmployeeId: id },
+                    success: function (data) {
+                        $("#EmployeeGroupddlList").empty();
+                        $("#EmployeeGroupddlList").append("<option value=" + "0" + ">" + "Select" + "</option>"); // Added by Rajas on 27 FEB 2017
+                        for (var i = 0; i < data.length; i++) {
+                            $("#EmployeeGroupddlList").append("<option value=" + "" + data[i].EmployeeGroupId + "" + ">" + data[i].EmployeeGroupName + "</option>");
+                        }
+                    },
+                    error: function (data) {
+                        //alert("hello");
+                    }
+                });
+                var $form = $(this).closest('form');
+                $('#ResignEmployeediv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#Resignbtn', function () {
+                    // alert("Before print func");
+
+                    //alert("after print func");
+                    var ConfirmationDate = $("#ResignationDate").val();
+                    var EmployeeGroupId = $("#EmployeeGroupddlList").val();
+                    //alert(ConfirmationDate);
+                    $.ajax({
+                        url: '@Url.Content("~/WetosEmployeeManagement/ConfirmEmployee")',
+                        type: "POST",
+                        // dataType: "json",
+                        data: { EmployeeId: id, ConfirmationDate: ConfirmationDate, EmployeeGroupId: EmployeeGroupId },
+                        success: function (data) {
+                            //alert(data);
+                            if (data == false) {
+
+                                alert("Confirmation Date can not be greater than Today.");
+                            }
+                            else {
+                                //alert();
+                                printHRletter(id);
+                            }
+                        },
+                        error: function (data) {
+                            //alert(data);
+                            alert("Confirmation Date can not be greater than Today.");
+                        }
+                    });
+                });
+
+            }
+            else {
+
+            }
+        }
+        else {
+
+        }
+    }
+   
+  
+</script>
+<script type="text/javascript">
+    //alert("In print letter");
+    function printHRletter(id) {
+        //  alert(id);
+
+        //var xyz = document.getElementById("ConfirmCheck(" + id + ")");
+        //if (xyz.checked == true) {
+        //alert("Checked");
+        var cmt = confirm('Do you really want to Print Confirmation Letter?');
+        if (cmt == true) {
+
+            var $form = $(this).closest('form');
+            $('#ConfirmLetter').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#OkBtn', function () {
+                    var confirmval = $('input[name="confirmwith"]:checked').val();
+
+                    //var confirmval = $(".confirmval").val();
+                    //alert(ConfirmationDate);
+                    $.ajax({
+                        url: '@Url.Content("~/WetosEmployeeManagement/ConfirmationLetter")',
+                        type: "POST",
+                        // dataType: "json",
+                        data: { EmployeeId: id, LetterType: confirmval },
+                        success: function (data) {
+
+                        },
+                        error: function (data) {
+                            //alert("hello");
+                        }
+                    });
+                });
+
+        }
+
+        //}
+        //        else {
+
+        //        }
+    }
+   
+  
+</script>
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+<script type="text/javascript">
+
+    //    var varPoNo = $("#Result").val();
+    //    if (varPoNo == "") {
+
+    //    }
+    //    else {
+    //        Print();
+    //    }
+
+    //PRINT PURCHASE ORDER ADDED BY MSJ on 25 JULY 2016 START
+    function Print(id) {
+        //  alert("PRINT PURCHASE ORDER");
+        var employeeId = id;
+        //alert(poid);
+        // id = { 'POId': poid };
+        $.ajax({
+            url: '@Url.Content("~/WetosEmployeeManagement/Resignation")',
+            type: "POST",
+            data: { EmployeeId: employeeId },
+            // dataType: "json",
+            // contentType: "application/json",
+            success: function (data) {
+                //   alert("success");
+                var ROOT = '@Url.Content("~/")';
+                var URL = ROOT + data;
+
+
+
+                window.open(URL, "_blank");
+
+                hideloading(); //Modified by Shraddha on 30th SEP 2016
+                //window.open(DocumentUrl,"_blank");             
+            },
+            error: function (data) {
+                alert("Error:");
+            }
+        });
+    }
+</script>

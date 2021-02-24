@@ -1,0 +1,156 @@
+﻿@model IEnumerable<WetosDB.LeaveMaster>
+@*@{
+    ViewBag.Title = "Index";
+}*@
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+ @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<table id="LeaveMaster" class="table table-bordered table-striped">
+    @*Added by Pushkar For datatable on 25 OCT 2016*@
+    <thead>
+        <tr>
+            <td>
+                Leave Code
+            </td>
+            <td>
+                Leave Name
+            </td>
+            <td>
+                Leave Description
+            </td>
+            @*<td>
+            No Of Days Allowed In Year
+        </td>
+        <td>
+            Max No Of Times Allowed In Year
+        </td>*@
+            <td>
+                Max No of Leaves Allowed At a Time
+            </td>
+            <td>
+                Max No of Leaves Allowed In a Month
+            </td>
+            @*<td>
+            Accumulation Allowed Or Not
+        </td>
+        <td>
+            Max Accumulation Days
+        </td>
+        <td>
+            Encashment Allowed Or Not
+        </td>
+        <td>
+            No Of Days Encashed
+        </td>
+        <td>
+            Negative Balance Allowed
+        </td>
+        <td>
+            Is Carry Forword
+        </td>
+        <td>
+            WOBetLev Consider Leave
+        </td>
+        <td>
+            HHBetLev Consider Leave
+        </td>
+        <td>
+            IS Half Allowed
+        </td>
+        <td>
+            Leave Type
+        </td>
+        <td>
+            Min No of Leave Allowed at a time
+        </td>
+        <td>
+            Is Leave Combination
+        </td>*@
+            <td>
+                Action
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Details", "WetosLeave", new { id = item.LeaveId })" style="cursor:pointer; float:left" title = "Click to view Leave details">
+                    @item.LeaveCode
+                </td>
+                <td>
+                    @item.LeaveName
+                </td>
+                <td>
+                    @item.LeaveDescription
+                </td>
+                @*<td>
+            @String.Format("{0:F}", item.NoOfDaysAllowedInYear)
+        </td>
+        <td>
+            @String.Format("{0:F}", item.MaxNoOfTimesAllowedInYear)
+        </td>*@
+                <td class="quantity">
+                    @String.Format("{0:F}", item.MaxNoOfLeavesAllowedAtaTime, new { @class = "quantity" })
+                </td>
+                <td class="quantity">
+                    @String.Format("{0:F}", item.MaxNoOfLeavesAllowedInMonth, new { @class = "quantity" })
+                </td>
+                @*<td>
+            @item.AccumulationAllowedOrNot
+        </td>
+        <td>
+            @String.Format("{0:F}", item.MaxAccumulationDays)
+        </td>
+        <td>
+            @item.EncashmentAllowedOrNot
+        </td>
+        <td>
+            @String.Format("{0:F}", item.NoOfDaysEncashed)
+        </td>
+        <td>
+            @item.NegativeBalanceAllowed
+        </td>
+        <td>
+            @item.IsCarryForword
+        </td>
+        <td>
+            @item.WOBetLevConsiderLeave
+        </td>
+        <td>
+            @item.HHBetLevConsiderLeave
+        </td>
+        <td>
+            @item.ISHalfAllowed
+        </td>
+        <td>
+            @item.LeaveType
+        </td>
+        <td>
+            @String.Format("{0:F}", item.MinNoofLeaveAllowedatatime)
+        </td>
+        <td>
+            @item.IsLeaveCombination
+        </td>*@ @*Added by shraddha on 14th oct 2016 start*@
+                <td>
+                   
+                    <span data-toggle="tooltip" title="Edit">
+                                                @Html.ActionLink(" ", "Edit", new { id = item.LeaveId }, new { @class = "fa fa-pencil-square-o" })</span> |
+                                                @*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
+                                                <span data-toggle="tooltip" title="Delete">
+                                                @Html.ActionLink(" ", "Delete", new { id = item.LeaveId }, new { @class = "fa fa-trash" })
+                                                </span>
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.LeaveId })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+    </tfoot>
+</table>
+<script type="text/javascript">
+
+    $(function () {
+        $("#LeaveMaster").DataTable();
+    });
+</script>
