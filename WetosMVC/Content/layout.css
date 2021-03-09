@@ -56,6 +56,9 @@
 /***
 Page Header
 ***/
+.page-content-wrapper {
+    margin-top: -0.5%;
+}
 .page-header.navbar
 {
     width: 100%;
@@ -1574,15 +1577,15 @@ Page content
 }
 
 /* Page breadcrumb */
-.page-breadcrumb.breadcrumb
-{
+.page-breadcrumb.breadcrumb {
     box-shadow: none;
     padding-right: 30px;
     padding-left: 8px;
-    margin-top: 15px;
+    margin-top: 15px !important;
     margin-bottom: 25px;
     border: 0px !important;
     background-color: #f7f7f7; /* Daterange picker */ /* hack for chrome and safari */
+    box-shadow: 0px 2px 6px #a9b1b8;
 }
 .page-breadcrumb.breadcrumb > li > a, .page-breadcrumb.breadcrumb > li > span
 {

@@ -3,28 +3,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/images/logo.png")"/>
+    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/images/logo.png")" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>@ViewBag.Title</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-   
+
     @System.Web.Optimization.Scripts.Render("~/bundles/modernizr")
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-        name="viewport" />
+          name="viewport" />
     <!--CSS Saction -->
     <!-- Bootstrap 3.3.6 -->
     @System.Web.Optimization.Styles.Render("~/Content/LayoutStyle")
- 
+
     @System.Web.Optimization.Styles.Render("~/Content/FinalStyle")
-    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
-   
+    @*<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />*@
     <!--JAVA Script Saction-->
-     @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
-    <script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/jqueri.ui.min.js")" type="text/javascript"></script>
-  
+    @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+    @*<script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jqueri.ui.min.js")" type="text/javascript"></script>*@
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -37,7 +41,7 @@
 
                 @RenderBody()
             </div>
-            <hr />
+            @*<hr />*@
             <div id="footer" class="page-footer">
                 <div class="page-footer-inner">
                  

@@ -6,10 +6,12 @@
 
 @System.Web.Optimization.Styles.Render("~/Content/DataTable")
  @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+ <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 <section class="content">
           <div class="box">
              <!-- /.box-header -->
             <div class="box-body">
+            <div clas="table-responsive">
 <table id="Exception" class="table table-striped dataTables_wrapper form-inline dt-bootstrap">
 <thead>
     <tr>
@@ -97,6 +99,7 @@
 </tbody>
 <tfoot></tfoot>
 </table>
+</div>
 
  <!-- /.box-body -->
           </div>

@@ -335,66 +335,76 @@ namespace WetosMVC.Controllers
             ViewBag.EmployeeList = new SelectList(EmployeeObj, "EmployeeId", "EmployeeName").ToList();
         }
 
-        [HttpPost]
-        public ActionResult AssignBranchAdmin(AssignHRManagerModel AssignHRManagerModelObj, FormCollection FC)
+       [HttpPost]
+        public ActionResult EditBranchAdmin(AssignHRManagerModel AssignHRManagerModelObj, FormCollection FC)
         {
             try
             {
+                int EmployeeId = AssignHRManagerModelObj.EmployeeId;
                 if (ModelState.IsValid)
                 {
+                    
                     string CompanyIdStr = FC["CompanyId"];
                     string BranchIdStr = FC["BranchId"];
-                    if (!string.IsNullOrEmpty(BranchIdStr))
+                    if (!string.IsNullOrEmpty(BranchIdStr)&& !string.IsNullOrEmpty(CompanyIdStr))
                     {
-                        if (BranchIdStr.ToUpper() != "NULL")
+                        if (BranchIdStr.ToUpper() != "NULL" && CompanyIdStr.ToUpper() != "NULL")
                         {
                             string[] BranchIdArray = BranchIdStr.Split(',');
-                            if (BranchIdArray.Count() > 0)
+                            string[] CompanyIdArray = CompanyIdStr.Split(',');
+                            if (BranchIdArray.Count() > 0 && CompanyIdArray.Count() > 0)
                             {
-                                foreach (string BranchIdObj in BranchIdArray)
+                                foreach (string CompanyIdObj in CompanyIdArray)
                                 {
-                                    int EmployeeId = AssignHRManagerModelObj.EmployeeId;
-                                    //int RoleId = 6;  // ROLEID = 6 - BRANCH ADMIN
-
-                                    List<UserRole> UserRoleList = WetosDB.UserRoles.Where(a => a.EmployeeId == EmployeeId).ToList();
-                                    if (UserRoleList != null)
+                                    foreach (string BranchIdObj in BranchIdArray)
                                     {
-                                        foreach (UserRole UserRoleObjToBeDeleted in UserRoleList)
+                                        //int EmployeeId = AssignHRManagerModelObj.EmployeeId;
+                                        //int RoleId = 6;  // ROLEID = 6 - BRANCH ADMIN
+
+                                        List<UserRole> UserRoleList = WetosDB.UserRoles.Where(a => a.EmployeeId == EmployeeId).ToList();
+                                        if (UserRoleList != null)
                                         {
-                                            WetosDB.UserRoles.DeleteObject(UserRoleObjToBeDeleted);
-                                            WetosDB.SaveChanges();
+                                            foreach (UserRole UserRoleObjToBeDeleted in UserRoleList)
+                                            {
+                                                WetosDB.UserRoles.DeleteObject(UserRoleObjToBeDeleted);
+                                                WetosDB.SaveChanges();
+                                            }
                                         }
                                     }
                                 }
-                                foreach (string BranchIdObj in BranchIdArray)
+                                foreach (string CompanyIdObj in CompanyIdArray)
                                 {
-                                    int BranchIdInt = Convert.ToInt32(BranchIdObj);
-                                    int CompanyIdInt = Convert.ToInt32(WetosDB.Branches.Where(a => a.BranchId == BranchIdInt).Select(a => a.Company.CompanyId).FirstOrDefault());
-                                    int EmployeeId = AssignHRManagerModelObj.EmployeeId;
+                                   
                                     int RoleId = 6;  // ROLEID = 6 - BRANCH ADMIN
-
-
-                                    UserRole UserRoleObj = WetosDB.UserRoles.Where(a => a.BranchId == BranchIdInt && a.EmployeeId == EmployeeId
-                                        && a.RoleTypeId == RoleId).FirstOrDefault();
-                                    bool IsNew = false;
-                                    if (UserRoleObj == null)
+                                   
+                                    int companyid = Convert.ToInt32(CompanyIdObj);
+                                    //.roleId
+                                    foreach (string BranchIdObj in BranchIdArray)
                                     {
-                                        IsNew = true;
-                                        UserRoleObj = new UserRole();
-                                    }
-                                    //UserRole ur = new UserRole();
+                                        int BranchIdInt = Convert.ToInt32(BranchIdObj);
+                                       // int CompanyIdInt = WetosDB.Branches.Where(a => a.BranchId == BranchIdInt).Select(a => a.Company.CompanyId).FirstOrDefault());
+                                        UserRole UserRoleObj = WetosDB.UserRoles.Where(a => a.BranchId == BranchIdInt && a.CompanyId == companyid && a.EmployeeId == EmployeeId
+                                           && a.RoleTypeId == RoleId).FirstOrDefault();
+                                        bool IsNew = false;
+                                        if (UserRoleObj == null)
+                                        {
+                                            IsNew = true;
+                                            UserRoleObj = new UserRole();
+                                        }
+                                        //UserRole ur = new UserRole();
 
-                                    // ADDED BY MDJ ON 09 FEB 2017 START
-                                    UserRoleObj.EmployeeId = EmployeeId; //.userId
-                                    UserRoleObj.RoleTypeId = RoleId; //.roleId
-                                    UserRoleObj.CompanyId = CompanyIdInt; //.roleId
-                                    UserRoleObj.BranchId = BranchIdInt; //.roleId
-                                    UserRoleObj.MenuId = "1";
-                                    if (IsNew == true)
-                                    {
-                                        WetosDB.UserRoles.AddObject(UserRoleObj);
+                                        // ADDED BY MDJ ON 09 FEB 2017 START
+                                        UserRoleObj.EmployeeId = EmployeeId; //.userId
+                                        UserRoleObj.RoleTypeId = RoleId; //.roleId
+                                        UserRoleObj.CompanyId = companyid;
+                                        UserRoleObj.BranchId = BranchIdInt; //.roleId
+                                        UserRoleObj.MenuId = "1";
+                                        if (IsNew == true)
+                                        {
+                                            WetosDB.UserRoles.AddObject(UserRoleObj);
+                                        }
+                                        WetosDB.SaveChanges();
                                     }
-                                    WetosDB.SaveChanges();
                                 }
                             }
                         }
@@ -414,6 +424,10 @@ namespace WetosMVC.Controllers
                 }
                 ViewBag.Message = "Assign Branch Admin successful";
                 PopulateDropdown();
+                var CompanyObj = WetosDB.Companies.Where(a => a.MarkedAsDelete == 0).Select(m => new { CompanyId = m.CompanyId, CompanyName = m.CompanyName }).ToList();
+                ViewBag.CompanyList = new SelectList(CompanyObj, "CompanyId", "CompanyName").ToList();
+                var BranchObj = WetosDB.Branches.Where(a => a.MarkedAsDelete == 0).Select(a => new { BranchId = a.BranchId, BranchName = a.BranchName }).ToList();
+                ViewBag.BranchList = new SelectList(BranchObj, " BranchId", "BranchName").ToList();
                 AssignHRManagerModelObj.BranchAdminList = WetosDB.SP_BranchAdminList().ToList();
                 return View(AssignHRManagerModelObj);
             }
@@ -470,6 +484,124 @@ namespace WetosMVC.Controllers
                 return Json(BranchList);
             }
 
+        }
+
+
+        public ActionResult EditBranchAdmin(int id, string Branch)
+        {
+            try
+            {
+                AssignHRManagerModel AssignHRManagerModelObj = new AssignHRManagerModel();
+               
+              
+                ViewBag.Message = string.Empty;
+                int BranchIdInt = WetosDB.Branches.Where(a => a.BranchName == Branch).Select(a => a.BranchId).FirstOrDefault();
+                int CompanyIdInt = Convert.ToInt32(WetosDB.Branches.Where(a => a.BranchName == Branch).Select(a => a.Company.CompanyId).FirstOrDefault());
+                int EmployeeId = id;
+                int RoleId = 6;  // ROLEID = 6 - BRANCH ADMIN
+                UserRole UserRoleObj = WetosDB.UserRoles.Where(a => a.BranchId == BranchIdInt && a.EmployeeId == EmployeeId && a.RoleTypeId == RoleId).FirstOrDefault();
+
+                var CompanyObj = WetosDB.Companies.Where(a => a.MarkedAsDelete == 0).Select(m => new { CompanyId = m.CompanyId, CompanyName = m.CompanyName }).ToList();
+                ViewBag.CompanyList = new SelectList(CompanyObj, "CompanyId", "CompanyName").ToList();
+
+                var BranchObj = WetosDB.Branches.Where(a => a.MarkedAsDelete == 0).Select(a => new { BranchId = a.BranchId, BranchName = a.BranchName }).ToList();
+                //WetosDB.SP_GetBranchList(EmployeeId).Select(a => new { BranchId = a.BranchId, BranchName = a.BranchName }).ToList();
+
+
+                ViewBag.BranchList = new SelectList(BranchObj, " BranchId", "BranchName").ToList();
+
+                AssignHRManagerModelObj.EmployeeId = EmployeeId;
+                AssignHRManagerModelObj.CompanyId = Convert.ToString(CompanyIdInt);
+                AssignHRManagerModelObj.BranchId = Convert.ToString(BranchIdInt);
+                AssignHRManagerModelObj.BranchAdminList = WetosDB.SP_BranchAdminList().ToList();
+
+                return View(AssignHRManagerModelObj);
+            }
+            catch (Exception ex1)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// POST
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="EditBranchAdmin"></param>
+        /// <returns></returns>
+        //[HttpPost]
+        //public ActionResult EditAssignBranchAdmin(UserRole UserObj, FormCollection FC)
+        //{
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            string CompanyIdStr = FC["CompanyId"];
+        //            string BranchIdStr = FC["BranchId"];
+        //            var userid = Convert.ToInt32(UserObj.UserRoleId);
+        //            var Branch1 = BranchIdStr.Split(',');
+        //            //db.Users.Where(u => u.UserId == userid).ToList().ForEach(u => db.Users.Remove(u));
+        //            //db.SaveChanges();
+        //            UserRole UserRoleObj = WetosDB.UserRoles.Where(a => a.BranchId == UserObj.BranchId && a.EmployeeId == UserObj.EmployeeId
+        //                                   && a.RoleTypeId == UserObj.RoleTypeId).FirstOrDefault();
+        //            bool IsNew = false;
+        //            if (UserRoleObj == null)
+        //            {
+        //                IsNew = true;
+        //                UserRoleObj = new UserRole();
+        //            }
+        //            foreach (var user in Branch1)
+        //            {
+
+        //                //UserRole UserRoleObj = new UserRole();
+        //                UserRoleObj.UserId = Convert.ToInt32(UserObj.UserId);
+        //                UserRoleObj.EmployeeId = EmployeeId;
+        //                UserRoleObj.RoleTypeId = RoleId;
+        //                UserRoleObj.CompanyId = CompanyIdInt;
+        //                UserRoleObj.BranchId = Convert.ToInt32(Branch1);
+        //                UserRoleObj.MenuId = "1";
+
+        //            }
+        //            if (IsNew == true)
+        //            {
+        //                WetosDB.UserRoles.AddObject(UserRoleObj);
+        //            }
+        //            WetosDB.SaveChanges();
+        //        }
+        //        return View();
+        //    }
+
+        //    catch (System.Exception ex)
+        //    {
+        //        return null; ;
+        //    }
+        //}
+
+
+
+
+        [HttpPost]
+        public string DeleteBranchAdmin(string UserRoleId)
+        {
+            try
+            {
+                int roleId = Convert.ToInt32(UserRoleId);
+                List<UserRole> UserRoleList = WetosDB.UserRoles.Where(a => a.UserRoleId == roleId).ToList();
+                if (UserRoleList != null)
+                {
+                    foreach (UserRole UserRoleObjToBeDeleted in UserRoleList)
+                    {
+                        WetosDB.UserRoles.DeleteObject(UserRoleObjToBeDeleted);
+                        WetosDB.SaveChanges();
+                    }
+                }
+                return "success";
+            }
+            catch (Exception ex)
+            {
+                return "Error";
+            }
         }
 
     }

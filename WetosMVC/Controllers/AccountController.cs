@@ -132,7 +132,7 @@ namespace WetosMVC.Controllers
 
                 if (UserObj == null)
                 {
-                    ModelState.AddModelError("", "Please enter correct user id and password");
+                    ModelState.AddModelError("AddModelError", "Please enter correct user id and password");
                     return View(model);
                 }
 

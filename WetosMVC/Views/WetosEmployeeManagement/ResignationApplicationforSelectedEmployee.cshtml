@@ -6,7 +6,8 @@
 @System.Web.Optimization.Styles.Render("~/Content/DatePicker")
 @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
-   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+ <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 <div class="page-content-wrapper">
     <div class="page-content">
         <section class="content">
@@ -15,11 +16,11 @@
 
 
 
-  </div>
-    
-        </div>
+                </div>
 
-        <div class="row">
+            </div>
+
+            <div class="row">
                 <div class="col-xs-12 col-md-12 col-lg-12">
 
                     <div class="box">
@@ -29,49 +30,49 @@
                         <div class="box-body">
                             @using (Html.BeginForm("ResignationApplicationforSelectedEmployee", "WetosEmployeeManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
                             {
-                                @Html.HiddenFor(a=>a.EmployeeCode)
+                                @Html.HiddenFor(a => a.EmployeeCode)
                                 @Html.HiddenFor(a => a.EmployeeId)
                                 @Html.HiddenFor(a => a.LoggedInUser)
                                 @Html.HiddenFor(a => a.LastModifiedOn)
                                 @Html.ValidationSummary(true)
                                 <fieldset>
-                                <div>
+                                    <div>
                                         <div class="editor-label">
-             Resignation Reason
-        </div>
+                                            Resignation Reason
+                                        </div>
                                         <div class="editor-field">
-       @Html.TextAreaFor(a => a.ResignationReason, new { @class = "form-control pull-right" })
-       @* <textarea rows="2" cols="100"></textarea>*@
-        </div>
-        </div><br />
-        <div>
+                                            @Html.TextAreaFor(a => a.ResignationReason, new { @class = "form-control pull-right" })
+                                            @*<textarea rows="2" cols="100"></textarea>*@
+                                        </div>
+                                    </div><br />
+                                    <div>
                                         <div class="editor-label">
-            Resignation Date:
-        </div>
-                                      <div class="editor-field" style="width:300px">
-            <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                   @Html.TextBoxFor(a => a.ResignedOn, new { @class = "form-control pull-right datepicker" })
-                   </div>
-         
-        </div>
-        </div>
-        <br />
-          <div>
+                                            Resignation Date:
+                                        </div>
+                                        <div class="editor-field" style="width:300px">
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                @Html.TextBoxFor(a => a.ResignedOn, new { @class = "form-control pull-right datepicker" })
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div>
                                         <div class="editor-label">
-             Notice Period (in Months)
-        </div>
+                                            Notice Period (in Months)
+                                        </div>
                                         <div class="editor-field">
-     <input type="text" value="2 Months" disabled="disabled"/>
-        </div>
-        </div><br />
-        @*<div>
-                                      Select document (if available)
-                                     <input type="file" name="UploadFile" />
-                                     </div>*@
-                                     <br />
+                                            <input type="text" value="2 Months" disabled="disabled" />
+                                        </div>
+                                    </div><br />
+                                    @*<div>
+                                         Select document (if available)
+                                        <input type="file" name="UploadFile" />
+                                        </div>*@
+                                    <br />
                                     <p>
                                         <input type="submit" class="btn btn-default" value="Submit" />
                                     </p>
@@ -82,12 +83,11 @@
                         <!-- /.box-body -->
                     </div>
                     <!-- /.box -->
-
                     <!-- /.box -->
                 </div>
                 <!-- /.col -->
             </div>
-            </section>
+        </section>
     </div>
 </div>
 
@@ -105,4 +105,4 @@
         });
 
     });
-    </script>
+</script>

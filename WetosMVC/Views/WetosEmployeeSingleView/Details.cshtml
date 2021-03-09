@@ -1,12 +1,11 @@
-﻿@model WetosDB.SP_EmployeeDetailsNew_Result
+﻿
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+@model WetosDB.SP_EmployeeDetailsNew_Result
 @{
     ViewBag.Title = "Details";
 }
 <section class="content-header">
-      <h1>
-        Employee Master
-        <small>Details</small>
-      </h1>
+      
                 <ol class="breadcrumb">
               <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
               <li class="active">Masters</li>
@@ -15,6 +14,10 @@
         @*<li><a href="#">Company Master</a></li>*@
         <li class="active">Details</li>
       </ol>
+      <h1>
+        Employee Master
+        <small>Details</small>
+      </h1>
 
           @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
       <div>

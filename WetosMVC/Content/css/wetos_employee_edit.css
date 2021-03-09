@@ -1,0 +1,92 @@
+.wizard-step {
+    display: none;
+}
+
+.wizard-confirmation {
+    display: none;
+}
+
+.wizard-nav {}
+
+.wizard-nav input[type="button"] {
+    width: 100px;
+}
+
+.nav-tabs-custom>.nav-tabs>li.active2>a {
+    border-left-color: #f4f4f4;
+    border-right-color: #f4f4f4;
+}
+
+.nav-tabs-custom>.nav-tabs>li.active3>a {
+    border-left-color: #f4f4f4;
+    border-right-color: #f4f4f4;
+}
+
+.nav-tabs-custom>.nav-tabs>li.active2>a {
+    border-left-color: #f4f4f4;
+    border-right-color: #f4f4f4;
+}
+
+.nav-tabs-custom>.nav-tabs>li.active1>a {
+    border-left-color: #f4f4f4;
+    border-right-color: #f4f4f4;
+}
+
+.tabbable-custom>.nav-tabs>li.active1 {
+    border-top: 3px solid #c0a825;
+}
+
+.tabbable-custom>.nav-tabs>li.active2 {
+    border-top: 3px solid #2123cb;
+}
+
+.tabbable-custom>.nav-tabs>li.active3 {
+    border-top: 3px solid #09892e;
+}
+
+.tabbable-custom>.nav-tabs>li.active4 {
+    border-top: 3px solid #f50cd1;
+}
+
+.nav-tabs-custom>.nav-tabs>li.active4>a {
+    border-left-color: #f4f4f4;
+    border-right-color: #f4f4f4;
+}
+
+.input-group {
+    margin-bottom: 5% !important;
+}
+
+.select2-container {
+    width: 100% !important;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 767px) {
+    .content-header {
+        padding-top: 0% !important;
+    }
+    .page-content-wrapper .page-content {
+        padding: 10px 10px !important;
+        overflow: visible !important;
+    }
+}
+
+@media screen and (min-device-width: 411px) and (max-device-width: 414px) {
+    .page-content-wrapper .page-content {
+        padding: 10px 10px !important;
+        overflow: visible !important;
+    }
+    .content-header {
+        padding-top: 0% !important;
+    }
+}
+
+@media screen and (min-device-width: 767px) and (max-device-width: 1023px) {
+    .content-header {
+        padding-top: 0% !important;
+    }
+}
+
+@media screen and (min-device-width: 1024px) and (max-device-width: 1200px) {}
+
+@media screen and (min-device-width: 1800px) and (max-device-width: 2100px) {}

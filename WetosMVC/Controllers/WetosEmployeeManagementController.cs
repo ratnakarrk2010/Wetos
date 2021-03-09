@@ -27,16 +27,18 @@ namespace WetosMVC.Controllers
 
             #region CODE ADDED BY SHRADDHA ON 31 MAR 2018 FOR BRANCH WISE ADMIN
             //List<SP_ActiveEmployeeInEmployeeMaster_Result> ActiveEmployeeList = new List<SP_ActiveEmployeeInEmployeeMaster_Result>();
-            List<SP_ActiveEmployeeInEmployeeMasterNew_Result> ActiveEmployeeList = new List<SP_ActiveEmployeeInEmployeeMasterNew_Result>();
+           // List<SP_ActiveEmployeeInEmployeeMasterNew_Result> ActiveEmployeeList = new List<SP_ActiveEmployeeInEmployeeMasterNew_Result>();
             #endregion
 
             // Updated by Rajas on 15 JUNE 2017
             DateTime DefaultDate = new DateTime(1900, 01, 01);
 
             #region CODE ADDED BY SHRADDHA ON 31 MAR 2018 FOR BRANCH WISE ADMIN
-            int EmployeeId = Convert.ToInt32(Session["EmployeeNo"]);
+            List<SP_EmployeeListForResignationAndConfirmationNew_Result_New_Result> ActiveEmployeeList1 = new List<SP_EmployeeListForResignationAndConfirmationNew_Result_New_Result>();
+            var EmployeeId = Convert.ToInt32(Session["EmployeeNo"]);
             //ActiveEmployeeList = WetosDB.SP_ActiveEmployeeInEmployeeMaster().Where(a => a.Leavingdate == null).ToList();
-            ActiveEmployeeList = WetosDB.SP_ActiveEmployeeInEmployeeMasterNew(EmployeeId).Where(a => a.Leavingdate == null).ToList();
+            //ActiveEmployeeList = WetosDB.SP_ActiveEmployeeInEmployeeMasterNew(EmployeeId).Where(a => a.Leavingdate == null).ToList();
+            ActiveEmployeeList1 = WetosDB.SP_EmployeeListForResignationAndConfirmationNew_Result_New(EmployeeId).Where(a => a.Leavingdate == null).ToList();
             #endregion
 
 
@@ -48,7 +50,7 @@ namespace WetosMVC.Controllers
             var EmployeeGroupName = new List<EmployeeGroup>(); //WetosDB.EmployeeGroups.Select(a => new { EmployeeGroupId = a.EmployeeGroupId, EmployeeGroupName = a.EmployeeGroupName }).ToList();
             ViewBag.EmployeeGroupNameList = new SelectList(EmployeeGroupName, "EmployeeGroupId", "EmployeeGroupName").ToList();
 
-            return View(ActiveEmployeeList);
+            return View(ActiveEmployeeList1);
         }
 
         //[HttpPost]

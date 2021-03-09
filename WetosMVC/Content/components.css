@@ -6,7 +6,7 @@ General reset
 ***/
 /* Set default body */
 body {
-    background-color: #5c87b2;
+    /*background-color: #5c87b2;*/
     font-size: 13px;
     font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
     margin: 0;
@@ -5102,6 +5102,8 @@ Blue Madison
 /* Statistic Block */
 .dashboard-stat.blue-madison {
     background-color: #578ebe;
+    box-shadow: 0px 3px 8px #334;
+    border-radius: 7px;
 }
 
     .dashboard-stat.blue-madison .visual > i {
@@ -6203,6 +6205,8 @@ Green Haze
 /* Statistic Block */
 .dashboard-stat.green-haze {
     background-color: #44b6ae;
+    box-shadow: 0px 3px 8px #334;
+    border-radius: 7px;
 }
 
     .dashboard-stat.green-haze .visual > i {
@@ -7551,6 +7555,8 @@ Red Intense
 /* Statistic Block */
 .dashboard-stat.red-intense {
     background-color: #e35b5a;
+    box-shadow: 0px 3px 8px #334;
+    border-radius: 7px;
 }
 
     .dashboard-stat.red-intense .visual > i {

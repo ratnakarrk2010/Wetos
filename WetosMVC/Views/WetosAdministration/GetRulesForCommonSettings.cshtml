@@ -1,4 +1,6 @@
-﻿@model IEnumerable<WetosDB.SP_GetAssignRuleData_Result>
+﻿
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+@model IEnumerable<WetosDB.SP_GetAssignRuleData_Result>
 @System.Web.Optimization.Scripts.Render("~/bundles/InputMask")
 <section class="content">
 @using (Html.BeginForm())
@@ -11,6 +13,7 @@
 <div class="col-xs-12 col-md-12 col-lg-12">         
 <div class="box">
 <div class="box-body">
+<div class="table-responsive">
 <h4>Common Setting for </h4>
 <table  class="table table-bordered table-striped">
 <tr>
@@ -80,6 +83,7 @@ else
      </tr>
  }
 </table>
+</div>
 </div>
 
 </div>

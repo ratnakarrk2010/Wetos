@@ -1,9 +1,9 @@
 ﻿@{var httpContext = HttpContext.Current;
-  System.Web.Mvc.UrlHelper Url = new System.Web.Mvc.UrlHelper(httpContext.Request.RequestContext);}
+    System.Web.Mvc.UrlHelper Url = new System.Web.Mvc.UrlHelper(httpContext.Request.RequestContext);}
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/images/logo.png")"/>
+    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/images/logo.png")" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>@ViewBag.Title</title>
@@ -11,9 +11,11 @@
     <meta name="viewport" content="width=device-width" />
     @System.Web.Optimization.Scripts.Render("~/bundles/modernizr")
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-        name="viewport" />
+          name="viewport" />
+    <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
     <!--CSS Saction -->
     <!-- LAYOUT STYLE -->
+
     @System.Web.Optimization.Styles.Render("~/Content/LayoutStyle")
     <!-- Fullcalendar -->
     @* @System.Web.Optimization.Styles.Render("~/Content/Fullcalendar")*@
@@ -33,6 +35,7 @@
     @System.Web.Optimization.Styles.Render("~/Content/FinalStyle")
     <!--JAVA Script Saction-->
     <!-- jquery -->
+    @*<script src="~/Scripts/jquery.min.js"></script>*@
     @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
     <!-- LayoutTheme -->
     @System.Web.Optimization.Scripts.Render("~/bundles/LayoutTheme")
@@ -54,8 +57,109 @@
     @* @System.Web.Optimization.Scripts.Render("~/bundles/Charts")*@
     <!-- Bootstrap -->
     @System.Web.Optimization.Scripts.Render("~/bundles/Bootstrap")
+
+
+    <style>
+
+        .logo_text {
+            font-size: 30px;
+            font-weight: 700;
+            color: #fff;
+            padding-left: 13%;
+        }
+
+        .sidebar-collapse .logo_text {
+            font-size: 5px;
+            font-weight: 700;
+            color: #fff;
+            padding-left: 13%;
+        }
+
+        .navbar-custom-menu {
+            margin-right: -122%;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .footer_div {
+            margin-top: 1%;
+            /*margin-bottom: 1%;*/
+            text-align: center;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            background-image: linear-gradient(90deg, #d2dbe4,#f6faff);
+        }
+
+        .main-header {
+            background-image: linear-gradient(90deg, #d2dbe4,#f6faff);
+        }
+
+        .main-header {
+            border-bottom: 0px solid #dee2e6;
+            z-index: 1034;
+        }
+
+        @@media screen and (min-width: 320px) and (max-width:767px) {
+            .navbar-custom-menu {
+                margin-right: -12% !important;
+            }
+        }
+
+        .div1 {
+            position: relative;
+            animation: mymove 5s;
+        }
+
+        @@keyframes mymove {
+            from {
+                left: -200px;
+            }
+
+            to {
+                left: 0px;
+            }
+        }
+
+        .div2 {
+            position: relative;
+            animation: mymove1 5s;
+        }
+
+        @@keyframes mymove1 {
+            from {
+                top: -200px;
+            }
+
+            to {
+                top: 0px;
+            }
+        }
+
+        .div3 {
+            position: relative;
+            animation: mymove2 5s;
+        }
+
+        @@keyframes mymove2 {
+            from {
+                right: -600px;
+            }
+
+            to {
+                right: 0px;
+            }
+        }
+    </style>
+
+
+
+
+
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition sidebar-mini">
+
     @{var username = Session["Username"];}
     @{var userrole = Session["UserRole"];}
     @{var userid = Session["Id"];}
@@ -71,128 +175,127 @@
         string UserGender = Session["Gender"] == null ? "" : Session["Gender"].ToString();
     }
     <div class="wrapper">
-        <header class="main-header">
-      @*Modified by shalaka on 13th Nov 2017---Start*@
-        <div>
-          <a href="@Url.Action("Index", "Home")"  class="logo">
-            <span class="logo-lg" style="height: 50px;  display: inline-flex; align-items: center; font-size:large;"><b>
-                 @ProductName
-                </b></span>
-                 </a>
-        </div>
-       @*----End----*@
+        <header class="main-header navbar navbar-expand navbar-white navbar-light" style="box-shadow: 0px 2px 6px #a9b1b8;">
+            @*Modified by shalaka on 13th Nov 2017---Start*@
+            <div>
+                <a href="@Url.Action("Index", "Home")" class="logo">
+                    <span class="logo-lg" style="height: 50px;  display: inline-flex; align-items: center; font-size:large;">
+                        @*<b>
+                            @ProductName
+                        </b>*@
+                    </span>
+                </a>
+            </div>
+            @*----End----*@
 
-            <nav class="navbar navbar-static-top">
-                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left: 0px;background:none;">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fa fa-bars"></i></a>
                 @*<img src="@Url.Content("~/images/Companylogo.png")" height="48" width="48" alt="Person Image"/>*@
-                 <div class="navbar-custom-menu">
+                <div class="navbar-nav  ml-auto">
                     <ul class="nav navbar-nav">
-                    @* <li class="dropdown tasks-menu">
+                        @* <li class="dropdown tasks-menu">
 
-                    
-                     
+
+
                                    <a  class="dropdown-toggle" data-toggle="dropdown" href="">
 
                                             <i>@</i>
                                             <span class="label label-warning"></span>
-                                        </a> 
+                                        </a>
                         </li>*@
-                          <li class="dropdown tasks-menu">
-                                   <a  class="dropdown-toggle" data-toggle="dropdown" href="">
-
-                                            <i>@VersionName</i>
-                                            
-                                            
-                                        </a> 
-                                    
-                                 </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" data-toggle="dropdown" href="#">
+                                <i>@VersionName</i>
+                            </a>
+                        </li>
                     </ul>
-                    </div>
+                </div>
 
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
-                    @*<li> <span class="logo-lg" style="color:White"><b>
-               
-                </b></span></li>*@
-                <li class="dropdown tasks-menu">
-                                   <a  class="dropdown-toggle" data-toggle="dropdown" href="">
+                        @*<li> <span class="logo-lg" style="color:White"><b>
 
-                                            <i>@Company</i>
-                                            
-                                        </a> 
-                                    
-                                 </li>
-                                 @*Commented by shalaka on 26th DEC 2017 --- Start*@
+                        </b></span></li>*@
+                        <li class="" style="padding-top: 3.5%;">
+                            <a href="">
+
+                                <i>@Company</i>
+
+                            </a>
+
+                        </li>
+                        @*Commented by shalaka on 26th DEC 2017 --- Start*@
                         @* @if (UserRoleId == 1)
-                         {
+                        {
+                               <li class="dropdown tasks-menu">
+                                  <a  class="dropdown-toggle" data-toggle="dropdown" href="">
+
+                                           <i onclick="birthday()" class="fa fa-birthday-cake"></i>
+                                           <span class="label label-warning"></span>
+                                       </a>
+                                    <ul class="dropdown-menu">
+                                           <li class="header">Birthday List</li>
+                                           <li id="BirthdayContent"></li>
+                                           <li class="footer">
+                                                   <a href="@Url.Action("BirthdayListView", "Home")">View more</a>
+                                           </li>
+                                   </ul>
+                                </li>
                                 <li class="dropdown tasks-menu">
-                                   <a  class="dropdown-toggle" data-toggle="dropdown" href="">
+                                   <a class="dropdown-toggle" onfocus="" data-toggle="dropdown" href="">
+                                           <i  onclick="Confirmation()" class="fa fa-check-circle" style="font-size:20px"></i>
+                                           <span class="label label-warning"></span>
+                                       </a>
+                                       <ul class="dropdown-menu">
+                                           <li class="header">Confirmation List</li>
+                                           <li id="ConfirmationContent"></li>
+                                           <li class="footer">
+                                                 <a href="@Url.Action("ConfirmationListView", "Home")">View more</a>
+                                           </li>
+                                       </ul>
+                                   </li>
+                        }*@ @*Commented by shalaka on 26th DEC 2017 --- End*@
 
-                                            <i onclick="birthday()" class="fa fa-birthday-cake"></i>
-                                            <span class="label label-warning"></span>
-                                        </a> 
-                                     <ul class="dropdown-menu">
-                                            <li class="header">Birthday List</li>
-                                            <li id="BirthdayContent"></li>
-                                            <li class="footer">
-                                                    <a href="@Url.Action("BirthdayListView", "Home")">View more</a>
-                                            </li>
-                                    </ul>
-                                 </li>
-                                 <li class="dropdown tasks-menu">
-                                    <a class="dropdown-toggle" onfocus="" data-toggle="dropdown" href="">
-                                            <i  onclick="Confirmation()" class="fa fa-check-circle" style="font-size:20px"></i>
-                                            <span class="label label-warning"></span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="header">Confirmation List</li>
-                                            <li id="ConfirmationContent"></li>
-                                            <li class="footer">
-                                                  <a href="@Url.Action("ConfirmationListView", "Home")">View more</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                         }*@ @*Commented by shalaka on 26th DEC 2017 --- End*@
-
-                        <li class="dropdown user user-menu">
+                        <li class="dropdown user user-menu" style="padding-top:2.5%;">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 @if (@picture != null)
                                 {
-                                    <img src="@Url.Action("getImg", "Account", new { id = @userid })"  class="img-circle" height="30" width="30" alt="Person Image" />
+                                    <img src="@Url.Action("getImg", "Account", new { id = @userid })" class="img-circle" height="30" width="30" alt="Person Image" />
                                 }
                                 else
                                 {
                                     if (@UserGender == "Female" || @UserGender == "F")
                                     {
-                                        <img src="@Url.Content("~/images/UserImageGirl.jpg")"  class="img-circle" height="30" width="30" alt="Person Image"  />
+                                        <img src="@Url.Content("~/images/UserImageGirl.jpg")" class="img-circle" height="30" width="30" alt="Person Image" />
                                     }
                                     else
                                     {
-                                    <img src="@Url.Content("~/images/userimage.jpg")"  class="img-circle" height="30" width="30" alt="Person Image" />
+                                        <img src="@Url.Content("~/images/userimage.jpg")" class="img-circle" height="30" width="30" alt="Person Image" />
                                     }
                                 }
-                               <span class="hidden-xs">@username</span>
+                                <span class="hidden-xs">@username</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-header">
                                     @if (@picture != null)
                                     {
-                                        <img src="@Url.Action("getImg", "Account", new { id = @userid })"  class="img-circle" height="40" width="40" alt="Person Image" />
+                                        <img src="@Url.Action("getImg", "Account", new { id = @userid })" class="img-circle" height="40" width="40" alt="Person Image" />
                                     }
                                     else
                                     {
                                         if (@UserGender == "Female" || @UserGender == "F")
                                         {
-                                        <img src="@Url.Content("~/images/UserImageGirl.jpg")"  class="img-circle" height="40" width="40" alt="Person Image" style="vertical-align:middle;" />
+                                            <img src="@Url.Content("~/images/UserImageGirl.jpg")" class="img-circle" height="40" width="40" alt="Person Image" style="vertical-align:middle;" />
                                         }
                                         else
                                         {
-                                    <img src="@Url.Content("~/images/userimage.jpg")"  class="img-circle" height="40" width="40" alt="Person Image" style="vertical-align:middle;"  />
+                                            <img src="@Url.Content("~/images/userimage.jpg")" class="img-circle" height="40" width="40" alt="Person Image" style="vertical-align:middle;" />
                                         }
                                     }
-                                    
+
                                     <p>
                                         @username - @userrole
 
@@ -201,26 +304,26 @@
                                 <li class="user-footer">
                                     <div class="pull-left">
                                         <span id="btnProfile" onclick="OnBtnProfileClick(@userid);" class="btn btn-default btn-flat" data-toggle="tooltip" title="Click to redirect to profile page"
-                                         style="color: Gray">Profile</span>
+                                              style="color: Gray">Profile</span>
                                     </div>
                                     <div class="pull-right">
-                                    
-                                    @*<a href="/Account/LogOff" class="btn btn-default btn-flat">Sign out</a>*@
-                                    <a href="@Url.Action("LogOff", "Account")" class="btn btn-default btn-flat">Sign out</a>
-                                    
-                                   </div>
+
+                                        @*<a href="/Account/LogOff" class="btn btn-default btn-flat">Sign out</a>*@
+                                        <a href="@Url.Action("LogOff", "Account")" class="btn btn-default btn-flat">Sign out</a>
+
+                                    </div>
                                 </li>
                             </ul>
                         </li>
-                     </ul>
+                    </ul>
                 </div>
             </nav>
         </header>
-        <div id="loading">
-            <img src="@Url.Content("~/Content/images/ajax-loader.gif")" class="user-image" alt="User Image" style="margin-top:300px !important"/>
-        </div>
-        <aside class="main-sidebar">
-            <section class="sidebar">
+        @*<div id="loading">
+            <img src="@Url.Content("~/Content/images/ajax-loader.gif")" class="user-image" alt="User Image" style="margin-top:300px !important" />
+        </div>*@
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <div class="sidebar">
                 @*<div class="user-panel">
                    <div class="pull-left image">
 
@@ -246,34 +349,67 @@
                         <a href="#"><i class="fa fa-circle text-success"></i>Online</a>
                     </div>
                 </div>*@
-                        @MenuHelper.ShowTreeViewMenu(SessionPersister.roleInfo)
-            </section>
-         </aside>
+
+
+
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="logo_text">
+                        <b>
+                            @ProductName
+                        </b>
+
+                        @*<img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">*@
+                    </div>
+
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+
+
+
+                    @MenuHelper.ShowTreeViewMenu(SessionPersister.roleInfo)
+
+                </nav>
+            </div>
+        </aside>
         <div class="content-wrapper" style="height: auto !important; min-height: auto !important">
             <div class="page-content-wrapper">
                 @Html.Partial("_alerts")
                 @RenderBody()
+                
             </div>
-            <hr />
+            @*<hr />*@
+
+           
             <footer>
-            <div class="footer" style="font-size:13px;" >
-           @* <div id="footer" class="page-footer">
+                <div class="footer" style="font-size:13px;">
+                    @* <div id="footer" class="page-footer">
                 <div class="page-footer-inner">*@
                     @*<text> <a href="#" target="_blank">&copy; @Company  @DateTime.Now.ToString("yyyy")</a> </text>*@
                     @*<text> <a href="http://www.sushmatechnology.com" target="_blank">&copy; Sushma Technology Private Limited @DateTime.Now.ToString("yyyy")</a> </text>*@
-                    <text> <a href="@CompanyLink" target="_blank">&copy; @CompanyFooter @DateTime.Now.ToString("yyyy")
-                    @ViewContext.Controller.GetType().Assembly.GetName().Version</a> </text>
+                    <div class="row">
+                        <div class="col-sm-12 footer_div">
+                            <a href="@CompanyLink" target="_blank"><i>
+                                &copy; @CompanyFooter @DateTime.Now.ToString("yyyy")
+                                @ViewContext.Controller.GetType().Assembly.GetName().Version
+                            </i>
+                            </a>
+
+                        </div>
+                    </div>
                 </div>
-                </footer>
+            </footer>
         </div>
     </div>
-    <div>
-        @RenderSection("scripts", required: false)
-    </div>
-    <div class="control-sidebar-bg">
-    </div>
-</body>
+        <div>
+            @RenderSection("scripts", required: false)
+        </div>
+        <div class="control-sidebar-bg">
+        </div>
+    </body>
 </html>
+
 <script type="text/javascript">
 
     //    $(".back").css("font-size", "20px");
@@ -354,7 +490,7 @@
 
         hideloading();
     }
-   
+
 </script>
 <script type="text/javascript">
     function birthday() {
@@ -414,7 +550,7 @@
 
     $.ajaxSetup({ cache: false });
     $('input[type=text]').attr('autocomplete', 'off');
-   
+
 
 </script>
 <script type="text/javascript">

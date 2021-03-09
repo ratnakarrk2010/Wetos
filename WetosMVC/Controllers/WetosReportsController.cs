@@ -7319,7 +7319,7 @@ namespace WetosMVC.Controllers
                         {
                             table5.Columns[DayStr].ColumnName = tableH.Rows[0][i - 1].ToString();
                         }
-                        catch (Exception)
+                        catch (Exception ex1)
                         {
                         }
                     }

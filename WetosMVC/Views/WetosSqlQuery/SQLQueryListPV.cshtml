@@ -2,14 +2,8 @@
 @model DataSet
 @System.Web.Optimization.Styles.Render("~/Content/DataTable")
 @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
-@*<style>
-    .SQLLIst
-    {
-        overflow: scroll;
-        height: 100px;
-        width: 200px;
-    }
-</style>*@
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
        
@@ -17,6 +11,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-body">
+                    <div class="table-responsive">
                         <table id="SQLQuery" class="table table-bordered table-striped SQLLIst">
                             <thead>
                                 <tr>
@@ -43,6 +38,7 @@
                             <tfoot>
                             </tfoot>
                         </table>
+                        </div>
                     </div>
                     <!-- /.box-body -->
                 </div>

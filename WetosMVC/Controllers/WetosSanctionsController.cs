@@ -3650,11 +3650,19 @@ namespace WetosMVC.Controllers
         ///// <returns></returns>
         public ActionResult LeaveEncashSanctionIndex()
         {
-            int EmpNo = Convert.ToInt32(Session["EmployeeNo"]);
-            List<SP_LeaveEncashSanctionIndex_Result> LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpNo).OrderByDescending(a => a.LeaveEncashId).ToList();
+            try
+            {
+                var EmpNo = Convert.ToInt32(Session["EmployeeNo"]);
+                var EmpReportingid1 = WetosDB.Employees.Where(em => em.EmployeeId == EmpNo).Select(e => e.EmployeeReportingId).FirstOrDefault();
+                List<SP_LeaveEncashSanctionIndex_Result> LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpReportingid1).ToList();//.OrderByDescending(a => a.LeaveEncashId).ToList();
 
-            PopulateDropDown();
-            return View(LeaveEncashSanctionList);
+                PopulateDropDown();
+                return View(LeaveEncashSanctionList);
+            }
+            catch (Exception ex1)
+            {
+                return null;
+            }
         }
 
         ///// <summary>
@@ -3960,6 +3968,8 @@ namespace WetosMVC.Controllers
             {
                 int EmpNo = Convert.ToInt32(Session["EmployeeNo"]);
                 int Id = Convert.ToInt32(Session["Id"]);
+                var EmpReportingid = WetosDB.Employees.Where(em => em.EmployeeId == EmpNo).Select(e => e.EmployeeReportingId).FirstOrDefault();
+                var EmpReportingid2 = WetosDB.Employees.Where(em => em.EmployeeId == EmpNo).Select(e => e.EmployeeReportingId2).FirstOrDefault();
 
                 // Added by Rajas on 9 MAY 2017 START
                 // Select Criteria as per dropdown value 
@@ -3983,7 +3993,7 @@ namespace WetosMVC.Controllers
                     //ADDED POPULATEDROPDOWN() FUNCTION BY SHRADDHA ON 12 SEP 2017 END
                     return View(LeaveEncashSanctionList);
                 }
-
+               
                 DateTime CalanderStartDate = GetFYStartDate(); // DateTime CalanderStartDate = WetosDB.FinancialYears.Where(a => a.FinancialName == GlobalSettingObj.SettingValue).Select(a => a.StartDate).FirstOrDefault();
 
                 if (CalanderStartDate != null)
@@ -3994,7 +4004,7 @@ namespace WetosMVC.Controllers
                         Status = 1;
 
                         // Updated by Rajas on 7 JUNE 2017, ( || a.EmployeeReportingId2 == EmpNo) removed
-                        LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpNo).Where(a => ((a.EmployeeReportingId == EmpNo) && a.StatusId == Status
+                        LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpReportingid).Where(a => ((a.EmployeeReportingId == EmpReportingid) && a.StatusId == Status
                             && a.EncashDate >= CalanderStartDate && a.MarkedAsDelete == 0 || a.MarkedAsDelete == null))
                             .OrderByDescending(a => a.EncashDate).ToList();  // && a.Id == 4)
                     }
@@ -4002,8 +4012,8 @@ namespace WetosMVC.Controllers
                     {
                         Status = 2;
 
-                        LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpNo)
-                            .Where(a => ((a.EmployeeReportingId == EmpNo || a.EmployeeReportingId2 == EmpNo) && a.StatusId == Status && a.EncashDate >= CalanderStartDate
+                        LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpReportingid)
+                            .Where(a => ((a.EmployeeReportingId == EmpReportingid || a.EmployeeReportingId2 == EmpReportingid2) && a.StatusId == Status && a.EncashDate >= CalanderStartDate
                                 && a.MarkedAsDelete == 0 || a.MarkedAsDelete == null))
                             .OrderByDescending(a => a.EncashDate).ToList();  // && a.Id == 4)
                     }
@@ -4011,8 +4021,8 @@ namespace WetosMVC.Controllers
                     {
                         Status = 3;
 
-                        LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpNo)
-                            .Where(a => ((a.EmployeeReportingId == EmpNo || a.EmployeeReportingId2 == EmpNo)
+                        LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpReportingid)
+                            .Where(a => ((a.EmployeeReportingId == EmpReportingid || a.EmployeeReportingId2 == EmpReportingid2)
                                 && a.StatusId == Status && a.EncashDate >= CalanderStartDate && a.MarkedAsDelete == 0 || a.MarkedAsDelete == null) || (a.EmployeeReportingId2 == EmpNo
                                 && a.StatusId == Status && a.EncashDate >= CalanderStartDate && a.MarkedAsDelete == 0 || a.MarkedAsDelete == null))
                                 .OrderByDescending(a => a.EncashDate).ToList();  // && a.Id == 4)
@@ -4021,8 +4031,8 @@ namespace WetosMVC.Controllers
                     {
                         Status = 4;
 
-                        LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpNo)
-                            .Where(a => ((a.EmployeeReportingId2 == EmpNo || a.EmployeeReportingId == EmpNo)
+                        LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpReportingid)
+                            .Where(a => ((a.EmployeeReportingId2 == EmpReportingid2 || a.EmployeeReportingId == EmpReportingid)
                                 && a.StatusId == Status && a.EncashDate >= CalanderStartDate && a.MarkedAsDelete == 0 || a.MarkedAsDelete == null))
                                 .OrderByDescending(a => a.EncashDate).ToList();  // && a.Id == 4)
                     }
@@ -4030,16 +4040,16 @@ namespace WetosMVC.Controllers
                     {
                         Status = 5;
 
-                        LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpNo)
-                            .Where(a => ((a.EmployeeReportingId == EmpNo || a.EmployeeReportingId2 == EmpNo) && a.StatusId == Status
+                        LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpReportingid)
+                            .Where(a => ((a.EmployeeReportingId == EmpReportingid || a.EmployeeReportingId2 == EmpReportingid2) && a.StatusId == Status
                                 && a.EncashDate >= CalanderStartDate && a.MarkedAsDelete == 0 || a.MarkedAsDelete == null))
                                 .OrderByDescending(a => a.EncashDate).ToList();  // && a.Id == 4)
                     }
                     else  // Rejected by Sanctioner
                     {
                         Status = 6;
-                        LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpNo)
-                            .Where(a => ((a.EmployeeReportingId2 == EmpNo) && a.StatusId == Status
+                        LeaveEncashSanctionList = WetosDB.SP_LeaveEncashSanctionIndex(EmpReportingid)
+                            .Where(a => ((a.EmployeeReportingId2 == EmpReportingid2) && a.StatusId == Status
                                 && a.EncashDate >= CalanderStartDate && a.MarkedAsDelete == 0 || a.MarkedAsDelete == null))
                             .OrderByDescending(a => a.EncashDate).ToList();  // && a.Id == 4)
                     }

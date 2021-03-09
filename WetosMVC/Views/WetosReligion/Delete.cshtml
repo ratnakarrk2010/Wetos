@@ -1,17 +1,10 @@
 ﻿@model WetosDB.Religion
+<link href="~/Content/css/wetosreligion_delete.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 
 @*Added by dhanashri on 3 june 2019 START*@
 <section class="content-header">
-    <h1>
-    Religion Master <small>Delete</small>
-    </h1>
-  @*  <ol class="breadcrumb">
-    <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Masters</li>
-    <li><a href="@Url.Action("Index", "WetosReligion")"><i class="fa fa-arrow-left"></i> Religion</a></li>
-    <li class="active">Create</li>
-    @*<li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>     
-    </ol>*@ 
+   
     
       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
       <div>
@@ -23,7 +16,7 @@
 
        @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
             <div style="clear: both;"></div>
-          <div class="row">
+          <!-- <div class="row">
                 <div class="col-md-12">
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
@@ -47,7 +40,37 @@
                         </li>              
                     </ul>
                 </div>
+            </div> -->
+             <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"><a href="@Url.Action("Index", "WetosReligion")">Religion</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
+             <h1>
+    Religion Master <small>Delete</small>
+    </h1>
+  
 </section>
 <section class="content">
       <div class="row">

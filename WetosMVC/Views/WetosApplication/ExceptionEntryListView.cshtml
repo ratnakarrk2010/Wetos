@@ -3,55 +3,60 @@
     ViewBag.Title = "Attendance Regularization List";
 }
 @System.Web.Optimization.Styles.Render("~/Content/DataTable")
- @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<link href="~/Content/css/exception_entry_list_view.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-      <h1>
-        Attendance Regularization
-        <small>List</small> @* Updated by Rajas on 2 MARCH 2017*@
-        
-          @if (@ViewBag.ForOthers == "true")
-                {
-                     <span data-toggle="tooltip" title="Apply for Attendance Regularization" style="float:right;font-weight:800" onclick="OnBtnExceptionEntryClick()">
-         @Html.ActionLink(" ", "ExceptionEntry", new { Myself = true }, new { @class = "fa fa-plus-circle", title = "Apply for Exception entry", style = "color:#428bca;font-size:19px" })</span>
-        
-                }
-                @if (@ViewBag.ForOthers == "false")
-                {
-                    <span data-toggle="tooltip" title="Apply for Attendance Regularization" style="float:right;font-weight:800" onclick="OnBtnExceptionEntryClick()">
-         @Html.ActionLink(" ", "ExceptionEntry", new { Myself = false }, new { @class = "fa fa-plus-circle", title = "Apply for Exception entry", style = "color:#428bca;font-size:19px" })</span>
+      <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
-                }
-         
-      </h1>
-      
-      <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home</a>
-                            <i class="fa fa-angle-right"></i>
                         </li>
-                        <li>
+                         <li class="li_margin">
                          <a href="#">Applications</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
-                        <li>
+                        <li class="li_margin">
                             <a >Attendance Regularization</a>
                         </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor:pointer" class="back " data-toggle="tooltip"  title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
                             </div>
-                        </li>              
+                        </li>
                     </ul>
                 </div>
             </div>
-       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+             <h1>
+                Attendance Regularization
+                <small>List</small> @* Updated by Rajas on 2 MARCH 2017*@
+                
+                @if (@ViewBag.ForOthers == "true")
+                        {
+                            <span data-toggle="tooltip" title="Apply for Attendance Regularization" style="float:right;font-weight:800" onclick="OnBtnExceptionEntryClick()">
+                @Html.ActionLink(" ", "ExceptionEntry", new { Myself = true }, new { @class = "fa fa-plus-circle", title = "Apply for Exception entry", style = "color:#428bca;font-size:19px" })</span>
+                
+                        }
+                        @if (@ViewBag.ForOthers == "false")
+                        {
+                            <span data-toggle="tooltip" title="Apply for Attendance Regularization" style="float:right;font-weight:800" onclick="OnBtnExceptionEntryClick()">
+                @Html.ActionLink(" ", "ExceptionEntry", new { Myself = false }, new { @class = "fa fa-plus-circle", title = "Apply for Exception entry", style = "color:#428bca;font-size:19px" })</span>
+
+                        }
+         </h1>
       
       <div style="clear: both;"></div>
 
@@ -74,6 +79,7 @@
     <div style="color: Red; font-size: 12px">
     @Html.ValidationSummary(true)
     </div>
+    <div class="table-responsive">
    
 <table id="ExceptionEntryList" class="table table-bordered table-striped">  @*Added by Pushkar For datatable on 25 OCT 2016*@
 <thead>
@@ -173,6 +179,7 @@
                 </tfoot>
 
 </table>
+</div>
             }
 
 </div>

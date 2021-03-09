@@ -11,6 +11,7 @@
     <text>Menu</text>
 </span>
 <div class="well">
+<div class="table-responsive">
     <table style="height: 100%; width: 100%;">
         @foreach (var item in Model.Where(s => s.parId == 0))
         {
@@ -90,6 +91,7 @@
             </tr>
         }
     </table>
+    </div>
     <div style="vertical-align: top;" id="UserSpecificdata">
     </div>
 </div>

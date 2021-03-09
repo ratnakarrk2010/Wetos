@@ -2,11 +2,13 @@
 @{
     ViewBag.Title = "Leave Calculation Report";
 }
+ <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 
 <span class="btn blue fa fa-share-square-o"  data-toggle="tooltip" title="Click to Export Leave Data" style="float:right;color:white;margin:5px" onclick="@("window.location.href='" + @Url.Action("ExportData", "WetosReports", new { @FromDate = @ViewBag.FromDate, @ToDate = @ViewBag.ToDate }) + "'")">
 </span>@* <span style="float: left" class="btn btn-default">@Html.ActionLink("Export To Excel", "ExportData", new { @FromDate = @ViewBag.FromDate, @ToDate = @ViewBag.ToDate })</span>
 *@ 
 <span > @ViewBag.ReturnMessage </span>
+<div class="table-responsive">
 <table class="table table-bordered table-striped">
     <tr>
         @* <td></td>*@ @* <td>
@@ -203,3 +205,4 @@
         </tr>
     }
 </table>
+</div>

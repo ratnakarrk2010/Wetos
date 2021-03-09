@@ -1,0 +1,74 @@
+.date_margin {
+    margin-left: 67%;
+}
+
+.form-inline {
+    display: -ms-inline-block;
+    display: inline-block !important;
+}
+
+.table-bordered {
+    box-shadow: 0px 2px 6px #a9b1b8 !important;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    box-shadow: 0px 2px 6px #a9b1b8 !important;
+}
+
+table.table.table-bordered.table-striped>thead {
+    background-color: #c9d1da !important;
+    font-weight: 700;
+    color: #000 !important;
+    height: 30px;
+    vertical-align: middle !important;
+    font-size: 20px !important;
+}
+
+.row {
+    width: 100%;
+}
+
+.form-inline {
+    display: -ms-inline-block !important;
+    display: inline-block !important;
+}
+
+div.dataTables_paginate {
+    margin-top: -3% !important;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 767px) {
+    .table-responsive {
+        border: 0px solid #ddd !important;
+    }
+    .content-header {
+        padding-top: 0% !important;
+    }
+    .page-content-wrapper .page-content {
+        padding: 10px 10px !important;
+        overflow: visible !important;
+    }
+}
+
+@media screen and (min-device-width: 411px) and (max-device-width: 414px) {
+    .page-content-wrapper .page-content {
+        padding: 10px 10px !important;
+        overflow: visible !important;
+    }
+    .content-header {
+        padding-top: 0% !important;
+    }
+}
+
+@media screen and (min-device-width: 767px) and (max-device-width: 1023px) {
+    .content-header {
+        padding-top: 0% !important;
+    }
+    .form-inline .form-control {
+        width: 25% !important;
+    }
+}
+
+@media screen and (min-device-width: 1024px) and (max-device-width: 1200px) {}
+
+@media screen and (min-device-width: 1800px) and (max-device-width: 2100px) {}

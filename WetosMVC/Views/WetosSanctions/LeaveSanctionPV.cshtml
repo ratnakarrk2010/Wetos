@@ -1,8 +1,10 @@
-﻿@model List<WetosDB.SP_LeaveSanctionIndex_Result> 
+﻿<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+@model List<WetosDB.SP_LeaveSanctionIndex_Result> 
 @{int LoginEmployee = Convert.ToInt32(Session["EmployeeNo"]);}
 @{
     int j = 0;
 }
+<div class="table-responsive">
 <table id="LeaveSanctionabc" class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -164,6 +166,7 @@
         </tr>
     </tfoot>
 </table>
+</div>
 <div class="row">
     <input type="hidden" id="hidvalueJ" name="hidvalueJ" value="@j" />
     <input type="hidden" value="@ViewBag.Status" id="hideStatusValue"/>
