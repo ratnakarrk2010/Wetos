@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,21 +8,22 @@
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{466A8C7A-3055-4069-A4A1-7FC6281F704A}</ProjectGuid>
-    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WetosMVC</RootNamespace>
     <AssemblyName>WetosMVC</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
-    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -40,77 +42,80 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="ClosedXML, Version=0.87.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\ClosedXML.dll</HintPath>
-    </Reference>
-    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Common.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Common.Logging.Core.dll</HintPath>
+      <HintPath>..\packages\ClosedXML\ClosedXML.dll</HintPath>
     </Reference>
     <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
-    <Reference Include="MathParser.org-mXparser.Net40, Version=4.1.1.0, Culture=neutral, PublicKeyToken=0fbab7add73ed6e2, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\MathParser.org-mXparser.Net40.dll</HintPath>
+      <HintPath>..\..\..\Wetos-master\WetosMaster\Wetos\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.WebForms.10.0.40219.1\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.10.0.40219.1\Microsoft.ReportViewer.WebForms.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.10.0.40219.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Quartz">
       <HintPath>..\packages\Quartz.2.4.1\lib\net40\Quartz.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.WebPages.Administration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -118,81 +123,9 @@
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.WebRequest">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
-    </Reference>
-    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.3.12153\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
     </Reference>
     <Reference Include="WETOS.Util">
       <HintPath>.\WETOS.Util.dll</HintPath>
@@ -234,6 +167,7 @@
     <Compile Include="Controllers\WetosEmailController.cs" />
     <Compile Include="Controllers\WetosEmployeeController.cs" />
     <Compile Include="Controllers\WetosEmployeeGroupController.cs" />
+    <Compile Include="Controllers\WetosEmployeeManagementController.cs" />
     <Compile Include="Controllers\WetosEmployeeSingleViewController.cs" />
     <Compile Include="Controllers\WetosEmployeeTypeController.cs" />
     <Compile Include="Controllers\WetosErrorMessageController.cs" />
@@ -323,9 +257,205 @@
     <Content Include="bin\WetosMVC.dll" />
     <Content Include="bin\WetosMVC.pdb" />
     <Content Include="Content\AdminLTE.min.css" />
+    <Content Include="Content\allcss\allcss.css" />
+    <Content Include="Content\allcss\empldash.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\components.css" />
+    <Content Include="Content\css\asign_branch_admin.css" />
+    <Content Include="Content\css\asign_shift_create.css" />
+    <Content Include="Content\css\assign_rule_index.css" />
+    <Content Include="Content\css\assign_shift_pattern_index.css" />
+    <Content Include="Content\css\change_password.css" />
+    <Content Include="Content\css\common_setting.css" />
+    <Content Include="Content\css\compoff_application.css" />
+    <Content Include="Content\css\compoff_application1.css" />
+    <Content Include="Content\css\compoff_application_edit.css" />
+    <Content Include="Content\css\compoff_application_index.css" />
+    <Content Include="Content\css\compoff_application_index1.css" />
+    <Content Include="Content\css\compoff_index.css" />
+    <Content Include="Content\css\condon_entry.css" />
+    <Content Include="Content\css\condon_entry_index.css" />
+    <Content Include="Content\css\custome_report_index.css" />
+    <Content Include="Content\css\custome_report_index_hr.css" />
+    <Content Include="Content\css\daily_report_index.css" />
+    <Content Include="Content\css\daily_report_index_hr.css" />
+    <Content Include="Content\css\dataprocessing_for_individual_employee.css" />
+    <Content Include="Content\css\dataTables.bootstrap.css" />
+    <Content Include="Content\css\data_processing.css" />
+    <Content Include="Content\css\declared_holiday_create.css" />
+    <Content Include="Content\css\declared_holiday_edit.css" />
+    <Content Include="Content\css\declared_holiday_index.css" />
+    <Content Include="Content\css\dropdown_data_create.css" />
+    <Content Include="Content\css\dropdown_data_delete.css" />
+    <Content Include="Content\css\dropdown_data_details.css" />
+    <Content Include="Content\css\dropdown_data_edit.css" />
+    <Content Include="Content\css\dropdown_data_index.css" />
+    <Content Include="Content\css\employee_manage_index.css" />
+    <Content Include="Content\css\enhancement_application.css" />
+    <Content Include="Content\css\enhancement_application_edit1.css" />
+    <Content Include="Content\css\enhancement_application_for_other.css" />
+    <Content Include="Content\css\enhancement_index.css" />
+    <Content Include="Content\css\enhancement_index1.css" />
+    <Content Include="Content\css\enhancemnet_application_delete.css" />
+    <Content Include="Content\css\enhancemnet_application_edit.css" />
+    <Content Include="Content\css\exception_entry.css" />
+    <Content Include="Content\css\exception_entry_list_view.css" />
+    <Content Include="Content\css\exception_saction.css" />
+    <Content Include="Content\css\exception_saction_index.css" />
+    <Content Include="Content\css\financial_year_create.css" />
+    <Content Include="Content\css\financial_year_create1.css" />
+    <Content Include="Content\css\financial_year_delete.css" />
+    <Content Include="Content\css\financial_year_details.css" />
+    <Content Include="Content\css\financial_year_edit.css" />
+    <Content Include="Content\css\financial_year_edit1.css" />
+    <Content Include="Content\css\financial_year_index.css" />
+    <Content Include="Content\css\financial_year_index1.css" />
+    <Content Include="Content\css\get_audit_trail.css" />
+    <Content Include="Content\css\global_setting_create.css" />
+    <Content Include="Content\css\global_setting_edit.css" />
+    <Content Include="Content\css\global_setting_index.css" />
+    <Content Include="Content\css\holdsalary_create.css" />
+    <Content Include="Content\css\holdsalary_edit.css" />
+    <Content Include="Content\css\holdsalary_index.css" />
+    <Content Include="Content\css\holdsalary_unhold_story.css" />
+    <Content Include="Content\css\import_data.css" />
+    <Content Include="Content\css\leaveapplication_edit.css" />
+    <Content Include="Content\css\leaveapplication_forother.css" />
+    <Content Include="Content\css\leave_application.css" />
+    <Content Include="Content\css\leave_application1.css" />
+    <Content Include="Content\css\leave_application_edit.css" />
+    <Content Include="Content\css\leave_application_index.css" />
+    <Content Include="Content\css\leave_balance_create.css" />
+    <Content Include="Content\css\leave_balance_edit.css" />
+    <Content Include="Content\css\leave_balance_index.css" />
+    <Content Include="Content\css\leave_credit_create.css" />
+    <Content Include="Content\css\leave_credit_edit.css" />
+    <Content Include="Content\css\leave_credit_index.css" />
+    <Content Include="Content\css\leave_encash_sanction_index.css" />
+    <Content Include="Content\css\leave_sanction_index.css" />
+    <Content Include="Content\css\lnt_daily_report_index.css" />
+    <Content Include="Content\css\lnt_daily_report_index_hr.css" />
+    <Content Include="Content\css\lnt_monthly_report_index.css" />
+    <Content Include="Content\css\lnt_monthly_report_index_hr.css" />
+    <Content Include="Content\css\lnt_report_index.css" />
+    <Content Include="Content\css\lnt_report_index_hr.css" />
+    <Content Include="Content\css\lnt_yearly_report_index.css" />
+    <Content Include="Content\css\lnt_yearly_report_index_hr.css" />
+    <Content Include="Content\css\lock_unlock.css" />
+    <Content Include="Content\css\manual_compoff_create.css" />
+    <Content Include="Content\css\manual_compoff_create1.css" />
+    <Content Include="Content\css\manual_compoff_edit.css" />
+    <Content Include="Content\css\manual_compoff_list.css" />
+    <Content Include="Content\css\manual_compoff_list1.css" />
+    <Content Include="Content\css\manual_co_sanction_index.css" />
+    <Content Include="Content\css\master_report_index.css" />
+    <Content Include="Content\css\monthly_report_index.css" />
+    <Content Include="Content\css\monthly_report_index_hr.css" />
+    <Content Include="Content\css\navmenu_master_create.css" />
+    <Content Include="Content\css\navmenu_master_delete.css" />
+    <Content Include="Content\css\navmenu_master_details.css" />
+    <Content Include="Content\css\navmenu_master_edit.css" />
+    <Content Include="Content\css\navmenu_master_index.css" />
+    <Content Include="Content\css\odttravel_index.css" />
+    <Content Include="Content\css\odttravel_saction_index.css" />
+    <Content Include="Content\css\odt_travel_application.css" />
+    <Content Include="Content\css\odt_travel_edit.css" />
+    <Content Include="Content\css\odt_travel_index.css" />
+    <Content Include="Content\css\pay_slip_report.css" />
+    <Content Include="Content\css\provideright_to_employee_for_login.css" />
+    <Content Include="Content\css\reset_password.css" />
+    <Content Include="Content\css\resignation_application.css" />
+    <Content Include="Content\css\rolenav_menu.css" />
+    <Content Include="Content\css\rule_transaction_create.css" />
+    <Content Include="Content\css\rule_transaction_details.css" />
+    <Content Include="Content\css\rule_transaction_edit.css" />
+    <Content Include="Content\css\rule_transaction_index.css" />
+    <Content Include="Content\css\select_employeefor_upload_documentlist.css" />
+    <Content Include="Content\css\send_auto_through_email.css" />
+    <Content Include="Content\css\shiftpattern_edit.css" />
+    <Content Include="Content\css\shiftpattern_index.css" />
+    <Content Include="Content\css\sql_querycreate.css" />
+    <Content Include="Content\css\sql_query_create.css" />
+    <Content Include="Content\css\sql_query_delete.css" />
+    <Content Include="Content\css\sql_query_edit.css" />
+    <Content Include="Content\css\sql_query_index.css" />
+    <Content Include="Content\css\upload_documents.css" />
+    <Content Include="Content\css\user_right_create.css" />
+    <Content Include="Content\css\user_right_user_list.css" />
+    <Content Include="Content\css\wetosbranch_create.css" />
+    <Content Include="Content\css\wetosbranch_delete.css" />
+    <Content Include="Content\css\wetosbranch_details.css" />
+    <Content Include="Content\css\wetosbranch_edit.css" />
+    <Content Include="Content\css\wetosbranch_index.css" />
+    <Content Include="Content\css\wetoscompany_create.css" />
+    <Content Include="Content\css\wetoscompany_delete.css" />
+    <Content Include="Content\css\wetoscompany_details.css" />
+    <Content Include="Content\css\wetoscompany_edit.css" />
+    <Content Include="Content\css\wetoscompany_index.css" />
+    <Content Include="Content\css\wetosdepartment_create.css" />
+    <Content Include="Content\css\wetosdepartment_delete.css" />
+    <Content Include="Content\css\wetosdepartment_details.css" />
+    <Content Include="Content\css\wetosdepartment_edit.css" />
+    <Content Include="Content\css\wetosdepartment_index.css" />
+    <Content Include="Content\css\wetosdesignation_create.css" />
+    <Content Include="Content\css\wetosdesignation_delete.css" />
+    <Content Include="Content\css\wetosdesignation_details.css" />
+    <Content Include="Content\css\wetosdesignation_edit.css" />
+    <Content Include="Content\css\wetosdesignation_index.css" />
+    <Content Include="Content\css\wetosemployee_type_create.css" />
+    <Content Include="Content\css\wetosemployee_type_delete.css" />
+    <Content Include="Content\css\wetosemployee_type_details.css" />
+    <Content Include="Content\css\wetosemployee_type_edit.css" />
+    <Content Include="Content\css\wetosemployee_type_index.css" />
+    <Content Include="Content\css\wetosgrade_create.css" />
+    <Content Include="Content\css\wetosgrade_delete.css" />
+    <Content Include="Content\css\wetosgrade_details.css" />
+    <Content Include="Content\css\wetosgrade_edit.css" />
+    <Content Include="Content\css\wetosgrade_index.css" />
+    <Content Include="Content\css\wetosholiday_create.css" />
+    <Content Include="Content\css\wetosholiday_delete.css" />
+    <Content Include="Content\css\wetosholiday_details.css" />
+    <Content Include="Content\css\wetosholiday_edit.css" />
+    <Content Include="Content\css\wetosholiday_index.css" />
+    <Content Include="Content\css\wetosleave.css" />
+    <Content Include="Content\css\wetosleave_create.css" />
+    <Content Include="Content\css\wetosleave_delete.css" />
+    <Content Include="Content\css\wetosleave_details.css" />
+    <Content Include="Content\css\wetosleave_edit.css" />
+    <Content Include="Content\css\wetosleave_index.css" />
+    <Content Include="Content\css\wetoslocation_create.css" />
+    <Content Include="Content\css\wetoslocation_delete.css" />
+    <Content Include="Content\css\wetoslocation_details.css" />
+    <Content Include="Content\css\wetoslocation_edit.css" />
+    <Content Include="Content\css\wetoslocation_index.css" />
+    <Content Include="Content\css\wetosreligion_create.css" />
+    <Content Include="Content\css\wetosreligion_delete.css" />
+    <Content Include="Content\css\wetosreligion_details.css" />
+    <Content Include="Content\css\wetosreligion_index.css" />
+    <Content Include="Content\css\wetosreligion_list.css" />
+    <Content Include="Content\css\wetosrole_create.css" />
+    <Content Include="Content\css\wetosrole_delete.css" />
+    <Content Include="Content\css\wetosrole_details.css" />
+    <Content Include="Content\css\wetosrole_edit.css" />
+    <Content Include="Content\css\wetosrole_list.css" />
+    <Content Include="Content\css\wetosshift.css" />
+    <Content Include="Content\css\wetosshift_create1.css" />
+    <Content Include="Content\css\wetosshift_delete.css" />
+    <Content Include="Content\css\wetosshift_details.css" />
+    <Content Include="Content\css\wetosshift_edit.css" />
+    <Content Include="Content\css\wetosshift_index.css" />
+    <Content Include="Content\css\wetosshift_index1.css" />
+    <Content Include="Content\css\wetos_employee_allemployee.css" />
+    <Content Include="Content\css\wetos_employee_create.css" />
+    <Content Include="Content\css\wetos_employee_details.css" />
+    <Content Include="Content\css\wetos_employee_edit.css" />
+    <Content Include="Content\css\wetos_employee_group_create.css" />
+    <Content Include="Content\css\wetos_employee_group_delete.css" />
+    <Content Include="Content\css\wetos_employee_group_details.css" />
+    <Content Include="Content\css\wetos_employee_group_edit.css" />
+    <Content Include="Content\css\wetos_employee_group_index.css" />
+    <Content Include="Content\css\wetos_employee_index.css" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\dataTables.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
@@ -494,6 +624,46 @@
     <Content Include="Content\fullcalendar.print.css" />
     <Content Include="Content\fullcalendar.print.min.css" />
     <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\icon\193-1936036_3d-man-icon-png.png" />
+    <Content Include="Content\images\icon\alarm-clock-png.png" />
+    <Content Include="Content\images\icon\bell-xxl.png" />
+    <Content Include="Content\images\icon\bell.jpeg" />
+    <Content Include="Content\images\icon\bell_electric.jpg" />
+    <Content Include="Content\images\icon\bell_icon.png" />
+    <Content Include="Content\images\icon\calendar-icon.png" />
+    <Content Include="Content\images\icon\calender.jpeg" />
+    <Content Include="Content\images\icon\chart_icon.png" />
+    <Content Include="Content\images\icon\check_icon.jpg" />
+    <Content Include="Content\images\icon\clock-face.png" />
+    <Content Include="Content\images\icon\download.jpg" />
+    <Content Include="Content\images\icon\edit_icon.png" />
+    <Content Include="Content\images\icon\envelope_icon.png" />
+    <Content Include="Content\images\icon\female_user.png" />
+    <Content Include="Content\images\icon\female_user1.png" />
+    <Content Include="Content\images\icon\file_icon.jpg" />
+    <Content Include="Content\images\icon\home-icon-blue.png" />
+    <Content Include="Content\images\icon\home.png" />
+    <Content Include="Content\images\icon\home_1.png" />
+    <Content Include="Content\images\icon\imageedit.png" />
+    <Content Include="Content\images\icon\imageedit_1.png" />
+    <Content Include="Content\images\icon\imageedit_12.png" />
+    <Content Include="Content\images\icon\imageedit_21.png" />
+    <Content Include="Content\images\icon\imageedit_38.png" />
+    <Content Include="Content\images\icon\imageedit_42.png" />
+    <Content Include="Content\images\icon\imageedit_49.png" />
+    <Content Include="Content\images\icon\imageedit_61.png" />
+    <Content Include="Content\images\icon\images.jpg" />
+    <Content Include="Content\images\icon\images.png" />
+    <Content Include="Content\images\icon\kisspng-blue-bell.jpg" />
+    <Content Include="Content\images\icon\MALE.png" />
+    <Content Include="Content\images\icon\male_user.png" />
+    <Content Include="Content\images\icon\time.png" />
+    <Content Include="Content\images\icon\tree.png" />
+    <Content Include="Content\images\icon\user2.jpg" />
+    <Content Include="Content\images\icon\user3.jpg" />
+    <Content Include="Content\images\icon\users.png" />
+    <Content Include="Content\images\icon\user_icon.png" />
+    <Content Include="Content\images\icon\user_new.jpeg" />
     <Content Include="Content\ionicons.css" />
     <Content Include="Content\jquery-ui-1.8.17.custom.css" />
     <Content Include="Content\layout.css" />
@@ -557,6 +727,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\_all-skins.min.css" />
+    <Content Include="ErrorLog\myFile - Copy.txt" />
+    <Content Include="ErrorLog\myFile.txt" />
     <Content Include="Filters\ErrorLog\myFile.txt" />
     <Content Include="Extensions\WETOS.Util.dll" />
     <Content Include="favicon.ico" />
@@ -566,9 +738,37 @@
     <Content Include="Images\12.jpg" />
     <Content Include="Images\34.jpg" />
     <Content Include="Images\67.jpg" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\ajax-loader%281%29.gif" />
+    <Content Include="Images\birthdaybackground.jpg" />
+    <Content Include="Images\birthdaycake.jpg" />
+    <Content Include="Images\bullet.png" />
     <Content Include="Images\Companylogo.jpg" />
     <Content Include="Images\Companylogo.png" />
+    <Content Include="Images\Companylogobackup.png" />
+    <Content Include="Images\Correct.png" />
+    <Content Include="Images\featured-image3-1.jpg" />
+    <Content Include="Images\flashing_new.gif" />
+    <Content Include="Images\hero-bg.jpg" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo_STPL.png" />
+    <Content Include="Images\new.gif" />
+    <Content Include="Images\new_icon_blink.gif" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
     <Content Include="Images\tekman-250x250.jpg" />
+    <Content Include="Images\userimage.jpg" />
+    <Content Include="Images\UserImageGirl.jpg" />
+    <Content Include="Images\Wrong.jpeg" />
     <Content Include="Scripts\app.min.js" />
     <Content Include="Scripts\BarChart.js" />
     <Content Include="Scripts\basic.js" />
@@ -893,19 +1093,6 @@
     </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Images\accent.png" />
-    <Content Include="Images\bullet.png" />
-    <Content Include="Images\heroAccent.png" />
-    <Content Include="Images\orderedList0.png" />
-    <Content Include="Images\orderedList1.png" />
-    <Content Include="Images\orderedList2.png" />
-    <Content Include="Images\orderedList3.png" />
-    <Content Include="Images\orderedList4.png" />
-    <Content Include="Images\orderedList5.png" />
-    <Content Include="Images\orderedList6.png" />
-    <Content Include="Images\orderedList7.png" />
-    <Content Include="Images\orderedList8.png" />
-    <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
@@ -1380,6 +1567,14 @@
     <Content Include="Views\WetosEmployeeSingleView\AllEmployees.cshtml" />
     <Content Include="Views\WetosEmployeeSingleView\Create.cshtml" />
     <Content Include="Views\Home\PhotoCapture.cshtml" />
+    <Content Include="Views\WetosEmployeeManagement\GetListOfActiveEmployee.cshtml" />
+    <Content Include="Views\WetosEmployeeManagement\HRLetters.cshtml" />
+    <Content Include="Views\WetosEmployeeManagement\Index.cshtml" />
+    <Content Include="Views\WetosEmployeeManagement\ResignationApplication.cshtml" />
+    <Content Include="Views\WetosEmployeeManagement\ResignationApplicationforSelectedEmployee.cshtml" />
+    <Content Include="Views\WetosEmployeeManagement\ResignEmployee.cshtml" />
+    <Content Include="Views\RoleNavMenu\BranchAdminPartialList.cshtml" />
+    <Content Include="Views\RoleNavMenu\EditBranchAdmin.cshtml" />
     <None Include="Views\WetosEmployeeSingleView\Create.cshtml.bak" />
     <Content Include="Views\WetosEmployeeSingleView\Details.cshtml" />
     <Content Include="Views\WetosEmployeeSingleView\Edit.cshtml" />
@@ -1469,7 +1664,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50806</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50806/</IISUrl>
+          <IISUrl>http://localhost/WetosMVCMainApp</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

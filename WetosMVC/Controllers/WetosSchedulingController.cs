@@ -69,7 +69,7 @@ namespace WetosMVC.Controllers
                     AuditLogObj.FormName = "SYSTEM";
                     AuditLogObj.AuditMode = "Error in Posting Attendance:";
                     AuditLogObj.NewRecord = ErrorMessage.Length > 1000 ? ErrorMessage.Substring(0, 990) : ErrorMessage; // ADDED BY MSJ ON 11 JAN 2018
-                    WetosDB.AuditLogs.AddObject(AuditLogObj);
+                    WetosDB.AuditLogs.Add(AuditLogObj);
                     WetosDB.SaveChanges();
                 }
 
@@ -82,7 +82,7 @@ namespace WetosMVC.Controllers
                 AuditLogObj.FormName = "SYSTEM";
                 AuditLogObj.AuditMode = "Exception Occured:";
                 AuditLogObj.NewRecord = ex.Message;
-                WetosDB.AuditLogs.AddObject(AuditLogObj);
+                WetosDB.AuditLogs.Add(AuditLogObj);
                 WetosDB.SaveChanges();
             }
         }
@@ -104,7 +104,7 @@ namespace WetosMVC.Controllers
             AuditLogObj.FormName = "SYSTEM";
             AuditLogObj.AuditMode = "EMAIL SCHEDULING";
             AuditLogObj.NewRecord = "EMAIL IS SENT";
-            WetosDB.AuditLogs.AddObject(AuditLogObj);
+            WetosDB.AuditLogs.Add(AuditLogObj);
             WetosDB.SaveChanges();
             //ADDED CODE BY SHRADDHA ON 16 SEP 2017 END
         }
@@ -132,7 +132,7 @@ namespace WetosMVC.Controllers
                 AuditLogObj.FormName = "SYSTEM";
                 AuditLogObj.AuditMode = "SCHEDULER START";
                 AuditLogObj.NewRecord = "SCHEDULER START";
-                WetosDB.AuditLogs.AddObject(AuditLogObj);
+                WetosDB.AuditLogs.Add(AuditLogObj);
                 WetosDB.SaveChanges();
                 //string ScheduleFlag = WetosDB.GlobalSettings.Where(a => a.SettingText == "DefaultSchedule").Select(a => a.SettingValue).FirstOrDefault();
                 //if (ScheduleFlag == "1")
@@ -154,7 +154,7 @@ namespace WetosMVC.Controllers
                     AuditLogObj2.FormName = "SYSTEM";
                     AuditLogObj2.AuditMode = "SCHEDULER ON";
                     AuditLogObj2.NewRecord = "SCHEDULER START";
-                    WetosDB.AuditLogs.AddObject(AuditLogObj2);
+                    WetosDB.AuditLogs.Add(AuditLogObj2);
                     WetosDB.SaveChanges();
                     scheduler.Start();
 
@@ -199,7 +199,7 @@ namespace WetosMVC.Controllers
                         AuditLogObj3.FormName = "SYSTEM";
                         AuditLogObj3.AuditMode = "POSTING SCHEDULING ON";
                         AuditLogObj3.NewRecord = "POSTING SCHEDULER START";
-                        WetosDB.AuditLogs.AddObject(AuditLogObj3);
+                        WetosDB.AuditLogs.Add(AuditLogObj3);
                         WetosDB.SaveChanges();
                     }
                     // Added by Rajas on 30 AUGUST 2017 END
@@ -240,7 +240,7 @@ namespace WetosMVC.Controllers
                             AuditLogObj4.FormName = "SYSTEM";
                             AuditLogObj4.AuditMode = "EMAIL SCHEDULING ON";
                             AuditLogObj4.NewRecord = "EMAIL SCHEDULER START";
-                            WetosDB.AuditLogs.AddObject(AuditLogObj4);
+                            WetosDB.AuditLogs.Add(AuditLogObj4);
                             WetosDB.SaveChanges();
                         }
                     }
@@ -260,7 +260,7 @@ namespace WetosMVC.Controllers
                     AuditLogObj4.FormName = "SYSTEM";
                     AuditLogObj4.AuditMode = "SCHEDULING START EXCEPTION:";
                     AuditLogObj4.NewRecord = ex.Message;
-                    WetosDB.AuditLogs.AddObject(AuditLogObj4);
+                    WetosDB.AuditLogs.Add(AuditLogObj4);
                     WetosDB.SaveChanges();
                     //throw; // COMMENTED BY MSJ
                 }

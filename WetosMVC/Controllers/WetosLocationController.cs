@@ -398,7 +398,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.Locations.AddObject(LocationTblObj);
+                    WetosDB.Locations.Add(LocationTblObj);
                 }
 
                 WetosDB.SaveChanges();

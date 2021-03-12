@@ -78,7 +78,7 @@ namespace WetosMVC.Controllers
         {
             try
             {
-                WetosDB.ShiftRotations.AddObject(NewShiftRotation);
+                WetosDB.ShiftRotations.Add(NewShiftRotation);
                 WetosDB.SaveChanges();
 
                 AddAuditTrail("New shift group added");

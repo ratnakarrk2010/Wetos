@@ -6,6 +6,7 @@
 }
 @{var EmployeeGroupId = ViewBag.EmployeeGroupId;}
 <div style="height: 50%; overflow-y: scroll;">
+<div class="table-responsive">
     <table>
         <tr>
             <th colspan="2" style="font-size: 20px; text-align: center; border-bottom: solid 1px;">
@@ -47,6 +48,7 @@
                     i = i + 1;
         }
     </table>
+    </div>
 </div>
 <input type="hidden" id="hidvalue" name="hidvalue" value="@i" />
 <script type="text/javascript">

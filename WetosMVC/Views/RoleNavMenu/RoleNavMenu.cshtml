@@ -1,68 +1,41 @@
 ﻿@*Added by Shalaka on 27th DEC 2017 -- Start*@
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
-<style type="text/css">
-    #page_content
-    {
-        padding: 7px !important;
-    }
-    
-    h1
-    {
-        font-size: 20px !important;
-        margin-top: 0px !important;
-    }
-    
-    .float
-    {
-        position: fixed;
-        width: 60px;
-        height: 60px;
-        bottom: 60px;
-        right: 40px;
-        color: #FFF;
-        text-align: center;
-    }
-    
-    .float_reset
-    {
-        position: fixed;
-        width: 60px;
-        height: 60px;
-        bottom: 20px;
-        right: 40px;
-        color: #FFF;
-        text-align: center;
-    }
-    
-    .my-float
-    {
-        font-size: 24px;
-        margin-top: 18px;
-    }
-</style>
+<link href="~/Content/css/rolenav_menu.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
 @*Added by Shalaka on 27th DEC 2017 -- Start*@ @*Added by Shalaka on 27th DEC 2017 to solve alignment issue--- Start*@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content-wrapper">
         <h1>
             Assign Role to User
         </h1>
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="page-breadcrumb breadcrumb">
-                    <li><i class="fa fa-home"></i><a href="@Url.Action("Index", "Home")">Home </a><i
-                        class="fa fa-angle-right"></i></li>
-                    <li><a href="#">Administration</a> <i class="fa fa-angle-right"></i></li>
-                    <li><a href="#">Assign Role</a> <i class="fa fa-angle-right"></i></li>
-                    <li class="pull-right">
-                        <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
-                            <span style="cursor: pointer" class="back " id="goback"><i class="fa fa-arrow-left">
-                            </i></span><i class="fa fa-calendar"></i><span>@DateTime.Now.ToLongDateString()</span>
-                        </div>
-                    </li>
-                </ul>
+        
+        <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Administration</a> <i class="fa fa-angle-right"></i></li>
+                    <li class="li_margin"><a href="#">Assign Role</a> <i class="fa fa-angle-right"></i></li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
         <br />
         @using (Html.BeginForm("RoleNavMenu", "RoleNavMenu", FormMethod.Post, new { @class = "form-horizontal" }))
         {

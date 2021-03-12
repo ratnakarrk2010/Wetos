@@ -31,6 +31,7 @@
                     <div class="col-md-9">
                         @Html.DropDownListFor(a => a.ToEmpTypeId, (IEnumerable<SelectListItem>)ViewBag.MessageSendToList, "Select", new { @class = "form-control select2", id = "ToEmpTypeId", @name = "ToEmpTypeId" })
                     </div>
+                    <div id="ToEmpTypeIdmsg" style="color:red"></div>
                 </div>
                 <div class="form-group" id="IndividualEmployees" style="display: none">
                     <label class="col-md-3 control-label">
@@ -39,6 +40,7 @@
                     <div class="col-md-9">
                         @Html.DropDownListFor(a => a.ToEmpId, (IEnumerable<SelectListItem>)ViewBag.EmployeeList, "Select", new { @class = "form-control select2", id = "ToEmpId", @name = "ToEmpId" })
                     </div>
+                    <div id="ToEmpIdmsg" style="color:red"></div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-3 control-label">
@@ -48,11 +50,12 @@
                         @Html.DropDownListFor(a => a.MessageSubject, (IEnumerable<SelectListItem>)ViewBag.MessageSubjectList, "Select", new { @class = "form-control select2", id = "MessageSubject", @name = "MessageSubject" })
                         @*  @Html.TextBoxFor(a => a.MessageSubject, new { @placeholder = "Message Subject", @name = "MessageSubject", @class = "form-control input-sm" })*@
                         @*<input class="form-control input-sm" placeholder="Message Subject" type="text" id="txtmsgsubject"
-                        name="txtmsgsubject" />*@
+            name="txtmsgsubject" />*@
                         <br />
                         <input class="form-control input-sm" style="display: none" placeholder="Please enter message subject here"
-                            type="text" id="MessageSubjectText" name="MessageSubjectText" />
+                               type="text" id="MessageSubjectText" name="MessageSubjectText" />
                     </div>
+                    <div id="idMessageSubject" style="color:red"></div>
                 </div>
                 @*  <div class="form-group">
                 <label class="col-md-2 control-label">
@@ -61,19 +64,20 @@
                     @Html.DropDownList("msgType", null, "--Select--", new { @class = "form-control input-sm" })
                 </div>
             </div>*@
-                <div class="form-group">
-                    <label class="col-md-3 control-label">
-                        Message
-                    </label>
-                    <div class="col-md-9">
-                        @Html.TextAreaFor(a => a.MessageContent, 10, 80, new { @placeholder = "Message Content", @name = "MessageContent", @class = "form-control input-sm" })
-                        @*<textarea class="form-control" name="editor1" id="txtmsgcontent" rows="10" cols="80">*@
-                        @*<textarea class="form-control" rows="5" style="resize: none" id="txtmsgcontent" name="txtmsgcontent"></textarea>*@
-                    </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">
+                    Message
+                </label>
+                <div class="col-md-9">
+                    @Html.TextAreaFor(a => a.MessageContent, 10, 80, new { @placeholder = "Message Content", @name = "MessageContent", @class = "form-control input-sm" })
+                    @*<textarea class="form-control" name="editor1" id="txtmsgcontent" rows="10" cols="80">*@
+                    @*<textarea class="form-control" rows="5" style="resize: none" id="txtmsgcontent" name="txtmsgcontent"></textarea>*@
                 </div>
+                <div id="idMessageContent" style="color:red"></div>
+            </div>
                 <div class="form-actions fluid">
                     <div class="col-md-offset-2 col-md-9">
-                        <button type="submit" id="BtnSubmit" class="btn btn-md green">
+                        <button type="button" id="BtnSubmit" class="btn btn-md green">
                             Send Message
                         </button>
                         @*ADDED CODE BY SHRADDHA ON 23 JAN 2017 FOR SENDING EMAIL START*@
@@ -91,6 +95,7 @@
 <script type="text/javascript">
 
     function SendMessage() {
+        debugger;
         var ToEmpTypeId = $("#ToEmpTypeId").val();
         alert(ToEmpTypeId);
         var MessageSubject = $("#MessageSubject").val();
@@ -103,6 +108,10 @@
         alert(MessageSubjectText);
         var ToEmpId = $("#ToEmpId").val();
         alert(ToEmpId);
+        if (ToEmpTypeId == "") {
+            alert("please select dropdown");
+        }
+
         //        $.ajax({
         //            url: '@Url.Content("~/Home/SendMessage")',
         //            type: "POST",
@@ -129,6 +138,11 @@
         });
     }
     $(document).ready(function () {
+
+        $("ToEmpTypeIdmsg").html("");
+        $("idMessageSubject").html("");    
+        $("idMessageContent").html("");
+
         $("#IndividualEmployees").css("display", "none");
         $("#MessageSubjectText").css("display", "none");
         var ToEmpTypeId = $("#ToEmpTypeId").val();
@@ -141,6 +155,8 @@
     });
 
     $("#ToEmpTypeId").change(function () {
+        $("#ToEmpTypeIdmsg").html("");
+       
         var ToEmpTypeId = $("#ToEmpTypeId").val();
         if (ToEmpTypeId == 5) {
             $("#IndividualEmployees").css("display", "inline");
@@ -174,6 +190,7 @@
     });
 
     $("#MessageSubject").change(function () {
+        $("#idMessageSubject").html("");
         var ToEmpTypeId = $("#MessageSubject").val();
         if (ToEmpTypeId == 2) {
             $("#MessageSubjectText").css("display", "inline");
@@ -183,7 +200,17 @@
         }
     });
 
-    
+    $("#MessageContent").keyup(function () {
+        var msg3 = "Please Enter Message";
+        if (this.val == "") {
+            $("#idMessageContent").html(msg3);
+
+        }
+        else {
+            $("#idMessageContent").html("");
+        }
+
+    });
 </script>
 <script type="text/javascript">
     $(function () {
@@ -197,24 +224,106 @@
 </script>
 @*ADDED SCRIPT BY SHRADDHA ON 23 JAN 2017 FOR SENDING EMAIL START*@
 <script type="text/javascript">
+
     $("#SendEmail").click(function () {
+        debugger;
+        var msg1 = "Please select Proper value";
+        var msg2 = "Please select Subject";
+        var msg3 = "Please Enter Message";
         var ToEmpId = $("#ToEmpId").val();
         var message = $("#MessageContent").val();
         var subject = $("#MessageSubject").val();
         // alert();
-        $.ajax({
-            url: "~/WetosEmail/SendEmail",
-            type: "Get",
-            //datatype: "json",
-            data: { sel_messageto: ToEmpId, subject: subject, message: message },
-            success: function (data) {
+        var ToEmpTypeId = $("#ToEmpTypeId").val();
+        if (ToEmpTypeId != "" && message != "" && subject != "") {
+            $.ajax({
+                url: "~/WetosEmail/SendEmail",
+                type: "Get",
+                //datatype: "json",
+                data: { sel_messageto: ToEmpId, subject: subject, message: message },
+                success: function (data) {
 
-            },
-            error: function (data) {
+                },
+                error: function (data) {
+
+                }
+            });
+        }
+        else {
+            if (ToEmpId == "") {
+                $("#ToEmpTypeIdmsg").html(msg1);
+            }
+            else {
+                $("#ToEmpTypeIdmsg").html("");
+            }
+
+            if (subject == "") {
+                $("#idMessageSubject").html(msg2);
 
             }
-        });
-    });
+            else {
+                $("#idMessageSubject").html("");
+            }
 
+            if (message == "") {
+                $("#idMessageContent").html(msg3);
+
+            }
+            else {
+                $("#idMessageContent").html("");
+            }
+        }
+    });
+    $("#BtnSubmit").click(function () {
+        debugger;
+        var msg1 = "Please select Proper value";
+        var msg2 = "Please select Subject";
+        var msg3 = "Please Enter Message";
+        var ToEmpTypeId = $("#ToEmpTypeId").val();
+        var MessageSubject = $("#MessageSubject").val();
+        var MessageContent = $("#MessageContent").val();
+        var FromEmpId = $("#FromEmpId").val();
+        var MessageSubjectText = $("#MessageSubjectText").val();
+        var ToEmpId = $("#ToEmpId").val();
+
+        if (ToEmpTypeId != "" && MessageSubject != "" && MessageContent != "") {
+            $.ajax({
+                url: '@Url.Content("~/Home/SendMessage")',
+                type: "Get",
+                //datatype: "json",
+                data: { ToEmpTypeId: ToEmpTypeId, MessageSubject: MessageSubject, MessageContent: MessageContent, FromEmpId: FromEmpId, MessageSubjectText: MessageSubjectText, ToEmpId: ToEmpId },
+                success: function (data) {
+                    window.location.href = "@Url.Action("Index")";
+                },
+                error: function (data) {
+
+                }
+            });
+        }
+        else {
+            if (ToEmpTypeId == "") {
+                $("#ToEmpTypeIdmsg").html(msg1);
+            }
+            else {
+                $("#ToEmpTypeIdmsg").html("");
+            }
+
+            if (MessageSubject == "") {
+                $("#idMessageSubject").html(msg2);
+
+            }
+            else {
+                $("#idMessageSubject").html("");
+            }
+
+            if (MessageContent == "") {
+                $("#idMessageContent").html(msg3);
+            }
+            else {
+                $("#idMessageContent").html("");
+            }
+
+        }
+    });
 </script>
 @*ADDED SCRIPT BY SHRADDHA ON 23 JAN 2017 FOR SENDING EMAIL END*@ 

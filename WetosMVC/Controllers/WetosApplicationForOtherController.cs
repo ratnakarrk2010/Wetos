@@ -661,7 +661,7 @@ namespace WetosMVC.Controllers
                         NotificationObj.ReadFlag = false;
                         NotificationObj.SendDate = DateTime.Now;
 
-                        WetosDB.Notifications.AddObject(NotificationObj);
+                        WetosDB.Notifications.Add(NotificationObj);
 
                         WetosDB.SaveChanges();
 
@@ -675,7 +675,7 @@ namespace WetosMVC.Controllers
                         NotificationObj2.ReadFlag = false;
                         NotificationObj2.SendDate = DateTime.Now;
 
-                        WetosDB.Notifications.AddObject(NotificationObj2);
+                        WetosDB.Notifications.Add(NotificationObj2);
 
                         WetosDB.SaveChanges();
 
@@ -1372,7 +1372,7 @@ namespace WetosMVC.Controllers
                         COMPOFFAPPLICATIONObj.Status = WetosDB.DropdownDatas.Where(a => a.TypeId == 3 && a.Value == CompOffModelObj.StatusId).Select(a => a.Text).FirstOrDefault();
                         //Added By Shraddha on 12 DEC 2016 for taking Status along with statusId End
 
-                        WetosDB.CompOffApplications.AddObject(COMPOFFAPPLICATIONObj);
+                        WetosDB.CompOffApplications.Add(COMPOFFAPPLICATIONObj);
 
                         WetosDB.SaveChanges();
 
@@ -1422,7 +1422,7 @@ namespace WetosMVC.Controllers
                         //NotificationObj.ReadFlag = false;
                         //NotificationObj.SendDate = DateTime.Now;
 
-                        //WetosDB.Notifications.AddObject(NotificationObj);
+                        //WetosDB.Notifications.Add(NotificationObj);
 
                         //WetosDB.SaveChanges();
 
@@ -1440,7 +1440,7 @@ namespace WetosMVC.Controllers
                         //    NotificationObj3.ReadFlag = false;
                         //    NotificationObj3.SendDate = DateTime.Now;
 
-                        //    WetosDB.Notifications.AddObject(NotificationObj3);
+                        //    WetosDB.Notifications.Add(NotificationObj3);
 
                         //    WetosDB.SaveChanges();
                         //}
@@ -1455,7 +1455,7 @@ namespace WetosMVC.Controllers
                         //NotificationObj2.ReadFlag = false;
                         //NotificationObj2.SendDate = DateTime.Now;
 
-                        //WetosDB.Notifications.AddObject(NotificationObj2);
+                        //WetosDB.Notifications.Add(NotificationObj2);
 
                         //WetosDB.SaveChanges();
 
@@ -1468,7 +1468,7 @@ namespace WetosMVC.Controllers
                         NotificationObj.ReadFlag = false;
                         NotificationObj.SendDate = DateTime.Now;
 
-                        WetosDB.Notifications.AddObject(NotificationObj);
+                        WetosDB.Notifications.Add(NotificationObj);
 
                         WetosDB.SaveChanges();
 
@@ -1841,7 +1841,7 @@ namespace WetosMVC.Controllers
                 ExceptionTbleObj.LoginTime = LoginDate;
                 ExceptionTbleObj.LogOutTime = LogOutDate;
 
-                WetosDB.ExceptionEntries.AddObject(ExceptionTbleObj);
+                WetosDB.ExceptionEntries.Add(ExceptionTbleObj);
 
                 WetosDB.SaveChanges();
 
@@ -1859,7 +1859,7 @@ namespace WetosMVC.Controllers
                 //NotificationObj.ReadFlag = false;
                 //NotificationObj.SendDate = DateTime.Now;
 
-                //WetosDB.Notifications.AddObject(NotificationObj);
+                //WetosDB.Notifications.Add(NotificationObj);
 
                 //WetosDB.SaveChanges();
 
@@ -1877,7 +1877,7 @@ namespace WetosMVC.Controllers
                 //    NotificationObj3.ReadFlag = false;
                 //    NotificationObj3.SendDate = DateTime.Now;
 
-                //    WetosDB.Notifications.AddObject(NotificationObj3);
+                //    WetosDB.Notifications.Add(NotificationObj3);
 
                 //    WetosDB.SaveChanges();
                 //}
@@ -1892,7 +1892,7 @@ namespace WetosMVC.Controllers
                 //NotificationObj2.ReadFlag = false;
                 //NotificationObj2.SendDate = DateTime.Now;
 
-                //WetosDB.Notifications.AddObject(NotificationObj2);
+                //WetosDB.Notifications.Add(NotificationObj2);
 
                 //WetosDB.SaveChanges();
 
@@ -1905,7 +1905,7 @@ namespace WetosMVC.Controllers
                 NotificationObj.ReadFlag = false;
                 NotificationObj.SendDate = DateTime.Now;
 
-                WetosDB.Notifications.AddObject(NotificationObj);
+                WetosDB.Notifications.Add(NotificationObj);
 
                 WetosDB.SaveChanges();
 
@@ -2202,7 +2202,7 @@ namespace WetosMVC.Controllers
                     ExceptionTbleObj.LoginTime = LoginDate;
                     ExceptionTbleObj.LogOutTime = LogOutDate;
 
-                    // WetosDB.Exceptions.AddObject(ExceptionTbleObj);
+                    // WetosDB.Exceptions.Add(ExceptionTbleObj);
 
                     WetosDB.SaveChanges();
 
@@ -2220,7 +2220,7 @@ namespace WetosMVC.Controllers
                     NotificationObj.ReadFlag = false;
                     NotificationObj.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj);
+                    WetosDB.Notifications.Add(NotificationObj);
 
                     WetosDB.SaveChanges();
 
@@ -2234,7 +2234,7 @@ namespace WetosMVC.Controllers
                     NotificationObj2.ReadFlag = false;
                     NotificationObj2.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj2);
+                    WetosDB.Notifications.Add(NotificationObj2);
 
                     WetosDB.SaveChanges();
 
@@ -2520,7 +2520,7 @@ namespace WetosMVC.Controllers
                                     LeaveEncashObj.StatusId = 1;
                                     LeaveEncashObj.EncashDate = DateTime.Now;
 
-                                    WetosDB.LeaveEncashes.AddObject(LeaveEncashObj);
+                                    WetosDB.LeaveEncashes.Add(LeaveEncashObj);
 
                                     WetosDB.SaveChanges();
 
@@ -2538,7 +2538,7 @@ namespace WetosMVC.Controllers
                                     NotificationObj.ReadFlag = false;
                                     NotificationObj.SendDate = DateTime.Now;
 
-                                    WetosDB.Notifications.AddObject(NotificationObj);
+                                    WetosDB.Notifications.Add(NotificationObj);
 
                                     WetosDB.SaveChanges();
 
@@ -2552,7 +2552,7 @@ namespace WetosMVC.Controllers
                                     NotificationObj2.ReadFlag = false;
                                     NotificationObj2.SendDate = DateTime.Now;
 
-                                    WetosDB.Notifications.AddObject(NotificationObj2);
+                                    WetosDB.Notifications.Add(NotificationObj2);
 
                                     WetosDB.SaveChanges();
 
@@ -2703,7 +2703,7 @@ namespace WetosMVC.Controllers
                     NotificationObj.ReadFlag = false;
                     NotificationObj.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj);
+                    WetosDB.Notifications.Add(NotificationObj);
 
                     WetosDB.SaveChanges();
 
@@ -2717,7 +2717,7 @@ namespace WetosMVC.Controllers
                     NotificationObj2.ReadFlag = false;
                     NotificationObj2.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj2);
+                    WetosDB.Notifications.Add(NotificationObj2);
 
                     WetosDB.SaveChanges();
 
@@ -2823,7 +2823,7 @@ namespace WetosMVC.Controllers
         public ActionResult EncashmentApplicationDelete(WetosDB.LeaveEncash LeaveEncashDeleteObj)
         {
             LeaveEncash LeaveEncashObj = WetosDB.LeaveEncashes.Where(a => a.LeaveEncashId == LeaveEncashDeleteObj.LeaveEncashId).FirstOrDefault();
-            WetosDB.LeaveEncashes.DeleteObject(LeaveEncashObj);
+            WetosDB.LeaveEncashes.Add(LeaveEncashObj);
             WetosDB.SaveChanges();
 
 

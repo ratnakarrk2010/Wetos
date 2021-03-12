@@ -177,7 +177,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.RoleDefs.AddObject(RoleDefTblObj);
+                    WetosDB.RoleDefs.Add(RoleDefTblObj);
                 }
 
                 // Added for saving the company master model to company table object, by Rajas on 29 DEC 2016 END

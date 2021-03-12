@@ -58,7 +58,7 @@ namespace WetosMVC.Controllers
                 sqlquery.SqlQueryDescription = sqlqueryModel.SqlQueryDescription;
                 sqlquery.SqlQuery1 = sqlqueryModel.SqlQuery;
                 sqlquery.Status = 1;
-                WetosDB.SqlQueries.AddObject(sqlquery);
+                WetosDB.SqlQueries.Add(sqlquery);
                 WetosDB.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -144,7 +144,7 @@ namespace WetosMVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             SqlQuery sqlquery = WetosDB.SqlQueries.Single(s => s.SqlQueryId == id);
-            WetosDB.SqlQueries.DeleteObject(sqlquery);
+            WetosDB.SqlQueries.Add(sqlquery);
             WetosDB.SaveChanges();
             return RedirectToAction("Index");
         }

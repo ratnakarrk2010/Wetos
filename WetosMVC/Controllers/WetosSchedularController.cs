@@ -56,7 +56,7 @@ namespace WetosMVC.Controllers
                     SchedularObj.EndTime = Convert.ToDateTime(SchedularModelObj.EndTime);
                     SchedularObj.FrequencyInMin = SchedularModelObj.FrequencyInMin;
                     SchedularObj.RepeatCycle = SchedularModelObj.RepeatCycle;
-                    WetosDB.Schedulars.AddObject(SchedularObj);
+                    WetosDB.Schedulars.Add(SchedularObj);
                     WetosDB.SaveChanges();
                     return RedirectToAction("Index");
                 }

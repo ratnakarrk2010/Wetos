@@ -377,15 +377,15 @@ namespace WetosMVC.Controllers
             ViewBag.femalepresent = 0;
             ViewBag.total = 0;
             int Total = WetosDB.DailyTransactions.Where(y => y.TranDate.Day == DateTime.Now.Day
-                                      && y.TranDate.Month == DateTime.Now.Month && y.TranDate.Year == DateTime.Now.Year && !y.Status.Contains("A")).Count();
+                                      && y.TranDate.Month == DateTime.Now.Month && y.TranDate.Year == DateTime.Now.Year && !y.Status.Contains("AAAA")).Count();
             if (Total > 0)
             {
                 ViewBag.total = Total;
             }
             int FemalePresentCount = (from y in WetosDB.DailyTransactions
                                       join z in WetosDB.Employees on y.EmployeeId equals z.EmployeeId
-                                      where ((z.Gender.ToUpper().Trim() == "FEMALE" || z.Gender.Trim() == "F") && y.TranDate.Day == DateTime.Now.Day
-                                      && y.TranDate.Month == DateTime.Now.Month && y.TranDate.Year == DateTime.Now.Year && !y.Status.Contains("A")
+                                      where ((z.Gender.ToUpper().Trim() == "FEMALE" || z.Gender.Trim() == "F") && (y.TranDate.Day == DateTime.Now.Day
+                                      && y.TranDate.Month == DateTime.Now.Month && y.TranDate.Year == DateTime.Now.Year) && (y.Status !="AAAA")
                                       )
                                       select y).Count();
             if (FemalePresentCount > 0)

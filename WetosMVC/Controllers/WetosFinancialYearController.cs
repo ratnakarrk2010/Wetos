@@ -294,7 +294,7 @@ namespace WetosMVC.Controllers
 
                     if (IsNew)
                     {
-                        WetosDB.FinancialYears.AddObject(CurrentFY);
+                        WetosDB.FinancialYears.Add(CurrentFY);
                     }
 
                     WetosDB.SaveChanges();
@@ -371,7 +371,7 @@ namespace WetosMVC.Controllers
                 if (FinancialYearEditObj != null)
                 {
 
-                    //WetosDB.PayrollFinancialYears.DeleteObject(FinancialYearEditObj);
+                    //WetosDB.PayrollFinancialYears.Add(FinancialYearEditObj);
                     FinancialYearEditObj.MarkedAsDelete = 1;
                     WetosDB.SaveChanges();
 

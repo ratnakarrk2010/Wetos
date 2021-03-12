@@ -306,7 +306,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.GlobalSettings.AddObject(GlobalSettingTblObj);
+                    WetosDB.GlobalSettings.Add(GlobalSettingTblObj);
                 }
 
                 WetosDB.SaveChanges();

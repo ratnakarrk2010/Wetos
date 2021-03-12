@@ -793,7 +793,7 @@ namespace WetosMVC.Controllers
                     ODTOURObj.PurposeDescription = ODTourObj.PurposeDesc;
 
 
-                    WetosDB.ODTours.AddObject(ODTOURObj);
+                    WetosDB.ODTours.Add(ODTOURObj);
 
                     WetosDB.SaveChanges();
 
@@ -839,7 +839,7 @@ namespace WetosMVC.Controllers
                     NotificationObj.ReadFlag = false;
                     NotificationObj.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj);
+                    WetosDB.Notifications.Add(NotificationObj);
 
                     WetosDB.SaveChanges();
 
@@ -857,7 +857,7 @@ namespace WetosMVC.Controllers
                     //    NotificationObj3.ReadFlag = false;
                     //    NotificationObj3.SendDate = DateTime.Now;
 
-                    //    WetosDB.Notifications.AddObject(NotificationObj3);
+                    //    WetosDB.Notifications.Add(NotificationObj3);
 
                     //    WetosDB.SaveChanges();
                     //}
@@ -874,7 +874,7 @@ namespace WetosMVC.Controllers
                     //NotificationObj2.ReadFlag = false;
                     //NotificationObj2.SendDate = DateTime.Now;
 
-                    //WetosDB.Notifications.AddObject(NotificationObj2);
+                    //WetosDB.Notifications.Add(NotificationObj2);
 
                     //WetosDB.SaveChanges();
 
@@ -1719,7 +1719,7 @@ namespace WetosMVC.Controllers
                         NotificationObj.ReadFlag = false;
                         NotificationObj.SendDate = DateTime.Now;
 
-                        WetosDB.Notifications.AddObject(NotificationObj);
+                        WetosDB.Notifications.Add(NotificationObj);
 
                         WetosDB.SaveChanges();
 
@@ -1733,7 +1733,7 @@ namespace WetosMVC.Controllers
                         NotificationObj2.ReadFlag = false;
                         NotificationObj2.SendDate = DateTime.Now;
 
-                        WetosDB.Notifications.AddObject(NotificationObj2);
+                        WetosDB.Notifications.Add(NotificationObj2);
 
                         WetosDB.SaveChanges();
 
@@ -2733,7 +2733,7 @@ namespace WetosMVC.Controllers
 
                         COMPOFFAPPLICATIONObj.EffectiveDate = CompOffModelObj.EffectiveDate; // CODE ADDED BY SHRADDHA ON 17 MAR 2018
 
-                        WetosDB.CompOffApplications.AddObject(COMPOFFAPPLICATIONObj);
+                        WetosDB.CompOffApplications.Add(COMPOFFAPPLICATIONObj);
 
                         WetosDB.SaveChanges();
 
@@ -2783,7 +2783,7 @@ namespace WetosMVC.Controllers
                         //NotificationObj.ReadFlag = false;
                         //NotificationObj.SendDate = DateTime.Now;
 
-                        //WetosDB.Notifications.AddObject(NotificationObj);
+                        //WetosDB.Notifications.Add(NotificationObj);
 
                         //WetosDB.SaveChanges();
 
@@ -2801,7 +2801,7 @@ namespace WetosMVC.Controllers
                         //    NotificationObj3.ReadFlag = false;
                         //    NotificationObj3.SendDate = DateTime.Now;
 
-                        //    WetosDB.Notifications.AddObject(NotificationObj3);
+                        //    WetosDB.Notifications.Add(NotificationObj3);
 
                         //    WetosDB.SaveChanges();
                         //}
@@ -2816,7 +2816,7 @@ namespace WetosMVC.Controllers
                         //NotificationObj2.ReadFlag = false;
                         //NotificationObj2.SendDate = DateTime.Now;
 
-                        //WetosDB.Notifications.AddObject(NotificationObj2);
+                        //WetosDB.Notifications.Add(NotificationObj2);
 
                         //WetosDB.SaveChanges();
 
@@ -2829,7 +2829,7 @@ namespace WetosMVC.Controllers
                         NotificationObj.ReadFlag = false;
                         NotificationObj.SendDate = DateTime.Now;
 
-                        WetosDB.Notifications.AddObject(NotificationObj);
+                        WetosDB.Notifications.Add(NotificationObj);
 
                         WetosDB.SaveChanges();
 
@@ -3426,7 +3426,7 @@ namespace WetosMVC.Controllers
                     ExceptionTbleObj.EffectiveDate = ExceptionEntryEdit.EffectiveDate; //CODE ADDED BY SHRADDHA ON 17 MAR 2018
                     ExceptionTbleObj.Purpose = ExceptionEntryEdit.Description;
 
-                    WetosDB.ExceptionEntries.AddObject(ExceptionTbleObj);
+                    WetosDB.ExceptionEntries.Add(ExceptionTbleObj);
                     WetosDB.SaveChanges();
 
                     //AUDIT LOG GENERATION ADDED BY PUSHKAR ON 11 SEPTEMBER 2017
@@ -3462,7 +3462,7 @@ namespace WetosMVC.Controllers
                     NotificationObj.ReadFlag = false;
                     NotificationObj.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj);
+                    WetosDB.Notifications.Add(NotificationObj);
 
                     WetosDB.SaveChanges();
 
@@ -3845,7 +3845,7 @@ namespace WetosMVC.Controllers
                     NotificationObj.ReadFlag = false;
                     NotificationObj.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj);
+                    WetosDB.Notifications.Add(NotificationObj);
 
                     WetosDB.SaveChanges();
 
@@ -3859,7 +3859,7 @@ namespace WetosMVC.Controllers
                     NotificationObj2.ReadFlag = false;
                     NotificationObj2.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj2);
+                    WetosDB.Notifications.Add(NotificationObj2);
 
                     WetosDB.SaveChanges();
 
@@ -4925,7 +4925,7 @@ namespace WetosMVC.Controllers
                     NotificationObj.ReadFlag = false;
                     NotificationObj.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj);
+                    WetosDB.Notifications.Add(NotificationObj);
 
                     WetosDB.SaveChanges();
 
@@ -4939,7 +4939,7 @@ namespace WetosMVC.Controllers
                     NotificationObj2.ReadFlag = false;
                     NotificationObj2.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj2);
+                    WetosDB.Notifications.Add(NotificationObj2);
 
                     WetosDB.SaveChanges();
 
@@ -5134,7 +5134,7 @@ namespace WetosMVC.Controllers
 
                     LeaveEncashObj.StatusId = 1;
 
-                    WetosDB.LeaveEncashes.AddObject(LeaveEncashObj);
+                    WetosDB.LeaveEncashes.Add(LeaveEncashObj);
 
                     WetosDB.SaveChanges();
 
@@ -5152,7 +5152,7 @@ namespace WetosMVC.Controllers
                     NotificationObj.ReadFlag = false;
                     NotificationObj.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj);
+                    WetosDB.Notifications.Add(NotificationObj);
 
                     WetosDB.SaveChanges();
 
@@ -5170,7 +5170,7 @@ namespace WetosMVC.Controllers
                         NotificationObj3.ReadFlag = false;
                         NotificationObj3.SendDate = DateTime.Now;
 
-                        WetosDB.Notifications.AddObject(NotificationObj3);
+                        WetosDB.Notifications.Add(NotificationObj3);
 
                         WetosDB.SaveChanges();
                     }
@@ -5185,7 +5185,7 @@ namespace WetosMVC.Controllers
                     NotificationObj2.ReadFlag = false;
                     NotificationObj2.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj2);
+                    WetosDB.Notifications.Add(NotificationObj2);
 
                     WetosDB.SaveChanges();
 
@@ -5296,7 +5296,7 @@ namespace WetosMVC.Controllers
                     NotificationObj.ReadFlag = false;
                     NotificationObj.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj);
+                    WetosDB.Notifications.Add(NotificationObj);
 
                     WetosDB.SaveChanges();
 
@@ -5310,7 +5310,7 @@ namespace WetosMVC.Controllers
                     NotificationObj2.ReadFlag = false;
                     NotificationObj2.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj2);
+                    WetosDB.Notifications.Add(NotificationObj2);
 
                     WetosDB.SaveChanges();
 
@@ -5389,7 +5389,7 @@ namespace WetosMVC.Controllers
         public ActionResult EncashmentApplicationDelete(WetosDB.LeaveEncash LeaveEncashDeleteObj)
         {
             LeaveEncash LeaveEncashObj = WetosDB.LeaveEncashes.Where(a => a.LeaveEncashId == LeaveEncashDeleteObj.LeaveEncashId).FirstOrDefault();
-            WetosDB.LeaveEncashes.DeleteObject(LeaveEncashObj);
+            WetosDB.LeaveEncashes.Add(LeaveEncashObj);
             WetosDB.SaveChanges();
 
 
@@ -6256,7 +6256,7 @@ namespace WetosMVC.Controllers
                     ODTOURObj.PurposeDescription = ODTourObj.PurposeDesc;
 
 
-                    WetosDB.ODLateEarlies.AddObject(ODTOURObj);
+                    WetosDB.ODLateEarlies.Add(ODTOURObj);
 
                     WetosDB.SaveChanges();
 
@@ -6302,7 +6302,7 @@ namespace WetosMVC.Controllers
                     NotificationObj.ReadFlag = false;
                     NotificationObj.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj);
+                    WetosDB.Notifications.Add(NotificationObj);
 
                     WetosDB.SaveChanges();
 
@@ -7163,7 +7163,7 @@ namespace WetosMVC.Controllers
                     NotificationObj.ReadFlag = false;
                     NotificationObj.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj);
+                    WetosDB.Notifications.Add(NotificationObj);
 
                     WetosDB.SaveChanges();
 
@@ -7177,7 +7177,7 @@ namespace WetosMVC.Controllers
                     NotificationObj2.ReadFlag = false;
                     NotificationObj2.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj2);
+                    WetosDB.Notifications.Add(NotificationObj2);
 
                     WetosDB.SaveChanges();
 

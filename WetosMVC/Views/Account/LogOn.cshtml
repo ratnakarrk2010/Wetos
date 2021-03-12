@@ -1,131 +1,574 @@
 ﻿@model WetosMVCMainApp.Models.LogOnModel
-@{  
+@{
     ViewBag.Title = "WETOS D'zire - Log On";
 }
-
 @{Layout = "~/Views/Shared/_LayoutBlank.cshtml";}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style type="text/css">
-    .login-box
-    {
+#err{
+    margin-right: 56% !important;
+    margin-top: 1%;
+}
+#errpwd{
+     margin-right: 57% !important;
+     margin-top: 1%;
+}
+#open {
+    display: none;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    transition: all 5000s ease-in-out 0s !important;
+}
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-color: #fff !important;
+    background-image: none !important;
+    color: -internal-light-dark(black, white) !important;
+}
+.open_icon{
+    position: absolute;
+    right: 2%;
+    top: 14%;
+}
+.close_icon{
+    position: absolute;
+    right: 2%;
+    top: 14%;
+}
+.login-box {
         margin-top: 5% !important;
-    }
-    .page-content-wrapper
-    {
-    }
+}
+h3 {
+    margin-bottom: 1.5rem !important;
+   
+}
     
-    body
-    {
+ label {
+        position: absolute;
+        left: 10px;
+        top: 6px;
+        transition: all .3s;
+        color: #999;
+        font-weight: normal;
+        cursor:pointer;
+}
+.form-control:focus ~ label {
+        left: 5px;
+        top: -10px;
+        background: #fff;
+        padding: 0 5px;
+        color: #0275d8 !important;
+}
+label.active {
+        left: 5px;
+        top: -10px;
+        background: #fff;
+        padding: 0 5px;
+}
+.btn-primary {
+        border-radius: 50px;
+}
+.form-control:focus ~ label {
+        left: 5px;
+        top: -10px;
+        background: #fff;
+        padding: 0 5px;
+        color: #0275d8 !important;
+}
+.form-group {
+        position: relative;
+}
+.glass {
+        position: relative;
+        background-image: linear-gradient(#20466f,#20466f);
+        color: #fff;
+        font-size: 16px;
+        box-shadow: 0px 1px 4px -2px #333;
+        text-shadow: 0px -1px #333;
+}
+.glass:after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0%;
+            width: calc(100%);
+            height: 60%;
+            background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.1));
+            z-index: 1;
+}
+.glass:hover {
+            background-image: linear-gradient(#20466f,#20466f);
+}
+ .btn-primary {
+        background-color: #17466f;
+        border-color: #17466f;
+        box-shadow: 1px 5px 10px 0px rgba(165, 165, 165, 1);
+        -webkit-box-shadow: 1px 5px 10px 0px rgba(165, 165, 165, 1);
+        -moz-box-shadow: 1px 5px 10px 0px rgba(165, 165, 165, 1);
+}
+.btn-primary : hover > .btn-primary {
+            background-color: #17466f;
+            border-color: #17466f;
+}
+.margin_right_3 {
+        margin-right: 3%;
+}
+.input-group > :not(:first-child):not(.dropdown-menu) {
+        margin-left: 0px;
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+        box-shadow: 0px 0px 5px 0px rgba(210, 210, 210, 1);
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(210, 210, 210, 1);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(210, 210, 210, 1);
+}
+.row_padding {
+        margin-top: 15%;
+        padding: 0px 15%;
+}
+.login_text {
+        text-align: center;
+        padding-top: 5%;
+        color: #20466f;
+        font-weight: 900
+}
+.padding_right {
+        padding-right: 0px
+}
+.left_div {
+        height: 340px !important;
+        /*background-color: #17466f;*/
+        background-image: linear-gradient(210deg, #20466f,#20466f,#96a8bb,#20466f);
+        -moz-box-shadow: 0 0 5px rgba(0,0,0,0.4);
+        -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+.right_div {
+        height: 340px !important;
         background-color: White;
+        -moz-box-shadow: 0 0 5px rgba(0,0,0,0.4);
+        -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.4)
+}
+.user_icon {
+        padding-top: 2.5%;
+}
+.pass_icon {
+        padding-top: 3%;
+}
+@@media screen and (min-width: 320px) and (max-width:322px) {
+.row_padding {
+            padding: 0px 15px;
+            margin-top: 7%;
+}
+
+        .user_icon {
+            padding-top: 23.5%;
+        }
+
+        .pass_icon {
+            padding-top: 23.5%;
+        }
+
+        .m1_width {
+            max-width: 10%;
+        }
+
+        .m2_width {
+            max-width: 90%;
+        }
+
+        .left_div {
+            height: 265px !important;
+        }
+
+        .right_div {
+            height: 265px !important;
+        }
+
+        .login_text {
+            text-align: center;
+            padding-top: 5%;
+        }
+        #err {
+            margin-right: 29% !important;
+        }
+        #errpwd {
+            margin-right: 31% !important;
+        }
     }
-    .btn-primary
-    {
-        background-color: #17466f;
-        border-color: #17466f;
+
+    @@media screen and (min-width: 322px) and (max-width:767px) {
+        .row_padding {
+            padding: 0px 15px;
+            margin-top: 6%;
+        }
+
+        .m1_width {
+            max-width: 10%;
+        }
+
+        .m2_width {
+            max-width: 90%;
+        }
+
+        .user_icon {
+            padding-top: 23.5%;
+        }
+
+        .pass_icon {
+            padding-top: 23.5%;
+        }
+
+        .left_div {
+            height: 275px !important;
+        }
+
+        .right_div {
+         height: 325px !important;
+         }
+
+        .login_text {
+            text-align: center;
+            padding-top: 5%;
+        }
+        #err {
+            margin-right: 29% !important;
+        }
+        #errpwd {
+            margin-right: 31% !important;
+        }
+        .open_icon{
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
+        .close_icon{
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
     }
-    .btn-primary : hover > .btn-primary
-    {
-        background-color: #17466f;
-        border-color: #17466f;
+
+    @@media screen and (min-width: 322px) and (max-width:410px) {
+        .row_padding {
+            padding: 0px 15px;
+            margin-top: 6%;
+        }
+        .open_icon{
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
+        .close_icon{
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
+    }
+
+    @@media screen and (min-width: 375px) and (min-height:700px) {
+        .row_padding {
+            padding: 0px 15px;
+            margin-top: 8%;
+        }
+         #err {
+            margin-right: 32% !important;
+        }
+        #errpwd {
+            margin-right: 35% !important;
+        }
+        .open_icon{
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
+        .close_icon{
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
+    }
+
+    @@media screen and (min-width: 411px) and (max-width:767px) {
+        .row_padding {
+            padding: 0px 15px;
+            margin-top: 8%;
+        }
+         #err {
+            margin-right: 39% !important;
+        }
+        #errpwd {
+            margin-right: 41% !important;
+        }
+        .right_div {
+            height: 340px !important;
+        }
+        .open_icon{
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
+        .close_icon{
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
+    }
+
+    @@media screen and (min-width: 411px) and (min-height:700px) {
+        .row_padding {
+            padding: 0px 15px;
+            margin-top: 8%;
+        }
+        .right_div {
+            height: 340px !important;
+        }
+        .open_icon{
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
+        .close_icon{
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
+    }
+
+    @@media screen and (min-width: 767px) and (max-width:1023px) {
+        .row_padding {
+            padding: 0px 15px;
+            margin-top: 30%;
+        }
+         .left_div {
+           height: 330px !important;
+        }
+        .right_div {
+        height: 330px !important;
+        }
+         #err {
+            margin-right: 25% !important;
+        }
+        #errpwd {
+            margin-right: 27% !important;
+        }
+        .user_icon {
+            padding-top: 32.5% !important;
+        }
+        .pass_icon {
+            padding-top: 35% !important;
+        }
+        .open_icon{
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
+        .close_icon{
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
+    }
+
+    @@media screen and (min-width: 1024px) and (max-width:1365px) {
+        .row_padding {
+            padding: 0px 15px;
+            margin-top: 20%;
+        }
+        .left_div {
+           height: 345px !important;
+        }
+        .right_div {
+        height: 345px !important;
+        }
+        label.active {
+            left: 5px;
+            top: -12px;
+            background: #fff;
+            padding: 0 5px;
+        }
+        .close_icon {
+            position: absolute;
+            right: 2%;
+            top: 16%;
+        }
+         .open_icon {
+            position: absolute;
+            right: 2%;
+            top: 16%;
+        }
+        /* .row_padding {
+            padding: 0px 15px;
+            margin-top: 45%;
+        } */
+    }
+
+    @@media screen and (min-width: 1900px) and (max-width:2100px) {
+        .row_padding {
+            padding: 0px 15px;
+            margin-top: 30%;
+        }
     }
 </style>
+
+<script>
+    var input_is_require = "Please Enter Username";
+    var input_is_require1 = "Please Enter Password";
+
+    $(document).ready(function () {
+        $(".form-group .form-control").blur(function () {
+            if ($(this).val() != "") {
+                $(this).siblings("label").addClass("active");
+            } else {
+                $(this).siblings("label").removeClass("active");
+            }
+        });
+        $("#txtPassword").keyup(function (e) {
+            if ($(this).val() == "") {
+                $("#errpwd").html(input_is_require1);
+            }
+            else {
+                $("#errpwd").html("");
+               // $("#err").html("");
+            }
+        });
+
+        $("#UserName").keyup(function (e) {
+            if ($(this).val() == "") {
+                $("#err").html(input_is_require);
+            }
+            else {
+               // $("#errpwd").html("");
+                $("#err").html("");
+            }
+        });
+
+    });
+  
+    function Validation() {
+        var UserName = document.getElementById('UserName');
+        var txtPassword = document.getElementById('txtPassword');
+        if (UserName.value == "") {
+            $("#err").html(input_is_require);
+        }
+        if (txtPassword.value == "") {
+            $("#errpwd").html(input_is_require1);
+        }
+        else {
+            $("#errpwd").html("");
+            $("#err").html("");
+        }
+    }
+   
+   function showFunction() {
+        var x = document.getElementById("txtPassword");
+        var y = document.getElementById("open");
+        var z = document.getElementById("close");
+        if (x.type === 'password') {
+            x.type = "text";
+            y.style.display = "block";
+            z.style.display = "none";
+        } else {
+            x.type = "password";
+            y.style.display = "none";
+            z.style.display = "block";
+        }
+    }
+</script>
 @*<div style="font-size: 15px; color: Red">@ViewBag.Message</div>*@
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary()
-    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-        <div class="col-md-offset-2 col-sm-offset-2 col-md-8  col-xs-12 col-sm-8 col-lg-8"
-            style="margin-top: 150px">
-            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6" style="height: 300px!important;
-                background-color: #17466f; -moz-box-shadow: 0 0 5px rgba(0,0,0,0.4); -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.4)">
-                <div class="col-md-offset-4 col-sm-offset-4 col-lg-offset-4 col-xs-offset-4 col-md-4 col-sm-4 col-lg-4 col-xs-4"
-                    style="margin-top: 70px;">
-                    <img src="@Url.Content("~/images/logo.png")" width="100" alt="image" />
-                </div>
-                <div class="col-md-offset-4 col-sm-offset-4 col-lg-offset-4 col-xs-offset-4 col-md-4 col-sm-4 col-lg-4 col-xs-4">
-                    <h5 style="text-align: center; font-weight: 600; color: White" class="logo__text">
-                        WETOS D'zire</h5>
-                </div>
-                <div class="col-md-offset-1 col-sm-offset-1 col-lg-offset-1 col-xs-offset-1 col-md-10 col-sm-10 col-lg-10 col-xs-10">
-                    <h3 style="font-weight: 600; text-align: center; color: White" class="logo__text">
-                        Web Enabled Time Office System</h3>
-                </div>
-            </div>
-            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6" style="height: 300px !important;
-                background-color: White; -moz-box-shadow: 0 0 5px rgba(0,0,0,0.4); -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.4)">
-                <div class="container__child signup__form">
-                    <form action="#" method="post">
-                    <div style="text-align: center">
-                        <h3>
-                            Log In</h3>
-                    </div>
-                    <br />
-                    <div class="row" style= "padding-left:60px;" align="center">
-                        <div class="col-md-10 col-xs-10 col-sm-12 col-lg-10">
-                        <div class="form-group">
-                            <div class="input-group date">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-user"></i>
-                                </div>
-                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "UserName" })
-                            </div>
-                            @*Commented by Shalaka on 29th DEC 2017 -- Start*@ @*<div class="col-md-10 col-xs-10 col-sm-10 col-lg-10">
-                                @Html.TextBoxFor(m => m.UserName)
-                            </div>*@ @*Commented by Shalaka on 29th DEC 2017 -- End*@
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="padding-left:60px;" align="center">
-                        <div class="col-md-10 col-xs-10 col-sm-12 col-lg-10">
-                    <div class="form-group">
-                        <div class="input-group date">
-                            <div class="input-group-addon">
-                                <i class="fa fa-unlock-alt"></i>
-                            </div>
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
-                        </div>
-                        @*Commented by Shalaka on 29th DEC 2017 -- Start*@ @*<div class="col-md-10 col-xs-10 col-sm-10 col-lg-10">
-                                @Html.PasswordFor(m => m.Password)
-                            </div>*@ @*Commented by Shalaka on 29th DEC 2017 -- End*@
-                    </div>
-                    </div>
+
+    <div class="container fluid">
+        <div class="row row_padding">
+
+            <div class="col-sm-6 left_div">
+                <div class="col-sm-12" style="margin-top: 70px;text-align: center;">
+                    <img src="@Url.Content("~/images/logo.png")" width="120" alt="image" />
                 </div>
                 <br />
-                <div class="row">
-                    @*<div class="col-xs-8">
-                        <div class="checkbox icheck" style="position:relative !important;margin-left:0px !important">
-                            @Html.CheckBoxFor(m => m.RememberMe, new { style = "position:relative !important;margin-left:0px !important" })
-                            @Html.LabelFor(m => m.RememberMe)
-                        </div>
-                    </div>*@
-                    <!-- /.col -->
-                    <div class="col-xs-4 col-sm-4 col-md-4">
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4">
-                        @*  <button type="submit" class="btn btn-primary btn-block btn-flat">
-
-                            Sign In</button>*@
-                        <input type="submit" value="Sign In" class="btn btn-primary btn-block btn-flat" />
-                    </div>
-                    <!-- /.col -->
+                <div class="col-sm-12 ">
+                    <h5 style="text-align: center; font-weight: 600; color: White" class="logo__text">
+                        WETOS D'zire
+                    </h5>
                 </div>
-                </form>
+                <div class="col-sm-12 ">
+                    <h3 style="font-weight: 600; text-align: center; color: White" class="logo__text">
+                        Web Enabled Time Office System
+                    </h3>
+                </div>
             </div>
-@*<div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
-    </div>*@
-            <!-- /.social-auth-links -->
-@*<a href="#">I forgot my password</a><br/>
-                <a href="#" class="text-center">Register a new membership</a><br />*@ @* @Html.ActionLink("Change Password", "ChangePassword","Account")*@
-@*<a href="" class="text-center"></a>*@
+            <div class="col-sm-6 right_div">
+                <div class="container__child signup__form">
+                    <form action="#" method="post">
+                        <div class="login_text">
+                            <h3><i>Log In</i></h3>
+                            <hr />
+                        </div>
+                        <br />
+                        <div class="row" style="" align="center">
+                            <div class="col-sm-1 padding_right m1_width">
+                                <div class=" margin_right_3 user_icon">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                            </div>
+                            <div class=" col-sm-10 m2_width">
+                                <div class="form-group">
+                                    <div class=" date">
+
+                                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                        <label for="Username">Username</label>
+                                        <div id="err" style="color:red; margin-right: 134px;"></div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                           
+                        </div>
+                      
+                        <div class="row" style="" align="center">
+                            <div class="col-sm-1 padding_right m1_width">
+                                <div class="input-group-addon margin_right_3 pass_icon">
+                                    <i class="fa fa-unlock-alt"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-10 m2_width">
+                                <div class="form-group inner-addon left-addon">
+                                    @Html.TextBoxFor(model => model.Password, new { @id = "txtPassword", @class = "form-control", @type = "Password" })
+                                    <span onclick="showFunction();">
+                                        <i id="open" class="icon1 fa fa-eye fa-lg open_icon"></i>
+                                        <i id="close" class="icon fa fa-eye-slash fa-lg close_icon"></i>
+                                    </span>
+                                    <label for="password" class="">Password</label>
+									@Html.ValidationMessage("AddModelError")
+                                    <div id="errpwd" style="color:red; margin-right: 134px;"></div>
+                                </div>
+                               
+                            </div>
+                           
+                        </div>
+                        
+                        <div class="row">
+                            <!-- /.col -->
+                            <div class="col-sm-1">
+                            </div>
+                            <div class="col-sm-10">
+                                <button type="submit" onclick="Validation();" value="Sign In" class="btn btn-primary btn-flat glass" style="width: 100%;">Sign In</button>
+                            </div>
+                            @*<div>
+                                @Html.ValidationSummary()
+                            </div>*@
+                            <!-- /.col -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.login-box-body -->
         </div>
-        <!-- /.login-box-body -->
     </div>
-</div>
 }
 @section Scripts {
     @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")

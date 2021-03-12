@@ -2,31 +2,17 @@
 @{
     ViewBag.Title = "Attendance Mail";
 }
+<link href="~/Content/css/send_auto_through_email.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 @* Added by Rajas on 8 FEB 2017 START*@
-<style type="text/css">
-    .select2-container--default .select2-selection--multiple .select2-selection__choice
-    {
-        background-color: #f8f8f8;
-    }
-    .select2-container--default .select2-selection--multiple .select2-selection__choice
-    {
-        color: #0f0f0f;
-    }
-</style>
-<style type="text/css">
-p.MsoNormal, li.MsoNormal, div.MsoNormal{    margin:0in;margin-bottom:.0001pt;font-size:12.0pt;font-family:"Times New Roman";}div.Section1	{    page:Section1;}.style1{    font-size: small;	font-family: Arial, Helvetica, sans-serif;}.style6{    text-indent: .5in;font-size: small;font-family: Arial, Helvetica, sans-serif;
-}
-	</style>
+
 @* Added by Rajas on 8 FEB 2017 END*@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
- <h1>
-      Mail Attendance Report
-        <small> Details</small>
-      </h1>
+ 
      
-      <div class="row">
+      <!-- <div class="row">
                 <div class="col-md-12">
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
@@ -50,9 +36,42 @@ p.MsoNormal, li.MsoNormal, div.MsoNormal{    margin:0in;margin-bottom:.0001pt;
                         </li>              
                     </ul>
                 </div>
+            </div> -->
+             <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li style="padding-top: 0.2%;">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                         <li>
+                         <a href="#">Reports</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">Mail Attendance Report</a>
+                        </li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-
+              <h1>
+      Mail Attendance Report
+        <small> Details</small>
+      </h1>
        @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
       <div>
       

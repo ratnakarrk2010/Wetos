@@ -1,14 +1,47 @@
-﻿@model IEnumerable<WetosDB.SP_GetLeaveCreditDataList_Result>
+﻿<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+@model IEnumerable<WetosDB.SP_GetLeaveCreditDataList_Result>
 @{
     ViewBag.Title = "Leave Credit List";
 }
 @System.Web.Optimization.Styles.Render("~/Content/DataTable")
 @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+ <link href="~/Content/css/leave_credit_index.css" rel="stylesheet" />
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-      <h1>
-Leave Credit
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                      <li class="li_margin">
+                         <a href="#">Administration</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Leave Credit</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+             <h1>
+        Leave Credit
         <small>List</small>
          <span style="float:right;font-weight:800" data-toggle="tooltip" title="Create">
          @Html.ActionLink(" ", "LeaveCreditCreate", new { }, new { @class = "fa fa-plus-circle", title = "Add Leave Credit", style = "color:#428bca;font-size:19px" })</span>
@@ -16,38 +49,6 @@ Leave Credit
            @Html.ActionLink("Financial Year Details", "FinancialYearIndex", "WetosAdministration")</span>
 
       </h1>
-      @*<ol class="breadcrumb">
-        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-arrow-left"></i> Home</a></li>
-         <li class="active">Administration</li>
-        <li class="active"><a href="#">Leave Credit</a></li>
-        <li><span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span></li>
-      </ol>
-*@
-      <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                         <a href="#">Administration</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                            <a href="#">Leave Credit</a>
-                        </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
-                            </div>
-                        </li>              
-                    </ul>
-                </div>
-            </div>  
 
        @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
       <div>
@@ -66,6 +67,7 @@ Leave Credit
           
             <!-- /.box-header -->
             <div class="box-body">
+            <div class="table-responsive">
 <table id ="LeaveCredit" class="table table-bordered table-striped">
 <thead>
     <tr>
@@ -148,6 +150,7 @@ Leave Credit
 </tbody>
 <tfoot></tfoot>
 </table>
+</div>
 
 </div>
             <!-- /.box-body -->

@@ -454,7 +454,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.Companies.AddObject(CompanyTblObj);
+                    WetosDB.Companies.Add(CompanyTblObj);
                 }
 
                 // Added for saving the company master model to company table object, by Rajas on 29 DEC 2016 END

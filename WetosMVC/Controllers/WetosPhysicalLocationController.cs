@@ -67,7 +67,7 @@ namespace WetosMVC.Controllers
             try
             {
 
-                WetosDB.Locations.AddObject(NewLocation);
+                WetosDB.Locations.Add(NewLocation);
                 WetosDB.SaveChanges();
                 // TODO: Add insert logic here
 

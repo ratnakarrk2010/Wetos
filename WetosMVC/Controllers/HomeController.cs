@@ -660,7 +660,7 @@ namespace WetosMVC.Controllers
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = HROj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -680,7 +680,7 @@ namespace WetosMVC.Controllers
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = LeaveApproverObj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -699,7 +699,7 @@ namespace WetosMVC.Controllers
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = SanctionerObj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
                     }
@@ -716,7 +716,7 @@ namespace WetosMVC.Controllers
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = EmpReportingToMeObj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -730,7 +730,7 @@ namespace WetosMVC.Controllers
                     nmsg.FromID = SessionPersister.UserInfo.UserId;
                     nmsg.ToID = Convert.ToInt32(ToEmpId == null ? "0" : ToEmpId);
                     nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                    WetosDB.Notifications.AddObject(nmsg);
+                    WetosDB.Notifications.Add(nmsg);
                     WetosDB.SaveChanges();
                 }
 
@@ -777,7 +777,7 @@ namespace WetosMVC.Controllers
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = HROj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -797,7 +797,7 @@ namespace WetosMVC.Controllers
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = LeaveApproverObj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -817,7 +817,7 @@ namespace WetosMVC.Controllers
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = SanctionerObj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -837,7 +837,7 @@ namespace WetosMVC.Controllers
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = EmpReportingToMeObj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -853,7 +853,7 @@ namespace WetosMVC.Controllers
                     nmsg.FromID = SessionPersister.UserInfo.UserId;
                     nmsg.ToID = Convert.ToInt32(fc.GetValue("ToEmpId").AttemptedValue);
                     nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                    WetosDB.Notifications.AddObject(nmsg);
+                    WetosDB.Notifications.Add(nmsg);
                     WetosDB.SaveChanges();
 
 

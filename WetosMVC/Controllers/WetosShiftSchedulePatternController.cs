@@ -696,7 +696,7 @@ namespace WetosMVC.Controllers
                         ShiftScheduleTblObj.BranchId = EmployeeObj.BranchId;
                     }
 
-                    WetosDB.ShiftSchedulePatterns.AddObject(ShiftScheduleTblObj);
+                    WetosDB.ShiftSchedulePatterns.Add(ShiftScheduleTblObj);
                 }
 
                 WetosDB.SaveChanges();

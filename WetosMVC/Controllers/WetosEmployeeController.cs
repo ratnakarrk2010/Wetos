@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WebForms;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -7,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.Reporting.WebForms;
+//using Microsoft.Reporting.WebForms;
 using WetosDB;
 using WetosMVCMainApp.Models;
 
@@ -1032,7 +1033,7 @@ namespace WetosMVC.Controllers
                     //EmployeeObj.WeeklyOff2 = "Saturday";
 
 
-                    //WetosDB.Employees.AddObject(EmployeeObj);
+                    //WetosDB.Employees.Add(EmployeeObj);
                     //WetosDB.SaveChanges();
 
 
@@ -1046,7 +1047,7 @@ namespace WetosMVC.Controllers
                     //    EmployeeMasterObj.ExtNo = EmployeeModelObj.ExtNo;
                     //}
 
-                    //WetosDB.EmployeeMasters.AddObject(EmployeeMasterObj);
+                    //WetosDB.EmployeeMasters.Add(EmployeeMasterObj);
                     //WetosDB.SaveChanges();
 
                     //EmployeeDetail EmployeeDetailObj = new EmployeeDetail();
@@ -1077,7 +1078,7 @@ namespace WetosMVC.Controllers
                     //    EmployeeDetailObj.CTCPAFY = EmployeeModelObj.CTCPAFY;
                     //}
 
-                    //WetosDB.EmployeeDetails.AddObject(EmployeeDetailObj);
+                    //WetosDB.EmployeeDetails.Add(EmployeeDetailObj);
                     //WetosDB.SaveChanges();
 
                     #endregion
@@ -2825,7 +2826,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.Employees.AddObject(EmployeeTblObj);
+                    WetosDB.Employees.Add(EmployeeTblObj);
 
                     WetosDB.SaveChanges();
 
@@ -2963,7 +2964,7 @@ namespace WetosMVC.Controllers
 
                         if (IsNewTblFamilyDetail == true)
                         {
-                            WetosDB.TblFamilyDetails.AddObject(TblFamilyDetailObj);
+                            WetosDB.TblFamilyDetails.Add(TblFamilyDetailObj);
                         }
                         WetosDB.SaveChanges();
                     }
@@ -2972,7 +2973,7 @@ namespace WetosMVC.Controllers
                         TblFamilyDetail TblFamilyDetailObj = WetosDB.TblFamilyDetails.Where(a => a.EmployeeId == EmployeeId && a.Id == EmployeeModelForFamilyDetails.Id).FirstOrDefault();
                         if (TblFamilyDetailObj != null)
                         {
-                            WetosDB.TblFamilyDetails.DeleteObject(TblFamilyDetailObj);
+                            WetosDB.TblFamilyDetails.Remove(TblFamilyDetailObj);
                             WetosDB.SaveChanges();
                         }
                     }
@@ -3014,7 +3015,7 @@ namespace WetosMVC.Controllers
                     EmployeeGroupdetailsTblObj.EmployeeGroup = WetosDB.EmployeeGroups.Where(a => a.EmployeeGroupId == EmployeeModelObj.EmployeeGroupId).FirstOrDefault();
                     //COMMENTED EARLIER CODE AND ADDED NEW CODE BY SHRADDHA ON 27 NOV 2017 TO RESOLVE EMPLOYEEGROUPID OBJECT REFERENCE KEY ERROR END
 
-                    WetosDB.EmployeeGroupDetails.AddObject(EmployeeGroupdetailsTblObj);
+                    WetosDB.EmployeeGroupDetails.Add(EmployeeGroupdetailsTblObj);
 
                     WetosDB.SaveChanges();
                     AddAuditTrail("Employee group details added");
@@ -3078,7 +3079,7 @@ namespace WetosMVC.Controllers
                 EmployeeExtraDetailTblObj.LeaveEffectiveFromDate = EmployeeModelObj.LeaveEffectiveFromDate;
                 if (IsNewEmployeeExtraDetals == true)
                 {
-                    WetosDB.EmployeeExtraDetails.AddObject(EmployeeExtraDetailTblObj);
+                    WetosDB.EmployeeExtraDetails.Add(EmployeeExtraDetailTblObj);
 
                 }
                 WetosDB.SaveChanges();
@@ -3274,7 +3275,7 @@ namespace WetosMVC.Controllers
 
                             // Added by Rajas on 12 MAY 2017
                             Opening.EmployeeId = id;  // To save employee id
-                            WetosDB.LeaveCredits.AddObject(Opening); // NEW CREDIT ENTRY FY
+                            WetosDB.LeaveCredits.Add(Opening); // NEW CREDIT ENTRY FY
                             WetosDB.SaveChanges();
 
                             // Updated by Rajas on 17 MAY 2017
@@ -3309,7 +3310,7 @@ namespace WetosMVC.Controllers
 
                                 if (IsNew == true)
                                 {
-                                    WetosDB.LeaveBalanceBackupDatas.AddObject(LeaveBalanceBackupDataObj);
+                                    WetosDB.LeaveBalanceBackupDatas.Add(LeaveBalanceBackupDataObj);
                                 }
 
                                 WetosDB.SaveChanges();
@@ -3705,7 +3706,7 @@ namespace WetosMVC.Controllers
                                 Opening.LeaveType = LFYOpening.LeaveType;
                                 Opening.ApplicableEffectiveDate = LFYApplicableFrom;
                                 //ADDED BY SHRADDHA ON 10 MAY 2017 END
-                                WetosDB.LeaveCredits.AddObject(Opening); // NEW CREDIT ENTRY FY
+                                WetosDB.LeaveCredits.Add(Opening); // NEW CREDIT ENTRY FY
                                 WetosDB.SaveChanges();
 
                                 // Update leave balance
@@ -4077,7 +4078,7 @@ namespace WetosMVC.Controllers
                                 Opening.LeaveType = LFYOpening.LeaveType;
                                 Opening.ApplicableEffectiveDate = LFYApplicableFrom;
                                 //ADDED BY SHRADDHA ON 10 MAY 2017 END
-                                WetosDB.LeaveCredits.AddObject(Opening); // NEW CREDIT ENTRY FY
+                                WetosDB.LeaveCredits.Add(Opening); // NEW CREDIT ENTRY FY
                                 WetosDB.SaveChanges();
 
                                 // Update leave balance
@@ -4433,7 +4434,7 @@ namespace WetosMVC.Controllers
                             Opening.LeaveType = LFYOpening.LeaveType;
                             Opening.ApplicableEffectiveDate = LFYApplicableFrom;
                             //ADDED BY SHRADDHA ON 10 MAY 2017 END
-                            WetosDB.LeaveCredits.AddObject(Opening); // NEW CREDIT ENTRY FY
+                            WetosDB.LeaveCredits.Add(Opening); // NEW CREDIT ENTRY FY
                             WetosDB.SaveChanges();
 
                             // Update leave balance
@@ -4787,7 +4788,7 @@ namespace WetosMVC.Controllers
                             Opening.ApplicableEffectiveDate = LFYApplicableFrom;
                             //ADDED BY SHRADDHA ON 10 MAY 2017 END
 
-                            WetosDB.LeaveCredits.AddObject(Opening); // NEW CREDIT ENTRY FY
+                            WetosDB.LeaveCredits.Add(Opening); // NEW CREDIT ENTRY FY
                             WetosDB.SaveChanges();
 
                             // Update leave balance
@@ -5157,7 +5158,7 @@ namespace WetosMVC.Controllers
                         LeaveCreditObj.ApplicableEffectiveDate = LeaveAsOnDate;
                         LeaveCreditObj.EmployeeId = id;
                         LeaveCreditObj.LeaveType = LMObj.LeaveCode.Trim();  // Added by Rajas on 6 JUNE 2017
-                        WetosDB.LeaveCredits.AddObject(LeaveCreditObj);
+                        WetosDB.LeaveCredits.Add(LeaveCreditObj);
                         WetosDB.SaveChanges();
 
                         // ADD TO LEAVE BALANCE
@@ -5191,7 +5192,7 @@ namespace WetosMVC.Controllers
                         }
                         LeaveBalanceObj.EmployeeId = id;
                         LeaveBalanceObj.LeaveType = LMObj.LeaveCode.Trim();  // Added by Rajas on 6 JUNE 2017
-                        WetosDB.LeaveBalances.AddObject(LeaveBalanceObj);
+                        WetosDB.LeaveBalances.Add(LeaveBalanceObj);
                         WetosDB.SaveChanges();
 
                     }
@@ -5257,7 +5258,7 @@ namespace WetosMVC.Controllers
                             }
                             LeaveCreditObj.ApplicableEffectiveDate = LeaveAsOnDate;
                             LeaveCreditObj.EmployeeId = id;
-                            WetosDB.LeaveCredits.AddObject(LeaveCreditObj);
+                            WetosDB.LeaveCredits.Add(LeaveCreditObj);
                             WetosDB.SaveChanges();
 
                             // ADD TO LEAVE BALANCE
@@ -5292,7 +5293,7 @@ namespace WetosMVC.Controllers
                             //LeaveBalanceObj.CurrentBalance = LMObj.NoOfDaysAllowedInYear;
                             LeaveBalanceObj.LeaveType = LMObj.LeaveCode;
                             LeaveBalanceObj.EmployeeId = id;
-                            WetosDB.LeaveBalances.AddObject(LeaveBalanceObj);
+                            WetosDB.LeaveBalances.Add(LeaveBalanceObj);
                             WetosDB.SaveChanges();
                             ReturnStatus = true;
                         }
@@ -5546,7 +5547,7 @@ namespace WetosMVC.Controllers
                             Opening.LeaveType = LFYOpening.LeaveType;
                             Opening.ApplicableEffectiveDate = LFYApplicableFrom;
                             //ADDED BY SHRADDHA ON 10 MAY 2017 END
-                            WetosDB.LeaveCredits.AddObject(Opening); // NEW CREDIT ENTRY FY
+                            WetosDB.LeaveCredits.Add(Opening); // NEW CREDIT ENTRY FY
                             WetosDB.SaveChanges();
 
                             // Update leave balance
@@ -5695,7 +5696,7 @@ namespace WetosMVC.Controllers
 
                 UploadDocumentTblObj.FileName = DocumentFileName;
 
-                WetosDB.UploadDocuments.AddObject(UploadDocumentTblObj);
+                WetosDB.UploadDocuments.Add(UploadDocumentTblObj);
 
                 WetosDB.SaveChanges();
 
@@ -5748,7 +5749,7 @@ namespace WetosMVC.Controllers
 
                 UploadDocumentTblObj.FileName = DocumentFileName;
 
-                WetosDB.UploadDocuments.AddObject(UploadDocumentTblObj);
+                WetosDB.UploadDocuments.Add(UploadDocumentTblObj);
 
                 WetosDB.SaveChanges();
 
@@ -5801,7 +5802,7 @@ namespace WetosMVC.Controllers
 
                 UploadDocumentTblObj.FileName = DocumentFileName;
 
-                WetosDB.UploadDocuments.AddObject(UploadDocumentTblObj);
+                WetosDB.UploadDocuments.Add(UploadDocumentTblObj);
 
                 WetosDB.SaveChanges();
 
@@ -5854,7 +5855,7 @@ namespace WetosMVC.Controllers
 
                 UploadDocumentTblObj.FileName = DocumentFileName;
 
-                WetosDB.UploadDocuments.AddObject(UploadDocumentTblObj);
+                WetosDB.UploadDocuments.Add(UploadDocumentTblObj);
 
                 WetosDB.SaveChanges();
 

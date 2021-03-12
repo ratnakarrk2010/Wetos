@@ -6,32 +6,15 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
-<style type="text/css">
-    .select2-container--default .select2-selection--multiple .select2-selection__choice
-    {
-        background-color: #f8f8f8;
-    }
-    .select2-container--default .select2-selection--multiple .select2-selection__choice
-    {
-        color: #0f0f0f;
-    }
-</style>
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<link href="~/Content/css/custome_report_index.css" rel="stylesheet" />
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
- <h1>
-       L & T Nagar Reports
-        <small> Details</small>
-      
-        @if (@Model.UserId == 1)
-        {
-            <span id="btnusers" class="btn blue fa fa-users" title="Reports for all"
-                style="float: right; color: white; margin: 5px" onclick="OnBtnUsersClick();">
-            </span>
-        }
-             </h1>
+ 
      
-      <div class="row">
+      <!-- <div class="row">
                 <div class="col-md-12">
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
@@ -55,10 +38,48 @@
                         </li>              
                     </ul>
                 </div>
+            </div> -->
+       <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li style="padding-top: 0.2%;">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li>
+                         <a href="#">Reports</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">Monthly Report</a>
+                        </li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-      <div>
+            <h1>
+       L & T Nagar Reports
+        <small> Details</small>
       
-      </div>
+        @if (@Model.UserId == 1)
+        {
+            <span id="btnusers" class="btn blue fa fa-users" title="Reports for all"
+                style="float: right; color: white; margin: 5px" onclick="OnBtnUsersClick();">
+            </span>
+        }
+             </h1>
       <div style="clear: both;"></div>
     </section>
         <br />

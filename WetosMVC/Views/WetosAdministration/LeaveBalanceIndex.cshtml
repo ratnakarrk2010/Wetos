@@ -4,10 +4,43 @@
 }
 @System.Web.Optimization.Styles.Render("~/Content/DataTable")
 @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<link href="~/Content/css/leave_balance_index.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-      <h1>
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                         <a href="#">Administration</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Leave Balance</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h1>
 Leave Balance
         <small>List</small>
          @*<span class="btn blue" style="float:right;font-weight:800">@Html.ActionLink(" ", "LeaveBalanceCreate", new { }, new { @class = "fa fa-plus-circle", style = "color:white" })</span>*@
@@ -18,32 +51,6 @@ Leave Balance
         @*Modified on 01 JAN 2018 to fix BUG No. : L&T213 -- End*@
         
       </h1>
- 
-      <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                         <a href="#">Administration</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                            <a href="#">Leave Balance</a>
-                        </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
-                                <span style="cursor:pointer" data-toggle="tooltip" class="back " title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
-                            </div>
-                        </li>              
-                    </ul>
-                </div>
-            </div>
        @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
      @* <div>
       
@@ -62,6 +69,7 @@ Leave Balance
            
             <!-- /.box-header -->
             <div class="box-body">
+            <div class="table-responsive">
 <table id ="LeaveBalance" class="table table-bordered table-striped">
 <thead>
     <tr>
@@ -137,6 +145,7 @@ Leave Balance
 }
 </tbody>
 <tfoot></tfoot>
+</div>
 </table>
 
 </div>

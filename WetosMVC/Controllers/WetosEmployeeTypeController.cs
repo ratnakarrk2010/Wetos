@@ -404,7 +404,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.EmployeeTypes.AddObject(EmployeeTypeTblObj);
+                    WetosDB.EmployeeTypes.Add(EmployeeTypeTblObj);
                 }
 
                 WetosDB.SaveChanges();

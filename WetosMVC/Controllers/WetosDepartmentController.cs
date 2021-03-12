@@ -605,7 +605,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.Departments.AddObject(DepartmentTblObj);
+                    WetosDB.Departments.Add(DepartmentTblObj);
                 }
 
                 WetosDB.SaveChanges();

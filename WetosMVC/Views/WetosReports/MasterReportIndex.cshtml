@@ -6,15 +6,15 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/css/master_report_index.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
- <h1>
-       Master Report
-        <small> Details</small>
-      </h1>
+ 
      
-      <div class="row">
+      <!-- <div class="row">
                 <div class="col-md-12">
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
@@ -38,7 +38,41 @@
                         </li>              
                     </ul>
                 </div>
+            </div> -->
+             <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                         <a href="#">Reports</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Master Report</a>
+                        </li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
+            <h1>
+       Master Report
+        <small> Details</small>
+      </h1>
 
        @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
       <div>
@@ -75,9 +109,9 @@
             @Html.ValidationMessage("Error")
             </div>
              @*Added by Rajas on 23 DEC 2016 For custom error message END*@
-<div class = "row">
+<div class = "row m_margin_left_0">
 <div class="col-md-4">
-<div class="col-md-12">
+
 
 
 <div class="row">
@@ -90,7 +124,7 @@
 @Html.RadioButtonFor(model => model.ReportsSelected, "8")  Shift Master
 </div>
 </div>
-</div>
+
 <div class="col-md-4">
 <div class="row">
 @Html.RadioButtonFor(model => model.ReportsSelected, "1", new { Checked = "checked" })  Branch Master

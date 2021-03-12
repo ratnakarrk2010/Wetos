@@ -8,6 +8,36 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
+        <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                         <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="@Url.Action("Index", "WetosEmployee")">Employee </a>
+                        </li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
     <h1>Employee Master
         <small>All Employee List</small>
         <span class="btn blue fa fa-users"  data-toggle="tooltip" title="Click to get list of active Employees" style="float:right;color:white;margin:5px" onclick="@("window.location.href='" + @Url.Action("Index", "WetosEmployee") + "'")">
@@ -15,7 +45,7 @@
          <span class="btn blue fa fa-plus-square"  data-toggle="tooltip" title="Click to add new employee" style="float:right;color:white;margin:5px" onclick="@("window.location.href='" + @Url.Action("Create", "WetosEmployee") + "'")">
                                 </span> 
     </h1>
-    <div class="row">
+    <!-- <div class="row">
                 <div class="col-md-12">
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
@@ -39,7 +69,7 @@
                         </li>              
                     </ul>
                 </div>
-            </div>  
+            </div>   -->
     <div style="clear: both;">
     </div>
 

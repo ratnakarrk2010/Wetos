@@ -470,7 +470,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.EmployeeGroups.AddObject(EmployeeGroupTblObj);
+                    WetosDB.EmployeeGroups.Add(EmployeeGroupTblObj);
                 }
 
                 WetosDB.SaveChanges();

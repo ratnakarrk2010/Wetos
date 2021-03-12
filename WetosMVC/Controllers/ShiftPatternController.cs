@@ -88,7 +88,7 @@ namespace WetosMVC.Controllers
             shiftpatt.WeekRuleId = 0;
             shiftpatt.ShiftPattern = shift_pattern;
             shiftpatt.DayPattern = fc.GetValue("hid_day_pattern").AttemptedValue;
-            WetosDB.ShiftPatternRules.AddObject(shiftpatt);
+            WetosDB.ShiftPatternRules.Add(shiftpatt);
             WetosDB.SaveChanges();
             AddAuditTrail("Created Shift Pattern as " + shiftpatt.ShiftPattern);
 

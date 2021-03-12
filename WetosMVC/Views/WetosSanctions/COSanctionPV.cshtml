@@ -1,7 +1,9 @@
-﻿@model List<WetosDB.SP_WetosGetEmployeeCompOffSanction_Result>
+﻿<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+@model List<WetosDB.SP_WetosGetEmployeeCompOffSanction_Result>
 @{
     int j = 0;
 }
+<div class="table-responsive">
 <table id="CompOff" class="table table-bordered table-striped">
     @*Added by Pushkar For datatable on 25 OCT 2016*@
     <thead>
@@ -139,6 +141,7 @@
         </tr>
     </tfoot>
 </table>
+</div>
 
 <div class="row">
     <input type="hidden" id="hidvalueJ" name="hidvalueJ" value="@j" />

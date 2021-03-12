@@ -101,7 +101,7 @@ namespace WetosMVCMainApp.Utilities
             if (WetosDB == null)
             {
                 WetosDB = new WetosDBEntities();
-                WetosDB.CommandTimeout = 2000;
+                //WetosDB.CommandTimeout = 2000;
             }
 
             List<Company> m_ListCompany = WetosDB.Companies.ToList(); // BusinessFactory.Instance.BLCompany.GetAllCompany(ClientConstants.WetosAdminRights, ClientConstants.WetosAdminRights, Convert.ToString(ClientConstants.WetosAdminReportingId));

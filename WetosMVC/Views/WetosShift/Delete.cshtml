@@ -3,20 +3,14 @@
     //  ViewBag.Title = "";
 }
 @System.Web.Optimization.Scripts.Render("~/bundles/InputMask")
-<style type="text/css">
-    .row
-    {
-        margin-bottom: 10px;
-    }
-</style>
+<link href="~/Content/css/wetosshift_delete.css" rel="stylesheet" />
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-            <h1>Shift Master
-        <small>Delete</small>
-            </h1>
-             <div class="row">
-            <div class="row">
+           
+            
+            <!-- <div class="row">
                 <div class="col-md-12">
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
@@ -51,18 +45,37 @@
 
                     </ul>
                 </div>
+            </div> -->
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"><a href="@Url.Action("Index", "WetosShift")">Shift</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-           @* <ol class="breadcrumb">
-                <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i>Home</a></li>
-                <li class="active">Masters</li>
-                <li><a href="@Url.Action("Index", "WetosCompany")"><i class="fa fa-arrow-left"></i>Company</a></li>
-                <li class="active">Create</li>
-               
-
-            </ol>*@
-
-            @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
-            
+             <h1>Shift Master
+             <small>Delete</small>
+            </h1>
+           
             <div style="clear: both;"></div>
 
             @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
@@ -192,7 +205,7 @@
                             <div class="editor-label col-md-2">
                                 In Time <span style="color: Red; font-size: 18px">*</span>
                             </div>
-                            <input type="text" name="FirstInTime"" id="FirstInTime" readonly="readonly" disabled="disabled" value="@Model.FirstInTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                            <input type="text" name="FirstInTime" class="time_class" id="FirstInTime" readonly="readonly" disabled="disabled" value="@Model.FirstInTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
                         </div>
                        
 
@@ -200,7 +213,7 @@
                             <div class="editor-label col-md-2">
                                 Out Time <span style="color: Red; font-size: 18px">*</span>
                             </div>
-                           <input type="text" name="FirstOutTime"" id="FirstOutTime" readonly="readonly" disabled="disabled" value="@Model.FirstOutTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                           <input type="text" name="FirstOutTime"  class="time_class" id="FirstOutTime" readonly="readonly" disabled="disabled" value="@Model.FirstOutTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
                             <div style="color: Red; font-size: 12px">
                                 @Html.ValidationMessageFor(model => model.FirstOutTime)
                             </div>
@@ -212,7 +225,7 @@
                             <div class="editor-label col-md-2">
                                 Second In Time <span style="color: Red; font-size: 18px">*</span>
                             </div>
-                             <input type="text" name="SecondInTime"" id="" readonly="readonly" disabled="disabled" value="@Model.SecondInTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                             <input type="text" name="SecondInTime"  class="time_class" id="" readonly="readonly" disabled="disabled" value="@Model.SecondInTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
                         </div>
                         
 
@@ -220,7 +233,7 @@
                             <div class="editor-label col-md-2">
                                 Second Out Time <span style="color: Red; font-size: 18px">*</span>
                             </div>
-                             <input type="text" name="SecondOutTime"" id="" readonly="readonly" disabled="disabled" value="@Model.SecondOutTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                             <input type="text" name="SecondOutTime"  class="time_class" id="" readonly="readonly" disabled="disabled" value="@Model.SecondOutTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
                             <div style="color: Red; font-size: 12px">
                                 @Html.ValidationMessageFor(model => model.SecondOutTime)
                             </div>
@@ -231,7 +244,7 @@
                             <div class="editor-label col-md-2">
                                 Working Hours <span style="color: Red; font-size: 18px">*</span>
                             </div>
-                            <input type="text" name="WorkHours"" id="WorkHours" readonly="readonly" disabled="disabled" value="@Model.WorkHours" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                            <input type="text" name="WorkHours"  class="time_class" id="WorkHours" readonly="readonly" disabled="disabled" value="@Model.WorkHours" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
                         </div>
                        
 
@@ -239,7 +252,7 @@
                             <div class="editor-label col-md-2">
                                 Lunch Start Time <span style="color: Red; font-size: 18px">*</span>
                             </div>
-                           <input type="text" name="LunchStartTime"" id="LunchStartTime" readonly="readonly" disabled="disabled" value="@Model.LunchStartTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                           <input type="text" name="LunchStartTime"  class="time_class" id="LunchStartTime" readonly="readonly" disabled="disabled" value="@Model.LunchStartTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
 
                         </div>
                     
@@ -247,7 +260,7 @@
                             <div class="editor-label col-md-2">
                                 Lunch End Time <span style="color: Red; font-size: 18px">*</span>
                             </div>
-                             <input type="text" name="LunchEndTime"" id="LunchEndTime" disabled="disabled" value="@Model.LunchEndTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                             <input type="text" name="LunchEndTime"  class="time_class" id="LunchEndTime" disabled="disabled" value="@Model.LunchEndTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
 
                         </div>
                       
@@ -255,7 +268,7 @@
                             <div class="editor-label col-md-2">
                                 Lunch Time <span style="color: Red; font-size: 18px">*</span>
                             </div>
-                            <input type="text" name="LunchTime"" id="LunchTime" readonly="readonly" disabled="disabled" value="@Model.LunchTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                            <input type="text" name="LunchTime"  class="time_class" id="LunchTime" readonly="readonly" disabled="disabled" value="@Model.LunchTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
                         </div>
                           
     

@@ -4,7 +4,9 @@
                      //Layout = null;
 }
 @System.Web.Optimization.Styles.Render("~/Content/DataTable")
- @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<link href="~/Content/css/wetoscompany_index.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 
 <link href="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript" />
 <link href="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"
@@ -19,106 +21,121 @@
 <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" type="text/css" />
 <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css"
     type="text/css" />
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-            <h1>Company Master
-                <small>List</small>
-                 <span data-toggle="tooltip" title="Add Company" style="float:right;font-weight:800" onclick="OnAddCompanyClick();">
-                 @Html.ActionLink(" ", "Create", new { }, new { @class = "fa fa-plus-circle", title = "Add Company", style = "color:#428bca;font-size:19px" })</span>
-            </h1>
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
-                            <i class="fa fa-angle-right"></i>
+
+            
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
                         </li>
-                        <li>
-                         <a href="#">Masters</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Index", "WetosCompany")">Company </a>
-                        </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
-                            </div>
-                        </li>              
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"> <a href="@Url.Action("Index", "WetosCompany")">Company </a></li>
                     </ul>
                 </div>
-            </div>  
-           
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <br />
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="page-title">
+                        <i style="text-shadow: -3px 0px 4px #6f88a2; ">Company Master</i>
+                        <small>List</small>
+                        <span data-toggle="tooltip" title="Add Company" style="float:right;font-weight:800" onclick="OnAddCompanyClick();">
+                            @Html.ActionLink(" ", "Create", new { }, new { @class = "fa fa-plus-circle", title = "Add Company", style = "color:#428bca;font-size:19px" })
+                        </span>
+                    </h1>
+                </div>
+            </div>
         </section>
+        <br />
         <section class="content">
-           @* <div>      
+            @* <div>
                 <span class="btn btn-default" style="float:left;font-weight:200; cursor:pointer" "tooltip" title = "Click here to add new company">@Html.ActionLink("Add New Company", "Create")</span>
-            </div>   
+            </div>
             *@
-            
+
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
-              
-                            <div class="box-body">
-                           
-                                <table id="CompanyMaster" class="table table-bordered table-striped">  @*Added by Pushkar For datatable on 25 OCT 2016*@
-                                    <thead>
+
+                        <div class="box-body">
+                        <div class="table-responsive">
+
+                            <table id="CompanyMaster" class="table table-bordered table-striped">
+                                @*Added by Pushkar For datatable on 25 OCT 2016*@
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            Company
+                                        </td>
+                                        <td>
+                                            Location
+                                        </td>
+                                        <td>
+                                            Address
+                                        </td>
+                                        <td>
+                                            City
+                                        </td>
+                                        @*   <td>
+                                            Telephone
+                                        </td>*@
+                                        <td>
+                                            Email
+                                        </td>
+                                        <td>
+                                            Fax
+                                        </td>
+                                        @*  <td>
+                                            PAN
+                                        </td>
+                                        <td>
+                                            CST
+                                        </td>
+                                        <td>
+                                            EXC
+                                        </td>
+                                        <td>
+                                            TDS
+                                        </td>
+                                        <td>
+                                            SGNNM
+                                        </td>
+                                        <td>
+                                            SGNPlace
+                                        </td>*@
+                                        <td>PIN Code</td>
+                                        <td>Action</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
                                         <tr>
                                             <td>
-                                                Company
-                                            </td>
-                                            <td>
-                                                Location
-                                            </td>
-                                            <td>
-                                                Address
-                                            </td>
-                                            <td>
-                                                City
-                                            </td>
-                                            @*   <td>
-                                                Telephone
-                                            </td>*@
-                                            <td>
-                                                Email
-                                            </td>
-                                            <td>
-                                                Fax
-                                            </td>
-                                            @*  <td>
-                                                PAN
-                                            </td>
-                                            <td>
-                                                CST
-                                            </td>
-                                            <td>
-                                                EXC
-                                            </td>
-                                            <td>
-                                                TDS
-                                            </td>
-                                            <td>
-                                                SGNNM
-                                            </td>
-                                            <td>
-                                                SGNPlace
-                                            </td>*@
-                                            <td>PIN Code</td>
-                                            <td>Action</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in Model)
-                                        {
-                                          <tr>      
-                                            <td>
-                                            <a href="@Url.Action("Details", "WetosCompany", new { id = item.CompanyId })" style="cursor:pointer; float:left" title = "Click to check company details">
-                                                @item.CompanyName</a>
+                                                <a href="@Url.Action("Details", "WetosCompany", new { id = item.CompanyId })" style="cursor:pointer; float:left" title="Click to check company details">
+                                                    @item.CompanyName
+                                                </a>
                                             </td>
                                             <td>
                                                 @item.LocationName
@@ -129,7 +146,7 @@
                                             <td>
                                                 @item.Address2
                                             </td>
-                                          @*  <td>
+                                            @*  <td>
                                                 @item.Telephone
                                             </td>*@
                                             <td>
@@ -138,7 +155,7 @@
                                             <td>
                                                 @item.Fax
                                             </td>
-                                           @* <td>
+                                            @* <td>
                                                 @item.PAN
                                             </td>
                                             <td>
@@ -159,22 +176,24 @@
                                             @*<td></td>*@
                                             @*Above Line Commented and below line is added by Shalaka on 18th DEC 2017*@
                                             <td>@item.PINCode</td>
-                                              <td>
-                                              <span data-toggle="tooltip" title="Edit">
-                                                @Html.ActionLink(" ", "Edit", new { id = item.CompanyId }, new { @class = "fa fa-pencil-square-o" })</span> |
+                                            <td>
+                                                <span data-toggle="tooltip" title="Edit">
+                                                    @Html.ActionLink(" ", "Edit", new { id = item.CompanyId }, new { @class = "fa fa-pencil-square-o" })
+                                                </span> |
                                                 @*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
                                                 <span data-toggle="tooltip" title="Delete">
-                                                @Html.ActionLink(" ", "Delete", new { id = item.CompanyId }, new { @class = "fa fa-trash" })
+                                                    @Html.ActionLink(" ", "Delete", new { id = item.CompanyId }, new { @class = "fa fa-trash" })
                                                 </span>
                                             </td>
                                         </tr>
-                                        }
-                                    </tbody>
+                                    }
+                                </tbody>
                                 <tfoot></tfoot>
                             </table>
+                            </div>
                         </div>
                         <!-- /.box-body -->
-                    </div>                    
+                    </div>
                     <!-- /.box -->
                 </div>
                 <!-- /.col -->

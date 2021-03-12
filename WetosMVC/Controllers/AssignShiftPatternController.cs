@@ -107,7 +107,7 @@ namespace WetosMVC.Controllers
                             ss.BranchId = EmployeeObj.BranchId;   //0;
                             ss.CompanyId = EmployeeObj.CompanyId; //0;
 
-                            WetosDB.ShiftSchedules.AddObject(ss);
+                            WetosDB.ShiftSchedules.Add(ss);
                             WetosDB.SaveChanges();
 
                             TimeSpan ts = (Convert.ToDateTime(tdate)) - (Convert.ToDateTime(fmdate));
@@ -296,7 +296,7 @@ namespace WetosMVC.Controllers
                                     command = string.Format(@"insert into ShiftSchedulePattern (EmployeeId,EmployeeGroupId,ShiftMonth,ShiftYear,EffectiveStartDate,EffectiveEndDate,DayCount,BranchId,CompanyId,ShiftPatternId,{16}) values ({0},{1},{2},{3},'{4}/{5}/{6} {7}','{8}/{9}/{10} {11}',{12},{13},{14},{15},{17});"
                                         , EmployeeGroupDetailObj.Employee.EmployeeId, Convert.ToInt32(id), TmpStartMonth, TmpStartYear, StartDateToUseInQuery.Year, StartDateToUseInQuery.Month, StartDateToUseInQuery.Day, "00:00", EndDateToUseInQuery.Year, EndDateToUseInQuery.Month, EndDateToUseInQuery.Day, "23:59", s_days, EmployeeObj.BranchId, EmployeeObj.CompanyId, empShiftPatternid, ColumnStr, ValueStr);
 
-                                    WetosDB.ExecuteStoreQuery<List<string>>(command, "").ToList();
+                                    //WetosDB.ExecuteStoreQuery<List<string>>(command, "").ToList();
 
                                 }
                                 else
@@ -306,7 +306,7 @@ namespace WetosMVC.Controllers
                                         command = string.Format(@"update ShiftSchedulePattern SET {0} = {1} where ShiftPatternId={2};"
                                                 , ColumnStringList[k], ValueStringList[k], ShiftSchedulePatternExistObj.ShiftSchedulePatternId);
 
-                                        WetosDB.ExecuteStoreQuery<List<string>>(command, "").ToList();
+                                        //WetosDB.ExecuteStoreQuery<List<string>>(command, "").ToList();
 
                                     }
 
@@ -356,7 +356,7 @@ namespace WetosMVC.Controllers
                             //ssp.ShiftPatternId = empShiftPatternid;
                             ////ss.shiftrul keid = WetosDB.RuleMasters.Where(a => a.RuleShortName == sd).Select(a => a.RuleId).FirstOrDefault();
                             //// ss.ShiftDate = fmdate;
-                            //WetosDB.ShiftSchedulePatterns.AddObject(ssp);
+                            //WetosDB.ShiftSchedulePatterns.Add(ssp);
                             //WetosDB.SaveChanges();
                             #endregion
 
@@ -577,7 +577,7 @@ namespace WetosMVC.Controllers
         //                            ss.CompanyId = 0;
         //                            ss.shiftruleid = WetosDB.RuleMasters.Where(a => a.RuleShortName == sd).Select(a => a.RuleId).FirstOrDefault();
         //                            ss.ShiftDate = fmdate;
-        //                            WetosDB.ShiftSchedules.AddObject(ss);
+        //                            WetosDB.ShiftSchedules.Add(ss);
         //                            WetosDB.SaveChanges();
         //                            //s_day = Convert.ToInt32(o_d[0]) + 1;
         //                            fmdate = fmdate.AddDays(1);

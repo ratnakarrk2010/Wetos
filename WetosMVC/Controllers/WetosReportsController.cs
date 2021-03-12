@@ -2917,7 +2917,7 @@ namespace WetosMVC.Controllers
                     Opening.LeaveType = LFYOpening.LeaveType;
                     Opening.ApplicableEffectiveDate = LFYApplicableFrom;
                     //ADDED BY SHRADDHA ON 10 MAY 2017 END
-                    WetosDB.LeaveCredits.AddObject(Opening); // NEW CREDIT ENTRY FY
+                    WetosDB.LeaveCredits.Add(Opening); // NEW CREDIT ENTRY FY
                     WetosDB.SaveChanges();
 
                     // Update leave balance
@@ -3305,7 +3305,7 @@ namespace WetosMVC.Controllers
                     "DailyAttendance", "~/User_Data/download/", "Daily_Attedence_Report_", ref PdfFileName);
 
                 Response.AddHeader("Content-Disposition", "attachment; filename=" + GeneratedFileName + ";");
-
+                //Response.AddHeader("Content-Disposition", "attachment; filename=\"" + GeneratedFileName + "\"");
                 //ReturnStatus = true;
 
             }
@@ -7319,7 +7319,7 @@ namespace WetosMVC.Controllers
                         {
                             table5.Columns[DayStr].ColumnName = tableH.Rows[0][i - 1].ToString();
                         }
-                        catch (Exception)
+                        catch (Exception ex1)
                         {
                         }
                     }

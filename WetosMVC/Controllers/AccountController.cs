@@ -12,7 +12,7 @@ using WetosMVC.Models;
 using WetosMVCMainApp.Models;
 using System.Data.Entity;
 using WetosMVCMainApp.Utilities;
-using System.Net.Http;
+//using System.Net.Http;
 
 namespace WetosMVC.Controllers
 {
@@ -132,7 +132,7 @@ namespace WetosMVC.Controllers
 
                 if (UserObj == null)
                 {
-                    ModelState.AddModelError("", "Please enter correct user id and password");
+                    ModelState.AddModelError("AddModelError", "Please enter correct user id and password");
                     return View(model);
                 }
 
@@ -962,7 +962,7 @@ namespace WetosMVC.Controllers
                     //CurrentFY.FinancialYearId = MaxFYId + 1;
                     CurrentFY.MarkedAsDelete = 0;
 
-                    WetosDB.FinancialYears.AddObject(CurrentFY);
+                    WetosDB.FinancialYears.Add(CurrentFY);
 
                     WetosDB.SaveChanges();
 
@@ -989,7 +989,7 @@ namespace WetosMVC.Controllers
                         GFY.SettingText = GlobalSettingsConstant.CurrentFinancialYear;
                         GFY.SettingType = 1;
                         GFY.SettingValue = CurrentFY.FinancialName.ToString();
-                        WetosDB.GlobalSettings.AddObject(GFY);
+                        WetosDB.GlobalSettings.Add(GFY);
                         WetosDB.SaveChanges();
                     }
                     else

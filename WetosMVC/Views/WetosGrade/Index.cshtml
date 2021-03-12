@@ -4,56 +4,47 @@
 }
 @System.Web.Optimization.Styles.Render("~/Content/DataTable")
 @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
-<style type="text/css">
-    .row
-    {
-        margin-bottom: 10px;
-    }
-</style>
+<link href="~/Content/css/wetosgrade_index.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
- <h1>
+ 
+      
+             <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"><a href="@Url.Action("Index", "WetosGrade")">Grade</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+     <h1>
        Grade Master
         <small>List</small>
          <span data-toggle="tooltip" title="Add Grade" style="float:right;font-weight:800">
          @Html.ActionLink(" ", "Create", new { }, new { @class = "fa fa-plus-circle", title = "Add Grade", style = "color:#428bca;font-size:19px" })</span>
        
       </h1>
-      <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                         <a href="#">Masters</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Index", "WetosGrade")">Grade </a>
-                        </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor: pointer" class="back "  data-toggle="tooltip" title="Back"id="goback"><i class="fa fa-arrow-left"></i>@*<a href="#" >Back</a>*@
-
-                                </span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()
-                                </span>
-                            </div>
-                            @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
-                        </li>
-                    </ul>
-                </div>
-            </div>
-      @*<ol class="breadcrumb">
-        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class ="active">Grade Master</li>
-     
-      </ol>*@
     </section>
         @*<div class="container" style="margin-right: 100px; overflow: auto;">
             <p>

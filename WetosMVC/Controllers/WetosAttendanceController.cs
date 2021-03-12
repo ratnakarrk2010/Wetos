@@ -61,7 +61,7 @@ namespace WetosMVC.Controllers
 
                 if (CondoneTrnObj != null)
                 {
-                    WetosDB.CondoneTrns.DeleteObject(CondoneTrnObj);
+                    WetosDB.CondoneTrns.Remove(CondoneTrnObj);
                     WetosDB.SaveChanges();
 
                     AddAuditTrail("Deleted condone entry for " + id); // Updated on 16 JAN 2017 by Rajas
@@ -383,7 +383,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.CondoneTrns.AddObject(CondoneTrnTblObj);
+                    WetosDB.CondoneTrns.Add(CondoneTrnTblObj);
                 }
 
                 WetosDB.SaveChanges();
@@ -437,7 +437,7 @@ namespace WetosMVC.Controllers
             try
             {
                 // TODO: Add insert logic here
-                WetosDB.ShiftSchedules.AddObject(ShiftScheduleObj);
+                WetosDB.ShiftSchedules.Add(ShiftScheduleObj);
                 return RedirectToAction("Index", "WetosDashboard");
             }
             catch
@@ -490,7 +490,7 @@ namespace WetosMVC.Controllers
 
                 Holiday.ReligionId = HolidayObj.ReligionId;
 
-                WetosDB.HoliDays.AddObject(Holiday);
+                WetosDB.HoliDays.Add(Holiday);
 
 
                 WetosDB.SaveChanges();
@@ -591,7 +591,7 @@ namespace WetosMVC.Controllers
             try
             {
                 // TODO: Add insert logic here
-                WetosDB.DeclaredHolidays.AddObject(DeclrdHolidayObj);
+                WetosDB.DeclaredHolidays.Add(DeclrdHolidayObj);
                 return RedirectToAction("Index", "WetosDashboard");
             }
             catch

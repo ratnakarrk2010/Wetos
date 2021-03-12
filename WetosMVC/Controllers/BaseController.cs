@@ -8,11 +8,11 @@ using WetosMVCMainApp.Models;
 using WetosDB;
 using WetosMVC.Models;
 using System.IO;
-using System.Data.EntityClient;
 using System.Data.SqlClient;
-using System.Data.Objects;
 using WetosMVCMainApp.Utilities;
 using WetosMVCMainApp.Extensions;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Core.EntityClient;
 
 namespace WetosMVC.Controllers
 {
@@ -28,7 +28,7 @@ namespace WetosMVC.Controllers
             if (WetosDB == null)
             {
                 WetosDB = new WetosDBEntities();
-                WetosDB.CommandTimeout = 2000;
+                //WetosDB.CommandTimeout = 2000;
 
                 //// assumes a connectionString name in .config of MyDbEntities
                 //var selectedDb = new WetosDBEntities();
@@ -134,7 +134,7 @@ namespace WetosMVC.Controllers
                 action.MachineIP = " ";
                 action.MachineNo = " ";
 
-                WetosDB.AuditTrails.AddObject(action);
+                WetosDB.AuditTrails.Add(action);
 
                 WetosDB.SaveChanges();
 

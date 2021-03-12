@@ -563,7 +563,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.Grades.AddObject(GradeTblObj);
+                    WetosDB.Grades.Add(GradeTblObj);
                 }
 
                 WetosDB.SaveChanges();

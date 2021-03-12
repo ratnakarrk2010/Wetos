@@ -1,7 +1,9 @@
-﻿@model List<WetosDB.SP_WetosGetEmployeeODTravelSanction_Result>
+﻿<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+@model List<WetosDB.SP_WetosGetEmployeeODTravelSanction_Result>
 @{
     int j = 0;
 }
+<div class="table-responsive">
 <table id="ODTravelSanction" class="table table-bordered table-striped">
     @*Added by Pushkar For datatable on 25 OCT 2016*@
     <thead>
@@ -201,6 +203,7 @@
         </tr>
     </tfoot>
 </table>
+</div>
 <div class="row">
     <input type="hidden" id="hidvalueJ" name="hidvalueJ" value="@j" />
     <input type="hidden" value="@ViewBag.Status" id="hideStatusValue"/>

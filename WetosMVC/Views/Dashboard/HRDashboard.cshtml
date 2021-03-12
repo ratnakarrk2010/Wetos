@@ -5,6 +5,165 @@
 
 <link href="@Url.Content("~/Content/layout.css")" rel="stylesheet" type="text/css"/>
 <link href="@Url.Content("~/Content/components.css")" rel="stylesheet" type="text/css"/>
+<style>
+    .icon_btn {
+    position: relative;
+    background-image: linear-gradient(#20466f,#20466f) !important;
+    color: #fff;
+    font-size: 16px;
+    box-shadow: 0px 1px 4px -2px #333;
+    text-shadow: 0px -1px #333;
+}
+
+    .icon_btn:after {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 0%;
+        width: calc(100%);
+        height: 60%;
+        background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.1));
+        z-index: 1;
+    }
+    .btn_width {
+        width: 50px;
+    }
+    .icon_btn:hover {
+        background-image: linear-gradient(#20466f,#20466f) !important;
+    }
+    .icon_width_height {
+        width: 30px;
+        height: 30px;
+    }
+    .page-title {
+        color: #2c599f;
+    }
+    .user_img{
+        width:67px;
+        margin-left: -17%;
+    }
+    .female_user_img{
+         width:50px;
+    }
+    .all_user_img{
+        width: 70px;
+        height: 60px;
+        margin-top:2%;
+    }
+    .home_width_height {
+        width: 25px;
+        height: 25px;
+    }
+    .date_margin {
+        margin-left: 72%;
+    }
+    .area_chart_title {
+        background-color: #d2dbe4;
+        color: #20466f;
+        padding-left: 5%;
+        margin-bottom: 2%;
+        margin-top: 2%;
+        box-shadow: 0px 2px 6px #a9b1b8;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        border-radius: 5px;
+    }
+    .box-body{
+          box-shadow: 0px 2px 6px #a9b1b8;
+          border-radius: 7px;
+    }
+    .page-content-wrapper .page-content {
+        margin-top: -1.5%;
+       
+    }
+    .page-breadcrumb.breadcrumb{
+            margin-bottom: 1.5% !important;
+    }
+
+    .dashboard-stat.blue-madison{
+        position: relative;
+        background-image: linear-gradient(#004a8a,#013d71) !important;
+    }
+    .dashboard-stat.red-intense {
+        position: relative;
+        background-image: linear-gradient(#ff0200,#840201) !important;
+    }
+    .dashboard-stat.green-haze{
+         position: relative;
+        background-image: linear-gradient(#01867c,#00b9ac) !important;
+    }
+    .dashboard-stat.blue-madison:after {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 0%;
+        width: calc(100%);
+        height: 46%;
+        background: linear-gradient(rgb(255 255 255 / 28%), rgb(255 255 255 / 8%));
+        z-index: 1;
+        border-radius: 7px;
+        /*border-bottom-left-radius: 90px;
+        border-bottom-right-radius: 90px;*/
+    }
+    .dashboard-stat.green-haze:after {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 0%;
+        width: calc(100%);
+        height: 46%;
+         background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.1));
+        z-index: 1;
+        border-radius: 7px;
+        /*border-bottom-left-radius: 90px;
+        border-bottom-right-radius: 90px;*/
+    }
+
+    .dashboard-stat.red-intense:after {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 0%;
+        width: calc(100%);
+        height: 46%;
+        background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.1));
+        z-index: 1;
+        border-radius: 7px;
+        /*border-bottom-left-radius: 90px;
+        border-bottom-right-radius: 90px;*/
+    }
+    .chart_div{
+         margin-left:2%;
+    }
+    .row {
+        margin-right: 0px;
+       
+    }
+    .padding_right_0{
+        padding-right: 0px;
+    }
+    @@media screen and (min-width: 320px) and (max-width: 767px) {
+        .date_margin {
+            margin-left: 54%;
+            margin-top: -9%;
+        }
+        .row {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+
+        .breadcrumb_div {
+            margin-left: -7%;
+            margin-right: -7%;
+        }
+        .page-content-wrapper .page-content {
+            padding: 0px 0px !important;
+        }
+        .chart_div{
+            margin-left:0%;
+        }
+    }
+</style>
 <!-- Left side column. contains the logo and sidebar -->
 <!-- Content Wrapper. Contains page content -->
 <div>
@@ -13,27 +172,45 @@
     <div>
         <div class="page-content-wrapper" id="page_content">
             <div class="page-content">
-                
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                        <h3 class="page-title">
-                            Dashboard <small>statistics and more <span class="btn blue fa fa-users"  data-toggle="tooltip" title="Click to check Employee statistics" style="float:right;color:white;margin:5px" onclick="@("window.location.href='" + @Url.Action("EmployeeDashboard", "Dashboard") + "'")">
-                            </span><span class="btn blue fa fa-sitemap"  data-toggle="tooltip" title="Click to check Employees reporting to logged in employee" style="float:right;color:white;margin:5px" onclick="@("window.location.href='" + @Url.Action("EmployeeReportingIndex", "ManagerDashboard") + "'");">
-                            </span><span class="btn blue fa fa-clock-o" data-toggle="tooltip" title="Click to check logged in Employee attendance statistics" style="float:right;cursor:pointer; color:white;margin:5px" onclick="@("window.location.href='" + @Url.Action("Index", "ManagerDashboard") + "'");">
-                            </span></small>
-                        </h3>
+                <div class="row breadcrumb_div">
+                    <div class="col-sm-12 padding_right_0">
                         <ul class="page-breadcrumb breadcrumb">
-                            <li><i class="fa fa-home"></i><a href="#">Home </a><i class="fa fa-angle-right"></i>
+                            <li  style="padding-top: 0.4%;">
+                                @*<i class="fa fa-home"></i>*@
+                                <img class="home_width_height" src="~/Content/images/icon/home_1.png" />
+                                <a href="#">Home </a><i class="fa fa-angle-right"></i>
                             </li>
-                            <li><a href="#">Dashboard </a></li>
-                            <li class="pull-right">
+                            <li style="padding-top: 0.7%;"><a href="#">Dashboard </a></li>
+                            <li class="date_margin">
                                 <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
-                                    <i class="fa fa-calendar"></i><span>@DateTime.Now.ToLongDateString()
+                                    @*<i class="fa fa-calendar"></i>*@
+                                    <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                    <span>
+                                        @DateTime.Now.ToLongDateString()
                                     </span>
                                 </div>
-                            </li>
-                        </ul>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                        <h3 class="page-title">
+                            <i style="text-shadow: -3px 0px 4px #6f88a2; "> Dashboard </i> <small>statistics and more 
+                            
+                            <span class="btn btn-default btn-sm icon_btn btn_width"  data-toggle="tooltip" title="Click to check Employees reporting to logged in employee" style="        float: right;
+        color: white;
+        margin: 5px
+" onclick="@("window.location.href='" + @Url.Action("EmployeeReportingIndex", "ManagerDashboard") + "'");"><img src="~/Content/images/icon/tree.png" class="icon_width_height" />
+                            </span>
+                            <span class="btn btn-default btn-sm icon_btn btn_width" data-toggle="tooltip" title="Click to check logged in Employee attendance statistics" style="float:right;cursor:pointer; color:white;margin:5px" onclick="@("window.location.href='" + @Url.Action("Index", "ManagerDashboard") + "'");">
+                                <img src="~/Content/images/icon/imageedit_49.png" class="icon_width_height" />
+                            </span>
+                            <span class="btn btn-default btn-sm icon_btn btn_width" data-toggle="tooltip" title="Click to check Employee statistics" style="float: right;color: white;margin: 5px" onclick="@("window.location.href='" + @Url.Action("EmployeeDashboard", "Dashboard") + "'")"><img src="~/Content/images/icon/imageedit_61.png" class="icon_width_height users_icon" /></span>
+                            </small>
+                        </h3>
+                        
                         <!-- END PAGE TITLE & BREADCRUMB-->
                     </div>
                 </div>
@@ -45,7 +222,9 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="dashboard-stat blue-madison">
                             <div class="visual">
-                                <i class="fa fa-male"></i>
+                                @*<i class="fa fa-male"></i>*@
+                                @*<img class="user_img" src="~/Content/images/icon/male.jpg" />*@
+                                <img class="user_img" src="~/Content/images/icon/MALE.png" />
                             </div>
                             <div class="details">
                                 <div class="number" id="malepresent">
@@ -62,7 +241,8 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="dashboard-stat red-intense">
                             <div class="visual">
-                                <i class="fa fa-female"></i>
+                                @*<i class="fa fa-female"></i>*@
+                                <img class="female_user_img" src="~/Content/images/icon/female_user1.png" />
                             </div>
                             <div class="details">
                                 <div class="number" id="femalepresent">
@@ -79,7 +259,8 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="dashboard-stat green-haze">
                             <div class="visual">
-                                <i class="fa fa-user"></i>
+                                @*<i class="fa fa-user"></i>*@
+                                <img class="all_user_img" src="~/Content/images/icon/imageedit_61.png" />
                             </div>
                             <div class="details">
                                 <div class="number" id="totalpresent">
@@ -104,10 +285,10 @@
 <div class="row">
     <div class="col-md-6">
         <!-- AREA CHART -->
-        <div class="box box-primary">
+        <div class="box box-primary chart_div">
             <div class="box-header with-border">
-                <h3 class="box-title">
-                    Area Chart</h3>
+                <h3 class="box-title area_chart_title">
+                    <i>Area Chart</i></h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse">
                         <i class="fa fa-minus"></i>

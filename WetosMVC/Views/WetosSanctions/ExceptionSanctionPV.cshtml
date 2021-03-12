@@ -1,7 +1,9 @@
-﻿@model List<WetosDB.SP_ExceptionSanctionIndex_Result>
+﻿ <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+@model List<WetosDB.SP_ExceptionSanctionIndex_Result>
 @{
     int j = 0;
 }
+<div class="table-responsive">
 <table id="ExceptionSanction" class="table table-bordered table-striped">
     @{int LoginEmployee = Convert.ToInt32(Session["EmployeeNo"]);}
     @*Added by Pushkar For datatable on 25 OCT 2016*@
@@ -204,6 +206,7 @@
         </tr>
     </tfoot>
 </table>
+</div>
 <div class="row">
     <input type="hidden" id="hidvalueJ" name="hidvalueJ" value="@j" />
     <input type="hidden" value="@ViewBag.Status" id="hideStatusValue"/>

@@ -1254,7 +1254,7 @@ namespace WetosMVC.Controllers
 
 
 
-                                WetosDB.LeaveMasters.AddObject(LeaveMasterTblObj);
+                                WetosDB.LeaveMasters.Add(LeaveMasterTblObj);
                             }
 
                             WetosDB.SaveChanges();
@@ -1564,7 +1564,7 @@ namespace WetosMVC.Controllers
 
 
 
-                            WetosDB.LeaveMasters.AddObject(LeaveMasterTblObj);
+                            WetosDB.LeaveMasters.Add(LeaveMasterTblObj);
                         }
 
                         WetosDB.SaveChanges();
@@ -1860,7 +1860,7 @@ namespace WetosMVC.Controllers
 
 
 
-                    WetosDB.LeaveMasters.AddObject(LeaveMasterTblObjS);
+                    WetosDB.LeaveMasters.Add(LeaveMasterTblObjS);
                 }
 
                 WetosDB.SaveChanges();

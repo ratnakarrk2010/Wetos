@@ -155,7 +155,7 @@ namespace WetosMVC.Controllers
                 //{
                 if (URule != null)
                 {
-                    WetosDB.RuleTransactions.DeleteObject(URule);
+                    WetosDB.RuleTransactions.Add(URule);
                     WetosDB.SaveChanges();
                 }
                 //}
@@ -183,7 +183,7 @@ namespace WetosMVC.Controllers
                     RT.Formula = RuleEngineObj.Formula;
                     RT.HeadCode = "BASIC";
                     RT.Active = "A";
-                    WetosDB.RuleTransactions.AddObject(RT);
+                    WetosDB.RuleTransactions.Add(RT);
                 }               
                 
                 WetosDB.SaveChanges();

@@ -8,38 +8,44 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/css/declared_holiday_create.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-      <h1>
+     
+       
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="@Url.Action("CondoneEntryIndex", "WetosAttendance")">Attendance</a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"><a href="#">Condone Entry</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+             <h1>
         Holiday Entry
         <small>Create</small>
       </h1>
-       <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                         <a href="#">Masters</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Index", "WetosHoliday")">Holiday </a>
-                        </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor:pointer" class="back " id="goback"><i class="fa fa-arrow-left"></i></span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
-                            </div>
-                        </li>              
-                    </ul>
-                </div>
-            </div>  
       <div style="clear: both;"></div>
 
        @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
@@ -56,7 +62,7 @@
  
 @using (Html.BeginForm())
 {
-    <div style="color:Red;font-size:12px">
+    <div class="red_star" style="color:Red;font-size:12px">
    @Html.ValidationSummary(false)  
    </div>  
     <fieldset>
@@ -65,7 +71,7 @@
     
         <div class="form-group col-md-5" id="BranchList">
          <div class="editor-label">
-           Branch Name <span style="color:Red;font-size:18px" >*</span>
+           Branch Name <span class="red_star" style="color:Red;font-size:18px" >*</span>
         </div>
         <div class="editor-field" >
          @*Modified by shalaka on 7th July*@
@@ -124,7 +130,7 @@
      
       <div class="col-md-3">
           <div class="form-group">
-               Declare Holiday Date <span style="color:Red;font-size:18px" >*</span>
+               Declare Holiday Date <span class="red_star" style="color:Red;font-size:18px" >*</span>
 
                 <div class="input-group date">
                   <div class="input-group-addon">
@@ -142,7 +148,7 @@
 
          <div class="col-md-3">
           <div class="form-group">
-               Select Extra working Date <span style="color:Red;font-size:18px" >*</span>
+               Select Extra working Date <span class="red_star" style="color:Red;font-size:18px" >*</span>
 
                 <div class="input-group date">
                   <div class="input-group-addon">
@@ -168,7 +174,7 @@
             @* End*@
             Holiday Description <span style="color:Red;font-size:18px" >*</span>
         </div>
-        <div class="editor-field">
+        <div class="editor-field textarea_m">
             @Html.TextAreaFor(model => model.Description, new { style = "width:500px" })
             @*@Html.ValidationMessageFor(model => model.Description)*@
         </div>
