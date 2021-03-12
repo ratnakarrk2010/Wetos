@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b64f65451a14418ba2e807da98efbeaf" Name="Diagram1">
+        <EntityTypeShape EntityType="WetosDB.AttendanceYear" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.AuditLog" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.AuditTrail" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.BloodGroup" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Branch" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.CalendarStatu" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.CommanData" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Company" Width="1.5" PointX="0.75" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.CompOff" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.CompOffApplication" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.CondoneTrn" Width="1.5" PointX="5.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.CumulativeCompOff" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.CumulativeCompOffApplication" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.CumulativeManualCompOff" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.DailyTransaction" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.DeclaredHoliday" Width="1.5" PointX="5.25" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Department" Width="1.5" PointX="8.25" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Designation" Width="1.5" PointX="8.25" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Division" Width="1.5" PointX="8.25" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.DropdownData" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Employee" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.EmployeeExtraDetail" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.EmployeeGroup" Width="1.5" PointX="5.25" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.EmployeeGroupDetail" Width="1.5" PointX="10.5" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.EmployeeGrouptype" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.EmployeeLifeCycle" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.EmployeeType" Width="1.5" PointX="9" PointY="39.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.ExceptionEntry" Width="1.5" PointX="14.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.FinancialYear" Width="1.5" PointX="11.25" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.GlobalSetting" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Grade" Width="1.5" PointX="11.25" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.HeadCode" Width="1.5" PointX="11.25" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.HeadType" Width="1.5" PointX="5.25" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.HoliDay" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.LeaveApplication" Width="1.5" PointX="16.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.LeaveBalance" Width="1.5" PointX="2.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.LeaveBalanceBackupData" Width="1.5" PointX="4.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.LeaveCredit" Width="1.5" PointX="16.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.LeaveEncash" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.LeaveMaster" Width="1.5" PointX="18.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Location" Width="1.5" PointX="10.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.ManualCompOff" Width="1.5" PointX="13.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.MonthDetail" Width="1.5" PointX="18.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.NavMenu" Width="1.5" PointX="18.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.News" Width="1.5" PointX="8.25" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Notification" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.ODLateEarly" Width="1.5" PointX="20.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.ODTour" Width="1.5" PointX="20.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.OtHr" Width="1.5" PointX="15.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Religion" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.RoleDef" Width="1.5" PointX="17.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.RoleNavMenu" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.RoleType" Width="1.5" PointX="22.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.RuleEngine" Width="1.5" PointX="22.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.RuleFlag" Width="1.5" PointX="11.25" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Rule" Width="1.5" PointX="13.5" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.RulesMaster" Width="1.5" PointX="22.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.RuleTransaction" Width="1.5" PointX="22.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Schedular" Width="1.5" PointX="22.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Shift" Width="1.5" PointX="3" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.ShiftPatternRule" Width="1.5" PointX="19.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.ShiftRotation" Width="1.5" PointX="8.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.ShiftSchedule" Width="1.5" PointX="22.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.ShiftSchedulePattern" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.ShiftSwapReplace" Width="1.5" PointX="24.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.SqlQuery" Width="1.5" PointX="24.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.TblFamilyDetail" Width="1.5" PointX="24.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.UploadCompanyDocument" Width="1.5" PointX="24.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.UploadDocument" Width="1.5" PointX="15.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.UserRole" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.User" Width="1.5" PointX="26.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.CURREMPINOUT" Width="1.5" PointX="26.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Device" Width="1.5" PointX="26.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.EMPINOUT" Width="1.5" PointX="17.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.EmployeeIntime" Width="1.5" PointX="26.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.EmployeeIntimeshift" Width="1.5" PointX="19.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.employeeOuttime" Width="1.5" PointX="26.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.FirstOut" Width="1.5" PointX="26.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.LeavebalanceOLD" Width="1.5" PointX="24.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.LeaveCreditOLD" Width="1.5" PointX="26.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.PRESENTEMPLOYEE" Width="1.5" PointX="28.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.PREVEMPINOUT" Width="1.5" PointX="28.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.TempCommanData" Width="1.5" PointX="28.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VIEWREPORT" Width="1.5" PointX="28.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Vw_CompOffApplicationIndex" Width="1.5" PointX="28.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.Vw_CumulativeCompOffApplicationIndex" Width="1.5" PointX="28.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwActiveEmployee" Width="1.5" PointX="30.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwBranchDetail" Width="1.5" PointX="30.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwCumulativeManualCompOffList" Width="1.5" PointX="15.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwDepartmentDetail" Width="1.5" PointX="30.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwDesignationDetail" Width="1.5" PointX="17.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwEmployeeGroupDetail" Width="1.5" PointX="30.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwGradeDetail" Width="1.5" PointX="19.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwLeaveApplicationIndex" Width="1.5" PointX="30.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwLocationNameInCompany" Width="1.5" PointX="30.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwManualCompOffList" Width="1.5" PointX="21.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwNewsList" Width="1.5" PointX="23.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwODTravelIndex" Width="1.5" PointX="32.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwRuleTransaction" Width="1.5" PointX="32.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwShiftDetail" Width="1.5" PointX="32.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WetosDB.VwShiftGroupDetail" Width="1.5" PointX="32.75" PointY="18.75" IsExpanded="true" />
+        <AssociationConnector Association="WetosDB.BRANCHID_CENTER_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_Branch_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_CondoneTrn_Branch_BranchId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_DeclaredHoliday_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_Department_Branch_BranchId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_Designation_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_Designation_Branch_BranchId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_EmployeeGroup_Branch_BranchId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_FinancialYear_Branch_BranchId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_Grade_Branch_BranchId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_HeadCode_Branch_BranchId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_HeadType_Branch_BranchId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_News_Branch_BranchId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_ShiftRotation_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.COMPANYID_CENTER_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_CondoneTrn_Company_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_Department_Company_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_Designation_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_EmployeeGroup_Company_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_FinancialYear_Company_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_Grade_Company_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_HeadCode_Company_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_HeadType_Company_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_News_Company_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_Shift_Company_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_ShiftRotation_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_EmployeeGroupDetail_Employee_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_News_Employee_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_EmployeeGroupDetail_EmployeeGroup_EmployeeGroupId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_Grade_Grade_EmployeeTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_HeadCode_HeadType_HeadTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_Rules_HeadCode_HeadCodeId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_Rules_HeadType_HeadeTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="WetosDB.FK_Rules_RuleFlags_RuleFlagId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
