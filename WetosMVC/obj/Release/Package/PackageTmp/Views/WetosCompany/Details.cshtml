@@ -1,0 +1,181 @@
+﻿@model WetosDB.VwLocationNameInCompany
+@{
+    ViewBag.Title = "Details";
+}
+<link href="~/Content/css/wetoscompany_details.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+           
+            
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"> <a href="@Url.Action("Index", "WetosCompany")">Company </a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           <h1>Company Master
+        <small>Details</small>
+            </h1>
+
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+
+            <div style="clear: both;"></div>
+
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box">
+                       
+                        <!-- /.box-header -->
+                        <div class="box-body">
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Location</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.LocationName)
+                                </div>
+                            </div>
+                             
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Company</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.CompanyName)
+                                </div>
+                            </div>
+                             
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Address</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.Address1)
+                                </div>
+                            </div>
+                             
+
+                            <div class="row">
+                                <div class="display-label col-md-4">City</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.Address2)
+                                </div>
+                            </div>
+                             
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Telephone</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.Telephone)
+                                </div>
+                            </div>
+                             
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Fax</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.Fax)
+                                </div>
+                            </div>
+                             
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Email-Id</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.Email)
+                                </div>
+                            </div>
+                             
+
+                            <div class="row">
+                                <div class="display-label col-md-4">PAN NO.</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.PAN)
+                                </div>
+                            </div>
+                             
+
+                            @* <div class="row">
+    <div class="display-label">CST</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CST)
+    </div>
+    <div class="row">
+    <div class="display-label">EXC</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EXC)
+    </div>
+
+    <div class="display-label">TDS</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TDS)
+    </div>
+
+    <div class="display-label">SGNNM</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SGNNM)
+    </div>
+
+    <div class="display-label">SGNPlace</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SGNPlace)
+    </div>*@
+
+                        
+                        <p>
+                        <span style="cursor:pointer; float:left" title = "Click to edit Company" class="btn btn-default" >@Html.ActionLink("Edit", "Edit", new { id = Model.CompanyId })</span>
+             <span  class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title = "Click to go back to Company list">@Html.ActionLink("Back to Company list", "Index")</span>
+                        </p>
+                         
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+             </section>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+</div>
+<!-- /.row -->
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@

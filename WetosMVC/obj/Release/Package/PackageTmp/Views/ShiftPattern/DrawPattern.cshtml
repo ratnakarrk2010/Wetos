@@ -1,0 +1,146 @@
+﻿@model List<WetosDB.Shift>
+@{
+    //MarsData.weekrule weekrule = new MarsData.weekrule();
+    //weekrule = ViewBag.weekrule;
+
+    WetosMVCMainApp.Models.week_parameterModel selectedweekrule = new WetosMVCMainApp.Models.week_parameterModel();
+    selectedweekrule = @ViewBag.week_parameter;
+
+    //MarsData.weekrule selectedweekrule = new MarsData.weekrule();
+    //selectedweekrule = @ViewBag.selectedweekrule;
+
+    string[] off_2 = selectedweekrule.SECOND_WEEKLY_OFF.Split('-');
+
+    var weekly_off_1 = selectedweekrule.FIRST_WEEKLY_OFF.Substring(0, 3);
+    var weekly_off_2 = off_2[0];
+        //if (weekly_off_2 != "NO")
+        //{
+        //var week_off_2_type = selectedweekrule.SECOND_WEEKLY_OFF.Split('-');
+    }
+
+    @{
+        var week_start_day = selectedweekrule.FIRST_DAY_OF_WEEK.Substring(0, 3);
+        //var week_off_1 = selectedweekrule.weekly_off_1.Substring(0, 3);
+        //var week_off_2 = selectedweekrule.weekly_off_2.Substring(0, 3);
+        string[] weekdays = new string[] { "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN" };
+        int noofdays = ViewBag.noofdays;
+        string start_day = null;
+        int nxt_ind = 0;
+        int total_noofdays = 0;
+        //   var
+        string res = null;
+        int flag = 3;
+        int i = 0;
+        string day_pattern = null;
+        string shift_pattern = null;
+        string shift_name = null;
+        string old_shift_name = null;
+
+        //Added by shalaka on 15th DEC 2017-- Start
+        string ShiftScheduleStartDay = selectedweekrule.SHIFT_SCHEDULE_DAY.Substring(0, 3);
+        //Added by shalaka on 15th DEC 2017-- Start
+
+}
+
+<style type="text/css">
+    .page-content
+    {
+        overflow-x: auto !important;
+    }
+</style>
+
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    @foreach (var wd in weekdays) // TO MARK START DAY HEADER START
+                    {
+                        //Below Line Modified by Shalaka on 15th DEC 2017
+                        if (wd == ShiftScheduleStartDay.ToUpper())
+                        {
+                        <td>@wd
+                        </td>
+                            day_pattern = wd.ToUpper();
+                            nxt_ind++;
+                            total_noofdays++;
+                            break;
+                        }
+                        else
+                        {
+                            nxt_ind++;
+                        }
+                        // total_noofdays++;
+                        //
+                    }  
+                    @for (int ni = nxt_ind; ni < 7; ni++)
+                    {
+                        var d = weekdays[ni];
+
+                        if (weekdays[ni] != week_start_day.ToUpper())
+                        {
+                       
+                        <td>@weekdays[ni]
+                        </td>
+                            total_noofdays++;
+                            day_pattern = day_pattern + '-' + @weekdays[ni];
+
+                        }
+
+                        // if (total_noofdays % 7 == 0 || ni == 6) Commented and Added below line by MSJ on 15th DEC 2017
+                        if (ni == 6)
+                        {
+                            nxt_ind = 0;
+                            ni = -1; // CHANGED FROM -1 to 0
+                            week_start_day = "Day";
+                            //flag--;
+                        }
+                        if (total_noofdays > noofdays)
+                        {
+                            break;
+                        }
+                    }
+
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                @*Added by MSJ on 15th DEC 2017 --- Start*@
+                    @for (int ni = 0; ni <= noofdays; ni++)
+                    {
+                        <td>
+                            <select id="cboShift-@ni" name="cboShift-@ni" class="form-control"  style="width:100px;">
+                                @foreach (var opt in Model)
+                                {
+                                    shift_name = opt.ShiftCode;
+                                    if (shift_name != old_shift_name)
+                                    {
+                                    <option value="@opt.ShiftCode">@opt.ShiftCode</option>
+                                    }
+                                    old_shift_name = opt.ShiftCode;
+                                }
+                                <option value="WO">WO</option>
+                            </select>
+
+                        </td>
+                    }
+                    @*Added by MSJ on 15th DEC 2017 --- End*@
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+@*Above line Commented and Below line Added by Shalaka on 15th DEC 2017*@
+<input type="hidden" id="hid_icount" name="hid_icount" value="@noofdays" />
+
+<input type="hidden" id="hid_day_pattern" name="hid_day_pattern" value="@day_pattern" />
+<div class="form-group">
+    <label class="col-md-3 control-label">
+    </label>
+    <div class="col-md-7">
+        <input type="submit" style="" value="submit" class="btn blue" />
+        @* @ActionHelper.ShowAction("ShiftPattern", "Submit-Submit", "#", "visibile", "", "valid(event)")*@
+        <a class="btn default" href="@Url.Action("Index")">Back to List</a>
+    </div>
+</div>

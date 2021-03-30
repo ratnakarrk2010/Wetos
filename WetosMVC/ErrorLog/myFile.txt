@@ -1,0 +1,262 @@
+Logged In_11-02-2021 13:09:51
+Logged In_11-02-2021 14:05:04
+Logged In_11-02-2021 15:26:51
+Error in Resignation Application for EmployeeCode: E105_11-02-2021 16:11:54
+Logged In_11-02-2021 16:47:11
+Error in Resignation Application for EmployeeCode: E275_11-02-2021 16:57:16
+Logged In_11-02-2021 18:53:34
+Logged In_12-02-2021 12:42:08
+Logged In_24-02-2021 19:56:27
+Logged In_24-02-2021 20:32:07
+The underlying provider failed on Open.Login failed for user 'sa'._25-02-2021 11:10:50
+The underlying provider failed on Open.Login failed for user 'sa'._25-02-2021 11:11:24
+The underlying provider failed on Open.Login failed for user 'sa'._25-02-2021 11:11:46
+Logged In_25-02-2021 11:29:44
+Error in Resignation Application for EmployeeCode: E208_25-02-2021 11:38:14
+Error in Resignation Application for EmployeeCode: P001_25-02-2021 11:49:17
+Error in Resignation Application for EmployeeCode: E208_25-02-2021 11:57:26
+Logged In_25-02-2021 12:18:02
+Logged In_25-02-2021 15:52:44
+Logged In_25-02-2021 17:16:56
+Logged In_25-02-2021 17:31:03
+Logged In_25-02-2021 17:37:44
+Logged In_25-02-2021 17:42:54
+Error in EmployeeDashboard due to An error occurred while executing the command definition. See the inner exception for details.Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding._25-02-2021 17:50:25
+Error in EmployeeDashboard due to An error occurred while executing the command definition. See the inner exception for details.Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding._25-02-2021 18:04:35
+Error in EmployeeDashboard due to An error occurred while executing the command definition. See the inner exception for details.Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding._25-02-2021 18:11:18
+Logged In_25-02-2021 18:14:54
+Error in EmployeeDashboard due to An error occurred while executing the command definition. See the inner exception for details.Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding._25-02-2021 18:16:25
+Logged In_25-02-2021 19:03:06
+Logged In_25-02-2021 20:17:54
+Logged In_26-02-2021 11:37:08
+Logged In_26-02-2021 12:57:36
+Logged In_26-02-2021 13:06:18
+Logged In_26-02-2021 16:25:53
+Logged In_26-02-2021 19:24:27
+IE _26-02-2021 19:39:46
+Logged In_27-02-2021 14:21:54
+Clicked on Assign Rules_27-02-2021 14:30:22
+Clicked on Assign Rules_27-02-2021 14:38:38
+Clicked on Assign Role To Menu _27-02-2021 14:38:51
+Clicked on Assign Role To Menu _27-02-2021 14:40:17
+Global setting viewed_27-02-2021 14:40:24
+Clicked on Assign Rules_27-02-2021 14:40:43
+Clicked on Assign Role To Menu _27-02-2021 14:40:43
+Clicked on Assign Rules_27-02-2021 14:58:42
+Clicked on Assign Role To Menu _27-02-2021 14:58:43
+Logged In_27-02-2021 16:04:30
+Clicked on Assign Role To Menu _27-02-2021 16:27:21
+Clicked on Assign Rules_27-02-2021 16:34:30
+Clicked on Assign Role To Menu _27-02-2021 16:45:06
+Logged In_27-02-2021 17:25:24
+Success - Visited branch master_27-02-2021 17:38:08
+Success - Visited branch master_27-02-2021 17:38:29
+Success - Visited branch master_27-02-2021 17:38:30
+Success - Visited company master_27-02-2021 17:39:07
+Success - Visited Department master_27-02-2021 17:39:39
+Success - Visited Employee group master_27-02-2021 17:40:28
+Success - Visited Employee group master_27-02-2021 17:40:58
+Success - Visited Employee master_27-02-2021 17:41:06
+Logged In_01-03-2021 12:43:16
+Success - Visited branch master_01-03-2021 12:44:28
+Logged In_01-03-2021 17:20:23
+Logged In_01-03-2021 18:03:35
+Rule Engine visited_01-03-2021 18:09:40
+Logged In_01-03-2021 18:18:45
+Logged In_01-03-2021 19:00:33
+Success - Checked Condone transaction list_01-03-2021 19:01:52
+Logged In_01-03-2021 19:16:30
+Logged In_01-03-2021 19:16:30
+Logged In_01-03-2021 20:05:50
+Success - Checked Condone transaction list_01-03-2021 20:07:22
+Logged In_01-03-2021 20:15:41
+Logged In_02-03-2021 19:32:34
+Logged In_02-03-2021 20:57:15
+Logged In_02-03-2021 21:21:18
+Logged In_03-03-2021 14:49:02
+Logged In_03-03-2021 16:19:34
+Success : Visited location details_03-03-2021 16:38:39
+Success : Visited location details_03-03-2021 16:40:45
+Success : Visited location details_03-03-2021 16:41:07
+Logged In_03-03-2021 16:47:27
+Logged In_03-03-2021 16:51:59
+Success : Visited location details_03-03-2021 16:53:37
+Success : Visited location details_03-03-2021 16:53:44
+Logged In_03-03-2021 16:56:17
+Logged In_03-03-2021 17:00:30
+Logged In_03-03-2021 17:02:42
+Logged In_03-03-2021 17:04:29
+Success - Visited company master_03-03-2021 17:08:54
+Success - Visited company master_03-03-2021 17:17:31
+Success - Visited company master_03-03-2021 17:18:01
+Checked details for Eviska Infotech Private Limited_03-03-2021 17:18:13
+Success - Visited company master_03-03-2021 17:18:42
+Success - Visited branch master_03-03-2021 17:19:36
+Success - Visited branch master_03-03-2021 17:20:15
+Checked details for Mumbai_03-03-2021 17:20:20
+Success - Visited branch master_03-03-2021 17:20:28
+Success - Visited Department master_03-03-2021 17:20:41
+Success - Visited Department master_03-03-2021 17:21:15
+Success - Visited Department master_03-03-2021 17:21:33
+Success - Visited Employee type master_03-03-2021 17:21:45
+Success - Visited Employee type master_03-03-2021 17:22:14
+Success - Visited Employee type master_03-03-2021 17:22:22
+Success - Visited Employee type master_03-03-2021 17:22:29
+Success - Visited Designation master_03-03-2021 17:22:35
+Grade list viewed._03-03-2021 17:22:45
+Success - Visited Employee group master_03-03-2021 17:22:54
+Success - Visited Employee master_03-03-2021 17:23:03
+Success - Visited Shift master_03-03-2021 17:23:24
+Success - Visited Leave master_03-03-2021 17:23:35
+Success - Visited Employee master_03-03-2021 17:23:47
+Success - Visited Employee master_03-03-2021 17:26:37
+Success - Visited company master_03-03-2021 17:26:48
+Success - Visited Employee master_03-03-2021 17:27:14
+Success - Visited Shift master_03-03-2021 17:27:20
+Success - Visited Leave master_03-03-2021 17:27:30
+Success - Visited Role master_03-03-2021 17:28:07
+Success : Visited location details_03-03-2021 17:28:30
+Success - Checked Condone transaction list_03-03-2021 17:28:42
+Success - Checked Condone transaction list_03-03-2021 17:29:15
+Logged In_03-03-2021 17:32:56
+Logged In_03-03-2021 18:05:28
+Logged In_03-03-2021 22:11:30
+Success - Visited company master_03-03-2021 22:15:34
+Success - Visited company master_03-03-2021 22:16:23
+Success - Company : Eviska Infotech Private Limited is edited successfully_03-03-2021 22:16:46
+Success - Visited company master_03-03-2021 22:16:47
+Success - Visited company master_03-03-2021 22:24:54
+Success - Visited company master_03-03-2021 22:31:29
+_03-03-2021 22:40:27
+Logged In_04-03-2021 11:04:07
+Success : Visited location details_04-03-2021 11:06:35
+Logged In_04-03-2021 12:42:14
+Clicked on Assign Rules_04-03-2021 12:44:15
+Logged In_04-03-2021 14:10:31
+Success : Visited location details_04-03-2021 14:12:35
+Logged In_04-03-2021 15:39:11
+Logged In_04-03-2021 16:15:51
+Success - Encashment application sanctioned successfully_04-03-2021 16:21:25
+Logged In_04-03-2021 16:43:33
+Success - Encashment application sanctioned successfully_04-03-2021 16:51:47
+Success - Encashment application sanctioned successfully_04-03-2021 16:51:48
+Success - Encashment application sanctioned successfully_04-03-2021 16:52:51
+Success - Encashment application sanctioned successfully_04-03-2021 16:56:42
+Logged In_04-03-2021 17:44:17
+Logged In_04-03-2021 18:45:48
+Logged In_04-03-2021 19:50:22
+Success - Visited company master_04-03-2021 19:53:36
+Success - Company : Pace Marketing Services is edited successfully_04-03-2021 19:54:29
+Success - Visited company master_04-03-2021 19:54:29
+Success - Visited company master_04-03-2021 19:54:51
+Success - Company : Pace Marketing Services is edited successfully_04-03-2021 19:55:18
+Success - Visited company master_04-03-2021 19:55:18
+Logged In_04-03-2021 20:18:39
+Clicked on Assign Role To Menu _04-03-2021 20:26:00
+Logged In_04-03-2021 21:58:16
+Success : Visited location details_04-03-2021 22:01:18
+Success - Visited Department master_04-03-2021 22:01:33
+Logged In_05-03-2021 14:21:00
+Message Successfully sent : From EmployeeId - 6_05-03-2021 14:24:04
+Message Successfully sent : From EmployeeId - 6_05-03-2021 14:25:06
+Message Successfully sent : From EmployeeId - 6_05-03-2021 14:29:15
+Message Successfully sent : From EmployeeId - 6_05-03-2021 14:48:29
+Logged In_05-03-2021 15:25:16
+Message Sending failed:Input string was not in a correct format._05-03-2021 15:43:07
+Message Sending failed:Input string was not in a correct format._05-03-2021 15:43:59
+Logged In_05-03-2021 16:37:39
+Logged In_05-03-2021 16:37:39
+Message Sending failed:Input string was not in a correct format._05-03-2021 16:53:37
+Message Successfully sent : From EmployeeId - 6_05-03-2021 17:09:01
+Message Successfully sent : From EmployeeId - 6_05-03-2021 17:09:31
+Message Successfully sent : From EmployeeId - 6_05-03-2021 17:51:49
+Leave balance entry already available for selected leave type._05-03-2021 18:23:14
+Success : Leave balance entry for EmployeeID : 3072 and Leave type : 1234_05-03-2021 18:24:55
+Success : Leave balance updated_05-03-2021 18:28:31
+Logged In_05-03-2021 21:49:25
+Logged In_05-03-2021 23:31:59
+Logged In_05-03-2021 23:31:59
+Logged In_06-03-2021 00:20:48
+Logged In_07-03-2021 12:17:57
+Logged In_07-03-2021 12:36:54
+Logged In_07-03-2021 12:46:04
+Logged In_07-03-2021 13:10:45
+Logged In_07-03-2021 13:52:40
+Logged In_07-03-2021 14:05:29
+Logged In_07-03-2021 14:12:18
+Success - Visited company master_07-03-2021 14:16:42
+Success - Visited company master_07-03-2021 14:17:13
+Success - Visited Employee group master_07-03-2021 14:17:22
+Logged In_07-03-2021 15:00:31
+Logged In_07-03-2021 16:23:42
+Logged In_07-03-2021 16:33:42
+Logged In_07-03-2021 18:31:45
+Logged In_07-03-2021 18:44:03
+Logged In_07-03-2021 19:35:06
+Logged In_07-03-2021 19:41:26
+Logged In_07-03-2021 19:56:36
+Logged In_07-03-2021 20:01:56
+Logged In_07-03-2021 20:19:45
+Clicked on Assign Rules_07-03-2021 20:23:51
+Logged In_08-03-2021 13:02:07
+Logged In_08-03-2021 14:46:59
+Logged In_08-03-2021 14:46:59
+Logged In_08-03-2021 15:19:02
+Logged In_08-03-2021 16:09:15
+Logged In_08-03-2021 16:24:48
+Logged In_08-03-2021 18:42:15
+Logged In_08-03-2021 19:28:43
+Success : Visited location details_08-03-2021 19:40:11
+Clicked on Assign Rules_08-03-2021 19:41:34
+Logged In_08-03-2021 19:54:57
+Logged In_08-03-2021 21:02:44
+Logged In_08-03-2021 21:22:22
+Logged Off_08-03-2021 21:25:13
+Logged In_09-03-2021 15:10:37
+Logged In_09-03-2021 15:35:49
+Logged In_09-03-2021 18:49:29
+Logged In_09-03-2021 19:08:17
+Logged In_09-03-2021 19:27:48
+Logged In_09-03-2021 21:17:08
+Logged In_09-03-2021 21:29:49
+Success : Visited location details_09-03-2021 21:31:56
+Logged In_09-03-2021 23:06:55
+Logged In_09-03-2021 23:41:20
+Logged In_10-03-2021 00:06:33
+Logged In_10-03-2021 13:12:51
+POSTING Execution time : 00:00:09.5765750_10-03-2021 13:23:05
+Processing Attendence_10-03-2021 13:23:06
+POSTING Execution time : 00:00:09.7002619_10-03-2021 13:23:15
+Processing Attendence_10-03-2021 13:23:15
+Success - Visited Employee group master_10-03-2021 13:25:59
+Success - Visited Shift master_10-03-2021 13:26:21
+Visited ODTravel list_10-03-2021 13:26:43
+Logged In_10-03-2021 14:08:41
+Logged In_10-03-2021 16:21:37
+Clicked on Assign Role To Menu _10-03-2021 16:43:01
+Logged In_10-03-2021 17:23:27
+Logged In_10-03-2021 18:31:00
+Logged In_10-03-2021 19:22:37
+Logged In_10-03-2021 20:46:14
+IE _10-03-2021 21:04:25
+Logged In_10-03-2021 22:16:49
+Logged In_11-03-2021 15:20:32
+Error in POSTING due to An error occurred while executing the command definition. See the inner exception for details.Invalid object name 'dbo.CommanData'.
+Error in POSTING due to An error occurred while executing the command definition. See the inner exception for details.Invalid object name 'dbo.CommanData'._11-03-2021 15:26:42
+POSTING Execution time : 00:00:57.8585297_11-03-2021 15:26:43
+Processing Attendence_11-03-2021 15:26:43
+Logged In_11-03-2021 16:15:01
+Error in POSTING due to An error occurred while executing the command definition. See the inner exception for details.Invalid object name 'dbo.CommanData'.
+Error in POSTING due to An error occurred while executing the command definition. See the inner exception for details.Invalid object name 'dbo.CommanData'._11-03-2021 16:38:16
+POSTING Execution time : 00:01:51.4485121_11-03-2021 16:38:16
+Processing Attendence_11-03-2021 16:38:16
+Logged In_12-03-2021 21:18:21
+Logged In_16-03-2021 23:47:26
+Logged In_17-03-2021 10:46:55
+Logged In_17-03-2021 11:32:07
+Monthly OT Summary Report Could not find stored procedure 'SP_MonthlyOTSummary'._17-03-2021 11:34:22
+Logged In_17-03-2021 13:16:40
+Logged In_17-03-2021 13:54:07
+Logged In_17-03-2021 15:24:11
+Clicked on Assign Role To Menu _17-03-2021 15:26:08
+Logged In_17-03-2021 15:56:39

@@ -1,0 +1,195 @@
+﻿@model WetosDB.VwLocationNameInCompany
+@{
+    ViewBag.Title = "Details";
+}
+<link href="~/Content/css/wetoscompany_delete.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+           
+          
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"> <a href="@Url.Action("Index", "WetosCompany")">Company </a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h1>Company Master
+        <small>Details</small>
+            </h1>
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+
+            <div style="clear: both;"></div>
+
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box">
+                        <div class="box-header">
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                        @*ADDED CODE BY SHRADDHA ON 02 MARCH 2017 FOR ALERT POPUP START*@
+                            @using (Html.BeginForm("Delete", "WetosCompany", FormMethod.Post, new { id = "DeleteCompanyForm" }))
+                            {
+                            @*ADDED CODE BY SHRADDHA ON 02 MARCH 2017 FOR ALERT POPUP END*@
+                           
+                                 <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationSummary(true)
+                                </div>
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Location</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.LocationName)
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Company</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.CompanyName)
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Address</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.Address1)
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="row">
+                                <div class="display-label col-md-4">City</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.Address2)
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Telephone</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.Telephone)
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Fax</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.Fax)
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Email-Id</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.Email)
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="row">
+                                <div class="display-label col-md-4">PAN NO.</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.PAN)
+                                </div>
+                            </div>
+                            <br />
+
+                        
+                        <p>
+                        <input type="button" value="Delete" id="DeleteCompanyBtn" style="cursor:pointer; float:left" title = "Click to delete Company" class="btn btn-default"/>
+             <span  class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title = "Click to go back to Company list">@Html.ActionLink("Back to Company list", "Index")</span>
+                        </p>
+                            }
+                        </div>
+                            
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+             </section>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+</div>
+<!-- /.row -->
+@*ADDED CODE BY RAJAS ON 28 MARCH 2017 FOR ALERT POPUP START*@
+<div id="Companydiv" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Do you want to delete this Company?
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="DeleteBtn">
+                    Yes</button>
+                <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                    Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 28 MARCH 2017 FOR ALERT POPUP END*@ @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+    //ADDED CODE BY RAJAS ON 28 MARCH 2017 FOR ALERT POPUP START
+    $("#DeleteCompanyBtn").click(function () {
+
+        var $form = $(this).closest('form');
+        $('#Companydiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#DeleteBtn', function () {
+
+                    $("#DeleteCompanyForm").submit();
+                });
+
+    });
+    //ADDED CODE BY RAJAS ON 28 MARCH 2017 FOR ALERT POPUP END
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION START*@
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+ }
+ @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@

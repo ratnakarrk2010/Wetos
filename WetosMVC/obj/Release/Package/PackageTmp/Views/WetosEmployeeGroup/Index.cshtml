@@ -1,0 +1,149 @@
+﻿@model IEnumerable<WetosDB.VwEmployeeGroupDetail>
+@{
+    ViewBag.Title = "Employee Group List";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<link href="~/Content/css/wetos_employee_group_index.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+    
+      
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"><a href="@Url.Action("Index", "WetosEmployeeGroup")">Employee Group </a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+              <h1>
+Employee Group Master
+        <small>List</small>
+         <span  data-toggle="tooltip" title="Add Employee group" style="float:right;font-weight:800">
+         @Html.ActionLink(" ", "Create", new { }, new { @class = "fa fa-plus-circle", title = "Add Employee group", style = "color:#428bca;font-size:19px" })</span>
+       
+      </h1>
+    <div style="clear: both;">
+    </div>
+</section>
+        <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+           
+            <div class="box-body">
+
+<table id="EmployeeGroupMaster" class="table table-bordered table-striped">  @*Added by Pushkar For datatable on 25 OCT 2016*@
+<thead>
+
+    <tr>
+        
+        <td>
+            Employee Group Name
+        </td>
+        <td>
+            Branch Name
+        </td>
+        <td>
+            Company Name
+        </td>
+        <td>Action</td>
+    </tr>
+
+    </thead>
+
+    <tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        
+        <td>
+        <a href="@Url.Action("Details", "WetosEmployeeGroup", new { id = item.EmployeeGroupId })" "tooltip" style="cursor:pointer; float:left" title = "Click to view Employee group details">
+            @item.EmployeeGroupName</a>
+        </td>
+        <td>
+            @item.BranchName
+        </td>
+        <td>
+            @item.CompanyName
+        </td>
+<td>
+<span data-toggle="tooltip" title="Edit">
+                                                @Html.ActionLink(" ", "Edit", new { id = item.EmployeeGroupId }, new { @class = "fa fa-pencil-square-o" })</span> |
+                                                @*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
+                                                <span data-toggle="tooltip" title="Delete">
+                                                @Html.ActionLink(" ", "Delete", new { id = item.EmployeeGroupId }, new { @class = "fa fa-trash" })
+                                                </span>
+          
+        </td>
+      
+    </tr>
+}
+
+</tbody>
+
+<tfoot>
+                
+                </tfoot>
+</table>
+
+</div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    </div>
+</div>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ @*Added by Pushkar For datatable on 25 OCT 2016-------start*@
+<script type="text/jscript">
+    $(function () {
+        //alert("Datatable");
+        $("#EmployeeGroupMaster").DataTable();
+
+    });
+</script>
+@*Added by Pushkar For datatable on 25 OCT 2016-------end*@

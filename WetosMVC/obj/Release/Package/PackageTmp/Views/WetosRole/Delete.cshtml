@@ -1,0 +1,168 @@
+﻿@model WetosDB.RoleDef
+<link href="~/Content/css/wetosrole_delete.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+            
+            <!-- <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("List", "WetosRole")">Role </a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor: pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i>@*<a href="#" >Back</a>*@
+
+                                </span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()
+                                </span>
+
+                            </div>
+
+
+                            @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div> -->
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"><a href="@Url.Action("List", "WetosRole")">Role </a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           <h1>Role Master
+        <small>Details</small>
+            </h1>
+            <div style="clear: both;"></div>
+
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box">
+                        <div class="box-header">
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+
+                        @using (Html.BeginForm("Delete", "WetosRole", FormMethod.Post, new { id = "Form" }))
+                        {
+    <div style="color: Red; font-size: 12px">
+    @Html.ValidationSummary(true)
+    </div>
+
+                         <div class="row">
+                                <div class="display-label col-md-4">Role Name</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.RoleName)
+                                </div>
+                            </div>
+                           
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Role Description</div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.RoleDescription)
+                                </div>
+                            </div>
+                            
+                            <p>
+    <input type="button" value="Delete" id="BtnDelete" style="cursor:pointer; float:left" title = "Click to delete Role" class="btn btn-default" />
+             <span  class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title = "Click to go back to Role list">@Html.ActionLink("Back to Role list", "List")</span>
+             </p>
+                        }
+      
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+             </section>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+</div>
+@*ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP START*@
+<div id="RoleDiv" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Do you want to Delete Role?
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="btn">
+                    Yes</button>
+                <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                    Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP END*@
+<!-- /.row -->
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+    //ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP START
+    $("#BtnDelete").click(function () {
+
+        var $form = $(this).closest('form');
+        $('#RoleDiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#btn', function () {
+
+                    $("#Form").submit();
+                });
+
+    });
+    //ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP END
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@

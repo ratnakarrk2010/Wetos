@@ -1,0 +1,306 @@
+﻿@model WetosDB.CompOffApplication
+@{
+    ViewBag.Title = "CompOff Application Edit";
+}
+@*<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>*@
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/css/compoff_application_edit.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+     
+     
+             <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                         <li class="li_margin">
+                         <a href="#">Applications</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">on Behalf of comp Of Application</a>
+                        </li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+       <h1>
+        Comp Off Application
+        <small>Edit</small>
+      </h1>
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+      <div>
+      
+     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+
+      </div>
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+ </section>
+        <br />
+        <section class="content">
+<div class="row">
+<div class="col-xs-12 col-md-12 col-lg-12">         
+<div class="box box-primary">
+
+<div class="box-body">
+
+@using (Html.BeginForm())
+{
+     <div style="color:Red;font-size:12px">
+   @Html.Raw(Server.HtmlDecode(Html.ValidationSummary(false).ToString())) 
+   </div>    
+    <fieldset>
+     @Html.HiddenFor(a => a.FromDateStatus)
+      @Html.HiddenFor(a => a.ToDateStatus)
+       @Html.HiddenFor(a => a.Purpose)
+         @Html.HiddenFor(a => a.StatusId)
+          @Html.HiddenFor(a => a.RejectReason)
+           @Html.HiddenFor(a => a.ExtrasHoursDate)
+            @Html.HiddenFor(a => a.EmployeeId)    
+           @{double AppliedDays = Convert.ToDouble(Session["AppliedDay"]);}
+           @Html.Hidden("AppliedDays", AppliedDays)
+           <div>
+           <span style="font-size:14px;color:Red;font-weight:600">Note : Allowed Comp Off days For this Entry- @AppliedDays</span></div>
+           <br />
+            @*<div class="row">
+            <div class="col-md-3">
+            <div class="editor-label">
+           Company Name
+        </div>
+        <div class="editor-field">
+         @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, "Select", new { @class = "form-control select2" })
+            @Html.EditorFor(model => model.CompanyId)
+            @Html.ValidationMessageFor(model => model.CompanyId)
+        </div>
+        </div>
+        <div class="col-md-4">
+         <div class="editor-label">
+            Branch Name
+        </div>
+        <div class="editor-field">
+          @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2" })
+           @* @Html.EditorFor(model => model.BranchId)
+            @Html.ValidationMessageFor(model => model.BranchId)
+        </div>
+        </div></div>*@
+        <br />
+        <div class="row">
+        <div class="col-md-7">
+        <div class="editor-label">
+           Employee Name
+        </div>
+        <div class="editor-field">
+          @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, new { @class = "form-control select2", @readonly = "readonly",@disabled="disabled"})
+           @* @Html.EditorFor(model => model.EmployeeId)
+            @Html.ValidationMessageFor(model => model.EmployeeId)*@
+        </div></div></div><br />
+           <div class="row">
+        <div class="col-md-3">
+         <div class="editor-label">
+            From Date   <span style="color:Red;font-size:18px" >*</span> @*Added * By Shraddha on 12 DEC 2016 to show required field *@   @*<label> From Date :</label>*@</div>
+             <div class="editor-field">
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FROMDATE" id="FROMDATE" value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />
+                   @*@Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })*@
+                 @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+               </div>
+                <!-- /.input group -->
+       </div>
+              </div>
+             <div class="col-md-4">
+              <div class="form-group">
+              From Day Status  <span style="color:Red;font-size:18px" >*</span> @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+              @Html.DropDownListFor(a => a.FromDateStatus, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusList" })
+              </div>
+              </div></div><br />
+                <div class="row">
+                 <div class="col-md-3">
+              <div class="editor-label">
+             To Date   <span style="color:Red;font-size:18px" >*</span> @*Added * By Shraddha on 12 DEC 2016 to show required field *@  @*<label> To Date :</label>*@</div>
+             <div class="editor-label">
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="TODATE" id="TODATE" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ToDate)" />
+                     @* @Html.TextBoxFor(model => model.ToDate, new { @class = "form-control pull-right datepicker" })*@
+                 @* <input type="text" class="form-control pull-right datepicker" id="ToDate" name="ToDate"/>*@
+                </div>
+                <!-- /.input group -->
+              </div></div>
+              
+              <div class="col-md-4">
+              <div class="form-group">
+              To Day Status  <span style="color:Red;font-size:18px" >*</span> @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+              @Html.DropDownListFor(a => a.ToDateStatus, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusList" })
+              </div>
+              </div>
+              </div>
+              <br />
+     @*   <div class="editor-label">
+            @Html.LabelFor(model => model.FromDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FromDate)
+            @Html.ValidationMessageFor(model => model.FromDate)
+        </div>*@
+
+       @* <div class="editor-label">
+            @Html.LabelFor(model => model.FromDateStatus)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FromDateStatus)
+            @Html.ValidationMessageFor(model => model.FromDateStatus)
+        </div>*@
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.ToDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ToDate)
+            @Html.ValidationMessageFor(model => model.ToDate)
+        </div>*@
+
+       @* <div class="editor-label">
+            @Html.LabelFor(model => model.ToDateStatus)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ToDateStatus)
+            @Html.ValidationMessageFor(model => model.ToDateStatus)
+        </div>*@
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.Purpose)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Purpose)
+            @Html.ValidationMessageFor(model => model.Purpose)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RejectReason)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RejectReason)
+            @Html.ValidationMessageFor(model => model.RejectReason)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExtrasHoursDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ExtrasHoursDate)
+            @Html.ValidationMessageFor(model => model.ExtrasHoursDate)
+        </div>*@
+
+       
+       
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+
+</div> 
+</div>
+</div>
+</section>
+    </div>
+    @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+    <script type="text/jscript">
+        $(document).ready(function () {
+            $('a.back').click(function () {
+                parent.history.back();
+                return false;
+            });
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+
+
+
+    </script>
+    @*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+    <script type="text/javascript">
+
+
+        $(function () {
+            //Initialize Select2 Elements
+            $(".select2").select2();
+
+            //Datemask dd/mm/yyyy
+
+
+            //Date picker
+            $('.datepicker').datepicker({
+                format: "dd-M-yyyy",
+
+                autoclose: true
+            });
+
+            //iCheck for checkbox and radio inputs
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            });
+            //Red color scheme for iCheck
+            $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+                checkboxClass: 'icheckbox_minimal-red',
+                radioClass: 'iradio_minimal-red'
+            });
+            //Flat red color scheme for iCheck
+            $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+                checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green'
+            });
+
+            //Colorpicker
+            $(".my-colorpicker1").colorpicker();
+            //color picker with addon
+            $(".my-colorpicker2").colorpicker();
+
+            //Timepicker
+            $(".timepicker").timepicker({
+                showInputs: false
+            });
+        });
+    </script>

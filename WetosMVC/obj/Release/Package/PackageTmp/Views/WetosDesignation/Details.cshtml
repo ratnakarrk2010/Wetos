@@ -1,0 +1,123 @@
+﻿@model WetosDB.VwDesignationDetail
+@{
+    ViewBag.Title = "Details";
+}
+<link href="~/Content/css/wetosdesignation_details.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+
+
+             <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"><a href="@Url.Action("Index", "WetosDesignation")">Designation</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h1>Designation Master
+<small>Details</small>
+</h1>
+      <div style="clear: both;"></div>
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+      </section>
+        <section class="content">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+      <div class="box">
+          
+            <!-- /.box-header -->
+            <div class="box-body">
+ 
+   <div class="row">
+    <div class="display-label col-md-4">Company Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyName)
+    </div>
+    </div>
+         
+    <div class="row">
+    <div class="display-label col-md-4">Branch Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BranchName)
+    </div>
+    </div>
+         
+    <div class="row">
+     <div class="display-label col-md-4">Department Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DepartmentName)
+    </div>
+    </div>
+         
+    <div class="row">
+      <div class="display-label col-md-4">Designation Code</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DesignationCode)
+    </div>
+    </div>
+         
+    <div class="row">
+      <div class="display-label col-md-4">Designation Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DesignationName)
+    </div>
+    </div>
+         
+  
+<p>
+    <span style="cursor:pointer; float:left" title = "Click to edit Designation" class="btn btn-default" >@Html.ActionLink("Edit", "Edit", new { id = Model.DesignationId })</span>
+    <span  class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title = "Click to go back to Designation list">@Html.ActionLink("Back to Designation list", "Index")</span>
+</p>
+</div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    </div>
+</div>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@

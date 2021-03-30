@@ -1,0 +1,296 @@
+﻿@model WetosMVCMainApp.Models.SqlQueryModel
+@{
+    ViewBag.Title = "SQL Description Master Create";
+}
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/LayoutTheme")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/css/sql_querycreate.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+        <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        </li>
+                         <li class="li_margin">
+                         <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                    <li class="li_margin">
+                        <a href="@Url.Action("Index", "WetosSqlQuery")">Sql Query Master </a>
+                    </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h1>SQL Query Master
+        <small>Create</small>
+            </h1>
+             <!-- <div class="row">
+            <div class="col-md-12">
+            <ul class="page-breadcrumb breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="@Url.Action("Index", "Home")">Home </a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                         <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                    <li>
+                        <a href="@Url.Action("Index", "WetosSqlQuery")">Sql Query Master </a>
+                    </li>
+                    <li class="pull-right">
+                        <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                            <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i> 
+
+                            </span>
+                             <i class="fa fa-calendar"></i>
+                            <span>@DateTime.Now.ToLongDateString()
+                            </span>
+                           
+                        </div>
+             
+           
+                    </li>
+              
+                </ul>
+                </div></div> -->
+        
+
+       
+            
+            <div style="clear: both;"></div>
+
+      
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+
+                    <div class="box">
+                    
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                       
+                            @using (Html.BeginForm("Create", "WetosSqlQuery", FormMethod.Post, new { id = "AddCompanyForm", enctype = "multipart/form-data" }))
+                            {
+                          
+                                 <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationSummary(true)
+                                </div>
+
+
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationMessage("Error")
+                                </div>
+        
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Sql Query Name   <span style="color: Red; font-size: 18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                   
+                                    <div class="input-group date">
+                                       <div class="input-group-addon">
+                                        <i  class="fa fa-map-marker"></i>
+                                        </div> 
+                                      
+                                      @Html.DropDownListFor(model => model.SqlQueryId, (IEnumerable<SelectListItem>)@ViewBag.SqlQueryObjVBList, "Select", new { @class = "form-control select2", @id = "SqlQueryId", @style = "width:250px" })
+                                       
+                                        </div>
+                                         
+                                           <div  style="color: Red; font-size: 12px">
+                                        @Html.ValidationMessageFor(model => model.SqlQueryName)
+                                        </div>
+
+                                        </div>
+                                </div>
+                              
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="editor-label col-md-2">
+                                            Sql Query Description <span style="color: Red; font-size: 18px">*</span>
+                                        </div>
+                                        <div class="editor-field col-md-5">
+                                      
+                                        <div class="input-group date">
+                                       <div class="input-group-addon">
+                                        <i class="fa fa-suitcase" aria-hidden="true"></i>
+                                        </div> 
+
+                                            @Html.TextAreaFor(model => model.SqlQueryDescription, new { @class = "form-control", @style = "width:250px", @id = "SqlQueryDescription" })
+                                            </div>
+                                         
+                                           <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.SqlQueryDescription)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Sql Query <span style="color: Red; font-size: 18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                     
+                                        <div class="input-group date">
+                                       <div class="input-group-addon">
+                                       <i class="fa fa-building-o" aria-hidden="true"></i>
+                                        </div> 
+
+                                       @Html.TextAreaFor(model => model.SqlQuery, new { @class = "form-control", @style = "width:250px", @id = "SqlQuery" })
+                                       
+                                        </div>
+                                         <div  style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.SqlQuery)
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                               
+                               <br />
+                                <hr />
+                                 <div id="results">
+                                    @*@Html.Partial("SQLQueryListPV")*@
+                               </div>
+                             
+                                @*<p>
+                                    <input id="CreateCompanyBtn" type="button" value="Save" class="btn btn-default" style="cursor:pointer; float:left" title = "Click to save ROI"/>
+                                     
+                                </p>*@
+                                
+                                <div> 
+                               
+                                </div>
+                            }
+
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+    </div>
+</div>
+<div id="Companydiv" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Do you want to Add new SQL Query?
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="AddBtn">
+                    Yes</button>
+                <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                    Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+
+        $(".select2").select2();
+
+        $('#SQLList').DataTable({
+
+        });
+    });
+
+</script>
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+    $("#CreateCompanyBtn").click(function () {
+        //alert("Click");
+        var $form = $(this).closest('form');
+        $('#Companydiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#AddBtn', function () {
+
+                    $("#AddCompanyForm").submit();
+
+                });
+
+    });
+
+    //ADDED BY NANDINI ON 17 APRIL 2020
+    $("#SqlQueryId").change(function () {
+        //alert();
+        var SqlQueryId = $("#SqlQueryId").val();
+
+        $.ajax({
+            url: '@Url.Content("~/WetosSqlQuery/SQLQueryDetails")',
+            type: "POST",
+            dataType: "json",
+            data: { SqlQueryId: SqlQueryId },
+            success: function (data) {
+                $("#SqlQuery").val(data.SqlQuery1);
+                $("#SqlQueryDescription").val(data.SqlQueryDescription);
+            },
+            error: function (data) {
+
+            }
+        });
+
+        $.ajax({
+            url: '@Url.Content("~/WetosSqlQuery/SQLQueryListPV")',
+            type: "POST",
+            data: { SqlQueryId: SqlQueryId },
+            success: function (data) {
+                //alert("1");
+                $("#results").html("");
+                $("#results").html(data);
+               // $("#SQLList").DataTable();
+            },
+            error: function (data) {
+                alert("1234");
+            }
+        });
+    });
+
+   
+</script>
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}

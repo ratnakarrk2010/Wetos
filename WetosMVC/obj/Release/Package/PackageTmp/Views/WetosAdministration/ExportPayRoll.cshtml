@@ -1,0 +1,226 @@
+﻿@model WetosMVCMainApp.Models.MonthlyReportsModel
+@{
+    ViewBag.Title = "Export Payroll";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                          <li class="li_margin">
+                         <a href="#">Administration</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Export Payroll</a>
+                        </li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+             <h1>
+       Export Payroll
+        <small></small>
+      </h1>
+     
+      <div>
+ 
+      </div>
+      <div style="clear: both;"></div>
+
+ </section>
+        <section class="content">
+<div class="row">
+<div class="col-xs-12 col-md-12 col-lg-12">         
+<div class="box">
+
+<div class="box-body">
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(false)
+
+    <div style="font-size:16px;color:Red">@Session["ErrorMessage"]</div>
+     <div style="font-size:16px;color:Green">@Session["SuccessMessage"]</div>
+   
+<div>
+ <div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            From Date <span style="color: Red; font-size: 18px">*</span>
+            <div class="input-group date">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                 <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>
+            </div>
+           
+        </div>
+    </div>
+   
+        <div class="col-md-4">
+            <div class="form-group">
+                To Date <span style="color: Red; font-size: 18px">*</span>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                  
+                
+                     <input type="text" class="form-control pull-right datepicker" id="ToDate" name="ToDate"/>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+                <div class="col-md-4">
+               <div class="form-group">
+                Select Company
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+              @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, new { @class = "form-control select2 multiselect", @multiple = "multiple", id = "selectemployee" }) 
+                </div>
+        
+              </div>
+              </div> 
+              </div>
+
+        <div class="row">
+                <div class="col-md-4">
+               <div class="form-group">
+                Select Employee Type
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+              @Html.DropDownListFor(a => a.EmployeeTypeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeTypeList, new { @class = "form-control select2 multiselect", @multiple = "multiple", id = "selectemployee" }) 
+                </div>
+        
+              </div>
+              </div> 
+              </div>
+   
+
+   <div class="col-md-1 form-group">
+ <input class="btn btn-primary" type="submit"  name="submit" onclick="showloading()" value="Export Payroll"/>
+ </div>
+ 
+ </div>
+}
+    </div>
+    </div>
+    </div>
+    </div>
+
+    </section>
+    </div>
+</div>
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+        hideloading();
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+<script type="text/javascript">
+
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+        //Date picker
+        $('.datepicker').datepicker({
+            format: "dd/mm/yyyy",
+
+            autoclose: true
+        });
+
+
+    });
+
+    //Added by shalaka on 30th NOV 2017 for multiple selection --- Start
+    $(".multiselect").select2();
+    $("#checkbox").click(function () {
+        //alert(multiselect);
+        if ($("#checkbox").is(':checked')) {
+            $(".multiselect > option").prop("selected", "selected");
+            $(".multiselect").trigger("change");
+        }
+        else {
+            //alert(multiselect);
+            $(".multiselect > option").removeAttr("selected");
+            $(".multiselect").trigger("change");
+        }
+    });
+    //Added by shalaka on 30th NOV 2017 for multiple selection --- End
+
+
+    $("#SearchBy").change(function () {
+
+        if ($("#SearchBy").val() == "Employee Name Wise") {
+            $("#EmloyeeList").css('display', 'inline');
+            $("#BranchList").css('display', 'none');
+            $("#CompanyList").css('display', 'none');
+
+        }
+        else if ($("#SearchBy").val() == "Company Name Wise") {
+            $("#EmloyeeList").css('display', 'none');
+            $("#BranchList").css('display', 'none');
+            $("#CompanyList").css('display', 'inline');
+
+        }
+        else if ($("#SearchBy").val() == "Branch Name Wise") {
+            $("#EmloyeeList").css('display', 'none');
+            $("#BranchList").css('display', 'inline');
+            $("#CompanyList").css('display', 'none');
+
+        }
+
+        else {
+            $("#EmloyeeList").css('display', 'none');
+            $("#BranchList").css('display', 'none');
+            $("#CompanyList").css('display', 'none');
+
+        }
+    });
+</script>

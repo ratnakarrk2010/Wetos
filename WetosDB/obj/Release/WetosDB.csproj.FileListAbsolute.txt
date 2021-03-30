@@ -1,0 +1,10 @@
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\bin\Release\WetosDB.dll.config
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\bin\Release\WetosDB.dll
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\bin\Release\WetosDB.pdb
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\bin\Release\EntityFramework.dll
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\bin\Release\EntityFramework.xml
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Release\WetosDB.csprojAssemblyReference.cache
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Release\WetosDB.csproj.CoreCompileInputs.cache
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Release\WetosDB.csproj.CopyComplete
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Release\WetosDB.dll
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Release\WetosDB.pdb

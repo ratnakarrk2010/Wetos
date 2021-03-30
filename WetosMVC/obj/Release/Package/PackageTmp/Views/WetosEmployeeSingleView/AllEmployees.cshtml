@@ -1,0 +1,220 @@
+﻿@model IEnumerable<WetosDB.SP_EmployeeDetailsOnEmployeeMaster_Result>
+@{
+            //ViewBag.Title = "Index";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+ @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+        <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                         <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="@Url.Action("Index", "WetosEmployee")">Employee </a>
+                        </li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    <h1>Employee Master
+        <small>All Employee List</small>
+        <span class="btn blue fa fa-users"  data-toggle="tooltip" title="Click to get list of active Employees" style="float:right;color:white;margin:5px" onclick="@("window.location.href='" + @Url.Action("Index", "WetosEmployee") + "'")">
+        </span>
+         <span class="btn blue fa fa-plus-square"  data-toggle="tooltip" title="Click to add new employee" style="float:right;color:white;margin:5px" onclick="@("window.location.href='" + @Url.Action("Create", "WetosEmployee") + "'")">
+                                </span> 
+    </h1>
+    <!-- <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "WetosEmployee")">Employee </a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>   -->
+    <div style="clear: both;">
+    </div>
+
+    @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+</section>
+        <section class="content">
+    <div class ="row">
+       
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <div>  
+                 @*<span  class="btn btn-default" "tooltip" style="cursor:pointer; float:left" title = "Click to add new Employee">@Html.ActionLink("Add New Employee", "Create")</span>*@
+                @*<span style="float: left" class="btn btn-default">@Html.ActionLink("Export To Excel", "ExportData")</span>*@
+                </div>
+                </div>
+                <div class="box-body">
+                 
+                    @* <span style="float:left">@Html.ActionLink("Export To PDF", "ExportDatatoPDF")</span>*@
+                    <table id="EmployeeMaster" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>Employee No.
+                                </td>                               
+                                <td>Name Of Employee
+                                </td>                               
+                                <td>Branch</td>
+                                <td>Date Of Joining</td>  
+                                <td>Department
+                                </td>
+                                <td>Designation
+                                </td>
+                                <td>Reporting to
+                                </td> 
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                @* Added by Rajas on 10 MARCH 2017 for Active/Inactive employee*@ 
+                                    <td>
+                                    @*@{var Leaveingdate = Convert.ToDateTime("1900/01/01");}
+                                     @if (item.Leavingdate == Leaveingdate)
+                                     {
+                                <div style="background-color: Green; width: 10px; height: 10px; margin-left: -9px;
+                                    margin-top: -9px">
+                                </div> 
+                                <div style="display: none">
+                                    Active</div>
+                                     }
+                                     else
+                                     { 
+                                <div style="background-color: Red; width: 10px; height: 10px; margin-left: -9px;
+                                    margin-top: -9px">
+                                </div> 
+                                <div style="display: none">
+                                    Resigned</div>
+                                     }*@
+                                        <a href="@Url.Action("Details", "WetosEmployee", new { id = item.EmployeeId })"  data-toggle="tooltip" title="Click to view Employees profile">
+                                            @item.EmployeeCode</a>
+                                    </td>                                   
+                                    <td>
+                                      @{var Leaveingdate = Convert.ToDateTime("1900/01/01");}
+                                     @if (item.Leavingdate == Leaveingdate || item.Leavingdate ==null || item.Leavingdate > DateTime.Now.Date)
+                                     {
+                                    <span style="color:green;font-weight:900">@item.FirstName @item.MiddleName @item.LastName </span> @* Title removed as part of consistent views on 18 MARCH 2017 by Rajas *@
+                                         <span style="display: none">
+                                    Active</span>
+                                     }
+                                        else{
+                                        <span  style="color:red;font-weight:900">  @item.FirstName @item.MiddleName @item.LastName </span> 
+                                     <span style="display: none">
+                                    Resigned</span>
+                                        }@* Title removed as part of consistent views on 18 MARCH 2017 by Rajas *@
+                                    </td>                                   
+                                    <td>
+                                        @item.BranchName
+                                    </td>
+                                    <td>
+                                    @{var JoiningDate = item.JoiningDate == null ? "" : item.JoiningDate.Value.ToString("dd-MMM-yyyy");}
+                                        @JoiningDate                                       
+                                    </td>                                   
+                                    @{TimeSpan ts = (Convert.ToDateTime(DateTime.Now)) - (Convert.ToDateTime(item.BirthDate));
+                                      int Age = ts.Days;
+                                      int year = Convert.ToInt32(Age / 365);
+                                    }                                  
+                                    <td>
+                                        @item.DepartmentName        </td>
+                                    <td>
+                                        @item.DesignationName
+                                    </td>
+                                    <td>
+                                        @item.Reporting_Person
+                                    </td>   
+                                    <td>
+                                    @* Added by Rajas on 12 APRIL 2016*@ 
+                                    @*@if (item.Leavingdate == Leaveingdate) 
+                                    {*@
+                                         <span data-toggle="tooltip" title="Edit">
+                                                @Html.ActionLink(" ", "Edit", new { id = item.EmployeeId }, new { @class = "fa fa-pencil-square-o" })</span>
+                                    @*}*@           
+                                    </td>
+                                </tr>  
+                            }
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+
+
+
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+     
+    </div>
+    <!-- /.box -->
+    </div>
+    <!-- /.row -->
+    </section>
+    </div>
+</div>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+<script type="text/jscript">
+    $(function () {
+
+        $("#EmployeeMaster").DataTable();
+
+    });
+</script>

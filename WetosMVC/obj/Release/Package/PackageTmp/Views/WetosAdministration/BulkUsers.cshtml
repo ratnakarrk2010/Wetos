@@ -1,0 +1,265 @@
+﻿@model WetosDB.User
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+   <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<section class="content-header">
+      
+      <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-arrow-left"></i> Home</a></li>
+        <li><a href="#">Administration</a></li>
+        <li class="active"> <a href="#">Bulk Users</a></li>
+        @*<li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>*@
+      
+      </ol> 
+      h1>
+        Bulk Users
+        <small>Create</small>
+      </h1>
+      
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+      <div>
+      <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>
+     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+
+      </div>
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+         
+ </section>
+<section class="content">
+<div class="row">
+<div class="col-xs-12 col-md-12 col-lg-12">         
+<div class="box">
+<div class="box-header">           
+</div>
+<div class="box-body">
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LocationList)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LocationList)
+            @Html.ValidationMessageFor(model => model.LocationList)
+        </div>*@
+
+        <div class="row">
+     <div class="form-group col-md-12" id="CompanyList">
+       <div class="editor-label">
+            Company Name
+        </div>
+        <div class="editor-field">
+         @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2", style = "width:500px" })
+         
+        </div>
+      
+      </div>
+      </div>
+
+       <div class="row">
+        <div class="form-group col-md-12" id="BranchList">
+         <div class="editor-label">
+           Branch Name
+        </div>
+        <div class="editor-field" >
+         @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2",style="width:500px" })
+         
+        </div>
+
+       </div>
+       </div>
+
+        <div class="row">
+        <div class="form-group col-md-12" id="DepartmentList">
+         <div class="editor-label">
+          Department
+        </div>
+        <div class="editor-field" >
+         @Html.DropDownListFor(a => a.DepartmentId, (IEnumerable<SelectListItem>)@ViewBag.DepartmentList, "Select", new { @class = "form-control select2", style = "width:500px" })
+         
+        </div>
+
+       </div>
+       </div>
+
+       <div class="row">
+      <div class="col-md-3">
+        <div class="editor-label">
+            Name
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+        </div>
+        </div>
+
+       @* <div class="editor-label">
+            @Html.LabelFor(model => model.MastersRights)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MastersRights)
+            @Html.ValidationMessageFor(model => model.MastersRights)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AttendanceRights)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AttendanceRights)
+            @Html.ValidationMessageFor(model => model.AttendanceRights)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ApplicationsRights)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplicationsRights)
+            @Html.ValidationMessageFor(model => model.ApplicationsRights)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SanctionsRights)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SanctionsRights)
+            @Html.ValidationMessageFor(model => model.SanctionsRights)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReportsRights)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReportsRights)
+            @Html.ValidationMessageFor(model => model.ReportsRights)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AdministrationRights)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AdministrationRights)
+            @Html.ValidationMessageFor(model => model.AdministrationRights)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UpdatesRights)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UpdatesRights)
+            @Html.ValidationMessageFor(model => model.UpdatesRights)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DivisionList)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DivisionList)
+            @Html.ValidationMessageFor(model => model.DivisionList)
+        </div>*@
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "BulkUsersList")
+</div>
+
+</section>
+
+ @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('a.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+
+<script type="text/javascript">
+
+
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+
+        //Date picker
+        $('.datepicker').datepicker({
+            format: "dd/mm/yyyy",
+
+            autoclose: true
+        });
+
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass: 'iradio_minimal-blue'
+        });
+        //Red color scheme for iCheck
+        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+            checkboxClass: 'icheckbox_minimal-red',
+            radioClass: 'iradio_minimal-red'
+        });
+        //Flat red color scheme for iCheck
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        });
+
+        //Colorpicker
+        $(".my-colorpicker1").colorpicker();
+        //color picker with addon
+        $(".my-colorpicker2").colorpicker();
+
+        //Timepicker
+        $(".timepicker").timepicker({
+            showInputs: false
+        });
+    });
+
+</script>
+
+

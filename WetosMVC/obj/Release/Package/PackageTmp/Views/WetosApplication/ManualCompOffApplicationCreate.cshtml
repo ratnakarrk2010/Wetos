@@ -1,0 +1,152 @@
+﻿@model List<WetosDB.SP_GetExtraHoursForManualCompOff_Result>
+@{
+         
+    int i = 1;
+   
+}
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption">
+                    Manual Comp Off</div>
+            </div>
+            <div class="portlet-body">
+            <div class="table-responsive">
+                <div class="table-toolbar">
+                    <div style="height: 50%; overflow-y: scroll;">
+                        <table>
+                            @*<tr>
+            <th colspan="2" style="font-size: 20px; text-align: center; border-bottom: solid 1px;">
+                Manual comp Off
+            </th>
+        </tr>*@ @*<tr>
+            <td>
+                <input type="checkbox" id="chkusers" name="chkusers" onclick="GetSlectAll()" />
+            </td>
+            <td>
+               Extra Hours
+            </td>
+            <td>
+            </td>
+        </tr>*@
+                            @foreach (var UR in Model)
+                            {
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td style="text-align: right;">
+                                        @if (UR.flag == 0)
+                                        {
+                                            <input type="checkbox" id="chkuser-@i" name="chkuser-@i"   onclick="GetChekdata(@i,@UR.ExtraHrs);"/>
+                        
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" id="chkuser-@i" name="chkuser-@i"  checked="checked"  onclick="GetChekdata(@i,@UR.ExtraHrs);"/>
+                                        }
+                                        @*  <input type="checkbox" id="chkuser-@i" name="chkuser-@i"  onclick="GetChekdata(@i,@UR.RuleId);"/>*@
+                                        <input type="hidden" id="hiduser-@i" name="hiduser" value="@UR.ExtraHrs" />
+                                    </td>
+                                    <td>
+                                        @UR.ExtraHrs
+                                    </td>
+                                </tr>
+                                        i = i + 1;
+                            }
+                        </table>
+                        </div>
+                    </div>
+                    <div id="div_buttons" class="row-fluid span12" style="height: 60%;">
+                        <input type="button" value="Save" name="btnSave" id="btnSave" class="btn" />
+                        @* Button save should come as a popup for save or message?*@
+                        <input type="button" value="Reset" id="btncancel" class="btn" />
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="hidvalue" name="hidvalue" value="@i" />
+<script type="text/javascript">
+
+    function GetSlectAll() {
+
+        for (var j = 1; j <= $('#hidvalue').val(); j++) {
+
+            if ($('#chkusers').is(':checked').toString() == 'true') {
+
+                //alert(j);
+                $('#chkuser-' + parseInt(j)).attr('checked', true);
+            }
+
+            else {
+                //alert(j);
+                $('#chkuser-' + parseInt(j)).attr('checked', false);
+            }
+        }
+    }
+
+
+    function GetChekdata(i, RuleId) {
+
+        $.ajax({
+            url: '@Url.Content("~/AssignRule/GetCheckDatas")',
+            data: JSON.stringify({ uid: RuleId }),
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                if (result != 's') {
+                    if ($('#chkuser-' + parseInt(i)).is(':checked').toString() == 'true') {
+                        alert(result);
+                        return false;
+                    }
+                }
+            },
+            error: function (result) {
+                // alert("No data Available");
+            }
+        });
+
+    }
+
+    
+  
+  
+</script>
+<script type="text/javascript">
+
+    $('#btnSave').click(function () {
+        alert();
+        var Ruleid = " ";
+
+        for (var j = 1; j <= $('#hidvalue').val(); j++) {
+            if ($('#chkuser-' + j).is(':checked').toString() == 'true') {
+                Ruleid = Ruleid + "," + $('#hiduser-' + j).val();
+            }
+        }
+
+        Ruleid = Ruleid.replace(" ,", "");
+        //EmployeeGroupId = $('#EmployeeGroup').val();
+        alert(Ruleid);
+        //alert(EmployeeGroupId);
+        $.ajax({
+            url: '@Url.Content("~/WetosApplication/ManualCompOffApplicationCreate")',
+            data: ({ ExtraHrs: Ruleid }),
+            type: 'POST',
+            // contentType: 'application/json; charset=utf-8',
+            //dataType: 'json',
+            success: function (result) {
+
+            },
+            error: function (result) {
+                // alert("No data Available");
+            }
+        });
+    });
+
+
+
+</script>

@@ -1,0 +1,207 @@
+﻿@model WetosMVCMainApp.Models.GlobalSettingModel
+@{
+    ViewBag.Title = "Create";
+}
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/css/global_setting_create.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+        <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                       <li class="li_margin">
+                         <a href="#">Administration</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="@Url.Action("Index", "WetosGlobalSetting")">Global Setting </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+<h1>Global Setting
+ <small>Create</small>
+</h1>
+<!-- <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Administration</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "WetosGlobalSetting")">Global Setting </a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor: pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i>@*<a href="#" >Back</a>*@
+
+                                </span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div> -->
+      <div style="clear: both;"></div>
+
+      </section>
+        <section class="content">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <div class="box">
+         
+            <!-- /.box-header -->
+            <div class="box-body">
+            
+@using (Html.BeginForm("Create", "WetosGlobalSetting", FormMethod.Post, new { id = "Create" }))
+{
+    <div style="color: Red; font-size: 12px">
+    @Html.ValidationSummary(true)
+    </div>
+    @*Added by Rajas on 29 DEC 2016 For custom error message START*@
+    <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessage("Error")
+            </div>
+             @*Added by Rajas on 29 DEC 2016 For custom error message END*@
+    
+     <div class="row">
+     <div class="col-md-10">
+        <div class="editor-label col-md-2">
+    Setting Name <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-5">
+            @Html.TextBoxFor(model => model.SettingText, new { @class = "form-control pull-right" })
+            <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.SettingText)
+            </div>
+        </div>
+        </div>
+       </div> 
+
+         
+    
+    <div class="row">
+     <div class="col-md-10">
+
+        <div class="editor-label col-md-2">
+   Setting Value <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field col-md-5">
+            @Html.TextBoxFor(model => model.SettingValue, new { @class = "form-control pull-right" })
+            <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.SettingValue)
+            </div>
+        </div>
+</div>
+   </div> 
+    <div style="padding-left:15px">
+    <p>
+            <input type="button" id="btn" value="Create" class="btn btn-default" style="cursor:pointer; float:left" title = "Click to save Global setting"/>
+            <span  class="btn btn-default" style="cursor:pointer; float:left;margin-left:10px" title = "Click to go back to Global setting list">@Html.ActionLink("Back to Global setting list", "Index")</span>
+           
+        </p>
+        </div>
+    
+}
+
+
+</div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 28 MARCH 2017 FOR ALERT POPUP START*@
+<div id="Settingdiv" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Do you want to add new Global setting?
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="Btn">
+                    Yes</button>
+                <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                    Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 28 MARCH 2017 FOR ALERT POPUP END*@
+<script type="text/javascript">
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+    });
+ 
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+    //ADDED CODE BY RAJAS ON 28 MARCH 2017 FOR ALERT POPUP START
+    $("#btn").click(function () {
+
+        var $form = $(this).closest('form');
+        $('#Settingdiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#Btn', function () {
+
+                    $("#Create").submit();
+                });
+
+    });
+    //ADDED CODE BY RAJAS ON 28 MARCH 2017 FOR ALERT POPUP END
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION START*@
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@

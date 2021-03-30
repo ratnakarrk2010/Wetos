@@ -1,0 +1,78 @@
+﻿@model IEnumerable<MarsData.vEmployeeDetail>
+@{
+    int i = 0;
+    int g = 0;
+
+}
+<div class="row" style="padding-left: 20px; padding-right: 10px;">
+    <input type="hidden" id="hidflagtrueids" name="hidflagtrueids" value="" />
+    @*<label style="width: 205px">Number of enteries selected: </label>
+    <input type="text" id="hidcountvalue" name="hidcountvalue" value="0" style="border-color: transparent; background-color: none; background: transparent; width: 50px" disabled />*@
+    <table class="table table-bordered" id="tableemployeename">
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" id="chk_all" name="chk_all" /></th>
+                <th>Employee Name</th>
+                <th>Employee Code</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                i = i + 1;
+                <tr>
+                    <td><input type="checkbox" id="chk_emp" name="chk_emp" /> </td>
+                    <td>@item.Title&nbsp;@item.FirstName&nbsp;@item.MiddleName&nbsp;@item.LastName</td>
+                    <td>@item.EmployeeCode
+                        <input type="hidden" id="hid_empid-@i" name="hid_empid-@i" value="@item.EmployeeId" />
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <input type="hidden" id="hidvalue" name="hidvalue"  value="@i" />
+
+</div>
+<script>
+
+    $(document).ready(function () {
+        $("#hidflagtrueids").val("");
+    });
+
+    $("#btnAssignNewShift").click(function () {
+        var jcount = $("#hidvalueJ").val();
+
+        for (var j = 1; j <= jcount; j++) {
+            var sn_emp_id = "";
+            if (sn_emp_id == "") {
+                sn_emp_id = $("#hid_sn_empid-" + j).val();
+            }
+            else {
+                sn_emp_id = sn_emp_id + "-" + $("#hid_sn_empid-" + j).val();
+            }
+
+        }
+        $.ajax({
+            url: '@Url.Content("~/AssignShiftPattern/AssignShiftToShiftNotAssigned")',
+            data: JSON.stringify({ fromdate: $("#from").val(), todate: $("#to").val(), sn_emp_id: sn_emp_id }),
+            type: 'post',
+            contentType: 'application/json;charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                alert(result);
+                $("#Detail").html(result);
+            },
+            error: function (result) {
+
+            }
+        });
+
+    });
+
+
+
+</script>

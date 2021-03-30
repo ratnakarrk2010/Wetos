@@ -1,0 +1,117 @@
+﻿@model WetosDB.User
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/css/select_employeefor_upload_documentlist.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <div style="color:green">
+@Session["SuccessMessage"]</div>
+<section class="content-header">
+                  <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"> <a href="#">Upload Documents</a></li>
+                        
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+          
+
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+            
+            <div style="clear: both;"></div>
+
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+        </section>
+        <section class="content">
+            <div class="row">      
+                <span class="btn btn-default btn_upload" style="float:left;font-weight:200">@Html.ActionLink("Upload Document", "UploadDocuments")</span>
+            </div>   
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+
+       <div class="editor-label">
+            Select Employee
+        </div>
+        <div class="editor-field">
+         @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)ViewBag.sel_messageto, "Select", new { @class = "form-control select2", style = "width:300px" , id = "EmployeeIdList"})
+         
+        </div>
+      <div id="EmployeeDiv"></div>
+      </div>
+    
+        </div>
+            </section>
+        </div></div>
+
+<script type="text/javascript">
+
+
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+
+       
+    });
+
+   
+
+</script>
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+    $("#EmployeeIdList").change(function () {
+        //alert($("#EmployeeIdList").val());
+        isDirty = false;
+        var EmployeeId = $("#EmployeeIdList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosAdministration/UploadDocumentList")',
+            type: "GET",
+            //dataType: "json",
+            data: { EmployeeId: EmployeeId },
+            success: function (data) {
+               
+
+                $("#EmployeeDiv").html(data);
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+</script>
+

@@ -1,0 +1,547 @@
+﻿@model WetosMVCMainApp.Models.COMPOffApplicationModel
+@{
+    ViewBag.Title = "Comp Off Application Create";
+}
+@*<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>*@
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+ <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+        <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                         <a href="#">Applications</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="@Url.Action("List", "WetosRole")">CompOff</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+      <h1>
+        Comp Off Application
+        <small>Create</small>
+      </h1>
+     
+      
+      <!-- <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Applications</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("List", "WetosRole")">CompOff</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>
+   -->
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+      
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+ </section>
+        <section class="content">
+
+<div class="col-xs-12 col-md-12 col-lg-12">         
+<div class="box box-primary">
+
+<div class="box-body">
+
+@using (Html.BeginForm())
+{
+     @*<div style="color:Red;font-size:12px">
+   @Html.ValidationSummary(false)  
+   </div> *@
+     <div style="color:Red;font-size:12px">
+   @Html.Raw(Server.HtmlDecode(Html.ValidationSummary(false).ToString())) 
+   </div>   
+    <fieldset>
+    @* @Html.HiddenFor(a => a.FromDateStatus)
+      @Html.HiddenFor(a => a.ToDateStatus)*@
+       @Html.HiddenFor(a => a.Purpose)
+         @Html.HiddenFor(a => a.StatusId)
+          @Html.HiddenFor(a => a.RejectReason)
+           @Html.HiddenFor(a => a.ExtrasHoursDate)
+             @Html.HiddenFor(a => a.EmployeeId)
+            @*<div class="row">
+            <div class="col-md-3">
+            <div class="editor-label">
+           Company Name
+        </div>
+        <div class="editor-field">
+         @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
+            @Html.EditorFor(model => model.CompanyId)
+            @Html.ValidationMessageFor(model => model.CompanyId)
+        </div>
+        </div>
+        <div class="col-md-4">
+         <div class="editor-label">
+            Branch Name
+        </div>
+        <div class="editor-field">
+          @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList" })
+           @* @Html.EditorFor(model => model.BranchId)
+            @Html.ValidationMessageFor(model => model.BranchId)
+        </div>
+        </div></div>
+        <br />*@
+        @*<div class="row">
+        <div class="col-md-7">
+        <div class="editor-label">
+           Employee Name
+        </div>
+        <div class="editor-field">
+          @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", id = "EmployeeddlList" })
+           @* @Html.EditorFor(model => model.EmployeeId)
+            @Html.ValidationMessageFor(model => model.EmployeeId)
+        </div></div></div><br />*@
+        @*Added by Shalaka on 27th DEC 2017*@
+        <br />
+        @*Added by Shalaka on 27th DEC 2017*@
+
+           <div class="row">
+        <div class="col-md-3">
+         <div class="editor-label">
+            From Date    @*<label> From Date :</label>*@</div>
+             <div class="editor-field">
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+               <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FROMDATE" id="FROMDATE" value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />
+               </div>
+                <!-- /.input group -->
+       </div>
+              </div>
+             <div class="col-md-4">
+              <div class="form-group">
+              From Day Status
+               @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+    <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-clock-o"></i>
+  	</div> 
+
+
+              @Html.DropDownListFor(a => a.FromDateStatus, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusListFromDate" })
+              </div>
+              </div>
+              </div>
+              </div>
+             
+                <div class="row">
+                 <div class="col-md-3">
+              <div class="editor-label">
+             To Date   @*<label> To Date :</label>*@</div>
+             <div class="editor-label">
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                    <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="TODATE" id="TODATE" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ToDate)" />
+                </div>
+                <!-- /.input group -->
+              </div></div>
+              
+              <div class="col-md-4">
+              <div class="form-group">
+              To Day Status
+               @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+    <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-clock-o"></i>
+  	</div> 
+
+
+              @Html.DropDownListFor(a => a.ToDateStatus, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusListToDate" })
+              </div>
+              </div>
+              </div>
+              </div>
+              <br />
+    
+       
+
+        <p>
+            <input type="submit"  onclick="showloading();" value="Apply" class="btn btn-blue"/>
+        </p>
+
+        <hr />
+        @*ADDED BY SHRADDHA ON 07 JAN 2017 FOR ADDING ATTENDANCE STATUS TABLE START*@
+         <div class="col-md-12">
+       <h4>Attendance Status
+        </h4>
+     
+        <div>
+        
+        <span> Total Allowed CompOff Days </span> 
+        
+        <input type="text" id="TtlAllwdDys" name="TtlAllwdDys" style="text-align:right" readonly="readonly"/>
+        
+        </div>
+        <br />
+        @*Added by Shalaka on 27th DEC 2017 to give specific info about table is for what--- Start*@
+          <h4>Working Hours Detail
+        </h4>
+        @*Added by Shalaka on 27th DEC 2017 to give specific info about table is for what--- Start*@
+
+       <table class="table table-striped" style="width: auto; height: auto;border:1px solid Black;border-collapse:inherit" >
+       <tr>
+       <td></td>
+       <td>Work Date</td>
+       <td>Shift</td>
+       @*<td>In Time</td>
+       <td>Out Time</td>*@
+       @*<td>Worked Hrs</td>*@
+       <td>Extra Work Hrs (hh:mm)</td>
+       <td>Status</td>
+       <td>CO Status</td>
+     
+       </tr>
+       @for (var i = 0; i < @ViewBag.AttendanceStatusCountVB; i++)
+       { 
+           @*<input type="hidden" id="CompOffId_+@i" value="@ViewBag.AttendanceStatusListVB[i].CompOffId" />*@
+        <tr>
+        <td> 
+            @*Null-	Comp off available but not applied*@
+            @*P-	Comp off applied for selected day but it is in pending state. You can not apply comp off against same day if pending entry is already available.*@
+            @*S- 	Comp off applied for selected day and sanctioned. You can not apply comp off against same day if sanctioned entry is already available.*@
+            @*C-	Comp off applied for selected day and cancelled. You can apply comp off against same day if cancelled entry is already available.*@
+            @*R- 	Comp off applied for selected day and rejected. You can apply comp off for same day again.*@
+            @*RM-	Manual comp off applied and sanctioned first then rejected. Because it is firstly sanctioned so comp off data entry is avaialable in comp off table. After that it is rejected.*@
+            @*CM-	Manual comp off applied and sanctioned first then cancelled. Because it is firstly sanctioned so comp off data entry is avaialable in comp off table. After that it is cancelled.*@
+
+        @if (ViewBag.AttendanceStatusListVB[i].AppStatus == null && ViewBag.AttendanceStatusListVB[i].CoDate == null)
+        {
+       
+        @Html.CheckBox("CheckStatus", new { id = ViewBag.AttendanceStatusListVB[i].CompOffId, @value = ViewBag.AttendanceStatusListVB[i].CompOffId, @onchange = "CalculateDays(" + i + "," + ViewBag.AttendanceStatusListVB[i].CompOffId + ")" }) 
+        }
+        else
+        {
+          
+        <span>@if (@ViewBag.AttendanceStatusListVB[i].AppStatus == "RM")
+              { 
+              <span>Rejected</span>
+              }
+              else if (@ViewBag.AttendanceStatusListVB[i].AppStatus == "CM")
+              { 
+              <span>Cancelled</span>
+              }
+              else if (@ViewBag.AttendanceStatusListVB[i].AppStatus == "P")
+              { 
+              <span>Applied</span>
+              }
+              else
+              {
+              @ViewBag.AttendanceStatusListVB[i].AppStatus
+              
+              }
+               </span>
+        }
+        </td>
+
+        <td><input disabled="disabled" type="text"id="WoDate_+@i" style="width:80px" value="@ViewBag.AttendanceStatusListVB[i].WoDate.ToString("dd-MMM-yyyy")"/>
+       @*@ViewBag.AttendanceStatusListVB[i].WoDate.ToString("dd-MMM-yyyy")*@
+        </td>
+        <td><input disabled="disabled" type="text"id="ShiftId_+@i" style="width:80px" value="@ViewBag.AttendanceStatusListVB[i].ShiftId"/>
+       @* @ViewBag.AttendanceStatusListVB[i].ShiftId*@
+        </td>
+      @*  <td>
+        <input disabled="disabled" type="text"id="LoginTime_+@i" style="width:80px" value="@ViewBag.AttendanceStatusListVB[i].LoginTime.ToShortTimeString()"/>
+       
+        </td>
+        <td>
+        <input disabled="disabled" type="text"id="LogOutTime_+@i" style="width:80px" value="@ViewBag.AttendanceStatusListVB[i].LogOutTime.ToShortTimeString()"/>
+       
+        </td>*@
+       @* <td>
+         <input disabled="disabled" type="text"id="TotalHrs_+@i" style="width:80px" value=" @ViewBag.AttendanceStatusListVB[i].TotalHrs.ToString("HH:mm:ss")"/>
+       
+        </td>*@
+       
+        <td>
+        <input disabled="disabled" type="text"id="BalanceCoHours_+@i" style="width:80px" value=" @ViewBag.AttendanceStatusListVB[i].BalanceCoHours.ToString("HH:mm")"/>
+       @* @ViewBag.AttendanceStatusListVB[i].CoHours.ToString("HH:mm:ss")*@
+        </td>
+        <td>
+        @{string DayStatusStr = ViewBag.AttendanceStatusListVB[i].DayStatus == null ? "Full Day" : ViewBag.AttendanceStatusListVB[i].DayStatus;
+       }
+            
+         <input disabled="disabled" type="text"id="DayStatus_+@i" style="width:80px" value="@DayStatusStr"/>
+ 
+    
+        </td>
+       <td>
+        @{DateTime ValidDate = DateTime.Now.AddDays(-(Convert.ToInt32(@ViewBag.COValidityDays)));}
+        @if (ViewBag.AttendanceStatusListVB[i].CoDate < ValidDate)
+        {
+            <input disabled="disabled" type="text"id="" style="width:80px" value="Lapsed"/>
+        }
+        else
+        {
+            <input disabled="disabled" type="text"id="" style="width:80px" value="Available"/>
+        }
+        </td>
+     
+       </tr>
+       }
+      
+       </table>
+       </div>
+       @*ADDED BY SHRADDHA ON 07 JAN 2017 FOR ADDING ATTENDANCE STATUS TABLE END*@
+
+    </fieldset>
+}
+
+
+</div> 
+</div>
+</div>
+
+</section>
+    </div>
+</div>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+    $(document).ready(function () {
+        $("#TtlAllwdDys").prop('readonly', true);
+    });
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+<script type="text/javascript">
+
+
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+
+        //Date picker
+        $('.datepicker').datepicker({
+            format: "dd-M-yyyy",
+
+            autoclose: true
+        });
+
+
+    });
+
+    // Added by Rajas on 27 DEC 2016 to fill drop down list on selection of other drop down
+    $("#CompanyddlList").change(function () {
+        //alert($("#Application_ID").val());
+        isDirty = false;
+        var companyid = $("#CompanyddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosApplication/GetBranch")',
+            type: "POST",
+            dataType: "json",
+            data: { Companyid: companyid },
+            success: function (data) {
+                $("#BranchddlList").empty();
+                for (var i = 0; i < data.length; i++) {
+
+                    //alert(states[i].Group_name);
+                    // states.option.selected = true;
+                    $("#BranchddlList").append("<option value=" + "" + data[i].BranchId + "" + ">" + data[i].BranchName + "</option>");
+
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+    $("#BranchddlList").change(function () {
+        // alert($("#Group_code").val());
+        isDirty = false;
+        var branchid = $("#BranchddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosApplication/GetEmployee")',
+            type: "POST",
+            dataType: "json",
+            data: { Branchid: branchid },
+            success: function (data) {
+                $("#EmployeeddlList").empty();
+                for (var i = 0; i < data.length; i++) {
+
+                    //alert(states[i].Group_name);
+                    // states.option.selected = true;
+                    $("#EmployeeddlList").append("<option value=" + "" + data[i].EmployeeId + "" + ">" + data[i].EmployeeName + "</option>");
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+    //    function CalculateDays(id, compoffid) {
+    //        //alert(id);
+    //        var PreviousValue = +$("#TtlAllwdDys").val();
+    //        var xyz = document.getElementById(compoffid);
+    //        //alert(xyz.checked);
+    //        if (xyz.checked == true) {
+    //            //alert(xyz.checked);
+    //            var DayStatus = document.getElementById("DayStatus_+" + id).value;
+    //            var CoHours = document.getElementById("CoHours_+" + id).value;
+    //            alert(CoHours);
+    //            var CoHoursArray = CoHours.split(":");
+    //            var CoHourTime = (+(CoHoursArray[0]) * 60) + (+(CoHoursArray[1]));
+    //            alert(CoHourTime);
+    //            if (DayStatus.trim() == "Full Day") {
+
+    //                TtlAllwdDys = parseFloat(PreviousValue) + 1;
+    //                $("#TtlAllwdDys").val(TtlAllwdDys);
+    //            }
+    //            else if (DayStatus.trim() == "Half Day") {
+    //                // alert(DayStatus);
+    //                TtlAllwdDys = parseFloat(PreviousValue) + 0.5;
+    //                $("#TtlAllwdDys").val(TtlAllwdDys);
+    //            }
+    //            else {
+    //                TtlAllwdDys = parseFloat(PreviousValue) + CoHourTime;
+    //                $("#TtlAllwdDys").val(TtlAllwdDys);
+    //            }
+    //            PreviousValue = TtlAllwdDys;
+    //        }
+    //        else {
+    //            var DayStatus = document.getElementById("DayStatus_+" + id).value;
+
+    //            //alert(DayStatus);
+
+    //            if (DayStatus.trim() == "Full Day") {
+
+    //                TtlAllwdDys = parseFloat(PreviousValue) - 1;
+    //                $("#TtlAllwdDys").val(TtlAllwdDys);
+    //            }
+    //            else if (DayStatus.trim() == "Half Day") {
+    //                // alert(DayStatus);
+    //                TtlAllwdDys = parseFloat(PreviousValue) - 0.5;
+    //                $("#TtlAllwdDys").val(TtlAllwdDys);
+    //            }
+
+    //            PreviousValue = TtlAllwdDys;
+    //        }
+    //    }
+
+
+    function CalculateDays(id, compoffid) {
+        //alert(id);
+        var PreviousValue = +$("#TtlAllwdDys").val();
+        var xyz = document.getElementById(compoffid);
+        var BalanceCoHours = document.getElementById("BalanceCoHours_+" + id).value;
+
+        if (xyz.checked == true) {
+
+            var TtlAllwdDys = $("#TtlAllwdDys").val();
+
+            $.ajax({
+                url: '@Url.Content("~/WetosCumulativeCompOff/CompOffAddHours")',
+                type: "POST",
+                //dataType: "json",
+                data: { TtlAllwdDys: TtlAllwdDys, BalanceCoHours: BalanceCoHours },
+                success: function (data) {
+                    $("#TtlAllwdDys").val(data);
+                },
+                error: function (data) {
+                    alert("Error");
+                }
+            });
+        }
+        else {
+            var TtlAllwdDys = $("#TtlAllwdDys").val();
+            $.ajax({
+                url: '@Url.Content("~/WetosCumulativeCompOff/CompOffRemoveHours")',
+                type: "POST",
+                //dataType: "json",
+                data: { TtlAllwdDys: TtlAllwdDys, BalanceCoHours: BalanceCoHours },
+                success: function (data) {
+                    $("#TtlAllwdDys").val(data);
+                },
+                error: function (data) {
+                    alert("Error");
+                }
+            });
+        }
+    }
+
+    // Added by Rajas on 15 JULY 2017 START
+    // Trigger ToDate from FromDate
+    $("#FROMDATE").change(function () {
+        var fromdate = $("#FROMDATE").val();
+        // alert(fromdate);
+        $("#TODATE").val(fromdate).trigger('change');
+
+    });
+
+    // Trigger ToDateStatus from FromDateStaus
+    $("#LeaveStatusListFromDate").change(function () {
+        var status = $("#LeaveStatusListFromDate").val();
+        // alert(fromdate);
+        $("#LeaveStatusListToDate").val(status).trigger('change');
+
+    });
+    // Added by Rajas on 15 JULY 2017 END
+</script>
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION START*@
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@

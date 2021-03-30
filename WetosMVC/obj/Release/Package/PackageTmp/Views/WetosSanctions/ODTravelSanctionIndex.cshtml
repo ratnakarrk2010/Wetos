@@ -1,0 +1,218 @@
+﻿@model List<WetosDB.SP_WetosGetEmployeeODTravelSanction_Result>
+@{
+    ViewBag.Title = "OD/Travel Sanction List";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/css/odttravel_saction_index.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+     
+   
+      <!-- <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Sanction</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">OD/Travel</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div> -->
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                         <a href="#">Sanction</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">OD/Travel</a>
+                        </li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+             <h1>
+        OD/Travel Sanction
+        <small>List</small>
+      </h1>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+     
+     
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+    </section>
+        <section class="content">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <div class="box">
+          
+            <!-- /.box-header -->
+            <div class="box-body">
+
+@using (Html.BeginForm(null, null, FormMethod.Post))
+{
+     <div class="row">
+      <div class="col-md-3">
+      <div class="editor-label">
+           Select Criteria
+        </div>
+        <div class="editor-field">
+         @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+    <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-list-ul"></i>
+  	</div> 
+    
+@*CODE REPLACED BY SHRADDHA ON 12 SEP 2017 START*@
+    @Html.DropDownList("StatusObj", (IEnumerable<SelectListItem>)@ViewBag.StatusList, "Select", new { @class = "form-control select2", @id = "Status", onchange = "getSanctionListPV()" })
+        @* @Html.DropDownList("StatusObj", new SelectList(ViewBag.StatusList), "Select", new { @class = "form-control select2", @id = "Status", onchange = "getSanctionListPV()" })*@
+       @*CODE REPLACED BY SHRADDHA ON 12 SEP 2017 END*@ 
+        </div>
+      </div>
+      </div>
+      </div>
+      <br/>
+   
+    <div id="results">
+     @*@Html.Partial("ODTravelSanctionPV")*@
+    </div>
+                                <center><input type="submit" class="btn btn-primary" value="Save"/> </center> 
+}
+</div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    </div>
+</div>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+        $("#RejectReasonText").attr("disabled", true);
+        $("#RejectReasonText").attr("autocomplete", "off");
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>
+<script type="text/javascript">
+
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+    });
+</script>
+<script type="text/javascript">
+
+    function getSanctionList() {
+
+        var AppCheck = $("#Status").val();
+        //alert(AppCheck);
+
+        //********************** PASS PARAMETER FROM URL.ACTION ADDED BY RAJAS ON 9 MAY 2017
+
+        Url = '@Url.Action("ODTravelSanctionIndex", "WetosSanctions", new { selectCriteria = "abc" })'.replace("abc", AppCheck);
+        //window.location.href = Url;
+        window.open(Url, "_self");
+
+    }
+
+    function getSanctionListPV() {
+        //--- ADDED BY SHALAKA ON 29th DEC 2017 TO DISPLAY PROGRESS RING
+        showloading(); 
+
+        var selectCriteria = $("#Status").val();
+        //alert(selectCriteria);
+
+        //var ToDate = $("#ToDate").val();
+
+        $.ajax({
+            url: '@Url.Content("~/WetosSanctions/ODTravelSanctionPV")',
+            type: "POST",
+            data: { selectCriteria: selectCriteria },
+            success: function (data) {
+
+                $("#results").html(data);
+                $("#ODTravelSanction").DataTable();
+                hideloading();  //--- ADDED BY SHALAKA ON 29th DEC 2017 TO HIDE PROGRESS RING
+
+            }
+        });
+
+        hideloading();  //--- ADDED BY SHALAKA ON 29th DEC 2017 TO HIDE PROGRESS RING
+    }
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ @*Added by Pushkar For datatable on 25 OCT 2016-------start*@
+<script type="text/javascript">
+    $(function () {
+
+        $("#ODTravelSanction").DataTable();
+
+    });
+    $("#RejectReasonCheck").change(function () {
+        var RejectReasonCheck = $("#RejectReasonCheck").is(':checked') ? "1" : "0";
+        if (RejectReasonCheck == "1") {
+            $("#RejectReasonText").attr("disabled", false);
+        }
+        else {
+            $("#RejectReasonText").attr("disabled", true);
+        }
+    });
+</script>
+@*Added by Pushkar For datatable on 25 OCT 2016-------end*@

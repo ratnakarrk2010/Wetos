@@ -1,0 +1,107 @@
+﻿@model WetosDB.Religion
+<link href="~/Content/css/wetosreligion_create.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+<section class="content-header">
+   <div style="clear: both;"></div>
+
+   
+            <div style="clear: both;"></div>
+         
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"><a href="@Url.Action("Index", "WetosReligion")">Religion</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+             <h1>
+    Religion Master <small>Create</small>
+    </h1>
+          @*  //Added by dhanashri on 3 june 2019 END*@
+</section>
+<section class="content">
+      <div class="row">
+      <div class="col-xs-12 col-md-12 col-lg-12">         
+      <div class="box">
+      <div class="box-header"></div>
+            <!-- /.box-header -->
+       <div class="box-body">
+
+            @using (Html.BeginForm()) 
+            {
+                @Html.ValidationSummary(true)
+                <fieldset>
+                     <div class="row">
+                    <div class="editor-label col-md-4">
+              Religion        @*  @Html.LabelFor(model => model.ReligionName)*@
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ReligionName)
+                        @Html.ValidationMessageFor(model => model.ReligionName)
+                    </div>
+                     </div>
+        <br />
+                    <p>
+                        <input type="submit" value="Create" />
+                    </p>
+                </fieldset>
+            }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+</div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+
+    @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('a.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION START*@
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+ }
+ @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@

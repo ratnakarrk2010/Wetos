@@ -1,0 +1,28 @@
+﻿<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+@model WetosDB.LeaveApplication
+@*@using (Ajax.BeginForm("GetLeaveApplicationExtraDetails", "WetosApplication", new AjaxOptions
+{
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "POST",
+}, new { @id = "ContactUsForm2" }))
+{
+*@
+<fieldset>
+    @*<div class="display-label">LeaveApplicationID</div>
+    <div class="display-field">@Model.LeaveApplicationID</div>
+*@
+    <div class="box-body">
+    @if (Model.IsPreSandwichCase==true || Model.IsPostSandwichCase==true)
+    {
+    <h5  style="color:Red; font-weight: 600 !important">Sandwich case detected. </h5>
+    }
+    <h5 style="color:#003399; font-weight: 600 !important">You have applied leave for @Model.FromDate.ToString("dd-MMM-yyyy") to @Model.ToDate.ToString("dd-MMM-yyyy").
+    <br />
+    
+    Applied Days: @Model.AppliedDays @Model.LeaveType
+   
+    <br /> Total days to be deducted: @Model.TotalDeductableDays</h5>
+       
+    </div>
+</fieldset>
+@*}*@ 

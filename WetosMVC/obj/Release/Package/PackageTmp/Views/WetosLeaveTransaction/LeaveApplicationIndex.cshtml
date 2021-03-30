@@ -1,0 +1,382 @@
+﻿@model IEnumerable<WetosDB.SP_VwLeaveApplicationIndex_Result>
+@{
+    ViewBag.Title = "Leave Status Details List";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<link href="~/Content/css/leave_application_index.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+ 
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+            
+
+           
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Applications</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Leave</a>
+                        </li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h1>Leave Status Details
+        <small>List</small> @* Updated by Rajas on 2 MARCH 2017*@
+                @if (@ViewBag.ForOthers == "true")
+                {
+                    <span data-toggle="tooltip" title="Apply for Leave" onclick="showloading();" style="float: right; font-weight: 800">
+                    @Html.ActionLink(" ", "LeaveApplication", new { Myself = true }, new { @class = "fa fa-plus-circle", title = "Apply for Leave", style = "color:#428bca;font-size:19px" })</span>
+        
+                }
+                @if (@ViewBag.ForOthers == "false")
+                {
+                    <span data-toggle="tooltip" onclick="showloading();" title="Apply for Leave" style="float: right; font-weight: 800">
+                    @Html.ActionLink(" ", "LeaveApplication", new { Myself = false }, new { @class = "fa fa-plus-circle", title = "Apply for Leave", style = "color:#428bca;font-size:19px" })</span>
+                }
+            </h1>
+
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+            <div>
+
+
+                @*<span class="btn btn-default" style="float:left;font-weight:200">@Html.ActionLink("Apply Self Leave", "LeaveApplication", new { Myself = true }, null)</span>
+
+      @if (@ViewBag.ForOthers == "false")
+      {
+      <span class="btn btn-default" style="float:left;font-weight:200">@Html.ActionLink("Apply for Other Leave", "LeaveApplication", new { Myself = false }, null)</span>
+      }*@
+
+            </div>
+            <div style="clear: both;"></div>
+
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+
+                        <div class="box-body">
+                            @*   @using (Html.BeginForm("LeaveApplicationIndex", "WetosLeaveTransaction", FormMethod.Post, new { id = "Form" }))*@
+                            @* Updated by Rajas on 16 MAY 2017 for Form submit *@
+                            @using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "Form" }))
+                            {
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationSummary(true)
+                                </div>
+<div class="table-responsive">
+                                <table id="LeaveApplication" class="table table-bordered table-striped">
+                                    @*Added by Pushkar For datatable on 25 OCT 2016*@
+                                    <thead>
+                                        <tr>
+                                        @*ADDED BY SHRADDHA ON 19 JULY 2017 START*@
+                                             <th></th>
+                                             @*ADDED BY SHRADDHA ON 19 JULY 2017 END*@
+                                            <td>Employee Name
+                                            </td>
+                                            <td>Leave Type
+                                            </td>
+                                            <td>From Date
+                                            </td>
+                                         
+                                            <td>To Date
+                                            </td>
+                                           
+                                            <td>Applied Days
+                                            </td>
+                                           <td>Total Deductable Days
+                                            </td>
+                                             <td>Paid Leaves
+                                            </td>
+                                             <td>Unpaid Leaves
+                                            </td>
+                                            <td>Purpose
+                                            </td>
+                                            <td>Status
+                                            </td>
+                                            <td>Reject Reason
+                                            </td>
+                                         
+                                            <td>Action</td>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        @foreach (var item in Model)
+                                        {
+                                           
+                                            <tr>
+                                            @*ADDED BY SHRADDHA ON 19 JULY 2017 START*@
+                                             @if (item.AppliedDays < item.TotalDeductableDays)
+                                             { 
+                                            <td> <div style="color:Red;cursor:pointer" title="Get Details" onclick="GetLeaveDetailsForSelectedLeave(@item.LeaveApplicationId)" class="fa fa-exclamation-triangle"> </div> </td>
+                                             }
+                                             else
+                                             { 
+                                              <td><div  style="color:#003399" class="fa fa-thumbs-up"></div> </td> 
+                                            
+                                             }
+                                             @*ADDED BY SHRADDHA ON 19 JULY 2017 END*@
+                                                
+                                                <td>
+                                                  @item.EmployeeCode - @item.FirstName @item.MiddleName @item.LastName
+                                                </td>
+                                                <td>
+                                                    @item.LeaveType
+                                                </td>
+                                                <td>
+                                                    @String.Format("{0:g}", item.FromDate.ToString("dd-MMM-yyyy"))
+                                                </td>
+                                                @*  <td>
+            @item.FromDayStatus
+        </td>*@
+                                                <td>
+                                                    @String.Format("{0:g}", item.ToDate.ToString("dd-MMM-yyyy"))
+                                                </td>
+                                                @* <td>
+            @item.ToDayStatus
+        </td>*@
+                                                <td class="quantity">
+                                                    @String.Format("{0:F}", item.AppliedDays, new { @class = "quantity" })
+                                                </td>
+                                                <td class="quantity">
+                                                    @String.Format("{0:F}", item.TotalDeductableDays, new { @class = "quantity" })
+                                                </td>
+                                                 <td class="quantity">
+                                                   @String.Format("{0:F}", item.ActualDays, new { @class = "quantity" })
+                                                </td>
+                                                <td class="quantity">
+                                                  @{var UnpaidLeaves = item.TotalDeductableDays - item.ActualDays; }
+                                                   @String.Format("{0:F}", UnpaidLeaves, new { @class = "quantity" })
+                                                </td>
+                                                @*<td class="quantity">
+            
+        </td>
+         <td class="quantity">
+            @String.Format("{0:F}", item.AppliedDays - item.ActualDays, new { @class = "quantity" })
+        </td>*@
+                                                <td>
+                                                    @item.Purpose
+                                                </td>
+                                                <td>
+                                                    @item.Text
+                                                </td>
+                                                <td>
+                                                    @item.RejectReason
+                                                </td>
+                                                @* <td>
+            @item.BranchId
+        </td>
+        <td>
+            @item.CompanyId
+        </td>*@
+                                                <td>
+                                                    @if (item.Status == 1 || item.Status == 5)
+                                                    {
+       
+                                                        <span data-toggle="tooltip" title="Edit">
+                                                            @Html.ActionLink(" ", "LeaveApplicationEdit", new { id = item.LeaveApplicationId }, new { @class = "fa fa-pencil-square-o" })</span><span>|</span>
+@*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
+                                                        <span data-toggle="tooltip" title="Delete">
+                                                        <span style="color:#428bca;cursor:pointer" class = "fa fa-trash" onclick ="DeleteLeaveApplication(@item.LeaveApplicationId)"></span>
+                                                           </span>                                                                                  
+                                                    }
+                                                    else
+                                                    {
+                                                        //Commented By Shraddha on 12 DEC 2016 Because b=not necessary Code 
+@*@Html.ActionLink("Edit", "LeaveApplicationIndex")*@
+                                                    }
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+
+                                    <tfoot>
+                                    </tfoot>
+
+                                </table>
+                                </div>
+                            }
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP START*@
+<div id="LeaveAppdiv" style="width: 30% !important; height: 30% !important; z-index: 1000000;
+    background-color: White; top: 20%; left: 40%" class="modal fade"> @*REMOVED SHOW CLASS TAKEN MODAL FADE CLASS INSTEAD OF MODAL SHOW FADE CLASS BY SHRADDHA ON 09 FEB 2018 BECAUSE IT WAS CREATING CLICKING ISSUE*@
+    <div class="modal-body">
+        <div>
+            Do you want to delete this application?
+        </div>
+    </div>
+    <div class="modal-footer">
+        <center>
+            <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="btnYes">
+                Yes</button>
+            <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                Cancel</button></center>
+    </div>
+</div>
+@*ADDED BY SHRADDHA ON 19 JULY 2017 START*@
+<div id="LeaveDetailsDiv" style="width: 40% !important; height: 28% !important; z-index: 1000000;
+    background-color: White; top: 20%; left: 30%" class="modal fade"> @*REMOVED SHOW CLASS TAKEN MODAL FADE CLASS INSTEAD OF MODAL SHOW FADE CLASS BY SHRADDHA ON 09 FEB 2018 BECAUSE IT WAS CREATING CLICKING ISSUE*@
+    <div class="modal-body" id="LeaveDetailsBody">
+    </div>
+    <div class="modal-footer">
+        <center>
+            <button type="button" data-dismiss="modal" class="col-md-offset-5 col-md-1 btn">
+                Ok</button></center>
+    </div>
+</div>
+<div id="DeleteDiv" style="width: 40% !important; height: 20% !important; z-index: 1000000;
+    background-color: White; top: 2%; left: 30%" class="modal fade"> @*REMOVED SHOW CLASS TAKEN MODAL FADE CLASS INSTEAD OF MODAL SHOW FADE CLASS BY SHRADDHA ON 09 FEB 2018 BECAUSE IT WAS CREATING CLICKING ISSUE*@
+    <div class="modal-body">
+        Do you want to Delete this leave application?
+    </div>
+    <div class="modal-footer">
+        <center>
+            <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="btnDelete">
+                Yes</button>
+            <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                Cancel</button></center>
+    </div>
+</div>
+@*ADDED BY SHRADDHA ON 19 JULY 2017 END*@ @*ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP END*@
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@ @*<div id="dialogf2" title="Leave Details" style="display: none">
+    <div id="LeaveDetailsDiv">
+    </div>
+</div>*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ @*Added by Pushkar For datatable on 25 OCT 2016-------start*@
+<script type="text/javascript">
+    $(function () {
+
+        $("#LeaveApplication").DataTable({
+            "ordering": false   // Added by Rajas on 29 AUGUST 2017
+        });
+
+    });
+
+
+    function Delete() {
+        alert("In function");
+
+        $("Form").submit();
+        // });
+
+    }
+
+
+   
+</script>
+@*Added by Pushkar For datatable on 25 OCT 2016-------end*@ @*Added by Shalaka For progress ring on 21st June 2017*----Start*@
+<script type="text/javascript">
+
+    // OnBtnApplyLeave function to check Employee statistics  
+    function OnBtnApplyLeaveClick() {
+        showloading();
+    }
+    
+</script>
+@*End*@
+<script type="text/javascript">
+    //ADDED BY SHRADDHA ON 19 JULY 2017 START
+    function GetLeaveDetailsForSelectedLeave(LeaveApplicationId) {
+        showloading();
+        $.ajax({
+            url: '@Url.Content("~/WetosLeaveTransaction/GetLeaveApplicationExtraDetails")',
+            data: { LeaveApplicationId: LeaveApplicationId },
+            type: 'GET',
+            //contentType: 'application/json; charset=utf-8',
+            //dataType: 'json',
+            success: function (result) {
+                hideloading();
+                var $form = $(this).closest('form');
+                //                $('#LeaveDetailsDiv').modal({ backdrop: result, keyboard: false })
+                //                .one('click', '#btnYes', function () {
+                //                    $('#LeaveDetailsBody').html(result);
+                //                });
+                $('#LeaveDetailsDiv').modal({ backdrop: result, keyboard: false })
+                {
+                    $('#LeaveDetailsBody').html(result);
+                }
+            },
+            error: function (result) {
+                hideloading();
+            }
+        });
+
+    }
+    //ADDED BY SHRADDHA ON 19 JULY 2017 END
+</script>
+<script type="text/javascript">
+    function DeleteLeaveApplication(LeaveApplicationId) {
+
+        $('#DeleteDiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#btnDelete', function () {
+                    $.ajax({
+
+                        url: '@Url.Content("~/WetosLeaveTransaction/LeaveApplicationDelete")',
+                        type: "GET",
+                        // dataType: "json",
+                        data: { id: LeaveApplicationId },
+                        success: function (data) {
+                            alert("Leave is deleted successfully.");
+                            window.location.reload();
+                        },
+                        error: function (data) {
+                            alert("Error");
+                        }
+                    });
+
+                });
+    }
+</script>

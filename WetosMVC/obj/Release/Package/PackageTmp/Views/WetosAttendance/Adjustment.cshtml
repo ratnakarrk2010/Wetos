@@ -1,0 +1,393 @@
+﻿@model WetosDB.Adjustment
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+   <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<section class="content-header">
+     
+      <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
+       
+          <li class="active">Attendance</li>
+        <li class="active">Adjustment</li>
+        <li class="active">Create</li>
+        @*<li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>*@
+      
+      </ol>    
+       <h1>
+        Adjustment
+        <small>Create</small>
+      </h1>
+
+        @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+      <div>
+      <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>
+     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+
+      </div>
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+ </section>
+<section class="content">
+<div class="row">
+<div class="col-xs-12 col-md-12 col-lg-12">         
+<div class="box">
+<div class="box-header">           
+</div>
+<div class="box-body">
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+      @Html.HiddenFor(model => model.EmployeeId)
+      @Html.HiddenFor(model => model.TranDate)
+      @Html.HiddenFor(model => model.ShiftId)
+      @Html.HiddenFor(model => model.Login1)
+      @Html.HiddenFor(model => model.LogOut1)
+      @Html.HiddenFor(model => model.Early)
+      @Html.HiddenFor(model => model.Late)
+      @Html.HiddenFor(model => model.WorkingHrs)
+      @Html.HiddenFor(model => model.ExtraHrs)
+      @Html.HiddenFor(model => model.SanctionedCOHrs)
+      @Html.HiddenFor(model => model.Status)
+      @Html.HiddenFor(model => model.ActualStatus)
+      @Html.HiddenFor(model => model.OTInTime)
+      @Html.HiddenFor(model => model.OTOutTime)
+      @Html.HiddenFor(model => model.PreviousLogin)
+      @Html.HiddenFor(model => model.PreviousLogOut)
+      @Html.HiddenFor(model => model.PreviousLogin1)
+      @Html.HiddenFor(model => model.PreviousLogOut1)
+      @Html.HiddenFor(model => model.PreviousShiftId)
+      @Html.HiddenFor(model => model.TStatus)
+      @Html.HiddenFor(model => model.PostinFlag)
+      @Html.HiddenFor(model => model.Lock)
+      @Html.HiddenFor(model => model.Remark)
+      @Html.HiddenFor(model => model.LateCount)
+     
+
+      <div class="row">
+     <div class="form-group col-md-12" id="CompanyList">
+       <div class="editor-label">
+            Company Name
+        </div>
+        <div class="editor-field">
+         @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, "Select", new { @class = "form-control select2", style = "width:500px" })
+         
+        </div>
+      
+      </div>
+      </div>
+
+       <div class="row">
+        <div class="form-group col-md-12" id="BranchList">
+         <div class="editor-label">
+           Branch Name
+        </div>
+        <div class="editor-field" >
+         @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", style = "width:500px" })
+         
+        </div>
+
+       </div>
+       </div>
+      @*  <div class="editor-label">
+            @Html.LabelFor(model => model.EmployeeId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmployeeId)
+            @Html.ValidationMessageFor(model => model.EmployeeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TranDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TranDate)
+            @Html.ValidationMessageFor(model => model.TranDate)
+        </div>
+        *@
+       @* <div class="editor-label">
+          Select  Shift
+        </div>
+        <div class="editor-field">
+             @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2", style = "width:500px" })
+        </div>*@
+
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+               From Date
+
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  
+                   @Html.TextBoxFor(model => model.Login, new { @class = "form-control pull-right datepicker" })
+                 @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+                </div>
+                <!-- /.input group -->
+              </div>
+
+       </div>
+       </div>
+       <div class="row">
+         <div class="col-md-3">
+         <div class="form-group">
+               To Date
+
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                   @Html.TextBoxFor(model => model.LogOut, new { @class = "form-control pull-right datepicker" })
+                 @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+                </div>
+                <!-- /.input group -->
+              </div>
+       </div>
+       </div>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.Login1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Login1)
+            @Html.ValidationMessageFor(model => model.Login1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LogOut1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LogOut1)
+            @Html.ValidationMessageFor(model => model.LogOut1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Early)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Early)
+            @Html.ValidationMessageFor(model => model.Early)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Late)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Late)
+            @Html.ValidationMessageFor(model => model.Late)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WorkingHrs)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WorkingHrs)
+            @Html.ValidationMessageFor(model => model.WorkingHrs)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExtraHrs)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ExtraHrs)
+            @Html.ValidationMessageFor(model => model.ExtraHrs)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SanctionedCOHrs)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SanctionedCOHrs)
+            @Html.ValidationMessageFor(model => model.SanctionedCOHrs)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ActualStatus)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ActualStatus)
+            @Html.ValidationMessageFor(model => model.ActualStatus)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OTInTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OTInTime)
+            @Html.ValidationMessageFor(model => model.OTInTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OTOutTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OTOutTime)
+            @Html.ValidationMessageFor(model => model.OTOutTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousLogin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousLogin)
+            @Html.ValidationMessageFor(model => model.PreviousLogin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousLogOut)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousLogOut)
+            @Html.ValidationMessageFor(model => model.PreviousLogOut)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousLogin1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousLogin1)
+            @Html.ValidationMessageFor(model => model.PreviousLogin1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousLogOut1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousLogOut1)
+            @Html.ValidationMessageFor(model => model.PreviousLogOut1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousShiftId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousShiftId)
+            @Html.ValidationMessageFor(model => model.PreviousShiftId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TStatus)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TStatus)
+            @Html.ValidationMessageFor(model => model.TStatus)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PostinFlag)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PostinFlag)
+            @Html.ValidationMessageFor(model => model.PostinFlag)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Lock)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Lock)
+            @Html.ValidationMessageFor(model => model.Lock)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Remark)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Remark)
+            @Html.ValidationMessageFor(model => model.Remark)
+        </div>*@
+
+      
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.LateCount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LateCount)
+            @Html.ValidationMessageFor(model => model.LateCount)
+        </div>*@
+         <div class="row">
+      <div class="col-md-3">
+      <div class="editor-label">
+           Select Criteria
+        </div>
+        <div class="editor-field">
+         @Html.DropDownList("SelectCriteriaObj", new SelectList(ViewBag.SelectCriteriaList), "Select", new { @class = "form-control select2", @id = "SelectCriteria" })
+          @*  @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)*@
+        </div>
+      </div>
+      </div>
+      <br/>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+        <div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+    </fieldset>
+}
+</div>
+</div>
+</div>
+</div>
+
+</section>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('a.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+<script type="text/javascript">
+
+
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+
+        //Date picker
+        $('.datepicker').datepicker({
+            format: "dd/mm/yyyy",
+
+            autoclose: true
+        });
+
+    });
+
+</script>
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION START*@
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+ }
+ @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@

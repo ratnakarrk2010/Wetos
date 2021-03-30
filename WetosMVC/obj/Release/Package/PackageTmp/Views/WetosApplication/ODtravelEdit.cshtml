@@ -1,0 +1,563 @@
+﻿@model WetosMVCMainApp.Models.ODTravelModel
+@{
+    ViewBag.Title = "Late/Early Edit";
+}
+
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/css/odt_travel_edit.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+<script src="@Url.Content("~/Scripts/jquery.inputmask.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.inputmask.date.extensions.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.inputmask.extensions.js")" type="text/javascript"></script>
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                         <li class="li_margin">
+                         <a href="#">Applications</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Late/Early</a>
+                        </li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h1>
+      Late/Early Application
+        <small>Edit </small>
+      </h1>
+      
+            
+       
+
+    </section>
+        <section class="content">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <div class="box box-primary">
+           
+            <!-- /.box-header -->
+@using (Html.BeginForm())
+{
+     <div style="color:Red;font-size:12px">
+   
+   @Html.Raw(Server.HtmlDecode(Html.ValidationSummary(false).ToString()))  
+   </div>
+    <fieldset>
+        <div class="box-body">
+        @Html.HiddenFor(model => model.AppliedDay)
+        @Html.HiddenFor(model => model.ActualDay)
+        @Html.HiddenFor(model => model.StatusId)
+        @Html.HiddenFor(model => model.OdTourHeadCode)
+        @Html.HiddenFor(model => model.RejectReason)
+        @Html.HiddenFor(model => model.Branchid)
+        @Html.HiddenFor(model => model.CompanyId)
+      
+        @Html.HiddenFor(model => model.JourneyType)
+        @Html.HiddenFor(model => model.TransportType)
+        @Html.HiddenFor(model => model.ODTourId)
+
+        @Html.HiddenFor(model => model.ODLoginTime)
+        @Html.HiddenFor(model => model.ODLogOutTime)
+        @Html.HiddenFor(model => model.IsInPunchInNextDay)
+        @Html.HiddenFor(model => model.IsOutPunchInNextDay)
+
+          @if (@Model == null || @Model.MySelf == false)
+          {
+                    <div class="row">
+
+                        <div class="col-md-4">
+
+                            <div id="EmployeeName" class="form-group">
+                                Employee Name <span style="color: Red; font-size: 18px">*</span>
+
+                                @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeCodeAndNameList, "Select", new { @class = "form-control select2", id = "EmployeeName1", style = "width:500px" })
+
+                            </div>
+                        </div>
+                    </div>
+             
+          }
+          else
+          {
+              // Updated by Rajas on 29 AUGUST 2017
+              @Html.HiddenFor(model => model.EmployeeId)
+          }
+    
+   
+        <div class="row">
+        <div class="col-md-4">
+        <div class="editor-label">
+            Requisition Type  <span style="color:Red;font-size:18px" >*</span> @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+        </div>
+        <div class="editor-field">
+         @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+         <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-list-ul"></i>
+  	</div> 
+            @Html.DropDownListFor(a => a.ODTourType, (IEnumerable<SelectListItem>)@ViewBag.RequisitionTYpeList, "Select", new { @class = "form-control select2" })
+            @*@Html.EditorFor(model => model.ODTourType)
+            @Html.ValidationMessageFor(model => model.ODTourType)*@
+        </div>
+        </div>
+        </div>
+        </div>
+
+       <div id="TOURRegion">
+         <div class="row">
+        <div class="col-md-4">
+        <div class="editor-label">
+         @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+            From Date   <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="input-group date">
+            <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </div>
+            <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />
+           @* @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })*@
+             @*<input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+        </div>
+         </div>
+        </div>
+            <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+              
+              From Day Status   <span style="color:Red;font-size:18px" >*</span> @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+          @*fav icon added by atul & Mithilesh on 26 june 2017----start*@     
+    <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-clock-o"></i>
+  	</div> 
+
+
+              @Html.DropDownListFor(a => a.ODDayStatus, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusListFromDate" })
+              </div>
+              </div>
+              </div>
+            </div>
+
+             <div class="row">
+              <div class="col-md-4">
+        @* <div class="editor-field">
+            @Html.EditorFor(model => model.FromDate)
+            @Html.ValidationMessageFor(model => model.FromDate)
+        </div>*@
+        <div class="editor-label">
+        @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+            To Date   <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="input-group date">
+            <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </div>
+            <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ToDate" id="ToDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ToDate)" />
+          @*  @Html.TextBoxFor(model => model.ToDate, new { @class = "form-control pull-right datepicker" })*@
+             @*<input type="text" class="form-control pull-right datepicker" id="ToDate" name="ToDate"/>*@
+        </div></div>
+              
+              </div>
+               <div class="row">
+               <div class="col-md-4">
+              <div class="form-group">
+               
+              To Day Status   <span style="color:Red;font-size:18px" >*</span>
+               @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+               <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-clock-o"></i>
+  	</div> 
+              @Html.DropDownListFor(a => a.ODDayStatus1, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusListToDate" })
+              </div>
+              </div>
+              </div>
+               </div>
+              </div>
+
+              <div id="ODRegion">
+              <div class="row" >
+        <div class="col-md-4">
+        <div class="editor-label">
+         @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+            Late/Early Date   <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="input-group date">
+            <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </div>
+            <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ODDate" id="ODDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ODDate)" />
+           @* @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })*@
+             @*<input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+        </div>
+         </div>
+       </div>
+        <div class="row" >
+        <div class="col-md-4">
+              <div class="form-group">
+              
+              Late/Early Day Status   <span style="color:Red;font-size:18px" >*</span> @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+          @*fav icon added by atul & Mithilesh on 26 june 2017----start*@     
+    <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-clock-o"></i>
+  	</div> 
+
+
+              @Html.DropDownListFor(a => a.ODDayStatus2, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusListFromDate" })
+              </div>
+              </div>
+              </div>
+              </div>
+
+
+        </div>
+
+            <div class="row">
+          <div class="col-md-4">
+          <div class="editor-label">
+           Place <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field">
+        <div class="input-group date">
+        <div class="input-group-addon">
+         <i class="fa fa-map-marker"></i></div>
+            @Html.TextBoxFor(model => model.Place, new { @class = "form-control" })
+          @*  @Html.ValidationMessageFor(model => model.Place)*@
+        </div>
+        </div>
+        </div>
+        </div>
+         <div class="row">
+        <div class="col-md-4">
+        <div class="editor-label">
+           Purpose <span style="color:Red;font-size:18px" >*</span>
+        </div>
+        <div class="editor-field">
+      @*  Updated by Rajas on 19 MAY 2017*@
+       @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+       <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-list-ul"></i>
+  	</div> 
+         @Html.DropDownListFor(a => a.Purpose, (IEnumerable<SelectListItem>)@ViewBag.ODPurposeList, "Select", new { @class = "form-control select2" })
+            @*@Html.EditorFor(model => model.Purpose)
+            @Html.ValidationMessageFor(model => model.Purpose)*@
+        </div></div></div>
+
+        <div class="col-md-4">
+        <div class="editor-label">
+           Purpose Description 
+        </div>
+        <div class="editor-field">
+      
+       <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-list-ul"></i>
+  	</div> 
+         @Html.TextAreaFor(a => a.PurposeDesc, new { @class = "form-control" })
+            
+        </div></div></div>
+
+
+        </div>
+
+
+
+        <div class="row">
+        <div id = "ClientDet">
+        <div class="col-md-4">
+        <div class="editor-label">
+           Client/Vendor Name 
+        </div>
+        <div class="editor-field">
+      
+       <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-list-ul"></i>
+  	</div> 
+         @Html.TextBoxFor(a => a.ClientName, new { @class = "form-control" })
+            
+        </div></div></div>
+        </div>
+
+
+        <div id = "CustomerDet">
+        <div class="col-md-4">
+        <div class="editor-label">
+           Customer Name
+        </div>
+        <div class="editor-field">
+      
+       <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-list-ul"></i>
+  	</div> 
+         @Html.TextBoxFor(a => a.CustomerName, new { @class = "form-control" })
+            
+        </div></div></div>
+
+
+        <div class="col-md-4">
+        <div class="editor-label">
+           CSR No.
+        </div>
+        <div class="editor-field">
+      
+       <div class="input-group date">
+        <div class="input-group-addon">
+        <i  class="fa fa-list-ul"></i>
+  	</div> 
+         @Html.TextBoxFor(a => a.CSRNo, new { @class = "form-control" })
+            
+        </div></div></div>
+
+        </div>
+        </div>
+
+          <br />
+        <p>
+            <input type="submit"  onclick="showloading();" value="Apply" class="btn btn-primary" />
+        </p>
+        </div>
+    </fieldset>
+}
+     
+            </div>
+            </div>
+            </div>
+            </section>
+    </div>
+</div>
+
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+<script type="text/javascript">
+
+
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Datemask dd/mm/yyyy
+
+        $('.datepicker').datepicker({
+            format: "dd-M-yyyy",
+
+            autoclose: true
+        });
+
+
+    });
+
+    // Added by Rajas on 15 JULY 2017 START
+    // Trigger ToDate from FromDate
+    $("#FromDate").change(function () {
+        var fromdate = $("#FromDate").val();
+        // alert(fromdate);
+        $("#ToDate").val(fromdate).trigger('change');
+
+    });
+
+    // Trigger ToDateStatus from FromDateStaus
+    $("#LeaveStatusListFromDate").change(function () {
+        var status = $("#LeaveStatusListFromDate").val();
+        // alert(fromdate);
+        $("#LeaveStatusListToDate").val(status).trigger('change');
+
+    });
+    // Added by Rajas on 15 JULY 2017 END
+
+</script>
+<script type="text/javascript">
+
+    $("#document").ready(function () {
+
+        var PurposeVal = $("#Purpose").val();
+        //alert(PurposeVal);
+
+        if (PurposeVal == "Client visit" || PurposeVal == "Vendor Visit") {
+
+            $("#ClientDet").css("display", "inline");
+            $("#CustomerDet").css("display", "none");
+
+        }
+        else if (PurposeVal == "Customer Service") {
+            $("#ClientDet").css("display", "none");
+            $("#CustomerDet").css("display", "inline");
+
+        }
+        else {
+            $("#ClientDet").css("display", "none");
+            $("#CustomerDet").css("display", "none");
+        }
+
+    });
+
+
+    $("#Purpose").change(function () {
+
+        var PurposeVal = $("#Purpose").val();
+        //alert(PurposeVal);
+
+        if (PurposeVal == "Client visit" || PurposeVal == "Vendor Visit") {
+
+            $("#ClientDet").css("display", "inline");
+            $("#CustomerDet").css("display", "none");
+
+        }
+        else if (PurposeVal == "Customer Service") {
+            $("#ClientDet").css("display", "none");
+            $("#CustomerDet").css("display", "inline");
+
+        }
+        else {
+            $("#ClientDet").css("display", "none");
+            $("#CustomerDet").css("display", "none");
+        }
+
+    });
+
+
+    $("#ODTourType").change(function () {
+        var ODTourType = $("#ODTourType").val();
+        if (ODTourType == "Half/Full Day OD") {
+            $("#ODRegion").css("display", "inline");
+            $("#TOURRegion").css("display", "none");
+        }
+        else if (ODTourType == "Tour") {
+
+            $("#ODRegion").css("display", "none");
+            $("#TOURRegion").css("display", "inline");
+        }
+        else {
+
+            $("#ODRegion").css("display", "inline");
+            $("#TOURRegion").css("display", "none");
+        }
+    });
+
+    $(document).ready(function () {
+        var IsOutPunchInNextDay = "@Model.IsOutPunchInNextDay";
+
+        var IsInPunchInNextDay = "@Model.IsInPunchInNextDay";
+
+        if (IsInPunchInNextDay == "True") {
+            $("#IsInPunchInNextDay").attr("checked", true);
+        }
+        else {
+            $("#IsInPunchInNextDay").attr("checked", false);
+        }
+
+        if (IsOutPunchInNextDay == "True") {
+            $("#IsOutPunchInNextDay").attr("checked", true);
+        }
+        else {
+            $("#IsOutPunchInNextDay").attr("checked", false);
+        }
+
+        $("[data-mask]").inputmask("hh:mm");
+        var ODTourType = $("#ODTourType").val();
+        if (ODTourType == "Half/Full Day OD") {
+            $("#ODRegion").css("display", "inline");
+            $("#TOURRegion").css("display", "none");
+        }
+        else if (ODTourType == "Tour") {
+
+            $("#ODRegion").css("display", "none");
+            $("#TOURRegion").css("display", "inline");
+        }
+        else {
+            $("#ODRegion").css("display", "inline");
+            $("#TOURRegion").css("display", "none");
+        }
+
+    });
+</script>
+<script type="text/javascript">
+    //CODE ADDED BY SHRADDHA ON 15 JAN 2018 FOR IsOutPunchInNextDay START
+    $("#IsOutPunchInNextDay").on('change', function () {
+        //alert("In fucntion");
+        if ($(this).is(':checked')) {
+            $(this).attr('value', 'true');
+        } else {
+            $(this).attr('value', 'false');
+        }
+
+    });
+    //CODE ADDED BY SHRADDHA ON 15 JAN 2018 FOR IsOutPunchInNextDay END
+
+    //CODE ADDED BY SHRADDHA ON 15 JAN 2018 FOR IsInPunchInNextDay START
+    $("#IsInPunchInNextDay").on('change', function () {
+        if ($(this).is(':checked')) {
+            $(this).attr('value', 'true');
+            $("#IsOutPunchInNextDay").prop('value', 'true');
+            //$("#IsOutPunchInNextDay").attr('disabled', true);
+            $("#IsOutPunchInNextDay").prop("checked", "checked");
+        } else {
+            $(this).attr('value', 'false');
+            $("#IsOutPunchInNextDay").attr('disabled', false);
+
+        }
+
+    });
+    //CODE ADDED BY SHRADDHA ON 15 JAN 2018 FOR IsInPunchInNextDay END
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //alert("In fucntion");
+        if ($("#IsInPunchInNextDay").is(':checked')) {
+            $("#IsInPunchInNextDay").attr('value', 'true');
+        }
+        else {
+            $("#IsInPunchInNextDay").attr('value', 'false');
+        }
+
+
+        if ($("#IsOutPunchInNextDay").is(':checked')) {
+            $("#IsOutPunchInNextDay").attr('value', 'true');
+        } else {
+            $("#IsOutPunchInNextDay").attr('value', 'false');
+        }
+    });
+</script>

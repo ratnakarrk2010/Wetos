@@ -1,0 +1,145 @@
+﻿@model IEnumerable<WetosDB.User>
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<section class="content-header">
+      
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="#">Bulk Users</a></li>
+      
+      </ol>
+      <h1>
+        Bulk Users
+        <small>Index</small>
+      </h1>
+    </section>
+<div align="Right">
+    <p align="Right">@Html.ActionLink("Back to Dashboard", "Index", "ManagerDashboard")</p>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<section class="content">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <div class="box">
+            <div class="box-header">
+              
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+<table class="table table-striped"> 
+
+
+    <tr>
+        
+        @*<th>
+            Password
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            LocationList
+        </th>*@
+        <th>
+            Company
+        </th>
+        <th>
+            Branch
+        </th>
+        <th>
+            Department
+        </th>
+        <th>Action</th>
+        @*<th>
+            MastersRights
+        </th>
+        <th>
+            AttendanceRights
+        </th>
+        <th>
+            ApplicationsRights
+        </th>
+        <th>
+            SanctionsRights
+        </th>
+        <th>
+            ReportsRights
+        </th>
+        <th>
+            AdministrationRights
+        </th>
+        <th>
+            UpdatesRights
+        </th>
+        <th>
+            DivisionList
+        </th>*@
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        
+        @*<td>
+            @item.Password
+        </td>
+        <td>
+            @item.Status
+        </td>
+        <td>
+            @item.LocationList
+        </td>*@
+        <td style= "width:50">
+            @item.CompanyList
+        </td>
+        <td style= "width:50">
+            @item.BranchList
+        </td>
+        <td style= "width:50">
+            @item.DepartmentList
+        </td>
+        <td style= "width:50">
+            @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.UserId })
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.UserId })*@
+        </td>
+        @*<td>
+            @item.MastersRights
+        </td>
+        <td>
+            @item.AttendanceRights
+        </td>
+        <td>
+            @item.ApplicationsRights
+        </td>
+        <td>
+            @item.SanctionsRights
+        </td>
+        <td>
+            @item.ReportsRights
+        </td>
+        <td>
+            @item.AdministrationRights
+        </td>
+        <td>
+            @item.UpdatesRights
+        </td>
+        <td>
+            @item.DivisionList
+        </td>*@
+    </tr>
+}
+
+</table>
+  </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>

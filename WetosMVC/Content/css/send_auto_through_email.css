@@ -1,0 +1,61 @@
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #f8f8f8;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    color: #0f0f0f;
+}
+
+p.MsoNormal,
+li.MsoNormal,
+div.MsoNormal {
+    margin: 0in;
+    margin-bottom: .0001pt;
+    font-size: 12.0pt;
+    font-family: "Times New Roman";
+}
+
+div.Section1 {
+    page: Section1;
+}
+
+.style1 {
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.style6 {
+    text-indent: .5in;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 767px) {
+    .page-content-wrapper .page-content {
+        padding: 10px 10px !important;
+        overflow: visible !important;
+    }
+    .content-header {
+        padding-top: 0% !important;
+    }
+}
+
+@media screen and (min-device-width: 411px) and (max-device-width: 414px) {
+    .page-content-wrapper .page-content {
+        padding: 10px 10px !important;
+        overflow: visible !important;
+    }
+    .content-header {
+        padding-top: 0% !important;
+    }
+}
+
+@media screen and (min-device-width: 767px) and (max-device-width: 1023px) {
+    .content-header {
+        padding-top: 0% !important;
+    }
+}
+
+@media screen and (min-device-width: 1024px) and (max-device-width: 1200px) {}
+
+@media screen and (min-device-width: 1800px) and (max-device-width: 2100px) {}

@@ -1,0 +1,325 @@
+﻿@model WetosDB.Exception
+
+@{
+    ViewBag.Title = "ExceptionSanctionEdit";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+   <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<section class="content-header">
+      
+      <ol class="breadcrumb">
+        <li><a href="@Url.Action("ExceptionSanctionIndex", "WetosSanctions")"><i class="fa fa-arrow-left"></i>Back to Exception Sanction</a></li>
+        <li class="active">Edit</li>
+        @*<li><a href="@Url.Action("Index", "ManagerDashboard")"><i class="fa fa-dashboard"></i> Home</a></li>*@
+      
+      </ol>
+      <h1>
+        Exception Sanction
+        <small>Edit</small>
+      </h1>
+
+ </section>
+<section class="content">
+      
+          <div class="box">
+            
+           
+            <!-- /.box-header -->
+            <div class="box-body">
+                 <div class="box-header">
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        
+
+        @Html.HiddenFor(model => model.ExceptionId)
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.EmployeeId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmployeeId)
+            @Html.ValidationMessageFor(model => model.EmployeeId)
+        </div>*@
+
+         <div class="row">
+            <div class="col-md-4">
+         <div class="editor-label">
+            LogOut Date    @*<label> From Date :</label>*@</div>
+             <div class="editor-field">
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                   @Html.TextBoxFor(model => model.ExceptionDate, new { @class = "form-control pull-right datepicker" })
+                 @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+               </div>
+                <!-- /.input group -->
+       </div>
+              </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ShiftId)
+        </div>
+        <div class="editor-field">
+            @*@Html.EditorFor(model => model.ShiftId)*@
+            @Html.DropDownListFor(a => a.ShiftId, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+            @Html.ValidationMessageFor(model => model.ShiftId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LoginTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LoginTime)
+            @Html.ValidationMessageFor(model => model.LoginTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LogOutTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LogOutTime)
+            @Html.ValidationMessageFor(model => model.LogOutTime)
+        </div>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.Login2Time)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Login2Time)
+            @Html.ValidationMessageFor(model => model.Login2Time)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LogOut2Time)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LogOut2Time)
+            @Html.ValidationMessageFor(model => model.LogOut2Time)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Late)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Late)
+            @Html.ValidationMessageFor(model => model.Late)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Early)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Early)
+            @Html.ValidationMessageFor(model => model.Early)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WorkingHrs)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WorkingHrs)
+            @Html.ValidationMessageFor(model => model.WorkingHrs)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExtraHrs)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ExtraHrs)
+            @Html.ValidationMessageFor(model => model.ExtraHrs)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ActualDayStatus)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ActualDayStatus)
+            @Html.ValidationMessageFor(model => model.ActualDayStatus)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousLoginTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousLoginTime)
+            @Html.ValidationMessageFor(model => model.PreviousLoginTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousLogOutTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousLogOutTime)
+            @Html.ValidationMessageFor(model => model.PreviousLogOutTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousLogin2Time)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousLogin2Time)
+            @Html.ValidationMessageFor(model => model.PreviousLogin2Time)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousLogOut2Time)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousLogOut2Time)
+            @Html.ValidationMessageFor(model => model.PreviousLogOut2Time)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousEarly)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousEarly)
+            @Html.ValidationMessageFor(model => model.PreviousEarly)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousLate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousLate)
+            @Html.ValidationMessageFor(model => model.PreviousLate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousWrokingHrs)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousWrokingHrs)
+            @Html.ValidationMessageFor(model => model.PreviousWrokingHrs)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousExtraHrs)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousExtraHrs)
+            @Html.ValidationMessageFor(model => model.PreviousExtraHrs)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousDayStatus)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousDayStatus)
+            @Html.ValidationMessageFor(model => model.PreviousDayStatus)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreviousShiftId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreviousShiftId)
+            @Html.ValidationMessageFor(model => model.PreviousShiftId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Remark)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Remark)
+            @Html.ValidationMessageFor(model => model.Remark)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RejectReason)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RejectReason)
+            @Html.ValidationMessageFor(model => model.RejectReason)
+        </div>
+
+       @* <div class="editor-label">
+            @Html.LabelFor(model => model.CompanyId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CompanyId)
+            @Html.ValidationMessageFor(model => model.CompanyId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BranchId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BranchId)
+            @Html.ValidationMessageFor(model => model.BranchId)
+        </div>*@
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ExceptionSanctionIndex")
+</div>
+
+</div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+           </div>
+          <!-- /.box -->
+      
+      <!-- /.row -->
+    </section>
+    <script type="text/javascript">
+        $(function () {
+            //Initialize Select2 Elements
+            $(".select2").select2();
+
+            //Datemask dd/mm/yyyy
+
+
+            //Date picker
+            $('.datepicker').datepicker({
+
+                autoclose: true
+            });
+
+            //iCheck for checkbox and radio inputs
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            });
+            //Red color scheme for iCheck
+            $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+                checkboxClass: 'icheckbox_minimal-red',
+                radioClass: 'iradio_minimal-red'
+            });
+            //Flat red color scheme for iCheck
+            $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+                checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green'
+            });
+
+            //Colorpicker
+            $(".my-colorpicker1").colorpicker();
+            //color picker with addon
+            $(".my-colorpicker2").colorpicker();
+
+            //Timepicker
+            $(".timepicker").timepicker({
+                showInputs: false
+            });
+        });
+</script>

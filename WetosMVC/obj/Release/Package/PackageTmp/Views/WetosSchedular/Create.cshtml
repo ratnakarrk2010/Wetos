@@ -1,0 +1,218 @@
+﻿@model WetosMVCMainApp.Models.SchedularModel
+@{
+    ViewBag.Title = "Create";
+}
+<style type="text/css">
+    .row
+    {
+        margin-bottom: 10px;
+    }
+</style>
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/InputMask")
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+        <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                         <li class="li_margin">
+                           <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                        <a href="@Url.Action("Index", "WetosSchedular")">Schedular </a>
+                        </li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h1>Schedular
+        <small>Create</small>
+            </h1>
+            
+                          
+                
+                @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+
+           
+                    </li>
+              
+                </ul>
+                </div></div>
+           @* <ol class="breadcrumb">
+                <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li class="active">Masters</li>
+                <li><a href="@Url.Action("Index", "WetosCompany")"><i class="fa fa-arrow-left"></i>Company</a></li>
+                <li class="active">Create</li>
+               
+
+            </ol>*@
+
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+            
+            <div style="clear: both;"></div>
+
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+
+                    <div class="box">
+                    
+                        <!-- /.box-header -->
+                        <div class="box-body">
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+   
+             <div class="row">
+                                    <div class="editor-label col-md-2">
+           Schedular Name
+       <span style="color: Red; font-size: 18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                    <div class="input-group date">
+                                       <div class="input-group-addon">
+                                        <i  class="fa fa-clock-o"></i>
+                                        </div> 
+            @Html.TextBoxFor(model => model.SchedularName, new { @class = "form-control" })
+          
+            </div>
+            </div>
+           
+        </div>
+         <div class="row">
+        <div class="editor-label col-md-2">
+           Description
+        </div>
+        <div class="editor-field col-md-5">
+             @Html.TextAreaFor(model => model.Description, new { @class = "form-control pull-right" })
+           </div>
+        </div>
+       <div class="row">
+        <div class="editor-label col-md-2">
+           Schedule Type
+        </div>
+    
+        <div class="editor-field col-md-5">
+                                    <div class="input-group date">
+                                       <div class="input-group-addon">
+                                        <i  class="fa fa-clock-o"></i>
+                                        </div> 
+          @Html.DropDownListFor(a => a.ScheduleType, (IEnumerable<SelectListItem>)@ViewBag.SchedulerTypeList, "Select", new { @class = "form-control select2", id = "SchedulerTypeList" })
+           
+        </div>
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="editor-label col-md-2">
+           Start Time
+       </div>
+    
+        <div class="editor-field col-md-5">
+                                    <div class="input-group date">
+                                       <div class="input-group-addon">
+                                        <i  class="fa fa-clock-o"></i>
+                                        </div> 
+            <input type="text" name="StartTime" id="StartTime" value="@Model.StartTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+         </div>
+         </div>
+         
+        </div>
+
+          <div class="row">
+        <div class="editor-label col-md-2">
+            End Time
+   </div>
+    
+        <div class="editor-field col-md-5">
+                                    <div class="input-group date">
+                                       <div class="input-group-addon">
+                                        <i  class="fa fa-clock-o"></i>
+                                        </div>
+             <input type="text" name="EndTime" id="EndTime" value="@Model.EndTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+           </div>
+         </div>
+         
+        </div>
+
+       <div class="row">
+        <div class="editor-label col-md-2">
+          Frequency In Min
+   </div>
+    
+        <div class="editor-field col-md-4">
+                                    <div class="input-group date">
+                                       <div class="input-group-addon">
+                                        <i  class="fa fa-clock-o"></i>
+                                        </div>
+            @Html.TextBoxFor(model => model.FrequencyInMin, new { @class = "form-control" })
+           </div>
+         </div>
+         
+        </div>
+        <div class="row">
+        <div class="editor-label col-md-2">
+          Repeat Cycle
+   </div>
+    
+        <div class="editor-field col-md-4">
+                                    <div class="input-group date">
+                                       <div class="input-group-addon">
+                                        <i  class="fa fa-clock-o"></i>
+                                        </div>
+            @Html.TextBoxFor(model => model.RepeatCycle, new { @class = "form-control" })
+           </div>
+         </div>
+         
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+ 
+}
+</div>
+</div>
+</div>
+</div>
+</section>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script type="text/javascript">
+    //Date picker
+    $(document).ready(function () {
+
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+
+        $("#StartTime").inputmask("h:s:s");
+        $("#EndTime").inputmask("h:s:s");
+    });
+    
+</script>

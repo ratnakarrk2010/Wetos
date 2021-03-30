@@ -1,0 +1,256 @@
+﻿@model IEnumerable<WetosDB.SP_CondoneTrnListView_Result>
+@{
+    ViewBag.Title = "Condone Entry List";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<link href="~/Content/css/condon_entry_index.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+            
+           
+                         <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="@Url.Action("CondoneEntryIndex", "WetosAttendance")">Attendance</a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"><a href="#">Condone Entry</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h1>
+                Condone Entry
+                <small>List</small>
+                <span data-toggle="tooltip" title="Add Condone entry" style="float:right;font-weight:800">
+                    @Html.ActionLink(" ", "CondoneEntry", new { }, new { @class = "fa fa-plus-circle", title = "Add Condone entry", style = "color:#428bca;font-size:19px" })
+                </span>
+            </h1>
+            <div style="clear: both;"></div>
+
+                        @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                    </div>
+                    <div class="box-body">
+                        <div class="table-responsive">
+
+                            <table id="CondoneTrnList" class="table table-striped table-bordered table-condensed table-hover">
+                                @*Added by Pushkar For datatable on 25 OCT 2016*@
+                                <thead>
+                                    @*style="background-color:#1d921d; color:White" *@
+                                    <tr>
+                                        <td>
+                                            Branch
+                                        </td>
+
+                                        <td>
+                                            Company
+                                        </td>
+                                        <td>
+                                            Shift
+                                        </td>
+
+                                        <td>
+                                            Condone date
+                                        </td>
+
+                                        <td>
+                                            Status
+                                        </td>
+
+                                        <td>
+                                            Reason
+                                        </td>
+
+                                        <td>
+                                            Late/Early time
+                                        </td>
+
+                                        <td>
+                                            Action
+                                        </td>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @item.BranchName
+                                            </td>
+                                            <td>
+                                                @item.CompanyName
+                                            </td>
+                                            <td>
+                                                @item.ShiftCode   @* Updated by Rajas on 30 AUGUST 2017*@
+                                            </td>
+                                            <td>
+                                                @String.Format("{0:g}", item.CondoneDate.ToString("dd-MMM-yyyy"))
+                                            </td>
+                                            <td>
+                                                @item.Status
+                                            </td>
+
+                                            <td>
+                                                @item.Reason
+                                            </td>
+
+                                            <td>
+                                                @item.LateEarly
+                                            </td>
+
+                                            <td>
+                                                <span data-toggle="tooltip" title="Edit">
+                                                    @Html.ActionLink(" ", "CondoneEntryEdit", "WetosAttendance", new { id = item.CondoneId }, new { @class = "fa fa-pencil-square-o" })
+                                                </span>
+                                                <span data-toggle="tooltip" title="Delete">
+                                                    <span style="color:#428bca;cursor:pointer" class="fa fa-trash" onclick="DeleteCondoneEntry(@item.CondoneId)"></span>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                                <tfoot>
+
+                                </tfoot>
+
+                            </table>
+                        </div>
+
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+</div>
+</div>
+
+<div id="DeleteDiv" style="width: 40% !important; height: 20% !important; z-index: 1000000;
+    background-color: White; top: 2%; left: 30%" class="modal fade">
+    @*REMOVED SHOW CLASS TAKEN MODAL FADE CLASS INSTEAD OF MODAL SHOW FADE CLASS BY SHRADDHA ON 09 FEB 2018 BECAUSE IT WAS CREATING CLICKING ISSUE*@
+    <div class="modal-body">
+        Do you want to Delete this Condone Entry?
+    </div>
+    <div class="modal-footer">
+        <center>
+            <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="btnDelete">
+                Yes
+            </button>
+            <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                Cancel
+            </button>
+        </center>
+    </div>
+</div>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+    // Data table grouping
+    // Added by Rajas on 15 MARCH 2017
+    $(document).ready(function () {
+        var table = $('#CondoneTrnList').DataTable({
+            "columnDefs": [
+                { "visible": false, "targets": 1 }
+            ],
+            "order": [[0, 'asc']],
+            "displayLength": 25,
+            "drawCallback": function (settings) {
+                var api = this.api();
+                var rows = api.rows({ page: 'current' }).nodes();
+                var last = null;
+
+                api.column(1, { page: 'current' }).data().each(function (group, i) {
+                    if (last !== group) {
+                        $(rows).eq(i).before(
+                            '<tr class="group"><td colspan="8">' + group + '</td></tr>'  // style="background-color:#bdd880; font-weight:700"
+                        );
+
+                        last = group;
+                    }
+                });
+            }
+        });
+
+        // Order by the grouping
+        $('#CondoneTrnList tbody').on('click', 'tr.group', function () {
+            var currentOrder = table.order()[0];
+            if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                table.order([2, 'desc']).draw();
+            }
+            else {
+                table.order([2, 'asc']).draw();
+            }
+        });
+    });
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+
+<script type="text/javascript">
+    function DeleteCondoneEntry(CondoneTrnId) {
+
+        $('#DeleteDiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#btnDelete', function () {
+                    $.ajax({
+
+                        url: '@Url.Content("~/WetosAttendance/CondoneEntryDelete")',
+                        type: "GET",
+                        // dataType: "json",
+                        data: { id: CondoneTrnId },
+                        success: function (data) {
+                            alert("Condone Entry is deleted successfully.");
+                            window.location.reload();
+                        },
+                        error: function (data) {
+                            alert("Error");
+                        }
+                    });
+
+                });
+    }
+</script>

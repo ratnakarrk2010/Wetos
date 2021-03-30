@@ -1,0 +1,153 @@
+﻿@model IEnumerable<WetosDB.SP_GetExtraHoursForManualCompOff_Result>
+@{
+    ViewBag.Title = "ManualCompOffApplicationIndex";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+ @System.Web.Optimization.Scripts.Render("~/bundles/DataTable"
+ <link href="~/Content/allcss/allcss.css" rel="stylesheet" />)
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+     @*   <section class="content-header">
+            <h1>Manual Comp Off
+                <small>List</small>
+                
+            </h1>*@
+             <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                         <a href="#">Application</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="@Url.Action("ManualCompOffList", "WetosApplication")">Manual Comp Off </a>
+                        </li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           
+        </section>
+        <section class="content">
+           @* <div>      
+                <span class="btn btn-default" style="float:left;font-weight:200; cursor:pointer" "tooltip" title = "Click here to add new company">@Html.ActionLink("Add New Company", "Create")</span>
+            </div>   
+            *@
+            
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+              
+                            <div class="box-body">
+                            <div class="table-responsive">
+                           
+                                <table id="ManualCompOffMaster" class="table table-bordered table-striped">  @*Added by Pushkar For datatable on 25 OCT 2016*@
+                                    <thead>
+                                        <tr>
+        <th></th>
+      
+        <th>
+            TranDate
+        </th>
+        
+        <th>
+            WorkingHrs
+        </th>
+        <th>
+            ExtraHrs
+        </th>
+        
+        <th>
+            Status
+        </th>
+       @* <th>
+            ActualStatus
+        </th>*@
+       
+    </tr>
+    </thead>
+                                    <tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.ActionLink("Apply", "ManualCompOffCreate", new { EmployeeId = item.EmployeeId, TranDate = item.TranDate })
+        </td>
+       @* <td>
+            @item.DailyTrnId
+        </td>
+        <td>
+            @item.EmployeeId
+        </td>*@
+        <td>
+            @String.Format("{0:g}", item.TranDate)
+        </td>
+        
+        <td>
+            @String.Format("{0:g}", item.WorkingHrs)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.ExtraHrs)
+        </td>
+       
+        <td>
+            @item.Status
+        </td>
+       @* <td>
+            @item.ActualStatus
+        </td>*@
+       
+    </tr>
+}
+  </tbody>
+                                <tfoot></tfoot>
+                            </table>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>                    
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+    </div>
+</div>
+
+<script type="text/jscript">
+
+    $(function () {
+        $("#ManualCompOffMaster").DataTable();
+    });
+
+</script>
+
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+</script>

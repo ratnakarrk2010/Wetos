@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WetosDB.SP_VwActiveEmployee_Result>
+@{
+    ViewBag.Title = "Birthday";
+}
+ @{var picture = Session["Picture"];
+   //ADDED BY SHRADDHA ON 07 FEB 2017 FOR SHOWING DIFFERENT IMAGES FOR DIFFERENT GENDER START
+   string UserGender = Session["Gender"] == null ? "" : Session["Gender"].ToString();
+        //ADDED BY SHRADDHA ON 07 FEB 2017 FOR SHOWING DIFFERENT IMAGES FOR DIFFERENT GENDER END
+   }
+<ul class="menu">
+    @foreach (var item in Model)
+    {         
+        <li>
+            <div class="col-md-12">
+                <div class="col-md-2" style="padding-left: 0px; padding-right: 0px;">
+              @*      @if (@item.Picture != null)
+                    {
+                        <img class="img-circle" src="@Url.Action("getImg", "Account", new { id = @item.EmployeeId })" height="30" width="30" alt="" />
+                    }
+                    else
+                    { 
+                        <img src="@Url.Content("~/images/userimage.jpg")"  height="30" width="30" alt="" />
+                    }
+*@
+                     @if (@picture != null)
+                                {
+                                    <img src="@Url.Action("getImg", "Account", new { id = @item.EmployeeId })"  class="img-circle" height="30" width="30" alt="Person Image" />
+                                }
+                                else
+                                {
+                                    //ADDED CODE BY SHRADDHA FOR GETTING GENDER WISE PROFILE PICTURE START
+                                    if (@UserGender == "Female" || @UserGender == "F")
+                                    {
+                                        <img src="@Url.Content("~/images/UserImageGirl.jpg")"  class="img-circle" height="30" width="30" alt="Person Image"  />
+                                    }
+                                    else
+                                    {
+                                    <img src="@Url.Content("~/images/userimage.jpg")"  class="img-circle" height="30" width="30" alt="Person Image" />
+                                    }
+                                    //ADDED CODE BY SHRADDHA FOR GETTING GENDER WISE PROFILE PICTURE END
+                                }
+                </div>
+                <div class="col-md-7" style="padding-left: 0px; padding-right: 0px;">
+                    @item.FirstName @item.LastName</div>
+                <div class="col-md-3" style="padding-left: 0px; padding-right: 0px;">
+                @if (item.BirthDate != null)
+                {
+                    @String.Format("{0:g}", item.BirthDate.Value.ToString("dd-MMM"))
+                }
+                else { 
+                <span>No Birthdate Available</span>
+                }
+                </div>
+            </div>
+            <hr />
+            <hr />
+        </li>
+
+      
+    }
+</ul>

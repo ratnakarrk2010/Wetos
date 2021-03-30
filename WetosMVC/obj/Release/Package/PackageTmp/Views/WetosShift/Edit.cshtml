@@ -1,0 +1,710 @@
+﻿@model WetosMVCMainApp.Models.ShiftModel
+@{
+    ViewBag.Title = "Shift Master Edit";
+}
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/InputMask")
+<link href="~/Content/css/wetosshift_edit.css" rel="stylesheet" />
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+         
+            <!-- <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+
+                        <li>
+                            <a href="@Url.Action("Index", "WetosShift")">Shift </a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor: pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i>@*<a href="#" >Back</a>*@
+
+                                </span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()
+                                </span>
+
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div> -->
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"><a href="@Url.Action("Index", "WetosShift")">Shift</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+               <h1>Shift Master
+        <small>Details</small>
+            </h1>
+            <div style="clear: both;"></div>
+
+        </section>
+        <section class="content">
+
+            <div class="box">
+                
+
+                <!-- /.box-header -->
+                <div class="box-body">
+
+                    @using (Html.BeginForm("Edit", "WetosShift", FormMethod.Post, new { id = "Form" }))
+                    {  
+                        <div style="font-size: 12px; color: Red">
+                            @Html.ValidationSummary(false)
+                        </div>
+    
+@*Added by Rajas on 29 DEC 2016 For custom error message START*@
+                        <div style="color: Red; font-size: 12px">
+                            @Html.ValidationMessage("Error")
+                        </div>
+@*Added by Rajas on 29 DEC 2016 For custom error message END*@
+                        @Html.Hidden("LunchTimeInMinutes", new { id = "LunchTimeInMinutes" })
+                        @Html.Hidden("LunchTimeInHours", new { id = "LunchTimeInHours" })
+                        @Html.Hidden("WorkingTimeInHours", new { id = "WorkingTimeInHours" })
+                        @Html.Hidden("WorkingTimeInMinutes", new { id = "WorkingTimeInMinutes" })
+    
+                   @*     @Html.HiddenFor(a => a.LunchTimeExcludeFlag)
+                        @Html.HiddenFor(a => a.NightShiftFlag)*@
+                        @Html.HiddenFor(a => a.ShiftCode)
+                        @Html.HiddenFor(a => a.ShiftId)
+                        
+                        @Html.HiddenFor(a => a.ShiftType)
+
+                        // Updated by Rajas on 20 JULY 2017 to resolve Defect Id 10 from Defect Sheet by Ulka(Eviska)
+                          @Html.HiddenFor(a => a.CompanyId)
+                            @Html.HiddenFor(a => a.BranchId)
+    
+                    
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Company
+                            </div>
+                            <div class="editor-field col-md-5">
+                              @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                              <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-suitcase"></i>
+  	</div> 
+                                @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyNameList, "Select", new { @class = "form-control select2", id = "CompanyddlList", disabled = "disabled" })
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationMessageFor(model => model.CompanyId)
+                                </div>
+                            </div>
+                        </div>
+                     </div>    
+    
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Branch
+                            </div>
+                            <div class="editor-field col-md-5">
+                              @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                             <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-institution"></i>
+  	</div> 
+                                @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchNameList, "Select", new { @class = "form-control select2", id = "BranchddlList", disabled = "disabled" })
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationMessageFor(model => model.BranchId)
+                                </div>
+                            </div>
+                        </div>
+                    </div>     
+    
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Shift@*@Html.LabelFor(model => model.ShiftType)*@
+                            </div>
+                            <div class="editor-field col-md-5">
+                              @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                             <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-list-ul"></i>
+  	</div> 
+                                @Html.DropDownListFor(a => a.ShiftId, (IEnumerable<SelectListItem>)@ViewBag.ShiftTypeList, "Select", new { @class = "form-control select2", disabled = "disabled" })
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationMessageFor(model => model.ShiftId)
+                                </div>
+                            </div>
+                        </div>
+                   </div>      
+    
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Shift Type
+                            </div>
+
+                            <div class="col-md-5">
+                              @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                             <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-list-ul"></i>
+  	</div> 
+
+                                @Html.DropDownListFor(a => a.ShiftType, (IEnumerable<SelectListItem>)@ViewBag.ShiftTypeNameList, "Select", new { @class = "form-control select2", disabled = "disabled" })
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationMessageFor(model => model.ShiftType)
+                                </div>
+                            </div>
+                        </div>
+                    </div>     
+    
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Shift Name@* @Html.LabelFor(model => model.ShiftName)*@
+                            </div>
+                            <div class="editor-field col-md-5">
+                              @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                             <div class="input-group date">
+        <div class="input-group-addon">
+             <i  class="fa fa-list-ul"></i>
+  	</div> 
+                                @Html.TextBoxFor(model => model.ShiftName, new { @class = "form-control pull-right" })
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationMessageFor(model => model.ShiftName)
+                                </div>
+                            </div>
+                        </div>
+                     </div>    
+                        
+                         <div class="row">
+                            <div class="editor-label col-md-2">
+                                Is Night Shift?
+                            </div>
+                            <div class="editor-field col-md-5">
+  @*@Html.CheckBoxFor(model => model.NightShiftFlag, new { @id = "IsChecked" })*@  @*, new { @class = "form-control pull-right" })*@
+                                <input type="checkbox" id="NightShiftFlag" value = "false" name= "NightShiftFlag" /> @*onchange="CalcuateTimeSpanWithNS()"*@
+                                @Html.ValidationMessageFor(model => model.NightShiftFlag)
+                            </div>
+                        </div>
+                        
+                         @*CODE ADDED BY SHRADDHA ON 15 JAN 2018 START*@
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Is Out Punch In Next Day?
+                            </div>
+                            <div class="editor-field col-md-5">
+                                @*@Html.CheckBoxFor(model => model.NightShiftFlag, new { @id = "IsChecked" })*@  @*, new { @class = "form-control pull-right" })*@
+                                <input type="checkbox" id="IsOutPunchInNextDay" value = "false" name= "IsOutPunchInNextDay"/> @*onchange="CalcuateTimeSpanWithNS()"*@
+                                @Html.ValidationMessageFor(model => model.IsOutPunchInNextDay)
+                            </div>
+                        </div>
+                         @*CODE ADDED BY SHRADDHA ON 15 JAN 2018 END*@
+                        
+                       <div style="font-weight:700;background-color:#d1f2f9">
+         <span class="fa fa-exclamation-triangle"></span> Time should be in 24 hours format
+          </div>
+                        <br />
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                In Time <span style="color: Red; font-size: 18px">*</span>
+                         	</div>
+                             <div class="input-group date">
+                               <div class="input-group-addon">
+                                     <i  class="fa fa-clock-o"></i>
+  	                            </div> 
+                            <input type="text" name="FirstInTime" id="FirstInTime" value="@Model.FirstInTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                            <div style="color: Red; font-size: 12px">
+                                @Html.ValidationMessageFor(model => model.FirstInTime)
+                            </div>
+                      </div> 
+                      </div>
+     
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Out Time <span style="color: Red; font-size: 18px">*</span>
+                            </div>
+                              @*fav icon added by atul on 23 june 2017----start*@
+                            <div class="input-group date">
+                               <div class="input-group-addon">
+                                     <i  class="fa fa-clock-o"></i>
+  	                            </div> 
+                           <input type="text" name="FirstOutTime" id="FirstOutTime" value="@Model.FirstOutTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                            <div style="color: Red; font-size: 12px">
+                                @Html.ValidationMessageFor(model => model.FirstOutTime)
+                            </div>
+
+                        </div>
+                        </div>  
+
+                         <div class="row" id="secondin">
+                            <div class="editor-label col-md-2">
+                                Second In Time <span style="color: Red; font-size: 18px">*</span>
+                            </div>
+                              <div class="input-group date">
+                                 <div class="input-group-addon">
+                                         <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                 </div>
+                           <input type="text" name="SecondInTime"" id="SecondInTime" value="@Model.SecondInTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                          
+                           </div>
+                             <div style="color: Red; font-size: 12px">
+                                @Html.ValidationMessageFor(model => model.SecondInTime)
+                            </div>
+                        </div>
+                        
+
+                        <div class="row" id="secondout">
+                            <div class="editor-label col-md-2">
+                                Second Out Time <span style="color: Red; font-size: 18px">*</span>
+                            </div>
+                              <div class="input-group date">
+                                 <div class="input-group-addon">
+                                         <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                 </div>
+                           <input type="text" name="SecondOutTime"" id="SecondOutTime" value="@Model.SecondOutTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                          
+                           </div>
+                            <div style="color: Red; font-size: 12px">
+                                @Html.ValidationMessageFor(model => model.SecondOutTime)
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Working Hours <span style="color: Red; font-size: 18px">*</span>
+                            </div>
+                              @*fav icon added by atul on 23 june 2017----start*@
+                            <div class="input-group date">
+                               <div class="input-group-addon">
+                                     <i  class="fa fa-clock-o"></i>
+  	                            </div> 
+                            <input type="text" name="WorkHours" id="WorkHours" value="@Model.WorkHours" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                        </div>
+                      </div> 
+
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Lunch Start Time <span style="color: Red; font-size: 18px">*</span>
+                            </div>
+                              @*fav icon added by atul on 23 june 2017----start*@
+                            <div class="input-group date">
+                               <div class="input-group-addon">
+                                     <i  class="fa fa-clock-o"></i>
+  	                            </div> 
+                           <input type="text" name="LunchStartTime" id="LunchStartTime" value="@Model.LunchStartTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                           <div style="color: Red; font-size: 12px">
+                                @Html.ValidationMessageFor(model => model.LunchStartTime)
+                            </div>
+                        </div>
+                    </div>
+                        
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Lunch End Time <span style="color: Red; font-size: 18px">*</span>
+                            </div>
+                              @*fav icon added by atul on 23 june 2017----start*@
+                       <div class="input-group date">
+                               <div class="input-group-addon">
+                                     <i  class="fa fa-clock-o"></i>
+  	                            </div>      
+                             <input type="text" name="LunchEndTime" id="LunchEndTime" value="@Model.LunchEndTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                             <div style="color: Red; font-size: 12px">
+                                @Html.ValidationMessageFor(model => model.LunchEndTime)
+                            </div>
+                        </div>
+                    </div>  
+                        
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Lunch Time <span style="color: Red; font-size: 18px">*</span>
+                            </div>
+                 @*fav icon added by atul on 23 june 2017----start*@
+                            <div class="input-group date">
+                               <div class="input-group-addon">
+                                     <i  class="fa fa-clock-o"></i>
+  	                            </div> 
+                 @*fav icon added by atul on 23 june 2017----end*@
+                            <input type="text" name="LunchTime" id="LunchTime" readonly="readonly" value="@Model.LunchTime" data-inputmask="'mask': ['', '99:99:99']" data-mask/>
+                        </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Lunch Time Exclude Flag
+                            </div>
+                            <div class="editor-field col-md-5">
+                                @*@Html.CheckBoxFor(model => model.LunchTimeExcludeFlag)*@@*, new { @class = "form-control pull-right" })*@
+                            
+                            @*Above Line Commented by shalaka and below line is added on 05th DEC 2017*@
+
+                                   <input type="checkbox" value = "false" onchange="GetLunchTimeExcludeFlag();" name="LunchTimeExcludeFlag" id="LunchTimeExcludeFlag"/>
+                                   @Html.ValidationMessageFor(model => model.LunchTimeExcludeFlag)
+                            </div>
+                        </div>
+                         
+                       <p>
+                            <input type="button" id="BtnShift" value="Edit" class="btn btn-default" data-toggle="tooltip" style="cursor: pointer; float: left" title="Click to save Shift" />
+                            <span class="btn btn-default" data-toggle="tooltip" style="cursor: pointer;margin-left:10px; float: left" title="Click to go back to shift list">@Html.ActionLink("Back to Shift list", "Index")</span>
+                        </p>
+                    }
+
+        </section>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP START*@
+<div id="shiftDiv" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Do you want to edit Shift?
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="saveBtn">
+                    Yes</button>
+                <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                    Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP END*@
+<script type="text/javascript">
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+    });
+
+    //Added by shalaka on 06th DEC 2017 to exclude woring hrs and reflect it on Screen--- Start
+    function GetLunchTimeExcludeFlag() {
+        var WorkHours = $("#WorkHours").val();
+        var LunchTimeEx = $("#LunchTime").val();
+
+        //Added on 25th DEC 2017
+        var flagVal = $("#LunchTimeExcludeFlag").val();
+        var FIT = $("#FirstInTime").val();
+        var FOT = $("#FirstOutTime").val();
+
+        //Ajax ---> Start
+        $.ajax({
+            url: '@Url.Content("~/WetosShift/ExcludeLunchTime")',
+            type: "POST",
+            dataType: "json",
+            data: { WorkingHrs: WorkHours, LunchTime: LunchTimeEx, FirstInTime: FIT, FirstOutTime: FOT, flag: flagVal },
+            success: function (data) {
+                $("#WorkHours").val(data);
+            },
+            error: function (data) {
+                // alert("hello");
+            }
+        });
+        //Ajax ---> End
+    }
+    //Added by shalaka on 06th DEC 2017 to exclude lunch time and reflect woring hrs on Screen--- End
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+
+
+        // Added by Rajas on 29 JULY 2017 START
+        // Handle garbage value in input textbox masking
+        $("#FirstInTime").inputmask("h:s:s");
+        $("#FirstOutTime").inputmask("h:s:s");
+        $("#SecondInTime").inputmask("h:s:s");  // Added by Rajas on 19 SEP 2017
+        $("#SecondOutTime").inputmask("h:s:s"); // Added by Rajas on 19 SEP 2017
+        $("#LunchStartTime").inputmask("h:s:s");
+        $("#LunchEndTime").inputmask("h:s:s");
+        // Added by Rajas on 29 JULY 2017 END
+
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+    // Added by Rajas on 27 DEC 2016 to fill drop down list on selection of other drop down
+    $("#CompanyddlList").change(function () {
+        //alert($("#Application_ID").val());
+        isDirty = false;
+        var companyid = $("#CompanyddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosShift/GetBranch")',
+            type: "POST",
+            dataType: "json",
+            data: { Companyid: companyid },
+            success: function (data) {
+                $("#BranchddlList").empty();
+                $("#BranchddlList").append("<option value=" + "0" + ">" + "Select" + "</option>");
+                for (var i = 0; i < data.length; i++) {
+
+                    //alert(states[i].Group_name);
+                    // states.option.selected = true;
+                    $("#BranchddlList").append("<option value=" + "" + data[i].BranchId + "" + ">" + data[i].BranchName + "</option>");
+
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+<script type="text/jscript">
+
+    $(document).ready(function () {
+        //alert();
+        var value = $("#ShiftType").val();
+        if (value == "Break Shift") {
+            $("#secondin").css("display", "inherit");
+            $("#secondout").css("display", "inherit");
+        }
+        else {
+            $("#secondin").css("display", "none");
+            $("#secondout").css("display", "none");
+        }
+    });
+
+    $("#ShiftType").change(function () {
+        var value = $("#ShiftType").val();
+        if (value == "Break Shift") {
+            // alert("1");
+            $("#secondin").css("display", "inherit");
+
+            $("#secondout").css("display", "inherit");
+        }
+        else {
+            //alert("");
+            $("#secondin").css("display", "none");
+            $("#secondout").css("display", "none");
+
+        }
+    });
+
+    // Added by Rajas on 3 JUNE 2017 START
+    // Calculate working hours
+    $("#FirstOutTime").change(function () {
+        //alert(FirstOutTime);
+        //alert(FirstOutTime);
+        CalculateWorkHours();
+
+    });
+
+    $("#FirstInTime").change(function () {
+        //alert(FirstOutTime);
+        //alert(FirstOutTime);
+        CalculateWorkHours();
+
+    });
+
+    // Added by Rajas on 3 JUNE 2017 START
+    // Calculate working hours
+    $("#SecondOutTime").change(function () {
+        //alert(FirstOutTime);
+        //alert(FirstOutTime);
+        CalculateWorkHoursForBreakShift();
+
+    });
+
+    $("#SecondInTime").change(function () {
+        //alert(FirstOutTime);
+        //alert(FirstOutTime);
+        CalculateWorkHoursForBreakShift();
+
+    });
+
+    function CalculateWorkHours() {
+        isDirty = false;
+        var FIT = $("#FirstInTime").val();
+        var FOT = $("#FirstOutTime").val();
+        var flag = $("#NightShiftFlag").val();
+        var IsOutPunchInNextDay = $("#IsOutPunchInNextDay").val(); // CODE IsOutPunchInNextDay ADDED BY SHRADDHA ON 15 JAN 2018
+        //alert(IsOutPunchInNextDay);
+        $.ajax({
+            url: '@Url.Content("~/WetosShift/GetWorkHours")',
+            type: "POST",
+            dataType: "json",
+            data: { FirstInTime: FIT, FirstOutTime: FOT, flag: flag, IsOutPunchInNextDay: IsOutPunchInNextDay }, // CODE IsOutPunchInNextDay ADDED BY SHRADDHA ON 15 JAN 2018
+            success: function (data) {
+                //alert(data);
+                $("#WorkHours").val(data);
+                //alert(abc);
+
+            },
+            error: function (data) {
+                // alert("hello");
+            }
+        });
+    }
+
+    // Added by Rajas on 19 SEP 2017 for break shift work hours calculation START
+    function CalculateWorkHoursForBreakShift() {
+        isDirty = false;
+        var FIT = $("#FirstInTime").val();
+        var FOT = $("#FirstOutTime").val();
+        var SIT = $("#SecondInTime").val();
+        var SOT = $("#SecondOutTime").val();
+        var flag = $("#NightFlag").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosShift/GetWorkHoursForBreakShift")',
+            type: "POST",
+            dataType: "json",
+            data: { FirstInTime: FIT, FirstOutTime: FOT, SecondInTime: SIT, SecondOutTime: SOT, flag: flag },
+            success: function (data) {
+                //alert(data);
+                $("#WorkHours").val(data);
+                //alert(abc);
+
+            },
+            error: function (data) {
+                // alert("hello");
+            }
+        });
+    }
+    // Added by Rajas on 19 SEP 2017 for break shift work hours calculation END
+
+    // Calculate lunch hours
+    $("#LunchEndTime").change(function () {
+        //        alert(LunchStartTime);
+        //        alert(LunchEndTime);
+        CalculateLunchTime();
+    });
+
+    $("#LunchStartTime").change(function () {
+        //        alert(LunchStartTime);
+        //        alert(LunchEndTime);
+        CalculateLunchTime();
+    });
+
+    function CalculateLunchTime() {
+        isDirty = false;
+        var LIT = $("#LunchStartTime").val();
+        var LET = $("#LunchEndTime").val();
+        var flag = $("#NightFlag").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosShift/GetLunchHours")',
+            type: "POST",
+            dataType: "json",
+            data: { LunchStartTime: LIT, LunchEndTime: LET, flag: flag },
+            success: function (data) {
+                //alert(data);
+                $("#LunchTime").val(data);
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    }
+
+    // Added by Rajas on 3 JUNE 2017 END
+
+    //ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP START
+    $("#BtnShift").click(function () {
+
+        var $form = $(this).closest('form');
+        $('#shiftDiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#saveBtn', function () {
+
+                    $("#Form").submit();
+                });
+
+    });
+    //ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP END
+
+    
+</script>
+<script type="text/javascript">
+    $("[data-mask]").inputmask();
+
+    //Added by shalaka on 15th DEC 2017--- Start
+    //    function onNightShiftFlagChecked() {
+    //        alert("In fucntion");
+    //        if ($(this).is(':checked')) {
+    //            $(this).attr('value', 'true');
+    //            alert("In fucntion");
+
+    //        } else {
+    //            $(this).attr('value', 'false');
+    //            alert("In fucntion");
+    //        }
+    //    }
+    //Added by shalaka on 15th DEC 2017--- End
+
+    $("#NightShiftFlag").on('change', function ()    {
+        //alert("In fucntion");
+        if ($(this).is(':checked')) {
+            $(this).attr('value', 'true');
+        } else {
+            $(this).attr('value', 'false');
+        }
+
+        //alert($("#NightFlag").val());
+
+        //$('#checkbox-value').text($('#NightFlag').val());
+    });
+
+
+    $("#LunchTimeExcludeFlag").on('change', function () {
+        // alert("In fucntion");
+        if ($(this).is(':checked')) {
+            $(this).attr('value', 'true');
+            //alert("true");
+        } else {
+            $(this).attr('value', 'false');
+            //alert("false");
+        }
+    });
+
+
+    //CODE ADDED BY SHRADDHA ON 15 JAN 2018 FOR IsOutPunchInNextDay START
+    $("#IsOutPunchInNextDay").on('change', function () {
+        //alert("In fucntion");
+        if ($(this).is(':checked')) {
+            $(this).attr('value', 'true');
+        } else {
+            $(this).attr('value', 'false');
+        }
+
+    });
+    //CODE ADDED BY SHRADDHA ON 15 JAN 2018 FOR IsOutPunchInNextDay END
+</script>
+@* Added by Rajas on 21 FEB 2017 for Data masking, END *@ @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION START*@
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@

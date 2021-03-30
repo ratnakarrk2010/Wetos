@@ -1,0 +1,341 @@
+﻿
+ <link href="~/Content/css/assign_rule_index.css" rel="stylesheet" />
+ <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+
+@using (Html.BeginForm("AssignRuleIndex", "AssignRule", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="page-content-wrapper">
+        <div class="page-content">
+        @*Added by Shalaka on 27th DEC 2017 -- Start*@
+         <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1" style="padding-top: 0.2%;">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                         <li class="li_margin"><a href="#">Administration</a> <i class="fa fa-angle-right"></i></li>
+                        <li class="li_margin"><a href="#">Assign Rules</a> </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           <h1>
+                Assign Rules
+                
+            </h1>
+           
+          <br />
+        @*Added by Shalaka on 27th DEC 2017 -- End*@
+
+           @* <div class="portlet box blue">*@
+                @*<div class="portlet-title">
+                    <div class="caption">
+                        Assign Rules</div>
+                    @*  <div class="tools">
+                        <a href="javascript:;" class="collapse"></a>
+                        <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                        <a href="javascript:;" class="reload"></a>
+                        <a href="javascript:;" class="remove"></a>
+                    </div>
+                </div>*@
+                <div class="portlet-body">
+                    <div class="table-toolbar">
+                  
+                        <div class="row">
+                            <div class="col-md-4">
+                                <span class="control-label">Company:</span>
+                                 <div class="input-group date">
+                                  <div class="input-group-addon">
+                                           <i class="fa fa-suitcase" aria-hidden="true"></i>
+                                          </div>
+                                @Html.DropDownList("Company", null, "--Select--", new { @class = "form-control" })
+                                @*@Html.DropDownList("Company", null, new { @class = "form-control" })*@
+                                </div>                        
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <span class="control-label">Branch:</span>
+                                 <div class="input-group date">
+                                  <div class="input-group-addon">
+                                           <i class="fa fa-university" aria-hidden="true"></i>
+                                          </div>
+                                <div id="BranchList">
+                                    <select class="form-control ">
+                                        <option>--Select--</option>
+                                    </select>
+                                </div>
+                              </div>                       
+                            </div>
+                            <div class="col-md-4">
+                                <span class="control-label">Employee Group:</span>
+                               <div class="input-group date">
+                              <div class="input-group-addon">
+                                       <i class="fa fa-users" aria-hidden="true"></i>
+                                      </div>
+                                <div id="EmployeeGroupList">
+                                    <select class="form-control ">
+                                        <option>--Select--</option>
+                                    </select>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="RuleSpecificdata" class="classyear_selector span3" @*style="height: 70%; overflow: auto; float: right;"*@>
+                                </div>
+                            </div>
+                            @*<div class="col-md-6">
+                                <div id="RoleReletedData" class="classyear_selector span8">
+                                </div>
+                            </div>*@
+                        </div>
+                        <div id="div_buttons" class="row-fluid span12" style="height: 60%;">
+                            <input type="button" value="Save" name="btnSave" id="btnSave" class="btn" />
+                            @* Button save should come as a popup for save or message?*@
+                            <input type="button" value="Reset" id="btncancel" class="btn" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  @*  </div>*@
+    <div id="AssignDiv" style="width: 30% !important; height: 20% !important; z-index: 1000000;
+        background-color: White; top: 20%; left: 40%" class="modal fade"> @*REMOVED SHOW CLASS TAKEN MODAL FADE CLASS INSTEAD OF MODAL SHOW FADE CLASS BY SHRADDHA ON 09 FEB 2018 BECAUSE IT WAS CREATING CLICKING ISSUE*@
+        <div class="modal-body">
+            Rules Assigned Successfully.
+        </div>
+        <div class="modal-footer">
+            <center>
+                <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="OkBtn">
+                    Ok</button>
+        </div>
+    </div>
+
+}
+<script type="text/javascript">
+    $('body').ajaxStart(function () {
+        $(this).css({ 'cursor': 'wait' });
+    }).ajaxStop(function () {
+        $(this).css({ 'cursor': 'default' });
+    });
+
+
+    $(document).ready(function () {
+        //Added by Shalaka on 27th DEC 2017 to solve Back Button Not working -- Start
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+        //Added by Shalaka on 27th DEC 2017 to solve Back Button Not working -- End
+       
+        //getBranch();
+
+        $("#Branch option:last-child").attr("selected", "selected");
+        $("#div_buttons").hide();
+        //GetUserLists();
+        //GetNavMenuLists();
+
+
+        $('#btnSave').click(function () {
+            //  alert();
+            //            var SubChildId = " ";
+            //            var NavMenuId = " ";
+            //            var ParId = " ";
+            //            for (var j = 1; j <= $('#hidchildid').val(); j++) {
+            //                if ($('#chkchild-' + j).is(':checked').toString() == 'true') {
+            //                    NavMenuId = NavMenuId + "," + $('#hidNavmenuid-' + j).val();
+            //                    ParId = ParId + "," + $('#hidParid-' + j).val()
+            //                }
+            //            }
+            //            for (var k = 1; k <= $("#hidsubchild").val(); k++) {
+            //                if ($('#chksubchild-' + k).is(':checked').toString() == 'true') {
+            //                    SubChildId = SubChildId + "," + $("#hidSubNavmenuid-" + k).val();
+            //                }
+            //            }
+
+            //            SubChildId = SubChildId.replace(" ,", "");
+            //            NavMenuId = NavMenuId.replace(" ,", "");
+            //            ParId = ParId.replace(" ,", "");
+
+            var Ruleid = " ";
+            var UncheckRuleid = " ";
+
+            for (var j = 1; j <= $('#hidvalue').val(); j++) {
+                if ($('#chkuser-' + j).is(':checked').toString() == 'true') {
+                    Ruleid = Ruleid + "," + $('#hiduser-' + j).val();
+                }
+            }
+
+            Ruleid = Ruleid.replace(" ,", "");
+
+            for (var j = 1; j <= $('#hidvalue').val(); j++) {
+                if ($('#chkuser-' + j).is(':checked').toString() == 'false') {
+                    UncheckRuleid = UncheckRuleid + "," + $('#hiduser-' + j).val();
+                }
+            }
+            UncheckRuleid = UncheckRuleid.replace(" ,", "");
+
+            EmployeeGroupId = $('#EmployeeGroup').val();
+            //alert(Ruleid);
+            //alert(EmployeeGroupId);
+            $.ajax({
+                url: '@Url.Content("~/AssignRule/GetSave")',
+                data: JSON.stringify({ EmployeeGroupId: EmployeeGroupId, Ruleid: Ruleid, UncheckRuleid: UncheckRuleid, Companyid: $('#Company').val(), Branchid: $('#Branch').val() }),
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (result) {
+                    var $form = $(this).closest('form');
+                    $('#AssignDiv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#OkBtn', function () {
+                    //alert(result);
+                });
+
+
+                },
+                error: function (result) {
+                    // alert("No data Available");
+                }
+            });
+        });
+
+    });
+
+
+    function GetEmployeeGroupLists() {
+        $('#RoleReletedData').html("");
+        $("#div_buttons").hide();
+
+        $.ajax({
+            url: '@Url.Content("~/AssignRule/GetNavMenuData")',
+            data: JSON.stringify(),
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                $('#RoleReletedData').html(result.RuleData);
+                $("#div_buttons").show();
+
+            },
+            error: function (result) {
+
+            }
+        });
+
+    }
+
+    function getBranch() {
+
+        $("#div_buttons").hide();
+        $.ajax({
+            url: '@Url.Content("~/AssignRule/BranchList")',
+            data: JSON.stringify({ Company: $('#Company').val() }),
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                $('#BranchList').html(result.Branch);
+
+            },
+            error: function (result) {
+                // alert("No data Available");
+            }
+        });
+    }
+
+    //    function getEmployeeGroup() {
+
+    //        $("#div_buttons").hide();
+    //        $.ajax({
+    //            url: '@Url.Content("~/AssignRule/EmployeeGroupList")',
+    //            data: JSON.stringify({ CompanyId: $('#Company').val(), CompanyId: $('#Company').val() }),
+    //            type: 'POST',
+    //            contentType: 'application/json; charset=utf-8',
+    //            dataType: 'json',
+    //            success: function (result) {
+    //                $('#EmployeeGroupList').html(result.EmployeeGroup);
+
+    //            },
+    //            error: function (result) {
+    //                // alert("No data Available");
+    //            }
+    //        });
+    //    }
+
+
+
+
+    function GetRuleLists() {
+        $('#RuleSpecificdata').html("");
+        EmployeeGroupId = $('#EmployeeGroup').val(); // ADDED BY SHRADDHA ON 19 JULY 2017
+        $.ajax({
+            url: '@Url.Content("~/AssignRule/GetRulesData")',
+            data: JSON.stringify({ EmployeeGroupId: EmployeeGroupId }), // ADDED BY SHRADDHA ON 19 JULY 2017
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+
+                $('#RuleSpecificdata').html(result.RuleData);
+                $("#div_buttons").show();
+            },
+            error: function (result) {
+                // alert("No data Available");
+            }
+        });
+    }
+
+    $('#Company').change(function () {
+
+        $("#div_buttons").hide();
+        $.ajax({
+            url: '@Url.Content("~/AssignRule/BranchList")',
+            data: JSON.stringify({ Company: $('#Company').val() }),
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (result) {
+                $('#BranchList').html(result.Branch);
+
+            },
+            error: function (result) {
+                // alert("No data Available");
+            }
+        });
+
+    });
+
+    $('#btncancel').click(function () {
+        //alert("1");
+        //GetUserLists();
+       // alert("1");
+        //GetNavMenuLists();
+        GetRuleLists(); // ADDED BY MSJ ON 01 JAN 2018
+        //alert("2");
+
+    });
+
+    $('#Company').change(function () {
+        //GetUserLists();
+        //GetNavMenuLists();
+
+    });
+
+</script>

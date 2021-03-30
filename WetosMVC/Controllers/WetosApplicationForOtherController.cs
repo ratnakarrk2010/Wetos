@@ -2424,8 +2424,13 @@ namespace WetosMVC.Controllers
                     string leavecode = LeaveEncashObj.LeaveCode;
 
                     SP_LeaveTableData_Result EncashLeaveEx = EncashLeaveObj.Where(a => a.LeaveType.Trim().ToUpper() == leavecode.ToUpper()).FirstOrDefault();
+                    //double Opening=0.0;
+                    // if (EncashLeaveEx.OpeningBalance != null) {
+                    // Opening =  EncashLeaveEx.OpeningBalance.Value;//EncashLeaveEx.OpeningBalance == null ? 0 :
 
-                    double Opening = EncashLeaveEx.OpeningBalance == null ? 0 : EncashLeaveEx.OpeningBalance.Value;
+                    // }
+
+                    double Opening = (EncashLeaveEx.OpeningBalance == null) ? 0 : (EncashLeaveEx.OpeningBalance.Value == null) ? 0 : 0;
                     double Pending = EncashLeaveEx.Pending; //EncashLeaveEx.Pending == null ? 0 : EncashLeaveEx.Pending; // MODIFIED BY MSJ ON 23 JAN 2020
                     double LeaveUsed = EncashLeaveEx.LeaveUsed == null ? 0 : EncashLeaveEx.LeaveUsed.Value;
 

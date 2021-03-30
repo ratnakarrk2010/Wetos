@@ -1,0 +1,200 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script src="@Url.Content("~/Scripts/jquery-1.8.2.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/BarChart.js")" type="text/javascript"></script>
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+            <h1>Chart <small>List</small>
+                @*<span class="btn blue" data-toggle="tooltip" title="Add Branch" style="float:right;font-weight:800" onclick="ÖnAddBranchClick();">
+                    @Html.ActionLink(" ", "Create", new { }, new { @class = "fa fa-plus-square", style = "color:white" })
+                </span>*@
+            </h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Chart</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "WetosChart")">Dahsboard</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
+                                <span style="cursor: pointer" class="back " data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i>@*<a href="#" >Back</a>*@
+
+                                </span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            <div style="clear: both;"></div>           
+        </section>
+        <section class="content">                   
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="box">                       
+                        <div class="box-body"> 
+                            <div style="text-align: center">
+                                <canvas id="barcanvas1"></canvas>
+                            </div>                            
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <div class="col-xs-6">
+                    <div class="box">                       
+                        <div class="box-body"> 
+                            <div style="text-align: center">
+                                <canvas id="barcanvas2"></canvas>
+                            </div>                            
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                @*<div class="col-xs-4">
+                    <div class="box">                       
+                        <div class="box-body"> 
+                            <div style="text-align: center">
+                                <canvas id="barcanvas3"></canvas>
+                            </div>                           
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>*@
+                <!-- /.col -->
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="box">                       
+                        <div class="box-body"> 
+                            <div style="text-align: center">
+                                <canvas id="barcanvas4"></canvas>
+                            </div>                           
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <div class="col-xs-6">
+                    <div class="box">                       
+                        <div class="box-body"> 
+                            <div style="text-align: center">
+                                <canvas id="barcanvas5"></canvas>
+                            </div>                            
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                @*<div class="col-xs-4">
+                    <div class="box">                       
+                        <div class="box-body"> 
+                            <div style="text-align: center">
+                                <canvas id="barcanvas6"></canvas>
+                            </div>                           
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>*@
+                <!-- /.col -->
+            </div>
+
+            <!-- /.row -->
+        </section>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //CHART1
+        var ctx1 = document.getElementById("barcanvas1").getContext("2d");
+        window.myBar = new Chart(ctx1,
+        {
+            type: 'bar',
+            data: barChartData,
+            options:
+                {
+                    title:
+                    {
+                        display: true,
+                        text: "ProductWise Sales Count"
+                    },
+                    responsive: true,
+                    maintainAspectRatio: true
+                }
+            });
+
+            //CHART2
+            var ctx1 = document.getElementById("barcanvas2").getContext("2d");
+            window.myBar = new Chart(ctx1,
+        {
+            type: 'bar',
+            data: barChartData,
+            options:
+                {
+                    title:
+                    {
+                        display: true,
+                        text: "ProductWise Sales Count"
+                    },
+                    responsive: true,
+                    maintainAspectRatio: true
+                }
+            });
+
+            //CHART3
+            var ctx1 = document.getElementById("barcanvas3").getContext("2d");
+            window.myBar = new Chart(ctx1,
+        {
+            type: 'bar',
+            data: barChartData,
+            options:
+                {
+                    title:
+                    {
+                        display: true,
+                        text: "ProductWise Sales Count"
+                    },
+                    responsive: true,
+                    maintainAspectRatio: true
+                }
+        });
+    });
+</script>
+<script type="text/javascript">
+    var barChartData =
+            {
+                labels: [@Html.Raw(ViewBag.Productname_List)],
+                datasets: [{
+                    label: 'ProductWise Sales Count',
+                    backgroundColor: [
+                        "#f990a7",
+                        "#aad2ed",
+                        "#9966FF",
+                        "#99e5e5",
+                        "#f7bd83",
+                    ],
+                    borderWidth: 2,
+                    data: [@ViewBag.MobileCount_List]
+                }]
+            };
+</script>

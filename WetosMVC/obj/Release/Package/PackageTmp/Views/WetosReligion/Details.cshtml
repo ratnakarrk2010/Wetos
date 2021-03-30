@@ -1,0 +1,141 @@
+﻿@model WetosDB.Religion
+@{
+    ViewBag.Title = "Details";
+}
+<link href="~/Content/css/wetosreligion_details.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<section class="content-header">
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+        @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+      <div>
+    @*  <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>*@
+     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+
+      </div>
+      <div style="clear: both;"></div>
+
+@* //Added by dhanashri on 3 june 2019 START*@
+             <div style="clear: both;"></div>
+          <!-- <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Masters</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "WetosReligion")">Religion</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report" class="dashboard-date"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back"  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div> -->
+             <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"><a href="@Url.Action("Index", "WetosReligion")">Religion</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h1>Religion
+<small>Details</small>
+</h1>
+    @* //Added by dhanashri on 3 june 2019 END*@
+      </section>
+<section class="content">
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+      <div class="box">
+            <div class="box-header">
+              
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+
+
+
+
+
+      
+
+        @Html.HiddenFor(model => model.ReligionId)
+
+         <div class="row">
+    <div class="display-label col-md-4">Religion Name</div>
+    <div class="display-field col-md-8">@Model.ReligionName</div>
+  </div> 
+
+        <br />
+
+      
+
+    
+
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReligionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+
+    @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('a.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@

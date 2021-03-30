@@ -1,0 +1,150 @@
+﻿@model WetosDB.VwGradeDetail
+@{
+    ViewBag.Title = "Details";
+}
+<link href="~/Content/css/wetosgrade_delete.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+ 
+      
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"><a href="@Url.Action("Index", "WetosGrade")">Grade</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h1>
+       Grade
+        <small> Details</small>
+      </h1>
+    </section>
+        @*<div align="Right">
+<p align="Right">@Html.ActionLink("Back to Dashboard", "Dashboard", "Salary")</p> </div>*@
+        <section class="content">
+     
+          <div class="box">
+          <div class="box-header">
+              @*<h3 class="box-title">Grade Details :</h3>*@
+            </div>
+
+            <!-- /.box-header -->
+            <div class="box-body">
+@using (Html.BeginForm("Delete", "WetosGrade", FormMethod.Post, new { id = "DeleteForm" }))
+{
+    <div style="color: Red; font-size: 12px">
+    @Html.ValidationSummary(true)
+    </div>
+    
+    @*<div class="display-label">Grade Id</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GradeId)
+    </div>*@
+
+    <div class="row">
+    <div class="display-label col-md-4">Company Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyName)
+    </div></div>
+
+    <div class="row">
+    <div class="display-label col-md-4">Branch Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BranchName)
+    </div></div>
+
+    <div class="row">
+    <div class="display-label col-md-4">Employee Type</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmployeeTypeName)
+    </div></div>
+
+    <div class="row">
+    <div class="display-label col-md-4">Grade Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GradeName)
+    </div></div>
+
+<div>
+  <input type="button" value="Delete" id="BtnDelete" style="cursor:pointer; float:left" title = "Click to delete Grade" class="btn btn-default" />
+  <span  class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title = "Click to go back to Grade list">@Html.ActionLink("Back to Grade list", "Index")</span>
+   
+</div>
+<br />
+   
+}
+ </div>
+    </div>
+    </section>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP START*@
+<div id="Gradediv" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Do you want to delete Grade?
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="Deletebtn">
+                    Yes</button>
+                <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                    Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP END*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+    //ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP START
+    $("#BtnDelete").click(function () {
+
+        var $form = $(this).closest('form');
+        $('#Gradediv').modal({ backdrop: 'static', keyboard: false })
+                .one('click', '#Deletebtn', function () {
+
+                    $("#DeleteForm").submit();
+                });
+
+    });
+    //ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP END
+
+</script>
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION START*@
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+ }
+ @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@

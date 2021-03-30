@@ -1,0 +1,221 @@
+﻿
+ <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+@model IEnumerable<WetosDB.SP_GetDailyTransactionListForCumulativeCompOffNew_Result>
+<table id="DTMaster" class="table table-bordered table-striped" style="width: 100%;
+        height: auto; border: 1px solid Black; border-collapse: inherit">
+        <thead>
+            <tr>
+                @*<th>
+            @Html.DisplayNameFor(model => model.EmployeeId)
+        </th>*@
+                <th>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TranDate)
+                </th>
+                @*<th>
+            @Html.DisplayNameFor(model => model.ShiftId)
+        </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.Login)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LogOut)
+                </th>
+                @*<th>
+            @Html.DisplayNameFor(model => model.Login1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LogOut1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Early)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Late)
+        </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.WorkingHrs)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExtraHrs)
+                </th>
+                @* <th>
+            @Html.DisplayNameFor(model => model.SanctionedCOHrs)
+        </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                @* <th>
+            @Html.DisplayNameFor(model => model.ActualStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OTInTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OTOutTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreviousLogin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreviousLogOut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreviousLogin1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreviousLogOut1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreviousShiftId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostinFlag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BranchId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LateCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeaveDeducted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeaveTypeDeducted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EarlyCount)
+        </th>
+        <th></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+@Html.HiddenFor(a => item.DailyTrnId)
+@Html.HiddenFor(a => item.EmployeeId)
+                <tr>
+                    <td>
+                        <input type="checkbox" id="DailyTrnId" name="DailyTrnIdList" value="@item.DailyTrnId"/>
+                    </td>
+                    @*<td>
+            @item.EmployeeId
+        </td>*@
+                    <td>
+                        @item.TranDate
+                    </td>
+                    @* <td>
+            @item.ShiftId
+        </td>*@
+                    <td>
+                        @item.Login
+                    </td>
+                    <td>
+                        @item.LogOut
+                    </td>
+                    @*<td>
+            @item.Login1
+        </td>*@ @*<td>
+            @item.LogOut1
+        </td>
+        <td>
+            @item.Early
+        </td>
+        <td>
+            @item.Late
+        </td>*@
+                    <td>
+                        @item.WorkingHrs
+                    </td>
+                    <td>
+                        @item.ExtraHrs
+                    </td>
+                    @*<td>
+            @item.SanctionedCOHrs
+        </td>*@
+                    <td>
+                        @item.Status
+                    </td>
+                    @*<td>
+            @item.ActualStatus
+        </td>
+        <td>
+            @item.OTInTime
+        </td>
+        <td>
+            @item.OTOutTime
+        </td>
+        <td>
+            @item.PreviousLogin
+        </td>
+        <td>
+            @item.PreviousLogOut
+        </td>
+        <td>
+            @item.PreviousLogin1
+        </td>
+        <td>
+            @item.PreviousLogOut1
+        </td>
+        <td>
+            @item.PreviousShiftId
+        </td>
+        <td>
+            @item.TStatus
+        </td>
+        <td>
+            @item.PostinFlag
+        </td>
+        <td>
+            @item.Lock
+        </td>
+        <td>
+            @item.Remark
+        </td>
+        <td>
+            @item.CompanyId
+        </td>
+        <td>
+            @item.BranchId
+        </td>
+        <td>
+            @item.LateCount
+        </td>
+        <td>
+            @item.LeaveDeducted
+        </td>
+        <td>
+            @item.LeaveTypeDeducted
+        </td>
+        <td>
+            @item.EarlyCount
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.DailyTrnId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.DailyTrnId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.DailyTrnId })
+        </td>*@
+                </tr>
+   
+               
+
+            }
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+   

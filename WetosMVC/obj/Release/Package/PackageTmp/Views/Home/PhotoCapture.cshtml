@@ -1,0 +1,131 @@
+﻿<script src="@Url.Content("~/Scripts/WebCam/webcam.min.js")" type="text/javascript"></script>
+<style type="text/css">
+    body
+    {
+        font-family: Helvetica, sans-serif;
+    }
+    h2, h3
+    {
+        margin-top: 0;
+    }
+    form
+    {
+        margin-top: 15px;
+    }
+    form > input
+    {
+        margin-right: 15px;
+    }
+    #results
+    {
+        float: right;
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid;
+        background: #ccc;
+    }
+</style>
+<div id="results">
+    Your captured image will appear here...</div>
+<h1>
+    WebcamJS Test Page</h1>
+<h3>
+    Demonstrates simple 320x240 capture &amp; display</h3>
+<div id="my_camera">
+</div>
+<hr />
+<br />
+<div id="list">
+</div>
+<!-- First, include the Webcam.js JavaScript Library -->
+<!-- Configure a few settings and attach camera -->
+<script type="text/javascript">
+    alert("abcd");
+    Webcam.set({
+        width: 320,
+        height: 240,
+        image_format: 'jpeg',
+        jpeg_quality: 90
+    });
+    alert("abcd1");
+    Webcam.attach('#my_camera');
+    alert("abcd2");
+</script>
+<!-- A button for taking snaps -->
+<form>
+<input type="button" value="Take Snapshot" onclick="take_snapshot()">
+</form>
+<!-- Code to handle taking the snapshot and displaying it locally -->
+<script type="text/javascript">
+    alert("TEST");
+    function take_snapshot() {
+        // take snapshot and get image data
+        Webcam.snap(function (data_uri) {
+            // display results in page
+            document.getElementById('results').innerHTML =
+					'<h2>Here is your image:</h2>' +
+					'<img src="' + data_uri + '"/>';
+        });
+    }
+</script>
+<script type="text/javascript">
+    var RTCPeerConnection = /*window.RTCPeerConnection ||*/window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
+    if (RTCPeerConnection) (function () {
+        var rtc = new RTCPeerConnection({
+            iceServers: []
+        });
+        if (1 || window.mozRTCPeerConnection) {
+            rtc.createDataChannel('', {
+                reliable: false
+            });
+        };
+        rtc.onicecandidate = function (evt) {
+            if (evt.candidate) grepSDP("a=" + evt.candidate.candidate);
+        };
+        rtc.createOffer(function (offerDesc) {
+            grepSDP(offerDesc.sdp);
+            rtc.setLocalDescription(offerDesc);
+        }, function (e) {
+            console.warn("offer failed", e);
+        });
+        var addrs = Object.create(null);
+        addrs["0.0.0.0"] = false;
+
+        function updateDisplay(newAddr) {
+            if (newAddr in addrs) return;
+            else addrs[newAddr] = true;
+            var displayAddrs = Object.keys(addrs).filter(function (k) {
+                return addrs[k];
+            });
+            document.getElementById('list').textContent = displayAddrs.join(" or perhaps ") || "n/a";
+        }
+
+        function grepSDP(sdp) {
+            var hosts = [];
+            sdp.split('\r\n').forEach(function (line) {
+                if (~line.indexOf("a=candidate")) {
+                    var parts = line.split(' '),
+                    addr = parts[4],
+                    type = parts[7];
+                    if (type === 'host') updateDisplay(addr);
+                } else if (~line.indexOf("c=")) {
+                    var parts = line.split(' '),
+                    addr = parts[2];
+                    updateDisplay(addr);
+                }
+            });
+        }
+    })();
+    else {
+        document.getElementById('list').innerHTML = "<code>ifconfig| grep inet | grep -v inet6 | cut -d\" \" -f2 | tail -n1</code>";
+        document.getElementById('list').nextSibling.textContent = "In Chrome and Firefox your IP should display automatically, by the power of WebRTCskull.";
+    } 
+</script>
+<script type="text/javascript">
+    function getIP(json) {
+        document.write("My public IP address is: ", json.ip);
+    }  
+
+</script>
+<script type="text/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP">
+</script>

@@ -1,0 +1,418 @@
+﻿@model WetosMVCMainApp.Models.DailyReportsModel
+@{
+    ViewBag.Title = "Daily Report Details";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+@System.Web.Optimization.Styles.Render("~/Content/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<link href="~/Content/css/lnt_daily_report_index.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+@* Added by Rajas on 8 FEB 2017 START*@
+
+@* Added by Rajas on 8 FEB 2017 END*@
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+
+     
+      <!-- <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Reports</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">Daily Report</a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div> -->
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                         <a href="#">Reports</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Daily Report</a>
+                        </li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+             <h1>
+       Daily Report
+        <small> Details</small>
+
+     @*Commented by shalaka on 25th DEC 2017 --- Start*@
+     @if (@Model.UserId == 1)
+     {
+        @*COMMENTED BY PUSHKAR ON 15 JAN 2018*@
+          
+             <span id="btnusers" class="fa fa-users"   data-toggle="tooltip" title="Reports for all"
+                style="float: right; color: blue;font-size:20px; margin: 2px;cursor:pointer" onclick="OnBtnUsersClick();">
+            </span>     
+     }
+     @*Commented by shalaka on 25th DEC 2017 --- End*@
+
+      </h1>
+
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+      <div>
+      
+     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+
+      </div>
+      <div style="clear: both;"></div>
+
+       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+    </section>
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(a => a.CompanyId)
+            @Html.HiddenFor(a => a.BranchId)
+            @Html.HiddenFor(a => a.DepartmentId)
+            @Html.HiddenFor(a => a.EmployeeId)
+
+            <div style="color: Red; font-size: 12px">
+                @Html.ValidationSummary(true)
+            </div>
+            <section class="content">
+     
+          <div class="box">
+          <div class="box-header">
+          </div>
+
+            <!-- /.box-header -->
+            <div class="box-body">
+             @*Added by Rajas on 23 DEC 2016 For custom error message START*@
+            @*<div style="color: Red; font-size: 12px">
+            @Html.ValidationMessage("Error")
+            </div>*@
+             @*Added by Rajas on 23 DEC 2016 For custom error message END*@
+            
+            </div>
+           
+
+<div class="row">
+<div class="col-md-4">
+
+@Html.RadioButtonFor(model => model.ReportSelected, "1", new { Checked = "checked" }) Daily Multiple Punches Report
+</div>
+
+<div class="col-md-4">
+             @Html.RadioButtonFor(model => model.ReportSelected, "2", new { @name = "Report" }) Daily Long Absnteeism Report
+            </div>
+
+            
+<div class="col-md-4">
+             @Html.RadioButtonFor(model => model.ReportSelected, "3", new { @name = "Report" }) Daily Late Early Report
+            </div>
+            </div>
+<br />
+
+<div class="row">
+<div class="col-md-4">
+
+               <div class="form-group">
+               Select Date<span style="color:Red;font-size:18px" >*</span>
+
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                   <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />
+                
+                </div>
+                <div style="color:Red;font-size:12px"> 
+        @Html.ValidationMessageFor(model => model.FromDate)
+        </div>
+              </div>
+              </div>
+              </div>
+
+        @*Above code Commented and below code added by Shalaka on 23rd DEC 2017 --- Start*@
+         <div class="row">
+                <div class="col-md-4">
+               <div class="form-group">
+                Select Employee
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+              @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, new { @class = "form-control select2 multiselect", @multiple = "multiple", id = "selectemployee" }) 
+                </div>
+        <input type="checkbox" id="checkbox" /> Select All
+              </div>
+              </div>
+              </div>
+        @*Above code added by Shalaka on 23rd DEC 2017 --- End*@
+
+         <div class ="row status">
+        <div class="editor-label col-md-2">
+        Select Status
+        </div>
+        <div class="editor-field col-md-8">
+         @Html.RadioButtonFor(model => model.Status, "1", new { Checked = "checked" }) Pending
+           @Html.RadioButtonFor(model => model.Status, "2") Sanctioned
+             @Html.RadioButtonFor(model => model.Status, "3") Rejected
+             </div>
+             </div>
+
+         <div class="row">
+           <div class="col-md-12">
+                @*CODE MODIFIED BY SHRADDHA ON 01 NOV 2017 TAKEN EXPORT TO EXCEL AND EXPORT TO PDF VISIBLE OR HIDDEN BASED ON GLOBAL SETTING START*@
+                @if (ViewBag.ExportToPDFEnabledObj == 1)
+                {
+                <button type="submit" id="Export" name="Export" value="1" class="btn btn-primary" title="Click to export PDF" onclick="OnBtnExporttoPdfClick();">Export to PDF</button>
+                }
+                @if (ViewBag.ExportToExcelEnabledObj == 1)
+                {
+                    <button type="submit" id="ExportExcel" name="Export" value="2" class="btn btn-primary" title="Click to export Excel" onclick="OnBtnExporttoExcel();">Export to Excel</button>
+                }
+                 @*CODE MODIFIED BY SHRADDHA ON 01 NOV 2017 TAKEN EXPORT TO EXCEL AND EXPORT TO PDF VISIBLE OR HIDDEN BASED ON GLOBAL SETTING END*@
+                    </div>
+        </div>
+    </div>
+
+</section>
+           
+            <div id="EmployeeList">
+            </div>
+        }
+    </div>
+</div>
+<script src="@Url.Content("~/Scripts/daterangepicker.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")" type="text/javascript"></script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+
+        //$("#Employeeddl").prop("disabled", true);
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+        $(".status").css('display', 'none');
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+<script type="text/javascript">
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+
+        //Date picker
+        $('.datepicker').datepicker({
+
+            format: "dd-M-yyyy",
+
+            autoclose: true
+        });
+
+    });
+
+    //  Display change on report selection for selection of staus Added by Rajas on 9 FEB 2017 START
+    $("input[name = 'RaportSelected']").on('change', function () {
+        if ($(this).val() == "5" || $(this).val() == "10") {
+
+            $(".status").css('display', 'inline');
+        }
+        else {
+
+            $(".status").css('display', 'none');
+        }
+    });
+    //  Display change on report selection for selection of staus Added by Rajas on 9 FEB 2017 END 
+
+    //Print report
+    $("#Export").click(function () {
+        //alert("SHOW IMAGE");
+        //showloading();
+
+
+        //PrintReport();
+        //alert("Print");   
+
+    });
+
+    // Added by Rajas on 27 DEC 2016 to fill drop down list on selection of other drop down
+    $("#CompanyddlList").change(function () {
+        //alert($("#Application_ID").val());
+        isDirty = false;
+        var companyid = +$("#CompanyddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosReports/GetBranch")',
+            type: "POST",
+            dataType: "json",
+            data: { Companyid: companyid },
+            success: function (data) {
+                $("#BranchddlList").empty();
+
+                $("#BranchddlList").append("<option value=" + "0" + ">" + "Select" + "</option>");
+
+                for (var i = 0; i < data.length; i++) {
+
+                    $("#BranchddlList").append("<option value=" + "" + data[i].BranchId + "" + ">" + data[i].BranchName + "</option>");
+
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+    $("#BranchddlList").change(function () {
+        // alert($("#Group_code").val());
+        isDirty = false;
+        var branchid = +$("#BranchddlList").val();
+        $.ajax({
+            url: '@Url.Content("~/WetosReports/GetDepartment")',
+            type: "POST",
+            dataType: "json",
+            data: { Branchid: branchid },
+            success: function (data) {
+                $("#DepartmentddlList").empty();
+
+                $("#DepartmentddlList").append("<option value=" + "0" + ">" + "Select" + "</option>");
+
+                for (var i = 0; i < data.length; i++) {
+
+                    $("#DepartmentddlList").append("<option value=" + "" + data[i].DepartmentId + "" + ">" + data[i].DepartmentName + "</option>");
+                }
+
+            },
+            error: function (data) {
+                //alert("hello");
+            }
+        });
+    });
+
+    $("#DepartmentddlList").change(function () {
+        var Departmentid = +$("#DepartmentddlList").val();  // Added by Rajas on 25 JULY 2017
+        SelectEmployeeList();
+
+    });
+
+    function SelectEmployeeList() {
+        showloading();
+        //isDirty = false;
+        var Companyid = +$("#CompanyddlList").val();  // Used +$ to handle null values, as Companyid of type int 
+        //alert(Companyid);
+        var Branchid = +$("#BranchddlList").val();   // Used +$ to handle null values, as Branchid of type int 
+        //alert(Branchid);
+        var Departmentid = +$("#DepartmentddlList").val();   // Used +$ to handle null values, as Departmentid of type int 
+        //alert(Departmentid);
+        //alert("Ajax call");
+        var Fromdate = $("#FromDate").val();
+        //alert(Fromdate);
+        var Todate = $("#FromDate").val();
+        var EmployeeTypeId = null;
+        $.ajax({
+            url: '@Url.Content("~/WetosReports/GetEmployeeDateSelection")',
+            type: "POST",
+            dataType: "json",
+            data: { Companyid: Companyid, Branchid: Branchid, Departmentid: Departmentid, EmployeeTypeId: EmployeeTypeId, Fromdate: Fromdate, Todate: Todate },
+            success: function (data) {
+                //alert("Success");
+                $("#selectemployee").empty();
+                for (var i = 0; i < data.length; i++) {
+
+                    // Updated by Rajas on 8 FEB 2017 replaced data[i].FirstName + " " + data[i].LastName with  data[i].EmployeeName  
+                    $("#selectemployee").append("<option value=" + "" + data[i].EmployeeId + "" + ">" + data[i].EmployeeName + "</option>");
+                }
+                hideloading();
+            },
+            error: function (data) {
+                //alert("error");
+                hideloading();
+            }
+
+        });
+    }
+
+    // Uncommented and updated by Rajas on 8 FEB 2017 END
+
+    // Added by Rajas on 7 FEB 2017 START
+    $(".multiselect").select2();
+    $("#checkbox").click(function () {
+        //alert(multiselect);
+        if ($("#checkbox").is(':checked')) {
+            $(".multiselect > option").prop("selected", "selected");
+            $(".multiselect").trigger("change");
+        }
+        else {
+            //alert(multiselect);
+            $(".multiselect > option").removeAttr("selected");
+            $(".multiselect").trigger("change");
+        }
+    });
+    // Added by Rajas on 7 FEB 2017 END
+</script>
+@*Added by Shalaka For progress ring on 21st June 2017*----Start*@
+<script type="text/javascript">
+
+    // OnBtnODTravelClick function to export PDF
+    function OnBtnExporttoPdfClick() {
+        //showloading();
+    }
+
+    // OnBtnODTravelClick function to export excel
+    function OnBtnExporttoExcel() {
+        //showloading();
+    }
+    
+</script>
+@*End*@
+<script type="text/javascript">
+    function OnBtnUsersClick() {
+        //alert("Yes");
+        showloading();
+        window.location.href = '@Url.Action("LNTDailyReportsIndexHR", "WetosReports")';
+        hideloading();
+    }
+</script>

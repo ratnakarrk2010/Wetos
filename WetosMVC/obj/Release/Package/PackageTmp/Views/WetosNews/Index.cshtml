@@ -1,0 +1,189 @@
+﻿@model IEnumerable<WetosDB.VwNewsList>
+@{
+    ViewBag.Title = "WetosMVC";
+}
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+ @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<div class="page-content-wrapper" id="page_content">
+    <div class="page-content">
+        <section class="content-header">
+         <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                       <li class="li_margin">
+                         <a href="#">Updates</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="@Url.Action("Index", "WetosNews")">News </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h1> News<small>List</small>
+             <span style="float:right;font-weight:800" title = "Create News">
+             @Html.ActionLink(" ", "Create", new { }, new { @class = "fa fa-plus-circle", title = "Add News", style = "color:#428bca;font-size:19px" })</span>
+        
+            </h1>
+            <!-- <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="@Url.Action("Index", "Home")">Home </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                         <a href="#">Updates</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "WetosNews")">News </a>
+                        </li>
+                        <li class="pull-right">
+                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back " title = "Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                <i class="fa fa-calendar"></i>
+                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                            </div>
+                        </li>              
+                    </ul>
+                </div>
+            </div>   -->
+              <div style="clear: both;"></div>              
+               @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+        </section>
+        <section class="content">                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+               
+                <div class="box-body">
+                 
+                    <table id="NewsTbl" class="table table-bordered table-striped">  @*Added by Pushkar For datatable on 25 OCT 2016*@
+                        <thead>
+                            <tr>
+                            <td>
+                                       Type
+                                    </td>
+                                    <td>
+                                  Info
+                                    </td>
+                                    
+                                    <td>
+                                        NewsDate
+                                    </td>
+                                    <td>
+                                        NewsFor
+                                    </td>
+                                    <td>
+                                        Active
+                                    </td>
+                                        <td>
+                                        Company
+                                    </td>
+                                    <td>
+                                        Branch
+                                    </td>
+                                    <td>
+                                        Employee Group
+                                    </td>
+                                <td style = "font-weight:100"> 
+                                    Action
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                        <td>
+                                        @item.Type
+                                    </td>
+                                    <td>
+                                    @*<a href="@Url.Action("Details", "WetosNews", new { id = item.NewsId })" style="cursor:pointer; float:left" title = "Click to view news details">
+                                            @item.Info</a>*@
+                                            @item.Info
+                                    </td>
+                                    
+                                    <td>
+                                        @item.NewsDate.ToString("dd-MMM-yyyy")
+                                    </td>
+                                    <td>
+                                        @item.NewsFor
+                                    </td>
+                                    <td>
+                                        @item.Active
+                                    </td>
+                                        <td>
+                                        @item.CompanyName
+                                    </td>
+                                    <td>
+                                        @item.BranchName
+                                    </td>
+                                    <td>
+                                        @item.EmployeeGroupName
+                                    </td>
+                                    <td>
+                                       
+                                        @*@Html.ActionLink("Details", "Details", new { id = Convert.ToInt32(item.DepartmentId) }) |*@
+                                        @*@Html.ActionLink("Delete", "Delete", new { id = item.NewsId })*@
+                                        <span data-toggle="tooltip" title="Edit">
+                                                @Html.ActionLink(" ", "Edit", new { id = item.NewsId }, new { @class = "fa fa-pencil-square-o" })</span>
+                                                @*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
+                                                
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>               
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+              <!-- /.row -->
+        </section>
+    </div>
+</div>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
+        });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+</script type="text/jscript">
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ @*Added by Pushkar For datatable on 25 OCT 2016-------start*@
+<script>
+    $(function () {
+        $("#NewsTbl").DataTable();
+    });
+</script>
+@*Added by Pushkar For datatable on 25 OCT 2016-------end*@

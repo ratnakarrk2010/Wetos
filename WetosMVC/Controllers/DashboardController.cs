@@ -376,26 +376,39 @@ namespace WetosMVC.Controllers
             ViewBag.malepresent = 0;
             ViewBag.femalepresent = 0;
             ViewBag.total = 0;
-            int Total = WetosDB.DailyTransactions.Where(y => y.TranDate.Day == DateTime.Now.Day
-                                      && y.TranDate.Month == DateTime.Now.Month && y.TranDate.Year == DateTime.Now.Year && !y.Status.Contains("AAAA")).Count();
-            if (Total > 0)
+            var datedt = DateTime.Now;
+            //int Total = WetosDB.DailyTransactions.Where(y => y.TranDate.Day == DateTime.Now.Day
+            //                          && y.TranDate.Month == DateTime.Now.Month && y.TranDate.Year == DateTime.Now.Year && !y.Status.Contains("AAAA")).Count();
+            int Total1 = (from y in WetosDB.DailyTransactions
+                          where ((y.TranDate <= datedt) && (y.Status != "AAAA"))
+                          select y).Count();
+            if (Total1 > 0)
             {
-                ViewBag.total = Total;
+                ViewBag.total = Total1;
             }
+            //int FemalePresentCount = (from y in WetosDB.DailyTransactions
+            //                          join z in WetosDB.Employees on y.EmployeeId equals z.EmployeeId
+            //                          where ((z.Gender.ToUpper().Trim() == "FEMALE" || z.Gender.Trim() == "F") && (y.TranDate.Day == DateTime.Now.Day
+            //                          && y.TranDate.Month == DateTime.Now.Month && y.TranDate.Year == DateTime.Now.Year) && (y.Status !="AAAA")
+            //                          )
+            //                          select y).Count();
             int FemalePresentCount = (from y in WetosDB.DailyTransactions
                                       join z in WetosDB.Employees on y.EmployeeId equals z.EmployeeId
-                                      where ((z.Gender.ToUpper().Trim() == "FEMALE" || z.Gender.Trim() == "F") && (y.TranDate.Day == DateTime.Now.Day
-                                      && y.TranDate.Month == DateTime.Now.Month && y.TranDate.Year == DateTime.Now.Year) && (y.Status !="AAAA")
+                                      where ((z.Gender.ToUpper().Trim() == "FEMALE" || z.Gender.Trim() == "F") && (y.TranDate <= datedt) && (y.Status != "AAAA")
                                       )
                                       select y).Count();
             if (FemalePresentCount > 0)
             {
                 ViewBag.femalepresent = FemalePresentCount;
             }
+            //int MalePresentCount = (from y in WetosDB.DailyTransactions
+            //                        join z in WetosDB.Employees on y.EmployeeId equals z.EmployeeId
+            //                        where ((z.Gender.ToUpper().Trim() == "MALE" || z.Gender.Trim() == "M") && y.TranDate.Day == DateTime.Now.Day
+            //                          && y.TranDate.Month == DateTime.Now.Month && y.TranDate.Year == DateTime.Now.Year && !y.Status.Contains("A"))
+            //                        select y).Count();
             int MalePresentCount = (from y in WetosDB.DailyTransactions
                                     join z in WetosDB.Employees on y.EmployeeId equals z.EmployeeId
-                                    where ((z.Gender.ToUpper().Trim() == "MALE" || z.Gender.Trim() == "M") && y.TranDate.Day == DateTime.Now.Day
-                                      && y.TranDate.Month == DateTime.Now.Month && y.TranDate.Year == DateTime.Now.Year && !y.Status.Contains("A"))
+                                    where ((z.Gender.ToUpper().Trim() == "MALE" || z.Gender.Trim() == "M") && (y.TranDate <= datedt) && (!y.Status.Contains("A")))
                                     select y).Count();
             if (MalePresentCount > 0)
             {
@@ -403,7 +416,7 @@ namespace WetosMVC.Controllers
             }
 
 
-            ViewBag.total = Total;
+            ViewBag.total = Total1;
             return View();
         }
 

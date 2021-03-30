@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Line Charts</title>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.bundle.min.js"></script>*@
+    <script type="text/javascript" src="../../Scripts/LineChartData.js"></script>
+     <script type="text/javascript" src="../../Scripts/jquery-1.8.2.js"></script>
+</head>
+<body>
+    <div style="text-align: center">
+        <canvas id="Linecanvas"></canvas>
+    </div>
+    <div style="text-align: center">
+        Disclaimer:- This data is for demo it is not real data it wont relate to any company
+    </div>
+</body>
+<script type="text/javascript">
+        var LineChartData =
+            {
+                labels: ["Moto","Micromax","Nexus","Samsang","Moto","Apple","Samsang"],
+                datasets: [{
+                    label: 'StateWise Sales Count',
+                    backgroundColor: "rgba(255, 159, 64, 0.2)",
+                    borderWidth: 2,
+                    data: [@ViewBag.MobileCount_List]
+                }]
+            };
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var ctx1 = document.getElementById("Linecanvas").getContext("2d");
+        window.myBar = new Chart(ctx1,
+                    {
+                        type: 'line',
+                        data: LineChartData,
+                        options:
+                            {
+                                title:
+                                {
+                                    display: true,
+                                    text: "StateWise Sales Count"
+                                },
+                                responsive: true,
+                                maintainAspectRatio: true
+                            }
+                    });
+    });
+</script>
+</html>
