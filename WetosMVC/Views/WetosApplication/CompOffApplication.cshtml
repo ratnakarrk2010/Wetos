@@ -146,8 +146,9 @@
 
 
               @Html.DropDownListFor(a => a.FromDateStatus, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusListFromDate" })
-               @Html.ValidationMessageFor(model => model.FromDateStatus)
+              
               </div>
+               @Html.ValidationMessageFor(model => model.FromDateStatus)
               </div>
               </div>
               </div>
@@ -175,8 +176,9 @@
         <i  class="fa fa-clock-o"></i>
   	</div> 
                 @Html.DropDownListFor(a => a.ToDateStatus, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusListToDate" })
-                  @Html.ValidationMessageFor(model => model.ToDateStatus)
+                 
               </div>
+               @Html.ValidationMessageFor(model => model.ToDateStatus)
               </div>
               </div>
               </div>
@@ -221,7 +223,7 @@
           <h4>Working Hours Detail
         </h4>
         @*Added by Shalaka on 27th DEC 2017 to give specific info about table is for what--- Start*@
-
+<div class="table-respnsive">
        <table class="table table-striped" style="width: auto; height: auto;border:1px solid Black;border-collapse:inherit" >
        <tr>
        <td></td>
@@ -322,6 +324,7 @@
        }
       
        </table>
+       </div>
        </div>
        @*ADDED BY SHRADDHA ON 07 JAN 2017 FOR ADDING ATTENDANCE STATUS TABLE END*@
 

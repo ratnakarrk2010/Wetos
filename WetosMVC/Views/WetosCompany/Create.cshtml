@@ -86,16 +86,16 @@
                                         Location Name  <span style="color: Red; font-size: 18px">*</span>
                                     </div>
                                     <div class="editor-field col-md-5">
-                                     @*Favicon added by Mithilesh and Pushkar on 23/06/2017*@
+                                  
                                     <div class="input-group date">
                                        <div class="input-group-addon">
                                         <i  class="fa fa-map-marker"></i>
                                         </div> 
-                                        @*@Html.EditorFor(model => model.LocationId)*@
+                                      
                                         @Html.DropDownListFor(a => a.LocationId, (IEnumerable<SelectListItem>)@ViewBag.LocatioList, "Select", new { @class = "form-control select2" })
                                        
                                         </div>
-                                          @*Modified by shalaka on 07th July*@ 
+                                       
                                            <div  style="color: Red; font-size: 12px">
                                         @Html.ValidationMessageFor(model => model.LocationId)
                                         </div>
@@ -116,12 +116,10 @@
                                         </div> 
 
                                             @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control pull-right" })
-                                          
-                                         
-                                           <div style="color: Red; font-size: 12px">
-                                                @Html.ValidationMessageFor(model => model.CompanyName)
-                                            </div>
                                         </div>
+                                         <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.CompanyName)
+                                         </div>
                                     </div>
                                 </div>
                                
@@ -137,9 +135,10 @@
                                         </div> 
 
                                         @Html.TextBoxFor(model => model.Address1, new { @class = "form-control pull-right" })
+                                        
+                                        </div>
                                         <div  style="color: Red; font-size: 12px">
                                             @Html.ValidationMessageFor(model => model.Address1)
-                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -198,15 +197,16 @@
                                         Telephone @* <span style="color: Red; font-size: 18px">*</span>*@
                                     </div>
                                     <div class="editor-field col-md-5">
-                                     @*Favicon added by Mithilesh and Pushkar on 23/06/2017*@
+                                    
                                         <div class="input-group date">
                                        <div class="input-group-addon">
                                       <i class="fa fa-phone-square" aria-hidden="true"></i>
                                         </div> 
                                         @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control pull-right" })
-                                        <div  style="color: Red; font-size: 12px">
+                                       
+                                    </div>
+                                     <div  style="color: Red; font-size: 12px">
                                             @Html.ValidationMessageFor(model => model.Telephone)
-                                        </div>
                                     </div>
                                 </div>
                                 </div>
@@ -215,14 +215,14 @@
                                         Fax  @*  @Html.LabelFor(model => model.Fax)*@
                                     </div>
                                     <div class="editor-field col-md-5">
-                                      @*Favicon added by Mithilesh and Pushkar on 23/06/2017*@
+                                      
                                           <div class="input-group date">
                                            <div class="input-group-addon">
                                                           <i class="fa fa-fax" aria-hidden="true"></i>
                   </div> 
                                         @Html.TextBoxFor(model => model.Fax, new { @class = "form-control pull-right" })
                                     </div>
-                                    @*Modified by shalaka on 07th July*@
+                                    
                                       <div  class="row" style="color: Red; font-size: 12px">
                                         @Html.ValidationMessageFor(model => model.Fax)
                                         </div>
@@ -239,10 +239,12 @@
                                             <i class="fa fa-envelope" aria-hidden="true"></i>
                                                  </div> 
                                         @Html.TextBoxFor(model => model.Email, new { @class = "form-control pull-right" })
+                                        
+                                        </div>
                                         <div style="color: Red; font-size: 12px">
+                                         @Html.ValidationMessageFor(model => model.Email)
                                         </div>
-                                        </div>
-                                        @Html.ValidationMessageFor(model => model.Email)
+                                       
                                     </div>
                                 </div>
        
@@ -256,10 +258,11 @@
                                        <i class="fa fa-credit-card" aria-hidden="true"></i>
                                         </div> 
                                            @Html.TextBoxFor(model => model.PAN, new { @class = "form-control pull-right" })
+                                       
+                                       </div>
                                         <div  style="color: Red; font-size: 12px">
                                         @Html.ValidationMessageFor(model => model.PAN)
                                         </div>
-                                       </div>
                                     </div>
                                 </div>*@
                                  

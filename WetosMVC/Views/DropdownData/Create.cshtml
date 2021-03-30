@@ -92,9 +92,10 @@
                    <i class="fa fa-institution" aria-hidden="true"></i>
                   </div>
           @Html.DropDownListFor(a => a.TypeNameID, (IEnumerable<SelectListItem>)@ViewBag.DropdownListVB, "Select", new { @class = "form-control select2", id = "TypeNameID", @style = "width:250px;" })
-          <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.TypeNameID)
+        
             </div>
+              <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.TypeNameID)
             </div>
         </div>
       </div>
@@ -133,9 +134,10 @@
                    <i class="fa fa-building-o" aria-hidden="true"></i>
                   </div> 
             @Html.TextBoxFor(model => model.TypeName, new { @class = "form-control pull-right" })
+            
+            </div>
             <div style="color: Red; font-size: 12px">
             @Html.ValidationMessageFor(model => model.TypeName)
-            </div>
             </div>
         </div>
    </div> 
@@ -154,9 +156,10 @@
                    <i class="fa fa-building-o" aria-hidden="true"></i>
                   </div> 
             @Html.TextBoxFor(model => model.TextName, new { @class = "form-control pull-right" })
-            <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.TextName)
+           
             </div>
+             <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.TextName)
             </div>
         </div>
    </div> 
@@ -172,9 +175,10 @@
                    <i class="fa fa-building-o" aria-hidden="true"></i>
                   </div> 
             @Html.TextBoxFor(model => model.Value, new { @class = "form-control pull-right" })
+            
+            </div>
             <div style="color: Red; font-size: 12px">
             @Html.ValidationMessageFor(model => model.Value)
-            </div>
             </div>
         </div>
    </div> 

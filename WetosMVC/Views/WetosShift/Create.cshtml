@@ -47,50 +47,8 @@
             <h1>Shift Master
         <small>Create</small>
             </h1>
-            <!-- <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                            <a href="#">Masters</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-
-                        <li>
-                            <a href="@Url.Action("Index", "WetosShift")">Shift </a>
-                        </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor: pointer" class="back " data-toggle="tooltip"  title="Back" id="goback"><i class="fa fa-arrow-left"></i>@*<a href="#" >Back</a>*@
-
-                                </span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()
-                                </span>
-
-                            </div>
-
-
-                            @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
-
-
-                        </li>
-
-                    </ul>
-                </div>
-            </div> -->
-          
-
-            @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
-
-            <div style="clear: both;"></div>
-
-            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
-        </section>
+     <div style="clear: both;"></div>
+</section>
         @using (Html.BeginForm("Create", "WetosShift", FormMethod.Post, new { id = "Form" }))
         {
             <div style="color: Red; font-size: 12px">
@@ -110,36 +68,31 @@
             <section class="content">
 
                 <div class="box">
-                  
-                    <!-- /.box-header -->
+            <!-- /.box-header -->
                     <div class="box-body">
-
                         <div class="row">
                             <div class="editor-label col-md-2">
                                 Company  <span style="color: Red; font-size: 18px">*</span>
                             </div>
-                            <div class="editor-field col-md-5">
-                             @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-                              <div class="input-group date">
-        <div class="input-group-addon">
-             <i  class="fa fa-suitcase"></i>
-  	</div> 
-                                @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyNameList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
-                              
-                            </div>
-                            @*Modified by shalaka on 7th July*@
-                              <div style="color: Red; font-size: 12px">
-                                    @Html.ValidationMessageFor(model => model.CompanyId)
-                                </div>
-                        </div>
-                     </div>  
+                    <div class="editor-field col-md-5">
+                        <div class="input-group date">
+                           <div class="input-group-addon">
+                           <i  class="fa fa-suitcase"></i>
+  	                        </div> 
+                            @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyNameList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
+                    </div>
+                    <div style="color: Red; font-size: 12px">
+                         @Html.ValidationMessageFor(model => model.CompanyId)
+                    </div>
+                    </div>
+                    </div>  
 
                         <div class="row">
                             <div class="editor-label col-md-2">
                                 Branch  <span style="color: Red; font-size: 18px">*</span>
                             </div>
                             <div class="editor-field col-md-5">
-                              @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                          
                              <div class="input-group date">
         <div class="input-group-addon">
              <i  class="fa fa-institution"></i>
@@ -147,7 +100,7 @@
                                 @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchNameList, "Select", new { @class = "form-control select2", id = "BranchddlList" })
                                
                             </div>
-                            @*Modified by shalaka on 7th July*@
+                          
                              <div style="color: Red; font-size: 12px">
                                     @Html.ValidationMessageFor(model => model.BranchId)
                                 </div>
@@ -161,7 +114,7 @@
                             </div>
 
                             <div class="col-md-5">
-                              @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                            
                              <div class="input-group date">
         <div class="input-group-addon">
              <i  class="fa fa-list-ul"></i>
@@ -181,7 +134,7 @@
                                 Shift Name<span style="color: Red; font-size: 18px">*</span>
                             </div>
                             <div class="editor-field col-md-5">
-                             @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                            
                              <div class="input-group date">
         <div class="input-group-addon">
              <i  class="fa fa-list-ul"></i>
@@ -194,25 +147,25 @@
                         </div>
                     </div>   
 
-                        <div class="row">
-                            <div class="editor-label col-md-2">
-                                 Code <span style="color: Red; font-size: 18px">*</span>
-                            </div>
-                            <div class="editor-field col-md-5">
-                             @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-                             <div class="input-group date">
-        <div class="input-group-addon">
-             <i  class="fa fa-list-ul"></i>
-  	</div> 
-                                @Html.TextBoxFor(model => model.ShiftCode, new { @class = "form-control pull-right" })
-                                
-                            </div>
-                            @*Modified by shalaka on 7th July*@
-                            <div style="color: Red; font-size: 12px">
-                                    @Html.ValidationMessageFor(model => model.ShiftCode)
+                            <div class="row">
+                                <div class="editor-label col-md-2">
+                                    Code <span style="color: Red; font-size: 18px">*</span>
                                 </div>
-                        </div>
-                        </div>
+                                <div class="editor-field col-md-5">
+                            
+                                <div class="input-group date">
+            <div class="input-group-addon">
+                <i  class="fa fa-list-ul"></i>
+        </div> 
+                                    @Html.TextBoxFor(model => model.ShiftCode, new { @class = "form-control pull-right" })
+                                    
+                                </div>
+                            
+                                <div style="color: Red; font-size: 12px">
+                                        @Html.ValidationMessageFor(model => model.ShiftCode)
+                                    </div>
+                            </div>
+                            </div>
                        
 
                         <div class="row">
@@ -225,6 +178,7 @@
                                 @Html.ValidationMessageFor(model => model.NightShiftFlag)
                             </div>
                         </div>
+                        
                         @*CODE ADDED BY SHRADDHA ON 15 JAN 2018 START*@
                         <div class="row">
                             <div class="editor-label col-md-2">
@@ -238,19 +192,10 @@
                         </div>
                          @*CODE ADDED BY SHRADDHA ON 15 JAN 2018 END*@
                          <div style="font-weight:700;background-color:#d1f2f9">
-         <span class="fa fa-exclamation-triangle"></span> Time should be in 24 hours format
-          </div>
-          <br />
-                       @* <div class="row">
-                            <div class="editor-label col-md-2">
-                            </div>
-                            <div class="col-sm-1">
-                                Hour
-                            </div>
-                            <div class="col-sm-1">
-                                Minutes
-                            </div>
-                        </div>*@
+                          <span class="fa fa-exclamation-triangle"></span> Time should be in 24 hours format
+                         </div>
+                         <br />
+                      
                        
                         <div class="row">
                             <div class="editor-label col-md-2">

@@ -84,8 +84,9 @@
                                                 <i class="fa fa-suitcase" aria-hidden="true"></i>
                                             </div>
                                             @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2", style = "width:500px", id = "CompanyddlList" })
-                                            @Html.ValidationMessageFor(model => model.CompanyId)
+                                         
                                         </div>
+                                           @Html.ValidationMessageFor(model => model.CompanyId)
                                     </div>
 
                                 </div>
@@ -101,8 +102,9 @@
                                                 <i class="fa fa-university" aria-hidden="true"></i>
                                             </div>
                                             @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", style = "width:500px", id = "BranchddlList" })
-                                            @Html.ValidationMessageFor(model => model.BranchId)
+                                           
                                         </div>
+                                         @Html.ValidationMessageFor(model => model.BranchId)
                                     </div>
 
                                 </div>
@@ -133,8 +135,9 @@
                                                 <i class="fa fa-list-ul"></i>
                                             </div>
                                             @Html.DropDownListFor(a => a.ShiftId, (IEnumerable<SelectListItem>)ViewBag.CondoneShiftList, "Select", new { @class = "form-control select2", style = "width:500px" })
-                                            @Html.ValidationMessageFor(model => model.ShiftId)
+                                           
                                         </div>
+                                         @Html.ValidationMessageFor(model => model.ShiftId)
                                     </div>
                                 </div>
                             </div>
@@ -153,8 +156,9 @@
                                             </div>
                                             @*MODIFIED BY SHRADDHA ON 28 DEC 2016*@
                                             @Html.DropDownListFor(a => a.CondoneStatus, (IEnumerable<SelectListItem>)ViewBag.CondoneStatusObj, "Select", new { @class = "form-control select2", style = "width:500px" })
-                                            @Html.ValidationMessageFor(model => model.CondoneStatus)
+                                           
                                         </div>
+                                         @Html.ValidationMessageFor(model => model.CondoneStatus)
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -168,8 +172,9 @@
                                             <i class="glyphicon glyphicon-time"></i>
                                         </div>
                                         <input type="text" style="width:100%;"name="LateEarly" data-inputmask="'mask': ['', '99:99:99']" data-mask />
-                                        @Html.ValidationMessageFor(model => model.LateEarly)
+                                      
                                     </div>
+                                      @Html.ValidationMessageFor(model => model.LateEarly)
                                 </div>
                                
                             </div>
@@ -182,8 +187,9 @@
                                     </div>
                                     <div class="editor-field m_text_area">
                                         @Html.TextAreaFor(model => model.Reason,  new { style = "width:510px" })
-                                        @Html.ValidationMessageFor(model => model.Reason)
+                                    
                                     </div>
+                                        @Html.ValidationMessageFor(model => model.Reason)
                                 </div>
                             </div>
 

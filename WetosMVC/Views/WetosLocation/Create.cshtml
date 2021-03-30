@@ -63,67 +63,65 @@
                                 @Html.ValidationSummary(true)
                                 <fieldset>
 
-                                    @*Added by Rajas on 29 DEC 2016 For custom error message START*@
+                                 
                                     <div style="color: Red; font-size: 12px">
                                         @Html.ValidationMessage("Error")
                                     </div>
-                                    @*Added by Rajas on 29 DEC 2016 For custom error message END*@
+                              
 
                                     <div class="row">
                                         <div class="editor-label col-md-2">
                                             Location Name<span style="color:Red;font-size:18px">*</span>
                                         </div>
-                                        @*Added by shalaka on 22nd June --> Favicon start*@
+                                        <div class="editor-field col-md-5">
                                         <div class="input-group date">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-map-marker"></i>
                                             </div>
-                                            <div class="editor-field">@Html.EditorFor(model => model.LocationName)</div>
-                                            @*<input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />*@
-                                        </div>
-                                        <div style="color: Red; font-size: 12px">
+                                          @Html.EditorFor(model => model.LocationName)</div>
+                                           
+                                        
+                                        <div class="div_error" style="color: Red; font-size: 12px">
                                             @Html.ValidationMessageFor(model => model.LocationName)
                                         </div>
-                                        @*End*@
+                                       
+                                    </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="editor-label col-md-2">
                                             Address
                                         </div>
-                                        @*<div class="editor-field col-md-10">*@
+                                       <div class="editor-field col-md-5"> 
                                         <div class="input-group date">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-home"></i>
                                             </div>
-                                            <div class="editor-field"> @Html.TextAreaFor(model => model.Address)</div>
-                                            @*<input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />*@
-                                        </div>
-                                        @* @Html.EditorFor(model => model.Address)*@
-
-                                        <div style="color: Red; font-size: 12px">
+                                           @Html.TextAreaFor(model => model.Address)</div>
+                                          <div class="div_error" style="color: Red; font-size: 12px">
                                             @Html.ValidationMessageFor(model => model.Address)
-                                        </div>
-                                        @*</div>*@
+                                          </div>
+                                       
                                     </div>
+                                     </div>
 
                                     <div class="row">
                                         <div class="editor-label col-md-2">
                                             City
                                         </div>
+										<div class="editor-field col-md-5">
                                         <div class="input-group date">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-building" aria-hidden="true"></i>
                                             </div>
-                                            @* <i class="fa fa-circle-o" aria-hidden="true"></i>*@
-
+                      
                                             @Html.EditorFor(model => model.City)
 
-                                            @*    @Html.ValidationMessageFor(model => model.City)*@
+                                          
                                         </div>
                                     </div>
 
-
+</div>
 
                                     <p>
                                         <input type="button" id="locationbtn" value="Create" class="btn btn-default" style="cursor:pointer; float:left" title="Click to save location" />

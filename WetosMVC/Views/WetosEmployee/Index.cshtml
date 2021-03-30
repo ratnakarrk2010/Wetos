@@ -43,9 +43,9 @@
         <small>Active Employee List</small>
         
          
-        <span class="fa fa-users"  data-toggle="tooltip" title="Click to get list of all Employees" style="font-size:20px;float:right;color:blue;margin:5px;cursor:pointer" onclick="@("window.location.href='" + @Url.Action("AllEmployees", "WetosEmployee") + "'")"></span>
-        <span class="fa fa-plus-square"  data-toggle="tooltip" title="Click to add new employee" style="font-size:20px;float:right;color:blue;margin:5px;cursor:pointer" onclick="@("window.location.href='" + @Url.Action("Create", "WetosEmployee") + "'")"></span>  
-        <span class="fa fa-share-square-o"  data-toggle="tooltip" title="Click to Export employee list" style="font-size:20px;float:right;color:blue;margin:5px;cursor:pointer" onclick="@("window.location.href='" + @Url.Action("ExportData", "WetosEmployee") + "'")"></span>   
+        <span class="fa fa-users m_margin3"  data-toggle="tooltip" title="Click to get list of all Employees" style="font-size:20px;float:right;color:blue;margin:5px;cursor:pointer" onclick="@("window.location.href='" + @Url.Action("AllEmployees", "WetosEmployee") + "'")"></span>
+        <span class="fa fa-plus-square m_margin2"  data-toggle="tooltip" title="Click to add new employee" style="font-size:20px;float:right;color:blue;margin:5px;cursor:pointer" onclick="@("window.location.href='" + @Url.Action("Create", "WetosEmployee") + "'")"></span>  
+        <span class="fa fa-share-square-o m_margin1"  data-toggle="tooltip" title="Click to Export employee list" style="font-size:20px;float:right;color:blue;margin:5px;cursor:pointer" onclick="@("window.location.href='" + @Url.Action("ExportData", "WetosEmployee") + "'")"></span>   
         @*<span style="float: right" class="btn btn-default">@Html.ActionLink("Export To Excel", "ExportData")</span>*@
     </h1>
     <div style="clear: both;">
@@ -61,6 +61,7 @@
             <div class="box">
                 
                 <div class="box-body">
+                <div class="table-responsive">
                  
                     @* <span style="float:left">@Html.ActionLink("Export To PDF", "ExportDatatoPDF")</span>*@
                     <table id="EmployeeMaster" class="table table-bordered table-striped">
@@ -152,6 +153,7 @@
                         <tfoot>
                         </tfoot>
                     </table>
+                    </div>
 
 
 

@@ -13,42 +13,7 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-            
-             <!-- <div class="row">
-            <div class="col-md-12">
-            <ul class="page-breadcrumb breadcrumb">
-                    <li>
-                        <i class="fa fa-home"></i>
-                        <a href="@Url.Action("Index", "Home")">Home </a>
-                        <i class="fa fa-angle-right"></i>
-                    </li>
-                    <li>
-                         <a href="#">Masters</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                    <li>
-                        <a href="@Url.Action("List", "WetosRole")">Role </a>
-                    </li>
-                    <li class="pull-right">
-                        <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                            <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i> @*<a href="#" >Back</a>*@
-
-                            </span>
-                             <i class="fa fa-calendar"></i>
-                            <span>@DateTime.Now.ToLongDateString()
-                            </span>
-                           
-                        </div>
-                          
-                
-                @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
-
-           
-                    </li>
-              
-                </ul>
-                </div></div> -->
-                  <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
                 <div class="col-sm-6">
                     <ul>
                         <li class="li_margin1">
@@ -80,7 +45,7 @@
             </h1>
             <div style="clear: both;"></div>
 
-            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+    
         </section>
         <section class="content">
             <div class="row">
@@ -99,18 +64,19 @@
                                         Role Name  <span style="color: Red; font-size: 18px">*</span>
                                     </div>
                                     <div class="editor-field col-md-5">
-                     @*fav icon addet by atul on 23 june 2017----start*@
+                    
                                      <div class="input-group date">
                                      <div class="input-group-addon">
                                      <i class="fa fa-user" aria-hidden="true"></i>
                                      </div> 
-                 @*fav icon addet by atul on 23 june 2017----end*@
-                                        @*@Html.EditorFor(model => model.LocationId)*@
+             
+                                      
                                        @Html.TextBoxFor(model => model.RoleName, new { @class = "form-control pull-right" })
-                                            <div style="color: Red; font-size: 12px">
+                                           
+                                        </div>
+                                         <div style="color: Red; font-size: 12px">
                                                 @Html.ValidationMessageFor(model => model.RoleName)
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
                                 
@@ -119,18 +85,19 @@
                                         Role Description <span style="color: Red; font-size: 18px">*</span>
                                     </div>
                                     <div class="editor-field col-md-5">
-                          @*fav icon addet by atul on 23 june 2017----start*@
+                       
                                     <div class="input-group date">
         <div class="input-group-addon">
              <i  class="fa fa-file-text-o"></i>
   	</div> 
-                           @*fav icon addet by atul on 23 june 2017----end*@ 
-                                        @*@Html.EditorFor(model => model.LocationId)*@
+                         
+                                     
                                        @Html.TextBoxFor(model => model.RoleDescription, new { @class = "form-control pull-right" })
-                                            <div style="color: Red; font-size: 12px">
+                                            
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
                                                 @Html.ValidationMessageFor(model => model.RoleDescription)
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
                                

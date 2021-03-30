@@ -59,7 +59,7 @@
 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary(false)
+    @*@Html.ValidationSummary(false)*@
   
      
          <div class="row">
@@ -67,14 +67,15 @@
    <div class="editor-label">
             Company
         </div>
-        <div class="editor-field">
-          <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-suitcase" aria-hidden="true"></i>
-                  </div> 
-         @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2", style = "width:250px", id = "CompanyddlList" })
-        </div>
-        </div>
+   <div class="editor-field">
+       <div class="input-group date">
+           <div class="input-group-addon">
+               <i class="fa fa-suitcase" aria-hidden="true"></i>
+           </div>
+           @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2", style = "width:250px", id = "CompanyddlList" })
+       </div>
+       @Html.ValidationMessageFor(model => model.CompanyId)
+   </div>
       </div>
      </div>
      
@@ -83,14 +84,15 @@
       <div class="editor-label">
            Branch
         </div>
-        <div class="editor-field" >
+      <div class="editor-field">
           <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-university" aria-hidden="true"></i>
-                  </div> 
-         @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)ViewBag.BranchList, "Select", new { @class = "form-control select2", style = "width:250px", id = "BranchddlList" })
-        </div>
-       </div>
+              <div class="input-group-addon">
+                  <i class="fa fa-university" aria-hidden="true"></i>
+              </div>
+              @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)ViewBag.BranchList, "Select", new { @class = "form-control select2", style = "width:250px", id = "BranchddlList" })
+          </div>
+          @Html.ValidationMessageFor(model => model.BranchId)
+      </div>
        </div>
     </div> 
       

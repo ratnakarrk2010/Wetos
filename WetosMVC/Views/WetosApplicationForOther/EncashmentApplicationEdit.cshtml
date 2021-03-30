@@ -69,7 +69,7 @@
             </div>
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary(false)
+    @*@Html.ValidationSummary(false)*@
     <fieldset>
     @*Commneted by Shalaka on 29th DEC 2017 -- Start*@
       @*  <legend>Leave Encash</legend>*@
@@ -91,7 +91,7 @@
         <div class="col-md-8">
            
              @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2" })
-           @* @Html.ValidationMessageFor(model => model.EmployeeId)*@
+            @Html.ValidationMessageFor(model => model.CompanyId)
         </div>
         </div>
          <div class="col-md-6">
@@ -101,7 +101,7 @@
         <div class="col-md-7">
             @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)ViewBag.BranchList, "Select", new { @class = "form-control select2" })
            
-           @* @Html.ValidationMessageFor(model => model.EmployeeId)*@
+           @Html.ValidationMessageFor(model => model.BranchId)
         </div>
         </div>
         </div>
@@ -124,7 +124,7 @@
         <div class="col-md-7">
                
               @Html.DropDownListFor(a => a.LeaveCode, (IEnumerable<SelectListItem>)ViewBag.LeaveCodeList, "Select", new { @class = "form-control select2" })
-           @* @Html.ValidationMessageFor(model => model.EmployeeId)*@
+            @Html.ValidationMessageFor(model => model.LeaveCode)
         </div>
         </div>
         </div>
@@ -135,11 +135,11 @@
                <div class="col-md-7">
         No.Of Leave To Encash<span style="color:Red;font-size:18px" >*</span>
         </div>
-        <div class="col-md-5">
-           
-              @Html.EditorFor(model => model.EncashValue)
-           @* @Html.ValidationMessageFor(model => model.EmployeeId)*@
-        </div>
+               <div class="col-md-5">
+
+                   @Html.EditorFor(model => model.EncashValue)
+                  @Html.ValidationMessageFor(model => model.EncashValue)
+               </div>
         </div>
          
         </div>

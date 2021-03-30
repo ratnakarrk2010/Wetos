@@ -90,7 +90,7 @@
             </div>
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary(false)
+    @*@Html.ValidationSummary(false)*@
     <fieldset>
        
         @Html.HiddenFor(a => a.Status)
@@ -102,22 +102,22 @@
                <div class="col-md-4">
           Company Name<span style="color:Red;font-size:18px" >*</span>
         </div>
-        <div class="col-md-8">
-           
-             @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
-           @* @Html.ValidationMessageFor(model => model.EmployeeId)*@
-        </div>
+               <div class="col-md-8">
+
+                   @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
+                    @Html.ValidationMessageFor(model => model.CompanyId)
+               </div>
         </div>  
 
          <div class="col-md-6">
          <div class="col-md-3">
          Branch Name<span style="color:Red;font-size:18px" >*</span>
         </div>
-        <div class="col-md-7">
-            @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList" })
-           
-           @* @Html.ValidationMessageFor(model => model.EmployeeId)*@
-        </div>
+         <div class="col-md-7">
+             @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList" })
+
+            @Html.ValidationMessageFor(model => model.BranchId)
+         </div>
         </div>
           </div>
         </div>
@@ -131,18 +131,18 @@
         <div class="col-md-8">
            
              @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)ViewBag.EmployeeCodeAndNameList, "Select", new { @class = "form-control select2", id = "EmployeeddlList" })
-           @* @Html.ValidationMessageFor(model => model.EmployeeId)*@
+          @Html.ValidationMessageFor(model => model.EmployeeId)
         </div>
         </div>
                <div class="col-md-6">
                <div class="col-md-3">
         Leave Type<span style="color:Red;font-size:18px" >*</span>
         </div>
-        <div class="col-md-7">
-           
-              @Html.DropDownListFor(a => a.LeaveCode, (IEnumerable<SelectListItem>)ViewBag.LeaveCodeList, "Select", new { @class = "form-control select2" })
-           @* @Html.ValidationMessageFor(model => model.EmployeeId)*@
-        </div>
+               <div class="col-md-7">
+
+                   @Html.DropDownListFor(a => a.LeaveCode, (IEnumerable<SelectListItem>)ViewBag.LeaveCodeList, "Select", new { @class = "form-control select2" })
+                    @Html.ValidationMessageFor(model => model.LeaveCode)
+               </div>
         </div>
         </div>
 
@@ -152,10 +152,10 @@
          <div class="col-md-4">
         Financial Year<span style="color:Red;font-size:18px" >*</span>
         </div>
-        <div class="col-md-3">
-        @Html.DropDownListFor(a => a.FinancialYearId, (IEnumerable<SelectListItem>)ViewBag.FinancialYearList, "Select", new { @class = "form-control select2" })
-           @* @Html.ValidationMessageFor(model => model.EmployeeId)*@
-        </div>
+         <div class="col-md-3">
+             @Html.DropDownListFor(a => a.FinancialYearId, (IEnumerable<SelectListItem>)ViewBag.FinancialYearList, "Select", new { @class = "form-control select2" })
+            @Html.ValidationMessageFor(model => model.FinancialYearId)
+         </div>
         </div>
 
                    <div class="col-md-6">
@@ -165,7 +165,7 @@
         <div class="col-md-5">
            
               @Html.EditorFor(model => model.EncashValue)
-           @* @Html.ValidationMessageFor(model => model.EmployeeId)*@
+            @Html.ValidationMessageFor(model => model.EncashValue)
         </div>
         </div>
         </div>

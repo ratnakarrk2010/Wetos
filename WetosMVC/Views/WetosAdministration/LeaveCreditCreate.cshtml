@@ -73,9 +73,10 @@
                    <i class="fa fa-suitcase" aria-hidden="true"></i>
                   </div> 
           @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
-          <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.CompanyId)
+          
             </div>
+            <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.CompanyId)
             </div>
         </div>
      </div>
@@ -90,9 +91,11 @@
                    <i class="fa fa-university" aria-hidden="true"></i>
                   </div> 
           @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList" })
-          <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.BranchId)
+         
             </div>
+
+             <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.BranchId)
             </div>
         </div>
        </div>
@@ -109,8 +112,11 @@
                    <i class="fa fa-user" aria-hidden="true"></i>
                   </div> 
             @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", id = "EmployeeddlList" })
-            @Html.ValidationMessageFor(model => model.EmployeeId)
+              
         </div>
+         <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.EmployeeId)
+            </div>
         </div> 
         </div>
        
@@ -119,14 +125,17 @@
        Financial Year  @*@Html.LabelFor(model => model.FinancialYearId)*@
         </div>
         <div class="col-md-5">
-          <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-calendar" aria-hidden="true"></i>
-                  </div> 
-            @*@Html.EditorFor(model => model.FinancialYearId)*@ 
-           @Html.DropDownListFor(a => a.FinancialYearId, (IEnumerable<SelectListItem>)@ViewBag.FinYearList, "Select", new { @class = "form-control select2", id = "FinYearddlList" })
-            @Html.ValidationMessageFor(model => model.FinancialYearId)
-        </div>
+            <div class="input-group date">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                </div>
+                @*@Html.EditorFor(model => model.FinancialYearId)*@
+                @Html.DropDownListFor(a => a.FinancialYearId, (IEnumerable<SelectListItem>)@ViewBag.FinYearList, "Select", new { @class = "form-control select2", id = "FinYearddlList" })
+
+            </div>
+            <div style="color: Red; font-size: 12px">
+             @Html.ValidationMessageFor(model => model.FinancialYearId)
+            </div>
         </div> 
         </div>
        
@@ -140,27 +149,14 @@
                    <i class="fa fa-user" aria-hidden="true"></i>
                   </div> 
             @Html.DropDownListFor(a => a.LeaveType, (IEnumerable<SelectListItem>)@ViewBag.LeaveTypeList, "Select", new { @class = "form-control select2", id = "LeaveTypeddlList" })
-            @Html.ValidationMessageFor(model => model.LeaveType)
+            
+        </div>
+         <div style="color: Red; font-size: 12px">
+        @Html.ValidationMessageFor(model => model.LeaveType)
         </div>
         </div> 
         </div>
-@*    <div class="row">*@
-  @*  <div class="form-group">
-                                                    Applicable from Date <span style="color: Red; font-weight: 700">*</span>
-
-                                                    <div class="input-group date">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-calendar"></i>
-                                                        </div>
-                                                        <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ApplicableEffectiveDate" id="ApplicableEffectiveDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.)" />
-
-*@
-                                                        @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
-                                                    @*</div>*@
-                                                    @*@Html.ValidationMessageFor(model => model.FromDate)*@
-                                                    <!-- /.input group -->
-                                               @* </div>*@
-@*</div>*@  
+ 
      <div class="row">
         <div class="col-md-2">
         Applicable From Date  <span style="color: Red; font-weight: 700">*</span>
@@ -188,8 +184,11 @@
                    <i class="fa fa-user" aria-hidden="true"></i>
                   </div> 
             @Html.EditorFor(model => model.Availed)
-            @Html.ValidationMessageFor(model => model.Availed)
+         
         </div>
+        <div style="color: Red; font-size: 12px">
+           @Html.ValidationMessageFor(model => model.Availed)
+           </div>
         </div> 
         </div>
       
@@ -204,8 +203,11 @@
                    <i class="fa fa-user" aria-hidden="true"></i>
                   </div> 
             @Html.EditorFor(model => model.CarryForward)
-            @Html.ValidationMessageFor(model => model.CarryForward)
+         
         </div>
+        <div style="color: Red; font-size: 12px">
+           @Html.ValidationMessageFor(model => model.CarryForward)
+           </div>
         </div>
         </div> 
 
@@ -221,8 +223,11 @@
                    <i class="fa fa-user" aria-hidden="true"></i>
                   </div> 
             @Html.EditorFor(model => model.Encash)
-            @Html.ValidationMessageFor(model => model.Encash)
+          
         </div>
+        <div style="color: Red; font-size: 12px">
+          @Html.ValidationMessageFor(model => model.Encash)
+          </div>
         </div>
         </div> 
 
@@ -238,7 +243,10 @@
                    <i class="fa fa-user" aria-hidden="true"></i>
                   </div> 
             @Html.EditorFor(model => model.OpeningBalance)
-            @Html.ValidationMessageFor(model => model.OpeningBalance)
+            
+        </div>
+        <div style="color: Red; font-size: 12px">
+        @Html.ValidationMessageFor(model => model.OpeningBalance)
         </div>
         </div>
         </div> 

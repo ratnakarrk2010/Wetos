@@ -4,6 +4,7 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 
 <style>
      .row {
@@ -96,21 +97,27 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-            <div class="row">
-                <div class="col-md-12 padding_right_0">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li style="padding-top: 0.4%;">
-                            @*<i class="fa fa-home"></i>*@
-                            <img class="home_width_height" src="~/Content/images/icon/home_1.png" />
-                            <a href="@Url.Action("Index", "Home")">Home </a><i class="fa fa-angle-right"></i>
+           
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li  class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
                         </li>
-                        <li style="padding-top: 0.7%;"><a href="#">Attendance Status </a></li>
-                        <li class="date_margin">
-                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
-                                <span style="cursor: pointer " class="back " id="goback">@*<i class="fa fa-arrow-left"></i>*@</span>
-                                @*<i class="fa fa-calendar"></i>*@
+                       
+                       <li class="li_margin"><a href="#">Attendance Status </a></li>
+                        </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
                                 <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
-                                <span>@DateTime.Now.ToLongDateString()</span>
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
                             </div>
                         </li>
                     </ul>

@@ -1,0 +1,98 @@
+.row {
+    margin-bottom: 10px;
+}
+
+.date_margin {
+    margin-left: 67%;
+}
+
+.date {
+    margin-left: 1.5%;
+}
+
+.div_error {
+    margin-left: 1.8%;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 767px) {
+    .date {
+        margin-left: 3.5%;
+    }
+    .single-line {
+        width: 100% !important;
+    }
+    #Address {
+        width: 100% !important;
+    }
+    #LocationMaster {
+        width: 100% !important;
+    }
+    .content-header {
+        padding-top: 0% !important;
+    }
+    .form-control {
+        width: 100% !important;
+    }
+    .page-content-wrapper .page-content {
+        padding: 10px 10px !important;
+        overflow: visible !important;
+    }
+    .div_error {
+        margin-left: 3.8%;
+    }
+}
+
+@media screen and (min-device-width: 411px) and (max-device-width: 414px) {
+    .date {
+        margin-left: 3.5%;
+    }
+    .page-content-wrapper .page-content {
+        padding: 10px 10px !important;
+        overflow: visible !important;
+    }
+    .content-header {
+        padding-top: 0% !important;
+    }
+    .form-control {
+        width: 100% !important;
+    }
+    .div_error {
+        margin-left: 3.8%;
+    }
+}
+
+@media screen and (min-device-width: 767px) and (max-device-width: 1023px) {
+    .date {
+        margin-left: 2%;
+    }
+    .content-header {
+        padding-top: 0% !important;
+    }
+    .select2-container {
+        width: 100% !important;
+    }
+    .form-control {
+        width: 100% !important;
+    }
+    .div_error {
+        margin-left: 2%;
+    }
+}
+
+@media screen and (min-device-width: 1024px) and (max-device-width: 1200px) {
+    .date {
+        margin-left: 2%;
+    }
+    .div_error {
+        margin-left: 2%;
+    }
+}
+
+@media screen and (min-device-width: 1800px) and (max-device-width: 2100px) {
+    .date {
+        margin-left: 1%;
+    }
+    .div_error {
+        margin-left: 1%;
+    }
+}

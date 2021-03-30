@@ -7,12 +7,21 @@
 
 <style type="text/css">
 #err{
-    margin-right: 56% !important;
+    margin-right: 40% !important;
     margin-top: 1%;
 }
 #errpwd{
-     margin-right: 57% !important;
-     margin-top: 1%;
+     margin-right: 41% !important;
+     margin-top: -5%;
+}
+.glass{
+    margin-top: 10% !important;
+}
+.field-validation-error {
+    color: #e80c4d;
+    margin-left: -3% !important;
+    font-weight: bold;
+    font-size: 14px !important;
 }
 #open {
     display: none;
@@ -33,12 +42,12 @@ input:-internal-autofill-selected {
 .open_icon{
     position: absolute;
     right: 2%;
-    top: 14%;
+    top: 28%;
 }
 .close_icon{
     position: absolute;
     right: 2%;
-    top: 14%;
+    top: 28%;
 }
 .login-box {
         margin-top: 5% !important;
@@ -59,14 +68,14 @@ h3 {
 }
 .form-control:focus ~ label {
         left: 5px;
-        top: -10px;
+        top: -14px;
         background: #fff;
         padding: 0 5px;
         color: #0275d8 !important;
 }
 label.active {
         left: 5px;
-        top: -10px;
+        top: -14px;
         background: #fff;
         padding: 0 5px;
 }
@@ -140,30 +149,40 @@ label.active {
         padding-right: 0px
 }
 .left_div {
-        height: 340px !important;
+        height: 350px !important;
         /*background-color: #17466f;*/
         background-image: linear-gradient(210deg, #20466f,#20466f,#96a8bb,#20466f);
         -moz-box-shadow: 0 0 5px rgba(0,0,0,0.4);
         -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.4);
 }
 .right_div {
-        height: 340px !important;
+        height: 350px !important;
         background-color: White;
         -moz-box-shadow: 0 0 5px rgba(0,0,0,0.4);
         -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.4)
 }
 .user_icon {
-        padding-top: 2.5%;
+        padding-top: 24.5%;
 }
 .pass_icon {
-        padding-top: 3%;
+        padding-top: 24%;
 }
 @@media screen and (min-width: 320px) and (max-width:322px) {
-.row_padding {
-            padding: 0px 15px;
-            margin-top: 7%;
-}
+        .row_padding {
+                    padding: 0px 15px;
+                    margin-top: 0%;
+        }
+        .left_div {
+                    height: 300px !important;
+                }
 
+        .right_div {
+         height: 300px !important;
+         }
+        .field-validation-error {
+            margin-left: -5% !important;
+            font-size: 10px !important;
+        }
         .user_icon {
             padding-top: 23.5%;
         }
@@ -205,7 +224,10 @@ label.active {
             padding: 0px 15px;
             margin-top: 6%;
         }
-
+	     .field-validation-error {
+         margin-left: -2% !important;
+         font-size: 12px !important;
+         }
         .m1_width {
             max-width: 10%;
         }
@@ -243,12 +265,12 @@ label.active {
         .open_icon{
             position: absolute;
             right: 2%;
-            top: 25%;
+            top:25%;
         }
         .close_icon{
             position: absolute;
             right: 2%;
-            top: 25%;
+             top:25%;
         }
     }
 
@@ -257,15 +279,19 @@ label.active {
             padding: 0px 15px;
             margin-top: 6%;
         }
+		.field-validation-error {
+         margin-left: -2% !important;
+         font-size: 12px !important;
+         }
         .open_icon{
             position: absolute;
             right: 2%;
-            top: 25%;
+            top:25%;
         }
         .close_icon{
             position: absolute;
             right: 2%;
-            top: 25%;
+             top:25%;
         }
     }
 
@@ -273,6 +299,10 @@ label.active {
         .row_padding {
             padding: 0px 15px;
             margin-top: 8%;
+        }
+	    .field-validation-error {
+            margin-left: 0% !important;
+            font-size: 13px !important;
         }
          #err {
             margin-right: 32% !important;
@@ -283,12 +313,12 @@ label.active {
         .open_icon{
             position: absolute;
             right: 2%;
-            top: 25%;
+            top:25%;
         }
         .close_icon{
             position: absolute;
             right: 2%;
-            top: 25%;
+             top:25%;
         }
     }
 
@@ -309,12 +339,16 @@ label.active {
         .open_icon{
             position: absolute;
             right: 2%;
-            top: 25%;
+            top: 15%;
         }
         .close_icon{
             position: absolute;
             right: 2%;
-            top: 25%;
+            top: 15%;
+        }
+         .field-validation-error {
+          margin-left: -9% !important;
+          font-size: 13px !important;
         }
     }
 
@@ -329,19 +363,23 @@ label.active {
         .open_icon{
             position: absolute;
             right: 2%;
-            top: 25%;
+          top: 30%;
         }
         .close_icon{
             position: absolute;
             right: 2%;
-            top: 25%;
+           top: 30%;
+        }
+        .field-validation-error {
+          margin-left: -9% !important;
+          font-size: 13px !important;
         }
     }
 
     @@media screen and (min-width: 767px) and (max-width:1023px) {
         .row_padding {
             padding: 0px 15px;
-            margin-top: 30%;
+            margin-top: 25%;
         }
          .left_div {
            height: 330px !important;
@@ -355,6 +393,10 @@ label.active {
         #errpwd {
             margin-right: 27% !important;
         }
+        .field-validation-error {
+            margin-left: -6% !important;
+            font-size: 11px !important;
+        }
         .user_icon {
             padding-top: 32.5% !important;
         }
@@ -364,16 +406,16 @@ label.active {
         .open_icon{
             position: absolute;
             right: 2%;
-            top: 25%;
+          top: 25%;
         }
         .close_icon{
             position: absolute;
             right: 2%;
-            top: 25%;
+          top: 25%;
         }
     }
 
-    @@media screen and (min-width: 1024px) and (max-width:1365px) {
+    @@media screen and (min-width: 1024px) and (max-width:1200px) {
         .row_padding {
             padding: 0px 15px;
             margin-top: 20%;
@@ -386,30 +428,109 @@ label.active {
         }
         label.active {
             left: 5px;
-            top: -12px;
+            top: -14px;
             background: #fff;
             padding: 0 5px;
         }
-        .close_icon {
-            position: absolute;
-            right: 2%;
-            top: 16%;
+        .form-control:focus ~ label {
+         left: 5px;
+        top: -14px;
+        background: #fff;
+        padding: 0 5px;
+        color: #0275d8 !important;
         }
          .open_icon {
             position: absolute;
             right: 2%;
-            top: 16%;
+           top: 30%;
         }
-        /* .row_padding {
-            padding: 0px 15px;
-            margin-top: 45%;
-        } */
+         .close_icon {
+            position: absolute;
+            right: 2%;
+            top: 30%;
+        }
+        #err {
+            margin-right: 46% !important;
+        }
+        #errpwd {
+            margin-right: 48% !important;
+        }
+        .field-validation-error {
+            margin-left: -9% !important;
+            font-size: 15px !important;
+        }
+    }
+    @@media screen and (min-width: 1201px) and (max-width:1365px) {
+        .row_padding {
+        margin-top: 15%;
+        padding: 0px 15%;
+       }
+        .left_div {
+                height: 350px !important;
+        }
+        .right_div {
+            height: 350px !important;
+        }
+        #err {
+            margin-right: 38% !important;
+        }
+        #errpwd {
+            margin-right: 39% !important;
+        }
+        .field-validation-error {
+          margin-left: -1% !important;
+          font-size: 14px !important;
+         }
+         .open_icon {
+            position: absolute;
+            right: 2%;
+          top: 18%;
+        }
+        .close_icon {
+            position: absolute;
+            right: 2%;
+           top: 18%;
+        }
+        .user_icon {
+            padding-top: 29%;
+        }
+        .pass_icon {
+            padding-top: 30%;
+        }
     }
 
     @@media screen and (min-width: 1900px) and (max-width:2100px) {
         .row_padding {
             padding: 0px 15px;
             margin-top: 30%;
+        }
+        .left_div {
+            height: 360px !important;
+        }
+        .right_div {
+            height: 360px !important;
+        }
+            
+        #err {
+            margin-right: 56% !important;
+        }
+        #errpwd {
+            margin-top: -2%;
+            margin-right: 57% !important;
+        }
+        .field-validation-error {
+           margin-left: -13% !important;
+           font-size: 18px !important;
+        }
+         .open_icon{
+            position: absolute;
+            right: 2%;
+            top: 25%;
+        }
+        .close_icon{
+            position: absolute;
+            right: 2%;
+           top: 25%;
         }
     }
 </style>
@@ -426,9 +547,17 @@ label.active {
                 $(this).siblings("label").removeClass("active");
             }
         });
+		 $(".form-group .form-control").keyup(function () {
+            if ($(this).val() != "") {
+                $(this).siblings("label").addClass("active");
+            } else {
+                $(this).siblings("label").removeClass("active");
+            }
+        });
         $("#txtPassword").keyup(function (e) {
             if ($(this).val() == "") {
                 $("#errpwd").html(input_is_require1);
+				$(".field-validation-error").hide();
             }
             else {
                 $("#errpwd").html("");
@@ -439,6 +568,7 @@ label.active {
         $("#UserName").keyup(function (e) {
             if ($(this).val() == "") {
                 $("#err").html(input_is_require);
+				$(".field-validation-error").hide();
             }
             else {
                // $("#errpwd").html("");
@@ -461,6 +591,7 @@ label.active {
             $("#errpwd").html("");
             $("#err").html("");
         }
+		
     }
    
    function showFunction() {
@@ -521,8 +652,9 @@ label.active {
 
                                         @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
                                         <label for="Username">Username</label>
-                                        <div id="err" style="color:red; margin-right: 134px;"></div>
+                                       
                                     </div>
+                                     <div id="err" style="color:#e80c4d;"></div>
                                 </div>
                                
                             </div>
@@ -543,9 +675,11 @@ label.active {
                                         <i id="close" class="icon fa fa-eye-slash fa-lg close_icon"></i>
                                     </span>
                                     <label for="password" class="">Password</label>
-									@Html.ValidationMessage("AddModelError")
-                                    <div id="errpwd" style="color:red; margin-right: 134px;"></div>
+									
+                                   
                                 </div>
+                                @Html.ValidationMessage("AddModelError")
+                                 <div id="errpwd" style="color:#e80c4d;"></div>
                                
                             </div>
                            

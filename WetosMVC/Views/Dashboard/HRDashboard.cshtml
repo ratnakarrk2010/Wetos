@@ -3,60 +3,85 @@
 }
 @model List<WetosDB.sp_get_Notifications_Result>
 
-<link href="@Url.Content("~/Content/layout.css")" rel="stylesheet" type="text/css"/>
-<link href="@Url.Content("~/Content/components.css")" rel="stylesheet" type="text/css"/>
-<style>
-    .icon_btn {
-    position: relative;
-    background-image: linear-gradient(#20466f,#20466f) !important;
-    color: #fff;
-    font-size: 16px;
-    box-shadow: 0px 1px 4px -2px #333;
-    text-shadow: 0px -1px #333;
-}
+<script src="~/Scripts/Chart.min.js"></script>
+<link href="@Url.Content("~/Content/layout.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/components.css")" rel="stylesheet" type="text/css" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 
-    .icon_btn:after {
-        content: '';
-        position: absolute;
-        top: -1px;
-        left: 0%;
-        width: calc(100%);
-        height: 60%;
-        background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.1));
-        z-index: 1;
+<style>
+.li_margin {
+    margin-top: .9% !important;
+}
+.margin_row_1{
+margin-left:0px !important;
+}
+    .icon_btn {
+        position: relative;
+        background-image: linear-gradient(#20466f,#20466f) !important;
+        color: #fff;
+        font-size: 16px;
+        box-shadow: 0px 1px 4px -2px #333;
+        text-shadow: 0px -1px #333;
     }
+
+        .icon_btn:after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0%;
+            width: calc(100%);
+            height: 60%;
+            background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.1));
+            z-index: 1;
+        }
+
+    #areaChart {
+        height: 215px;
+        width: 420px;
+        margin-top: 10%;
+    }
+
     .btn_width {
         width: 50px;
     }
+
     .icon_btn:hover {
         background-image: linear-gradient(#20466f,#20466f) !important;
     }
+
     .icon_width_height {
         width: 30px;
         height: 30px;
     }
+
     .page-title {
         color: #2c599f;
     }
-    .user_img{
-        width:67px;
+
+    .user_img {
+        width: 67px;
         margin-left: -17%;
     }
-    .female_user_img{
-         width:50px;
+
+    .female_user_img {
+        width: 50px;
     }
-    .all_user_img{
+
+    .all_user_img {
         width: 70px;
         height: 60px;
-        margin-top:2%;
+        margin-top: 2%;
     }
+
     .home_width_height {
         width: 25px;
         height: 25px;
     }
+
     .date_margin {
         margin-left: 72%;
     }
+
     .area_chart_title {
         background-color: #d2dbe4;
         color: #20466f;
@@ -68,30 +93,35 @@
         padding-bottom: 1%;
         border-radius: 5px;
     }
-    .box-body{
-          box-shadow: 0px 2px 6px #a9b1b8;
-          border-radius: 7px;
-    }
-    .page-content-wrapper .page-content {
-        margin-top: -1.5%;
-       
-    }
-    .page-breadcrumb.breadcrumb{
-            margin-bottom: 1.5% !important;
+
+    .box-body {
+        box-shadow: 0px 2px 6px #a9b1b8;
+        border-radius: 7px;
     }
 
-    .dashboard-stat.blue-madison{
+    .page-content-wrapper .page-content {
+        margin-top: -1.5%;
+    }
+
+    .page-breadcrumb.breadcrumb {
+        margin-bottom: 1.5% !important;
+    }
+
+    .dashboard-stat.blue-madison {
         position: relative;
         background-image: linear-gradient(#004a8a,#013d71) !important;
     }
+
     .dashboard-stat.red-intense {
         position: relative;
         background-image: linear-gradient(#ff0200,#840201) !important;
     }
-    .dashboard-stat.green-haze{
-         position: relative;
+
+    .dashboard-stat.green-haze {
+        position: relative;
         background-image: linear-gradient(#01867c,#00b9ac) !important;
     }
+
     .dashboard-stat.blue-madison:after {
         content: '';
         position: absolute;
@@ -105,6 +135,7 @@
         /*border-bottom-left-radius: 90px;
         border-bottom-right-radius: 90px;*/
     }
+
     .dashboard-stat.green-haze:after {
         content: '';
         position: absolute;
@@ -112,7 +143,7 @@
         left: 0%;
         width: calc(100%);
         height: 46%;
-         background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.1));
+        background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.1));
         z-index: 1;
         border-radius: 7px;
         /*border-bottom-left-radius: 90px;
@@ -132,21 +163,40 @@
         /*border-bottom-left-radius: 90px;
         border-bottom-right-radius: 90px;*/
     }
-    .chart_div{
-         margin-left:2%;
+
+    .chart_div {
+		margin-left: 2%;
+		width: 110%;
+	}
+	.chart, .pie, .bars {
+		overflow: hidden;
+		height: 400px !important;
+		width: 100% !important;
+		margin-left: 3% !important;
+    
+     }
+	 #areaChart{
+		 height: 316px !important;
+		width: 490px !important;
     }
+
     .row {
         margin-right: 0px;
-       
     }
-    .padding_right_0{
+
+    .padding_right_0 {
         padding-right: 0px;
     }
+
     @@media screen and (min-width: 320px) and (max-width: 767px) {
+        .li_margin {
+            margin-top: 1.2% !important;
+        }
         .date_margin {
             margin-left: 54%;
             margin-top: -9%;
         }
+
         .row {
             margin-right: 0px;
             margin-left: 0px;
@@ -156,139 +206,233 @@
             margin-left: -7%;
             margin-right: -7%;
         }
+
         .page-content-wrapper .page-content {
             padding: 0px 0px !important;
         }
-        .chart_div{
-            margin-left:0%;
+
+        .chart_div {
+            margin-left: 0%;
+            width:100% !important;
+        }
+
+        /* .box_new {
+            width: 100% !important;
+        } */
+		.chart, .pie, .bars {
+			overflow: hidden;
+			height: 350px !important;
+			width: 100% !important;
+			margin-left: -2% !important;
+		}
+		#areaChart {
+			height: 316px !important;
+			width: 320px !important;
+		}
+        .m_btn_top{
+            margin-top:11% !important;
+        }
+    }
+	 @@media screen and (min-width: 411px) and (max-width: 414px) {
+         .li_margin {
+            margin-top: 1.2% !important;
+        }
+	    .chart, .pie, .bars {
+			overflow: hidden;
+			height: 365px !important;
+			width: 100% !important;
+			margin-left: 5% !important;
+		}
+        .m_btn_top{
+            margin-top:10% !important;
+        }
+	 }
+
+    @@media screen and (min-width: 768px) and (max-width: 1023px) {
+        .li_margin {
+            margin-top: 1.2% !important;
+        }
+        .dashboard-stat.green-haze .details .number {
+            color: white;
+            margin-left: 20%;
+        }
+        .user_img {
+            width: 45px;
+            margin-left: -17%;
+        }
+
+        .female_user_img {
+            width: 40px;
+        }
+
+        .all_user_img {
+            width: 50px;
+            height: 60px;
+            margin-top: 2%;
+        }
+        .chart_div {
+            margin-left: 2%;
+            width: 156%;
+        }
+		
+    }
+
+
+    @@media screen and (min-width: 1024px) and (max-width: 1200px) {
+        .user_img {
+            width: 45px;
+            margin-left: -17%;
+        }
+
+        .female_user_img {
+            width: 40px;
+        }
+
+        .all_user_img {
+            width: 50px;
+            height: 60px;
+            margin-top: 2%;
+        }
+        .chart_div {
+            margin-left: 2%;
+            width: 155%;
+        }
+    }
+
+    @@media screen and (min-width: 1700px) and (max-width: 2100px) {
+        .li_margin {
+            margin-top: 0.5% !important;
+        }
+        .with-border{
+            width:103%;
+        }
+        .chart_div {
+            margin-left: 2%;
+            width: 65%;
         }
     }
 </style>
-<!-- Left side column. contains the logo and sidebar -->
-<!-- Content Wrapper. Contains page content -->
-<div>
-    <!-- Left side column. contains the logo and sidebar -->
-    <!-- Content Wrapper. Contains page content -->
-    <div>
-        <div class="page-content-wrapper" id="page_content">
-            <div class="page-content">
-                <div class="row breadcrumb_div">
-                    <div class="col-sm-12 padding_right_0">
-                        <ul class="page-breadcrumb breadcrumb">
-                            <li  style="padding-top: 0.4%;">
-                                @*<i class="fa fa-home"></i>*@
-                                <img class="home_width_height" src="~/Content/images/icon/home_1.png" />
-                                <a href="#">Home </a><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li style="padding-top: 0.7%;"><a href="#">Dashboard </a></li>
-                            <li class="date_margin">
-                                <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
-                                    @*<i class="fa fa-calendar"></i>*@
-                                    <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
-                                    <span>
-                                        @DateTime.Now.ToLongDateString()
-                                    </span>
-                                </div>
-                        </li>
-                    </ul>
-                    </div>
+
+<div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+    <div class="col-sm-6">
+        <ul>
+            <li class="li_margin1">
+                <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                <a href="#">Home </a><i class="fa fa-angle-right"></i>
+
+            </li>
+            <li class="li_margin"><a href="#">Dashboard </a></li>
+        </ul>
+    </div>
+    <div class="col-sm-6">
+        <ul style="float: right;">
+            <li class="">
+                <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                    <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                    <span>
+                        @DateTime.Now.ToLongDateString()
+                    </span>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 ">
-                        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                        <h3 class="page-title">
-                            <i style="text-shadow: -3px 0px 4px #6f88a2; "> Dashboard </i> <small>statistics and more 
-                            
-                            <span class="btn btn-default btn-sm icon_btn btn_width"  data-toggle="tooltip" title="Click to check Employees reporting to logged in employee" style="        float: right;
-        color: white;
-        margin: 5px
-" onclick="@("window.location.href='" + @Url.Action("EmployeeReportingIndex", "ManagerDashboard") + "'");"><img src="~/Content/images/icon/tree.png" class="icon_width_height" />
-                            </span>
-                            <span class="btn btn-default btn-sm icon_btn btn_width" data-toggle="tooltip" title="Click to check logged in Employee attendance statistics" style="float:right;cursor:pointer; color:white;margin:5px" onclick="@("window.location.href='" + @Url.Action("Index", "ManagerDashboard") + "'");">
-                                <img src="~/Content/images/icon/imageedit_49.png" class="icon_width_height" />
-                            </span>
-                            <span class="btn btn-default btn-sm icon_btn btn_width" data-toggle="tooltip" title="Click to check Employee statistics" style="float: right;color: white;margin: 5px" onclick="@("window.location.href='" + @Url.Action("EmployeeDashboard", "Dashboard") + "'")"><img src="~/Content/images/icon/imageedit_61.png" class="icon_width_height users_icon" /></span>
-                            </small>
-                        </h3>
-                        
-                        <!-- END PAGE TITLE & BREADCRUMB-->
-                    </div>
-                </div>
-                <!-- Main content -->
-                <div>
-                </div>
-                <!-- BEGIN DASHBOARD STATS -->
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="dashboard-stat blue-madison">
-                            <div class="visual">
-                                @*<i class="fa fa-male"></i>*@
-                                @*<img class="user_img" src="~/Content/images/icon/male.jpg" />*@
-                                <img class="user_img" src="~/Content/images/icon/MALE.png" />
-                            </div>
-                            <div class="details">
-                                <div class="number" id="malepresent">
-                                    @ViewBag.malepresent
-                                </div>
-                                <div class="desc">
-                                    Male Present
-                                </div>
-                            </div>
-                            <a class="more" href="#">View more <i class="m-icon-swapright m-icon-white"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="dashboard-stat red-intense">
-                            <div class="visual">
-                                @*<i class="fa fa-female"></i>*@
-                                <img class="female_user_img" src="~/Content/images/icon/female_user1.png" />
-                            </div>
-                            <div class="details">
-                                <div class="number" id="femalepresent">
-                                    @ViewBag.femalepresent
-                                </div>
-                                <div class="desc">
-                                    Female Present
-                                </div>
-                            </div>
-                            <a class="more" href="#">View more <i class="m-icon-swapright m-icon-white"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="dashboard-stat green-haze">
-                            <div class="visual">
-                                @*<i class="fa fa-user"></i>*@
-                                <img class="all_user_img" src="~/Content/images/icon/imageedit_61.png" />
-                            </div>
-                            <div class="details">
-                                <div class="number" id="totalpresent">
-                                    @ViewBag.total
-                                </div>
-                                <div class="desc">
-                                    Total
-                                </div>
-                            </div>
-                            <a class="more" href="#">View more <i class="m-icon-swapright m-icon-white"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- END DASHBOARD STATS -->
-            </div>
-        </div>
-        <!-- ./wrapper -->
+            </li>
+        </ul>
     </div>
 </div>
-<!-- jQuery 2.2.3 -->
+<div class="row margin_row_1">
+    <div class="col-md-12 ">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            <i style="text-shadow: -3px 0px 4px #6f88a2; "> Dashboard </i> <small>
+                statistics and more
+
+                <span class="btn btn-default btn-sm icon_btn btn_width m_btn_top" data-toggle="tooltip" title="Click to check Employees reporting to logged in employee" style="        float: right;
+        color: white;
+        margin: 5px
+" onclick="@("window.location.href='" + @Url.Action("EmployeeReportingIndex", "ManagerDashboard") + "'");">
+                    <img src="~/Content/images/icon/tree.png" class="icon_width_height" />
+                </span>
+                <span class="btn btn-default btn-sm icon_btn btn_width" data-toggle="tooltip" title="Click to check logged in Employee attendance statistics" style="float:right;cursor:pointer; color:white;margin:5px" onclick="@("window.location.href='" + @Url.Action("Index", "ManagerDashboard") + "'");">
+                    <img src="~/Content/images/icon/imageedit_49.png" class="icon_width_height" />
+                </span>
+                <span class="btn btn-default btn-sm icon_btn btn_width " data-toggle="tooltip" title="Click to check Employee statistics" style="float: right;color: white;margin: 5px" onclick="@("window.location.href='" + @Url.Action("EmployeeDashboard", "Dashboard") + "'")"><img src="~/Content/images/icon/imageedit_61.png" class="icon_width_height users_icon" /></span>
+            </small>
+        </h3>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<!-- Main content -->
+<div>
+</div>
+<!-- BEGIN DASHBOARD STATS -->
+<div class="row margin_row_1">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat blue-madison">
+            <div class="visual">
+                @*<i class="fa fa-male"></i>*@
+                @*<img class="user_img" src="~/Content/images/icon/male.jpg" />*@
+                <img class="user_img" src="~/Content/images/icon/MALE.png" />
+            </div>
+            <div class="details">
+                <div class="number" id="malepresent">
+                    @ViewBag.malepresent
+                </div>
+                <div class="desc">
+                    Male Present
+                </div>
+            </div>
+            <a class="more" href="#">
+                View more <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat red-intense">
+            <div class="visual">
+                @*<i class="fa fa-female"></i>*@
+                <img class="female_user_img" src="~/Content/images/icon/female_user1.png" />
+            </div>
+            <div class="details">
+                <div class="number" id="femalepresent">
+                    @ViewBag.femalepresent
+                </div>
+                <div class="desc">
+                    Female Present
+                </div>
+            </div>
+            <a class="more" href="#">
+                View more <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat green-haze">
+            <div class="visual">
+                @*<i class="fa fa-user"></i>*@
+                <img class="all_user_img" src="~/Content/images/icon/imageedit_61.png" />
+            </div>
+            <div class="details">
+                <div class="number" id="totalpresent">
+                    @ViewBag.total
+                </div>
+                <div class="desc">
+                    Total
+                </div>
+            </div>
+            <a class="more" href="#">
+                View more <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- END DASHBOARD STATS -->
 <div class="row">
     <div class="col-md-6">
         <!-- AREA CHART -->
         <div class="box box-primary chart_div">
             <div class="box-header with-border">
                 <h3 class="box-title area_chart_title">
-                    <i>Area Chart</i></h3>
+                    <i>Area Chart</i>
+                </h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse">
                         <i class="fa fa-minus"></i>
@@ -298,7 +442,7 @@
                     </button>
                 </div>
             </div>
-            <div class="box-body">
+            <div class="box-body box_new">
                 <div class="chart">
                     <canvas id="areaChart" style="height: 250px"></canvas>
                 </div>
@@ -306,287 +450,295 @@
             <!-- /.box-body -->
         </div>
     </div>
-    </div>
-    <script type="text/javascript">
-        $(function () {
-            /* ChartJS
-            * -------
-            * Here we will create a few charts using ChartJS
-            */
+</div>
+<!--</div>
+</div>-->
+<!-- ./wrapper -->
+<!--</div>
+</div>-->
+<!-- jQuery 2.2.3 -->
 
-            //--------------
-            //- AREA CHART -
-            //--------------
+<script type="text/javascript">
+    $(function () {
+       // debugger;
+        /* ChartJS
+        * -------
+        * Here we will create a few charts using ChartJS
+        */
 
-            // Get context with jQuery - using jQuery's .get() method.
-            var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
-            // This will get the first returned node in the jQuery collection.
-            var areaChart = new Chart(areaChartCanvas);
+        //--------------
+        //- AREA CHART -
+        //--------------
 
-            var areaChartData = {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
-                datasets: [
-        {
-            label: "Electronics",
-            fillColor: "rgba(210, 214, 222, 1)",
-            strokeColor: "rgba(210, 214, 222, 1)",
-            pointColor: "rgba(210, 214, 222, 1)",
-            pointStrokeColor: "#c1c7d1",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
-        },
-        {
-            label: "Digital Goods",
-            fillColor: "rgba(60,141,188,0.9)",
-            strokeColor: "rgba(60,141,188,0.8)",
-            pointColor: "#3b8bba",
-            pointStrokeColor: "rgba(60,141,188,1)",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(60,141,188,1)",
-            data: [28, 48, 40, 19, 86, 27, 90]
-        }
-      ]
-            };
+        // Get context with jQuery - using jQuery's .get() method.
+        var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
+        // This will get the first returned node in the jQuery collection.
+        var areaChart = new Chart(areaChartCanvas);
 
-            var areaChartOptions = {
-                //Boolean - If we should show the scale at all
-                showScale: true,
-                //Boolean - Whether grid lines are shown across the chart
-                scaleShowGridLines: false,
-                //String - Colour of the grid lines
-                scaleGridLineColor: "rgba(0,0,0,.05)",
-                //Number - Width of the grid lines
-                scaleGridLineWidth: 1,
-                //Boolean - Whether to show horizontal lines (except X axis)
-                scaleShowHorizontalLines: true,
-                //Boolean - Whether to show vertical lines (except Y axis)
-                scaleShowVerticalLines: true,
-                //Boolean - Whether the line is curved between points
-                bezierCurve: true,
-                //Number - Tension of the bezier curve between points
-                bezierCurveTension: 0.3,
-                //Boolean - Whether to show a dot for each point
-                pointDot: false,
-                //Number - Radius of each point dot in pixels
-                pointDotRadius: 4,
-                //Number - Pixel width of point dot stroke
-                pointDotStrokeWidth: 1,
-                //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-                pointHitDetectionRadius: 20,
-                //Boolean - Whether to show a stroke for datasets
-                datasetStroke: true,
-                //Number - Pixel width of dataset stroke
-                datasetStrokeWidth: 2,
-                //Boolean - Whether to fill the dataset with a color
-                datasetFill: true,
-                //String - A legend template
-                legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-                //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-                maintainAspectRatio: true,
-                //Boolean - whether to make the chart responsive to window resizing
-                responsive: true
-            };
+        var areaChartData = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [
+                {
+                    label: "Electronics",
+                    fillColor: "rgba(210, 214, 222, 1)",
+                    strokeColor: "rgba(210, 214, 222, 1)",
+                    pointColor: "rgba(210, 214, 222, 1)",
+                    pointStrokeColor: "#c1c7d1",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                },
+                {
+                    label: "Digital Goods",
+                    fillColor: "rgba(60,141,188,0.9)",
+                    strokeColor: "rgba(60,141,188,0.8)",
+                    pointColor: "#3b8bba",
+                    pointStrokeColor: "rgba(60,141,188,1)",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(60,141,188,1)",
+                    data: [28, 48, 40, 19, 86, 27, 90]
+                }
+            ]
+        };
 
-            //Create the line chart
-            areaChart.Line(areaChartData, areaChartOptions);
+        var areaChartOptions = {
+            //Boolean - If we should show the scale at all
+            showScale: true,
+            //Boolean - Whether grid lines are shown across the chart
+            scaleShowGridLines: false,
+            //String - Colour of the grid lines
+            scaleGridLineColor: "rgba(0,0,0,.05)",
+            //Number - Width of the grid lines
+            scaleGridLineWidth: 1,
+            //Boolean - Whether to show horizontal lines (except X axis)
+            scaleShowHorizontalLines: true,
+            //Boolean - Whether to show vertical lines (except Y axis)
+            scaleShowVerticalLines: true,
+            //Boolean - Whether the line is curved between points
+            bezierCurve: true,
+            //Number - Tension of the bezier curve between points
+            bezierCurveTension: 0.3,
+            //Boolean - Whether to show a dot for each point
+            pointDot: false,
+            //Number - Radius of each point dot in pixels
+            pointDotRadius: 4,
+            //Number - Pixel width of point dot stroke
+            pointDotStrokeWidth: 1,
+            //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+            pointHitDetectionRadius: 20,
+            //Boolean - Whether to show a stroke for datasets
+            datasetStroke: true,
+            //Number - Pixel width of dataset stroke
+            datasetStrokeWidth: 2,
+            //Boolean - Whether to fill the dataset with a color
+            datasetFill: true,
+            //String - A legend template
+            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+            //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+            maintainAspectRatio: true,
+            //Boolean - whether to make the chart responsive to window resizing
+            responsive: true
+        };
 
-            //-------------
-            //- LINE CHART -
-            //--------------
-            var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
-            var lineChart = new Chart(lineChartCanvas);
-            var lineChartOptions = areaChartOptions;
-            lineChartOptions.datasetFill = false;
-            lineChart.Line(areaChartData, lineChartOptions);
+        //Create the line chart
+        areaChart.Line(areaChartData, areaChartOptions);
 
-            //-------------
-            //- PIE CHART -
-            //-------------
-            // Get context with jQuery - using jQuery's .get() method.
-            var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
-            var pieChart = new Chart(pieChartCanvas);
-            var PieData = [
-      {
-          value: 700,
-          color: "#f56954",
-          highlight: "#f56954",
-          label: "Chrome"
-      },
-      {
-          value: 500,
-          color: "#00a65a",
-          highlight: "#00a65a",
-          label: "IE"
-      },
-      {
-          value: 400,
-          color: "#f39c12",
-          highlight: "#f39c12",
-          label: "FireFox"
-      },
-      {
-          value: 600,
-          color: "#00c0ef",
-          highlight: "#00c0ef",
-          label: "Safari"
-      },
-      {
-          value: 300,
-          color: "#3c8dbc",
-          highlight: "#3c8dbc",
-          label: "Opera"
-      },
-      {
-          value: 100,
-          color: "#d2d6de",
-          highlight: "#d2d6de",
-          label: "Navigator"
-      }
-    ];
-            var pieOptions = {
-                //Boolean - Whether we should show a stroke on each segment
-                segmentShowStroke: true,
-                //String - The colour of each segment stroke
-                segmentStrokeColor: "#fff",
-                //Number - The width of each segment stroke
-                segmentStrokeWidth: 2,
-                //Number - The percentage of the chart that we cut out of the middle
-                percentageInnerCutout: 50, // This is 0 for Pie charts
-                //Number - Amount of animation steps
-                animationSteps: 100,
-                //String - Animation easing effect
-                animationEasing: "easeOutBounce",
-                //Boolean - Whether we animate the rotation of the Doughnut
-                animateRotate: true,
-                //Boolean - Whether we animate scaling the Doughnut from the centre
-                animateScale: false,
-                //Boolean - whether to make the chart responsive to window resizing
-                responsive: true,
-                // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-                maintainAspectRatio: true,
-                //String - A legend template
-                legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
-            };
-            //Create pie or douhnut chart
-            // You can switch between pie and douhnut using the method below.
-            pieChart.Doughnut(PieData, pieOptions);
+        //-------------
+        //- LINE CHART -
+        //--------------
+        var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
+        var lineChart = new Chart(lineChartCanvas);
+        var lineChartOptions = areaChartOptions;
+        lineChartOptions.datasetFill = false;
+        lineChart.Line(areaChartData, lineChartOptions);
 
-            //-------------
-            //- BAR CHART -
-            //-------------
-            var barChartCanvas = $("#barChart").get(0).getContext("2d");
-            var barChart = new Chart(barChartCanvas);
-            var barChartData = areaChartData;
-            barChartData.datasets[1].fillColor = "#00a65a";
-            barChartData.datasets[1].strokeColor = "#00a65a";
-            barChartData.datasets[1].pointColor = "#00a65a";
-            var barChartOptions = {
-                //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-                scaleBeginAtZero: true,
-                //Boolean - Whether grid lines are shown across the chart
-                scaleShowGridLines: true,
-                //String - Colour of the grid lines
-                scaleGridLineColor: "rgba(0,0,0,.05)",
-                //Number - Width of the grid lines
-                scaleGridLineWidth: 1,
-                //Boolean - Whether to show horizontal lines (except X axis)
-                scaleShowHorizontalLines: true,
-                //Boolean - Whether to show vertical lines (except Y axis)
-                scaleShowVerticalLines: true,
-                //Boolean - If there is a stroke on each bar
-                barShowStroke: true,
-                //Number - Pixel width of the bar stroke
-                barStrokeWidth: 2,
-                //Number - Spacing between each of the X value sets
-                barValueSpacing: 5,
-                //Number - Spacing between data sets within X values
-                barDatasetSpacing: 1,
-                //String - A legend template
-                legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
-                //Boolean - whether to make the chart responsive
-                responsive: true,
-                maintainAspectRatio: true
-            };
+        //-------------
+        //- PIE CHART -
+        //-------------
+        // Get context with jQuery - using jQuery's .get() method.
+        var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
+        var pieChart = new Chart(pieChartCanvas);
+        var PieData = [
+            {
+                value: 700,
+                color: "#f56954",
+                highlight: "#f56954",
+                label: "Chrome"
+            },
+            {
+                value: 500,
+                color: "#00a65a",
+                highlight: "#00a65a",
+                label: "IE"
+            },
+            {
+                value: 400,
+                color: "#f39c12",
+                highlight: "#f39c12",
+                label: "FireFox"
+            },
+            {
+                value: 600,
+                color: "#00c0ef",
+                highlight: "#00c0ef",
+                label: "Safari"
+            },
+            {
+                value: 300,
+                color: "#3c8dbc",
+                highlight: "#3c8dbc",
+                label: "Opera"
+            },
+            {
+                value: 100,
+                color: "#d2d6de",
+                highlight: "#d2d6de",
+                label: "Navigator"
+            }
+        ];
+        var pieOptions = {
+            //Boolean - Whether we should show a stroke on each segment
+            segmentShowStroke: true,
+            //String - The colour of each segment stroke
+            segmentStrokeColor: "#fff",
+            //Number - The width of each segment stroke
+            segmentStrokeWidth: 2,
+            //Number - The percentage of the chart that we cut out of the middle
+            percentageInnerCutout: 50, // This is 0 for Pie charts
+            //Number - Amount of animation steps
+            animationSteps: 100,
+            //String - Animation easing effect
+            animationEasing: "easeOutBounce",
+            //Boolean - Whether we animate the rotation of the Doughnut
+            animateRotate: true,
+            //Boolean - Whether we animate scaling the Doughnut from the centre
+            animateScale: false,
+            //Boolean - whether to make the chart responsive to window resizing
+            responsive: true,
+            // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+            maintainAspectRatio: true,
+            //String - A legend template
+            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+        };
+        //Create pie or douhnut chart
+        // You can switch between pie and douhnut using the method below.
+        pieChart.Doughnut(PieData, pieOptions);
 
-            barChartOptions.datasetFill = false;
-            barChart.Bar(barChartData, barChartOptions);
+        //-------------
+        //- BAR CHART -
+        //-------------
+        var barChartCanvas = $("#barChart").get(0).getContext("2d");
+        var barChart = new Chart(barChartCanvas);
+        var barChartData = areaChartData;
+        barChartData.datasets[1].fillColor = "#00a65a";
+        barChartData.datasets[1].strokeColor = "#00a65a";
+        barChartData.datasets[1].pointColor = "#00a65a";
+        var barChartOptions = {
+            //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+            scaleBeginAtZero: true,
+            //Boolean - Whether grid lines are shown across the chart
+            scaleShowGridLines: true,
+            //String - Colour of the grid lines
+            scaleGridLineColor: "rgba(0,0,0,.05)",
+            //Number - Width of the grid lines
+            scaleGridLineWidth: 1,
+            //Boolean - Whether to show horizontal lines (except X axis)
+            scaleShowHorizontalLines: true,
+            //Boolean - Whether to show vertical lines (except Y axis)
+            scaleShowVerticalLines: true,
+            //Boolean - If there is a stroke on each bar
+            barShowStroke: true,
+            //Number - Pixel width of the bar stroke
+            barStrokeWidth: 2,
+            //Number - Spacing between each of the X value sets
+            barValueSpacing: 5,
+            //Number - Spacing between data sets within X values
+            barDatasetSpacing: 1,
+            //String - A legend template
+            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+            //Boolean - whether to make the chart responsive
+            responsive: true,
+            maintainAspectRatio: true
+        };
+
+        barChartOptions.datasetFill = false;
+        barChart.Bar(barChartData, barChartOptions);
+    });
+
+
+    $(".chart").click(function () {
+        var mb_one = "a";
+        var mb_two = "b";
+        var getYear = "2017";
+        alert(mb_one);
+        alert(mb_two);
+        alert(getYear);
+        //            var jsonData = JSON.stringify({
+        //                mobileId_one: mb_one,
+        //                mobileId_two: mb_two,
+        //                year: getYear
+        //            });
+
+        $.ajax({
+            type: "POST",
+            url: "Dashboard/getLineChartData",
+            //data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: OnSuccess_,
+            error: OnErrorCall_
         });
 
+        function OnSuccess_(reponse) {
+            var aData = reponse.d;
+            var aLabels = aData[0];
+            var aDatasets1 = aData[1];
+            var aDatasets2 = aData[2];
 
-        $(".chart").click(function () {
-            var mb_one = "a";
-            var mb_two = "b";
-            var getYear = "2017";
-            alert(mb_one);
-            alert(mb_two);
-            alert(getYear);
-            //            var jsonData = JSON.stringify({
-            //                mobileId_one: mb_one,
-            //                mobileId_two: mb_two,
-            //                year: getYear
-            //            });
+            var data = {
+                labels: aLabels,
+                datasets: [{
+                    label: "My First dataset",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: aDatasets1
+                },
+                {
+                    label: "My Second dataset",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: aDatasets2
+                }]
+            };
 
-            $.ajax({
-                type: "POST",
-                url: "Dashboard/getLineChartData",
-                //data: jsonData,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: OnSuccess_,
-                error: OnErrorCall_
+            var ctx = $("#myChart").get(0).getContext('2d');
+            ctx.canvas.height = 300;  // setting height of canvas
+            ctx.canvas.width = 500; // setting width of canvas
+            var lineChart = new Chart(ctx).Line(data, {
+                bezierCurve: false
             });
+        }
+        function OnErrorCall_(repo) {
 
-            function OnSuccess_(reponse) {
-                var aData = reponse.d;
-                var aLabels = aData[0];
-                var aDatasets1 = aData[1];
-                var aDatasets2 = aData[2];
+            alert("Woops something went wrong, pls try later !");
+        }
+    });
 
-                var data = {
-                    labels: aLabels,
-                    datasets: [{
-                        label: "My First dataset",
-                        fillColor: "rgba(220,220,220,0.2)",
-                        strokeColor: "rgba(220,220,220,1)",
-                        pointColor: "rgba(220,220,220,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(220,220,220,1)",
-                        data: aDatasets1
-                    },
-                  		{
-                  		    label: "My Second dataset",
-                  		    fillColor: "rgba(151,187,205,0.2)",
-                  		    strokeColor: "rgba(151,187,205,1)",
-                  		    pointColor: "rgba(151,187,205,1)",
-                  		    pointStrokeColor: "#fff",
-                  		    pointHighlightFill: "#fff",
-                  		    pointHighlightStroke: "rgba(151,187,205,1)",
-                  		    data: aDatasets2
-                  		}]
-                };
+</script>
+<script type="text/javascript">
 
-                var ctx = $("#myChart").get(0).getContext('2d');
-                ctx.canvas.height = 300;  // setting height of canvas
-                ctx.canvas.width = 500; // setting width of canvas
-                var lineChart = new Chart(ctx).Line(data, {
-                    bezierCurve: false
-                });
-            }
-            function OnErrorCall_(repo) {
+    jQuery(function () {
+        jQuery('#ticker').tickerme();
+    });
 
-                alert("Woops something went wrong, pls try later !");
-            }
-        });
-
-    </script>
-    <script type="text/javascript">
-
-        jQuery(function () {
-            jQuery('#ticker').tickerme();
-        });
-
-        // js code for news ticker	
-        (function (e) { e.fn.tickerme = function (t) { var n = e.extend({}, e.fn.tickerme.defaults, t); return this.each(function () { function a() { e(t).hide(); e("body").prepend(r).prepend(i); var n = '<div id="ticker_container">'; n += '<div id="newscontent"><div id="news"></div></div>'; n += '<div id="controls">'; n += '<a href="#" id="pause_trigger"><svg class="icon icon-pause" viewBox="0 0 32 32"><use xlink:href="#icon-pause"></use></svg></a>'; n += '<a href="#" id="play_trigger" style="display:none"><svg class="icon icon-play" viewBox="0 0 32 32"><use xlink:href="#icon-play"></use></svg></a>'; n += '<a href="#" id="prev_trigger"><svg class="icon icon-prev" viewBox="0 0 32 32"><use xlink:href="#icon-prev"></use></svg></a>'; n += '<a href="#" id="next_trigger"><svg class="icon icon-next" viewBox="0 0 32 32"><use xlink:href="#icon-next"></use></svg></a>'; n += "</div>"; n += "</div>"; e(n).insertAfter(t); e(t).children().each(function (t) { s[t] = e(this).html() }); f() } function f() { if (o == s.length - 1) { o = 0 } else { o++ } if (n.type == "fade") { e("#news").fadeOut(n.fade_speed, function () { e("#newscontent").html('<div id="news">' + s[o] + "</div>"); e("#news").fadeIn(n.fade_speed) }) } u = setTimeout(f, n.duration) } var t = e(this); var r = '<svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="224" height="32" viewBox="0 0 224 32"><defs><g id="icon-play"><path class="path1" d="M6 4l20 12-20 12z"></path></g><g id="icon-pause"><path class="path1" d="M4 4h10v24h-10zM18 4h10v24h-10z"></path></g><g id="icon-prev"><path class="path1" d="M18 5v10l10-10v22l-10-10v10l-11-11z"></path></g><g id="icon-next"><path class="path1" d="M16 27v-10l-10 10v-22l10 10v-10l11 11z"></path></g></defs></svg>'; var i = '<style type="text/css">#ticker_container{width:100%}#newscontent{float:left}#news{display:none}#controls{float:right;height:16px}.icon{display:inline-block;width:16px;height:16px;fill:' + n.control_colour + "}.icon:hover{fill:" + n.control_rollover + "}</style>"; var s = []; var o = -1; var u; a(); e("a#pause_trigger").click(function () { clearTimeout(u); e(this).hide(); e("#play_trigger").show(); return false }); e("a#play_trigger").click(function () { f(); e(this).hide(); e("#pause_trigger").show(); return false }); e("a#prev_trigger").click(function () { if (o == 0) { o = s.length - 1 } else { o-- } e("#newscontent").html('<div id="news" style="display:block">' + s[o] + "</div>"); if (n.auto_stop) e("a#pause_trigger").trigger("click"); return false }); e("a#next_trigger").click(function () { if (o == s.length - 1) { o = 0 } else { o++ } e("#newscontent").html('<div id="news" style="display:block">' + s[o] + "</div>"); if (n.auto_stop) e("a#pause_trigger").trigger("click"); return false }) }) }; e.fn.tickerme.defaults = { fade_speed: 500, duration: 3e3, auto_stop: true, type: "fade", control_colour: "#333333", control_rollover: "#666666"} })(jQuery)
-    </script>
+    // js code for news ticker
+    (function (e) { e.fn.tickerme = function (t) { var n = e.extend({}, e.fn.tickerme.defaults, t); return this.each(function () { function a() { e(t).hide(); e("body").prepend(r).prepend(i); var n = '<div id="ticker_container">'; n += '<div id="newscontent"><div id="news"></div></div>'; n += '<div id="controls">'; n += '<a href="#" id="pause_trigger"><svg class="icon icon-pause" viewBox="0 0 32 32"><use xlink:href="#icon-pause"></use></svg></a>'; n += '<a href="#" id="play_trigger" style="display:none"><svg class="icon icon-play" viewBox="0 0 32 32"><use xlink:href="#icon-play"></use></svg></a>'; n += '<a href="#" id="prev_trigger"><svg class="icon icon-prev" viewBox="0 0 32 32"><use xlink:href="#icon-prev"></use></svg></a>'; n += '<a href="#" id="next_trigger"><svg class="icon icon-next" viewBox="0 0 32 32"><use xlink:href="#icon-next"></use></svg></a>'; n += "</div>"; n += "</div>"; e(n).insertAfter(t); e(t).children().each(function (t) { s[t] = e(this).html() }); f() } function f() { if (o == s.length - 1) { o = 0 } else { o++ } if (n.type == "fade") { e("#news").fadeOut(n.fade_speed, function () { e("#newscontent").html('<div id="news">' + s[o] + "</div>"); e("#news").fadeIn(n.fade_speed) }) } u = setTimeout(f, n.duration) } var t = e(this); var r = '<svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="224" height="32" viewBox="0 0 224 32"><defs><g id="icon-play"><path class="path1" d="M6 4l20 12-20 12z"></path></g><g id="icon-pause"><path class="path1" d="M4 4h10v24h-10zM18 4h10v24h-10z"></path></g><g id="icon-prev"><path class="path1" d="M18 5v10l10-10v22l-10-10v10l-11-11z"></path></g><g id="icon-next"><path class="path1" d="M16 27v-10l-10 10v-22l10 10v-10l11 11z"></path></g></defs></svg>'; var i = '<style type="text/css">#ticker_container{width:100%}#newscontent{float:left}#news{display:none}#controls{float:right;height:16px}.icon{display:inline-block;width:16px;height:16px;fill:' + n.control_colour + "}.icon:hover{fill:" + n.control_rollover + "}</style>"; var s = []; var o = -1; var u; a(); e("a#pause_trigger").click(function () { clearTimeout(u); e(this).hide(); e("#play_trigger").show(); return false }); e("a#play_trigger").click(function () { f(); e(this).hide(); e("#pause_trigger").show(); return false }); e("a#prev_trigger").click(function () { if (o == 0) { o = s.length - 1 } else { o-- } e("#newscontent").html('<div id="news" style="display:block">' + s[o] + "</div>"); if (n.auto_stop) e("a#pause_trigger").trigger("click"); return false }); e("a#next_trigger").click(function () { if (o == s.length - 1) { o = 0 } else { o++ } e("#newscontent").html('<div id="news" style="display:block">' + s[o] + "</div>"); if (n.auto_stop) e("a#pause_trigger").trigger("click"); return false }) }) }; e.fn.tickerme.defaults = { fade_speed: 500, duration: 3e3, auto_stop: true, type: "fade", control_colour: "#333333", control_rollover: "#666666" } })(jQuery)
+</script>

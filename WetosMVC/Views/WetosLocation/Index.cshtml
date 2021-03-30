@@ -23,9 +23,9 @@
                             <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
                         </li>
-                        <li class="li_margin" style="padding-top: 0.4%;"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
                         
-                        <li class="li_margin" style="padding-top: 0.4%;"> <a href="@Url.Action("Index", "WetosLocation")">Location</a></li>
+                        <li class="li_margin"> <a href="@Url.Action("Index", "WetosLocation")">Location</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-6">
@@ -44,23 +44,15 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h1 class="page-title">
-                        <i style="text-shadow: -3px 0px 4px #6f88a2; ">Location Master </i><small>List</small>
-                        <span style="float:right;font-weight:800" onclick="OnLocationMasterClick(); ">
+                        <i style="text-shadow: -3px 0px 4px #6f88a2;">Location Master </i><small>List</small>
+                        <span style="float:right;font-weight:800" class="plus_icon_m" onclick="OnLocationMasterClick(); ">
 
                             @Html.ActionLink(" ", "Create", new { }, new { @class = "fa fa-plus-circle", title = "Add Location", style = "color:#428bca;font-size:19px" })
                         </span>
                     </h1>
                 </div>
             </div>
-      @*<ol class="breadcrumb">
-        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Masters</li>
-        <li class="active">Location</li>      
-      </ol>
-      <div>        
-      <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>
-      <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>      
-      <div style="clear: both;"></div> *@
+     
     </section>
         <section class="content">
        

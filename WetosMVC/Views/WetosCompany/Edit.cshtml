@@ -93,9 +93,10 @@
                   </div> 
             @*@Html.EditorFor(model => model.LocationId)*@
             @Html.DropDownListFor(a => a.LocationId, (IEnumerable<SelectListItem>)@ViewBag.LocatioList, "Select", new { @class = "form-control select2", disabled = "disabled" })
+            
+            </div>
             <div style="color: Red; font-size: 12px">
             @Html.ValidationMessageFor(model => model.LocationId)
-            </div>
             </div>
         </div>
          </div>
@@ -114,10 +115,11 @@
                   </div> 
 
             @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control pull-right" })
-            <div style="color: Red; font-size: 12px">
+            
+           </div>
+           <div style="color: Red; font-size: 12px">
             @Html.ValidationMessageFor(model => model.CompanyName)
             </div>
-           </div>
            </div>
         </div>
      
@@ -134,9 +136,10 @@
                   </div> 
 
             @Html.TextBoxFor(model => model.Address1, new { @class = "form-control pull-right" })
-            <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.Address1)
+           
             </div>
+             <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.Address1)
             </div>
         </div>
          </div>
@@ -199,9 +202,10 @@
                    <i class="fa fa-phone-square" aria-hidden="true"></i>
                   </div> 
             @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control pull-right" })
-             <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.Telephone)
+             
             </div>
+            <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.Telephone)
             </div>
         </div>
          </div>
@@ -235,9 +239,10 @@
                   </div> 
 
             @Html.TextBoxFor(model => model.Email, new { @class = "form-control pull-right" })
-             <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.Email)
+           
             </div>
+              <div style="color: Red; font-size: 12px">
+            @Html.ValidationMessageFor(model => model.Email)
             </div>
         </div>
          </div>
