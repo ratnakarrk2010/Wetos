@@ -1,13 +1,19 @@
 .wizard-step {
     display: none;
 }
-
+.select2-container--default .select2-selection--single {
+    height: 31px;
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+}
 .wizard-confirmation {
     display: none;
 }
 
 .wizard-nav {}
-
+/*.select2-container--default .select2-selection--single {
+    width: 250px;
+}*/
 .wizard-nav input[type="button"] {
     width: 100px;
 }
@@ -57,8 +63,12 @@
     margin-bottom: 5% !important;
 }
 
-.select2-container {
+/*.select2-container {
     width: 100% !important;
+}*/
+
+.input-group .form-control {
+    height: 31px;
 }
 
 @media screen and (min-device-width: 320px) and (max-device-width: 767px) {
@@ -69,6 +79,7 @@
         padding: 10px 10px !important;
         overflow: visible !important;
     }
+
 }
 
 @media screen and (min-device-width: 411px) and (max-device-width: 414px) {

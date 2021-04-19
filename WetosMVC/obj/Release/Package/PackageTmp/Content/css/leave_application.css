@@ -1,7 +1,21 @@
 .table-bordered {
     box-shadow: 0px 2px 6px #a9b1b8 !important;
 }
-
+.select2-container .select2-selection--single {
+    height: 31px;
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+}
+.AltContactNo {
+    height: 31px;
+    width: 100%;
+}
+.input-group .form-control {
+    height: 31px;
+}
+.select2-container--default .select2-selection--single {
+    border: 1px solid #ccc;
+}
 .table-striped>tbody>tr:nth-of-type(odd) {
     box-shadow: 0px 2px 6px #a9b1b8 !important;
 }

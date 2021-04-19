@@ -14,9 +14,16 @@
     .content-header {
         padding-top: 0% !important;
     }
+
     .page-content-wrapper .page-content {
         padding: 10px 10px !important;
         overflow: visible !important;
+    }
+    .li_margin {
+        margin-top: 1.5% !important;
+    }
+    .m_btn_margin_left {
+        margin-left: 4.5%;
     }
 }
 

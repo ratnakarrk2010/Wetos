@@ -8,39 +8,16 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
 <link href="~/Content/css/master_report_index.css" rel="stylesheet" />
 <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
-
+<style>
+    input[type=radio] {
+        margin-right: 3%;
+    }
+</style>
 <div class="page-content-wrapper" id="page_content">
-    <div class="page-content">
+    <div class="page-content" >
         <section class="content-header">
-
-
-            <!-- <div class="row">
-                      <div class="col-md-12">
-                          <ul class="page-breadcrumb breadcrumb">
-                              <li>
-                                  <i class="fa fa-home"></i>
-                                  <a href="@Url.Action("Index", "Home")">Home </a>
-                                  <i class="fa fa-angle-right"></i>
-                              </li>
-                              <li>
-                               <a href="#">Reports</a>
-                                  <i class="fa fa-angle-right"></i>
-                              </li>
-                              <li>
-                                  <a href="#">Master Report</a>
-                              </li>
-                              <li class="pull-right">
-                                  <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                      <span style="cursor:pointer" class="back "  data-toggle="tooltip"  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
-                                      <i class="fa fa-calendar"></i>
-                                      <span>@DateTime.Now.ToLongDateString()</span>
-                                  </div>
-                              </li>
-                          </ul>
-                      </div>
-                  </div> -->
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
@@ -69,7 +46,7 @@
                     </ul>
                 </div>
             </div>
-            <h1>
+            <h1 class="margin_left_h1">
                 Master Report
                 <small> Details</small>
             </h1>
@@ -97,11 +74,8 @@
             <div style="color: Red; font-size: 12px">
                 @Html.ValidationSummary(true)
             </div>
-            <section class="content">
-
+            <section class="content" style="padding-left: 1.5%!important;">
                 <div class="box">
-
-
                     <!-- /.box-header -->
                     <div class="box-body">
                         @*Added by Rajas on 23 DEC 2016 For custom error message START*@
@@ -111,9 +85,6 @@
                         @*Added by Rajas on 23 DEC 2016 For custom error message END*@
                         <div class="row m_margin_left_0">
                             <div class="col-md-4">
-
-
-
                                 <div class="row">
                                     @Html.RadioButtonFor(model => model.ReportsSelected, "2")  Company Master
                                 </div>
@@ -124,7 +95,6 @@
                                     @Html.RadioButtonFor(model => model.ReportsSelected, "8")  Shift Master
                                 </div>
                             </div>
-
                             <div class="col-md-4">
                                 <div class="row">
                                     @Html.RadioButtonFor(model => model.ReportsSelected, "1", new { Checked = "checked" })  Branch Master
@@ -138,9 +108,7 @@
                                 @*<div class="row">
                                     @Html.RadioButtonFor(model => model.ReportsSelected, "7")  Shift Rotation Master
                                     </div>*@
-
                             </div>
-
                             <div class="col-md-4">
                                 <div class="row">
                                     @Html.RadioButtonFor(model => model.ReportsSelected, "3")  Department Master
@@ -157,10 +125,7 @@
                             </div><br />
                         </div>
                         <br />
-
-
-
-                        <div>
+                        <div class="margin_left_save">
                             @*CODE MODIFIED BY SHRADDHA ON 01 NOV 2017 TAKEN EXPORT TO EXCEL AND EXPORT TO PDF VISIBLE OR HIDDEN BASED ON GLOBAL SETTING START*@
                             @if (ViewBag.ExportToPDFEnabledObj == 1)
                             {

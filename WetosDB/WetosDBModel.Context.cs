@@ -144,23 +144,6 @@ namespace WetosDB
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_DisplayShiftOnCalendar_Result>("SP_DisplayShiftOnCalendar", employeeIdParameter, inputMonthParameter, inputYearParameter);
         }
     
-        public virtual ObjectResult<sp_get_audit_trail_Result> sp_get_audit_trail(Nullable<int> userId, Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate)
-        {
-            var userIdParameter = userId.HasValue ?
-                new ObjectParameter("UserId", userId) :
-                new ObjectParameter("UserId", typeof(int));
-    
-            var fromDateParameter = fromDate.HasValue ?
-                new ObjectParameter("FromDate", fromDate) :
-                new ObjectParameter("FromDate", typeof(System.DateTime));
-    
-            var toDateParameter = toDate.HasValue ?
-                new ObjectParameter("ToDate", toDate) :
-                new ObjectParameter("ToDate", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_get_audit_trail_Result>("sp_get_audit_trail", userIdParameter, fromDateParameter, toDateParameter);
-        }
-    
         public virtual ObjectResult<sp_get_Notifications_Result> sp_get_Notifications(Nullable<int> employeeid, Nullable<System.DateTime> todaysDate)
         {
             var employeeidParameter = employeeid.HasValue ?
@@ -797,27 +780,6 @@ namespace WetosDB
                 new ObjectParameter("EmployeeId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_ManualCOSanctionIndex_Result>("SP_ManualCOSanctionIndex", employeeIdParameter);
-        }
-    
-        public virtual ObjectResult<sp_get_Roleuser_Result> sp_get_Roleuser(Nullable<int> roleid, Nullable<int> y_id, Nullable<int> companyId, Nullable<int> branchId)
-        {
-            var roleidParameter = roleid.HasValue ?
-                new ObjectParameter("roleid", roleid) :
-                new ObjectParameter("roleid", typeof(int));
-    
-            var y_idParameter = y_id.HasValue ?
-                new ObjectParameter("y_id", y_id) :
-                new ObjectParameter("y_id", typeof(int));
-    
-            var companyIdParameter = companyId.HasValue ?
-                new ObjectParameter("CompanyId", companyId) :
-                new ObjectParameter("CompanyId", typeof(int));
-    
-            var branchIdParameter = branchId.HasValue ?
-                new ObjectParameter("BranchId", branchId) :
-                new ObjectParameter("BranchId", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_get_Roleuser_Result>("sp_get_Roleuser", roleidParameter, y_idParameter, companyIdParameter, branchIdParameter);
         }
     
         public virtual ObjectResult<sp_get_user_role_menu_Result> sp_get_user_role_menu(Nullable<int> userId, Nullable<int> y_id)
@@ -1494,6 +1456,44 @@ namespace WetosDB
                 new ObjectParameter("EmployeeId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LeaveEncashSanctionIndex_Result>("SP_LeaveEncashSanctionIndex", employeeIdParameter);
+        }
+    
+        public virtual ObjectResult<sp_get_Roleuser_Result> sp_get_Roleuser(Nullable<int> roleid, Nullable<int> y_id, Nullable<int> companyId, Nullable<int> branchId)
+        {
+            var roleidParameter = roleid.HasValue ?
+                new ObjectParameter("roleid", roleid) :
+                new ObjectParameter("roleid", typeof(int));
+    
+            var y_idParameter = y_id.HasValue ?
+                new ObjectParameter("y_id", y_id) :
+                new ObjectParameter("y_id", typeof(int));
+    
+            var companyIdParameter = companyId.HasValue ?
+                new ObjectParameter("CompanyId", companyId) :
+                new ObjectParameter("CompanyId", typeof(int));
+    
+            var branchIdParameter = branchId.HasValue ?
+                new ObjectParameter("BranchId", branchId) :
+                new ObjectParameter("BranchId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_get_Roleuser_Result>("sp_get_Roleuser", roleidParameter, y_idParameter, companyIdParameter, branchIdParameter);
+        }
+    
+        public virtual ObjectResult<sp_get_audit_trail_Result> sp_get_audit_trail(Nullable<int> userId, Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
+            var fromDateParameter = fromDate.HasValue ?
+                new ObjectParameter("FromDate", fromDate) :
+                new ObjectParameter("FromDate", typeof(System.DateTime));
+    
+            var toDateParameter = toDate.HasValue ?
+                new ObjectParameter("ToDate", toDate) :
+                new ObjectParameter("ToDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_get_audit_trail_Result>("sp_get_audit_trail", userIdParameter, fromDateParameter, toDateParameter);
         }
     }
 }

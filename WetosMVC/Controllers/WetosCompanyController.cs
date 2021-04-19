@@ -182,7 +182,7 @@ namespace WetosMVC.Controllers
                 CompanyModelObj.Fax = CompanyEdit.Fax;
                 CompanyModelObj.Email = CompanyEdit.Email;
                 CompanyModelObj.PAN = CompanyEdit.PAN;
-
+                CompanyModelObj.PinCode = CompanyEdit.PINCode;
                 // Added by Rajas on 28 MARCH 2017 
                 CompanyModelObj.MarkedAsDelete = CompanyEdit.MarkedAsDelete;
 

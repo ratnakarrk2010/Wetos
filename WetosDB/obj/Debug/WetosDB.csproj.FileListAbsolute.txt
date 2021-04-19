@@ -1,9 +1,29 @@
-E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Debug\WetosDB.csproj.CoreCompileInputs.cache
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\bin\Debug\WetosDB.dll.config
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\bin\Debug\WetosDB.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\bin\Debug\WetosDB.pdb
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\bin\Debug\EntityFramework.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\bin\Debug\EntityFramework.xml
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Debug\WetosDB.csproj.CoreCompileInputs.cache
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Debug\WetosDB.csproj.CopyComplete
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Debug\WetosDB.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Debug\WetosDB.pdb
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Debug\WetosDB.csprojAssemblyReference.cache
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosDB\bin\Debug\WetosDB.dll.config
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosDB\bin\Debug\WetosDB.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosDB\bin\Debug\WetosDB.pdb
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosDB\bin\Debug\EntityFramework.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosDB\bin\Debug\EntityFramework.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosDB\obj\Debug\WetosDB.csproj.CopyComplete
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosDB\obj\Debug\WetosDB.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosDB\obj\Debug\WetosDB.pdb
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosDB\obj\Debug\WetosDB.csprojAssemblyReference.cache
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\bin\Debug\WetosDB.dll.config
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\bin\Debug\WetosDB.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\bin\Debug\WetosDB.pdb
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\bin\Debug\EntityFramework.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\bin\Debug\EntityFramework.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\obj\Debug\WetosDB.csprojAssemblyReference.cache
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\obj\Debug\WetosDB.csproj.CoreCompileInputs.cache
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\obj\Debug\WetosDB.csproj.CopyComplete
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\obj\Debug\WetosDB.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\obj\Debug\WetosDB.pdb

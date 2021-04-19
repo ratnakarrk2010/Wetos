@@ -12,19 +12,16 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-
-
-
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
                             <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
                         </li>
-                      <li class="li_margin">
-                         <a href="#">Masters</a>
+                        <li class="li_margin">
+                            <a href="#">Masters</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li class="li_margin">
@@ -45,412 +42,376 @@
                     </ul>
                 </div>
             </div>
-            <h1>Nav Menu
- <small>Create</small>
-</h1>
-      <div style="clear: both;"></div>
+            <h1 class="margin_left_h1">
+                Nav Menu
+                <small>Create</small>
+            </h1>
+            <div style="clear: both;"></div>
 
-       
 
-      </section>
+
+        </section>
         <section class="content">
-      <div class="row">
-        <div class="col-xs-12 col-md-12 col-lg-12">
-          <div class="box">
-         
-            <!-- /.box-header -->
-            <div class="box-body">
-            
-@using (Html.BeginForm("Create", "WetosNavMenuMaster", FormMethod.Post, new { id = "CreateBranchForm" }))
-{
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationSummary(true)
-    </div>
-   
-   
-    <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessage("Error")
-            </div>
-   
-    <div class="row">
-             <div class="col-md-10">  
-            <input type="radio" id="opt1" name="opt" value="ParentWise"/> Parent Nav Menu
-            <input type="radio" id="opt2" name="opt" value="ChildWise" checked="checked"/> Child Nav Menu
-            
-            </div>
-            
-            </div>  
-   
-    <div class="row MeuNameId">
-        <div class="editor-label col-md-2">
-    Menu Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box">
 
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.MenuNameId, (IEnumerable<SelectListItem>)@ViewBag.NavMenuParentList, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "MenuNameId" })
-           
-            </div>
-             <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.MenuNameId)
-            </div>
-        </div>
-   </div> 
-    
-    
-     @*ADDED BY NANDINI ON 02 MAY 2020 START*@
-      @*    <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Master Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
+                        <!-- /.box-header -->
+                        <div class="box-body">
 
-         <div class="input-group date">
-         <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.MasterId, (IEnumerable<SelectListItem>)@ViewBag.MasterParentList, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "MasterId", @disabled = "disabled" })
-            
-            </div>
-            <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.MasterId)
-            </div>
-        </div>
-   </div> *@    
-    
-    <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Attendance Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
-
-         <div class="input-group date">
-         <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.AttendanceId, (IEnumerable<SelectListItem>)@ViewBag.AttendanceListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "AttendanceId", @disabled = "disabled" })
-           
-            </div>
-             <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.AttendanceId)
-            </div>
-        </div>
-   </div>   
-    
-    <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Payroll Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
-
-         <div class="input-group date">
-         <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.PayrollId, (IEnumerable<SelectListItem>)@ViewBag.PayrollListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "PayrollId", @disabled = "disabled" })
-            
-            </div>
-           <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.PayrollId)
-            </div>
-
-        </div>
-   </div>    
-     <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Application Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
-
-         <div class="input-group date">
-         <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.ApplicationId, (IEnumerable<SelectListItem>)@ViewBag.ApplicationListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "ApplicationId", @disabled = "disabled" })
-           
-            </div>
-             <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.ApplicationId)
-            </div>
-        </div>
-   </div>   
-    
-        <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Sanction Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
-
-         <div class="input-group date">
-         <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.SanctionId, (IEnumerable<SelectListItem>)@ViewBag.SanctionListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "SanctionId", @disabled = "disabled" })
-            
-            </div>
-            <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.SanctionId)
-            </div>
-        </div>
-   </div>  
-    
-    <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Reports Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
-
-         <div class="input-group date">
-         <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.ReportsId, (IEnumerable<SelectListItem>)@ViewBag.ReportsListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "ReportsId", @disabled = "disabled" })
-           
-            </div>
-             <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.ReportsId)
-            </div>
-        </div>
-   </div>     
-    
-    <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Administration Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
-
-         <div class="input-group date">
-         <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.AdministrationId, (IEnumerable<SelectListItem>)@ViewBag.AdministrationListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "AdministrationId", @disabled = "disabled" })
-           
-            </div>
-             <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.AdministrationId)
-            </div>
-        </div>
-   </div>  
-    
-    <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Employee Management Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
-
-         <div class="input-group date">
-         <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.EmpMgmtId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeManagementListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "EmpMgmtId", @disabled = "disabled" })
-           
-            </div>
-             <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.EmpMgmtId)
-            </div>
-        </div>
-   </div>    
-    
-     <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Other's Application Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
-
-         <div class="input-group date">
-         <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.OtherAppId, (IEnumerable<SelectListItem>)@ViewBag.OtherApplicationListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "OtherAppId", @disabled = "disabled" })
-          
-            </div>
-              <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.OtherAppId)
-            </div>
-        </div>
-   </div>    
-    
-     <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Updates Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
-
-         <div class="input-group date">
-         <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.UpdatesId, (IEnumerable<SelectListItem>)@ViewBag.UpdatesListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "UpdatesId", @disabled = "disabled" })
-           
-            </div>
-             <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.UpdatesId)
-            </div>
-        </div>
-   </div>    
-    
-     <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Charts Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
-
-         <div class="input-group date">
-         <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.ChartsId, (IEnumerable<SelectListItem>)@ViewBag.ChartsListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "ChartsId", @disabled = "disabled" })
-          
-            </div>
-              <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.ChartsId)
-            </div>
-        </div>
-   </div>     
-    
-      <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Wetos Reports Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
-
-         <div class="input-group date">
-         <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.WetosReportsId, (IEnumerable<SelectListItem>)@ViewBag.WetosReportListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "WetosReportsId", @disabled = "disabled" })
-            
-            </div>
-            <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.WetosReportsId)
-            </div>
-        </div>
-   </div>     
-  
-    
-     <div class="row NavMenuNameId">
-        <div class="editor-label col-md-2">
-    Nav Menu Name<span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-            
-            
-            <div class="input-group date">
-             <div class="input-group-addon">
-             <i class="fa fa-university" aria-hidden="true"></i>
-             </div> 
-            @Html.TextBoxFor(model => model.NavMenuName, new { @class = "form-control", @style = "width:300px;" })
-           
-        </div>
-      
-             <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.NavMenuName)
-            </div>
-       </div> 
-       </div>
-         
-    
-    <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Nav Link <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
-
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-            @Html.TextBoxFor(model => model.NavLink, new { @class = "form-control", @style = "width:300px;" })
-           
-            </div>
-             <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.NavLink)
-            </div>
-        </div>
-   </div> 
-
-         
-    <div class="row">
-        <div class="editor-label col-md-2">
-        Sr.No.  <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
+                            @using (Html.BeginForm("Create", "WetosNavMenuMaster", FormMethod.Post, new { id = "CreateBranchForm" }))
+                            {
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationSummary(true)
+                                </div>
 
 
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-            @Html.TextBoxFor(model => model.SrNo, new { @class = "form-control", @style = "width:300px;" })
-            
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationMessage("Error")
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <input type="radio" id="opt1" name="opt" value="ParentWise" /> Parent Nav Menu
+                                        <input type="radio" id="opt2" name="opt" value="ChildWise" checked="checked" /> Child Nav Menu
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row MeuNameId">
+                                    <div class="editor-label col-md-2">
+                                        Menu Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.MenuNameId, (IEnumerable<SelectListItem>)@ViewBag.NavMenuParentList, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "MenuNameId" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.MenuNameId)
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                @*ADDED BY NANDINI ON 02 MAY 2020 START*@
+                                @*    <div class="row NavLinkId">
+                                         <div class="editor-label col-md-2">
+                                     Master Name <span style="color:Red;font-size:18px" >*</span>
+                                         </div>
+                                         <div class="editor-field col-md-5">
+
+
+                                          <div class="input-group date">
+                                          <div class="input-group-addon">
+                                                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                                                   </div>
+                                              @Html.DropDownListFor(model => model.MasterId, (IEnumerable<SelectListItem>)@ViewBag.MasterParentList, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "MasterId", @disabled = "disabled" })
+
+                                             </div>
+                                             <div style="color: Red; font-size: 12px">
+                                             @Html.ValidationMessageFor(model => model.MasterId)
+                                             </div>
+                                         </div>
+                                    </div> *@
+
+                                <div class="row NavLinkId">
+                                    <div class="editor-label col-md-2">
+                                        Attendance Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.AttendanceId, (IEnumerable<SelectListItem>)@ViewBag.AttendanceListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "AttendanceId", @disabled = "disabled" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.AttendanceId)
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row NavLinkId">
+                                    <div class="editor-label col-md-2">
+                                        Payroll Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.PayrollId, (IEnumerable<SelectListItem>)@ViewBag.PayrollListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "PayrollId", @disabled = "disabled" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.PayrollId)
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row NavLinkId">
+                                    <div class="editor-label col-md-2">
+                                        Application Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.ApplicationId, (IEnumerable<SelectListItem>)@ViewBag.ApplicationListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "ApplicationId", @disabled = "disabled" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.ApplicationId)
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row NavLinkId">
+                                    <div class="editor-label col-md-2">
+                                        Sanction Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.SanctionId, (IEnumerable<SelectListItem>)@ViewBag.SanctionListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "SanctionId", @disabled = "disabled" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.SanctionId)
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row NavLinkId">
+                                    <div class="editor-label col-md-2">
+                                        Reports Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.ReportsId, (IEnumerable<SelectListItem>)@ViewBag.ReportsListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "ReportsId", @disabled = "disabled" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.ReportsId)
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row NavLinkId">
+                                    <div class="editor-label col-md-2">
+                                        Administration Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.AdministrationId, (IEnumerable<SelectListItem>)@ViewBag.AdministrationListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "AdministrationId", @disabled = "disabled" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.AdministrationId)
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row NavLinkId">
+                                    <div class="editor-label col-md-2">
+                                        Employee Management Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.EmpMgmtId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeManagementListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "EmpMgmtId", @disabled = "disabled" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.EmpMgmtId)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row NavLinkId">
+                                    <div class="editor-label col-md-2">
+                                        Other's Application Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.OtherAppId, (IEnumerable<SelectListItem>)@ViewBag.OtherApplicationListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "OtherAppId", @disabled = "disabled" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.OtherAppId)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row NavLinkId">
+                                    <div class="editor-label col-md-2">
+                                        Updates Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.UpdatesId, (IEnumerable<SelectListItem>)@ViewBag.UpdatesListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "UpdatesId", @disabled = "disabled" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.UpdatesId)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row NavLinkId">
+                                    <div class="editor-label col-md-2">
+                                        Charts Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.ChartsId, (IEnumerable<SelectListItem>)@ViewBag.ChartsListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "ChartsId", @disabled = "disabled" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.ChartsId)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row NavLinkId">
+                                    <div class="editor-label col-md-2">
+                                        Wetos Reports Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.WetosReportsId, (IEnumerable<SelectListItem>)@ViewBag.WetosReportListVB, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "WetosReportsId", @disabled = "disabled" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.WetosReportsId)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row NavMenuNameId">
+                                    <div class="editor-label col-md-2">
+                                        Nav Menu Name<span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-university" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.NavMenuName, new { @class = "form-control", @style = "width:300px;" })
+
+                                        </div>
+
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.NavMenuName)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row NavLinkId">
+                                    <div class="editor-label col-md-2">
+                                        Nav Link <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.NavLink, new { @class = "form-control", @style = "width:300px;" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.NavLink)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Sr.No.  <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.SrNo, new { @class = "form-control", @style = "width:300px;" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.SrNo)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Icon  <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.NavMenuIcon, (IEnumerable<SelectListItem>)@ViewBag.NavMenuIconList, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.NavMenuIcon)
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <p class="margin_left_save">
+                                    <input type="button" id="Branchbtn" value="Create" class="btn btn-default" style="cursor:pointer; float:left" title="Click to Save Nav Menu" />
+                                    <span class="btn btn-default" style="cursor:pointer; float:left;margin-left:10px" title="Click to go back to Nav Menu List">@Html.ActionLink("Back to Nav Menu List", "Index")</span>
+                                </p>
+
+                            }
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
             </div>
-            <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.SrNo)
-            </div>
-        </div>
-   </div> 
-
-         
-    <div class="row">
-        <div class="editor-label col-md-2">
-        Icon  <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-            @Html.DropDownListFor(model => model.NavMenuIcon, (IEnumerable<SelectListItem>)@ViewBag.NavMenuIconList, "Select", new { @class = "form-control select2", style = "width:300px;", @id = "" })
-           
-            </div>
-             <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.NavMenuIcon)
-            </div>
-        </div>
-   </div> 
-
-         
- 
- <hr />
-         
-       <p>
-            <input type="button" id="Branchbtn" value="Create" class="btn btn-default" style="cursor:pointer; float:left" title = "Click to Save Nav Menu"/>
-            <span  class="btn btn-default" style="cursor:pointer; float:left;margin-left:10px" title = "Click to go back to Nav Menu List">@Html.ActionLink("Back to Nav Menu List", "Index")</span>
-           
-        </p>
-    
-}
-
-
-</div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
+            <!-- /.row -->
+        </section>
     </div>
 </div>
 <div id="branchdiv" class="modal fade">
@@ -461,9 +422,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="DeleteBtn">
-                    Yes</button>
+                    Yes
+                </button>
                 <button type="button" data-dismiss="modal" class="col-md-2 btn">
-                    Cancel</button>
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
@@ -474,8 +437,8 @@
         $(".select2").select2();
     });
 
-    
-    
+
+
 </script>
 <script type="text/jscript">
     $(document).ready(function () {
@@ -497,12 +460,12 @@
 
         var $form = $(this).closest('form');
         $('#branchdiv').modal({ backdrop: 'static', keyboard: false })
-                .one('click', '#DeleteBtn', function () {
+            .one('click', '#DeleteBtn', function () {
 
 
 
-                    $("#CreateBranchForm").submit();
-                });
+                $("#CreateBranchForm").submit();
+            });
 
     });
 
@@ -524,7 +487,7 @@
         }
     });
 
-    //ADDED BY NANDINI ON 02 MAY 2020 START 
+    //ADDED BY NANDINI ON 02 MAY 2020 START
     $("#MenuNameId").change(function () {
 
         //showloading();

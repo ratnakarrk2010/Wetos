@@ -26,6 +26,9 @@
         overflow: visible !important;
     }
     .date {
+        margin-left: 0% !important;
+    }
+    .input_div_margin{
         margin-left: 4% !important;
     }
     #LunchTimeExcludeFlag {

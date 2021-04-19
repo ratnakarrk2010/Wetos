@@ -1,65 +1,68 @@
 ﻿@model IEnumerable<WetosDB.UploadDocument>
-<div class="page-content-wrapper">
-    <div class="page-content">
-    <div class="table-responsive">
-        <table id="CompanyMaster" class="table table-bordered table-striped">
-            <thead>
-                <tr>
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="table-responsive">
+                <table id="CompanyMaster" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
 
-                    <td>Doc Content Type
-                    </td>
+                            <td>
+                                Doc Content Type
+                            </td>
 
-                    <td>Doc Description
-                    </td>
-
-
-                    <td>File Name
-                    </td>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DocContentType)
-                        </td>
-
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DocDescription)
-                        </td>
-
-                        <td>
-                             @*CODE MODIFIED TO DOWNLOAD DOCUMENT FROM CORRECT LOCATION BY SHRADDHA ON 31 OCT 2017 START*@
-                            @if (item.DocFolder == "Document_Upload")
-                            {
-                            
-                                <a href='@Url.Content("~/User_Data/Document_Upload/" + @item.FileName)' target="_blank">@item.FileName</a>
-                            }
-                            else if (item.DocFolder == "Employee_Official_Documents")
-                            { 
-                                <a href='@Url.Content("~/User_Data/Employee_Official_Documents/" + @item.FileName)' target="_blank">@item.FileName</a>
-                                @*<a href="~/User_Data/Employee_Official_Documents/@item.FileName" target="_blank">@item.FileName</a>*@
-                            }
-                                @*CODE MODIFIED TO DOWNLOAD DOCUMENT FROM CORRECT LOCATION BY SHRADDHA ON 31 OCT 2017 END*@
-                            @*@Html.ActionLink(item.FileName, "DownloadPDF", new { id = item.DocID })*@
-                        </td>
+                            <td>
+                                Doc Description
+                            </td>
 
 
-                    </tr>
-                }
-            </tbody>
-            <tfoot></tfoot>
-        </table>
+                            <td>
+                                File Name
+                            </td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DocContentType)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DocDescription)
+                                </td>
+
+                                <td>
+                                    @*CODE MODIFIED TO DOWNLOAD DOCUMENT FROM CORRECT LOCATION BY SHRADDHA ON 31 OCT 2017 START*@
+                                    @if (item.DocFolder == "Document_Upload")
+                                    {
+
+                                        <a href='@Url.Content("~/User_Data/Document_Upload/" + @item.FileName)' target="_blank">@item.FileName</a>
+                                    }
+                                    else if (item.DocFolder == "Employee_Official_Documents")
+                                    {
+                                        <a href='@Url.Content("~/User_Data/Employee_Official_Documents/" + @item.FileName)' target="_blank">@item.FileName</a>
+                                        @*<a href="~/User_Data/Employee_Official_Documents/@item.FileName" target="_blank">@item.FileName</a>*@
+                                    }
+                                    @*CODE MODIFIED TO DOWNLOAD DOCUMENT FROM CORRECT LOCATION BY SHRADDHA ON 31 OCT 2017 END*@
+                                    @*@Html.ActionLink(item.FileName, "DownloadPDF", new { id = item.DocID })*@
+                                </td>
+
+
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
         </div>
     </div>
-</div>
-<script type="text/jscript">
+    <script type="text/jscript">
 
-    $(function () {
-        $("#CompanyMaster").DataTable();
-    });
+        $(function () {
+            $("#CompanyMaster").DataTable();
+        });
 
-</script>
+    </script>

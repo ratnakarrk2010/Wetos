@@ -75,30 +75,68 @@ namespace WetosMVC.Controllers
         //public JsonResult GetNavMenuData(int Roleid, int Companyid, int Yearid) --- Commented by Shalaka on 27th DEC 2017 Yearid not required
         public JsonResult GetNavMenuData(int Roleid, int Companyid)
         {
+            try
+            { 
+               List<sp_get_RoleNavmenu_Result> RoleNavMenuList = WetosDB.sp_get_RoleNavmenu(1, Roleid).ToList();
 
-            List<sp_get_RoleNavmenu_Result> RoleNavMenuList = WetosDB.sp_get_RoleNavmenu(1, Roleid).ToList();
-
-            return Json(new
+                return Json(new
+                 {
+                    RoleData = MvcHelpers.RenderPartialView(this, "GetNavMenuData", RoleNavMenuList)
+                 });
+            }
+            catch(Exception ex1)
             {
-                RoleData = MvcHelpers.RenderPartialView(this, "GetNavMenuData", RoleNavMenuList)
-
-            });
+                return null;
+            }
         }
 
+        [HttpPost]
         // public JsonResult GetUsersData(int Roleid, int Companyid, int Yearid) --- Commented by Shalaka on 27th DEC 2017 Yearid not required
         public JsonResult GetUsersData(int Roleid, int Companyid, string BranchId = null)
         {
-            int BranchIdInt = 0;
-            if (!string.IsNullOrEmpty(BranchId))
+            try
             {
-                BranchIdInt = Convert.ToInt32(BranchId);
-            }
-            List<sp_get_Roleuser_Result> UserRoleList = WetosDB.sp_get_Roleuser(Roleid, 1, Companyid, BranchIdInt).ToList(); //.Users.ToList(); // WetosDB.Users.ToList(); //.sp_get_Roleuser(Roleid, Yearid)\.ToList();
+                int BranchIdInt = 0;
+                if (!string.IsNullOrEmpty(BranchId))
+                {
+                    BranchIdInt = Convert.ToInt32(BranchId);
+                }
+                List<sp_get_Roleuser_Result> UserRoleList = WetosDB.sp_get_Roleuser(Roleid, 1, Companyid, BranchIdInt).ToList(); //.Users.ToList(); // WetosDB.Users.ToList(); //.sp_get_Roleuser(Roleid, Yearid)\.ToList();
 
-            return Json(new
+                return Json(new
+                {
+                    RoleData = MvcHelpers.RenderPartialView(this, "GetUsersData", UserRoleList)
+                });
+            }
+            catch(Exception ex1)
             {
-                RoleData = MvcHelpers.RenderPartialView(this, "GetUsersData", UserRoleList)
-            });
+                return null;
+            }
+        }
+
+        [HttpGet]
+        // public JsonResult GetUsersData(int Roleid, int Companyid, int Yearid) --- Commented by Shalaka on 27th DEC 2017 Yearid not required
+        public ActionResult GetUsersData_New(int Roleid, int Companyid, string BranchId = null)
+        {
+            try
+            {
+                int BranchIdInt = 0;
+                if (!string.IsNullOrEmpty(BranchId))
+                {
+                    BranchIdInt = Convert.ToInt32(BranchId);
+                }
+                List<sp_get_Roleuser_Result> UserRoleList = WetosDB.sp_get_Roleuser(Roleid, 1, Companyid, BranchIdInt).ToList(); //.Users.ToList(); // WetosDB.Users.ToList(); //.sp_get_Roleuser(Roleid, Yearid)\.ToList();
+               
+                return PartialView(UserRoleList);
+                //return Json(new
+                //{
+                //    RoleData = MvcHelpers.RenderPartialView(this, "GetUsersData", UserRoleList)
+                //});
+            }
+            catch (Exception ex1)
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -125,7 +163,8 @@ namespace WetosMVC.Controllers
             int i = 0;
 
             var rolenavmenuss = WetosDB.RoleNavMenus.Where(rv => rv.y_id == 1 && rv.roleId == Roleid).ToList();
-
+            WetosDB.RoleNavMenus.Where(u => u.roleId == Roleid).ToList().ForEach(u => WetosDB.RoleNavMenus.Remove(u));
+            WetosDB.SaveChanges();
             foreach (RoleNavMenu rvnm in rolenavmenuss)
             {
                 WetosDB.RoleNavMenus.Add(rvnm);
@@ -192,7 +231,7 @@ namespace WetosMVC.Controllers
                                     k++;
                                 }
                             }
-                            catch
+                            catch(Exception ex1)
                             {
                             }
 

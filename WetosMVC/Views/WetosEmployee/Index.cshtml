@@ -11,10 +11,8 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-    
-   
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
@@ -39,11 +37,9 @@
                     </ul>
                 </div>
             </div>
-            <h1>Employee Master
+            <h1 class="margin_left_h1">Employee Master
         <small>Active Employee List</small>
-        
-         
-        <span class="fa fa-users m_margin3"  data-toggle="tooltip" title="Click to get list of all Employees" style="font-size:20px;float:right;color:blue;margin:5px;cursor:pointer" onclick="@("window.location.href='" + @Url.Action("AllEmployees", "WetosEmployee") + "'")"></span>
+        <span class="fa fa-users m_margin3"  data-toggle="tooltip" title="Click to get list of all Employees" style="font-size:20px;float:right;color:blue;margin:5px;cursor:pointer;margin-right:2%" onclick="@("window.location.href='" + @Url.Action("AllEmployees", "WetosEmployee") + "'")"></span>
         <span class="fa fa-plus-square m_margin2"  data-toggle="tooltip" title="Click to add new employee" style="font-size:20px;float:right;color:blue;margin:5px;cursor:pointer" onclick="@("window.location.href='" + @Url.Action("Create", "WetosEmployee") + "'")"></span>  
         <span class="fa fa-share-square-o m_margin1"  data-toggle="tooltip" title="Click to Export employee list" style="font-size:20px;float:right;color:blue;margin:5px;cursor:pointer" onclick="@("window.location.href='" + @Url.Action("ExportData", "WetosEmployee") + "'")"></span>   
         @*<span style="float: right" class="btn btn-default">@Html.ActionLink("Export To Excel", "ExportData")</span>*@

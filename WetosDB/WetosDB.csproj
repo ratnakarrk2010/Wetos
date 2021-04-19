@@ -574,6 +574,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>WetosDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="WetosDBModel.edmx.diagram">
+      <DependentUpon>WetosDBModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="WetosDBModel.Context.tt">

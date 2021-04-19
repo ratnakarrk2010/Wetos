@@ -3719,5 +3719,33 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_Roleuser" FunctionName="WetosDBEntityModel.Store.sp_get_Roleuser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WetosDBEntityModel.sp_get_Roleuser_Result">
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="RoleTypeId" ColumnName="RoleTypeId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_get_audit_trail" FunctionName="WetosDBEntityModel.Store.sp_get_audit_trail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WetosDBEntityModel.sp_get_audit_trail_Result">
+          <ScalarProperty Name="Logid" ColumnName="Logid" />
+          <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserRoleNo" ColumnName="UserRoleNo" />
+          <ScalarProperty Name="y_id" ColumnName="y_id" />
+          <ScalarProperty Name="SoftwareVersion" ColumnName="SoftwareVersion" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="MachineIP" ColumnName="MachineIP" />
+          <ScalarProperty Name="MachineNo" ColumnName="MachineNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

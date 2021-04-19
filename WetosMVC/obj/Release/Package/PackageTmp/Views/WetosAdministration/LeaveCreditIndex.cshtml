@@ -10,8 +10,8 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
@@ -40,11 +40,11 @@
                     </ul>
                 </div>
             </div> 
-             <h1>
+             <h1 class="margin_left_h1">
         Leave Credit
         <small>List</small>
          <span style="float:right;font-weight:800" data-toggle="tooltip" title="Create">
-         @Html.ActionLink(" ", "LeaveCreditCreate", new { }, new { @class = "fa fa-plus-circle", title = "Add Leave Credit", style = "color:#428bca;font-size:19px" })</span>
+         @Html.ActionLink(" ", "LeaveCreditCreate", new { }, new { @class = "fa fa-plus-circle circle1", title = "Add Leave Credit", style = "color:#428bca;font-size:19px" })</span>
            <span style="float: right;margin-right:10px" class="btn btn-default span_btn" title="Create">
            @Html.ActionLink("Financial Year Details", "FinancialYearIndex", "WetosAdministration")</span>
 

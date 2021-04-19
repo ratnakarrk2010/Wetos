@@ -15,15 +15,17 @@
         font-weight: 700;
         color: White;
     }
-
+    .li_margin {
+        margin-top: 0.8% !important;
+        padding-left: 1% !important;
+    }
      table.table.table-bordered.table-striped > thead {
     
-    background-color: #003399;
+        background-color: #003399;
         font-weight: 700;
         color: White;
-    }
-    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th
-    {
+     }
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
         padding: 2px;
         font-size: 12px;
     }
@@ -47,12 +49,12 @@
                 <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                 <!-- END PAGE TITLE & BREADCRUMB-->
                 <section class="content-header">
-                <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+                <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
-                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+                            <a href="@Url.Action("Index", "Home")">Home</a> <i class="fa fa-angle-right"></i>
 
                         </li>
                           <li class="li_margin">

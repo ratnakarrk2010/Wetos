@@ -8,3 +8,13 @@ E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\o
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Release\WetosDB.csproj.CopyComplete
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Release\WetosDB.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\obj\Release\WetosDB.pdb
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\bin\Release\WetosDB.dll.config
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\bin\Release\WetosDB.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\bin\Release\WetosDB.pdb
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\bin\Release\EntityFramework.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\bin\Release\EntityFramework.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\obj\Release\WetosDB.csprojAssemblyReference.cache
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\obj\Release\WetosDB.csproj.CoreCompileInputs.cache
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\obj\Release\WetosDB.csproj.CopyComplete
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\obj\Release\WetosDB.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosDB\obj\Release\WetosDB.pdb

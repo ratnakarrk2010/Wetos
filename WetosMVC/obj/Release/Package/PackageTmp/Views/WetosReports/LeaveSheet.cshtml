@@ -4,16 +4,11 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
- <h1>
- Leave Calculation
-       @*Create*@
-        <small>Report
-        </small>@*Modified by Pushkar 0n 6 FEB 2017*@
-      </h1>
-    
 
-      <div class="row">
-                <div class="col-md-12">
+
+
+            <div class="row ed_breadcrumb_row">
+                <div class="col-md-12 ed_breadcrumb_div">
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
@@ -21,91 +16,97 @@
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li>
-                         <a href="#">Reports</a>
+                            <a href="#">Reports</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li>
                             <a href="#">Leave Calculation sheet </a>
                         </li>
                         <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
+                                <span style="cursor:pointer" class="back " data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
                                 <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                                <span>@DateTime.Now.ToLongDateString()</span>
                             </div>
-                        </li>              
+                        </li>
                     </ul>
                 </div>
             </div>
 
-       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
-      <div>
-     
-     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+            <div>
 
-      </div>
-      <div style="clear: both;"></div>
+                @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
 
-       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+            </div>
+            <div style="clear: both;"></div>
+            <h1 class="margin_left_h1">
+                Leave Calculation
+                @*Create*@
+                <small>
+                    Report
+                </small>@*Modified by Pushkar 0n 6 FEB 2017*@
+            </h1>
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
 
-    </section>
+        </section>
         <br />
         <section class="content">
-      <div class="row">
-        <div class="col-xs-12 col-md-12 col-lg-12">
-          <div class="box box-primary">
-          <div class="box-header " style="color:Red">
-          Note: From Date and To Date should be of same month.
-          </div>
-          
-            <div class="box-body">
             <div class="row">
-              <div class="col-md-4">
-               <div class="form-group">
-               From Date <span style="color:Red;font-size:18px" >*</span>
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box box-primary">
+                        <div class="box-header " style="color:Red">
+                            Note: From Date and To Date should be of same month.
+                        </div>
 
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                   @Html.TextBox("FromDate","", new { @class = "form-control pull-right datepicker" })
-                   
-                  
-                 @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
-                </div>
-                 @*@Html.ValidationMessageFor(model => model.FromDate)*@
-                <!-- /.input group -->
-              </div>
-              </div>
-              <div class="col-md-4">
-               <div class="form-group">
-               To Date  <span style="color:Red;font-size:18px" >*</span>
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        From Date <span style="color:Red;font-size:18px">*</span>
 
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                      @Html.TextBox("ToDate","", new { @class = "form-control pull-right datepicker" })
-                     
-                 @* <input type="text" class="form-control pull-right datepicker" id="ToDate" name="ToDate"/>*@
-                </div>
-                @* @Html.ValidationMessageFor(model => model.ToDate)*@
-                </div>
-                <!-- /.input group -->
-              </div>
-              <div class="col-md-1">
-              <input type="button" id="BtnSubmit" value="Submit"/>
-              </div>
-              </div>
-            </div>
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            @Html.TextBox("FromDate", "", new { @class = "form-control pull-right datepicker" })
 
-            <div id="results">
-            
+
+                                            @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+                                        </div>
+                                        @*@Html.ValidationMessageFor(model => model.FromDate)*@
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        To Date  <span style="color:Red;font-size:18px">*</span>
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            @Html.TextBox("ToDate", "", new { @class = "form-control pull-right datepicker" })
+
+                                            @* <input type="text" class="form-control pull-right datepicker" id="ToDate" name="ToDate"/>*@
+                                        </div>
+                                        @* @Html.ValidationMessageFor(model => model.ToDate)*@
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="button" id="BtnSubmit" value="Submit" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="results">
+
+                        </div>
+                    </div>
+                </div>
             </div>
-             </div>
-            </div>
-            </div>
-            </section>
+        </section>
     </div>
 </div>
 
@@ -133,7 +134,7 @@
         var FromDate = $("#FromDate").val();
         var ToDate = $("#ToDate").val();
 
-        
+
         showloading();
         $("#results").hide();
         $.ajax({

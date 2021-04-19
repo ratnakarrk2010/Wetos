@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Work\Santosh\Wetos_backup_10_3_21\Wetos\WetosDB\WetosDBModel.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosDB\WetosDBModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

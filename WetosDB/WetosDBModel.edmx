@@ -386,7 +386,7 @@
           <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.Device' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.Device' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Device">
           <Key>
             <PropertyRef Name="DeviceId" />
@@ -1380,7 +1380,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.Device' does not have a 
           <Property Name="DesignationId" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VIEWREPORTS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VIEWREPORTS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VIEWREPORTS">
           <Key>
             <PropertyRef Name="DailyTrnId" />
@@ -1438,7 +1438,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VIEWREPORTS' does not ha
           <Property Name="Gender" Type="nvarchar" MaxLength="6" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.Vw_CompOffApplicationIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.Vw_CompOffApplicationIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vw_CompOffApplicationIndex">
           <Key>
             <PropertyRef Name="MarkedAsDelete" />
@@ -1462,7 +1462,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.Vw_CompOffApplicationInd
           <Property Name="EmployeeCode" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.Vw_CumulativeCompOffApplicationIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.Vw_CumulativeCompOffApplicationIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vw_CumulativeCompOffApplicationIndex">
           <Key>
             <PropertyRef Name="CompOffApplicationId" />
@@ -1485,7 +1485,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.Vw_CumulativeCompOffAppl
           <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwActiveEmployee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwActiveEmployee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwActiveEmployee">
           <Key>
             <PropertyRef Name="EmployeeId" />
@@ -1556,7 +1556,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwActiveEmployee' does n
           <Property Name="SeperationRemark" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwBranchDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwBranchDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwBranchDetails">
           <Key>
             <PropertyRef Name="BranchId" />
@@ -1577,7 +1577,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwBranchDetails' does no
           <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwCumulativeManualCompOffList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwCumulativeManualCompOffList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwCumulativeManualCompOffList">
           <Key>
             <PropertyRef Name="CMCompOffId" />
@@ -1617,7 +1617,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwCumulativeManualCompOf
           <Property Name="IsOutPunchInNextDay" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwDepartmentDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwDepartmentDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwDepartmentDetails">
           <Key>
             <PropertyRef Name="DepartmentId" />
@@ -1633,7 +1633,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwDepartmentDetails' doe
           <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwDesignationDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwDesignationDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwDesignationDetails">
           <Key>
             <PropertyRef Name="DesignationId" />
@@ -1650,7 +1650,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwDesignationDetails' do
           <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwEmployeeGroupDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwEmployeeGroupDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwEmployeeGroupDetails">
           <Key>
             <PropertyRef Name="EmployeeGroupId" />
@@ -1665,7 +1665,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwEmployeeGroupDetails' 
           <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwGradeDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwGradeDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwGradeDetails">
           <Key>
             <PropertyRef Name="GradeId" />
@@ -1683,7 +1683,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwGradeDetails' does not
           <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwLeaveApplicationIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwLeaveApplicationIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwLeaveApplicationIndex">
           <Key>
             <PropertyRef Name="EmployeeCode" />
@@ -1729,7 +1729,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwLeaveApplicationIndex'
           <Property Name="PostSandwichCaseLeaveID" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwLocationNameInCompany' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwLocationNameInCompany' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwLocationNameInCompany">
           <Key>
             <PropertyRef Name="CompanyName" />
@@ -1753,7 +1753,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwLocationNameInCompany'
           <Property Name="PINCode" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwNewsList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwNewsList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwNewsList">
           <Key>
             <PropertyRef Name="NewsId" />
@@ -1780,7 +1780,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwNewsList' does not hav
           <Property Name="EmployeeGroupName" Type="nvarchar" MaxLength="25" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwODTravelIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwODTravelIndex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwODTravelIndex">
           <Key>
             <PropertyRef Name="EmployeeCode" />
@@ -1823,7 +1823,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwODTravelIndex' does no
           <Property Name="MarkedAsDelete" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwRuleTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwRuleTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwRuleTransaction">
           <Key>
             <PropertyRef Name="Formula" />
@@ -1856,7 +1856,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwRuleTransaction' does 
           <Property Name="EmployeeGroupName" Type="nvarchar" MaxLength="25" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwShiftDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwShiftDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwShiftDetails">
           <Key>
             <PropertyRef Name="ShiftId" />
@@ -1888,7 +1888,7 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwShiftDetails' does not
           <Property Name="ShiftCode" Type="nvarchar" MaxLength="4" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwShiftGroupDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'DB_131818_wetosdezire_New.dbo.VwShiftGroupDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VwShiftGroupDetails">
           <Key>
             <PropertyRef Name="RotationId" />
@@ -2349,6 +2349,11 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwShiftGroupDetails' doe
           <Parameter Name="EmployeeId" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_FactoryReset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_get_audit_trail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="FromDate" Type="datetime" Mode="In" />
+          <Parameter Name="ToDate" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="sp_get_Notifications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="employeeid" Type="int" Mode="In" />
           <Parameter Name="TodaysDate" Type="smalldatetime" Mode="In" />
@@ -2356,6 +2361,12 @@ warning 6002: The table/view 'DB_131818_wetosdezire.dbo.VwShiftGroupDetails' doe
         <Function Name="sp_get_RoleNavmenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="yid" Type="int" Mode="In" />
           <Parameter Name="roleid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_get_Roleuser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="roleid" Type="int" Mode="In" />
+          <Parameter Name="y_id" Type="int" Mode="In" />
+          <Parameter Name="CompanyId" Type="int" Mode="In" />
+          <Parameter Name="BranchId" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_get_user_role_menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userId" Type="int" Mode="In" />
@@ -3314,11 +3325,7 @@ FROM [dbo].[VwShiftGroupDetails] AS [VwShiftGroupDetails]</DefiningQuery>
             <Parameter Name="InputMonth" Mode="In" Type="Int32" />
             <Parameter Name="InputYear" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_get_audit_trail" ReturnType="Collection(WetosDBEntityModel.sp_get_audit_trail_Result)">
-            <Parameter Name="UserId" Mode="In" Type="Int32" />
-            <Parameter Name="FromDate" Mode="In" Type="DateTime" />
-            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
-          </FunctionImport>
+         
           <FunctionImport Name="sp_get_Notifications" ReturnType="Collection(WetosDBEntityModel.sp_get_Notifications_Result)">
             <Parameter Name="employeeid" Mode="In" Type="Int32" />
             <Parameter Name="TodaysDate" Mode="In" Type="DateTime" />
@@ -3520,12 +3527,7 @@ FROM [dbo].[VwShiftGroupDetails] AS [VwShiftGroupDetails]</DefiningQuery>
           <Parameter Name="EmployeeId" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="UserRoles" EntityType="WetosDBEntityModel.UserRole" />
-          <FunctionImport Name="sp_get_Roleuser" ReturnType="Collection(WetosDBEntityModel.sp_get_Roleuser_Result)">
-            <Parameter Name="roleid" Mode="In" Type="Int32" />
-            <Parameter Name="y_id" Mode="In" Type="Int32" />
-            <Parameter Name="CompanyId" Mode="In" Type="Int32" />
-            <Parameter Name="BranchId" Mode="In" Type="Int32" />
-          </FunctionImport>
+        
           <FunctionImport Name="sp_get_user_role_menu" ReturnType="Collection(WetosDBEntityModel.sp_get_user_role_menu_Result)">
             <Parameter Name="userId" Mode="In" Type="Int32" />
             <Parameter Name="y_id" Mode="In" Type="Int32" />
@@ -3808,6 +3810,17 @@ FROM [dbo].[VwShiftGroupDetails] AS [VwShiftGroupDetails]</DefiningQuery>
           </FunctionImport>
           <FunctionImport Name="SP_LeaveEncashSanctionIndex" ReturnType="Collection(WetosDBEntityModel.SP_LeaveEncashSanctionIndex_Result)">
           <Parameter Name="EmployeeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_get_Roleuser" ReturnType="Collection(WetosDBEntityModel.sp_get_Roleuser_Result)">
+            <Parameter Name="roleid" Mode="In" Type="Int32" />
+            <Parameter Name="y_id" Mode="In" Type="Int32" />
+            <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+            <Parameter Name="BranchId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_get_audit_trail" ReturnType="Collection(WetosDBEntityModel.sp_get_audit_trail_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
           </FunctionImport>
          
          
@@ -4850,19 +4863,7 @@ FROM [dbo].[VwShiftGroupDetails] AS [VwShiftGroupDetails]</DefiningQuery>
           <Property Type="DateTime" Name="EffectiveEndDate" Nullable="true" Precision="23" />
           <Property Type="Int32" Name="ShiftPatternId" Nullable="true" />
         </ComplexType>
-        <ComplexType Name="sp_get_audit_trail_Result">
-          <Property Type="Int32" Name="Logid" Nullable="false" />
-          <Property Type="DateTime" Name="LogDate" Nullable="true" Precision="16" />
-          <Property Type="String" Name="Action" Nullable="false" MaxLength="1024" />
-          <Property Type="Int32" Name="userid" Nullable="false" />
-          <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
-          <Property Type="Int32" Name="UserRoleNo" Nullable="false" />
-          <Property Type="Int32" Name="y_id" Nullable="false" />
-          <Property Type="String" Name="SoftwareVersion" Nullable="false" MaxLength="20" />
-          <Property Type="Int32" Name="SessionId" Nullable="false" />
-          <Property Type="String" Name="MachineIP" Nullable="false" MaxLength="40" />
-          <Property Type="String" Name="MachineNo" Nullable="false" MaxLength="20" />
-        </ComplexType>
+       
         <ComplexType Name="sp_get_Notifications_Result">
           <Property Type="DateTime" Name="SendDate" Nullable="true" Precision="23" />
           <Property Type="String" Name="NotificationContent" Nullable="true" />
@@ -5585,13 +5586,7 @@ FROM [dbo].[VwShiftGroupDetails] AS [VwShiftGroupDetails]</DefiningQuery>
           <Property Type="Int32" Name="BranchId" />
           <Property Type="Int32" Name="DepartmentId" />
         </EntityType>
-        <ComplexType Name="sp_get_Roleuser_Result">
-          <Property Type="Int32" Name="flag" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="51" />
-          <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="20" />
-          <Property Type="Int32" Name="RoleTypeId" Nullable="true" />
-          <Property Type="Int32" Name="EmployeeId" Nullable="false" />
-        </ComplexType>
+       
         <ComplexType Name="sp_get_user_role_menu_Result">
           <Property Type="Int32" Name="RoleTypeId" Nullable="false" />
           <Property Type="Int32" Name="EmployeeId" Nullable="false" />
@@ -7504,6 +7499,26 @@ FROM [dbo].[VwShiftGroupDetails] AS [VwShiftGroupDetails]</DefiningQuery>
           <Property Type="Int32" Name="EmployeeReportingId2" Nullable="true" />
           <Property Type="Int32" Name="MarkedAsDelete" Nullable="false" />
           <Property Type="DateTime" Name="EncashDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="sp_get_Roleuser_Result">
+          <Property Type="Int32" Name="flag" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="RoleTypeId" Nullable="true" />
+          <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_get_audit_trail_Result">
+          <Property Type="Int32" Name="Logid" Nullable="false" />
+          <Property Type="DateTime" Name="LogDate" Nullable="true" Precision="16" />
+          <Property Type="String" Name="Action" Nullable="false" MaxLength="1024" />
+          <Property Type="Int32" Name="userid" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="UserRoleNo" Nullable="false" />
+          <Property Type="Int32" Name="y_id" Nullable="false" />
+          <Property Type="String" Name="SoftwareVersion" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="SessionId" Nullable="false" />
+          <Property Type="String" Name="MachineIP" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="MachineNo" Nullable="false" MaxLength="20" />
         </ComplexType>
     
       
@@ -11231,6 +11246,34 @@ FROM [dbo].[VwShiftGroupDetails] AS [VwShiftGroupDetails]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_get_Roleuser" FunctionName="WetosDBEntityModel.Store.sp_get_Roleuser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WetosDBEntityModel.sp_get_Roleuser_Result">
+                <ScalarProperty Name="flag" ColumnName="flag" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="RoleTypeId" ColumnName="RoleTypeId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_get_audit_trail" FunctionName="WetosDBEntityModel.Store.sp_get_audit_trail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WetosDBEntityModel.sp_get_audit_trail_Result">
+                <ScalarProperty Name="Logid" ColumnName="Logid" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserRoleNo" ColumnName="UserRoleNo" />
+                <ScalarProperty Name="y_id" ColumnName="y_id" />
+                <ScalarProperty Name="SoftwareVersion" ColumnName="SoftwareVersion" />
+                <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+                <ScalarProperty Name="MachineIP" ColumnName="MachineIP" />
+                <ScalarProperty Name="MachineNo" ColumnName="MachineNo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
       
           </EntityContainerMapping>
 </Mapping></edmx:Mappings>
@@ -11246,7 +11289,7 @@ FROM [dbo].[VwShiftGroupDetails] AS [VwShiftGroupDetails]</DefiningQuery>
       <edmx:DesignerInfoPropertySet>
         <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
         <edmx:DesignerProperty Name="EnablePluralization" Value="True" />
-        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <edmx:DesignerProperty Name="UseLegacyProvider" Value="True" />
         <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </edmx:DesignerInfoPropertySet>

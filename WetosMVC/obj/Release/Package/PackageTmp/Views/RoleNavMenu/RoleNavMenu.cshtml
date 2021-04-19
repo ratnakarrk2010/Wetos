@@ -3,6 +3,12 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
 <link href="~/Content/css/rolenav_menu.css" rel="stylesheet" />
 <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<style>
+    .select2-container--default .select2-selection--single {
+        border-top-left-radius: 5px !important;
+        border-bottom-left-radius: 5px !important;
+    }
+</style>
 
 @*Added by Shalaka on 27th DEC 2017 -- Start*@ @*Added by Shalaka on 27th DEC 2017 to solve alignment issue--- Start*@
 <div class="page-content-wrapper" id="page_content">
@@ -10,47 +16,53 @@
         <h1>
             Assign Role to User
         </h1>
-        
-        <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6 padding_ul">
-                    <ul>
-                        <li class="li_margin1">
-                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
-                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
-                        </li>
-                        <li class="li_margin"><a href="#">Administration</a> <i class="fa fa-angle-right"></i></li>
+        <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+            <div class="col-sm-6 padding_ul">
+                <ul>
+                    <li class="li_margin1">
+                        <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                        <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                    </li>
+                    <li class="li_margin"><a href="#">Administration</a> <i class="fa fa-angle-right"></i></li>
                     <li class="li_margin"><a href="#">Assign Role</a> <i class="fa fa-angle-right"></i></li>
-                        </ul>
-                </div>
-                <div class="col-sm-6">
-                    <ul style="float: right;">
-                        <li class="">
-                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
-                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
-                                <span>
-                                    @DateTime.Now.ToLongDateString()
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                </ul>
             </div>
+            <div class="col-sm-6">
+                <ul style="float: right;">
+                    <li class="">
+                        <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                            <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                            <span>
+                                @DateTime.Now.ToLongDateString()
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h1 style="margin-top: 2% !important;
+    margin-bottom: 1% !important;
+    text-shadow: -3px 0px 4px #6f88a2 !important;
+    margin-left: 1%;" class="margin_left_h1">
+            Assign Role to User
+        </h1>
         <br />
         @using (Html.BeginForm("RoleNavMenu", "RoleNavMenu", FormMethod.Post, new { @class = "form-horizontal" }))
         {
             @Html.ValidationSummary(true)
-      
-@*<div class="portlet-title">
-                    <div class="caption">
-                        Assign Role Menu</div>
-                    @*  <div class="tools">
-                        <a href="javascript:;" class="collapse"></a>
-                        <a href="#portlet-config" data-toggle="modal" class="config"></a>
-                        <a href="javascript:;" class="reload"></a>
-                        <a href="javascript:;" class="remove"></a>
-                    </div>
-                </div>*@
+
+            @*<div class="portlet-title">
+                <div class="caption">
+                    Assign Role Menu</div>
+                @*  <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+                    <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                    <a href="javascript:;" class="reload"></a>
+                    <a href="javascript:;" class="remove"></a>
+                </div>
+            </div>*@
             <div>
                 <div>
                     <div class="row">
@@ -89,8 +101,8 @@
                     <hr />
                 </div>
             </div>
-           
-        
+
+
             <div id="AssignDiv" style="width: 30% !important; height: 20% !important; z-index: 1000000;
                 background-color: White; top: 20%; left: 40%" class="modal fade">
                 @*REMOVED SHOW CLASS TAKEN MODAL FADE CLASS INSTEAD OF MODAL SHOW FADE CLASS BY SHRADDHA ON 09 FEB 2018 BECAUSE IT WAS CREATING CLICKING ISSUE*@
@@ -100,7 +112,8 @@
                 <div class="modal-footer">
                     <center>
                         <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="OkBtn">
-                            Ok</button>
+                            Ok
+                        </button>
                 </div>
             </div>
         }

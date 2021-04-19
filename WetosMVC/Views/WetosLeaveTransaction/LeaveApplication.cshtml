@@ -11,30 +11,31 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
 <link href="~/Content/css/leave_application.css" rel="stylesheet" />
 <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
-
+<style>
+    .margin_left_save1 {
+    margin-left: 3% !important;
+}
+</style>
 @* Added by Shalaka on 28th NOV 2017 for Date Picker -- Start*@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-            
-
-            
-             <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
                             <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
                         </li>
-                       <li class="li_margin">
+                        <li class="li_margin">
                             <a href="#">Applications</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li class="li_margin">
                             <a href="@Url.Action("LeaveApplicationIndex", "WetosLeaveTransaction")">Leave</a>
                         </li>
-                        </ul>
+                    </ul>
                 </div>
                 <div class="col-sm-6">
                     <ul style="float: right;">
@@ -49,242 +50,243 @@
                     </ul>
                 </div>
             </div>
-            <h1>Leave Application
-       @*Create*@
-                <small>@*Leave Application*@
-                    Create </small>@*Modified by Pushkar 0n 6 FEB 2017*@
-            </h1>
-            @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
-            <div>
+            <h1 class="margin_left_h1">
+                Leave Application
+                @*Create*@
+                <small>
+                    @*Leave Application*@
+                Create
+            </small>@*Modified by Pushkar 0n 6 FEB 2017*@
+        </h1>
+        @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+        <div>
 
-                @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+            @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
 
-            </div>
-            <div style="clear: both;"></div>
+        </div>
+        <div style="clear: both;"></div>
 
-            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+        @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
 
-        </section>
-        <br />
-        <section class="content">
-            <div class="row">
-                <div class="col-xs-12 col-md-12 col-lg-12">
-                    <div class="box box-primary">
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12" style="padding-left:0px;">
+                <div class="box box-primary">
 
-                        <!-- /.box-header -->                       
-                        @using (Html.BeginForm("LeaveApplication", "WetosLeaveTransaction", FormMethod.Post, new { id = "LeaveApplicationForm", enctype = "multipart/form-data" }))
-                        {
-                              @Html.ValidationSummary(true)
-                            <div style="color: Red; font-size: 12px">
+                    <!-- /.box-header -->
+                    @using (Html.BeginForm("LeaveApplication", "WetosLeaveTransaction", FormMethod.Post, new { id = "LeaveApplicationForm", enctype = "multipart/form-data" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        <div style="color: Red; font-size: 12px">
 
-                               @* @Html.Raw(Server.HtmlDecode(Html.ValidationSummary(false).ToString()))*@
-                                @Html.HiddenFor(model => model.ActualDays)
-                                @Html.HiddenFor(model => model.MarkedAsDelete)
-                                @Html.Hidden("SandwitchCase", (string)@ViewBag.SandwitchCaseMsg, new { id = "SandwitchCase" })
-                                @Html.HiddenFor(model => model.DayDeduct)
-                                @Html.HiddenFor(model => model.LeaveName)   @*ADDED BY MSJ 22 MJULY 2017 *@
-                                @Html.HiddenFor(model => model.MySelf) 
-                                @Html.HiddenFor(model => model.DocFileName, new { @id = "DocFileName" })  
-                                <input type="hidden" name="IsPreSandwichCase" value="@Html.AttributeEncode(Model.IsPreSandwichCase)" id="IsPreSandwichCase" />
-                                <input type="hidden" name="IsPostSandwichCase" value="@Html.AttributeEncode(Model.IsPostSandwichCase)" id="IsPostSandwichCase" />
-                                <input type="hidden" name="IsLWP" value="@Html.AttributeEncode(Model.IsLWP)" id="IsLWP" />
+                            @* @Html.Raw(Server.HtmlDecode(Html.ValidationSummary(false).ToString()))*@
+                            @Html.HiddenFor(model => model.ActualDays)
+                            @Html.HiddenFor(model => model.MarkedAsDelete)
+                            @Html.Hidden("SandwitchCase", (string)@ViewBag.SandwitchCaseMsg, new { id = "SandwitchCase" })
+                            @Html.HiddenFor(model => model.DayDeduct)
+                            @Html.HiddenFor(model => model.LeaveName)   @*ADDED BY MSJ 22 MJULY 2017 *@
+                            @Html.HiddenFor(model => model.MySelf)
+                            @Html.HiddenFor(model => model.DocFileName, new { @id = "DocFileName" })
+                            <input type="hidden" name="IsPreSandwichCase" value="@Html.AttributeEncode(Model.IsPreSandwichCase)" id="IsPreSandwichCase" />
+                            <input type="hidden" name="IsPostSandwichCase" value="@Html.AttributeEncode(Model.IsPostSandwichCase)" id="IsPostSandwichCase" />
+                            <input type="hidden" name="IsLWP" value="@Html.AttributeEncode(Model.IsLWP)" id="IsLWP" />
 
-                            </div>      
-                            <fieldset>
-                                <div class="box-body">                                    
+                        </div>
+
+                        <div class="box-body">
+                            <div class="col-md-6">
+                                @if (@Model == null || @Model.MySelf == false)
+                                {
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div id="EmployeeName" class="form-group">
+                                                Employee Name <span style="color: Red; font-size: 18px">*</span>
+
+                                                @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeCodeAndNameList, "Select", new { @class = "form-control select2", id = "EmployeeId", style = "width:500px" })
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+                                else
+                                {
+                                    // Updated by Rajas on 29 AUGUST 2017
+                                    @Html.HiddenFor(model => model.EmployeeId)
+                                }
+
+                                <div class="row">
                                     <div class="col-md-6">
-                                        @if (@Model == null || @Model.MySelf == false)
-                                        {
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div id="EmployeeName" class="form-group">
-                                                        Employee Name <span style="color: Red; font-size: 18px">*</span>
-
-                                                        @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeCodeAndNameList, "Select", new { @class = "form-control select2", id = "EmployeeId", style = "width:500px" })
-
-                                                    </div>
+                                        <div class="form-group">
+                                            From Date <span style="color: Red; font-weight: 700">*</span>
+                                            @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
                                                 </div>
+                                                <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />
+
+
+                                                @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
                                             </div>
-             
-                                        }
-                                        else
-                                        {
-                                            // Updated by Rajas on 29 AUGUST 2017
-                                            @Html.HiddenFor(model => model.EmployeeId)
-                                        }
+                                            @Html.ValidationMessageFor(model => model.FromDate)
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    From Date <span style="color: Red; font-weight: 700">*</span>
-                                                    @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-                                                    <div class="input-group date">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-calendar"></i>
-                                                        </div>
-                                                        <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />
-
-
-                                                        @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
-                                                    </div>
-                                                    @Html.ValidationMessageFor(model => model.FromDate)
-                                                    <!-- /.input group -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+                                            From Day Status <span class="fa fa-question-circle" data-toggle="tooltip" style="cursor: pointer" title="Select respective applicable choice for from day leave, First half or second half for Half day and Full day"></span>
+                                            @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-clock-o"></i>
                                                 </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    @*Added * By Shraddha on 12 DEC 2016 to show required field *@
-                                                    From Day Status <span class="fa fa-question-circle" data-toggle="tooltip" style="cursor: pointer" title="Select respective applicable choice for from day leave, First half or second half for Half day and Full day"></span>
-                                                     @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-                                                     <div class="input-group date">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-clock-o"></i>
-                                                        </div>
-                                                    @Html.DropDownListFor(a => a.FromDayStatus, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusListFromDate" })
-                                                </div>
-                                                </div>
+                                                @Html.DropDownListFor(a => a.FromDayStatus, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusListFromDate" })
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    To Date  <span style="color: Red; font-weight: 700">*</span>
-                                                    @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-                                                    <div class="input-group date">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-calendar"></i>
-                                                        </div>
-                                                        <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ToDate" id="ToDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ToDate)" />
-
-                                                        @* <input type="text" class="form-control pull-right datepicker" id="ToDate" name="ToDate"/>*@
-                                                    </div>
-                                                     @Html.ValidationMessageFor(model => model.ToDate)
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            To Date  <span style="color: Red; font-weight: 700">*</span>
+                                            @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
                                                 </div>
-                                                <!-- /.input group -->
+                                                <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ToDate" id="ToDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ToDate)" />
+
+                                                @* <input type="text" class="form-control pull-right datepicker" id="ToDate" name="ToDate"/>*@
                                             </div>
+                                            @Html.ValidationMessageFor(model => model.ToDate)
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
 
-                                            <div class="col-md-6">
-                                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
 
-                                                    @*Added * By Shraddha on 12 DEC 2016 to show required field *@
-                                                    To Day Status <span class="fa fa-question-circle" data-toggle="tooltip" style="cursor: pointer" title="Select respective applicable choice for to day leave, First half or second half for Half day and Full day"></span>
-                                                   @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-                                                   <div class="input-group date">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-clock-o"></i>
-                                                        </div>
-                                                    @Html.DropDownListFor(a => a.ToDayStatus, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusListToDate", width = "20px" })
+                                            @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+                                            To Day Status <span class="fa fa-question-circle" data-toggle="tooltip" style="cursor: pointer" title="Select respective applicable choice for to day leave, First half or second half for Half day and Full day"></span>
+                                            @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-clock-o"></i>
                                                 </div>
-                                            </div>
+                                                @Html.DropDownListFor(a => a.ToDayStatus, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusList, "Select", new { @class = "form-control select2", id = "LeaveStatusListToDate", width = "20px" })
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    Leave Type <span style="color: Red; font-weight: 700">*</span>
-                                                    @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-                                                    <div class="input-group date">
-                                                        <div class="input-group-addon">
-                                                          @*  <i class="fa fa-envelope-open-o"></i>*@
-                                                            <i class="fa fa-clock-o"></i>
-                                                        </div>
-                                                    @Html.DropDownListFor(a => a.LeaveId, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeList, "Select", new { @class = "form-control select2", id = "LeaveTypeList" })
-                                                   
-                                                    @* @Html.TextBoxFor(model => model.LeaveType, new { @class = "form-control pull-right" }) 
-            <input type="text" class="form-control pull-right" id="LeaveType" name="LeaveType"/>
-                @Html.EditorFor(model => model.LeaveType)
-            @Html.ValidationMessageFor(model => model.LeaveType)*@
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            Leave Type <span style="color: Red; font-weight: 700">*</span>
+                                            @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    @*  <i class="fa fa-envelope-open-o"></i>*@
+                                                    <i class="fa fa-clock-o"></i>
                                                 </div>
-                                                 @Html.ValidationMessageFor(model => model.LeaveId)
+                                                @Html.DropDownListFor(a => a.LeaveId, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeList, "Select", new { @class = "form-control select2", id = "LeaveTypeList" })
+
+                                                @* @Html.TextBoxFor(model => model.LeaveType, new { @class = "form-control pull-right" })
+                                                    <input type="text" class="form-control pull-right" id="LeaveType" name="LeaveType"/>
+                                                        @Html.EditorFor(model => model.LeaveType)
+                                                    @Html.ValidationMessageFor(model => model.LeaveType)*@
                                             </div>
+                                            @Html.ValidationMessageFor(model => model.LeaveId)
                                         </div>
-                                      
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    Alternate Contact No
-                                                                                                       
-                                                        </div>
-                                                        <input type="text" name="AltContactNo" id="AltContactNo" class="AltContactNo" value="@Model.AltContactNo" />                                             
-                                                    </div>
-                                                   
-                                        </div>
+                                    </div>
 
-                                        <div class="row col-md-12"  id="MediCertDiv">
-                                           @*ADDED BY SHALAKA ON 13TH DEC 2017 FOR MEDICAL CIRTIFICATE ATTACHMENT --- START*@
-                                         <div class="col-md-6" style="display: block">
-                                         
-                                                <div class="form-group">
-                                                   Attach extra document
-                                                 <p>
-                                             <input type="file" name="MediCert" id="MediCert"  />
-                                            </p>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            Alternate Contact No
+                                            <input type="text" name="AltContactNo" id="AltContactNo" class="AltContactNo" value="@Model.AltContactNo" />
                                         </div>
-                                        </div>
-                                        @*ADDED BY SHALAKA ON 13TH DEC 2017 FOR MEDICAL CIRTIFICATE ATTACHMENT --- END*@
-                                        @if (Model.DocFolder == "Document_Upload")
-                                        {
-                                            <a href='@Url.Content("~/User_Data/Document_Upload/" + @Model.DocFileName)' target="_blank">@Model.DocFileName</a>
-                                        }
-                                          <br />
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    Leave Purpose   <span style="color: Red; font-weight: 700">*</span>                                                
-                                                    @Html.TextAreaFor(model => model.Purpose, new { @class = "form-control pull-right" })                                                
-                                                </div>
-                                                 @Html.ValidationMessageFor(model => model.Purpose)
-                                            </div>
+                                    </div>
 
-                                          
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    Leave Address                                                
-                                                     @Html.TextAreaFor(model => model.LeaveAddress, new { @class = "form-control pull-right" })                                          
-                                                </div>
-                                            </div>
-                                            
+                                </div>
 
+                                <div class="row col-md-12" id="MediCertDiv">
+                                    @*ADDED BY SHALAKA ON 13TH DEC 2017 FOR MEDICAL CIRTIFICATE ATTACHMENT --- START*@
+                                    <div class="col-md-6" style="display: block">
 
-                                        </div>
-                                        <br/>
-                                        <div >
+                                        <div class="form-group">
+                                            Attach extra document
                                             <p>
-                                            @*ADDED BY MSJ ON 27 JAN 2020*@
-                                                <input type="button" id="applybtn" value="Apply" onclick="CheckInitialValidationBeforeSubmit()" class="btn btn-primary" />
-                                                @*<input type="submit" id="applybtn" value="Apply" class="btn btn-primary" />*@
+                                                <input type="file" name="MediCert" id="MediCert" />
                                             </p>
                                         </div>
-                                        
                                     </div>
+                                    @*ADDED BY SHALAKA ON 13TH DEC 2017 FOR MEDICAL CIRTIFICATE ATTACHMENT --- END*@
+                                    @if (Model.DocFolder == "Document_Upload")
+                                    {
+                                        <a href='@Url.Content("~/User_Data/Document_Upload/" + @Model.DocFileName)' target="_blank">@Model.DocFileName</a>
+                                    }
+                                    <br />
+                                </div>
+                                <div class="row">
                                     <div class="col-md-6">
-                                        <div id="LeaveData">
-                                            @Html.Partial("LeaveDataView")
+                                        <div class="form-group">
+                                            Leave Purpose   <span style="color: Red; font-weight: 700">*</span>
+                                            @Html.TextAreaFor(model => model.Purpose, new { @class = "form-control pull-right" })
                                         </div>
-                                        <div id="DivAttendanceDetails">
-</div>
-                                    </div>
-                                </div>
-                                <hr />
-                                <div class="col-md-12">
-                                    <div id="LeaveDataViewForLeaveBalance">
-                                        @Html.Partial("LeaveDataViewForLeaveBalance")
+                                        @Html.ValidationMessageFor(model => model.Purpose)
                                     </div>
 
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            Leave Address
+                                            @Html.TextAreaFor(model => model.LeaveAddress, new { @class = "form-control pull-right" })
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                                <br />
+                                <div>
+                                    <p class="margin_left_save1">
+                                        @*ADDED BY MSJ ON 27 JAN 2020*@
+                                        <input type="button" id="applybtn" value="Apply" onclick="CheckInitialValidationBeforeSubmit()" class="btn btn-primary" />
+                                        @*<input type="submit" id="applybtn" value="Apply" class="btn btn-primary" />*@
+                                    </p>
                                 </div>
 
-                            </fieldset>
-                        }
+                            </div>
+                            <div class="col-md-6">
+                                <div id="LeaveData">
+                                    @Html.Partial("LeaveDataView")
+                                </div>
+                                <div id="DivAttendanceDetails">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="LeaveDataViewForLeaveBalance">
+                                @Html.Partial("LeaveDataViewForLeaveBalance")
+                            </div>
+
+                        </div>
 
 
-                    </div>
+                    }
+
+
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+</div>
 </div>
 <div id="ErrorDiv" class="modal fade">
     <div class="modal-dialog">
@@ -293,10 +295,12 @@
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="SubmitBtn"
-                    style="display: none">
-                    Submit</button>
+                        style="display: none">
+                    Submit
+                </button>
                 <button type="button" data-dismiss="modal" class="col-md-2 btn">
-                    Cancel</button>
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
@@ -310,10 +314,12 @@
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" onclick="showloading();" class="col-md-2  btn btn-primary"
-                    id="OkBtn">
-                    Yes</button>
+                        id="OkBtn">
+                    Yes
+                </button>
                 <button type="button" data-dismiss="modal" class="col-md-2 btn">
-                    Cancel</button>
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
@@ -394,7 +400,7 @@
             autoclose: true
         });
 
-    });    
+    });
 </script>
 <script type="text/javascript">
 
@@ -743,8 +749,8 @@
         // LEAVETYPE END
 
     });
-   
-   
+
+
 </script>
 <script type="text/javascript">
     function IsAttachmentNeeded() {
@@ -820,7 +826,7 @@
     }
 
     //    $("#ToDate").change(function () {
-    //        
+    //
     //    });
 </script>
 <script type="text/javascript">

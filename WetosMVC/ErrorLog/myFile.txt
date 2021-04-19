@@ -260,3 +260,132 @@ Logged In_17-03-2021 13:54:07
 Logged In_17-03-2021 15:24:11
 Clicked on Assign Role To Menu _17-03-2021 15:26:08
 Logged In_17-03-2021 15:56:39
+Logged In_30-03-2021 12:28:19
+Error : Error during checking list for condone entry due to An error occurred while preparing the command definition. See the inner exception for details. and The function import 'WetosDBEntities.SP_CondoneTrnListView' cannot be executed because it is not mapped to a store function._30-03-2021 12:29:50
+Error : Error during checking list for condone entry due to An error occurred while preparing the command definition. See the inner exception for details. and The function import 'WetosDBEntities.SP_CondoneTrnListView' cannot be executed because it is not mapped to a store function._30-03-2021 12:47:56
+Error : Error during checking list for condone entry due to An error occurred while preparing the command definition. See the inner exception for details. and The function import 'WetosDBEntities.SP_CondoneTrnListView' cannot be executed because it is not mapped to a store function._30-03-2021 12:49:50
+Error : Error during checking list for condone entry due to An error occurred while preparing the command definition. See the inner exception for details. and The function import 'WetosDBEntities.SP_CondoneTrnListView' cannot be executed because it is not mapped to a store function._30-03-2021 12:51:09
+Error : Error during checking list for condone entry due to An error occurred while preparing the command definition. See the inner exception for details. and The function import 'WetosDBEntities.SP_CondoneTrnListView' cannot be executed because it is not mapped to a store function._30-03-2021 12:52:47
+Logged In_30-03-2021 13:13:40
+Error : Error during checking list for condone entry due to An error occurred while preparing the command definition. See the inner exception for details. and The function import 'WetosDBEntities.SP_CondoneTrnListView' cannot be executed because it is not mapped to a store function._30-03-2021 13:16:19
+Logged In_30-03-2021 13:22:11
+Logged In_30-03-2021 20:11:51
+Logged In_31-03-2021 14:58:01
+Clicked on Assign Role To Menu _31-03-2021 14:59:56
+Logged In_31-03-2021 15:20:53
+Clicked on Assign Role To Menu _31-03-2021 15:22:59
+Clicked on Assign Role To Menu _31-03-2021 15:30:49
+Logged In_31-03-2021 15:52:26
+Logged In_31-03-2021 15:52:27
+Error in EmployeeDashboard due to An error occurred while starting a transaction on the provider connection. See the inner exception for details.A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)_31-03-2021 15:53:37
+Logged In_31-03-2021 16:00:49
+Clicked on Assign Role To Menu _31-03-2021 16:01:40
+Logged In_31-03-2021 16:14:05
+Clicked on Assign Role To Menu _31-03-2021 16:15:04
+Logged In_31-03-2021 17:24:02
+Clicked on Assign Role To Menu _31-03-2021 17:26:26
+Logged In_31-03-2021 17:43:05
+Clicked on Assign Role To Menu _31-03-2021 17:47:07
+Logged In_31-03-2021 18:10:21
+Clicked on Assign Role To Menu _31-03-2021 18:12:28
+Clicked on Assign Role To Menu _31-03-2021 18:22:44
+Clicked on Assign Role To Menu _31-03-2021 18:30:50
+Clicked on Assign Role To Menu _31-03-2021 18:54:27
+Clicked on Assign Role To Menu _31-03-2021 18:56:48
+Clicked on Assign Role To Menu _31-03-2021 19:00:46
+Logged In_31-03-2021 19:40:33
+Clicked on Assign Role To Menu _31-03-2021 19:42:18
+Clicked on Assign Role To Menu _31-03-2021 20:03:28
+Clicked on Assign Role To Menu _31-03-2021 20:07:53
+Logged In_31-03-2021 20:35:18
+Clicked on Assign Role To Menu _31-03-2021 20:36:24
+Logged In_31-03-2021 21:48:50
+Clicked on Assign Role To Menu _31-03-2021 21:49:56
+Logged In_31-03-2021 22:09:30
+Clicked on Assign Role To Menu _31-03-2021 22:12:39
+Clicked on Assign Role To Menu _31-03-2021 22:16:46
+Logged In_31-03-2021 22:26:56
+Clicked on Assign Role To Menu _31-03-2021 22:29:14
+Logged In_01-04-2021 11:34:10
+Clicked on Assign Role To Menu _01-04-2021 11:35:56
+Logged In_01-04-2021 12:17:50
+Clicked on Assign Role To Menu _01-04-2021 12:19:07
+Logged In_01-04-2021 13:04:41
+Clicked on Assign Role To Menu _01-04-2021 13:05:51
+Clicked on Assign Role To Menu _01-04-2021 13:10:31
+Assigned Role 1 To Userids - 6,33_01-04-2021 13:13:16
+Logged In_02-04-2021 11:42:35
+Clicked on Assign Role To Menu _02-04-2021 11:44:47
+Logged In_02-04-2021 13:41:45
+Clicked on Assign Role To Menu _02-04-2021 13:43:22
+Assigned Role 1 To Userids - 3,6,33_02-04-2021 13:47:05
+Clicked on Assign Role To Menu _02-04-2021 13:47:18
+Logged In_02-04-2021 14:54:58
+Clicked on Assign Role To Menu _02-04-2021 14:56:13
+Clicked on Assign Role To Menu _02-04-2021 14:59:30
+Clicked on Assign Role To Menu _02-04-2021 15:07:05
+Clicked on Assign Role To Menu _02-04-2021 15:21:42
+Clicked on Assign Role To Menu _02-04-2021 15:33:51
+Clicked on Assign Role To Menu _02-04-2021 15:51:04
+Logged In_05-04-2021 16:43:20
+Logged In_05-04-2021 18:15:39
+Success - Visited Leave master_05-04-2021 18:17:47
+Logged In_05-04-2021 22:15:07
+Logged In_06-04-2021 11:16:28
+Error in Generate Report comman function due to :An error occurred during local report processing.The definition of the report 'E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\Reports\BranchMasterReport.rdlc' is invalid._06-04-2021 11:23:06
+Logged In_06-04-2021 17:58:27
+Error in Generate Report comman function due to :An error occurred during local report processing.The definition of the report 'E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\Reports\BranchMasterReport.rdlc' is invalid._06-04-2021 18:29:03
+Error in Generate Report comman function due to :An error occurred during local report processing.The definition of the report 'E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\Reports\BranchMasterReport.rdlc' is invalid._06-04-2021 18:35:33
+Logged In_06-04-2021 19:35:10
+Logged In_07-04-2021 12:48:38
+Visit SQL Edit View_07-04-2021 12:52:14
+Visit SQL Edit View_07-04-2021 12:59:53
+Logged In_07-04-2021 13:31:04
+Visit SQL Edit View_07-04-2021 13:33:29
+Visited ODTravel list_07-04-2021 13:37:49
+Logged In_07-04-2021 14:22:00
+Visited ODTravel list_07-04-2021 14:24:33
+Logged In_07-04-2021 15:17:13
+Visited ODTravel list_07-04-2021 15:19:49
+Visited ODTravel list_07-04-2021 15:25:53
+Logged In_07-04-2021 15:57:11
+Visited ODTravel list_07-04-2021 15:59:14
+Logged In_07-04-2021 16:26:02
+Logged In_07-04-2021 21:51:23
+Visited ODTravel list_07-04-2021 21:59:29
+Visited ODTravel list_07-04-2021 22:05:57
+Logged In_08-04-2021 10:51:00
+Visited ODTravel list_08-04-2021 10:53:24
+Error in Generate Report comman function due to :An error occurred during local report processing.The definition of the report 'E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\Reports\BranchMasterReport.rdlc' is invalid._08-04-2021 11:11:17
+Logged In_08-04-2021 11:59:37
+Encash list visited_08-04-2021 12:03:47
+Success - Visited Leave application_08-04-2021 12:04:55
+Encash list visited_08-04-2021 12:05:08
+Encash list visited_08-04-2021 12:09:13
+Logged In_08-04-2021 12:51:43
+Logged In_08-04-2021 12:51:46
+Success - Visited company master_08-04-2021 12:52:54
+Logged In_08-04-2021 13:18:09
+Success - Visited company master_08-04-2021 13:20:06
+Success - Visited company master_08-04-2021 13:22:39
+Logged In_08-04-2021 14:24:49
+Logged Off_08-04-2021 14:40:47
+Logged In_08-04-2021 14:42:07
+Logged Off_08-04-2021 14:47:21
+Logged In_08-04-2021 14:48:04
+Logged In_08-04-2021 16:41:33
+Logged In_16-04-2021 13:28:02
+Logged In_16-04-2021 13:34:05
+Logged In_16-04-2021 14:45:52
+Logged In_16-04-2021 15:09:04
+Logged In_16-04-2021 15:16:13
+Logged In_16-04-2021 15:17:50
+Logged In_16-04-2021 15:20:27
+Logged In_16-04-2021 15:21:12
+Logged In_16-04-2021 15:49:28
+Logged In_16-04-2021 17:28:35
+Success : Visited location details_16-04-2021 17:33:15
+Success - Visited Leave application_16-04-2021 17:33:25
+Logged In_19-04-2021 10:34:47
+Logged In_19-04-2021 12:36:29
+Logged Off_19-04-2021 12:37:01

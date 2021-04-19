@@ -6,162 +6,159 @@
 
 <div>
     <section class="content-header">
- 
-      <ol class="breadcrumb">
-        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-arrow-left"></i> Home</a></li>
-        <li><a href="#">User Rights</a></li>
-     
-      </ol>
-      <h1>
-       User Rights
-        
-      </h1>
+
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-arrow-left"></i> Home</a></li>
+            <li><a href="#">User Rights</a></li>
+
+        </ol>
+        <h1 class="margin_left_h1">
+            User Rights
+
+        </h1>
     </section>
 </div>
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 <section class="content">
-     
-          <div class="box">
-          <div class="box-header">
-          </div>
 
-            <!-- /.box-header -->
-            <div class="box-body">
+    <div class="box">
+        <div class="box-header">
+        </div>
 
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
-    
-<fieldset>
+        <!-- /.box-header -->
+        <div class="box-body">
 
-<div class="col-md-2">
-<h4>MENUS</h4>
-</div>
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
 
-<div class="col-md-10">
-<input type="checkbox" name="" value=""/>MASTERS &nbsp;&nbsp;
-  
-      
-<input type="checkbox" name="" value=""/>ATTENDANCES &nbsp;&nbsp;
+                <fieldset>
 
-  
-<input type="checkbox" name="" value=""/>APPLICATIONS &nbsp;&nbsp;
+                    <div class="col-md-2">
+                        <h4>MENUS</h4>
+                    </div>
 
-  
-<input type="checkbox" name="" value=""/>SANCTIONS &nbsp;&nbsp;
-
-    
-<input type="checkbox" name="" value=""/>REPORTS &nbsp;&nbsp;
-
-   
-<input type="checkbox" name="" value=""/>ADMINISTRATION &nbsp;&nbsp;
-
-   
-<input type="checkbox" name="" value=""/>UPDATES &nbsp;&nbsp;
-
-</div>
-<br />
-<br />
-<div class="col-md-2">
-<h4>APPLICATIONS</h4>
-</div>
-<div class="col-md-10">
-<input type="checkbox" name="" value=""/>Add &nbsp;&nbsp;
-  
-      
-<input type="checkbox" name="" value=""/>Edit &nbsp;&nbsp;
-
-  
-<input type="checkbox" name="" value=""/>Delete &nbsp;&nbsp;
-
-  
-<input type="checkbox" name="" value=""/>View &nbsp;&nbsp;
-
-    
-<input type="checkbox" name="" value=""/>Approve &nbsp;&nbsp;
-
-   
-<input type="checkbox" name="" value=""/>Sanction &nbsp;&nbsp;
-
-   
-<input type="checkbox" name="" value=""/>Reject &nbsp;&nbsp;
+                    <div class="col-md-10">
+                        <input type="checkbox" name="" value="" />MASTERS &nbsp;&nbsp;
 
 
-<input type="checkbox" name="" value=""/>Apply for Others &nbsp;&nbsp;
+                        <input type="checkbox" name="" value="" />ATTENDANCES &nbsp;&nbsp;
 
 
-<input type="checkbox" name="" value=""/>Sanction for Others &nbsp;&nbsp;
-</div>
-<br />
-<br />
-<div class="col-md-2">
-<h4>SACNTIONS</h4>
-</div>
-<div class="col-md-10">
-<input type="checkbox" name="" value=""/>Add &nbsp;&nbsp;
-  
-      
-<input type="checkbox" name="" value=""/>Edit &nbsp;&nbsp;
-
-  
-<input type="checkbox" name="" value=""/>Delete &nbsp;&nbsp;
-
-  
-<input type="checkbox" name="" value=""/>View &nbsp;&nbsp;
-
-    
-<input type="checkbox" name="" value=""/>Approve &nbsp;&nbsp;
-
-   
-<input type="checkbox" name="" value=""/>Sanction &nbsp;&nbsp;
-
-   
-<input type="checkbox" name="" value=""/>Reject &nbsp;&nbsp;
+                        <input type="checkbox" name="" value="" />APPLICATIONS &nbsp;&nbsp;
 
 
-<input type="checkbox" name="" value=""/>Apply for Others &nbsp;&nbsp;
+                        <input type="checkbox" name="" value="" />SANCTIONS &nbsp;&nbsp;
 
 
-<input type="checkbox" name="" value=""/>Sanction for Others &nbsp;&nbsp;
-</div>
-<br />
-<br />
-<div class="col-md-2">
-<h4>ACTIVATE</h4>
-</div>
-<div class="col-md-10">
-<input type="radio" name="" value=""/>Activate &nbsp;&nbsp;
+                        <input type="checkbox" name="" value="" />REPORTS &nbsp;&nbsp;
 
 
-<input type="radio" name="" value=""/>Deactivate &nbsp;&nbsp;
+                        <input type="checkbox" name="" value="" />ADMINISTRATION &nbsp;&nbsp;
 
 
-<input type="checkbox" name="" value=""/>Reset Password(Password will set same as EmployeeCode) &nbsp;&nbsp;
-</div>
-<br />
+                        <input type="checkbox" name="" value="" />UPDATES &nbsp;&nbsp;
 
-<br />
-    
-
-
-
-<div class="col-md-5">
-<div class="row">
-<button onclick="" class="">Save</button>
-</div>
-</div>
-<div class="col-md-5">
-<div class="row">
-<button onclick="" class="">Cancel</button>
-</div>
-</div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="col-md-2">
+                        <h4>APPLICATIONS</h4>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="checkbox" name="" value="" />Add &nbsp;&nbsp;
 
 
-</fieldset>
+                        <input type="checkbox" name="" value="" />Edit &nbsp;&nbsp;
 
-    
-}
-</div>
-              </div>
+
+                        <input type="checkbox" name="" value="" />Delete &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />View &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />Approve &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />Sanction &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />Reject &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />Apply for Others &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />Sanction for Others &nbsp;&nbsp;
+                    </div>
+                    <br />
+                    <br />
+                    <div class="col-md-2">
+                        <h4>SACNTIONS</h4>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="checkbox" name="" value="" />Add &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />Edit &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />Delete &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />View &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />Approve &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />Sanction &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />Reject &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />Apply for Others &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />Sanction for Others &nbsp;&nbsp;
+                    </div>
+                    <br />
+                    <br />
+                    <div class="col-md-2">
+                        <h4>ACTIVATE</h4>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="radio" name="" value="" />Activate &nbsp;&nbsp;
+
+
+                        <input type="radio" name="" value="" />Deactivate &nbsp;&nbsp;
+
+
+                        <input type="checkbox" name="" value="" />Reset Password(Password will set same as EmployeeCode) &nbsp;&nbsp;
+                    </div>
+                    <br />
+
+                    <br />
+
+                    <div class="col-md-5">
+                        <div class="row">
+                            <button onclick="" class="">Save</button>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="row">
+                            <button onclick="" class="">Cancel</button>
+                        </div>
+                    </div>
+
+
+                </fieldset>
+
+
+            }
+        </div>
+    </div>
 </section>

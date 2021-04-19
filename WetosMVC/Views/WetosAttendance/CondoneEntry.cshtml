@@ -12,14 +12,19 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/InputMask")
 <link href="~/Content/css/condon_entry.css" rel="stylesheet" />
 <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
-
+<style>
+    .page-content-wrapper .page-content {
+        /* margin-left: 235px; */
+        margin-top: 0px;
+        min-height: 0px !important;
+        padding: 25px 20px 20px 20px;
+    }
+</style>
 <div class="page-content-wrapper" id="page_content">
-    <div class="page-content">
+    
         <section class="content-header">
-           
-           
-                 <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
@@ -27,7 +32,7 @@
 
                         </li>
                         <li class="li_margin"> <a href="@Url.Action("CondoneEntryIndex", "WetosAttendance")">Attendance</a> <i class="fa fa-angle-right"></i> </li>
-                        
+
                         <li class="li_margin"><a href="#">Condone Entry</a></li>
                     </ul>
                 </div>
@@ -44,172 +49,170 @@
                     </ul>
                 </div>
             </div>
-                
-            </div><br />
-            <div class="row">
-                <div class="col-sm-12">
-                    <h1 class="page-title">
-                        <i style="text-shadow: -3px 0px 4px #6f88a2; ">Condone Entry</i>
-                        <small>Create</small>
-                    </h1>
-                </div>
-            </div>
-            @*Code added by Shalaka on 27th DEC  2017 --- End*@
-
-            <div style="clear: both;">
-            </div>
         </section>
-        
-        <section class="content">
-            <div class="col-xs-12 col-md-12 col-lg-12">
-                <div class="box">
-                    <div class="box-body">
-                        @using (Html.BeginForm())
-                        {
-                            @Html.ValidationSummary(true)
+    <br />
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="page-title margin_left_h1">
+                <i style="text-shadow: -3px 0px 4px #6f88a2; ">Condone Entry</i>
+                <small>Create</small>
+            </h1>
+        </div>
+    </div>
+    @*Code added by Shalaka on 27th DEC  2017 --- End*@
+    <div style="clear: both;">
+    </div>
+    <section class="content">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <div class="box">
+                <div class="box-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ValidationSummary(true)
 
-                            @Html.HiddenFor(model => model.TransportId)
-                            @Html.HiddenFor(model => model.DivisionId)
-                            @Html.HiddenFor(model => model.Employeelist)
+                        @Html.HiddenFor(model => model.TransportId)
+                        @Html.HiddenFor(model => model.DivisionId)
+                        @Html.HiddenFor(model => model.Employeelist)
 
-                            <div class="row">
-                                <div class="form-group col-md-6" id="CompanyList">
-                                    <div class="editor-label">
-                                        Company Name <span style="color: Red; font-weight: 700">*</span>
-                                    </div>
-                                    <div class="editor-field">
-                                        @*Favicon added by shalaka on 7th July*@
-                                        <div class="input-group date">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-suitcase" aria-hidden="true"></i>
-                                            </div>
-                                            @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2", style = "width:500px", id = "CompanyddlList" })
-                                         
-                                        </div>
-                                           @Html.ValidationMessageFor(model => model.CompanyId)
-                                    </div>
-
+                        <div class="row">
+                            <div class="form-group col-md-6" id="CompanyList">
+                                <div class="editor-label">
+                                    Company Name <span style="color: Red; font-weight: 700">*</span>
                                 </div>
-                            
-                                <div class="form-group col-md-6" id="BranchList">
-                                    <div class="editor-label">
-                                        Branch Name <span style="color: Red; font-weight: 700">*</span>
-                                    </div>
-                                    <div class="editor-field">
-                                        @*Favicon added by shalaka on 7th July*@
-                                        <div class="input-group date">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-university" aria-hidden="true"></i>
-                                            </div>
-                                            @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", style = "width:500px", id = "BranchddlList" })
-                                           
+                                <div class="editor-field">
+                                    @*Favicon added by shalaka on 7th July*@
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-suitcase" aria-hidden="true"></i>
                                         </div>
-                                         @Html.ValidationMessageFor(model => model.BranchId)
-                                    </div>
+                                        @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2", style = "width:500px", id = "CompanyddlList" })
 
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.CompanyId)
                                 </div>
+
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        Condone Date <span style="color: Red; font-weight: 700">*</span>
-                                        <div class="input-group date">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="CondoneDate" id="CondoneDate" />
-                                        </div>
-                                    </div>
+                            <div class="form-group col-md-6" id="BranchList">
+                                <div class="editor-label">
+                                    Branch Name <span style="color: Red; font-weight: 700">*</span>
                                 </div>
-                            
-                                <div class="form-group col-md-6">
-                                    <div class="editor-label">
-                                        Condone Shift <span style="color: Red; font-weight: 700">*</span>
-                                    </div>
-                                    <div class="editor-field">
-                                        @*Favicon added by shalaka on 7th July*@
-
-                                        <div class="input-group date">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-list-ul"></i>
-                                            </div>
-                                            @Html.DropDownListFor(a => a.ShiftId, (IEnumerable<SelectListItem>)ViewBag.CondoneShiftList, "Select", new { @class = "form-control select2", style = "width:500px" })
-                                           
+                                <div class="editor-field">
+                                    @*Favicon added by shalaka on 7th July*@
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-university" aria-hidden="true"></i>
                                         </div>
-                                         @Html.ValidationMessageFor(model => model.ShiftId)
+                                        @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", style = "width:500px", id = "BranchddlList" })
+
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.BranchId)
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    Condone Date <span style="color: Red; font-weight: 700">*</span>
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="CondoneDate" id="CondoneDate" />
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <div class="editor-label">
-                                        Condone Status <span style="color: Red; font-weight: 700">*</span>
-                                    </div>
-                                    <div class="editor-field">
-                                        @*Favicon added by shalaka on 7th July*@
-
-                                        <div class="input-group date">
-                                            <div class="input-group-addon">
-                                                <i class="glyphicon glyphicon-time"></i>
-                                            </div>
-                                            @*MODIFIED BY SHRADDHA ON 28 DEC 2016*@
-                                            @Html.DropDownListFor(a => a.CondoneStatus, (IEnumerable<SelectListItem>)ViewBag.CondoneStatusObj, "Select", new { @class = "form-control select2", style = "width:500px" })
-                                           
-                                        </div>
-                                         @Html.ValidationMessageFor(model => model.CondoneStatus)
-                                    </div>
+                            <div class="form-group col-md-6">
+                                <div class="editor-label">
+                                    Condone Shift <span style="color: Red; font-weight: 700">*</span>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <div class="editor-label">
-                                        Late/Early Limit Time <span style="color: Red; font-weight: 700">*</span>
+                                <div class="editor-field">
+                                    @*Favicon added by shalaka on 7th July*@
+
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-list-ul"></i>
+                                        </div>
+                                        @Html.DropDownListFor(a => a.ShiftId, (IEnumerable<SelectListItem>)ViewBag.CondoneShiftList, "Select", new { @class = "form-control select2", style = "width:500px" })
+
                                     </div>
+                                    @Html.ValidationMessageFor(model => model.ShiftId)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <div class="editor-label">
+                                    Condone Status <span style="color: Red; font-weight: 700">*</span>
+                                </div>
+                                <div class="editor-field">
                                     @*Favicon added by shalaka on 7th July*@
 
                                     <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="glyphicon glyphicon-time"></i>
                                         </div>
-                                        <input type="text" style="width:100%;"name="LateEarly" data-inputmask="'mask': ['', '99:99:99']" data-mask />
-                                      
-                                    </div>
-                                      @Html.ValidationMessageFor(model => model.LateEarly)
-                                </div>
-                               
-                            </div>
+                                        @*MODIFIED BY SHRADDHA ON 28 DEC 2016*@
+                                        @Html.DropDownListFor(a => a.CondoneStatus, (IEnumerable<SelectListItem>)ViewBag.CondoneStatusObj, "Select", new { @class = "form-control select2", style = "width:500px" })
 
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <div class="editor-label">
-                                        <i class="glyphicon glyphicon-pencil"></i>
-                                        Condone Reason <span style="color: Red; font-weight: 700">*</span>
                                     </div>
-                                    <div class="editor-field m_text_area">
-                                        @Html.TextAreaFor(model => model.Reason,  new { style = "width:510px" })
-                                    
-                                    </div>
-                                        @Html.ValidationMessageFor(model => model.Reason)
+                                    @Html.ValidationMessageFor(model => model.CondoneStatus)
                                 </div>
                             </div>
+                            <div class="form-group col-md-6">
+                                <div class="editor-label">
+                                    Late/Early Limit Time <span style="color: Red; font-weight: 700">*</span>
+                                </div>
+                                @*Favicon added by shalaka on 7th July*@
+
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-time"></i>
+                                    </div>
+                                    <input type="text" style="width:100%;height: 31px;border-top-right-radius: 5px;border-bottom-right-radius: 5px;
+                                        border: 1px solid #ddd !important;" name="LateEarly" data-inputmask="'mask': ['', '99:99:99']" data-mask />
+
+                                </div>
+                                @Html.ValidationMessageFor(model => model.LateEarly)
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <div class="editor-label">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                    Condone Reason <span style="color: Red; font-weight: 700">*</span>
+                                </div>
+                                <div class="editor-field m_text_area">
+                                    @Html.TextAreaFor(model => model.Reason, new { style = "width:510px" })
+
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Reason)
+                            </div>
+                        </div>
 
 
-                            //Modified by Shalaka on 27th DEC 2017
-                            @* <p>
-                                    <input type="submit" value="Create" />
-                                </p>*@
-                            <p>
-                                <input type="submit" value="Create" class="btn btn-primary" />
-                            </p>
-                            //Modified by Shalaka on 27th DEC 2017
+                        //Modified by Shalaka on 27th DEC 2017
+                        @* <p>
+                                <input type="submit" value="Create" />
+                            </p>*@
+                        <p class="margin_left_save">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </p>
+                        //Modified by Shalaka on 27th DEC 2017
 
-                        }
-                    </div>
+                    }
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 </div>
+
 <script type="text/javascript">
 
     $("[data-mask]").inputmask();

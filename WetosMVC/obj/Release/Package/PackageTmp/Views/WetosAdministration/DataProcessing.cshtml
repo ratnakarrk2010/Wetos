@@ -14,22 +14,22 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6 padding_ul">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 padding_ul ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
                             <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
                         </li>
-                         <li class="li_margin">
-                         <a href="#">Administration</a>
+                        <li class="li_margin">
+                            <a href="#">Administration</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li class="li_margin">
                             <a href="#">Data Processing</a>
                         </li>
-                        </ul>
+                    </ul>
                 </div>
                 <div class="col-sm-6">
                     <ul style="float: right;">
@@ -44,57 +44,57 @@
                     </ul>
                 </div>
             </div>
-        <h1>
-       Manual Attendance Data Processing
-        <small></small>
-      </h1>
-     <div style="clear: both;"></div>
-</section>
-<section class="content">
-<div class="row">
-<div class="col-xs-12 col-md-12 col-lg-12">         
-<div class="box">
-<div class="box-body">
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(false)
-<div id="DataProcessMessage" style="font-size:16px;color:Blue">@Session["DataProcessMessage"]</div>
-<div>
- <div class="row">
-    <div class="col-md-4">
-        <div class="form-group">
-            From Date <span style="color: Red; font-size: 18px">*</span>
-            <div class="input-group date">
-                <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                </div>
-             <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>
-            </div>
-        </div>
-    </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                To Date <span style="color: Red; font-size: 18px">*</span>
-                <div class="input-group date">
-                    <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
+            <h1 class="margin_left_h1">
+                Manual Attendance Data Processing
+                <small></small>
+            </h1>
+            <div style="clear: both;"></div>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box">
+                        <div class="box-body">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.ValidationSummary(false)
+                                <div id="DataProcessMessage" style="font-size:16px;color:Blue">@Session["DataProcessMessage"]</div>
+                                <div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                From Date <span style="color: Red; font-size: 18px">*</span>
+                                                <div class="input-group date">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                To Date <span style="color: Red; font-size: 18px">*</span>
+                                                <div class="input-group date">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control pull-right datepicker" id="ToDate" name="ToDate" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 form-group margin_left_save">
+                                        <input class="btn btn-primary btn_process blue" type="submit" name="submit" onclick="showloading()" value="Process Attendance" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
                     </div>
-                <input type="text" class="form-control pull-right datepicker" id="ToDate" name="ToDate"/>
                 </div>
             </div>
-        </div>
-    </div>
- <div class="col-md-1 form-group">
- <input class="btn btn-primary btn_process blue" type="submit"  name="submit" onclick="showloading()" value="Process Attendance"/>
- </div>
-</div>
-}
-    </div>
-    </div>
-    </div>
-    </div>
 
-    </section>
+        </section>
     </div>
 </div>
 <script type="text/jscript">
@@ -191,5 +191,5 @@
         $("#DataProcessMessage").html("");
     });
 
-  
+
 </script>

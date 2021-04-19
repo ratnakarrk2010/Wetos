@@ -13,10 +13,15 @@
 .div_error {
     margin-left: 1.8%;
 }
-
 @media screen and (min-device-width: 320px) and (max-device-width: 767px) {
     .date {
-        margin-left: 3.5%;
+        margin-left:0%;
+    }
+    .li_margin {
+        margin-top: 1.8%;
+    }
+    .m_padding_top_3 {
+        padding-top: 3px;
     }
     .single-line {
         width: 100% !important;
@@ -40,11 +45,17 @@
     .div_error {
         margin-left: 3.8%;
     }
+    .btn_margin_left{
+        margin-left:4.5%;
+    }
 }
 
 @media screen and (min-device-width: 411px) and (max-device-width: 414px) {
     .date {
-        margin-left: 3.5%;
+        margin-left: 0%;
+    }
+    .btn_margin_left {
+        margin-left: 4.5%;
     }
     .page-content-wrapper .page-content {
         padding: 10px 10px !important;
@@ -63,7 +74,7 @@
 
 @media screen and (min-device-width: 767px) and (max-device-width: 1023px) {
     .date {
-        margin-left: 2%;
+        margin-left: 0%;
     }
     .content-header {
         padding-top: 0% !important;
@@ -81,7 +92,7 @@
 
 @media screen and (min-device-width: 1024px) and (max-device-width: 1200px) {
     .date {
-        margin-left: 2%;
+        margin-left: 0%;
     }
     .div_error {
         margin-left: 2%;
@@ -90,7 +101,7 @@
 
 @media screen and (min-device-width: 1800px) and (max-device-width: 2100px) {
     .date {
-        margin-left: 1%;
+        margin-left: 0%;
     }
     .div_error {
         margin-left: 1%;

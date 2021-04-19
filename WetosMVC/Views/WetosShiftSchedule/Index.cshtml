@@ -1,284 +1,286 @@
 ﻿@model IEnumerable<WetosDB.SP_ShiftScheduleList_Result>
-@{
-    ViewBag.Title = "WetosMVC";
-}
-@System.Web.Optimization.Styles.Render("~/Content/DataTable")
- @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
-<style type="text/css">
-    body
-    {
-        overflow-x: auto;
+    @{
+        ViewBag.Title = "WetosMVC";
     }
-    
-    .wrapper
-    {
-        overflow-x: auto;
-        position: absolute;
-    }
-    
-    td
-    {
-        border: 1px solid black;
-    }
-</style>
-<div class="page-content-wrapper" id="page_content">
-    <div class="page-content">
-        <section class="content-header">
-         <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
-                    <ul>
-                        <li class="li_margin1">
-                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
-                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+    @System.Web.Optimization.Styles.Render("~/Content/DataTable")
+    @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+    <style type="text/css">
+        body {
+            overflow-x: auto;
+        }
 
-                        </li>
-                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
-                        
-                        <li class="li_margin">  <a href="@Url.Action("Index", "WetosShiftSchedule")">Shift Schedule </a></li>
-                    </ul>
+        .wrapper {
+            overflow-x: auto;
+            position: absolute;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+    </style>
+    <div class="page-content-wrapper" id="page_content">
+        <div class="page-content">
+            <section class="content-header">
+                <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                    <div class="col-sm-6 ed_breadcrumb_div">
+                        <ul>
+                            <li class="li_margin1">
+                                <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                                <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                            </li>
+                            <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+
+                            <li class="li_margin">  <a href="@Url.Action("Index", "WetosShiftSchedule")">Shift Schedule </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <ul style="float: right;">
+                            <li class="">
+                                <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                    <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                    <span>
+                                        @DateTime.Now.ToLongDateString()
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <ul style="float: right;">
-                        <li class="">
-                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
-                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
-                                <span>
-                                    @DateTime.Now.ToLongDateString()
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <h1> Shift Schedule
-            <small>List</small>
-            <span style="float:right;font-weight:800">
-            @Html.ActionLink(" ", "Create", new { }, new { @class = "fa fa-plus-circle", title = "Add Shift Schedule", style = "color:#428bca;font-size:19px" })</span>
-         
-            </h1>
-          
-              <div style="clear: both;"></div>              
-               @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
-        </section>
-        <section class="content">                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="row">
-        <div class="col-xs-12">
-            
-                
-                <div class="box-body">
-                 
-                    <table id="ShiftScheduleTbl" class="table table-bordered table-striped">  @*Added by Pushkar For datatable on 25 OCT 2016*@
-                        <thead>
-                            <tr>
-                             <td>
-                                 Name
-                             </td>
-                              <td>
-                                 Month
-                              </td>
-                              <td>
-                                 Year
-                              </td>
-                              <td>
-                                 Branch
-                              </td>
-                              <td>
-                                 1
-                              </td>
-                              <td>
-                                 2
-                              </td>
-                              <td>
-                                 3
-                              </td>
-                              <td>
-                                 4
-                              </td>
-                              <td> 5 </td>
-                              <td> 6 </td>
-                              <td> 7 </td>
-                              <td> 8 </td>
-                              <td> 9 </td>
-                              <td> 10 </td>
-                              <td> 11 </td>
-                              <td> 12 </td>
-                              <td> 13 </td>
-                              <td> 14 </td>
-                              <td> 15 </td>
-                              <td> 16 </td>
-                              <td> 17 </td>
-                              <td> 18 </td>
-                              <td> 19 </td>
-                              <td> 20 </td>
-                              <td> 21 </td>
-                              <td> 22 </td>
-                              <td> 23 </td>
-                              <td> 24 </td>
-                              <td> 25 </td>
-                              <td> 26 </td>
-                              <td> 27 </td>
-                              <td> 28 </td>
-                              <td> 29 </td>
-                              <td> 30 </td>
-                              <td> 31 </td>
-                                <td style = "font-weight:100"> 
-                                    Action
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        @*<a href="@Url.Action("Details", "WetosShiftSchedule", new { id = item.ShiftScheduleId })" "tooltip" style="cursor:pointer; float:left" title = "Click to view Shift Schedule details">*@
-                                        @item.EmployeeCode - @item.FirstName @item.LastName  @*</a>*@
-                                    </td>
-                                    <td>
-                                        @item.ShiftMonth
-                                    </td>
-                                    
-                                    <td>
-                                        @item.ShiftYear
-                                    </td>
-                                    <td>
-                                        @item.BranchName
-                                    </td>
-                                    <td>
-                                        @item.Day1
-                                    </td>
-                                    <td>
-                                        @item.Day2
-                                    </td>
-                                    <td>
-                                        @item.Day3
-                                    </td>
-                                    <td>
-                                        @item.Day4
-                                    </td>
-                                    <td>
-                                        @item.Day5
-                                    </td>
-                                    <td>
-                                        @item.Day6
-                                    </td>
-                                    <td>
-                                        @item.Day7
-                                    </td>
-                                    <td>
-                                        @item.Day8
-                                    </td>
-                                    <td>
-                                        @item.Day9
-                                    </td>
-                                    <td>
-                                        @item.Day10
-                                    </td>
-                                    <td>
-                                        @item.Day11
-                                    </td>
-                                    <td>
-                                        @item.Day12
-                                    </td>
-                                    <td>
-                                        @item.Day13
-                                    </td>
-                                    <td>
-                                        @item.Day14
-                                    </td>
-                                    <td>
-                                        @item.Day15
-                                    </td>
-                                    <td>
-                                        @item.Day16
-                                    </td>
-                                    <td>
-                                        @item.Day17
-                                    </td>
-                                    <td>
-                                        @item.Day18
-                                    </td>
-                                    <td>
-                                        @item.Day19
-                                    </td>
-                                    <td>
-                                        @item.Day20
-                                    </td>
-                                    <td>
-                                        @item.Day21
-                                    </td>
-                                    <td>
-                                        @item.Day22
-                                    </td>
-                                    <td>
-                                        @item.Day23
-                                    </td>
-                                    <td>
-                                        @item.Day24
-                                    </td>
-                                    <td>
-                                        @item.Day25
-                                    </td>
-                                    <td>
-                                        @item.Day26
-                                    </td>
-                                    <td>
-                                        @item.Day27
-                                    </td>
-                                    <td>
-                                        @item.Day28
-                                    </td>
-                                    <td>
-                                        @item.Day29
-                                    </td>
-                                    <td>
-                                        @item.Day30
-                                    </td>
-                                    <td>
-                                        @item.Day31
-                                    </td>
-                                        
-                                    
-                                    <td>
-                                    <span data-toggle="tooltip" title="Edit">
-                                                @Html.ActionLink(" ", "Edit", new { id = item.ShiftSchedulePatternId }, new { @class = "fa fa-pencil-square-o" })</span> 
+                <h1 class="margin_left_h1">
+                    Shift Schedule
+                    <small>List</small>
+                    <span style="float:right;font-weight:800">
+                        @Html.ActionLink(" ", "Create", new { }, new { @class = "fa fa-plus-circle", title = "Add Shift Schedule", style = "color:#428bca;font-size:19px" })
+                    </span>
+
+                </h1>
+
+                <div style="clear: both;"></div>
+                @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+            </section>
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+
+
+                        <div class="box-body">
+
+                            <table id="ShiftScheduleTbl" class="table table-bordered table-striped">
+                                @*Added by Pushkar For datatable on 25 OCT 2016*@
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            Name
+                                        </td>
+                                        <td>
+                                            Month
+                                        </td>
+                                        <td>
+                                            Year
+                                        </td>
+                                        <td>
+                                            Branch
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            2
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            4
+                                        </td>
+                                        <td> 5 </td>
+                                        <td> 6 </td>
+                                        <td> 7 </td>
+                                        <td> 8 </td>
+                                        <td> 9 </td>
+                                        <td> 10 </td>
+                                        <td> 11 </td>
+                                        <td> 12 </td>
+                                        <td> 13 </td>
+                                        <td> 14 </td>
+                                        <td> 15 </td>
+                                        <td> 16 </td>
+                                        <td> 17 </td>
+                                        <td> 18 </td>
+                                        <td> 19 </td>
+                                        <td> 20 </td>
+                                        <td> 21 </td>
+                                        <td> 22 </td>
+                                        <td> 23 </td>
+                                        <td> 24 </td>
+                                        <td> 25 </td>
+                                        <td> 26 </td>
+                                        <td> 27 </td>
+                                        <td> 28 </td>
+                                        <td> 29 </td>
+                                        <td> 30 </td>
+                                        <td> 31 </td>
+                                        <td style="font-weight:100">
+                                            Action
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @*<a href="@Url.Action("Details", "WetosShiftSchedule", new { id = item.ShiftScheduleId })" "tooltip" style="cursor:pointer; float:left" title = "Click to view Shift Schedule details">*@
+                                                @item.EmployeeCode - @item.FirstName @item.LastName  @*</a>*@
+                                            </td>
+                                            <td>
+                                                @item.ShiftMonth
+                                            </td>
+
+                                            <td>
+                                                @item.ShiftYear
+                                            </td>
+                                            <td>
+                                                @item.BranchName
+                                            </td>
+                                            <td>
+                                                @item.Day1
+                                            </td>
+                                            <td>
+                                                @item.Day2
+                                            </td>
+                                            <td>
+                                                @item.Day3
+                                            </td>
+                                            <td>
+                                                @item.Day4
+                                            </td>
+                                            <td>
+                                                @item.Day5
+                                            </td>
+                                            <td>
+                                                @item.Day6
+                                            </td>
+                                            <td>
+                                                @item.Day7
+                                            </td>
+                                            <td>
+                                                @item.Day8
+                                            </td>
+                                            <td>
+                                                @item.Day9
+                                            </td>
+                                            <td>
+                                                @item.Day10
+                                            </td>
+                                            <td>
+                                                @item.Day11
+                                            </td>
+                                            <td>
+                                                @item.Day12
+                                            </td>
+                                            <td>
+                                                @item.Day13
+                                            </td>
+                                            <td>
+                                                @item.Day14
+                                            </td>
+                                            <td>
+                                                @item.Day15
+                                            </td>
+                                            <td>
+                                                @item.Day16
+                                            </td>
+                                            <td>
+                                                @item.Day17
+                                            </td>
+                                            <td>
+                                                @item.Day18
+                                            </td>
+                                            <td>
+                                                @item.Day19
+                                            </td>
+                                            <td>
+                                                @item.Day20
+                                            </td>
+                                            <td>
+                                                @item.Day21
+                                            </td>
+                                            <td>
+                                                @item.Day22
+                                            </td>
+                                            <td>
+                                                @item.Day23
+                                            </td>
+                                            <td>
+                                                @item.Day24
+                                            </td>
+                                            <td>
+                                                @item.Day25
+                                            </td>
+                                            <td>
+                                                @item.Day26
+                                            </td>
+                                            <td>
+                                                @item.Day27
+                                            </td>
+                                            <td>
+                                                @item.Day28
+                                            </td>
+                                            <td>
+                                                @item.Day29
+                                            </td>
+                                            <td>
+                                                @item.Day30
+                                            </td>
+                                            <td>
+                                                @item.Day31
+                                            </td>
+
+
+                                            <td>
+                                                <span data-toggle="tooltip" title="Edit">
+                                                    @Html.ActionLink(" ", "Edit", new { id = item.ShiftSchedulePatternId }, new { @class = "fa fa-pencil-square-o" })
+                                                </span>
                                                 @*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
-                                                
-                                    </td>
 
-                                </tr>
-                            }
-                        </tbody>
-                        <tfoot>               
-                        </tfoot>
-                    </table>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
                 </div>
-                <!-- /.box-body -->
-            </div>
-            <!-- /.box -->
+                <!-- /.col -->
+            </section>
         </div>
-        <!-- /.col -->
+        <!-- /.row -->
+        
     </div>
-              <!-- /.row -->
-        </section>
-    </div>
-</div>
-@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
-<script type="text/jscript">
-    $(document).ready(function () {
-        $('.back').click(function () {
-            parent.history.back();
-            return false;
+    @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+    <script type="text/jscript">
+        $(document).ready(function () {
+            $('.back').click(function () {
+                parent.history.back();
+                return false;
+            });
         });
-    });
 
-    function goBack() {
-        window.history.back();
-    }
-</script type="text/jscript">
-@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ @*Added by Pushkar For datatable on 25 OCT 2016-------start*@
-<script>
-    $(function () {
-        $("#ShiftScheduleTbl").DataTable();
-    });
-</script>
-@*Added by Pushkar For datatable on 25 OCT 2016-------end*@
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    @*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ @*Added by Pushkar For datatable on 25 OCT 2016-------start*@
+    <script>
+        $(function () {
+            $("#ShiftScheduleTbl").DataTable();
+        });
+    </script>
+    @*Added by Pushkar For datatable on 25 OCT 2016-------end*@

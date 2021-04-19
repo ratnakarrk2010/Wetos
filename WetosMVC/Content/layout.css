@@ -1780,7 +1780,7 @@ Page content
     /* Dashboard date range panel */
     .page-content-wrapper .page-content .page-title small
     {
-        display: block;
+        display: initial;
         clear: both;
     }
     .page-content-wrapper .page-content .page-breadcrumb.breadcrumb .dashboard-date-range

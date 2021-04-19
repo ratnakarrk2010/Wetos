@@ -4,13 +4,22 @@
 }
 <link href="~/Content/css/wetoslocation_edit.css" rel="stylesheet" />
 <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
-
+<style>
+    @@media screen and (min-device-width: 320px) and (max-device-width: 767px) {
+        .btn_margin_left{
+            margin-left:4.5%;
+        }
+    }
+    @@media screen and (min-device-width: 411px) and (max-device-width: 414px) {
+    
+    }
+</style>
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
             
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
@@ -120,7 +129,7 @@
                                         </div>
                                     </div>
 
-                                    <p>
+                                    <p class="btn_margin_left">
                                         <input type="button" id="LocationBtn" value="Save" class="btn btn-default" style="cursor:pointer; float:left" title="Click to save location details" />
                                         <span class="btn btn-default" style="cursor:pointer;margin-left:10px;" title="Click to go back to location details">@Html.ActionLink("Back to Location list", "Index")</span>
                                     </p>

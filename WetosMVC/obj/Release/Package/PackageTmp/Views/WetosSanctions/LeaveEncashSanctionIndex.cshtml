@@ -13,36 +13,8 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-
-
-            <!--
-                        <div class="row">
-                            <div class="col-md-12">
-                                <ul class="page-breadcrumb breadcrumb">
-                                    <li>
-                                        <i class="fa fa-home"></i>
-                                        <a href="@Url.Action("Index", "Home")">Home </a>
-                                        <i class="fa fa-angle-right"></i>
-                                    </li>
-                                    <li>
-                                     <a href="#">Sanctions</a>
-                                        <i class="fa fa-angle-right"></i>
-                                    </li>
-                                    <li>
-                                        <a href="#">Encashment Sanction</a>
-                                    </li>
-                                    <li class="pull-right">
-                                        <div id="dashboard-report" title="Today's date">
-                                            <span style="cursor:pointer" class="back " title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
-                                            <i class="fa fa-calendar"></i>
-                                            <span>@DateTime.Now.ToLongDateString()</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> -->
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
@@ -71,7 +43,7 @@
                     </ul>
                 </div>
             </div>
-            <h1>
+            <h1 class="margin_left_h1">
                 Encashment Sanction
                 <small>List</small>
             </h1>
@@ -124,20 +96,21 @@
                             <br />
 
                             <div id="results">
-                                 @Html.Partial("LeaveEncashSanctionPV")
+                                @Html.Partial("LeaveEncashSanctionPV")
                             </div>
-                            <center><input type="submit" class="btn btn-primary" value="Save" /> </center>
-                        }
+                            <div class="row"></div><div class="col-sm-12"><input type="submit" class="btn btn-primary" value="Save" /> </div>
+                        
+                    }
                     </div>
                     <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
-                <!-- /.box -->
-            </div>
-            <!-- /.col -->
-            <!-- /.row -->
-        </section>
+            </section>
+            <!-- /.box -->
+            <!-- /.box -->
     </div>
+        <!-- /.col -->
+        <!-- /.row -->
+
 </div>
 
 
@@ -187,48 +160,48 @@
 
 
 
-        function getSanctionListPV() {
-            //--- ADDED BY SHALAKA ON 29th DEC 2017 TO DISPLAY PROGRESS RING
-            showloading();
+function getSanctionListPV() {
+    //--- ADDED BY SHALAKA ON 29th DEC 2017 TO DISPLAY PROGRESS RING
+    showloading();
+    debugger;
+    var selectCriteria = $("#Status").val();
+    //alert(selectCriteria);
+
+    //var ToDate = $("#ToDate").val();
+
+    $.ajax({
+        url: '@Url.Content("~/WetosSanctions/LeaveEncashSanctionPV")',
+        type: "POST",
+        data: { selectCriteria: selectCriteria },
+        success: function (data) {
             debugger;
-            var selectCriteria = $("#Status").val();
-            //alert(selectCriteria);
+            $("#results").html(data);
+            $("#LeaveSanctionabc").DataTable();
+            // hideloading();  //--- ADDED BY SHALAKA ON 29th DEC 2017 TO HIDE PROGRESS RING
 
-            //var ToDate = $("#ToDate").val();
-
-            $.ajax({
-                url: '@Url.Content("~/WetosSanctions/LeaveEncashSanctionPV")',
-                type: "POST",
-                data: { selectCriteria: selectCriteria },
-                success: function (data) {
-                    debugger;
-                    $("#results").html(data);
-                    $("#LeaveSanctionabc").DataTable();
-                   // hideloading();  //--- ADDED BY SHALAKA ON 29th DEC 2017 TO HIDE PROGRESS RING
-
-                },
-                error: function (data) {
-                    hideloading();  //--- ADDED BY SHALAKA ON 29th DEC 2017 TO HIDE PROGRESS RING
-                }
-            });
-            //hideloading();  //--- ADDED BY SHALAKA ON 29th DEC 2017 TO HIDE PROGRESS RING
+        },
+        error: function (data) {
+            hideloading();  //--- ADDED BY SHALAKA ON 29th DEC 2017 TO HIDE PROGRESS RING
         }
+    });
+    //hideloading();  //--- ADDED BY SHALAKA ON 29th DEC 2017 TO HIDE PROGRESS RING
+}
 
-        $(document).ready(function () {
-            // alert();
-            $("#RejectReasonText").attr("disabled", true);
-            $("#RejectReasonText").attr("autocomplete", "off");
-        });
+$(document).ready(function () {
+    // alert();
+    $("#RejectReasonText").attr("disabled", true);
+    $("#RejectReasonText").attr("autocomplete", "off");
+});
 
-        $("#RejectReasonCheck").change(function () {
-            var RejectReasonCheck = $("#RejectReasonCheck").is(':checked') ? "1" : "0";
-            if (RejectReasonCheck == "1") {
-                $("#RejectReasonText").attr("disabled", false);
-            }
-            else {
-                $("#RejectReasonText").attr("disabled", true);
-            }
-        });
+$("#RejectReasonCheck").change(function () {
+    var RejectReasonCheck = $("#RejectReasonCheck").is(':checked') ? "1" : "0";
+    if (RejectReasonCheck == "1") {
+        $("#RejectReasonText").attr("disabled", false);
+    }
+    else {
+        $("#RejectReasonText").attr("disabled", true);
+    }
+});
 </script>
 @*Added by Pushkar For datatable on 25 OCT 2016-------end*@
 

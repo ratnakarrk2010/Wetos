@@ -5,11 +5,8 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-      <h1>
-        Shift Schedule
-        <small>Edit</small>
-      </h1>
-      <div class="row">
+
+            <div class="row">
                 <div class="col-md-12">
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
@@ -18,7 +15,7 @@
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li>
-                         <a href="#">Masters</a>
+                            <a href="#">Masters</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li>
@@ -28,455 +25,459 @@
                             <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
                                 <span style="cursor:pointer" class="back " data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
                                 <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                                <span>@DateTime.Now.ToLongDateString()</span>
                             </div>
-                        </li>              
+                        </li>
                     </ul>
                 </div>
-            </div>  
-      <div style="clear: both;"></div>
- </section>
+            </div>
+            <div style="clear: both;"></div>
+            <h1 class="margin_left_h1">
+                Shift Schedule
+                <small>Edit</small>
+            </h1>
+        </section>
         <section class="content">
-<div class="row">
-<div class="col-xs-12 col-md-12 col-lg-12">         
-<div class="box">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box">
 
-<div class="box-body">
-@using (Html.BeginForm("Edit", "WetosShiftSchedulePattern", FormMethod.Post, new { id = "Form" }))
-{
-     <div style="color: Red; font-size: 12px">
-   @Html.ValidationSummary(true)
-   </div>
-   <fieldset>
-        
-        @*Added by Rajas on 29 DEC 2016 For custom error message START*@
-            <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessage("Error")
+                        <div class="box-body">
+                            @using (Html.BeginForm("Edit", "WetosShiftSchedulePattern", FormMethod.Post, new { id = "Form" }))
+                            {
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationSummary(true)
+                                </div>
+                                <fieldset>
+
+                                    @*Added by Rajas on 29 DEC 2016 For custom error message START*@
+                                    <div style="color: Red; font-size: 12px">
+                                        @Html.ValidationMessage("Error")
+                                    </div>
+                                    @*Added by Rajas on 29 DEC 2016 For custom error message END*@
+
+                                    @Html.HiddenFor(model => model.ShiftScheduleId)
+                                    @Html.HiddenFor(model => model.EmployeeId)
+
+                                    <div class="row">
+                                        <div class="editor-label col-md-2">
+                                            Month
+                                        </div>
+                                        <div class="editor-field col-md-5">
+                                            @Html.DropDownListFor(a => a.ShiftMonth, (IEnumerable<SelectListItem>)@ViewBag.MonthDetailsList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.ShiftMonth)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    @*<div class="row">
+                                        <div class="editor-label col-md-2">
+                                        Company
+                                        </div>
+                                        <div class="editor-field col-md-5">
+                                        @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
+                                        <div style="color: Red; font-size: 12px">
+                                        @Html.ValidationMessageFor(model => model.CompanyId)
+                                        </div>
+                                        </div>
+                                        </div>
+                                            <br />
+
+                                        <div class="row">
+                                        <div class="editor-label col-md-2">
+                                        Branch
+                                        </div>
+                                        <div class="editor-field col-md-5">
+                                        @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList" })
+                                        <div style="color: Red; font-size: 12px">
+                                        @Html.ValidationMessageFor(model => model.BranchId)
+                                        </div>
+                                        </div>
+                                        </div>
+                                            <br />*@
+
+                                    <div class="row">
+                                        <div class="editor-label col-md-2">
+                                            Employee
+                                        </div>
+                                        <div class="editor-field col-md-5">
+                                            @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", id = "selectemployee", @disabled = "disabled" }) @* @readonly= "readonly",  *@
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.EmployeeId)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                Year
+                                                @Html.TextBoxFor(model => model.ShiftYear, new { @class = "form-control pull-right" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+
+                                    <div class="row">
+                                        <div class="editor-label col-md-1">
+                                            01
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day1, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day1)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            02
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day2, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day2)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            03
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day3, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day3)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            04
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day4, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day4)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            05
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day5, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day5)
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="editor-label col-md-1">
+                                            06
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @* <label>@Model.Day6</label>*@
+                                            @* @{var Day6=0;}
+                                                <label>@Day6</label>*@
+                                            @* @Html.DropDownList("ABC", (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })*@
+                                            @Html.DropDownListFor(a => a.Day6, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day6)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            07
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day7, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day7)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            08
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day8, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day8)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            09
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day9, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day9)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            10
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day10, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day10)
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="editor-label col-md-1">
+                                            11
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day11, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day11)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            12
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day12, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day12)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            13
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day13, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day13)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            14
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day14, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day14)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            15
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day15, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day15)
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="editor-label col-md-1">
+                                            16
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day16, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day16)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            17
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day17, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day17)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            18
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day18, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day18)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            19
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day19, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day19)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            20
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day20, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day20)
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="editor-label col-md-1">
+                                            21
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day21, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day21)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            22
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day22, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day22)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            23
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day23, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day23)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            24
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day24, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day24)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            25
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day25, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day25)
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="editor-label col-md-1">
+                                            26
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day26, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day26)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            27
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day27, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day27)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            28
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day28, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day28)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            29
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day29, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day29)
+                                            </div>
+                                        </div>
+
+                                        <div class="editor-label col-md-1">
+                                            30
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day30, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day30)
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="editor-label col-md-1">
+                                            31
+                                        </div>
+                                        <div class="editor-field col-md-1">
+                                            @Html.DropDownListFor(a => a.Day31, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Day31)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+
+
+                                    <p>
+                                        <input type="button" id="BTNEdit" value="Update" class="btn btn-default" data-toggle="tooltip" style="cursor:pointer; float:left" title="Click to update Shift schedule pattern" />
+                                        <span class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" data-toggle="tooltip" title="Click to go back to Shift schedule list">@Html.ActionLink("Back to Shift schedule list", "Index")</span>
+
+                                    </p>
+                                </fieldset>
+                            }
+
+                        </div>
+                    </div>
+                </div>
             </div>
-             @*Added by Rajas on 29 DEC 2016 For custom error message END*@
-
-             @Html.HiddenFor(model => model.ShiftScheduleId)
-              @Html.HiddenFor(model => model.EmployeeId)
-
-  <div class="row">                
-    <div class="editor-label col-md-2">
-    Month 
-    </div>
-    <div class="editor-field col-md-5">
-    @Html.DropDownListFor(a => a.ShiftMonth, (IEnumerable<SelectListItem>)@ViewBag.MonthDetailsList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.ShiftMonth)
-    </div>
-    </div>
-    </div>
-        <br />
-
-       @*<div class="row">                
-    <div class="editor-label col-md-2">
-    Company
-    </div>
-    <div class="editor-field col-md-5">
-    @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.CompanyId)
-    </div>
-    </div>
-    </div>
-        <br />
-
-    <div class="row">                
-    <div class="editor-label col-md-2">
-    Branch 
-    </div>
-    <div class="editor-field col-md-5">
-    @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.BranchId)
-    </div>
-    </div>
-    </div>
-        <br />*@
-
-        <div class="row">                
-    <div class="editor-label col-md-2">
-    Employee
-    </div>
-    <div class="editor-field col-md-5">
-    @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", id = "selectemployee", @disabled = "disabled" }) @* @readonly= "readonly",  *@
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.EmployeeId)
-    </div>
-    </div>
-    </div>
-        <br />
-
-         <div class="row">
-            <div class="col-md-3">
-             <div class="form-group">
-               Year
-               @Html.TextBoxFor(model => model.ShiftYear, new { @class = "form-control pull-right" })
-              </div>
-            </div>
-           
-            </div>
-            <br />
-
-
-<div class="row">
-    <div class="editor-label col-md-1">
-    01
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day1, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day1)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    02
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day2, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day2)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    03
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day3, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day3)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    04
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day4, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day4)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    05
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day5, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day5)
-    </div>
-    </div>
-
-    </div>
-<br />
-
-<div class="row">
-    <div class="editor-label col-md-1">
-    06
-    </div>
-    <div class="editor-field col-md-1">
-   @* <label>@Model.Day6</label>*@
-  @* @{var Day6=0;}
-   <label>@Day6</label>*@
-  @* @Html.DropDownList("ABC", (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })*@
-       @Html.DropDownListFor(a => a.Day6, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day6)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    07
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day7, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day7)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    08
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day8, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day8)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    09
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day9, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day9)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    10
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day10, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day10)
-    </div>
-    </div>
-
-    </div>
-<br />
-
-<div class="row">
-    <div class="editor-label col-md-1">
-    11
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day11, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day11)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    12
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day12, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day12)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    13
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day13, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day13)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    14
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day14, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day14)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    15
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day15, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day15)
-    </div>
-    </div>
-
-    </div>
-<br />
-
-<div class="row">
-    <div class="editor-label col-md-1">
-    16
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day16, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day16)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    17
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day17, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day17)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    18
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day18, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day18)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    19
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day19, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day19)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    20
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day20, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day20)
-    </div>
-    </div>
-
-    </div>
-<br />
-
-<div class="row">
-    <div class="editor-label col-md-1">
-    21
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day21, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day21)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    22
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day22, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day22)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    23
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day23, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day23)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    24
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day24, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day24)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    25
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day25, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day25)
-    </div>
-    </div>
-
-    </div>
-<br />
-
-<div class="row">
-    <div class="editor-label col-md-1">
-    26
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day26, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day26)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    27
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day27, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day27)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    28
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day28, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day28)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    29
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day29, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day29)
-    </div>
-    </div>
-
-    <div class="editor-label col-md-1">
-    30
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day30, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day30)
-    </div>
-    </div>
-
-    </div>
-<br />
-
-<div class="row">
-    <div class="editor-label col-md-1">
-    31
-    </div>
-    <div class="editor-field col-md-1">
-    @Html.DropDownListFor(a => a.Day31, (IEnumerable<SelectListItem>)@ViewBag.ShiftList, "Select", new { @class = "form-control select2" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.Day31)
-    </div>
-    </div>
-    </div>
-    <br />
-         
-
-    <p>
-        <input type="button" id="BTNEdit" value="Update" class="btn btn-default" data-toggle="tooltip" style="cursor:pointer; float:left" title = "Click to update Shift schedule pattern"/>
-      <span  class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" data-toggle="tooltip" title = "Click to go back to Shift schedule list">@Html.ActionLink("Back to Shift schedule list", "Index")</span>
-         
-    </p>
-    </fieldset>
-}
-
-</div> 
-</div>
-</div>
-  </div>
-</section>
+        </section>
     </div>
     @*ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP START*@
     <div id="Div" class="modal fade">
@@ -487,9 +488,11 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="EditBtn">
-                        Yes</button>
+                        Yes
+                    </button>
                     <button type="button" data-dismiss="modal" class="col-md-2 btn">
-                        Cancel</button>
+                        Cancel
+                    </button>
                 </div>
             </div>
         </div>
@@ -526,11 +529,11 @@
                 }
             },
             error: function (data) {
-                
+
 
                 for (var i = 0; i < data.length; i++) {
                       $("#BranchddlList").append("<option value=" + "" + data[i].BranchId + "" + ">" + data[i].BranchName + "</option>");
-                   
+
                     SelectEmployeeList();
                 }
             }
@@ -567,12 +570,12 @@
     });
 
     function SelectEmployeeList() {
-        
-        var Companyid = +$("#CompanyddlList").val();  // Used +$ to handle null values, as Companyid of type int 
+
+        var Companyid = +$("#CompanyddlList").val();  // Used +$ to handle null values, as Companyid of type int
         //alert(Companyid);
-        var Branchid = +$("#BranchddlList").val();   // Used +$ to handle null values, as Branchid of type int 
+        var Branchid = +$("#BranchddlList").val();   // Used +$ to handle null values, as Branchid of type int
         //alert(Branchid);
-        
+
         $.ajax({
             url: '@Url.Content("~/WetosShiftSchedule/GetEmployee")',
             type: "POST",
@@ -583,7 +586,7 @@
                 $("#selectemployee").empty();
                 for (var i = 0; i < data.length; i++) {
 
-                    // Updated by Rajas on 8 FEB 2017 replaced data[i].FirstName + " " + data[i].LastName with  data[i].EmployeeName  
+                    // Updated by Rajas on 8 FEB 2017 replaced data[i].FirstName + " " + data[i].LastName with  data[i].EmployeeName
                     $("#selectemployee").append("<option value=" + "" + data[i].EmployeeId + "" + ">" + data[i].EmployeeName + "</option>");
                 }
             },
@@ -613,13 +616,13 @@
 
         var $form = $(this).closest('form');
         $('#Div').modal({ backdrop: 'static', keyboard: false })
-                .one('click', '#EditBtn', function () {
+            .one('click', '#EditBtn', function () {
 
-                    $("#Form").submit();
-                });
+                $("#Form").submit();
+            });
 
     });
-    //ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP END
+//ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP END
 
 </script>
 @*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@

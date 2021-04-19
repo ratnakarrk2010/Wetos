@@ -12,8 +12,8 @@
         <section class="content-header">
            
           
-             <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+             <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
@@ -38,9 +38,9 @@
                     </ul>
                 </div>
             </div>
-             <h1> Department Master<small>List</small>
+             <h1 class="margin_left_h1"> Department Master<small>List</small>
             <span  data-toggle="tooltip" title="Add Department" style="float:right;font-weight:800" onclick="OnBtnDepartmentMasterClick()">
-            @Html.ActionLink(" ", "Create", new { }, new { @class = "fa fa-plus-circle", style = "color:#428bca;font-size:19px" })</span>
+            @Html.ActionLink(" ", "Create", new { }, new { @class = "fa fa-plus-circle circle1", style = "color:#428bca;font-size:19px" })</span>
             
             </h1>
 

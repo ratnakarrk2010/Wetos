@@ -1,184 +1,186 @@
 ﻿@model IEnumerable<WetosDB.SP_LeaveBalanceDataList_Result>
-@{
-    ViewBag.Title = "Leave Balance List";
-}
-@System.Web.Optimization.Styles.Render("~/Content/DataTable")
-@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
-<link href="~/Content/css/leave_balance_index.css" rel="stylesheet" />
-<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
-
-<div class="page-content-wrapper" id="page_content">
-    <div class="page-content">
-        <section class="content-header">
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6 padding_ul">
-                    <ul>
-                        <li class="li_margin1">
-                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
-                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
-
-                        </li>
-                        <li class="li_margin">
-                         <a href="#">Administration</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li class="li_margin">
-                            <a href="#">Leave Balance</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-6">
-                    <ul style="float: right;">
-                        <li class="">
-                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
-                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
-                                <span>
-                                    @DateTime.Now.ToLongDateString()
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <h1>
-Leave Balance
-        <small>List</small>
-         @*<span class="btn blue" style="float:right;font-weight:800">@Html.ActionLink(" ", "LeaveBalanceCreate", new { }, new { @class = "fa fa-plus-circle", style = "color:white" })</span>*@
- 
-        @*Modified on 01 JAN 2018 to fix BUG No. : L&T213 -- Start*@
-           <span data-toggle="tooltip" title="Add Leave Balance" onclick="showloading();" style="float: right; font-weight: 800">
-                    @Html.ActionLink(" ", "LeaveBalanceCreate", new { Myself = true }, new { @class = "fa fa-plus-circle", title = "Add Leave Balance", style = "color:#428bca;font-size:19px" })</span>
-        @*Modified on 01 JAN 2018 to fix BUG No. : L&T213 -- End*@
-        
-      </h1>
-       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
-     @* <div>
-      
-      <span class="btn btn-default" style="float:left;font-weight:200">@Html.ActionLink("Add New", "LeaveBalanceCreate")</span>
-                
-      </div>*@
-      <div style="clear: both;"></div>
-
-       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
-
-    </section>
-        <section class="content">
-      <div class="row">
-        <div class="col-xs-12 col-md-12 col-lg-12">
-          <div class="box">
-           
-            <!-- /.box-header -->
-            <div class="box-body">
-            <div class="table-responsive">
-<table id ="LeaveBalance" class="table table-bordered table-striped">
-<thead>
-    <tr>
-     
-        <td>
-            Employee
-        </td>
-        <td>
-            Financial Year
-        </td>
-        <td>
-            Leave Type
-        </td>
-        <td>
-            Previous Balance
-        </td>
-        <td>
-           Current Balance
-        </td>
-        <td>
-           Leave Used
-        </td>
-        <td>
-            Company
-        </td>
-        <td>
-            Branch
-        </td>
-         
-       <td>
-        </td>
-    </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model)
-{
-    <tr>
-        
-        <td>@*<a href="@Url.Action("LeaveCreditDetails", "WetosAdministration", new { id = item.EmployeeId })">*@
-            
-            @item.EmployeeCode @item.FirstName @item.LastName
-           @* </a>*@
-        </td>
-        <td>
-            @item.FinancialName
-        </td>
-        <td>
-            @item.LeaveType
-        </td>
-        <td class="quantity">
-            @String.Format("{0:F}", item.PreviousBalance)
-        </td>
-        <td class="quantity">
-            @String.Format("{0:F}", item.CurrentBalance)
-        </td>
-        <td class="quantity">
-            @String.Format("{0:F}", item.LeaveUsed)
-        </td>
-        <td>
-            @item.CompanyName
-        </td>
-        <td>
-            @item.BranchName
-        </td>
-        <td>
-           
-             <span data-toggle="tooltip" title="Edit">
-                                                @Html.ActionLink(" ", "LeaveBalanceEdit", new { id = item.LeaveBalanceId, LeaveType = item.LeaveType }, new { @class = "fa fa-pencil-square-o" })</span>
-                                                @*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
-                                               
-        </td>
-    </tr>
-}
-</tbody>
-<tfoot></tfoot>
-</div>
-</table>
-
-</div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
-    </div>
-</div>
-@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
-<script type="text/jscript">
-    $(document).ready(function () {
-        $('.back').click(function () {
-            parent.history.back();
-            return false;
-        });
-    });
-
-    function goBack() {
-        window.history.back();
+    @{
+        ViewBag.Title = "Leave Balance List";
     }
-</script>
-@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
-<script type="text/jscript">
-    $(function () {
+    @System.Web.Optimization.Styles.Render("~/Content/DataTable")
+    @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+    <link href="~/Content/css/leave_balance_index.css" rel="stylesheet" />
+    <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 
-        $("#LeaveBalance").DataTable();
+    <div class="page-content-wrapper" id="page_content">
+        <div class="page-content">
+            <section class="content-header">
+                <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                    <div class="col-sm-6 padding_ul ed_breadcrumb_div">
+                        <ul>
+                            <li class="li_margin1">
+                                <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                                <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
-    });
-</script>
+                            </li>
+                            <li class="li_margin">
+                                <a href="#">Administration</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li class="li_margin">
+                                <a href="#">Leave Balance</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <ul style="float: right;">
+                            <li class="">
+                                <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                    <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                    <span>
+                                        @DateTime.Now.ToLongDateString()
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h1 class="margin_left_h1">
+                    Leave Balance
+                    <small>List</small>
+                    @*<span class="btn blue" style="float:right;font-weight:800">@Html.ActionLink(" ", "LeaveBalanceCreate", new { }, new { @class = "fa fa-plus-circle", style = "color:white" })</span>*@
+
+                    @*Modified on 01 JAN 2018 to fix BUG No. : L&T213 -- Start*@
+                    <span data-toggle="tooltip" title="Add Leave Balance" onclick="showloading();" style="float: right; font-weight: 800">
+                        @Html.ActionLink(" ", "LeaveBalanceCreate", new { Myself = true }, new { @class = "fa fa-plus-circle circle1", title = "Add Leave Balance", style = "color:#428bca;font-size:19px" })
+                    </span>
+                    @*Modified on 01 JAN 2018 to fix BUG No. : L&T213 -- End*@
+
+                </h1>
+                @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+                @* <div>
+
+                    <span class="btn btn-default" style="float:left;font-weight:200">@Html.ActionLink("Add New", "LeaveBalanceCreate")</span>
+
+                    </div>*@
+                <div style="clear: both;"></div>
+
+                @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+            </section>
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12 col-lg-12">
+                        <div class="box">
+
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <div class="table-responsive">
+                                    <table id="LeaveBalance" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+
+                                                <td>
+                                                    Employee
+                                                </td>
+                                                <td>
+                                                    Financial Year
+                                                </td>
+                                                <td>
+                                                    Leave Type
+                                                </td>
+                                                <td>
+                                                    Previous Balance
+                                                </td>
+                                                <td>
+                                                    Current Balance
+                                                </td>
+                                                <td>
+                                                    Leave Used
+                                                </td>
+                                                <td>
+                                                    Company
+                                                </td>
+                                                <td>
+                                                    Branch
+                                                </td>
+
+                                                <td>
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+
+                                                    <td>
+                                                        @*<a href="@Url.Action("LeaveCreditDetails", "WetosAdministration", new { id = item.EmployeeId })">*@
+
+                                                    @item.EmployeeCode @item.FirstName @item.LastName
+                                                    @* </a>*@
+                                                </td>
+                                                <td>
+                                                    @item.FinancialName
+                                                </td>
+                                                <td>
+                                                    @item.LeaveType
+                                                </td>
+                                                <td class="quantity">
+                                                    @String.Format("{0:F}", item.PreviousBalance)
+                                                </td>
+                                                <td class="quantity">
+                                                    @String.Format("{0:F}", item.CurrentBalance)
+                                                </td>
+                                                <td class="quantity">
+                                                    @String.Format("{0:F}", item.LeaveUsed)
+                                                </td>
+                                                <td>
+                                                    @item.CompanyName
+                                                </td>
+                                                <td>
+                                                    @item.BranchName
+                                                </td>
+                                                <td>
+
+                                                    <span data-toggle="tooltip" title="Edit">
+                                                        @Html.ActionLink(" ", "LeaveBalanceEdit", new { id = item.LeaveBalanceId, LeaveType = item.LeaveType }, new { @class = "fa fa-pencil-square-o" })
+                                                    </span>
+                                                    @*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
+
+                                                </td>
+                                            </tr>
+                                        }
+                                        </tbody>
+                                        <tfoot></tfoot>
+                                </div>
+                                </table>
+
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+        </div>
+    </div>
+    @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+    <script type="text/jscript">
+        $(document).ready(function () {
+            $('.back').click(function () {
+                parent.history.back();
+                return false;
+            });
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    @*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
+    <script type="text/jscript">
+        $(function () {
+
+            $("#LeaveBalance").DataTable();
+
+        });
+    </script>

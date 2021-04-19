@@ -1,70 +1,83 @@
 ﻿@*Partial view for Audit log*@
 @model WetosDB.Branch
 @*<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>*@
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>*@
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
-   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
-   <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 <section class="content">
-     
-          <div class="box">
-          <div class="box-header">
-          </div>
 
-            <!-- /.box-header -->
-            <div class="box-body">
-<div class="row">
-<div class="col-md-2">
-Branch Name </div>
-<div class="col-md-10">
-@Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchNameList, "Select", new { @class = "form-control select2" })
-</div>
-</div>
-<br/>
-<div class="row">
-<div class="col-md-2">
-From Date</div>
-<div class="col-md-10">
-<input type="text" id="AddItemdatepicker" class="datepickerex" name="date" />
-</div>
-</div>
-<br/>
-<div class="row">
-<div class="col-md-2">
-To Date</div>
-<div class="col-md-10">
-<input type="text" id="AddItemdatepicker" class="datepickerex" name="date" />
-</div>
-</div>
+    <div class="box">
+        <div class="box-header">
+        </div>
 
-<br/>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-2">
+                    Branch Name
+                </div>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchNameList, "Select", new { @class = "form-control select2" })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2">
+                    From Date
+                </div>
+                <div class="col-md-10">
+                    <input type="text" id="AddItemdatepicker" class="datepickerex" name="date" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2">
+                    To Date
+                </div>
+                <div class="col-md-10">
+                    <input type="text" id="AddItemdatepicker" class="datepickerex" name="date" />
+                </div>
+            </div>
 
-<div class="row">
-<div class="col-md-1">
-<input type="radio" name="reports5" value=""/>Present</div>
-<div class="col-md-1">
-<input type="radio" name="reports5" value=""/>Absent</div>
-<div class="col-md-1">
-<input type="radio" name="reports5" value=""/>Late</div>
-<div class="col-md-1">
-<input type="radio" name="reports5" value=""/>Early</div>
-<div class="col-md-1">
-<input type="radio" name="reports5" value=""/>All</div>
-<div class="col-md-7">
-<div class="col-md-3">
-<input type="radio" name="reports5" value=""/>On Duty</div>
-<div class="col-md-3">
-<input type="radio" name="reports5" value=""/>On Travel</div>
-<div class="col-md-3">
-<input type="radio" name="reports5" value=""/>On Leave</div>
-<div class="col-md-3">
-<input type="radio" name="reports5" value=""/>Weekly Off</div></div>
-</div>
-<br/>
-<button onclick="" class="btn btn-primary">Select Employee</button>
-<button onclick="" class="btn btn-success">Export To PDF</button>
-</div>
-</div>
+            <br />
+
+            <div class="row">
+                <div class="col-md-1">
+                    <input type="radio" name="reports5" value="" />Present
+                </div>
+                <div class="col-md-1">
+                    <input type="radio" name="reports5" value="" />Absent
+                </div>
+                <div class="col-md-1">
+                    <input type="radio" name="reports5" value="" />Late
+                </div>
+                <div class="col-md-1">
+                    <input type="radio" name="reports5" value="" />Early
+                </div>
+                <div class="col-md-1">
+                    <input type="radio" name="reports5" value="" />All
+                </div>
+                <div class="col-md-7">
+                    <div class="col-md-3">
+                        <input type="radio" name="reports5" value="" />On Duty
+                    </div>
+                    <div class="col-md-3">
+                        <input type="radio" name="reports5" value="" />On Travel
+                    </div>
+                    <div class="col-md-3">
+                        <input type="radio" name="reports5" value="" />On Leave
+                    </div>
+                    <div class="col-md-3">
+                        <input type="radio" name="reports5" value="" />Weekly Off
+                    </div>
+                </div>
+            </div>
+            <br />
+            <button onclick="" class="btn btn-primary">Select Employee</button>
+            <button onclick="" class="btn btn-success">Export To PDF</button>
+        </div>
+    </div>
 </section>
 <script type="text/javascript">
     $(function () {

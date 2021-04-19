@@ -173,6 +173,7 @@
         var notificationCount = Session["NotificationCount"];
         var VersionName = Session["VersionName"];
         string UserGender = Session["Gender"] == null ? "" : Session["Gender"].ToString();
+        string UserGender1 = Session["Gender1"] == null ? "" : Session["Gender1"].ToString();
     }
     <div class="wrapper">
         <header class="main-header navbar navbar-expand navbar-white navbar-light" style="box-shadow: 0px 2px 6px #a9b1b8;">
@@ -267,7 +268,7 @@
                                 }
                                 else
                                 {
-                                    if (@UserGender == "Female" || @UserGender == "F")
+                                    if (@UserGender1 == "Female" || @UserGender1 == "F")
                                     {
                                         <img src="@Url.Content("~/images/UserImageGirl.jpg")" class="img-circle" height="30" width="30" alt="Person Image" />
                                     }
@@ -286,7 +287,7 @@
                                     }
                                     else
                                     {
-                                        if (@UserGender == "Female" || @UserGender == "F")
+                                        if (@UserGender1 == "Female" || @UserGender1 == "F")
                                         {
                                             <img src="@Url.Content("~/images/UserImageGirl.jpg")" class="img-circle" height="40" width="40" alt="Person Image" style="vertical-align:middle;" />
                                         }
@@ -451,7 +452,7 @@
     $(document).ready(function () {
 
         isDirty = false;
-
+       
         // MODIFIED BY MSJ ON 14 MAY 2020 START
         //$("input, select, textarea, span").change(function () {
         $("input, textarea, span").change(function () {

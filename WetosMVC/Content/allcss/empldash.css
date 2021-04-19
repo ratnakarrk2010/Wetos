@@ -1,7 +1,14 @@
 ﻿.fc-center h2 {
     font-size: 20px !important;
 }
-
+.btns_group {
+    right: 3%;
+    margin-bottom: 1%;
+}
+.fc-toolbar .fc-center {
+    display: inline-block;
+    padding-top: 1.5%;
+}
 #page_content {
     padding: 5px;
 }
@@ -116,6 +123,9 @@ h1 {
     box-shadow: 0px 1px 4px -2px #333;
     text-shadow: 0px -1px #333;
 }
+.fc-button.hover, .fc-button:active, .fc-button:hover {
+    background-color: #20466f!important;
+}
 
 .fc-state-default.fc-corner-right {
     margin-left: 0;
@@ -192,13 +202,14 @@ table.table.table-bordered.table-striped>thead {
 }
 
 .fc-day-grid-event {
-    margin: 1px 2px 0;
+    margin: 1px 0px 0 1px;
     padding: 0 1px;
     border-radius: 5px;
-    width: 38px;
+    width: 55px;
     color: #fff !important;
     text-align: center;
-    padding: 3px 5px;
+    padding: 3px 0px;
+    font-size: 10px;
 }
 
 .fc td.fc-today {
@@ -230,7 +241,7 @@ table.table.table-bordered.table-striped>thead {
 } */
 
 .fc-day-grid-container {
-    height: 285px !important;
+    height: 325px !important;
 }
 
 .fc-row .fc-content-skeleton td,
@@ -381,7 +392,7 @@ table.table.table-bordered.table-striped>thead {
 }
 
 .late_count {
-    padding: 0px;
+    /*padding: 0px;*/
     font-size: 10px;
 }
 
@@ -487,7 +498,16 @@ table.table.table-bordered.table-striped>thead {
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .fc-day-grid-container {
-        height: 281px !important;
+        height:315px !important;
+    }
+    .cal_div {
+        padding-top: 2%;
+        margin-left: 1%;
+        box-shadow: 0px 2px 6px #a9b1b8;
+        padding-bottom: 2%;
+        margin-right: 1%;
+        margin-bottom: 5%;
+        overflow-x: auto;
     }
     .date_margin {
         margin-left: 54%;
@@ -503,10 +523,18 @@ table.table.table-bordered.table-striped>thead {
         margin-top: 3%;
     }
     .notification_div {
-        margin-left: 0%;
+        margin-left: 1%;
+        width: 98%;
     }
+    .portlet.box.blue-madison {
+        border: 1px solid #7ca7cc;
+        border-top: 0;
+        width: 150%;
+        /* overflow-x: auto; */
+    }
+
     .fc-day-grid-event {
-        width: 28px;
+        width: 90%;
         font-size: 10px;
     }
     .light-grey {
@@ -534,7 +562,7 @@ table.table.table-bordered.table-striped>thead {
 
 @media screen and (min-width: 411px) and (max-width: 414px) {
     .m_padding_left_12 {
-        padding-left: 10.5%;
+        padding-left: 0%;
     }
 }
 

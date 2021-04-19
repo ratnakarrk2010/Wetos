@@ -29,11 +29,14 @@ namespace WetosMVC.Controllers
             try
             {
                 // Order by desc, updated by Rajas on 18 MARCH 2017
-                List<SP_CondoneTrnListView_Result> CondoneTransactionListObj = WetosDB.SP_CondoneTrnListView().OrderByDescending(a => a.CondoneDate).ToList();
+                List<SP_CondoneTrnListView_Result> CondoneTransactionListObj = new List<SP_CondoneTrnListView_Result>();
+                if (CondoneTransactionListObj.Count > 0)
+                {
+                    CondoneTransactionListObj = WetosDB.SP_CondoneTrnListView().OrderByDescending(a => a.CondoneDate).ToList();
 
-                //ADDED BY RAJAS ON 27 DEC 2016
-                AddAuditTrail("Success - Checked Condone transaction list"); // Updated by Rajas on 6 MARCH 2017
-
+                    //ADDED BY RAJAS ON 27 DEC 2016
+                    AddAuditTrail("Success - Checked Condone transaction list"); // Updated by Rajas on 6 MARCH 2017
+                }
                 return View(CondoneTransactionListObj);
             }
 

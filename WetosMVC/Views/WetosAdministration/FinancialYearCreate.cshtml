@@ -12,16 +12,16 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
                             <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
                         </li>
-                       <li class="li_margin">
-                         <a href="#">Administration</a>
+                        <li class="li_margin">
+                            <a href="#">Administration</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li class="li_margin">
@@ -42,125 +42,124 @@
                     </ul>
                 </div>
             </div>
-            
-            <h1>Financial Year
- <small>Create</small>
-</h1>
-       
-      <div style="clear: both;"></div>
 
-       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+            <h1 class="margin_left_h1">
+                Financial Year
+                <small>Create</small>
+            </h1>
 
-    </section>
+            <div style="clear: both;"></div>
+
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+        </section>
         <br />
         <section class="content">
-      <div class="row">
-        <div class="col-xs-12 col-md-12 col-lg-12">
-          <div class="box box-primary">
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box box-primary">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.ValidationSummary(true)
 
-     <div class="row">
-     
-        <div class="col-md-2">
-    Company  <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="col-md-5">
-          @*added by atul on 28th june 2017*@
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-suitcase" aria-hidden="true"></i>
-                  </div>
-          @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
-          <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.CompanyId)
-            </div>
-            </div>
-        </div>
-       </div> 
- 
-      <div class="row">
-        <div class="col-md-2">
-    Branch Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-         <div class="col-md-5">
-           @*added by atul on 28th june 2017*@
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-institution" aria-hidden="true"></i>
-                  </div>
-          @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList" })
-          <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.BranchId)
-            </div>
-            </div>
-        </div>
-      </div>
-      
+                            <div class="row">
 
-              <div class="row">
-    @*Modified by shalaka on 7th July*@
+                                <div class="col-md-2">
+                                    Company  <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-5">
+                                    @*added by atul on 28th june 2017*@
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-suitcase" aria-hidden="true"></i>
+                                        </div>
+                                        @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.CompanyId)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-        <div class="col-md-2">
-         Financial Name   <span style="color:Red;font-size:18px" >*</span>
-         </div>
-            <div class="col-md-6">
-             <div class="form-group">
-                 @*added by atul on 28th june 2017*@
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-user" aria-hidden="true"></i>
-                  </div>
-              
-                 @Html.TextBoxFor(model => model.FinancialName, new { @class = "form-control pull-right" })
-                   </div>
-                   </div>
-            </div>
-           
-            </div>
-    
-    <div class="row">
-    @*Modified by shalaka on 7th July*@
-        <div class="col-md-2">
-           Start Date <span style="color:Red;font-size:18px" >*</span>
-           </div>
-     <div class="col-md-4">
-              @* <div class="form-group">*@
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="StartDate" id="StartDate" />
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Branch Name <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-5">
+                                    @*added by atul on 28th june 2017*@
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-institution" aria-hidden="true"></i>
+                                        </div>
+                                        @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList" })
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.BranchId)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                @*Modified by shalaka on 7th July*@
+
+                                <div class="col-md-2">
+                                    Financial Name   <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group" style="margin-bottom:0.5%;">
+                                        @*added by atul on 28th june 2017*@
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                            </div>
+
+                                            @Html.TextBoxFor(model => model.FinancialName, new { @class = "form-control pull-right" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                @*Modified by shalaka on 7th July*@
+                                <div class="col-md-2">
+                                    Start Date <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-5">
+                                    @* <div class="form-group">*@
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="StartDate" id="StartDate" />
+                                    </div>
+                                    @*@Html.ValidationMessageFor(model => model.FromDate)*@
+                                    @*</div>*@
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    End Date <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="EndDate" id="EndDate" />
+                                    </div>
+                                    @*@Html.ValidationMessageFor(model => model.FromDate)*@
+                                </div>
+                            </div>
+                            <div class="margin_left_save">
+                                <input type="submit" value="Create" />
+                            </div>
+                        }
+                    </div>
                 </div>
-                 @*@Html.ValidationMessageFor(model => model.FromDate)*@
-              @*</div>*@
-              </div>
-              </div>
-    
-    <div class="row">
-        <div class="col-md-2">
-         End Date <span style="color:Red;font-size:18px" >*</span>
-         </div>
-     <div class="col-md-4">
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="EndDate" id="EndDate" />
-                </div>
-                 @*@Html.ValidationMessageFor(model => model.FromDate)*@
-              </div>
-              </div>
-    
-    <div>
-            <input type="submit" value="Create" />
-        </div>
-}
-</div>
-</div>
-    </div>
-    </section>
+            </div>
+        </section>
     </div>
 </div>
 <script type="text/javascript">
@@ -239,7 +238,7 @@
         //        });
     });
 
-    
+
 
 </script>
 <script type="text/jscript">

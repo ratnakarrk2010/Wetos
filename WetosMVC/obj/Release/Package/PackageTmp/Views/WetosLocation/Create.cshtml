@@ -8,17 +8,17 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-           
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
-                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right m_padding_top_3"></i>
 
                         </li>
                         <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
-                        
+
                         <li class="li_margin"> <a href="@Url.Action("Index", "WetosLocation")">Location</a></li>
                     </ul>
                 </div>
@@ -63,68 +63,70 @@
                                 @Html.ValidationSummary(true)
                                 <fieldset>
 
-                                 
+
                                     <div style="color: Red; font-size: 12px">
                                         @Html.ValidationMessage("Error")
                                     </div>
-                              
+
 
                                     <div class="row">
                                         <div class="editor-label col-md-2">
                                             Location Name<span style="color:Red;font-size:18px">*</span>
                                         </div>
                                         <div class="editor-field col-md-5">
-                                        <div class="input-group date">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-map-marker"></i>
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-map-marker"></i>
+                                                </div>
+                                                @Html.EditorFor(model => model.LocationName)
                                             </div>
-                                          @Html.EditorFor(model => model.LocationName)</div>
-                                           
-                                        
-                                        <div class="div_error" style="color: Red; font-size: 12px">
-                                            @Html.ValidationMessageFor(model => model.LocationName)
+
+
+                                            <div class="div_error" style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.LocationName)
+                                            </div>
+
                                         </div>
-                                       
-                                    </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="editor-label col-md-2">
                                             Address
                                         </div>
-                                       <div class="editor-field col-md-5"> 
-                                        <div class="input-group date">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-home"></i>
+                                        <div class="editor-field col-md-5">
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-home"></i>
+                                                </div>
+                                                @Html.TextAreaFor(model => model.Address)
                                             </div>
-                                           @Html.TextAreaFor(model => model.Address)</div>
-                                          <div class="div_error" style="color: Red; font-size: 12px">
-                                            @Html.ValidationMessageFor(model => model.Address)
-                                          </div>
-                                       
+                                            <div class="div_error" style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.Address)
+                                            </div>
+
+                                        </div>
                                     </div>
-                                     </div>
 
                                     <div class="row">
                                         <div class="editor-label col-md-2">
                                             City
                                         </div>
-										<div class="editor-field col-md-5">
-                                        <div class="input-group date">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-building" aria-hidden="true"></i>
-                                            </div>
-                      
-                                            @Html.EditorFor(model => model.City)
+                                        <div class="editor-field col-md-5">
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-building" aria-hidden="true"></i>
+                                                </div>
 
-                                          
+                                                @Html.EditorFor(model => model.City)
+
+
+                                            </div>
                                         </div>
+
                                     </div>
 
-</div>
-
-                                    <p>
-                                        <input type="button" id="locationbtn" value="Create" class="btn btn-default" style="cursor:pointer; float:left" title="Click to save location" />
+                                    <p class="btn_margin_left">
+                                        <input type="button" id="locationbtn" value="Create" class="btn btn-default blue" style="cursor:pointer; float:left" title="Click to save location" />
                                         <span class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title="Click to go back to location list">@Html.ActionLink("Back to Location list", "Index")</span>
                                     </p>
                                 </fieldset>

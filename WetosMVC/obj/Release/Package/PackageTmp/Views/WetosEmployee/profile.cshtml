@@ -19,6 +19,14 @@
 <!-- BEGIN PAGE LEVEL STYLES -->
 <!-- END PAGE LEVEL STYLES -->
 @*@Html.Hidden("EmployeeId", @EmployeeId)*@
+
+<style>
+    .li_margin {
+        margin-top: 1% !important;
+        padding-left: 1% !important;
+    }
+</style>
+
 <input type="hidden" id ="EmployeeId" value="@EmployeeId" />
 <div class="page-content-wrapper">
     <div class="page-content">
@@ -27,8 +35,8 @@
                 <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                 <!-- END PAGE TITLE & BREADCRUMB-->
                 <section class="content-header">
-                <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+                <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />

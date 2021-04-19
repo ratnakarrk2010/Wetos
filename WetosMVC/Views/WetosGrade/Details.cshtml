@@ -11,8 +11,8 @@
         <section class="content-header">
  
       
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
@@ -83,7 +83,7 @@
         @Html.DisplayFor(model => model.GradeName)
     </div></div> 
 
-<div>
+<div class="m_btn_margin_left_4">
   <span style="cursor:pointer; float:left" title = "Click to edit Grade" class="btn btn-default" >@Html.ActionLink("Edit", "Edit", new { id = Model.GradeId })</span>
              <span  class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title = "Click to go back to Grade list">@Html.ActionLink("Back to Grade list", "Index")</span>
    

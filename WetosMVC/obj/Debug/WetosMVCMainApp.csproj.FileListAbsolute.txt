@@ -1,15 +1,13 @@
-E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\obj\Debug\WetosMVCMainApp.csprojAssemblyReference.cache
-E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\obj\Debug\RdlCompile.cache
-E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\obj\Debug\RdlCompile.compiled
-E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\obj\Debug\WetosMVCMainApp.csproj.CoreCompileInputs.cache
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\WetosMVC.dll.config
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\WetosMVC.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\WetosMVC.pdb
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\ClosedXML.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\EntityFramework.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\EntityFramework.SqlServer.dll
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\Microsoft.ReportViewer.Common.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\Microsoft.ReportViewer.WebForms.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\Microsoft.Web.Infrastructure.dll
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\MySql.Data.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\Newtonsoft.Json.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\Quartz.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\System.Net.Http.Formatting.dll
@@ -25,6 +23,8 @@ E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\WebGrease.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\WETOS.Util.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\WetosDB.dll
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\Microsoft.ReportViewer.DataVisualization.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\WetosDB.pdb
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\WetosDB.dll.config
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\EntityFramework.xml
@@ -42,10 +42,107 @@ E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\System.Web.WebPages.xml
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\System.Web.WebPages.Deployment.xml
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\System.Web.WebPages.Razor.xml
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\obj\Debug\WetosMVCMainApp.csprojAssemblyReference.cache
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\obj\Debug\RdlCompile.cache
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\obj\Debug\RdlCompile.compiled
+E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\obj\Debug\WetosMVCMainApp.csproj.CoreCompileInputs.cache
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\obj\Debug\WetosMVCMainApp.csproj.CopyComplete
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\obj\Debug\WetosMVC.dll
 E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\obj\Debug\WetosMVC.pdb
-E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\MySql.Data.dll
-E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\Microsoft.ReportViewer.Common.dll
-E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
-E:\Work\Sonali\Lates_Wetos_projects\Git_newBranchProj_16-03-2021\Wetos\WetosMVC\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\WetosMVC.dll.config
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\WetosMVC.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\WetosMVC.pdb
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\ClosedXML.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\EntityFramework.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\EntityFramework.SqlServer.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\Microsoft.ReportViewer.Common.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\Microsoft.ReportViewer.WebForms.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\Microsoft.Web.Infrastructure.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\MySql.Data.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\Newtonsoft.Json.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\Quartz.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Net.Http.Formatting.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.Helpers.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.Http.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.Http.WebHost.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.Mvc.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.Optimization.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.Razor.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.WebPages.Deployment.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.WebPages.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.WebPages.Razor.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\WebGrease.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\WETOS.Util.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\WetosDB.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\WetosDB.pdb
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\WetosDB.dll.config
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\EntityFramework.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\EntityFramework.SqlServer.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\Newtonsoft.Json.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\Quartz.pdb
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\Quartz.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Net.Http.Formatting.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.Helpers.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.Http.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.Http.WebHost.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.Mvc.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.Optimization.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.Razor.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.WebPages.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.WebPages.Deployment.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\bin\System.Web.WebPages.Razor.xml
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\obj\Debug\WetosMVCMainApp.csprojAssemblyReference.cache
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\obj\Debug\WetosMVCMainApp.csproj.CopyComplete
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\obj\Debug\WetosMVC.dll
+D:\prithvi\net_project\Wetos (4)\Wetos\WetosMVC\obj\Debug\WetosMVC.pdb
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\WetosMVC.dll.config
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\WetosMVC.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\WetosMVC.pdb
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\ClosedXML.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\EntityFramework.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\EntityFramework.SqlServer.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\Microsoft.ReportViewer.Common.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\Microsoft.ReportViewer.WebForms.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\Microsoft.Web.Infrastructure.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\MySql.Data.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\Newtonsoft.Json.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\Quartz.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Net.Http.Formatting.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.Helpers.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.Http.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.Http.WebHost.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.Mvc.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.Optimization.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.Razor.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.WebPages.Deployment.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.WebPages.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.WebPages.Razor.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\WebGrease.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\WETOS.Util.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\WetosDB.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\WetosDB.pdb
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\WetosDB.dll.config
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\EntityFramework.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\EntityFramework.SqlServer.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\Newtonsoft.Json.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\Quartz.pdb
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\Quartz.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Net.Http.Formatting.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.Helpers.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.Http.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.Http.WebHost.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.Mvc.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.Optimization.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.Razor.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.WebPages.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.WebPages.Deployment.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\bin\System.Web.WebPages.Razor.xml
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\obj\Debug\WetosMVCMainApp.csprojAssemblyReference.cache
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\obj\Debug\WetosMVCMainApp.csproj.CoreCompileInputs.cache
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\obj\Debug\WetosMVCMainApp.csproj.CopyComplete
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\obj\Debug\WetosMVC.dll
+D:\RatnakarKulkarni\Wetos16March2021\Wetos\WetosMVC\obj\Debug\WetosMVC.pdb

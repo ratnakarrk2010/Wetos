@@ -10,10 +10,10 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-      
-      
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+
+
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
@@ -21,7 +21,7 @@
 
                         </li>
                         <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
-                        
+
                         <li class="li_margin"><a href="@Url.Action("Index", "WetosDepartment")">Department </a></li>
                     </ul>
                 </div>
@@ -38,102 +38,103 @@
                     </ul>
                 </div>
             </div>
-            <h1>
-        Department Master
-        <small>Edit</small>
-      </h1>
-      <div style="clear: both;"></div>
- </section>
+            <h1 class="m_btn_margin_left">
+                Department Master
+                <small>Edit</small>
+            </h1>
+            <div style="clear: both;"></div>
+        </section>
         <section class="content">
-<div class="row">
-<div class="col-xs-12 col-md-12 col-lg-12">         
-<div class="box">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box">
 
-<div class="box-body">
-@using (Html.BeginForm("Edit", "WetosDepartment", FormMethod.Post, new { id = "EditForm" }))
-{
-     <div style="color: Red; font-size: 12px">
-   @Html.ValidationSummary(true)
-   </div>
-    @Html.HiddenFor(a => a.MarkedAsDelete)
-    @Html.HiddenFor(a => a.CompanyId)
-    @Html.HiddenFor(a => a.BranchId)
-   <fieldset>
-        
-        @*Added by Rajas on 29 DEC 2016 For custom error message START*@
-            <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessage("Error")
+                        <div class="box-body">
+                            @using (Html.BeginForm("Edit", "WetosDepartment", FormMethod.Post, new { id = "EditForm" }))
+                            {
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationSummary(true)
+                                </div>
+                                @Html.HiddenFor(a => a.MarkedAsDelete)
+                                @Html.HiddenFor(a => a.CompanyId)
+                                @Html.HiddenFor(a => a.BranchId)
+                                <fieldset>
+
+                                    @*Added by Rajas on 29 DEC 2016 For custom error message START*@
+                                    <div style="color: Red; font-size: 12px">
+                                        @Html.ValidationMessage("Error")
+                                    </div>
+                                    @*Added by Rajas on 29 DEC 2016 For custom error message END*@
+                                    @Html.HiddenFor(a => a.DepartmentId)
+                                    @Html.HiddenFor(a => a.MarkedAsDelete)
+
+                                    <div class="row">
+                                        <div class="editor-label col-md-2">
+                                            Company Name <span style="color:Red;font-size:18px">*</span>
+                                        </div>
+                                        <div class="editor-field col-md-6">
+                                            @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, "Select", new { @class = "form-control select2", id = "CompanyddlList", disabled = "disabled" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.CompanyId)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="editor-label col-md-2">
+                                            Branch Name  <span style="color:Red;font-size:18px">*</span>
+                                        </div>
+                                        <div class="editor-field col-md-6">
+                                            @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList", disabled = "disabled" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.BranchId)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="editor-label col-md-2">
+                                            Department Code <span style="color:Red;font-size:18px">*</span>
+                                        </div>
+                                        <div class="editor-field col-md-6">
+                                            @Html.TextBoxFor(model => model.DepartmentCode, new { @class = "form-control pull-right" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.DepartmentCode)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="editor-label col-md-2">
+                                            Department Name <span style="color:Red;font-size:18px">*</span>
+                                        </div>
+                                        <div class="editor-field col-md-6">
+                                            @*Favicon added by Mithilesh and Pushkar on 23/06/2017*@
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+                                                </div>
+                                                @Html.TextBoxFor(model => model.DepartmentName, new { @class = "form-control pull-right" })
+                                                <div style="color: Red; font-size: 12px">
+                                                    @Html.ValidationMessageFor(model => model.DepartmentName)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <p class="m_btn_margin_left">
+                                        <input type="button" id="BTNEdit" value="Save" class="btn btn-default" style="cursor:pointer; float:left" title="Click to save Department" />
+                                        <span class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title="Click to go back to Department list">@Html.ActionLink("Back to Depatment list", "Index")</span>
+
+                                    </p>
+                                </fieldset>
+                            }
+
+                        </div>
+                    </div>
+                </div>
             </div>
-             @*Added by Rajas on 29 DEC 2016 For custom error message END*@
-     @Html.HiddenFor(a => a.DepartmentId)
-     @Html.HiddenFor(a => a.MarkedAsDelete)
-  
-  <div class="row">                
-    <div class="editor-label col-md-2">
-    Company Name <span style="color:Red;font-size:18px" >*</span> 
-    </div>
-    <div class="editor-field col-md-6">
-    @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, "Select", new { @class = "form-control select2", id = "CompanyddlList", disabled = "disabled" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.CompanyId)
-    </div>
-    </div>
-    </div>
-         
-<div class="row">
-    <div class="editor-label col-md-2">
-    Branch Name  <span style="color:Red;font-size:18px" >*</span>
-    </div>
-    <div class="editor-field col-md-6">
-    @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList", disabled = "disabled" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.BranchId)
-    </div>
-    </div>
-    </div>
-         
-<div class="row">
-    <div class="editor-label col-md-2">
-    Department Code <span style="color:Red;font-size:18px" >*</span>
-    </div>
-    <div class="editor-field col-md-6">
-    @Html.TextBoxFor(model => model.DepartmentCode, new { @class = "form-control pull-right" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.DepartmentCode)
-    </div>
-</div>
-</div>
-         
-<div class="row">
-    <div class="editor-label col-md-2">
-        Department Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-    <div class="editor-field col-md-6">
-    @*Favicon added by Mithilesh and Pushkar on 23/06/2017*@
-      <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-keyboard-o" aria-hidden="true"></i>
-                  </div> 
-    @Html.TextBoxFor(model => model.DepartmentName, new { @class = "form-control pull-right" })
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationMessageFor(model => model.DepartmentName)
-    </div>
-    </div>    
-    </div>
-       </div>
-          
-    <p>
-        <input type="button" id="BTNEdit" value="Save" class="btn btn-default" style="cursor:pointer; float:left" title = "Click to save Department"/>
-      <span  class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title = "Click to go back to Department list">@Html.ActionLink("Back to Depatment list", "Index")</span>
-         
-    </p>
-    </fieldset>
-}
-
-</div> 
-</div>
-</div>
-</section>
+        </section>
     </div>
 </div>
 @*ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP START*@
@@ -145,9 +146,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="EditBtn">
-                    Yes</button>
+                    Yes
+                </button>
                 <button type="button" data-dismiss="modal" class="col-md-2 btn">
-                    Cancel</button>
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
@@ -206,10 +209,10 @@
 
         var $form = $(this).closest('form');
         $('#DeptDiv').modal({ backdrop: 'static', keyboard: false })
-                .one('click', '#EditBtn', function () {
+            .one('click', '#EditBtn', function () {
 
-                    $("#EditForm").submit();
-                });
+                $("#EditForm").submit();
+            });
 
     });
     //ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP END
@@ -220,5 +223,5 @@
 @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION START*@
 @section Scripts {
     @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
- }
- @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@
+}
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@

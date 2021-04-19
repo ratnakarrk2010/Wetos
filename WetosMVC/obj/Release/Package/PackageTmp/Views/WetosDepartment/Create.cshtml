@@ -12,8 +12,8 @@
         <section class="content-header">
      
       
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
@@ -38,7 +38,7 @@
                     </ul>
                 </div>
             </div>
-             <h1>
+             <h1 class="margin_left_h1">
         Department Master
         <small>Create</small>
       </h1>
@@ -140,7 +140,7 @@
     </div>    
        </div>
        
-    <p>
+    <p class="m_btn_margin_left">
         <input type="button" id="BTNEdit" value="Save" class="btn btn-default" style="cursor:pointer; float:left" title = "Click to save Department"/>
 
       <span  class="btn btn-default" style="cursor:pointer; float:left;margin-left:10px" title = "Click to go back to Department list">@Html.ActionLink("Back to Depatment list", "Index")</span>

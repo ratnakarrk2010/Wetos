@@ -8,48 +8,65 @@
 }
 <link href="~/Content/css/rule_transaction_create.css" rel="stylesheet" />
 <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<style>
+    .single-line {
+        width: 100% !important;
+        border: 1px solid #d3d3d3 !important;
+        height: 31px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    #RuleName {
+        width: 100% !important;
+        border: 1px solid #d3d3d3 !important;
+        height: 31px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+</style>
 @* Added by Rajas on 21 APRIL 2017 START*@
 
 @* Added by Rajas on 21 APRIL 2017 END*@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-      
-     <!-- <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                         <a href="#">Administration</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Index", "WetosRuleTransaction")">Rule Engine </a>
-                        </li>
-                      <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
-                            </div>
-                        </li>              
-                    </ul>
-                </div>
-            </div> -->
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+
+            <!-- <div class="row">
+                       <div class="col-md-12">
+                           <ul class="page-breadcrumb breadcrumb">
+                               <li>
+                                   <i class="fa fa-home"></i>
+                                   <a href="@Url.Action("Index", "Home")">Home </a>
+                                   <i class="fa fa-angle-right"></i>
+                               </li>
+                               <li>
+                                <a href="#">Administration</a>
+                                   <i class="fa fa-angle-right"></i>
+                               </li>
+                               <li>
+                                   <a href="@Url.Action("Index", "WetosRuleTransaction")">Rule Engine </a>
+                               </li>
+                             <li class="pull-right">
+                                   <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                       <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
+                                       <i class="fa fa-calendar"></i>
+                                       <span>@DateTime.Now.ToLongDateString()</span>
+                                   </div>
+                               </li>
+                           </ul>
+                       </div>
+                   </div> -->
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
                             <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
                         </li>
-                      <li class="li_margin">
-                         <a href="#">Administration</a>
+                        <li class="li_margin">
+                            <a href="#">Administration</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li class="li_margin">
@@ -70,164 +87,161 @@
                     </ul>
                 </div>
             </div>
-            <h1>
-        Rule Engine
-        <small>Add New Rule</small>
-      </h1>
-</section>
+            <h1 class="margin_left_h1">
+                Rule Engine
+                <small>Add New Rule</small>
+            </h1>
+        </section>
         <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-             
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                        </div>
+                        <div class="box-body">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.ValidationSummary(true)
+
+                                @* @Html.HiddenFor(model => model.RuleEngineId)*@
+                                @Html.HiddenFor(model => model.RuleId)
+
+                                @*<div class="row">
+                                     <div class="editor-label col-md-2">
+                                    Rule Name
+                                      </div>
+                                      <div class="editor-field col-md-4">
+                                      @Html.DropDownListFor(a => a.RuleId, (IEnumerable<SelectListItem>)@ViewBag.RulesMasterList, "Select", new { @class = "form-control select2", id = "Rule" })
+                                      @Html.ValidationMessageFor(model => model.RuleId)
+                                      </div>
+                                      </div> <br/>*@
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Rule Name
+                                    </div>
+                                    <div class="editor-field col-md-4">
+                                        @*added by atul on 28th june 2017*@
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.RuleName)
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.RuleName)
+                                        </div>
+                                    </div>
+                                </div><br />
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Formula
+                                    </div>
+                                    @*<div class="col-sm-2">
+                                        <select id="FormulaHH" name="FormulaHH" class="form-control select2">
+                                            @for (int i = 0; i < 24; i++)
+                                            {
+                                                <option value=@i.ToString("D2")>@i.ToString("D2")</option>
+                                            }
+                                        </select>
+                                        </div>
+                                        <div class="col-sm-2">
+                                        <select id="FormulaMM" name="FormulaMM" class="form-control select2">
+                                            @for (int i = 0; i < 60; i++)
+                                            {
+                                                <option value=@i.ToString("D2")>@i.ToString("D2")</option>
+                                            }
+                                        </select>
+                                        </div>*@
+                                    <div class="editor-field col-md-4">
+                                        @*added by atul on 28th june 2017*@
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calculator" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.EditorFor(model => model.Formula, new { id = "Formula" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.Formula)
+                                        </div>
+                                    </div>
+                                </div><br />
+
+                                @*<div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Sub Code
+                                    </div>
+                                    <div class="editor-field col-md-4">
+                                        @Html.EditorFor(model => model.SubCode, new { id = "SubCode" })
+                                        @Html.ValidationMessageFor(model => model.SubCode)
+                                    </div></div><br/>*@
+
+                                @*<div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Head Code
+                                    </div>
+                                    <div class="editor-field col-md-4">
+                                        @Html.EditorFor(model => model.HeadCode, new { id = "HeadCode" })
+                                        @Html.ValidationMessageFor(model => model.HeadCode)
+                                    </div></div><br/>*@
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Rule Unit
+                                    </div>
+                                    <div class="editor-field col-md-4">
+                                        @*added by atul on 28th june 2017*@
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-list-ul" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(a => Model.RuleUnit, new List<SelectListItem>() { new SelectListItem { Text = "Select", Value = "Select" }, new SelectListItem { Text = "hh:mm:ss", Value = "hh:mm:ss" }, new SelectListItem { Text = "(TRUE/FALSE)", Value = "(TRUE/FALSE)" }, new SelectListItem { Text = "No.", Value = "No." }, new SelectListItem { Text = "Value", Value = "Value" } }, new { @class = "form-control select2", id = "RuleUnit" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.RuleUnit)
+                                        </div>
+                                    </div>
+                                </div><br />
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Rule Data Type
+                                    </div>
+                                    <div class="editor-field col-md-4">
+                                        @*added by atul on 28th june 2017*@
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                            </div>
+                                            @*@Html.EditorFor(model => model.RuleType)*@
+                                            @Html.DropDownListFor(a => Model.RuleType, new List<SelectListItem>() { new SelectListItem { Text = "Select", Value = "Select" }, new SelectListItem { Text = "hh:mm:ss", Value = "hh:mm:ss" }, new SelectListItem { Text = "(TRUE/FALSE)", Value = "(TRUE/FALSE)" }, new SelectListItem { Text = "No.", Value = "No." }, new SelectListItem { Text = "Value", Value = "Value" } }, new { @class = "form-control select2", id = "RuleType" })
+
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.RuleType)
+                                        </div>
+                                    </div>
+                                </div><br />
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Active
+                                    </div>
+                                    <div class="editor-field col-md-4">
+                                        @Html.RadioButtonFor(model => model.Active, "A") Active
+                                        @Html.RadioButtonFor(model => model.Active, "N") Inactive
+                                        @Html.ValidationMessageFor(model => model.Active)
+                                    </div>
+                                </div><br />
+                                <p class="margin_left_save">
+                                    <input type="submit" id="" value="Add" class="btn btn-default" style="cursor:pointer; float:left" title="Click to save Rule" />
+                                    <span class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title="Click to go back to Rule list">@Html.ActionLink("Back to Rule list", "Index")</span>
+                                </p>
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="box-body">
-
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
-
-       @* @Html.HiddenFor(model => model.RuleEngineId)*@
-          @Html.HiddenFor(model => model.RuleId)
-
-    @*<div class="row">
-       <div class="editor-label col-md-2">
-      Rule Name
-        </div>
-        <div class="editor-field col-md-4">
-        @Html.DropDownListFor(a => a.RuleId, (IEnumerable<SelectListItem>)@ViewBag.RulesMasterList, "Select", new { @class = "form-control select2", id = "Rule" })
-        @Html.ValidationMessageFor(model => model.RuleId)
-        </div>
-        </div> <br/>*@
-    
-    <div class="row">
-        <div class="editor-label col-md-2">
-        Rule Name
-        </div>
-        <div class="editor-field col-md-4">
-        @*added by atul on 28th june 2017*@
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-user" aria-hidden="true"></i>
-                  </div> 
-            @Html.TextBoxFor(model => model.RuleName)
-          
-        </div>
-        <div style="color: Red; font-size: 12px">
-               @Html.ValidationMessageFor(model => model.RuleName)
-            </div> </div></div><br/>
-    
-      
-    <div class="row">
-        <div class="editor-label col-md-2">
-            Formula
-        </div>
-         @*<div class="col-sm-2">
-        <select id="FormulaHH" name="FormulaHH" class="form-control select2">
-            @for (int i = 0; i < 24; i++)
-            {
-                <option value=@i.ToString("D2")>@i.ToString("D2")</option>
-            }
-        </select>
-        </div>
-        <div class="col-sm-2">
-        <select id="FormulaMM" name="FormulaMM" class="form-control select2">
-            @for (int i = 0; i < 60; i++)
-            {
-                <option value=@i.ToString("D2")>@i.ToString("D2")</option>
-            }
-        </select>
-        </div>*@
-        <div class="editor-field col-md-4">
-          @*added by atul on 28th june 2017*@
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-calculator" aria-hidden="true"></i>
-                  </div>
-            @Html.EditorFor(model => model.Formula, new { id = "Formula" })
-      
-        </div>
-         <div style="color: Red; font-size: 12px">
-               @Html.ValidationMessageFor(model => model.Formula)
-            </div> 
-        </div></div><br/>
-
-        @*<div class="row">
-        <div class="editor-label col-md-2">
-            Sub Code
-        </div>
-        <div class="editor-field col-md-4">
-            @Html.EditorFor(model => model.SubCode, new { id = "SubCode" })
-            @Html.ValidationMessageFor(model => model.SubCode)
-        </div></div><br/>*@
-
-       @*<div class="row">
-        <div class="editor-label col-md-2">
-            Head Code
-        </div>
-        <div class="editor-field col-md-4">
-            @Html.EditorFor(model => model.HeadCode, new { id = "HeadCode" })
-            @Html.ValidationMessageFor(model => model.HeadCode)
-        </div></div><br/>*@
-    
-     <div class="row">
-        <div class="editor-label col-md-2">
-            Rule Unit
-        </div>
-        <div class="editor-field col-md-4">
-          @*added by atul on 28th june 2017*@
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-list-ul" aria-hidden="true"></i>
-                  </div>
-           @Html.DropDownListFor(a => Model.RuleUnit, new List<SelectListItem>() { new SelectListItem { Text = "Select", Value = "Select" }, new SelectListItem { Text = "hh:mm:ss", Value = "hh:mm:ss" }, new SelectListItem { Text = "(TRUE/FALSE)", Value = "(TRUE/FALSE)" }, new SelectListItem { Text = "No.", Value = "No." }, new SelectListItem { Text = "Value", Value = "Value" } }, new { @class = "form-control select2", id = "RuleUnit" })         
-          
-         </div>
-         <div style="color: Red; font-size: 12px">
-           @Html.ValidationMessageFor(model => model.RuleUnit)
-            </div> 
-            </div></div><br/>
-    
-    <div class="row">
-        <div class="editor-label col-md-2">
-            Rule Data Type
-        </div>
-        <div class="editor-field col-md-4">
-          @*added by atul on 28th june 2017*@
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-user" aria-hidden="true"></i>
-                  </div>
-            @*@Html.EditorFor(model => model.RuleType)*@
-             @Html.DropDownListFor(a => Model.RuleType, new List<SelectListItem>() { new SelectListItem { Text = "Select", Value = "Select" }, new SelectListItem { Text = "hh:mm:ss", Value = "hh:mm:ss" }, new SelectListItem { Text = "(TRUE/FALSE)", Value = "(TRUE/FALSE)" }, new SelectListItem { Text = "No.", Value = "No." }, new SelectListItem { Text = "Value", Value = "Value" } }, new { @class = "form-control select2", id = "RuleType" })         
-           
-        </div>
-          <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.RuleType)
-            </div> </div></div><br/>
-
-        <div class="row">
-        <div class="editor-label col-md-2">
-            Active
-        </div>
-        <div class="editor-field col-md-4">
-         @Html.RadioButtonFor(model => model.Active, "A") Active
-          @Html.RadioButtonFor(model => model.Active, "N") Inactive
-            @Html.ValidationMessageFor(model => model.Active)
-        </div></div><br/>
-        
-        <p>
-           <input type="submit" id="" value="Add" class="btn btn-default" style="cursor:pointer; float:left" title = "Click to save Rule"/>
-            <span  class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title = "Click to go back to Rule list">@Html.ActionLink("Back to Rule list", "Index")</span>
-        </p>
-    
-}
-</div>
-</div>
-</div>
-</div>
-</section>
+        </section>
     </div>
 </div>
 <script type="text/jscript">

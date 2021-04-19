@@ -1,100 +1,100 @@
 ﻿
 <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 @model IEnumerable<WetosDB.SP_GetAssignRuleData_Result>
-@System.Web.Optimization.Scripts.Render("~/bundles/InputMask")
-<section class="content">
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
-<input type="hidden" id="Company" value="@ViewBag.CompanyId" />
-<input type="hidden" id="Branch" value="@ViewBag.BranchId" />
-<input type="hidden" id="EmployeeGroup" value="@ViewBag.EmployeeGroupId" />
-<div class="row">
-<div class="col-xs-12 col-md-12 col-lg-12">         
-<div class="box">
-<div class="box-body">
-<div class="table-responsive">
-<h4>Common Setting for </h4>
-<table  class="table table-bordered table-striped">
-<tr>
-<td>Rule No</td>
-<td>
-Rule Name
-</td>
-<td>
-Formula
-</td>
-<td>
-Rule Unit
-</td>
-<td>
-Action
-</td>
-</tr>
- @foreach (var item in Model)
- {
-     <tr>
-     <td>
-     @item.RuleId
-     </td>
-     <td>
-     
-@item.RuleName
-</td>
-<td>
-@if (@item.RuleUnit.ToUpper() == "HH:MM:SS")
-{
-<input type="text" name="Formula" class="FormulaText" id="Formula(@item.RuleId)" value="@item.Formula" data-inputmask="'mask':['','99:99:99']" data-mask />
-}
-else if (@item.RuleUnit.ToUpper() == "(TRUE/FALSE)")
-{
-    if (item.Formula.ToUpper() == "TRUE")
-    {      
-        <span>
-        <input type="radio" name="Formula(@item.RuleId)" class="FormulaText" id="Formula(@item.RuleId)" checked/> TRUE
-        <input type="radio" name="Formula(@item.RuleId)" class="FormulaText" id="Formula1(@item.RuleId)" /> FALSE
-        </span>
- 
-    }
-    else
-    {
-        <span>
-        <input type="radio" name="Formula(@item.RuleId)" class="FormulaText" id="Formula(@item.RuleId)" /> TRUE
-        <input type="radio" name="Formula(@item.RuleId)" class="FormulaText" id="Formula1(@item.RuleId)" checked /> FALSE
-        </span>    
-    }
-@*@Html.DropDownListFor(a => item.Formula, new List<SelectListItem>() { new SelectListItem { Text = "True", Value = "True" }, new SelectListItem { Text = "False", Value = "False" } }, new { id = "Formula(" + @item.RuleId + ")", @class = "FormulaText" })*@
-}
-else
-{ 
-<input type="text" name="Formula" class="FormulaText" id="Formula(@item.RuleId)" value="@item.Formula"/>
-}
- @*@Html.TextBoxFor(model => item.Formula, new { id = "Formula", @disabled="disabled" })*@
-@*@item.Formula*@
-</td>
-<td id="Unit(@item.RuleId)">
-@item.RuleUnit
-</td>
-<td>
- <span data-toggle="tooltip" id="btnEdit(@item.RuleId)" title="Edit" style="color:#428bca;cursor:pointer" onclick="GetEditableFormula(@item.RuleId)" class = "fa fa-pencil-square-o"> </span>
- <span data-toggle="tooltip" class="btnSave fa fa-save" id="btnSave(@item.RuleId)" onclick="GetSave(@item.RuleId)" title="Save" style="color:#428bca;cursor:pointer"></span>
- <span data-toggle="tooltip" class="btncancel fa fa-remove" id="btnCancel(@item.RuleId)" onclick="GetCancel(@item.RuleId)" title="Cancel" style="color:#428bca;cursor:pointer"></span>
-</td>
-     </tr>
- }
-</table>
-</div>
-</div>
+    @System.Web.Optimization.Scripts.Render("~/bundles/InputMask")
+    <section class="content">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <input type="hidden" id="Company" value="@ViewBag.CompanyId" />
+            <input type="hidden" id="Branch" value="@ViewBag.BranchId" />
+            <input type="hidden" id="EmployeeGroup" value="@ViewBag.EmployeeGroupId" />
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box">
+                        <div class="box-body">
+                            <div class="table-responsive">
+                                <h4>Common Setting for </h4>
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        <td>Rule No</td>
+                                        <td>
+                                            Rule Name
+                                        </td>
+                                        <td>
+                                            Formula
+                                        </td>
+                                        <td>
+                                            Rule Unit
+                                        </td>
+                                        <td>
+                                            Action
+                                        </td>
+                                    </tr>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @item.RuleId
+                                            </td>
+                                            <td>
 
-</div>
-</div>
+                                                @item.RuleName
+                                            </td>
+                                            <td>
+                                                @if (@item.RuleUnit.ToUpper() == "HH:MM:SS")
+                                                {
+                                                    <input type="text" name="Formula" class="FormulaText" id="Formula(@item.RuleId)" value="@item.Formula" data-inputmask="'mask':['','99:99:99']" data-mask />
+                                                }
+                                                else if (@item.RuleUnit.ToUpper() == "(TRUE/FALSE)")
+                                                {
+                                                    if (item.Formula.ToUpper() == "TRUE")
+                                                    {
+                                                        <span>
+                                                            <input type="radio" name="Formula(@item.RuleId)" class="FormulaText" id="Formula(@item.RuleId)" checked /> TRUE
+                                                            <input type="radio" name="Formula(@item.RuleId)" class="FormulaText" id="Formula1(@item.RuleId)" /> FALSE
+                                                        </span>
 
-</div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>
+                                                            <input type="radio" name="Formula(@item.RuleId)" class="FormulaText" id="Formula(@item.RuleId)" /> TRUE
+                                                            <input type="radio" name="Formula(@item.RuleId)" class="FormulaText" id="Formula1(@item.RuleId)" checked /> FALSE
+                                                        </span>
+                                                    }
+                                                    @*@Html.DropDownListFor(a => item.Formula, new List<SelectListItem>() { new SelectListItem { Text = "True", Value = "True" }, new SelectListItem { Text = "False", Value = "False" } }, new { id = "Formula(" + @item.RuleId + ")", @class = "FormulaText" })*@
+                                                }
+                                                else
+                                                {
+                                                    <input type="text" name="Formula" class="FormulaText" id="Formula(@item.RuleId)" value="@item.Formula" />
+                                                }
+                                                @*@Html.TextBoxFor(model => item.Formula, new { id = "Formula", @disabled="disabled" })*@
+                                                @*@item.Formula*@
+                                            </td>
+                                            <td id="Unit(@item.RuleId)">
+                                                @item.RuleUnit
+                                            </td>
+                                            <td>
+                                                <span data-toggle="tooltip" id="btnEdit(@item.RuleId)" title="Edit" style="color:#428bca;cursor:pointer" onclick="GetEditableFormula(@item.RuleId)" class="fa fa-pencil-square-o"> </span>
+                                                <span data-toggle="tooltip" class="btnSave fa fa-save" id="btnSave(@item.RuleId)" onclick="GetSave(@item.RuleId)" title="Save" style="color:#428bca;cursor:pointer"></span>
+                                                <span data-toggle="tooltip" class="btncancel fa fa-remove" id="btnCancel(@item.RuleId)" onclick="GetCancel(@item.RuleId)" title="Cancel" style="color:#428bca;cursor:pointer"></span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
 
-}
+                    </div>
+                </div>
 
-</section>
-<script type="text/javascript">
+            </div>
+
+        }
+
+    </section>
+    <script type="text/javascript">
 
     $("[data-mask]").inputmask();
 
@@ -221,5 +221,5 @@ else
             }
         });
     }
-</script>
-@* Added by Rajas on 21 FEB 2017 for Data masking, END *@
+    </script>
+    @* Added by Rajas on 21 FEB 2017 for Data masking, END *@

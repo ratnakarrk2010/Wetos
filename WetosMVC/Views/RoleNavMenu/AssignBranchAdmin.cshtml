@@ -10,14 +10,12 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-    
-         
-      @if (@ViewBag.Message != string.Empty)
-      { 
-          <h6 style="color:Green">@ViewBag.Message
-          </h6>
-      }
-  
+            @if (@ViewBag.Message != string.Empty)
+            {
+                <h6 style="color:Green">
+                    @ViewBag.Message
+                </h6>
+            }
             <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
                 <div class="col-sm-6">
                     <ul>
@@ -26,14 +24,14 @@
                             <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
                         </li>
-                         <li class="li_margin">
-                         <a href="#">Administration</a>
+                        <li class="li_margin">
+                            <a href="#">Administration</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li class="li_margin">
                             <a href="@Url.Action("Index", "WetosHoliday")">Assign HR Manager </a>
                         </li>
-                        </ul>
+                    </ul>
                 </div>
                 <div class="col-sm-6">
                     <ul style="float: right;">
@@ -48,89 +46,85 @@
                     </ul>
                 </div>
             </div>
-             <h1>Assign and Remove Branch Admin
-        </h1>
-            
-    <div style="clear: both;"></div>
-
-    
-
-</section>
-        <section class="content">
-       @using (Html.BeginForm())
-       {
-           @Html.ValidationSummary()
-           Html.HiddenFor(model => model.RoleId);
+            <h1 class="margin_left_h1">
+                Assign and Remove Branch Admin
+            </h1>
+            <div style="clear: both;"></div>
+        </section>
+        <section class="content" style="padding-left: 1.5% !important;">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+                Html.HiddenFor(model => model.RoleId);
                 <div class="box-body">
-                 
-                 <div class="row">
-                 <div class="col-md-4">
-               <div class="form-group">
-               Select Employee<span style="color:Red;font-size:18px" >*</span>
-                          <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-university"></i>
-                  </div>
-              @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", id = "selectemployee" })
-        </div>
-        
-        </div>
-        </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                Select Employee<span style="color:Red;font-size:18px">*</span>
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-university"></i>
+                                    </div>
+                                    @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", id = "selectemployee",style="width:100%;" })
+                                </div>
 
-        <div class="col-md-4">
-               <div class="form-group">
-               Role<span style="color:Red;font-size:18px" >*</span>
-                          <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-university"></i>
-                  </div>
-              @Html.DropDownListFor(a => a.RoleId, (IEnumerable<SelectListItem>)@ViewBag.RoleDef, new { @class = "form-control select2", id = "RoleId", @disabled = "disabled" })
-        </div>
-        
-        </div>
-        </div>
-        </div>
-             
-                       <div class="row">
-                 <div class="col-md-4">
-               <div class="form-group">
-               Select Company<span style="color:Red;font-size:18px" >*</span>
-                          <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-university"></i>
-                  </div>
-              @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.Company, "Select", new { @class = "form-control select2 multiselect", @multiple = "multiple", id = "CompanyddlList" , style="color:black;"})
-        </div>
-        
-        </div>
-        </div>
+                            </div>
+                        </div>
 
-        <div class="col-md-4">
-               <div class="form-group">
-               Select Branch<span style="color:Red;font-size:18px" >*</span>
-                          <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-university"></i>
-                  </div>
-              @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.Branch, "Select", new { @class = "form-control select2 multiselect", @multiple = "multiple", id = "BranchddlList" })
-        </div>
-        
-        </div>
-        </div>
-        </div>
-                       <div class="col-md-4 col-md-offset-4">
-                       <input type="submit" value="Submit" />
-                       </div> 
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                Role<span style="color:Red;font-size:18px">*</span>
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-university"></i>
+                                    </div>
+                                    @Html.DropDownListFor(a => a.RoleId, (IEnumerable<SelectListItem>)@ViewBag.RoleDef, new { @class = "form-control select2", id = "RoleId", @disabled = "disabled",style="width:100%;" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                Select Company<span style="color:Red;font-size:18px">*</span>
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-university"></i>
+                                    </div>
+                                    @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.Company, "Select", new { @class = "form-control select2 multiselect", @multiple = "multiple", id = "CompanyddlList", style = "color:black;width:100%;" })
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                Select Branch<span style="color:Red;font-size:18px">*</span>
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-university"></i>
+                                    </div>
+                                    @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.Branch, "Select", new { @class = "form-control select2 multiselect", @multiple = "multiple", id = "BranchddlList",style="width:100%;" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="submit" value="Submit" />
+                    </div>
                 </div>
                 <!-- /.box -->
-       }
-<!-- /.box -->
-<!-- /.row -->
- </section>
+            }
+            <!-- /.box -->
+            <!-- /.row -->
+        </section>
 
         <div id="BranchAdminView">
 
-           @{Html.RenderPartial("BranchAdminPartialList", Model.BranchAdminList);}
+            @{Html.RenderPartial("BranchAdminPartialList", Model.BranchAdminList);}
             @*@{Html.RenderPartial("BranchAdminPartialList", Model.BranchAdminList_Grouped);}*@
         </div>
     </div>
@@ -177,12 +171,9 @@
     });
 
     $("#CompanyddlList").change(function () {
-
         // alert("GET Branch");
-
         isDirty = false;
         var abc = $("#CompanyddlList").val().toString();
-
         $.ajax({
             url: '@Url.Content("~/RoleNavMenu/GetBranch")',
             type: "POST",
@@ -209,13 +200,8 @@
                     SelectEmployeeList();
                 }
             }
-        });
-
+       });
     });
-
-    
-
-
 </script>
 @section Scripts {
     @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")

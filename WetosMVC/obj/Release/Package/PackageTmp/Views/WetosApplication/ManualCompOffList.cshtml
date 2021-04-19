@@ -8,8 +8,8 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
@@ -38,17 +38,14 @@
                     </ul>
                 </div>
             </div>
-            <h1>Manual Comp Off
+            <h1 class="margin_left_h1">Manual Comp Off
                 <small>List</small>
                  <span class="btn blue" data-toggle="tooltip" title="Apply Manual Comp Off" style="float:right;font-weight:800" onclick="OnAddCompanyClick();">@Html.ActionLink(" ", "ManualCompOffApplicationIndex", new { }, new { @class = "fa fa-plus-square", style = "color:white" })</span>
             </h1>
            
         </section>
         <section class="content">
-           @* <div>      
-                <span class="btn btn-default" style="float:left;font-weight:200; cursor:pointer" "tooltip" title = "Click here to add new company">@Html.ActionLink("Add New Company", "Create")</span>
-            </div>   
-            *@
+           
             
             <div class="row">
                 <div class="col-xs-12">

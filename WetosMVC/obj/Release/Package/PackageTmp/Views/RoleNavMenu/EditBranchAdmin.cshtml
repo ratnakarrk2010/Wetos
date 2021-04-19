@@ -8,7 +8,20 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
 <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 <link href="~/Content/css/leave_balance_edit.css" rel="stylesheet" />
-
+<style>
+    .select2-container--default.select2-container--focus .select2-selection--multiple {
+        border: solid #aaaaaa 1px;
+        outline: 0;
+        
+    }
+    .input-group > .select2-container--default:not(:last-child) .select2-selection {
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        padding-left:5px;
+    }
+</style>
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
@@ -42,7 +55,7 @@
                     </ul>
                 </div>
             </div>
-            <h1>
+            <h1 class="margin_left_h1">
                 Branch Admin Edit
                 <small>Edit</small>
             </h1>
@@ -63,13 +76,9 @@
                                 @Html.HiddenFor(a => a.EmployeeId)
                                 @Html.HiddenFor(a => a.CompanyId)
                                 @Html.HiddenFor(a => a.BranchId)
-
-
-
                                 <div class="row">
-
                                     <div class="col-md-2">
-                                        Company  <span style="color:Red;font-size:18px">*</span>
+                                        Company  <span style="color: Red; font-size: 18px">*</span>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="input-group date">
@@ -77,8 +86,6 @@
                                                 <i class="fa fa-suitcase" aria-hidden="true"></i>
                                             </div>
                                             @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyList, new { @class = "form-control select2 multiselect", @multiple = "multiple", id = "CompanyddlList" })
-
-
 
                                             <div style="color: Red; font-size: 12px">
                                                 @Html.ValidationMessageFor(model => model.CompanyId)
@@ -110,7 +117,7 @@
 
                                 <br />
 
-                                <p>
+                                <p class="margin_left_save">
                                     <input id="EditBtn" type="submit" value="Assign" class="btn btn-default" style="cursor:pointer; float:left" title="Click to Assign Branch Admin" />
                                     <span class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title="Click to go back to Assign Branch Admin list">@Html.ActionLink("Back to List", "AssignBranchAdmin")</span>
                                 </p>

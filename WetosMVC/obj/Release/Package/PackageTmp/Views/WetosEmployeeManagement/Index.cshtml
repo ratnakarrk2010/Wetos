@@ -1,209 +1,192 @@
 ﻿@model IEnumerable<WetosDB.SP_EmployeeListForResignationAndConfirmationNew_Result_New_Result>
-@*.SP_EmployeeListForResignationAndConfirmationNew_Result>*@
+    @*.SP_EmployeeListForResignationAndConfirmationNew_Result>*@
 
-@System.Web.Optimization.Styles.Render("~/Content/DataTable")
-@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
-@System.Web.Optimization.Styles.Render("~/Content/DatePicker")
-@System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
-<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
-<link href="~/Content/css/employee_manage_index.css" rel="stylesheet" />
-<div class="page-content-wrapper" id="page_content">
-    <div class="page-content">
-        <section class="content-header">
-            @*<h3>
-                Manage Employee
-            </h3>
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i><a href="@Url.Action("Index", "Home")">Home</a> <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li><a href="#">Employee Management </a><i class="fa fa-angle-right"></i></li>
-                        <li><a href="@Url.Action("Index", "WetosEmployeeManagement")">Manage Employee </a></li>
-                        <li class="pull-right">
-                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
-                                <span style="cursor: pointer" class="back " id="goback">
-                                    <i class="fa fa-arrow-left">
-                                    </i>
-                                </span><i class="fa fa-calendar"></i><span>
-                                    @DateTime.Now.ToLongDateString()
-                            </span>
+    @System.Web.Optimization.Styles.Render("~/Content/DataTable")
+    @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+    @System.Web.Optimization.Styles.Render("~/Content/DatePicker")
+    @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
+    <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+    <link href="~/Content/css/employee_manage_index.css" rel="stylesheet" />
+    <div class="page-content-wrapper" id="page_content">
+        <div class="page-content">
+            <section class="content-header">
+                <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                    <div class="col-sm-6 ed_breadcrumb_div">
+                        <ul>
+                            <li class="li_margin1">
+                                <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                                <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                            </li>
+                            <li class="li_margin"><a href="#">Employee Management </a><i class="fa fa-angle-right"></i></li>
+                            <li class="li_margin"><a href="@Url.Action("Index", "WetosEmployeeManagement")">Manage Employee </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <ul style="float: right;">
+                            <li class="">
+                                <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                    <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                    <span>
+                                        @DateTime.Now.ToLongDateString()
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="margin_left_h1">
+                    Manage Employee @*<small>/small>*@
+                </h3>
+                <div>
+                    @*<span class="btn btn-default" "tooltip" title="Click to Generate HR Letter" style="float:left;font-weight:200">@Html.ActionLink("HR Letters", "HRLetters", "WetosEmployeeManagement")</span>*@
+                </div>
+                @*  <span style="float: left">@Html.ActionLink("Print", "Print", "WetosEmployeeManagement")</span>*@
+                <div class="row">
+                    <div class="col-sm-12">
+
+
+
+                        <div class="table-responsive">
+                            <table id="EmployeeMaster" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            Employee No
+                                        </td>
+                                        <td>
+                                            Name
+                                        </td>
+                                        <td>
+                                            Confirmation Date
+                                        </td>
+                                        <td>
+                                            Type
+                                        </td>
+                                        <td>
+                                            Resignation Acceptance
+                                        </td>
+                                        <td>
+                                            Exit
+                                        </td>
+                                        <td>
+                                            Confirm
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @item.EmployeeCode
+                                            </td>
+                                            <td>
+                                                @if (item.ActiveFlag == null || item.ActiveFlag == true)
+                                                {
+                                                    <span style="color:Green;font-weight:900">  @item.FirstName @item.MiddleName @item.LastName</span>
+                                                    <div style="display: none">
+                                                        Active
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <span style="color:red;font-weight:900"> @item.FirstName @item.MiddleName @item.LastName</span>
+                                                    <div style="display: none">
+                                                        Resigned
+                                                    </div>
+                                                }
+                                            </td>
+                                            <td>
+                                                @String.Format("{0:g}", item.ConfirmDate == null ? "" : item.ConfirmDate.Value.ToString("dd-MMM-yyyy"))
+                                            </td>
+                                            <td>
+                                                @if (item.ConfirmDate <= DateTime.Now)
+                                                {
+                                                    <span>Permanent</span>
+                                                }
+
+                                                @if ((item.ResignedOn != null && item.ResignationAcceptedOn == null) && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                                {
+                                                    <span>Resigned</span>
+                                                }
+                                                @if ((item.ResignedOn != null && item.ResignationAcceptedOn != null) && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                                {
+                                                    <span>On Notice Period</span>
+                                                }
+                                                @*ADDED HARD CODED VALUE byte SHRADDHA ON 20 JULY 2017 ASP PER SUGGESTED BY MSJ*@
+                                                @if ((item.ConfirmDate >= DateTime.Now || item.EmployeeGroupName.Trim().ToUpper() == "PROBATION") && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                                {
+                                                    <span>Probation</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if ((item.ResignedOn != null && item.ResignationAcceptedOn == null) && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                                {
+                                                    <input id="ResignationApprovedEmployee(@item.EmployeeId)" onchange="ResignationApprovedEmployee(@item.EmployeeId)" type="checkbox" />
+                                                }
+                                                else { }
+                                            </td>
+                                            <td>
+                                                @*@if ((item.EmployeeTypeId == 1 || item.EmployeeTypeId == 1) && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                        {
+                                            <input id="ResignedEmployee(@item.EmployeeId)" onchange="ResignEmployee(@item.EmployeeId)" type="checkbox" />
+                                        }*@
+
+                                                @if ((item.ResignedOn != null && item.ResignationAcceptedOn != null) && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                                {
+                                                    <input id="ResignedEmployee(@item.EmployeeId)" onchange="ResignEmployee(@item.EmployeeId)" type="checkbox" />
+                                                }
+                                                else { }
+                                            </td>
+
+                                            <td>
+                                                @*ADDED HARD CODED VALUE byte SHRADDHA ON 20 JULY 2017 ASP PER SUGGESTED BY MSJ*@
+                                                @if ((item.ConfirmDate >= DateTime.Now || item.EmployeeGroupName.Trim().ToUpper() == "PROBATION") && (item.ActiveFlag == null || item.ActiveFlag == true))
+                                                {
+                                                    <input id="ConfirmCheck(@item.EmployeeId)" onchange="ConfirmEmployee(@item.EmployeeId)" type="checkbox" />
+                                                }
+                                                else { }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+
                         </div>
-                    </li>
-                </ul>
-            </div>
-        </div>*@
-
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
-                    <ul>
-                        <li class="li_margin1">
-                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
-                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
-
-                        </li>
-                        <li class="li_margin"><a href="#">Employee Management </a><i class="fa fa-angle-right"></i></li>
-                        <li class="li_margin"><a href="@Url.Action("Index", "WetosEmployeeManagement")">Manage Employee </a></li>
-                    </ul>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <ul style="float: right;">
-                        <li class="">
-                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
-                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
-                                <span>
-                                    @DateTime.Now.ToLongDateString()
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <h3>
-                Manage Employee @*<small>/small>*@
-            </h3>
-            <div>
-                @*<span class="btn btn-default" "tooltip" title="Click to Generate HR Letter" style="float:left;font-weight:200">@Html.ActionLink("HR Letters", "HRLetters", "WetosEmployeeManagement")</span>*@
-            </div>
-            @*  <span style="float: left">@Html.ActionLink("Print", "Print", "WetosEmployeeManagement")</span>*@
-            <div class="table-responsive">
-                <table id="EmployeeMaster" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <td>
-                                Employee No
-                            </td>
-                            <td>
-                                Name
-                            </td>
-                            <td>
-                                Confirmation Date
-                            </td>
-                            <td>
-                                Type
-                            </td>
-                            <td>
-                                Resignation Acceptance
-                            </td>
-                            <td>
-                                Exit
-                            </td>
-                            <td>
-                                Confirm
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @item.EmployeeCode
-                                </td>
-                                <td>
-                                    @if (item.ActiveFlag == null || item.ActiveFlag == true)
-                                    {
-                                        <span style="color:Green;font-weight:900">  @item.FirstName @item.MiddleName @item.LastName</span>
-                                        <div style="display: none">
-                                            Active
-                                        </div>
-                                    }
-                                    else
-                                    {
-                                        <span style="color:red;font-weight:900"> @item.FirstName @item.MiddleName @item.LastName</span>
-                                        <div style="display: none">
-                                            Resigned
-                                        </div>
-                                    }
-                                </td>
-                                <td>
-                                    @String.Format("{0:g}", item.ConfirmDate == null ? "" : item.ConfirmDate.Value.ToString("dd-MMM-yyyy"))
-                                </td>
-                                <td>
-                                    @if (item.ConfirmDate <= DateTime.Now)
-                                    {
-                                        <span>Permanent</span>
-                                    }
 
-                                    @if ((item.ResignedOn != null && item.ResignationAcceptedOn == null) && (item.ActiveFlag == null || item.ActiveFlag == true))
-                                    {
-                                        <span>Resigned</span>
-                                    }
-                                    @if ((item.ResignedOn != null && item.ResignationAcceptedOn != null) && (item.ActiveFlag == null || item.ActiveFlag == true))
-                                    {
-                                        <span>On Notice Period</span>
-                                    }
-                                    @*ADDED HARD CODED VALUE byte SHRADDHA ON 20 JULY 2017 ASP PER SUGGESTED BY MSJ*@
-                                    @if ((item.ConfirmDate >= DateTime.Now || item.EmployeeGroupName.Trim().ToUpper() == "PROBATION") && (item.ActiveFlag == null || item.ActiveFlag == true))
-                                    {
-                                        <span>Probation</span>
-                                    }
-                                </td>
-                                <td>
-                                    @if ((item.ResignedOn != null && item.ResignationAcceptedOn == null) && (item.ActiveFlag == null || item.ActiveFlag == true))
-                                    {
-                                        <input id="ResignationApprovedEmployee(@item.EmployeeId)" onchange="ResignationApprovedEmployee(@item.EmployeeId)" type="checkbox" />
-                                    }
-                                    else { }
-                                </td>
-                                <td>
-                                    @*@if ((item.EmployeeTypeId == 1 || item.EmployeeTypeId == 1) && (item.ActiveFlag == null || item.ActiveFlag == true))
-                                {
-                                    <input id="ResignedEmployee(@item.EmployeeId)" onchange="ResignEmployee(@item.EmployeeId)" type="checkbox" />
-                                }*@
-
-                                    @if ((item.ResignedOn != null && item.ResignationAcceptedOn != null) && (item.ActiveFlag == null || item.ActiveFlag == true))
-                                    {
-                                        <input id="ResignedEmployee(@item.EmployeeId)" onchange="ResignEmployee(@item.EmployeeId)" type="checkbox" />
-                                    }
-                                    else { }
-                                </td>
-
-                                <td>
-                                    @*ADDED HARD CODED VALUE byte SHRADDHA ON 20 JULY 2017 ASP PER SUGGESTED BY MSJ*@
-                                    @if ((item.ConfirmDate >= DateTime.Now || item.EmployeeGroupName.Trim().ToUpper() == "PROBATION") && (item.ActiveFlag == null || item.ActiveFlag == true))
-                                    {
-                                        <input id="ConfirmCheck(@item.EmployeeId)" onchange="ConfirmEmployee(@item.EmployeeId)" type="checkbox" />
-                                    }
-                                    else { }
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                    <tfoot>
-                    </tfoot>
-                </table>
-
-            </div>
-            <div id="ResignEmployeediv" style="width: 30% !important; height: 38% !important;
+                <div id="ResignEmployeediv" style="width: 30% !important; height: 38% !important;
     z-index: 1000000; background-color: White; top: 5%; left: 40%" class="modal fade">
-                <div class="modal-body">
-                    <div class="form-group">
-                        Select Date <span style="color: Red; font-size: 18px">*</span>
-                        <div class="input-group date">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            Select Date <span style="color: Red; font-size: 18px">*</span>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                @Html.TextBox("ResignationDate", "", new { @class = "form-control pull-right datepicker" })
+                                @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
                             </div>
-                            @Html.TextBox("ResignationDate", "", new { @class = "form-control pull-right datepicker" })
-                            @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
-                        </div>
-                        @*@Html.ValidationMessageFor(model => model.FromDate)*@
-                        <!-- /.input group -->
-                    </div>
-
-                    <div class="form-group" id="ABC">
-                        Employee Group <span style="color: Red; font-size: 18px">*</span>
-                        <div class="input-group">
-
-                            @Html.DropDownList("EmployeeGroupId", (IEnumerable<SelectListItem>)@ViewBag.EmployeeGroupNameList, "Select", new { @class = "form-control select2", @style = "width:300px", id = "EmployeeGroupddlList" })
-
-
+                            @*@Html.ValidationMessageFor(model => model.FromDate)*@
+                            <!-- /.input group -->
                         </div>
 
-                    </div>
+                        <div class="form-group" id="ABC">
+                            Employee Group <span style="color: Red; font-size: 18px">*</span>
+                            <div class="input-group">
 
-                    @*<div class="row" id="ABC">
+                                @Html.DropDownList("EmployeeGroupId", (IEnumerable<SelectListItem>)@ViewBag.EmployeeGroupNameList, "Select", new { @class = "form-control select2", @style = "width:300px", id = "EmployeeGroupddlList" })
+
+
+                            </div>
+
+                        </div>
+
+                        @*<div class="row" id="ABC">
                   <div class="editor-label col-md-5">
                 Employee Group <span style="color:Red;font-size:18px" >*</span>
                    </div>
@@ -212,64 +195,64 @@
 
                    </div>
                    </div>*@
+                    </div>
+                    <div class="modal-footer">
+                        <center>
+                            <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="Resignbtn">
+                                Yes
+                            </button>
+                            <button type="button" data-dismiss="modal" class="col-md-2 btn">
+                                Cancel
+                            </button>
+                        </center>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <center>
-                        <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="Resignbtn">
-                            Yes
-                        </button>
-                        <button type="button" data-dismiss="modal" class="col-md-2 btn">
-                            Cancel
-                        </button>
-                    </center>
+
+                <div id="ConfirmLetter" style="width: 40% !important; height: 35% !important;z-index: 1002000; background-color: White; top: 60%; left: 35%"
+                     class="modal fade">
+                    @*REMOVED SHOW CLASS TAKEN MODAL FADE CLASS INSTEAD OF MODAL SHOW FADE CLASS BY SHRADDHA ON 09 FEB 2018 BECAUSE IT WAS CREATING CLICKING ISSUE*@
+                    <div class="modal-body">
+                        Please select report you want to print
+
+                        <hr />
+                        <input type="radio" checked="checked" value="Confirm Letter with Increment" class="confirmval" name="confirmwith" />Confirm Letter with Increment
+                        <br />
+                        <input type="radio" value="Confirm Letter without Increment" class="confirmval" name="confirmwith" />Confirm Letter without Increment
+                    </div>
+                    <div class="modal-footer">
+                        <center>
+
+
+                            <button type="button" data-dismiss="modal" class="col-md-3  btn btn-primary" id="OkBtn">
+                                ok
+                            </button>
+                            <button type="button" data-dismiss="modal" class="col-md-3 btn btn-primary">
+                                cancel
+                            </button>
+                        </center>
+                    </div>
                 </div>
-            </div>
+            </section>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('.datepicker').datepicker({
 
-            <div id="ConfirmLetter" style="width: 40% !important; height: 35% !important;z-index: 1002000; background-color: White; top: 60%; left: 35%"
-                 class="modal fade">
-                @*REMOVED SHOW CLASS TAKEN MODAL FADE CLASS INSTEAD OF MODAL SHOW FADE CLASS BY SHRADDHA ON 09 FEB 2018 BECAUSE IT WAS CREATING CLICKING ISSUE*@
-                <div class="modal-body">
-                    Please select report you want to print
+            format: "dd-M-yyyy",
 
-                    <hr />
-                    <input type="radio" checked="checked" value="Confirm Letter with Increment" class="confirmval" name="confirmwith" />Confirm Letter with Increment
-                    <br />
-                    <input type="radio" value="Confirm Letter without Increment" class="confirmval" name="confirmwith" />Confirm Letter without Increment
-                </div>
-                <div class="modal-footer">
-                    <center>
+            autoclose: true
+        });
+    </script>
+    <script type="text/jscript">
+        $(function () {
 
+            $("#EmployeeMaster").DataTable();
 
-                        <button type="button" data-dismiss="modal" class="col-md-3  btn btn-primary" id="OkBtn">
-                            ok
-                        </button>
-                        <button type="button" data-dismiss="modal" class="col-md-3 btn btn-primary">
-                            cancel
-                        </button>
-                    </center>
-                </div>
-            </div>
-        </section>
-</div>
-</div>
-<script type="text/javascript">
-    $('.datepicker').datepicker({
-
-        format: "dd-M-yyyy",
-
-        autoclose: true
-    });
-</script>
-<script type="text/jscript">
-    $(function () {
-
-        $("#EmployeeMaster").DataTable();
-
-    });
+        });
 
 
-</script>
-<script type="text/javascript">
+    </script>
+    <script type="text/javascript">
 
     function ResignEmployee(id) {
         //alert(id);
@@ -348,8 +331,8 @@
 
         }
     }
-</script>
-<script type="text/javascript">
+    </script>
+    <script type="text/javascript">
 
     function ConfirmEmployee(id) {
         //alert(id);
@@ -418,8 +401,8 @@
     }
 
 
-</script>
-<script type="text/javascript">
+    </script>
+    <script type="text/javascript">
     //alert("In print letter");
     function printHRletter(id) {
         //  alert(id);
@@ -460,23 +443,23 @@
     }
 
 
-</script>
-<script type="text/jscript">
-    $(document).ready(function () {
-        $('.back').click(function () {
-            parent.history.back();
-            return false;
+    </script>
+    <script type="text/jscript">
+        $(document).ready(function () {
+            $('.back').click(function () {
+                parent.history.back();
+                return false;
+            });
         });
-    });
 
-    function goBack() {
-        window.history.back();
-    }
-
+        function goBack() {
+            window.history.back();
+        }
 
 
-</script>
-<script type="text/javascript">
+
+    </script>
+    <script type="text/javascript">
 
     //    var varPoNo = $("#Result").val();
     //    if (varPoNo == "") {
@@ -515,4 +498,4 @@
             }
         });
     }
-</script>
+    </script>

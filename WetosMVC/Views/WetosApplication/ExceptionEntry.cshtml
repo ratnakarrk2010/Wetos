@@ -12,26 +12,33 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
-
+<style>
+    .input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:first-child>.btn-group:not(:first-child)>.btn, .input-group-btn:first-child>.btn:not(:first-child), .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group>.btn, .input-group-btn:last-child>.dropdown-toggle {
+        height: 31px;
+    }
+    .select2-container .select2-selection--single {
+        height: 31px;
+    }
+</style>
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-             <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
                             <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
                         </li>
-                         <li class="li_margin">
-                         <a href="#">Applications</a>
+                        <li class="li_margin">
+                            <a href="#">Applications</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li class="li_margin">
-                            <a >Attendance Regularization</a>
+                            <a>Attendance Regularization</a>
                         </li>
-                        </ul>
+                    </ul>
                 </div>
                 <div class="col-sm-6">
                     <ul style="float: right;">
@@ -46,123 +53,125 @@
                     </ul>
                 </div>
             </div>
-       <br />
-       <h1>
-        Attendance Regularization
-        <small>Create</small>  @*Modified by Pushkar 0n 4 FEB 2017 for Create*@
-      </h1>
-     @* <div>
-      <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>
-     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>
+            <br />
+            <h1 class="margin_left_h1">
+                Attendance Regularization
+                <small>Create</small>  @*Modified by Pushkar 0n 4 FEB 2017 for Create*@
+            </h1>
+            @* <div>
+                 <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>
+                @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>
 
-      </div>*@
-      <div style="clear: both;"></div>
+                 </div>*@
+            <div style="clear: both;"></div>
 
-       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
-          
- </section>
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+        </section>
         <section class="content">
-<div class="row">
-<div class="col-xs-12 col-md-12 col-lg-12">         
-<div class="box">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box">
 
-<div class="box-body">
-<div class="row">
+                        <div class="box-body">
+                            <div class="row">
 
- @if (@Model == null || @Model.MySelf == false)
- {
-                    <div class="col-md-12 margin_left">
+                                @if (@Model == null || @Model.MySelf == false)
+                                {
+                                    <div class="col-md-12 margin_left">
 
-                        <div class="col-md-4">
+                                        <div class="col-md-4">
 
-                            <div id="EmployeeName" class="form-group">
-                                Employee Name <span style="color: Red; font-size: 18px">*</span>
+                                            <div id="EmployeeName" class="form-group">
+                                                Employee Name <span style="color: Red; font-size: 18px">*</span>
 
-                                @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeCodeAndNameList, "Select", new { @class = "form-control select2", id = "EmployeeName1", style = "width:500px" })
+                                                @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeCodeAndNameList, "Select", new { @class = "form-control select2", id = "EmployeeName1", style = "width:500px" })
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+                                else
+                                {
+                                    @Html.HiddenFor(model => model.EmployeeId, new { id = "EmployeeName1" })
+                                }
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        From Date <span style="color:Red;font-size:18px">*</span>
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate" />
+                                            @* @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })*@
+
+
+                                            @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.FromDate)
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        To Date <span style="color:Red;font-size:18px">*</span>
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ToDate" id="ToDate" />
+                                            @* @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })*@
+
+
+                                            @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.ToDate)
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
 
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="editor-label">
+                                        Select Criteria
+                                    </div>
+                                    <div class="editor-field">
+                                        @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-list"></i>
+                                            </div>
+
+
+                                            @Html.DropDownList("SelectCriteriaObj", new SelectList(ViewBag.SelectCriteriaList), "Select", new { @class = "form-control select2", @id = "SelectCriteria" })
+                                            @*  @Html.EditorFor(model => model.Status)
+                                                @Html.ValidationMessageFor(model => model.Status)*@
+                                            @Html.ValidationMessageFor(model => model.SelectionCriteria)
+                                        </div>
+                                    </div>
+                                </div>
+                                @* <div class="col-md-6">
+                                    <input type="button" value="Search" class="btn btn-primary" onclick="getExceptionEntryList()"/>
+                                    </div>*@
+                            </div>
+                            <br />
+                            <div class="margin_left_save">
+                                <input type="button" value="Search" class="btn btn-primary" onclick="getExceptionEntryList()" />
+                            </div>
+                            <hr />
+                            <div id="results"></div>
                         </div>
                     </div>
-             
- }
- else
- {
-              @Html.HiddenFor(model => model.EmployeeId, new { id = "EmployeeName1" })
- }
-
-              <div class="col-md-4">
-               <div class="form-group">
-               From Date <span style="color:Red;font-size:18px" >*</span>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate"  />
-                  @* @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })*@
-                   
-                  
-                 @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
                 </div>
-                 @Html.ValidationMessageFor(model => model.FromDate)
-                <!-- /.input group -->
-              </div>
-              </div>
-              <div class="col-md-4">
-               <div class="form-group">
-               To Date <span style="color:Red;font-size:18px" >*</span>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ToDate" id="ToDate" />
-                  @* @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })*@
-                   
-                  
-                 @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
-                </div>
-                 @Html.ValidationMessageFor(model => model.ToDate)
-                <!-- /.input group -->
-              </div>
-              </div>
-              
-              </div>
-
-               <div class="row">
-      <div class="col-md-3">
-      <div class="editor-label">
-           Select Criteria
-        </div>
-        <div class="editor-field">
-        @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-        
-    <div class="input-group date">
-        <div class="input-group-addon">
-        <i  class="fa fa-list"></i>
-  	</div> 
-
-
-         @Html.DropDownList("SelectCriteriaObj", new SelectList(ViewBag.SelectCriteriaList), "Select", new { @class = "form-control select2", @id = "SelectCriteria" })
-          @*  @Html.EditorFor(model => model.Status)
-            @Html.ValidationMessageFor(model => model.Status)*@
-             @Html.ValidationMessageFor(model => model.SelectionCriteria)
-        </div>
-        </div>
-      </div>
-      @* <div class="col-md-6">
-       <input type="button" value="Search" class="btn btn-primary" onclick="getExceptionEntryList()"/>
-       </div>*@
-      </div>
-      <br/>
-              <input type="button" value="Search" class="btn btn-primary" onclick="getExceptionEntryList()"/>
-              <hr />
-              <div id="results"></div>
-</div>
-</div>
-</div>
-</div>
-</section>
+            </div>
+        </section>
     </div>
 </div>
 <div id="ErrorAlertDiv" class="modal fade">
@@ -173,8 +182,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" onclick="showloading();" class="col-md-2  btn btn-primary"
-                    id="OkBtn">
-                    Ok</button>
+                        id="OkBtn">
+                    Ok
+                </button>
                 @*<button type="button" data-dismiss="modal" class="col-md-2 btn">
                     Cancel</button>*@
             </div>

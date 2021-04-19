@@ -19,9 +19,9 @@
 }
 
 @media screen and (min-device-width: 411px) and (max-device-width: 414px) {
-    .content-header {
+    /*.content-header {
         padding-top: 18% !important;
-    }
+    }*/
     .page-content-wrapper .page-content {
         padding: 20px 10px 10px 10px !important;
         overflow: visible !important;

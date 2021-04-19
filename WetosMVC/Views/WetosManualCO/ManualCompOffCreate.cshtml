@@ -21,25 +21,22 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-    
-    
-      
-            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
-                <div class="col-sm-6">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
                     <ul>
                         <li class="li_margin1">
                             <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
                             <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
                         </li>
-                         <li class="li_margin">
-                         <a href="#">Applications</a>
+                        <li class="li_margin">
+                            <a href="#">Applications</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li class="li_margin">
                             <a href="@Url.Action("ManualCompOffList", "WetosManualCO")">Extra Working Entry</a>
                         </li>
-                        </ul>
+                    </ul>
                 </div>
                 <div class="col-sm-6">
                     <ul style="float: right;">
@@ -55,288 +52,265 @@
                 </div>
             </div>
 
-              <h1>
-       Extra Working Entry
-        <small>Apply</small>
-      </h1>
- </section>
-        <section class="content">
-      
-          <div class="box">
-            
-           
-            <!-- /.box-header -->
-            <div class="box-body">
-               
-
-@using (Html.BeginForm())
-{
-    <div style="color:Red">
-    @*@Html.ValidationSummary(false)*@
-    </div>
-    <fieldset>
-        @Html.HiddenFor(model => model.IsAutoEntry)
-
-
-
-        @if (@Model == null || @Model.MySelf == false)
-        {
-
-            <div class="row">
-                <div class="editor-label col-md-2">
-                    Company Name <span style="color:Red;font-size:18px">*</span>
-                </div>
-                <div class="editor-field col-md-6">
-
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-suitcase" aria-hidden="true"></i>
+            <h1 class="margin_left_h1">
+                Extra Working Entry
+                <small>Apply</small>
+            </h1>
+        </section>
+        <section class="content" style="padding-left: 1.5% !important;">
+            <div class="box">
+                <!-- /.box-header -->
+                <div class="box-body">
+                    @using (Html.BeginForm())
+                    {
+                        <div style="color:Red">
+                            @*@Html.ValidationSummary(false)*@
                         </div>
+                        <fieldset>
+                            @Html.HiddenFor(model => model.IsAutoEntry)
+                            @if (@Model == null || @Model.MySelf == false)
+                            {
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Company Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-6">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-suitcase" aria-hidden="true"></i>
+                                            </div>
 
-                        @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyNameList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
+                                            @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyNameList, "Select", new { @class = "form-control select2", id = "CompanyddlList" })
 
-                    </div>
+                                        </div>
+                                    </div>
+                                    <div style="color:Red;font-size:12px">
+                                        @Html.ValidationMessageFor(model => model.CompanyId)
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Branch Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-6">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-university" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchNameList, "Select", new { @class = "form-control select2", id = "BranchddlList" })
+
+                                        </div>
+                                        <div style="color:Red;font-size:12px">
+                                            @Html.ValidationMessageFor(model => model.BranchId)
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Employee Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-6">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-university" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", id = "EmployeeddlList" })
+
+                                        </div>
+                                        <div style="color:Red;font-size:12px">
+                                            @Html.ValidationMessageFor(model => model.EmployeeId)
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                            }
+                            else
+                            {
+                                // Updated by Rajas on 29 AUGUST 2017
+                                @Html.HiddenFor(model => model.EmployeeId, new { id = "EmployeeddlList" })
+                                @Html.HiddenFor(model => model.BranchId, new { id = "BranchddlList" })
+                                @Html.HiddenFor(model => model.CompanyId, new { id = "CompanyddlList" })
+                            }
+                            <div class="row">
+
+                                <div class="col-md-2">
+                                    Extra Working Date
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        @*<label>@Model.FromDate</label>*@
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" style="padding-left:10px; " name="FromDate" id="FromDate"
+                                                   value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />
+                                            @*  @{var TranDate = Model.TranDate == null ? "" : Model.TranDate.ToString("dd-MMM-yyyy");}
+                                                <label>@TranDate</label>*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2" style="padding-right:0px !important">
+                                    Is In time in next day? <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="checkbox" id="IsInPunchInNextDay" value="@Model.IsInPunchInNextDay" name="IsInPunchInNextDay" />
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Login Time <span style="color:Red;font-size:18px">*</span> <br /><span style="color:Blue;font-size:10px">(In 24 hours format)</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-clock-o"></i>
+                                            </div>
+                                            <input type="text" name="LoginTime" class="form-control" id="LoginTime" data-inputmask="'mask': ['', '99:99']" data-mask />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2" style="padding-right:0px !important">
+                                    Is Out time in next day? <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="checkbox" id="IsOutPunchInNextDay" value="@Model.IsOutPunchInNextDay" name="IsOutPunchInNextDay" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Logout Time <span style="color:Red;font-size:18px">*</span><br /> <span style="color:Blue;font-size:10px">(In 24 hours format)</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-clock-o"></i>
+                                            </div>
+                                            <input type="text" name="LogoutTime" class="form-control" id="LogoutTime" data-inputmask="'mask': ['', '99:99']" data-mask />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Extra Working Time <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-clock-o"></i>
+                                            </div>
+                                            @* <label>@Model.ExtraWorkingHrs</label>*@
+                                            @* <input type="text" name="ExtraWorkingHrs" class="form-control" id="ExtraWorkingHrs" data-inputmask="'mask': ['', '99:99']" data-mask/>*@
+                                            <input type="text" name="ExtraWorkingHrs" id="ExtraWorkingHrs" class="form-control" readonly="readonly" data-inputmask="'mask': ['', '99:99:99']" data-mask />
+                                            @* @Html.TextBoxFor(model => model.ExtraWorkingHrs)*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Extra Working Calculation <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calculator"></i>
+                                            </div>
+                                            <div class="editor-field">
+                                                @Html.TextBoxFor(model => model.CompOffBalance, new { @class = "form-control", @readonly = "readonly" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="editor-label col-md-2">
+                                    Work Purpose <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="editor-field col-md-6">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-university" aria-hidden="true"></i>
+                                        </div>
+                                        @Html.DropDownListFor(a => a.Purpose, (IEnumerable<SelectListItem>)@ViewBag.ODPurposeList, "Select", new { @class = "form-control select2", id = "ODPurposeList", @style = "width:200px" })
+
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Purpose Description <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-pencil "></i>
+                                            </div>
+                                            <div class="editor-field">
+                                                @Html.TextAreaFor(model => model.CompOffPurpose, new { @style = "height:50px;width:100%", @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @* Commented By Anagha on 11 June 2018
+                                As Not Needed For Tekman*@
+                            @*   <div class = "row">
+                                         <div class = "col-md-2">
+                                            Effective Date
+                                        </div>
+                                         <div class="col-md-2">
+                                           <div class="form-group">
+                                                <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                <i class="fa fa-clock-o"></i>
+                                                </div>
+                                    <input type="text" name="EffectiveDate" id="EffectiveDate" class="form-control datepicker"/>
+                                     </div>
+                                       </div>
+                                       </div>
+                                </div>*@
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <p>
+                                        <input type="submit" id="savebtn" value="Save" class="btn btn-primary" />
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="ErrorStringMessage" style="color:Red;font-size:14px"></div><br />
+                        </fieldset>
+                    }
+
+                    @*Commented by Pushkar on 4 FEB 2017 as was unwanted*@
+                    @*<div>
+                            @Html.ActionLink("Back to List", "ExceptionEntryIndex")
+                        </div>*@
+
+
+                    <!-- /.box-body -->
                 </div>
-                <div style="color:Red;font-size:12px">
-                    @Html.ValidationMessageFor(model => model.CompanyId)
-                </div>
+                <!-- /.box -->
             </div>
-            <br />
-            <div class="row">
-                <div class="editor-label col-md-2">
-                    Branch Name <span style="color:Red;font-size:18px">*</span>
-                </div>
-                <div class="editor-field col-md-6">
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-university" aria-hidden="true"></i>
-                        </div>
-                        @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchNameList, "Select", new { @class = "form-control select2", id = "BranchddlList" })
-
-                    </div>
-                    <div style="color:Red;font-size:12px">
-                        @Html.ValidationMessageFor(model => model.BranchId)
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="editor-label col-md-2">
-                    Employee Name <span style="color:Red;font-size:18px">*</span>
-                </div>
-                <div class="editor-field col-md-6">
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-university" aria-hidden="true"></i>
-                        </div>
-                        @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", id = "EmployeeddlList" })
-
-                    </div>
-                    <div style="color:Red;font-size:12px">
-                        @Html.ValidationMessageFor(model => model.EmployeeId)
-                    </div>
-                </div>
-            </div>
-            <br />
-        }
-        else
-        {
-            // Updated by Rajas on 29 AUGUST 2017
-            @Html.HiddenFor(model => model.EmployeeId, new { id = "EmployeeddlList" })
-            @Html.HiddenFor(model => model.BranchId, new { id = "BranchddlList" })
-            @Html.HiddenFor(model => model.CompanyId, new { id = "CompanyddlList" })
-        }
-        <div class="row">
-
-            <div class="col-md-2">
-                Extra Working Date
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    @*<label>@Model.FromDate</label>*@
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" style="padding-left:10px; " name="FromDate" id="FromDate"
-                               value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />
-                        @*  @{var TranDate = Model.TranDate == null ? "" : Model.TranDate.ToString("dd-MMM-yyyy");}
-                        <label>@TranDate</label>*@
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="col-md-2" style="padding-right:0px !important">
-                Is In time in next day? <span style="color:Red;font-size:18px">*</span>
-            </div>
-            <div class="col-md-1">
-                <input type="checkbox" id="IsInPunchInNextDay" value="@Model.IsInPunchInNextDay" name="IsInPunchInNextDay" />
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                Login Time <span style="color:Red;font-size:18px">*</span> <br /><span style="color:Blue;font-size:10px">(In 24 hours format)</span>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-clock-o"></i>
-                        </div>
-                        <input type="text" name="LoginTime" class="form-control" id="LoginTime" data-inputmask="'mask': ['', '99:99']" data-mask />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-2" style="padding-right:0px !important">
-                Is Out time in next day? <span style="color:Red;font-size:18px">*</span>
-            </div>
-            <div class="col-md-1">
-                <input type="checkbox" id="IsOutPunchInNextDay" value="@Model.IsOutPunchInNextDay" name="IsOutPunchInNextDay" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                Logout Time <span style="color:Red;font-size:18px">*</span><br /> <span style="color:Blue;font-size:10px">(In 24 hours format)</span>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-clock-o"></i>
-                        </div>
-                        <input type="text" name="LogoutTime" class="form-control" id="LogoutTime" data-inputmask="'mask': ['', '99:99']" data-mask />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                Extra Working Time <span style="color:Red;font-size:18px">*</span>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-clock-o"></i>
-                        </div>
-                        @* <label>@Model.ExtraWorkingHrs</label>*@
-                        @* <input type="text" name="ExtraWorkingHrs" class="form-control" id="ExtraWorkingHrs" data-inputmask="'mask': ['', '99:99']" data-mask/>*@
-                        <input type="text" name="ExtraWorkingHrs" id="ExtraWorkingHrs" class="form-control" readonly="readonly" data-inputmask="'mask': ['', '99:99:99']" data-mask />
-                        @* @Html.TextBoxFor(model => model.ExtraWorkingHrs)*@
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="row">
-            <div class="col-md-2">
-                Extra Working Calculation <span style="color:Red;font-size:18px">*</span>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-calculator"></i>
-                        </div>
-                        <div class="editor-field">
-                            @Html.TextBoxFor(model => model.CompOffBalance, new { @class = "form-control", @readonly = "readonly" })
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="editor-label col-md-2">
-                Work Purpose <span style="color:Red;font-size:18px">*</span>
-            </div>
-            <div class="editor-field col-md-6">
-                <div class="input-group date">
-                    <div class="input-group-addon">
-                        <i class="fa fa-university" aria-hidden="true"></i>
-                    </div>
-                    @Html.DropDownListFor(a => a.Purpose, (IEnumerable<SelectListItem>)@ViewBag.ODPurposeList, "Select", new { @class = "form-control select2", id = "ODPurposeList", @style = "width:200px" })
-
-                </div>
-            </div>
-        </div>
-
-        <br />
-
-        <div class="row">
-            <div class="col-md-2">
-                Purpose Description <span style="color:Red;font-size:18px">*</span>
-            </div>
-            <div class="col-md-5">
-                <div class="form-group">
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-pencil "></i>
-                        </div>
-                        <div class="editor-field">
-                            @Html.TextAreaFor(model => model.CompOffPurpose, new { @style = "height:50px;width:200px", @class = "form-control" })
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        @* Commented By Anagha on 11 June 2018
-        As Not Needed For Tekman*@
-        @*   <div class = "row">
-                 <div class = "col-md-2">
-                    Effective Date
-                </div>
-                 <div class="col-md-2">
-                   <div class="form-group">
-                        <div class="input-group date">
-                        <div class="input-group-addon">
-                        <i class="fa fa-clock-o"></i>
-                        </div>
-            <input type="text" name="EffectiveDate" id="EffectiveDate" class="form-control datepicker"/>
-             </div>
-               </div>
-               </div>
-        </div>*@
-
-        <div class="row">
-            <div class="col-md-2">
-                <p>
-                    <input type="submit" id="savebtn" value="Save" class="btn btn-primary" />
-                </p>
-            </div>
-        </div>
-        <div id="ErrorStringMessage" style="color:Red;font-size:14px"></div><br />
-
-    </fieldset>
-}
-
-@*Commented by Pushkar on 4 FEB 2017 as was unwanted*@
-@*<div>
-    @Html.ActionLink("Back to List", "ExceptionEntryIndex")    
-</div>*@
-
-
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-           </div>
-          <!-- /.box -->
-      
-      <!-- /.row -->
-    </section>
+            <!-- /.box -->
+            <!-- /.row -->
+        </section>
     </div>
 </div>
 <div id="ErrorDiv" class="modal fade">
@@ -346,10 +320,12 @@
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="SubmitBtn"
-                    style="display: none">
-                    Submit</button>
+                        style="display: none">
+                    Submit
+                </button>
                 <button type="button" data-dismiss="modal" class="col-md-2 btn">
-                    Cancel</button>
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
@@ -399,9 +375,9 @@
 
     $("[data-mask]").inputmask("hh:mm");
 
-    
-    
-    
+
+
+
 </script>
 <script type="text/javascript">
     // Added by Rajas on 27 DEC 2016 to fill drop down list on selection of other drop down
@@ -436,7 +412,7 @@
         // alert($("#Group_code").val());
         isDirty = false;
         var branchid = $("#BranchddlList").val();
-       
+
         $.ajax({
             url: '@Url.Content("~/WetosManualCO/GetEmployee")',
             type: "POST",
@@ -567,7 +543,7 @@
         var logout = $("#LogoutTime").val();
         var date = $("#FromDate").val();
         var empid = $("#EmployeeddlList").val();
-        
+
         //alert(login);
         //alert(logout);
         //alert(empid);
@@ -577,7 +553,7 @@
             url: '@Url.Content("~/WetosManualCO/GetExtraHours")',
             type: "POST",
             dataType: "json",
-            data: { Login: login, Logout: logout, TranDate: date, EmpId: empid }, // 
+            data: { Login: login, Logout: logout, TranDate: date, EmpId: empid }, //
             success: function (data) {
                 //alert(data);
                 //var myDate = new Date(data[0].start.match(/\d+/)[0] * 1);
@@ -606,7 +582,7 @@
                 url: '@Url.Content("~/WetosManualCO/GetExtraHours")',
                 type: "POST",
                 dataType: "json",
-                data: { Login: login, Logout: logout, TranDate: date, EmpId: empid }, // 
+                data: { Login: login, Logout: logout, TranDate: date, EmpId: empid }, //
                 success: function (data) {
                     //alert(data);
                     $("#ExtraWorkingHrs").val(data);

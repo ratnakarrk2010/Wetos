@@ -149,11 +149,6 @@
       <Parameter Name="InputMonth" Mode="In" Type="Int32" />
       <Parameter Name="InputYear" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_get_audit_trail" ReturnType="Collection(WetosDBEntityModel.sp_get_audit_trail_Result)">
-      <Parameter Name="UserId" Mode="In" Type="Int32" />
-      <Parameter Name="FromDate" Mode="In" Type="DateTime" />
-      <Parameter Name="ToDate" Mode="In" Type="DateTime" />
-    </FunctionImport>
     <FunctionImport Name="sp_get_Notifications" ReturnType="Collection(WetosDBEntityModel.sp_get_Notifications_Result)">
       <Parameter Name="employeeid" Mode="In" Type="Int32" />
       <Parameter Name="TodaysDate" Mode="In" Type="DateTime" />
@@ -355,12 +350,6 @@
       <Parameter Name="EmployeeId" Mode="In" Type="Int32" />
     </FunctionImport>
     <EntitySet Name="UserRoles" EntityType="WetosDBEntityModel.UserRole" />
-    <FunctionImport Name="sp_get_Roleuser" ReturnType="Collection(WetosDBEntityModel.sp_get_Roleuser_Result)">
-      <Parameter Name="roleid" Mode="In" Type="Int32" />
-      <Parameter Name="y_id" Mode="In" Type="Int32" />
-      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
-      <Parameter Name="BranchId" Mode="In" Type="Int32" />
-    </FunctionImport>
     <FunctionImport Name="sp_get_user_role_menu" ReturnType="Collection(WetosDBEntityModel.sp_get_user_role_menu_Result)">
       <Parameter Name="userId" Mode="In" Type="Int32" />
       <Parameter Name="y_id" Mode="In" Type="Int32" />
@@ -643,6 +632,17 @@
     </FunctionImport>
     <FunctionImport Name="SP_LeaveEncashSanctionIndex" ReturnType="Collection(WetosDBEntityModel.SP_LeaveEncashSanctionIndex_Result)">
       <Parameter Name="EmployeeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_Roleuser" ReturnType="Collection(WetosDBEntityModel.sp_get_Roleuser_Result)">
+      <Parameter Name="roleid" Mode="In" Type="Int32" />
+      <Parameter Name="y_id" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_get_audit_trail" ReturnType="Collection(WetosDBEntityModel.sp_get_audit_trail_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ToDate" Mode="In" Type="DateTime" />
     </FunctionImport>
   </EntityContainer>
   <EntityType Name="AuditTrail">
@@ -1683,19 +1683,6 @@
     <Property Type="DateTime" Name="EffectiveEndDate" Nullable="true" Precision="23" />
     <Property Type="Int32" Name="ShiftPatternId" Nullable="true" />
   </ComplexType>
-  <ComplexType Name="sp_get_audit_trail_Result">
-    <Property Type="Int32" Name="Logid" Nullable="false" />
-    <Property Type="DateTime" Name="LogDate" Nullable="true" Precision="16" />
-    <Property Type="String" Name="Action" Nullable="false" MaxLength="1024" />
-    <Property Type="Int32" Name="userid" Nullable="false" />
-    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
-    <Property Type="Int32" Name="UserRoleNo" Nullable="false" />
-    <Property Type="Int32" Name="y_id" Nullable="false" />
-    <Property Type="String" Name="SoftwareVersion" Nullable="false" MaxLength="20" />
-    <Property Type="Int32" Name="SessionId" Nullable="false" />
-    <Property Type="String" Name="MachineIP" Nullable="false" MaxLength="40" />
-    <Property Type="String" Name="MachineNo" Nullable="false" MaxLength="20" />
-  </ComplexType>
   <ComplexType Name="sp_get_Notifications_Result">
     <Property Type="DateTime" Name="SendDate" Nullable="true" Precision="23" />
     <Property Type="String" Name="NotificationContent" Nullable="true" />
@@ -2418,13 +2405,6 @@
     <Property Type="Int32" Name="BranchId" />
     <Property Type="Int32" Name="DepartmentId" />
   </EntityType>
-  <ComplexType Name="sp_get_Roleuser_Result">
-    <Property Type="Int32" Name="flag" Nullable="false" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="51" />
-    <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="20" />
-    <Property Type="Int32" Name="RoleTypeId" Nullable="true" />
-    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
-  </ComplexType>
   <ComplexType Name="sp_get_user_role_menu_Result">
     <Property Type="Int32" Name="RoleTypeId" Nullable="false" />
     <Property Type="Int32" Name="EmployeeId" Nullable="false" />
@@ -4336,5 +4316,25 @@
     <Property Type="Int32" Name="EmployeeReportingId2" Nullable="true" />
     <Property Type="Int32" Name="MarkedAsDelete" Nullable="false" />
     <Property Type="DateTime" Name="EncashDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_get_Roleuser_Result">
+    <Property Type="Int32" Name="flag" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="51" />
+    <Property Type="String" Name="EmployeeCode" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="RoleTypeId" Nullable="true" />
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_get_audit_trail_Result">
+    <Property Type="Int32" Name="Logid" Nullable="false" />
+    <Property Type="DateTime" Name="LogDate" Nullable="true" Precision="16" />
+    <Property Type="String" Name="Action" Nullable="false" MaxLength="1024" />
+    <Property Type="Int32" Name="userid" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="UserRoleNo" Nullable="false" />
+    <Property Type="Int32" Name="y_id" Nullable="false" />
+    <Property Type="String" Name="SoftwareVersion" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="SessionId" Nullable="false" />
+    <Property Type="String" Name="MachineIP" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="MachineNo" Nullable="false" MaxLength="20" />
   </ComplexType>
 </Schema>
