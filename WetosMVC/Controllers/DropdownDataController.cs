@@ -96,7 +96,7 @@ namespace WetosMVC.Controllers
                     DropdownDataObj.Text = DropdownDataModelObj.TextName;
                     DropdownDataObj.Value = DropdownDataModelObj.Value;
                     DropdownDataObj.TypeId = DropdownDataModelObj.TypeId;
-                    WetosDB.DropdownDatas.AddObject(DropdownDataObj);
+                    WetosDB.DropdownDatas.Add(DropdownDataObj);
                     WetosDB.SaveChanges();
                     PopulateDropdown();  //ADDED BY NANDINI ON 02 MAY 2020
                 }
@@ -107,7 +107,7 @@ namespace WetosMVC.Controllers
                     DropdownDataObj.Text = DropdownDataModelObj.TextName;
                     DropdownDataObj.Value = DropdownDataModelObj.Value;
                     DropdownDataObj.TypeId = DropdownDataModelObj.TypeId;
-                    WetosDB.DropdownDatas.AddObject(DropdownDataObj);
+                    WetosDB.DropdownDatas.Add(DropdownDataObj);
                     WetosDB.SaveChanges();
                     PopulateDropdown();  //ADDED BY NANDINI ON 02 MAY 2020
                 }
@@ -220,7 +220,7 @@ namespace WetosMVC.Controllers
                 DropdownData DDObj = WetosDB.DropdownDatas.Where(a => a.ID == id).FirstOrDefault();
                 if (DDObj != null)
                 {
-                    WetosDB.DropdownDatas.DeleteObject(DDObj);
+                    WetosDB.DropdownDatas.Add(DDObj);
                     WetosDB.SaveChanges();
                 }
 

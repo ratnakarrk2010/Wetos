@@ -5,110 +5,122 @@
 @System.Web.Optimization.Styles.Render("~/Content/DatePicker")
 @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
-   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
-<style type="text/css">
-    .row
-    {
-        height: 40px;
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/css/get_audit_trail.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<style>
+    .widthandborder{
+        width: 100%;
+        height: 31px;
+        border: 1px solid #ccc;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
     }
 </style>
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-  <h1>Audit Trails
-        <small>List</small>
-        </h1>
-        <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
+
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Administration</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
-                        <li>
-                         <a href="#">Administration</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
+                        <li class="li_margin">
                             <a href="#">Audit Trails</a>
                         </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
-                                <span style="cursor: pointer" class="back " data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i>@*<a href="#" >Back</a>*@
-
-                                </span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @*@DateTime.Now.ToLongDateString()*@
+                                    @{
+                                        string timezoneId = System.Configuration.ConfigurationManager.AppSettings["TimeZoneId"];
+                                    }
+                                    @TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId)).ToLongDateString()
                                 </span>
                             </div>
-                            @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
                         </li>
                     </ul>
                 </div>
             </div>
+            <h1 style="margin-left: 2.5% !important;">
+                Audit Trails
+                <small>List</small>
+            </h1>
             <div style="clear: both;"></div>
             @*, new { @target = "_blank" }))*@
-@using (Html.BeginForm("GetAuditTrail", "WetosAdministration", FormMethod.Post))
-{
-            <div class ="row">
-            <div class="col-md-2">
-                Select User:
+            @using (Html.BeginForm("GetAuditTrail", "WetosAdministration", FormMethod.Post))
+            {
+                <div class="row" style="margin-left: 1% !important;">
+                    <div class="col-md-2">
+                        Select User:
+                    </div>
+                    <div class="col-md-4">
+                        @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="glyphicon glyphicon-user"></i>
+                            </div>
+                            @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.Audit, "Select", new { @class = "form-control select2",style="width:100%;" })
+                            @*  <span style="color: Red; font-size: 20px; font-weight: 600"></span>*@
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                 @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-                              <div class="input-group date">
-        <div class="input-group-addon">
-             <i  class="glyphicon glyphicon-user"></i>
-  	</div> 
-                @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.Audit, "Select", new { @class = "form-control select2" })
-              @*  <span style="color: Red; font-size: 20px; font-weight: 600"></span>*@
-              </div>
-            </div>
-            </div>
-      
-      <div class ="row">
-            <div class="col-md-2">    
-             
-                From Date:
-               </div>
-                <div class="col-md-4">
-         @*Modified by shalaka on 7th July*@
-                  
-                              <div class="input-group date">
-        <div class="input-group-addon">
-             <i  class="glyphicon glyphicon-calendar"></i>
-  	</div> 
-                <input id="AddItemdatepicker" class="datepickerex" name="AddItemdatepicker" />
-                @*<span style="color: Red; font-size: 20px; font-weight: 600"></span>*@
-                </div>
-           </div>
-           </div>
-       
-            <div class ="row">
-            <div class="col-md-2"> 
-                To Date:
-                </div>
-                 <div class="col-md-4">
-                       @*Modified by shalaka on 7th July*@
 
-                              <div class="input-group date">
-        <div class="input-group-addon">
-             <i  class="glyphicon glyphicon-calendar"></i>
-  	</div> 
-                <input id="AddItemdatepicker1" class="datepickerex1" name="AddItemdatepicker1" />
-                @*<span style="color: Red; font-size: 20px; font-weight: 600"></span>*@
+                <div class="row" style="margin-left: 1% !important;">
+                    <div class="col-md-2">
+
+                        From Date:
+                    </div>
+                    <div class="col-md-4">
+                        @*Modified by shalaka on 7th July*@
+
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </div>
+                            <input id="AddItemdatepicker" class="datepickerex widthandborder" name="AddItemdatepicker" />
+                            @*<span style="color: Red; font-size: 20px; font-weight: 600"></span>*@
+                        </div>
+                    </div>
                 </div>
-            </div>
-            </div>
-          
-            <div>
-                <input type="submit" value="Get Audit Log" id="saveitem" />
-            </div>
-           
-       
-}
-</section>
+
+                <div class="row" style="margin-left:1% !important;">
+                    <div class="col-md-2">
+                        To Date:
+                    </div>
+                    <div class="col-md-4">
+                        @*Modified by shalaka on 7th July*@
+
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </div>
+                            <input id="AddItemdatepicker1" class="datepickerex1 widthandborder" name="AddItemdatepicker1" />
+                            @*<span style="color: Red; font-size: 20px; font-weight: 600"></span>*@
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-left: 2.5% !important;">
+                    <input type="submit" value="Get Audit Log" id="saveitem" />
+                </div>
+
+
+            }
+        </section>
     </div>
 </div>
 <script type="text/javascript">
@@ -145,7 +157,7 @@
 
         autoclose: true
     });
-    
+
 </script>
 <script type="text/jscript">
     $(document).ready(function () {

@@ -6,160 +6,165 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
-<style type="text/css">
-    .row
-    {
-        margin-bottom: 10px;
-    }
-</style>
+<link href="~/Content/css/financial_year_edit.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-<h1>Financial Year
- <small>Edit</small>
-</h1>
-      <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
+
+
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Administration</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
-                        <li>
-                         <a href="#">WetosFinancialYear</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
+                        <li class="li_margin">
                             <a href="#">Finanacial Year</a>
                         </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
-                                <span style="cursor:pointer" class="back " data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
                             </div>
-                        </li>              
+                        </li>
                     </ul>
                 </div>
             </div>
 
-      
-      <div style="clear: both;"></div>
+            <h1 class="margin_left_h1">
+                Financial Year
+                <small>Edit</small>
+            </h1>
+            <div style="clear: both;"></div>
 
-    </section>
+        </section>
         <br />
         <section class="content">
-      <div class="row">
-        <div class="col-xs-12 col-md-12 col-lg-12">
-          <div class="box box-primary">
-@using (Html.BeginForm("Edit", "WetosFinancialYear", FormMethod.Post, new { id = "CreateBranchForm" }))
-{
-    @Html.ValidationSummary(true)
-    @Html.HiddenFor(model => model.FinancialId)
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box box-primary">
+                        @using (Html.BeginForm("Edit", "WetosFinancialYear", FormMethod.Post, new { id = "CreateBranchForm" }))
+                        {
+                            @Html.ValidationSummary(true)
+                            @Html.HiddenFor(model => model.FinancialId)
 
-       <div class="row">
-     
-        <div class="col-md-2">
-    Company  <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="col-md-5">
-         
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-suitcase" aria-hidden="true"></i>
-                  </div>
-          @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyListView, "Select", new { @class = "form-control select2", id = "CompanyddlList", @style = "width:250px;" })
-          <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.CompanyId)
-            </div>
-            </div>
-        </div>
-       </div> 
- 
-      <div class="row">
-        <div class="col-md-2">
-    Branch Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-         <div class="col-md-5">
-         
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-institution" aria-hidden="true"></i>
-                  </div>
-          @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchListView, "Select", new { @class = "form-control select2", id = "BranchddlList", @style = "width:250px;" })
-          <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.BranchId)
-            </div>
-            </div>
-        </div>
-      </div>
-      
-    
-    <div class="row">
-        <div class="col-md-2">
-   Financial Name   <span style="color:Red;font-size:18px" >*</span>
-        </div>
-         <div class="col-md-5">
-         
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-institution" aria-hidden="true"></i>
-                  </div>
-         @Html.TextBoxFor(model => model.FinancialName, new { @class = "form-control", @style = "width:250px;" })
-          <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.FinancialName)
-            </div>
-            </div>
-        </div>
-      </div>
+                            <div class="row">
 
-             
-    
-    <div class="row">
-   
-        <div class="col-md-2">
-           Start Date <span style="color:Red;font-size:18px" >*</span>
-           </div>
-     <div class="col-md-4">
+                                <div class="col-md-2">
+                                    Company  <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-5">
 
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  @*<input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="StartDate" id="StartDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.StartDate)" style="width:250px;"/>*@
-                  @{ var StartDate = Model.FYStartDate == null ? "" : Model.FYStartDate.Value.ToString("dd-MMM-yyyy"); }
-                  @Html.TextBoxFor(ModelItem => StartDate, new { style = "width:250px;", @class = "datepicker" })
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-suitcase" aria-hidden="true"></i>
+                                        </div>
+                                        @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyListView, "Select", new { @class = "form-control select2", id = "CompanyddlList", @style = "width:250px;" })
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.CompanyId)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Branch Name <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-5">
+
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-institution" aria-hidden="true"></i>
+                                        </div>
+                                        @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchListView, "Select", new { @class = "form-control select2", id = "BranchddlList", @style = "width:250px;" })
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.BranchId)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Financial Name   <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-5">
+
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-institution" aria-hidden="true"></i>
+                                        </div>
+                                        @Html.TextBoxFor(model => model.FinancialName, new { @class = "form-control", @style = "width:250px;" })
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.FinancialName)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+
+                                <div class="col-md-2">
+                                    Start Date <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        @*<input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="StartDate" id="StartDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.StartDate)" style="width:250px;"/>*@
+                                        @{ var StartDate = Model.FYStartDate == null ? "" : Model.FYStartDate.Value.ToString("dd-MMM-yyyy"); }
+                                        @Html.TextBoxFor(ModelItem => StartDate, new { style = "width:250px;", @class = "datepicker" })
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    End Date <span style="color:Red;font-size:18px">*</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        @* <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="EndDate" id="EndDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.EndDate)" style="width:250px;"/>*@
+                                        @{ var EndDate = Model.FYEndDate == null ? "" : Model.FYEndDate.Value.ToString("dd-MMM-yyyy"); }
+                                        @Html.TextBoxFor(ModelItem => EndDate, new { style = "width:250px;", @class = "datepicker" })
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="margin_left_save">
+                                <input type="button" id="Branchbtn" value="Update" class="btn btn-default" style="cursor:pointer; float:left" title="Click to Update Financial Year" />
+                            </div>
+                        }
+                    </div>
                 </div>
-                
-              </div>
-              </div>
-    
-    <div class="row">
-        <div class="col-md-2">
-         End Date <span style="color:Red;font-size:18px" >*</span>
-         </div>
-     <div class="col-md-4">
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                @* <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="EndDate" id="EndDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.EndDate)" style="width:250px;"/>*@
-                 @{ var EndDate = Model.FYEndDate == null ? "" : Model.FYEndDate.Value.ToString("dd-MMM-yyyy"); }
-                  @Html.TextBoxFor(ModelItem => EndDate, new { style = "width:250px;", @class = "datepicker" })
-                </div>
-               
-              </div>
-              </div>
-    
-    <div>
-           <input type="button" id="Branchbtn" value="Update" class="btn btn-default" style="cursor:pointer; float:left" title = "Click to Update Financial Year"/>
-        </div>
-}
-</div>
-</div>
-</div>
-</section>
+            </div>
+        </section>
     </div>
 </div>
 
@@ -171,9 +176,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="DeleteBtn">
-                    Yes</button>
+                    Yes
+                </button>
                 <button type="button" data-dismiss="modal" class="col-md-2 btn">
-                    Cancel</button>
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
@@ -215,12 +222,12 @@
 
         var $form = $(this).closest('form');
         $('#branchdiv').modal({ backdrop: 'static', keyboard: false })
-                .one('click', '#DeleteBtn', function () {
+            .one('click', '#DeleteBtn', function () {
 
 
 
-                    $("#CreateBranchForm").submit();
-                });
+                $("#CreateBranchForm").submit();
+            });
 
     });
 </script>

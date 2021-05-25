@@ -2,184 +2,187 @@
 @System.Web.Optimization.Styles.Render("~/Content/DatePicker")
 @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
-   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 <section class="content-header">
-      <h1>
-        Satuatory Report
-        <small>Create</small>
-      </h1>
-      <ol class="breadcrumb">
+
+    <ol class="breadcrumb">
         <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-arrow-left"></i> Home</a></li>
         <li><a href="#">Administration</a></li>
         <li class="active"> <a href="#">Satuatory Report</a></li>
         @*<li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>*@
-      
-      </ol>    
 
-       @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
-      <div>
-      <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>
-     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+    </ol>
+    <h1 class="margin_left_h1">
+        Satuatory Report
+        <small>Create</small>
+    </h1>
 
-      </div>
-      <div style="clear: both;"></div>
+    @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+    <div>
+        <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>
+        @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
 
-       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+    </div>
+    <div style="clear: both;"></div>
 
- </section>
+    @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+</section>
 <section class="content">
-<div class="row">
-<div class="col-xs-12 col-md-12 col-lg-12">         
-<div class="box">
-<div class="box-header">           
-</div>
-<div class="box-body">
-
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
-    <fieldset>
-     @Html.HiddenFor(model => model.ReportPath)
-       @Html.HiddenFor(model => model.Content)
-
-        @*<div class="editor-label">
-            
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ReportPath)
-            @Html.ValidationMessageFor(model => model.ReportPath)
-        </div>*@
-
-      
-
-        <div class="row">
-     <div class="form-group col-md-12" id="CompanyList">
-       <div class="editor-label">
-            Company Name
-        </div>
-        <div class="editor-field">
-         @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2", style = "width:500px" })
-         
-        </div> 
-      </div>
-      </div>
-
-       <div class="row">
-        <div class="form-group col-md-12" id="BranchList">
-         <div class="editor-label">
-           Branch Name
-        </div>
-        <div class="editor-field" >
-         @Html.DropDownListFor(a => a.BranchID, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2",style="width:500px" })
-         
-        </div>
-       </div>
-       </div>
-
-      <div class="row">
-      <div class="col-md-3">
-        <div class="editor-label">
-            Report Name
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ReportName)
-            @Html.ValidationMessageFor(model => model.ReportName)
-        </div>
-        </div>
-        </div>
-        @*<div class="editor-label">
-            @Html.LabelFor(model => model.Content)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Content)
-            @Html.ValidationMessageFor(model => model.Content)
-        </div>*@
-
-         <div class="row">
-      <div class="col-md-3">
-        <div class="editor-label">
-            Duration
-        </div>
-        <div class="editor-field">
-           @* @Html.EditorFor(model => model.ReportType)
-            @Html.ValidationMessageFor(model => model.ReportType)*@
-            <input type="radio" name="group1" id="Duration" value="Monthly" checked="checked" />&nbsp&nbsp Monthly
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="radio" name="group1" id="Duration1" value="Yearly"  checked="checked"/>&nbsp&nbsp Yearly 
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="radio" name="group1" id="Duration2" value="Other Period"  checked="checked"/>&nbsp&nbsp Other Period 
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        </div>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-3">
-          <div class="form-group">
-               From Date
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                   @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })
-                 @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <div class="box">
+                <div class="box-header">
                 </div>
-                <!-- /.input group -->
-              </div>
-              </div>
-              </div>
+                <div class="box-body">
 
-        <div class="row">
-         <div class="col-md-3">
-         <div class="form-group">
-               To Date
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ValidationSummary(true)
+                        <fieldset>
+                            @Html.HiddenFor(model => model.ReportPath)
+                            @Html.HiddenFor(model => model.Content)
 
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                   @Html.TextBoxFor(model => model.ToDate, new { @class = "form-control pull-right datepicker" })
-                 @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+                            @*<div class="editor-label">
+
+                                </div>
+                                <div class="editor-field">
+                                    @Html.EditorFor(model => model.ReportPath)
+                                    @Html.ValidationMessageFor(model => model.ReportPath)
+                                </div>*@
+
+
+
+                            <div class="row">
+                                <div class="form-group col-md-12" id="CompanyList">
+                                    <div class="editor-label">
+                                        Company Name
+                                    </div>
+                                    <div class="editor-field">
+                                        @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2", style = "width:500px" })
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-12" id="BranchList">
+                                    <div class="editor-label">
+                                        Branch Name
+                                    </div>
+                                    <div class="editor-field">
+                                        @Html.DropDownListFor(a => a.BranchID, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", style = "width:500px" })
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="editor-label">
+                                        Report Name
+                                    </div>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(model => model.ReportName)
+                                        @Html.ValidationMessageFor(model => model.ReportName)
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="editor-label">
+                                    @Html.LabelFor(model => model.Content)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.EditorFor(model => model.Content)
+                                    @Html.ValidationMessageFor(model => model.Content)
+                                </div>*@
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="editor-label">
+                                        Duration
+                                    </div>
+                                    <div class="editor-field">
+                                        @* @Html.EditorFor(model => model.ReportType)
+                                            @Html.ValidationMessageFor(model => model.ReportType)*@
+                                        <input type="radio" name="group1" id="Duration" value="Monthly" checked="checked" />&nbsp&nbsp Monthly
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                        <input type="radio" name="group1" id="Duration1" value="Yearly" checked="checked" />&nbsp&nbsp Yearly
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                        <input type="radio" name="group1" id="Duration2" value="Other Period" checked="checked" />&nbsp&nbsp Other Period
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        From Date
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })
+                                            @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        To Date
+
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.ToDate, new { @class = "form-control pull-right datepicker" })
+                                            @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="editor-label">
+                                        Select Type
+                                    </div>
+                                    <div class="editor-field">
+                                        @* @Html.EditorFor(model => model.ReportType)
+                                            @Html.ValidationMessageFor(model => model.ReportType)*@
+                                        <input type="radio" name="group1" id="ReportType" value="Uploading" checked="checked" />&nbsp&nbsp Uploading
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                        <input type="radio" name="group1" id="ReportType1" value="Input Text" checked="checked" />&nbsp&nbsp Input Text &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p>
+                                <input type="submit" value="Create" />
+                            </p>
+                        </fieldset>
+                    }
                 </div>
-                <!-- /.input group -->
-              </div>
-       </div>
-       </div>
-
-       <div class="row">
-      <div class="col-md-3">
-        <div class="editor-label">
-            Select Type
+            </div>
         </div>
-        <div class="editor-field">
-           @* @Html.EditorFor(model => model.ReportType)
-            @Html.ValidationMessageFor(model => model.ReportType)*@
-            <input type="radio" name="group1" id="ReportType" value="Uploading" checked="checked" />&nbsp&nbsp Uploading
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="radio" name="group1" id="ReportType1" value="Input Text"  checked="checked"/>&nbsp&nbsp Input Text &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        </div>
-        </div>
-        </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
-</div>
-</div>
-</div>
-</div>
+    </div>
 
 
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 
 </section>
 
- @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
 <script type="text/jscript">
     $(document).ready(function () {
         $('a.back').click(function () {

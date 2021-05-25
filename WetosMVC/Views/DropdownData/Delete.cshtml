@@ -5,49 +5,47 @@
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
 @System.Web.Optimization.Scripts.Render("~/bundles/LayoutTheme")
-<style type="text/css">
-    .row
-    {
-        margin-bottom: 10px;
-    }
-</style>
+<link href="~/Content/css/dropdown_data_delete.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
 @*VIEW CREATED AND STARTED BY NANDINI ON 14 APRIL 2020*@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-<h1>Dropdown Data
- <small>Delete</small>
-</h1>
+           <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1" >
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
-<div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
-                            <i class="fa fa-angle-right"></i>
                         </li>
-                        <li>
+                       <li class="li_margin">
                          <a href="#">Masters</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
-                        <li>
+                        <li class="li_margin">
                             <a href="@Url.Action("Index", "DropdownData")">Dropdown Data </a>
                         </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor: pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i>
-
-                                </span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
                                 </span>
                             </div>
-                           
                         </li>
                     </ul>
                 </div>
             </div>
+                        <h1 class="margin_left_h1">Dropdown Data
+            <small>Delete</small>
+            </h1>
+
       <div style="clear: both;"></div>
 
        
@@ -157,7 +155,7 @@
  
  <hr />
          
-       <p>
+       <p class="margin_left_save">
             <input type="button" id="Branchbtn" value="Delete" class="btn btn-default" style="cursor:pointer; float:left" title = "Click to Delete Dropdown Data"/>
             <span  class="btn btn-default" style="cursor:pointer; float:left;margin-left:10px" title = "Click to go back to DropDown Data list">@Html.ActionLink("Back to DropDown Data List", "Index")</span>
            

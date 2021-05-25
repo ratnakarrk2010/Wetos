@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.Entity;
-using System.Data.EntityModel;
+//using System.Data.EntityModel;
 using System.Globalization;
 using System.ComponentModel;
 using WetosDB;
@@ -249,7 +249,7 @@ namespace WetosMVCMainApp.Models
         //        pcalObj.PropertyId = Convert.ToInt64(PropertyId);
         //        pcalObj.Duration = NewEventDuration;
 
-        //        ent.REPropertyCalenders.AddObject(pcalObj);
+        //        ent.REPropertyCalenders.Add(pcalObj);
         //        ent.SaveChanges();
         //    }
         //    catch (System.Exception)
@@ -286,8 +286,8 @@ namespace WetosMVCMainApp.Models
 
         //        propcalobj.Status = 2;
 
-        //        ent.REAppointments.AddObject(aptobj);
-        //        //  ent.REPropertyCalenders.AddObject(propcalobj);
+        //        ent.REAppointments.Add(aptobj);
+        //        //  ent.REPropertyCalenders.Add(propcalobj);
 
         //        ent.SaveChanges();
         //    }
@@ -648,7 +648,12 @@ namespace WetosMVCMainApp.Models
                                     calendar.StatusColor = "#f91cb8";
                                     ToUpdate = true;
                                 }
-
+                                else if (calendar.Title == "PPPP*")
+                                {
+                                    calendar.Title = "PPPP*";
+                                    calendar.StatusColor = "Green";
+                                    ToUpdate = true;
+                                }
                                 else if (calendar.Title != null && calendar.Title.Contains("HHHH"))
                                 {
                                     //calendar.Title = "PPAA";

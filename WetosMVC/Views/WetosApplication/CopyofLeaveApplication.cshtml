@@ -5,201 +5,202 @@
 @System.Web.Optimization.Styles.Render("~/Content/DatePicker")
 @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
-   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 
 <section class="content">
-      <div class="row">
+    <div class="row">
         <div class="col-xs-12 col-md-12 col-lg-12">
-          <div class="box box-primary">
-            <div class="box-header">
-              
-            </div>
-            <!-- /.box-header -->
-           
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
-    <fieldset>
-     <div class="box-body">
-         @*   <label> Leave Application Type : </label>*@
-           @* @Html.DropDownList("Select", new SelectList(ViewBag.LeaveType), "--Select--", new { id = "DrpDwnEmpNo", @class = "col-md-8", style = "height:30px" })*@
-             @*@Html.DropDownList("Select", new List<SelectListItem>() { new SelectListItem { Text = "Select", Value = "1" }, new SelectListItem { Text = "Self Leave", Value = "2" }, new SelectListItem { Text = "Other Leave", Value = "3" }})*@
-           <input type="radio" name="group1" id="LeaveApplicationType" value="Self" checked="checked" />&nbsp&nbsp Self Leave Application
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="radio" name="group1" id="LeaveApplicationType1" value="Other" />&nbsp&nbsp Other's Leave Application &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-           <br /><br />
-         <legend></legend>
-             <div class="form-group">
-                <label> Employee Code:  </label>
-            
-                 @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeCodeList, "Select", new { @class = "form-control select2" })
-        
-              </div>
+            <div class="box box-primary">
+                <div class="box-header">
 
-              <div class="form-group">
-                <label> Employee Name:  </label>
-            
-                 @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2" })
-        
-              </div>
-
-               <div class="form-group">
-                <label> From Date :</label>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                   @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })
-                 @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
                 </div>
-                <!-- /.input group -->
-              </div>
+                <!-- /.box-header -->
 
-               <div class="form-group">
-                <label> To Date :</label>
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+                    <fieldset>
+                        <div class="box-body">
+                            @*   <label> Leave Application Type : </label>*@
+                            @* @Html.DropDownList("Select", new SelectList(ViewBag.LeaveType), "--Select--", new { id = "DrpDwnEmpNo", @class = "col-md-8", style = "height:30px" })*@
+                            @*@Html.DropDownList("Select", new List<SelectListItem>() { new SelectListItem { Text = "Select", Value = "1" }, new SelectListItem { Text = "Self Leave", Value = "2" }, new SelectListItem { Text = "Other Leave", Value = "3" }})*@
+                            <input type="radio" name="group1" id="LeaveApplicationType" value="Self" checked="checked" />&nbsp&nbsp Self Leave Application
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <input type="radio" name="group1" id="LeaveApplicationType1" value="Other" />&nbsp&nbsp Other's Leave Application &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <br /><br />
+                            <legend></legend>
+                            <div class="form-group">
+                                <label> Employee Code:  </label>
 
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                      @Html.TextBoxFor(model => model.ToDate, new { @class = "form-control pull-right datepicker" })
-                 @* <input type="text" class="form-control pull-right datepicker" id="ToDate" name="ToDate"/>*@
-                </div>
-                <!-- /.input group -->
-              </div>
-               <div class="form-group">
-                <label> Leave Type:   </label>
-                   @Html.TextBoxFor(model => model.LeaveType, new { @class = "form-control pull-right" })
-            @* <input type="text" class="form-control pull-right" id="LeaveType" name="LeaveType"/>*@
-               @* @Html.EditorFor(model => model.LeaveType)
-            @Html.ValidationMessageFor(model => model.LeaveType)*@
-              </div>
+                                @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeCodeList, "Select", new { @class = "form-control select2" })
+
+                            </div>
+
+                            <div class="form-group">
+                                <label> Employee Name:  </label>
+
+                                @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2" })
+
+                            </div>
+
+                            <div class="form-group">
+                                <label> From Date :</label>
+
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })
+                                    @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+
+                            <div class="form-group">
+                                <label> To Date :</label>
+
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    @Html.TextBoxFor(model => model.ToDate, new { @class = "form-control pull-right datepicker" })
+                                    @* <input type="text" class="form-control pull-right datepicker" id="ToDate" name="ToDate"/>*@
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group">
+                                <label> Leave Type:   </label>
+                                @Html.TextBoxFor(model => model.LeaveType, new { @class = "form-control pull-right" })
+                                @* <input type="text" class="form-control pull-right" id="LeaveType" name="LeaveType"/>*@
+                                @* @Html.EditorFor(model => model.LeaveType)
+                                    @Html.ValidationMessageFor(model => model.LeaveType)*@
+                            </div>
 
 
-             <div class="form-group">
-                <label> Leave Purpose:    </label>
-                  @Html.TextBoxFor(model => model.Purpose, new { @class = "form-control pull-right" })
-          @*   <input type="text" class="form-control pull-right" id="Purpose" name="Purpose"/>*@
-            @*    @Html.EditorFor(model => model.Purpose)
-            @Html.ValidationMessageFor(model => model.Purpose)*@
-              </div>
-            
-           <br />
-           </div>
-           <div class="box-footer">
-             <p>
-            <input type="submit" value="Create" class="btn btn-primary"/>
-        </p>
-       </div>
+                            <div class="form-group">
+                                <label> Leave Purpose:    </label>
+                                @Html.TextBoxFor(model => model.Purpose, new { @class = "form-control pull-right" })
+                                @*   <input type="text" class="form-control pull-right" id="Purpose" name="Purpose"/>*@
+                                @*    @Html.EditorFor(model => model.Purpose)
+                                    @Html.ValidationMessageFor(model => model.Purpose)*@
+                            </div>
 
-       
-      @*  <div class="editor-label">
-            @Html.LabelFor(model => model.LeaveType)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.LeaveType)
-            @Html.ValidationMessageFor(model => model.LeaveType)
-        </div>
+                            <br />
+                        </div>
+                        <div class="box-footer">
+                            <p>
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </p>
+                        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.FromDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.FromDate)
-            @Html.ValidationMessageFor(model => model.FromDate)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.FromDayStatus)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.FromDayStatus)
-            @Html.ValidationMessageFor(model => model.FromDayStatus)
-        </div>
+                        @*  <div class="editor-label">
+                                @Html.LabelFor(model => model.LeaveType)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.LeaveType)
+                                @Html.ValidationMessageFor(model => model.LeaveType)
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ToDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ToDate)
-            @Html.ValidationMessageFor(model => model.ToDate)
-        </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.FromDate)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.FromDate)
+                                @Html.ValidationMessageFor(model => model.FromDate)
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ToDayStatus)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ToDayStatus)
-            @Html.ValidationMessageFor(model => model.ToDayStatus)
-        </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.FromDayStatus)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.FromDayStatus)
+                                @Html.ValidationMessageFor(model => model.FromDayStatus)
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.AppliedDays)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.AppliedDays)
-            @Html.ValidationMessageFor(model => model.AppliedDays)
-        </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.ToDate)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.ToDate)
+                                @Html.ValidationMessageFor(model => model.ToDate)
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ActualDays)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ActualDays)
-            @Html.ValidationMessageFor(model => model.ActualDays)
-        </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.ToDayStatus)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.ToDayStatus)
+                                @Html.ValidationMessageFor(model => model.ToDayStatus)
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Purpose)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Purpose)
-            @Html.ValidationMessageFor(model => model.Purpose)
-        </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.AppliedDays)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.AppliedDays)
+                                @Html.ValidationMessageFor(model => model.AppliedDays)
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Status)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Status)
-            @Html.ValidationMessageFor(model => model.Status)
-        </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.ActualDays)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.ActualDays)
+                                @Html.ValidationMessageFor(model => model.ActualDays)
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.RejectReason)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.RejectReason)
-            @Html.ValidationMessageFor(model => model.RejectReason)
-        </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Purpose)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Purpose)
+                                @Html.ValidationMessageFor(model => model.Purpose)
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.BranchId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.BranchId)
-            @Html.ValidationMessageFor(model => model.BranchId)
-        </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Status)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Status)
+                                @Html.ValidationMessageFor(model => model.Status)
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CompanyId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.CompanyId)
-            @Html.ValidationMessageFor(model => model.CompanyId)
-        </div>
-*@
-      
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.RejectReason)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.RejectReason)
+                                @Html.ValidationMessageFor(model => model.RejectReason)
+                            </div>
 
-    </fieldset>
-}
-          
-          
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.BranchId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.BranchId)
+                                @Html.ValidationMessageFor(model => model.BranchId)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.CompanyId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.CompanyId)
+                                @Html.ValidationMessageFor(model => model.CompanyId)
+                            </div>
+                        *@
+
+
+                    </fieldset>
+                }
+
+
             </div>
-            </div>
-            </div>
-            </section>
+        </div>
+    </div>
+</section>
 <!-- jQuery 2.2.3 -->
 <!-- Page script -->
 

@@ -12,18 +12,42 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
+        <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                         <a href="#">Sanctions</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Cumulative CompOff</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <h1>Cumulative CompOff credit Sanction
         <small>List</small>
             </h1>
-            @*<ol class="breadcrumb">
-                <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i>Home</a></li>
-                <li class="active">Sanctions</li>
-                <li class="active">Leave Sanction</li>
-                <li><span style="float: right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span></li>@*Modified by Pushkar 0n 6 FEB 2017*@
+           
 
-            @*</ol>*@
-
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-12">
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
@@ -47,7 +71,7 @@
                         </li>              
                     </ul>
                 </div>
-            </div>
+            </div> -->
 
             @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
             <div>

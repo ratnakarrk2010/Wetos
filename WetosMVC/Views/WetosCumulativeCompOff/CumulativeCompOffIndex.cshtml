@@ -7,6 +7,36 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
+        <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                         <a href="#">Application</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li class="li_margin">
+                            <a href="@Url.Action("ManualCompOffList", "WetosManualCO")">Manual Comp Off </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <h1>Extra Hours
                 <small>List</small>
                  @if (@ViewBag.ForOthers == "true")
@@ -26,7 +56,7 @@
                  @Html.ActionLink(" ", "CumulativeCompOffCreate", new { Myself = true }, new { @class = "fa fa-plus-circle", title = "Apply Manual Comp Off", style = "color:#428bca;font-size:19px" })</span>
                  }
                 </h1>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-12">
                     <ul class="page-breadcrumb breadcrumb">
                         <li>
@@ -50,7 +80,7 @@
                         </li>              
                     </ul>
                 </div>
-            </div>  
+            </div>   -->
            
         </section>
         <section class="content">

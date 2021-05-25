@@ -3,73 +3,81 @@
     ViewBag.Title = "Select Employee For Resignation Application";
 }
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
-   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/css/resignation_application.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<style>
+    .select2-container--default .select2-selection--single {
+        border-top-right-radius: 5px !important;
+        border-bottom-right-radius: 5px !important;
+        border-top-left-radius: 5px !important;
+        border-bottom-left-radius: 5px !important;
+    }
+    .m_margin {
+        margin-left: -1.5%;
+    }
+    @@media screen and (min-width: 320px) and (max-width: 767px) {
+        .m_margin {
+            margin-left: -1%;
+            margin-right: 3%;
+        }
+    }
+</style>
 <div class="page-content-wrapper">
     <div class="page-content">
-<section class="content-header">
-           
-             <div class="row">
-            <div class="col-md-12">
-            <ul class="page-breadcrumb breadcrumb">
-                    <li>
-                        <i class="fa fa-home"></i>
-                        <a href="@Url.Action("Index", "Home")">Home </a>
-                        <i class="fa fa-angle-right"></i>
-                    </li>
-                      <li>
-                        <a href="#">Resignation Application</a>
-                    </li>
-                    <li class="pull-right">
-                        <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                            <span style="cursor:pointer" class="back " data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i> @*<a href="#" >Back</a>*@
+        <section class="content-header">
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
-                            </span>
-                             <i class="fa fa-calendar"></i>
-                            <span>@DateTime.Now.ToLongDateString()
-                            </span>
-                           
-                        </div>
-                          
-                
-                @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
-
-           
-                    </li>
-              
-                </ul>
-                </div></div>
-           @* <ol class="breadcrumb">
-                <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i>Home</a></li>
-                <li class="active">Masters</li>
-                <li><a href="@Url.Action("Index", "WetosCompany")"><i class="fa fa-arrow-left"></i>Company</a></li>
-                <li class="active">Create</li>
-               
-
-            </ol>*@
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Resignation Application</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @*@DateTime.Now.ToLongDateString()*@
+                                    @{
+                                        string timezoneId = System.Configuration.ConfigurationManager.AppSettings["TimeZoneId"];
+                                    }
+                                    @TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId)).ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
             @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
-            
             <div style="clear: both;"></div>
-
             @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
         </section>
         <section class="content">
             <div class="row">
-                <div class="col-xs-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-md-4" style="padding-left: 27px;padding-top: 2%;">
+                    <div class="editor-label">
+                        Select Employees
+                    </div>
+                    <div class="editor-field m_margin">
+                        @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)ViewBag.EmployeeList, "Select", new { @class = "form-control select2", style = "width:100%", id = "EmployeeIdList" })
 
-       <div class="editor-label">
-            Select Employee
-        </div>
-        <div class="editor-field">
-         @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)ViewBag.EmployeeList, "Select", new { @class = "form-control select2", style = "width:300px", id = "EmployeeIdList"})
-         
-        </div>
-      <div id="EmployeeDiv"></div>
-      </div>
-    
-        </div>
-            </section>
-        </div></div>
+                    </div>
+                    <div id="EmployeeDiv"></div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>
 
 <script type="text/javascript">
 
@@ -84,7 +92,7 @@
 
     });
 
-   
+
 
 
 </script>

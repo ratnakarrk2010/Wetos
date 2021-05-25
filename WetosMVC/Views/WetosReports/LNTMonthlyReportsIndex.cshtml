@@ -8,68 +8,79 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-<style type="text/css">
-    .select2-container--default .select2-selection--multiple .select2-selection__choice
-    {
-        background-color: #f8f8f8;
+<link href="~/Content/css/lnt_monthly_report_index.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<style>
+    .Selectdate {
+        padding-left: 15px;
     }
-    .select2-container--default .select2-selection--multiple .select2-selection__choice
-    {
-        color: #0f0f0f;
+
+    .padding_left {
+        padding-left: 15px;
+    }
+
+    input[type=radio] {
+        margin: 4px 0 0;
+        margin-top: 1px\9;
+        line-height: normal;
+        margin-right: 3%;
     }
 </style>
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
- <h1>
-       Monthly Report
-        <small> Details</small>
-     @*Commented by shalaka on 25th DEC 2017 --- Start*@
-      
-        @if (@Model.UserId == 1)
-        {
-          @*COMMENTED BY PUSHKAR ON 15 JAN 2018*@
-          
-            @*<span id="btnusers" class="btn blue fa fa-users" title="Reports for all"
-                style="float: right; color: white; margin: 5px" onclick="OnBtnUsersClick();">
-            </span>*@
-             <span id="btnusers"   data-toggle="tooltip" class="fa fa-users" title="Reports for all"
-                style="float: right; color: blue;font-size:20px; margin: 2px;cursor:pointer" onclick="OnBtnUsersClick();">
-            </span>  
-        }
-     @*Commented by shalaka on 25th DEC 2017 --- End*@
-        
-             </h1>
-     
-      <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Reports</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
-                        <li>
-                         <a href="#">Reports</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
+                        <li class="li_margin">
                             <a href="#">Monthly Report</a>
                         </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor:pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
                             </div>
-                        </li>              
+                        </li>
                     </ul>
                 </div>
             </div>
- 
-      <div style="clear: both;">
-      </div>
-    </section>
+            <h1 class="margin_left_h1">
+                Monthly Report
+                <small> Details</small>
+                @*Commented by shalaka on 25th DEC 2017 --- Start*@
+
+                @if (@Model.UserId == 1)
+                {
+                    @*COMMENTED BY PUSHKAR ON 15 JAN 2018*@
+
+                    @*<span id="btnusers" class="btn blue fa fa-users" title="Reports for all"
+                            style="float: right; color: white; margin: 5px" onclick="OnBtnUsersClick();">
+                        </span>*@
+                    <span id="btnusers" data-toggle="tooltip" class="fa fa-users" title="Reports for all"
+                          style="float: right; color: blue;font-size:20px; margin: 2px;cursor:pointer;margin-right:4%;" onclick="OnBtnUsersClick();">
+                    </span>
+                }
+                @*Commented by shalaka on 25th DEC 2017 --- End*@
+
+            </h1>
+            <div style="clear: both;">
+            </div>
+        </section>
         @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "LNTReport" }))
         {
             <div style="color: Red; font-size: 12px">
@@ -77,190 +88,189 @@
             </div>
             <section class="content">
 
-           @Html.HiddenFor(a => a.CompanyId)
-            @Html.HiddenFor(a => a.BranchId)
-            @Html.HiddenFor(a => a.DepartmentId)
-            @Html.HiddenFor(a => a.EmployeeId)
-    
-        <div class="box">
-            <div class="box-header">
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-            <div class="row">
-               <div class="col-md-12">                                                      
-            <div class="col-md-4">
-            <div class="row">
-            @Html.RadioButtonFor(model => model.RaportSelected, "1", new { Checked = "checked", @name = "Report" }) Monthly Performance Report
-            </div>
-             @*<div class="row">
-             @Html.RadioButtonFor(model => model.RaportSelected, "2", new { @name = "Report" }) DailyLong Absnteeism Report
-            </div>*@
-             @*<div class="row"> // REQUIRED IN LNT YEARLY REPORT
-             @Html.RadioButtonFor(model => model.RaportSelected, "3", new { @name = "Report" }) Employees Detail Leave Report
-            </div>*@
-             <div class="row">
-             @Html.RadioButtonFor(model => model.RaportSelected, "4", new { @name = "Report" }) Monthly Attendance Report
-            </div>
-            <div class="row">
-             @Html.RadioButtonFor(model => model.RaportSelected, "8", new { @name = "Report" }) Monthly Loss Of Pay Report
-            </div>
-            <div class="row">
-            @Html.RadioButtonFor(model => model.RaportSelected, "11", new { @name = "Report" }) Monthly Salary Shift Allowance Report  @*// MODIFIED BY MSJ ON 05 MARCH 2018*@
-            </div>
-            <div class="row">
-            @Html.RadioButtonFor(model => model.RaportSelected, "13", new { @name = "Report" }) Monthly Loss of Pay For Eff Date Report @*// MODIFIED BY MSJ ON 05 MARCH 2018*@
-            </div>
-            <div class="row">
-            @Html.RadioButtonFor(model => model.RaportSelected, "14", new { @name = "Report" }) Monthly Total Late Early Report @*// MODIFIED BY MSJ ON 05 MARCH 2018*@
-            </div>
-            </div>
-            <div class="col-md-4">
-            <div class="row">
-             @Html.RadioButtonFor(model => model.RaportSelected, "5", new { @name = "Report" }) Monthly Left Report
-            </div>
-            <div class="row">
-            @Html.RadioButtonFor(model => model.RaportSelected, "6", new { @name = "Report" }) Monthly Addition List Report
-            </div>
-            <div class="row">
-            @Html.RadioButtonFor(model => model.RaportSelected, "7", new { @name = "Report" }) Monthly Salary Output Report
-            </div>
-            <div class="row">
-            @Html.RadioButtonFor(model => model.RaportSelected, "9", new { @name = "Report" }) Monthly Late Early Report
-            </div>
-            <div class="row">
-            @Html.RadioButtonFor(model => model.RaportSelected, "10", new { @name = "Report" }) Monthly Salary Absentism Report
-            </div>
-            @*<div class="row">
-                    @Html.RadioButtonFor(model => model.RaportSelected, "12") Family Details Report
-            </div>*@
-            </div></div>
-            </div>
-             <br />
-           <br />
-            <div class="row">
-             <div class="col-md-12">  
-            <input type="radio" name="opt" checked="checked" value="DateRangeWise"/> Date Range Wise
-<input type="radio" name="opt" value="MonthWise"/> Month Wise
-</div>
-            </div>
+                @Html.HiddenFor(a => a.CompanyId)
+                @Html.HiddenFor(a => a.BranchId)
+                @Html.HiddenFor(a => a.DepartmentId)
+                @Html.HiddenFor(a => a.EmployeeId)
 
-         </div>
-         <br />
-            
+                <div class="box">
+                    <div class="box-header">
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        @Html.RadioButtonFor(model => model.RaportSelected, "1", new { Checked = "checked", @name = "Report" }) Monthly Performance Report
+                                    </div>
+                                    @*<div class="row">
+                                         @Html.RadioButtonFor(model => model.RaportSelected, "2", new { @name = "Report" }) DailyLong Absnteeism Report
+                                        </div>*@
+                                    @*<div class="row"> // REQUIRED IN LNT YEARLY REPORT
+                                         @Html.RadioButtonFor(model => model.RaportSelected, "3", new { @name = "Report" }) Employees Detail Leave Report
+                                        </div>*@
+                                    <div class="row">
+                                        @Html.RadioButtonFor(model => model.RaportSelected, "4", new { @name = "Report" }) Monthly Attendance Report
+                                    </div>
+                                    <div class="row">
+                                        @Html.RadioButtonFor(model => model.RaportSelected, "8", new { @name = "Report" }) Monthly Loss Of Pay Report
+                                    </div>
+                                    <div class="row">
+                                        @Html.RadioButtonFor(model => model.RaportSelected, "11", new { @name = "Report" }) Monthly Salary Shift Allowance Report  @*// MODIFIED BY MSJ ON 05 MARCH 2018*@
+                                    </div>
+                                    <div class="row">
+                                        @Html.RadioButtonFor(model => model.RaportSelected, "13", new { @name = "Report" }) Monthly Loss of Pay For Eff Date Report @*// MODIFIED BY MSJ ON 05 MARCH 2018*@
+                                    </div>
+                                    <div class="row">
+                                        @Html.RadioButtonFor(model => model.RaportSelected, "14", new { @name = "Report" }) Monthly Total Late Early Report @*// MODIFIED BY MSJ ON 05 MARCH 2018*@
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        @Html.RadioButtonFor(model => model.RaportSelected, "5", new { @name = "Report" }) Monthly Left Report
+                                    </div>
+                                    <div class="row">
+                                        @Html.RadioButtonFor(model => model.RaportSelected, "6", new { @name = "Report" }) Monthly Addition List Report
+                                    </div>
+                                    <div class="row">
+                                        @Html.RadioButtonFor(model => model.RaportSelected, "7", new { @name = "Report" }) Monthly Salary Output Report
+                                    </div>
+                                    <div class="row">
+                                        @Html.RadioButtonFor(model => model.RaportSelected, "9", new { @name = "Report" }) Monthly Late Early Report
+                                    </div>
+                                    <div class="row">
+                                        @Html.RadioButtonFor(model => model.RaportSelected, "10", new { @name = "Report" }) Monthly Salary Absentism Report
+                                    </div>
+                                    @*<div class="row">
+                                                @Html.RadioButtonFor(model => model.RaportSelected, "12") Family Details Report
+                                        </div>*@
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        
+                        <div class="row padding_left">
+                            <div class="col-md-12">
+                                <input type="radio" name="opt" checked="checked" value="DateRangeWise" /> <span style="margin-left: -2.5%;">Date Range Wise</span>
+                                <input type="radio" name="opt" value="MonthWise" /> <span style="margin-left: -2.5%;">Month Wise</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row Selectmonth ">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    Year <span style="color:Red;font-size:18px">*</span>
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        @Html.DropDownListFor(a => a.FinancialYearId, (IEnumerable<SelectListItem>)@ViewBag.YearListVB, "Select", new { @class = "form-control select2", style = "width:200px", @id = "FYid" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-               <div class="row Selectmonth">
-                   <div class="col-md-4">
-               <div class="form-group">
-                    <div class="form-group">Year <span style="color:Red;font-size:18px" >*</span>
-              <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                   @Html.DropDownListFor(a => a.FinancialYearId, (IEnumerable<SelectListItem>)@ViewBag.YearListVB, "Select", new { @class = "form-control select2", style = "width:200px", @id = "FYid" })
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                Month <span style="color:Red;font-size:18px">*</span>
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    @Html.DropDownListFor(a => a.MonthId, (IEnumerable<SelectListItem>)@ViewBag.MonthListVB, "Select", new { @class = "form-control select2", style = "width:200px", @id = "Month" })
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="col-md-1">
+                            <input type="button" id="BtnSubmit" data-toggle="tooltip" title="Show Data" value="Show Data"/>
+                            </div>*@
+                    </div>
+
+                    <div class="row Selectdate">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                From Date<span style="color:Red;font-size:18px">*</span>
+
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />
+                                </div>
+                                <div style="color:Red;font-size:12px">
+                                    @Html.ValidationMessageFor(model => model.FromDate)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                To Date <span style="color:Red;font-size:18px">*</span>
+
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ToDate" id="ToDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ToDate)" />
+                                </div>
+                                <div style="color:Red;font-size:12px">
+                                    @Html.ValidationMessageFor(model => model.ToDate)
+                                </div>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                    </div>
+                    @*Above code Commented and below code added by Shalaka on 23rd DEC 2017 --- Start*@
+                    <div class="row padding_left">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                Select Employee
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, new { @class = "form-control select2 multiselect", @multiple = "multiple", id = "selectemployee" })
+                                </div>
+                                @* <input type="checkbox" id="checkbox" /> Select All*@
+                            </div>
+                        </div>
+                    </div>
+                    @*Above code added by Shalaka on 23rd DEC 2017 --- End*@
+
+                    @*Commented by Shalaka on 26th DEC 2017* --- Start@
+                        @*<div class ="row status">
+                           <div class="editor-label col-md-2">
+                           Select Status
+                           </div>
+                           <div class="editor-field col-md-8">
+                            @Html.RadioButtonFor(model => model.Status, 1, new { Checked = "checked" }) Pending
+                              @Html.RadioButtonFor(model => model.Status, 2) Sanctioned
+                                @Html.RadioButtonFor(model => model.Status, 3) Rejected
+                                </div>
+                                </div>*@
+                    @*Commented by Shalaka on 26th DEC 2017* --- End*@
+
+                    <div class="row padding_left">
+                        <div class="col-md-12">
+                            @if (ViewBag.ExportToPDFEnabledObj == 1)
+                            {
+                                <button type="button" id="Export" name="Export" value="1" class="btn btn-primary" title="Click to export PDF" onclick="OnBtnExporttoPdf();">Export to PDF</button>
+                            }
+                            @if (ViewBag.ExportToExcelEnabledObj == 1)
+                            {
+                                <button type="submit" id="ExportExcel" name="Export" value="2" class="btn btn-primary" title="Click to export Excel" onclick="OnBtnExporttoExcel();">Export to Excel</button>
+                            }
+                        </div>
+                    </div>
+
+
                 </div>
-              </div>
-              </div>
-              </div>
-             
-              <div class="col-md-4">
-               <div class="form-group">
-               Month <span style="color:Red;font-size:18px" >*</span>
-                          <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                   @Html.DropDownListFor(a => a.MonthId, (IEnumerable<SelectListItem>)@ViewBag.MonthListVB, "Select", new { @class = "form-control select2", style = "width:200px", @id = "Month" })
-              </div>
-              </div>
-             </div> 
-              @*<div class="col-md-1">
-              <input type="button" id="BtnSubmit" data-toggle="tooltip" title="Show Data" value="Show Data"/>
-              </div>*@
-              </div>
 
-              <div class="row Selectdate">
-                <div class="col-md-4">
-               <div class="form-group">
-               From Date<span style="color:Red;font-size:18px" >*</span>
+            </section>
 
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />
-                </div>
-                <div style="color:Red;font-size:12px"> 
-               @Html.ValidationMessageFor(model => model.FromDate)
-               </div>
-              </div>
-              </div>
-              
-              <div class="col-md-4">
-               <div class="form-group">
-               To Date <span style="color:Red;font-size:18px" >*</span>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ToDate" id="ToDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ToDate)" />
-           </div>
-                 <div style="color:Red;font-size:12px"> 
-               @Html.ValidationMessageFor(model => model.ToDate)
-               </div>
-                </div>
-                <!-- /.input group -->
-              </div>
-              </div>
-      @*Above code Commented and below code added by Shalaka on 23rd DEC 2017 --- Start*@
-         <div class="row">
-                <div class="col-md-4">
-               <div class="form-group">
-                Select Employee
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-user"></i>
-                  </div>
-              @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, new { @class = "form-control select2 multiselect", @multiple = "multiple", id = "selectemployee" }) 
-                </div>
-       @* <input type="checkbox" id="checkbox" /> Select All*@
-              </div>
-              </div>
-              </div>
-        @*Above code added by Shalaka on 23rd DEC 2017 --- End*@
-        
-        @*Commented by Shalaka on 26th DEC 2017* --- Start@
-     @*<div class ="row status">
-        <div class="editor-label col-md-2">
-        Select Status
-        </div>
-        <div class="editor-field col-md-8">
-         @Html.RadioButtonFor(model => model.Status, 1, new { Checked = "checked" }) Pending
-           @Html.RadioButtonFor(model => model.Status, 2) Sanctioned
-             @Html.RadioButtonFor(model => model.Status, 3) Rejected
-             </div>
-             </div>*@
-        @*Commented by Shalaka on 26th DEC 2017* --- End*@
-            
-         <div class="row">
-            <div class="col-md-12">
-                @if (ViewBag.ExportToPDFEnabledObj == 1)
-                {
-                      <button type="button" id="Export" name="Export" value="1" class="btn btn-primary" title="Click to export PDF" onclick="OnBtnExporttoPdf();">Export to PDF</button>
-                }
-                @if (ViewBag.ExportToExcelEnabledObj == 1)
-                {
-                     <button type="submit" id="ExportExcel" name="Export" value="2" class="btn btn-primary" title="Click to export Excel" onclick="OnBtnExporttoExcel();">Export to Excel</button>
-                }
-                </div>
-        </div>
-     
-    
-            </div>
-
-</section>
-           
             <div id="EmployeeList">
             </div>
         }
@@ -385,11 +395,11 @@
         //alert("1");
         //alert($("#Application_ID").val());
         //isDirty = false;
-        var Companyid = $("#CompanyddlList").val();  // Used +$ to handle null values, as Companyid of type int 
+        var Companyid = $("#CompanyddlList").val();  // Used +$ to handle null values, as Companyid of type int
         //alert(Companyid);
-        var Branchid = $("#BranchddlList").val();   // Used +$ to handle null values, as Branchid of type int 
+        var Branchid = $("#BranchddlList").val();   // Used +$ to handle null values, as Branchid of type int
         //alert(Branchid);
-        var Departmentid = $("#DepartmentddlList").val();   // Used +$ to handle null values, as Departmentid of type int 
+        var Departmentid = $("#DepartmentddlList").val();   // Used +$ to handle null values, as Departmentid of type int
         //alert(Departmentid);
         //alert("Ajax call");
         var Fromdate = $("#FromDate").val();
@@ -406,7 +416,7 @@
                 $("#selectemployee").empty();
                 for (var i = 0; i < data.length; i++) {
 
-                    // Updated by Rajas on 8 FEB 2017 replaced data[i].FirstName + " " + data[i].LastName with  data[i].EmployeeName  
+                    // Updated by Rajas on 8 FEB 2017 replaced data[i].FirstName + " " + data[i].LastName with  data[i].EmployeeName
                     $("#selectemployee").append("<option value=" + "" + data[i].EmployeeId + "" + ">" + data[i].EmployeeName + "</option>");
                 }
                 hideloading();

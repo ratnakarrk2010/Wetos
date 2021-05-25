@@ -3,164 +3,160 @@
     ViewBag.Title = "Grade New Grade";
 }
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
-   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
-<style type="text/css">
-    .row
-    {
-        margin-bottom: 10px;
-    }
-</style>
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/css/wetosgrade_edit.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
- <h1>
-       Grade
-        <small>New Grade</small>
-      </h1>
-      <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                         <a href="#">Masters</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Index", "WetosGrade")">Grade </a>
-                        </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor: pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i>@*<a href="#" >Back</a>*@
 
-                                </span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()
+
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+
+                        <li class="li_margin"><a href="@Url.Action("Index", "WetosGrade")">Grade</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
                                 </span>
                             </div>
-                            @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
                         </li>
                     </ul>
                 </div>
             </div>
-    </section>
+            <h1 class="m_btn_margin_left_4">
+                Grade
+                <small>New Grade</small>
+            </h1>
+        </section>
         <section class="content">
-     
-          <div class="box">
-          
-            <!-- /.box-header -->
-            <div class="box-body">
-         <div class="editor-label">
-</div>
 
-@using (Html.BeginForm("Edit", "WetosGrade", FormMethod.Post, new { id = "GradeForm" }))
-{
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationSummary(true)
-    </div>
-    
-    // Updated by Rajas on 20 JULY 2017 to resolve Defect Id 2 from Defect Sheet by Ulka(Eviska)
-    @Html.HiddenFor(a => a.CompanyId)
-    @Html.HiddenFor(a => a.BranchId)
-    @Html.HiddenFor(a => a.EmployeeTypeId)
-    
-    @Html.HiddenFor(a => a.GradeId)
-    @Html.HiddenFor(a => a.MarkedAsDelete)
-    @*Added by Rajas on 29 DEC 2016 For custom error message START*@
-            <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessage("Error")
+            <div class="box">
+
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="editor-label">
+                    </div>
+
+                    @using (Html.BeginForm("Edit", "WetosGrade", FormMethod.Post, new { id = "GradeForm" }))
+                    {
+                        <div style="color: Red; font-size: 12px">
+                            @Html.ValidationSummary(true)
+                        </div>
+
+                        // Updated by Rajas on 20 JULY 2017 to resolve Defect Id 2 from Defect Sheet by Ulka(Eviska)
+                        @Html.HiddenFor(a => a.CompanyId)
+                        @Html.HiddenFor(a => a.BranchId)
+                        @Html.HiddenFor(a => a.EmployeeTypeId)
+
+                        @Html.HiddenFor(a => a.GradeId)
+                        @Html.HiddenFor(a => a.MarkedAsDelete)
+                        @*Added by Rajas on 29 DEC 2016 For custom error message START*@
+                        <div style="color: Red; font-size: 12px">
+                            @Html.ValidationMessage("Error")
+                        </div>
+                        @*Added by Rajas on 29 DEC 2016 For custom error message END*@
+
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Company Name <span style="color:Red;font-size:18px">*</span>
+                            </div>
+                            <div class="editor-field col-md-5">
+                                @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-suitcase"></i>
+                                    </div>
+                                    @*@Html.EditorFor(model => model.CompanyId)*@
+                                    @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyNameList, "Select", new { @class = "form-control select2", id = "CompanyddlList", disabled = "disabled" })
+                                    <div style="color: Red; font-size: 12px">
+                                        @Html.ValidationMessageFor(model => model.CompanyId)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Branch Name <span style="color:Red;font-size:18px">*</span>
+                            </div>
+                            <div class="editor-field col-md-5">
+                                @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-institution"></i>
+                                    </div>
+                                    @*@Html.EditorFor(model => model.BranchId)*@
+                                    @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchNameList, "Select", new { @class = "form-control select2", id = "BranchddlList", disabled = "disabled" })
+                                    <div style="color: Red; font-size: 12px">
+                                        @Html.ValidationMessageFor(model => model.BranchId)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+                                Employee Type Name <span style="color:Red;font-size:18px">*</span>
+                            </div>
+                            <div class="editor-field col-md-5">
+                                @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    @*@Html.EditorFor(model => model.EmployeeTypeId)*@
+                                    @Html.DropDownListFor(a => a.EmployeeTypeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeTypeNameList, "Select", new { @class = "form-control select2", disabled = "disabled" })
+                                    <div style="color: Red; font-size: 12px">
+                                        @Html.ValidationMessageFor(model => model.EmployeeTypeId)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="editor-label col-md-2">
+
+                                Grade Name <span style="color:Red;font-size:18px">*</span>
+                            </div>
+                            <div class="editor-field col-md-5">
+                                @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-file-text-o"></i>
+                                    </div>
+                                    @Html.TextBoxFor(model => model.GradeName, new { @class = "form-control pull-right" })
+                                    <div style="color: Red; font-size: 12px">
+                                        @Html.ValidationMessageFor(model => model.GradeName)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="m_btn_margin_left_4">
+                            <input type="button" id="GradeNewBtn" value="Save" class="btn btn-default" style="cursor:pointer; float:left" title="Click to save Grade" />
+                            <span class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title="Click to go back to Grade list">@Html.ActionLink("Back to Grade list", "Index")</span>
+                        </div>
+
+
+                    }
+                </div>
             </div>
-             @*Added by Rajas on 29 DEC 2016 For custom error message END*@
-  
-       <div class="row">
-       <div class="editor-label col-md-2">
-      Company Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-         <div class="input-group date">
-        <div class="input-group-addon">
-             <i  class="fa fa-suitcase"></i>
-  	</div> 
-        @*@Html.EditorFor(model => model.CompanyId)*@
-        @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)@ViewBag.CompanyNameList, "Select", new { @class = "form-control select2", id = "CompanyddlList", disabled = "disabled" })
-        <div style="color: Red; font-size: 12px">
-        @Html.ValidationMessageFor(model => model.CompanyId)
-        </div>
-        </div>
-        </div>
-        </div>  
-    
-    <div class="row">
-        <div class="editor-label col-md-2">
-      Branch Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-         <div class="input-group date">
-        <div class="input-group-addon">
-             <i  class="fa fa-institution"></i>
-  	</div> 
-        @*@Html.EditorFor(model => model.BranchId)*@
-        @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.BranchNameList, "Select", new { @class = "form-control select2", id = "BranchddlList", disabled = "disabled" })
-        <div style="color: Red; font-size: 12px">
-        @Html.ValidationMessageFor(model => model.BranchId)
-        </div>
-        </div>
-        </div> 
-        </div>
-    
-        <div class="row">
-        <div class="editor-label col-md-2">
-      Employee Type Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-         <div class="input-group date">
-        <div class="input-group-addon">
-             <i  class="fa fa-user"></i>
-  	</div> 
-        @*@Html.EditorFor(model => model.EmployeeTypeId)*@
-        @Html.DropDownListFor(a => a.EmployeeTypeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeTypeNameList, "Select", new { @class = "form-control select2", disabled = "disabled" })
-        <div style="color: Red; font-size: 12px">
-        @Html.ValidationMessageFor(model => model.EmployeeTypeId)
-        </div>
-        </div>
-        </div>
-        </div> 
-    
-        <div class="row">
-          <div class="editor-label col-md-2">
-
-      Grade Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-         <div class="input-group date">
-        <div class="input-group-addon">
-             <i  class="fa fa-file-text-o"></i>
-  	</div> 
-        @Html.TextBoxFor(model => model.GradeName, new { @class = "form-control pull-right" })
-        <div style="color: Red; font-size: 12px">
-        @Html.ValidationMessageFor(model => model.GradeName)
-        </div>
-        </div>
-        </div> 
-        </div>
-
-
-       <div>
-       <input type="button" id="GradeNewBtn" value="Save" class="btn btn-default" style="cursor:pointer; float:left" title = "Click to save Grade"/>
-            <span  class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title = "Click to go back to Grade list">@Html.ActionLink("Back to Grade list", "Index")</span>
-       </div>
-
-        
-}
-</div>
-        </div>
         </section>
     </div>
 </div>
@@ -173,9 +169,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="Btn">
-                    Yes</button>
+                    Yes
+                </button>
                 <button type="button" data-dismiss="modal" class="col-md-2 btn">
-                    Cancel</button>
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
@@ -216,7 +214,7 @@
             }
         });
     });
-    
+
 </script>
 <script type="text/jscript">
     $(document).ready(function () {
@@ -235,10 +233,10 @@
 
         var $form = $(this).closest('form');
         $('#Gradediv').modal({ backdrop: 'static', keyboard: false })
-                .one('click', '#Btn', function () {
+            .one('click', '#Btn', function () {
 
-                    $("#GradeForm").submit();
-                });
+                $("#GradeForm").submit();
+            });
 
     });
     //ADDED CODE BY RAJAS ON 29 MARCH 2017 FOR ALERT POPUP END
@@ -247,5 +245,5 @@
 @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION START*@
 @section Scripts {
     @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
- }
- @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@
+}
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@

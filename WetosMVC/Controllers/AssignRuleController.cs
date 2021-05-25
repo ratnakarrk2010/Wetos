@@ -113,13 +113,20 @@ namespace WetosMVC.Controllers
 
         public JsonResult GetRulesData(int EmployeeGroupId)
         {
-            ViewBag.EmployeeGroupId = EmployeeGroupId;
-            List<SP_GetAssignedRuleForSelectedEmployeeGroup_Result> RulesEngineList = WetosDB.SP_GetAssignedRuleForSelectedEmployeeGroup(EmployeeGroupId).OrderBy(a => a.RuleEngineId).ToList();
-            return Json(new
+            try
             {
-                RuleData = MvcHelpers.RenderPartialView(this, "GetRulesData", RulesEngineList)
+                ViewBag.EmployeeGroupId = EmployeeGroupId;
+                List<SP_GetAssignedRuleForSelectedEmployeeGroup_Result> RulesEngineList = WetosDB.SP_GetAssignedRuleForSelectedEmployeeGroup(EmployeeGroupId).OrderBy(a => a.RuleEngineId).ToList();
+                return Json(new
+                {
+                    RuleData = MvcHelpers.RenderPartialView(this, "GetRulesData", RulesEngineList)
 
-            });
+                });
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -147,20 +154,24 @@ namespace WetosMVC.Controllers
                 int URule_id = -1;
                 try
                 {
-                    URule_id = Convert.ToInt32(UncheckRuleidstring);                
-               
-                RuleTransaction URule = WetosDB.RuleTransactions.Where(urs => urs.CompanyId == Companyid && urs.BranchId == Branchid
-                    && urs.EmployeeGroupId == EmployeeGroupId && urs.RuleId == URule_id).FirstOrDefault();
-                //foreach (RuleTransaction RuleTransactionObj in RuleTransactionList)
-                //{
-                if (URule != null)
-                {
-                    WetosDB.RuleTransactions.DeleteObject(URule);
+                    URule_id = Convert.ToInt32(UncheckRuleidstring);
+
+                    /*RuleTransaction URule = WetosDB.RuleTransactions.Where(urs => urs.CompanyId == Companyid && urs.BranchId == Branchid
+                        && urs.EmployeeGroupId == EmployeeGroupId && urs.RuleId == URule_id).FirstOrDefault(); */
+                    var URule = WetosDB.RuleTransactions.Where(urs => urs.CompanyId == Companyid && urs.BranchId == Branchid
+                    && urs.EmployeeGroupId == EmployeeGroupId && urs.RuleId == URule_id).ToList();
+                    
+                    if (URule.Count() > 0)
+                    {
+                        foreach (var URuleEntry in URule)
+                        {
+                            WetosDB.RuleTransactions.Remove(URuleEntry);
+                        }
+                    //WetosDB.RuleTransactions.Add(URule);
                     WetosDB.SaveChanges();
+                    }
                 }
-                //}
-                }
-                catch (Exception)
+                catch (Exception Ex)
                 {                   
                 }
             }
@@ -183,7 +194,7 @@ namespace WetosMVC.Controllers
                     RT.Formula = RuleEngineObj.Formula;
                     RT.HeadCode = "BASIC";
                     RT.Active = "A";
-                    WetosDB.RuleTransactions.AddObject(RT);
+                    WetosDB.RuleTransactions.Add(RT);
                 }               
                 
                 WetosDB.SaveChanges();

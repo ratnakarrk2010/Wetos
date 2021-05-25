@@ -460,7 +460,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.Branches.AddObject(BranchTblObj);
+                    WetosDB.Branches.Add(BranchTblObj);
                 }
 
                 WetosDB.SaveChanges();

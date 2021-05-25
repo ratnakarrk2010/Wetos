@@ -10,6 +10,7 @@ using WetosDB;
 using WetosMVCMainApp.Models;
 using System.Data;
 using WETOS.Util;
+using Microsoft.Ajax.Utilities;
 
 namespace WetosMVC.Controllers
 {
@@ -529,7 +530,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.FinancialYears.AddObject(FinancialYearTblObj);
+                    WetosDB.FinancialYears.Add(FinancialYearTblObj);
                 }
 
                 WetosDB.SaveChanges();
@@ -916,7 +917,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.LeaveCredits.AddObject(LeaveCreditTblObj);
+                    WetosDB.LeaveCredits.Add(LeaveCreditTblObj);
                 }
 
                 WetosDB.SaveChanges();
@@ -1071,7 +1072,7 @@ namespace WetosMVC.Controllers
                 {
                     AddAuditTrail(UpdateStatus);
 
-                    Error(UpdateStatus);
+                   Error(UpdateStatus);
                 }
 
                 return RedirectToAction("LeaveBalanceIndex");
@@ -1084,7 +1085,7 @@ namespace WetosMVC.Controllers
 
                 Error("Leave balance entry failed");
 
-                return RedirectToAction("LeaveBalanceIndex");
+                return RedirectToAction("LeaveBalanceCreate");
             }
         }
 
@@ -1340,7 +1341,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.LeaveBalances.AddObject(LeaveBalanceTblObj);
+                    WetosDB.LeaveBalances.Add(LeaveBalanceTblObj);
                 }
 
                 WetosDB.SaveChanges();
@@ -1761,7 +1762,7 @@ namespace WetosMVC.Controllers
             // Add new table object
             if (IsNew)
             {
-                WetosDB.Users.AddObject(UserTblObj);
+                WetosDB.Users.Add(UserTblObj);
             }
 
             WetosDB.SaveChanges();
@@ -1947,7 +1948,7 @@ namespace WetosMVC.Controllers
             try
             {
 
-                WetosDB.Users.AddObject(UserObj);
+                WetosDB.Users.Add(UserObj);
 
                 // SAVE DATA
                 WetosDB.SaveChanges();
@@ -2045,7 +2046,7 @@ namespace WetosMVC.Controllers
         {
             try
             {
-                List<SP_GetAssignRuleData_Result> GetAssignRuleDataList = WetosDB.SP_GetAssignRuleData(CompanyId, BranchId, EmployeeGroupId).ToList();
+                List<SP_GetAssignRuleData_Result> GetAssignRuleDataList = WetosDB.SP_GetAssignRuleData(CompanyId, BranchId, EmployeeGroupId).DistinctBy(x => x.RuleId).ToList();
                 ViewBag.CompanyId = CompanyId;
                 ViewBag.BranchId = BranchId;
                 ViewBag.EmployeeGroupId = EmployeeGroupId;
@@ -2288,7 +2289,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // GraceLateTime
@@ -2300,7 +2301,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // LateAllowLimit
@@ -2312,7 +2313,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // EarlyAllowLimit
@@ -2324,7 +2325,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // MinLimitForHalfDayCompoff
@@ -2336,7 +2337,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // MinLimitForFullDayCompoff
@@ -2348,7 +2349,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // SearchAfterHrs
@@ -2360,7 +2361,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // SearchBeforeHrs
@@ -2372,7 +2373,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // TimeBetweenTwoSwaps
@@ -2384,7 +2385,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // HalfDayLimit
@@ -2396,7 +2397,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // FullDayLimit
@@ -2408,7 +2409,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // OTStartAfter
@@ -2420,7 +2421,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // MinOTLimit
@@ -2432,7 +2433,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // LateCountInMonth
@@ -2444,7 +2445,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // NoDaysDeduct
@@ -2456,7 +2457,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // DeductFrmAttendance
@@ -2471,7 +2472,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // GradeForWhichLateDeductNotDone
@@ -2483,7 +2484,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // GradeForOTAllowed
@@ -2495,7 +2496,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // CheckDays
@@ -2507,7 +2508,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // CheckMonthStart
@@ -2519,7 +2520,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
 
                     // GradeForCompoffAllowed
@@ -2531,7 +2532,7 @@ namespace WetosMVC.Controllers
                     RuleTransactionObjForCreate.EmployeeGroupId = CommonSettingModelObj.EmployeeGroupId;
                     RuleTransactionObjForCreate.HeadCode = "BASIC";
                     RuleTransactionObjForCreate.Active = "1";
-                    WetosDB.RuleTransactions.AddObject(RuleTransactionObjForCreate);
+                    WetosDB.RuleTransactions.Add(RuleTransactionObjForCreate);
                     WetosDB.SaveChanges();
                     // Updated by Rajas on 30 MAY 2017 END
 
@@ -2943,7 +2944,7 @@ namespace WetosMVC.Controllers
                             }
                             if (IsNew == true)
                             {
-                                WetosDB.RuleEngines.AddObject(RuleEngineObj);
+                                WetosDB.RuleEngines.Add(RuleEngineObj);
                             }
                             WetosDB.SaveChanges();
                             lstSQLRuleEngine.Add(RuleEngineObj);
@@ -3389,7 +3390,7 @@ namespace WetosMVC.Controllers
                                 LocationObj = new Location();
                                 LocationObj.LocationName = "Location1"; // CHANGED LOCATION FROM MUMBAI TO LOCATION1 BY MSJ ON 15 DEC 2017                               
                                 LocationObj.MarkedAsDelete = 0;
-                                WetosDB.Locations.AddObject(LocationObj);
+                                WetosDB.Locations.Add(LocationObj);
 
                                 WetosDB.SaveChanges();
                             }
@@ -3406,7 +3407,7 @@ namespace WetosMVC.Controllers
                                 CompnayObj.Location = WetosDB.Locations.Where(a => a.LocationId == LocationObj.LocationId).FirstOrDefault();  // Added by Rajas on 4 OCT 2017
                                 CompnayObj.Location.LocationId = LocationObj.LocationId;
 
-                                WetosDB.Companies.AddObject(CompnayObj);
+                                WetosDB.Companies.Add(CompnayObj);
 
                                 WetosDB.SaveChanges();
                             }
@@ -3426,7 +3427,7 @@ namespace WetosMVC.Controllers
                                 BranchObj.Company = WetosDB.Companies.Where(a => a.CompanyId == CompnayObj.CompanyId).FirstOrDefault();  // Added by Rajas on 4 OCT 2017
                                 BranchObj.Company.CompanyId = CompnayObj.CompanyId;
 
-                                WetosDB.Branches.AddObject(BranchObj);
+                                WetosDB.Branches.Add(BranchObj);
 
                                 WetosDB.SaveChanges();
                             }
@@ -3528,7 +3529,7 @@ namespace WetosMVC.Controllers
                                     //ADDED BY PUSHKAR TOSLOVE ISSUE REPORTED BY HARSHAL FOR DATA PROCESSING ON 31 AUGUST 2018
                                     EmployeeObj.DefaultShift = ShiftCode;
 
-                                    WetosDB.Shifts.AddObject(ShiftObj);
+                                    WetosDB.Shifts.Add(ShiftObj);
 
                                     WetosDB.SaveChanges();
                                 }
@@ -3563,7 +3564,7 @@ namespace WetosMVC.Controllers
                             //    EmployeeGroupObj.CompanyId = CompnayObj.CompanyId;
                             //    EmployeeGroupObj.BranchId = BranchObj.BranchId;
                             //    EmployeeGroupObj.MarkedAsDelete = 0;
-                            //    WetosDB.EmployeeGroups.AddObject(EmployeeGroupObj);
+                            //    WetosDB.EmployeeGroups.Add(EmployeeGroupObj);
                             //    WetosDB.SaveChanges();
                             //}
 
@@ -3586,7 +3587,7 @@ namespace WetosMVC.Controllers
                                             .Where(a => a.EmployeeGroupId == EmployeeGroupObj.EmployeeGroupId).FirstOrDefault();  // Added by Rajas on 4 OCT 2017
                                         EmployeeGroupDetailObj.EmployeeGroup.EmployeeGroupId = EmployeeGroupObj.EmployeeGroupId;
 
-                                        WetosDB.EmployeeGroupDetails.AddObject(EmployeeGroupDetailObj);
+                                        WetosDB.EmployeeGroupDetails.Add(EmployeeGroupDetailObj);
                                         WetosDB.SaveChanges();
                                     }
                                     else
@@ -3607,7 +3608,7 @@ namespace WetosMVC.Controllers
                                            .Where(a => a.EmployeeGroupId == EmployeeGroupObj.EmployeeGroupId).FirstOrDefault();  // Added by Rajas on 4 OCT 2017
                                         EmployeeGroupDetailObj.EmployeeGroup.EmployeeGroupId = EmployeeGroupObj.EmployeeGroupId;
 
-                                        //WetosDB.EmployeeGroupDetails.AddObject(EmployeeGroupDetailObj);
+                                        //WetosDB.EmployeeGroupDetails.Add(EmployeeGroupDetailObj);
                                         WetosDB.SaveChanges();
                                     }
                                 }//TEMPORARILY CODE ADDED BY SHRADDHA ON 20 NOV 2017 TO UPDATE EXISTING GROUP END
@@ -3776,7 +3777,7 @@ namespace WetosMVC.Controllers
                                 }
 
 
-                                WetosDB.LeaveBalances.AddObject(LeaveBalanceObj);
+                                WetosDB.LeaveBalances.Add(LeaveBalanceObj);
                                 WetosDB.SaveChanges();
                             }
 
@@ -3938,7 +3939,7 @@ namespace WetosMVC.Controllers
                                 }
 
 
-                                WetosDB.LeaveBalances.AddObject(LeaveBalanceObj);
+                                WetosDB.LeaveBalances.Add(LeaveBalanceObj);
                                 WetosDB.SaveChanges();
                             }
 
@@ -4431,7 +4432,7 @@ namespace WetosMVC.Controllers
                                         ShiftScheduleObj.Day31 = rdr.GetValue(34).ToString().Trim();
                                     }
 
-                                    WetosDB.ShiftSchedules.AddObject(ShiftScheduleObj);
+                                    WetosDB.ShiftSchedules.Add(ShiftScheduleObj);
 
                                     WetosDB.SaveChanges();
                                 }
@@ -4622,7 +4623,7 @@ namespace WetosMVC.Controllers
                                 LeaveCreditObj.OpeningBalance = Convert.ToDouble(rdr.GetValue(2).ToString().Trim());
 
 
-                                WetosDB.LeaveCredits.AddObject(LeaveCreditObj);
+                                WetosDB.LeaveCredits.Add(LeaveCreditObj);
                                 WetosDB.SaveChanges();
                             }
 
@@ -5034,6 +5035,7 @@ namespace WetosMVC.Controllers
 
                 ViewBag.Message = "Data Processing Successful";
                 Session["DataProcessMessage"] = ViewBag.Message;
+                TempData["Data"] = "Data Processing Successful";
                 AddAuditTrail("Processing Attendence");
 
                 return RedirectToAction("DataProcessing");
@@ -5104,7 +5106,7 @@ namespace WetosMVC.Controllers
                         if (IsNew == true)
                         {
                             // ADD COMP OFF
-                            WetosDB.CompOffs.AddObject(NewCompOffObj);
+                            WetosDB.CompOffs.Add(NewCompOffObj);
                             //Modified By Shraddha on 10 JAN 2017 to save CompOff details in CompOff Table End
                         }
                         //Commented By Shraddha on 10 JAN 2017
@@ -5140,7 +5142,7 @@ namespace WetosMVC.Controllers
                         if (IsNew == true)
                         {
                             // ADD COMP OFF
-                            WetosDB.CompOffs.AddObject(NewCompOffObj);
+                            WetosDB.CompOffs.Add(NewCompOffObj);
                             //Modified By Shraddha on 10 JAN 2017 to save CompOff details in CompOff Table End
                         }
                         //Commented By Shraddha on 10 JAN 2017
@@ -5208,7 +5210,7 @@ namespace WetosMVC.Controllers
 
                         CommonDataObj.CompanyId = 1;
                         CommonDataObj.BranchId = 1;
-                        WetosDB.CommanDatas.AddObject(CommonDataObj);
+                        WetosDB.CommanDatas.Add(CommonDataObj);
                         WetosDB.SaveChanges();
 
                     }
@@ -5319,7 +5321,7 @@ namespace WetosMVC.Controllers
                     UploadDocumentTblObj.DocPath = path;
                     UploadDocumentTblObj.FileName = Attachment + fileExtension;
 
-                    WetosDB.UploadDocuments.AddObject(UploadDocumentTblObj);
+                    WetosDB.UploadDocuments.Add(UploadDocumentTblObj);
                     WetosDB.SaveChanges();
 
                     ViewBag.Message = "File Processed Successfully";
@@ -5620,7 +5622,7 @@ namespace WetosMVC.Controllers
                             NewCompOffObj.ShiftId = DailyTransactionObj.ShiftId;
                             NewCompOffObj.TotalHrs = DailyTransactionObj.WorkingHrs;
                             NewCompOffObj.CoHours = DailyTransactionObj.ExtraHrs;
-                            WetosDB.CompOffs.AddObject(NewCompOffObj);
+                            WetosDB.CompOffs.Add(NewCompOffObj);
                             //Modified By Shraddha on 10 JAN 2017 to save CompOff details in CompOff Table End
 
                             //Commented By Shraddha on 10 JAN 2017
@@ -5643,7 +5645,7 @@ namespace WetosMVC.Controllers
                             NewCompOffObj.ShiftId = DailyTransactionObj.ShiftId;
                             NewCompOffObj.TotalHrs = DailyTransactionObj.WorkingHrs;
                             NewCompOffObj.CoHours = DailyTransactionObj.ExtraHrs;
-                            WetosDB.CompOffs.AddObject(NewCompOffObj);
+                            WetosDB.CompOffs.Add(NewCompOffObj);
                             //Modified By Shraddha on 10 JAN 2017 to save CompOff details in CompOff Table END
 
                             //Commented By Shraddha on 10 JAN 2017
@@ -5807,7 +5809,7 @@ namespace WetosMVC.Controllers
                     user.EmployeeId = EmployeeObj.EmployeeId;   // Added by Shraddha on 29 JULY 2017
                     if (IsNew == true)
                     {
-                        WetosDB.Users.AddObject(user);
+                        WetosDB.Users.Add(user);
                     }
                     WetosDB.SaveChanges();
                     Session["SuccessMessage"] = "You Have Succesfully Reset Password for" + " " + EmployeeObj.EmployeeCode + " " + EmployeeObj.FirstName + " " + EmployeeObj.LastName;
@@ -5908,7 +5910,7 @@ namespace WetosMVC.Controllers
                         {
                             if (IsAutoShiftFlag) // AUTO SHIFT
                             {
-                                WetosDB.CommandTimeout = 2000;
+                                //WetosDB.CommandTimeout = 2000;
                                 //WetosDB.SPPostingprocessForALLEmployeeForAutoShiftWithNS(CurrentDate); // ADDED BY MSJ ON 28 JAN 2018
                                 WetosDB.SPPostingprocessForAutoShiftWithNS(CurrentDate);
                             }
@@ -5929,7 +5931,7 @@ namespace WetosMVC.Controllers
                         {
                             if (IsAutoShiftFlag) // AUTO SHIFT
                             {
-                                WetosDB.CommandTimeout = 2000;
+                                //WetosDB.CommandTimeout = 2000;
                                 //WetosDB.SPPostingprocessForAllBranchAndPrevDayForAutoShift(CurrentDate);  // ADDED BY MSJ ON 15 JAN 2018
                                 WetosDB.SPPostingprocessForALLEmployeeForAutoShiftWithNS(CurrentDate); // ADDED BY MSJ ON 28 JAN 2018
                             }
@@ -8484,7 +8486,8 @@ namespace WetosMVC.Controllers
                                     if (EmployeeObj != null)  // ADDED  BY MSJ ON 31 JAN 2018 
                                     {
                                         //RuleTransaction ConsiderWOfromMaster = RuleTransactionList.Where(a => a.RuleId == 47).FirstOrDefault();
-                                        if (ConsiderWOfromMaster == null || ConsiderWOfromMaster.Formula.ToUpper() == "TRUE")
+                                        //if (ConsiderWOfromMaster == null || ConsiderWOfromMaster.Formula.ToUpper() == "TRUE")
+                                        if (1 == 1)
                                         {
                                             try
                                             {
@@ -9140,7 +9143,7 @@ namespace WetosMVC.Controllers
                                 action.MachineIP = " ";
                                 action.MachineNo = " ";
 
-                                WetosDB.AuditTrails.AddObject(action);
+                                WetosDB.AuditTrails.Add(action);
 
                                 WetosDB.SaveChanges();
 
@@ -9962,7 +9965,7 @@ namespace WetosMVC.Controllers
                         action.MachineIP = " ";
                         action.MachineNo = " ";
 
-                        WetosDB.AuditTrails.AddObject(action);
+                        WetosDB.AuditTrails.Add(action);
 
                         WetosDB.SaveChanges();
 
@@ -10017,7 +10020,7 @@ namespace WetosMVC.Controllers
                     action.MachineIP = " ";
                     action.MachineNo = " ";
 
-                    WetosDB.AuditTrails.AddObject(action);
+                    WetosDB.AuditTrails.Add(action);
 
                     WetosDB.SaveChanges();
 
@@ -10419,7 +10422,7 @@ namespace WetosMVC.Controllers
 
                                     if (AddLeaveDB == true)
                                     {
-                                        WetosDB.LeaveApplications.AddObject(LeaveApplicationDed);
+                                        WetosDB.LeaveApplications.Add(LeaveApplicationDed);
                                     }
 
                                     WetosDB.SaveChanges();
@@ -15876,7 +15879,7 @@ namespace WetosMVC.Controllers
 
                     if (IsNew == true)
                     {
-                        WetosDB.ManualCompOffs.AddObject(NewCompOffObj);
+                        WetosDB.ManualCompOffs.Add(NewCompOffObj);
                     }
 
                     WetosDB.SaveChanges();
@@ -16092,12 +16095,12 @@ namespace WetosMVC.Controllers
 
                     //if (IsNew == true)
                     //{
-                    //    WetosDB.CumulativeManualCompOffs.AddObject(NewCompOffObj);
+                    //    WetosDB.CumulativeManualCompOffs.Add(NewCompOffObj);
                     //}
 
                     if (IsNew == true && NewOTHr.OtExtraHrs != null)
                     {
-                        WetosDB.OtHrs.AddObject(NewOTHr);
+                        WetosDB.OtHrs.Add(NewOTHr);
                     }
 
                     WetosDB.SaveChanges();
@@ -16177,7 +16180,7 @@ namespace WetosMVC.Controllers
 
                     //    NewCompOffObjSanc.ManualCompOffId = NewCompOffObj.CMCompOffId;
 
-                    //    WetosDB.CumulativeCompOffs.AddObject(NewCompOffObjSanc);
+                    //    WetosDB.CumulativeCompOffs.Add(NewCompOffObjSanc);
 
                     //    WetosDB.SaveChanges();
                     //}
@@ -16241,7 +16244,7 @@ namespace WetosMVC.Controllers
                             NewCompOffObj.ShiftId = DailyTransactionObj.ShiftId;
                             NewCompOffObj.TotalHrs = DailyTransactionObj.WorkingHrs;
                             NewCompOffObj.CoHours = DailyTransactionObj.ExtraHrs;
-                            WetosDB.CompOffs.AddObject(NewCompOffObj);
+                            WetosDB.CompOffs.Add(NewCompOffObj);
                             //Modified By Shraddha on 10 JAN 2017 to save CompOff details in CompOff Table End
 
                             //Commented By Shraddha on 10 JAN 2017
@@ -16264,7 +16267,7 @@ namespace WetosMVC.Controllers
                             NewCompOffObj.ShiftId = DailyTransactionObj.ShiftId;
                             NewCompOffObj.TotalHrs = DailyTransactionObj.WorkingHrs;
                             NewCompOffObj.CoHours = DailyTransactionObj.ExtraHrs;
-                            WetosDB.CompOffs.AddObject(NewCompOffObj);
+                            WetosDB.CompOffs.Add(NewCompOffObj);
                             //Modified By Shraddha on 10 JAN 2017 to save CompOff details in CompOff Table END
 
                             //Commented By Shraddha on 10 JAN 2017
@@ -17777,7 +17780,7 @@ namespace WetosMVC.Controllers
                                     }
                                     if (IsNew == true)
                                     {
-                                        WetosDB.DailyTransactions.AddObject(DailyTransactionObjToAdd);
+                                        WetosDB.DailyTransactions.Add(DailyTransactionObjToAdd);
                                     }
 
                                     WetosDB.SaveChanges();
@@ -17949,10 +17952,10 @@ namespace WetosMVC.Controllers
 
                                                                 string command = string.Format(@"select Day{0} from ShiftSchedulePattern where EmployeeId={1} and EffectiveStartDate<='{2}/{3}/{4} {5}' and EffectiveEndDate>='{2}/{3}/{4} {5}' and companyId={6} and branchid={7};"
                                                                   , y, DailyTransactionObj.EmployeeId, DailyTransactionObj.TranDate.Year, DailyTransactionObj.TranDate.Month, DailyTransactionObj.TranDate.Day, "00:00", DailyTransactionObj.CompanyId, DailyTransactionObj.BranchId);
-                                                                string Shift = WetosDB.ExecuteStoreQuery<string>(command, "").FirstOrDefault();
-                                                                DailyTransactionObj.ShiftId = Shift;
+                                                                //string Shift = WetosDB.ExecuteStoreQuery<string>(command, "").FirstOrDefault();
+                                                                //DailyTransactionObj.ShiftId = Shift;
 
-                                                                ShiftObjForCurrentEmployee = WetosDB.Shifts.Where(a => a.ShiftCode == Shift).FirstOrDefault();
+                                                               // ShiftObjForCurrentEmployee = WetosDB.Shifts.Where(a => a.ShiftCode == Shift).FirstOrDefault();
 
                                                                 ShiftObjForCurrentEmployee = WetosDB.Shifts.Where(a => a.Company.CompanyId == EmployeeCompanyId
                                                                     && a.BranchId == EmployeeBranchId && a.BranchId == EmployeeBranchId
@@ -19476,7 +19479,7 @@ namespace WetosMVC.Controllers
                 AuditLogObj.AuditMode = "INSERT";
                 AuditLogObj.OldRecord = " ";
                 AuditLogObj.NewRecord = NewRecord;
-                WetosDB.AuditLogs.AddObject(AuditLogObj);
+                WetosDB.AuditLogs.Add(AuditLogObj);
                 WetosDB.SaveChanges();
                 return ReturnState = true;
             }
@@ -19503,7 +19506,7 @@ namespace WetosMVC.Controllers
                 AuditLogObj.AuditMode = "UPDATE";
                 AuditLogObj.OldRecord = OldRecord;
                 AuditLogObj.NewRecord = NewRecord;
-                WetosDB.AuditLogs.AddObject(AuditLogObj);
+                WetosDB.AuditLogs.Add(AuditLogObj);
                 WetosDB.SaveChanges();
                 return ReturnState = true;
             }
@@ -19529,7 +19532,7 @@ namespace WetosMVC.Controllers
                 AuditLogObj.AuditMode = "DELETE";
                 AuditLogObj.OldRecord = OldRecord;
                 AuditLogObj.NewRecord = "";
-                WetosDB.AuditLogs.AddObject(AuditLogObj);
+                WetosDB.AuditLogs.Add(AuditLogObj);
                 WetosDB.SaveChanges();
                 return ReturnState = true;
             }
@@ -20971,10 +20974,10 @@ namespace WetosMVC.Controllers
 
                                     string command = string.Format(@"select Day{0} from ShiftSchedulePattern where EmployeeId={1} and EffectiveStartDate<='{2}/{3}/{4} {5}' and EffectiveEndDate>='{2}/{3}/{4} {5}' and companyId={6} and branchid={7};"
                                       , y, DailyTransactionObj.EmployeeId, DailyTransactionObj.TranDate.Year, DailyTransactionObj.TranDate.Month, DailyTransactionObj.TranDate.Day, "00:00", DailyTransactionObj.CompanyId, DailyTransactionObj.BranchId);
-                                    string Shift = WetosDB.ExecuteStoreQuery<string>(command, "").FirstOrDefault();
-                                    DailyTransactionObj.ShiftId = Shift;
+                                    //string Shift = WetosDB.ExecuteStoreQuery<string>(command, "").FirstOrDefault();
+                                    //DailyTransactionObj.ShiftId = Shift;
 
-                                    ShiftObjForCurrentEmployee = WetosDB.Shifts.Where(a => a.ShiftCode == Shift).FirstOrDefault();
+                                    //ShiftObjForCurrentEmployee = WetosDB.Shifts.Where(a => a.ShiftCode == Shift).FirstOrDefault();
 
                                     ShiftObjForCurrentEmployee = WetosDB.Shifts.Where(a => a.Company.CompanyId == EmployeeCompanyId
                                         && a.BranchId == EmployeeBranchId
@@ -23274,7 +23277,7 @@ namespace WetosMVC.Controllers
                 action.MachineIP = " ";
                 action.MachineNo = " ";
 
-                WetosDB.AuditTrails.AddObject(action);
+                WetosDB.AuditTrails.Add(action);
 
                 WetosDB.SaveChanges();
 
@@ -23423,7 +23426,7 @@ namespace WetosMVC.Controllers
                                 LeaveCreditObj.OpeningBalance = Convert.ToDouble(rdr.GetValue(2).ToString().Trim()) + Convert.ToDouble(rdr.GetValue(1).ToString().Trim());
 
 
-                                WetosDB.LeaveCredits.AddObject(LeaveCreditObj);
+                                WetosDB.LeaveCredits.Add(LeaveCreditObj);
                                 WetosDB.SaveChanges();
                             }
 
@@ -23573,7 +23576,7 @@ namespace WetosMVC.Controllers
                                 }
 
 
-                                WetosDB.LeaveBalances.AddObject(LeaveBalanceObj);
+                                WetosDB.LeaveBalances.Add(LeaveBalanceObj);
                                 WetosDB.SaveChanges();
                             }
 
@@ -23740,7 +23743,7 @@ namespace WetosMVC.Controllers
                                 }
 
 
-                                WetosDB.LeaveBalances.AddObject(LeaveBalanceObj);
+                                WetosDB.LeaveBalances.Add(LeaveBalanceObj);
                                 WetosDB.SaveChanges();
                             }
 
@@ -23902,7 +23905,7 @@ namespace WetosMVC.Controllers
                                 }
 
 
-                                WetosDB.LeaveBalances.AddObject(LeaveBalanceObj);
+                                WetosDB.LeaveBalances.Add(LeaveBalanceObj);
                                 WetosDB.SaveChanges();
                             }
 
@@ -24151,7 +24154,7 @@ namespace WetosMVC.Controllers
 
                             if (IsNewShift == true)
                             {
-                                WetosDB.ShiftSchedules.AddObject(ShiftSchedule);
+                                WetosDB.ShiftSchedules.Add(ShiftSchedule);
                             }
 
                             WetosDB.SaveChanges();

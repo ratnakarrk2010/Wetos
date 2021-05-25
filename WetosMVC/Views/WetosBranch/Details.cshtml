@@ -2,132 +2,127 @@
 @{
     ViewBag.Title = "Details";
 }
+<link href="~/Content/css/wetosbranch_details.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 
-<style type="text/css">
-.row
-{
-    margin-bottom:10px;
-}
-
-</style>
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-<h1>Branch
-<small>Details</small>
-</h1>
-              <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
-                            <i class="fa fa-angle-right"></i>
+
+
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
                         </li>
-                        <li>
-                         <a href="#">Masters</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Index", "WetosBranch")">Branch </a>
-                        </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor: pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i>@*<a href="#" >Back</a>*@
-                                </span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+
+                        <li class="li_margin"><a href="@Url.Action("Index", "WetosBranch")">Branch </a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
                                 </span>
                             </div>
-                            @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
                         </li>
                     </ul>
                 </div>
             </div>
-      <div style="clear: both;"></div>
+            <h1 class="m_btn_margin_left">
+                Branch
+                <small>Details</small>
+            </h1>
+            <div style="clear: both;"></div>
 
-       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+            @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
 
 
 
-      </section>
+        </section>
         <section class="content">
-      <div class="row">
-        <div class="col-xs-12 col-md-12 col-lg-12">
-      <div class="box">
-           
-            <!-- /.box-header -->
-            <div class="box-body">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box">
 
-   
-   <div class="row">
-    <div class="display-label col-md-4">Branch Name</div>
-    <div class="display-field col-md-8">@Model.BranchName</div>
-  </div> 
-
-         
-    <div class="row">
-    <div class="display-label col-md-4">Company Name</div>
-    <div class="display-field col-md-8">@Model.CompanyName</div>
-    </div> 
-
-         
-    <div class="row">
-    <div class="display-label col-md-4">Location Name</div>
-    <div class="display-field col-md-8">@Model.LocationName</div>
-    </div> 
-
-         
-   <div class="row">
-    <div class="display-label col-md-4">Address1</div>
-    <div class="display-field col-md-8">@Model.Address1</div>
-    </div> 
-
-         
-    <div class="row">
-    <div class="display-label col-md-4">Address2</div>
-    <div class="display-field col-md-8">@Model.Address2</div>
-    </div> 
-
-         
-    <div class="row">
-    <div class="display-label col-md-4">Telephone</div>
-    <div class="display-field col-md-8">@Model.Telephone</div>
-    </div> 
-
-         
-    <div class="row">
-    <div class="display-label col-md-4">FAX</div>
-    <div class="display-field col-md-8">@Model.FAX</div>
-    </div> 
-
-         
-    <div class="row">
-    <div class="display-label col-md-4">Email</div>
-    <div class="display-field col-md-8">@Model.Email</div>
-    </div> 
-
-         
+                        <!-- /.box-header -->
+                        <div class="box-body">
 
 
-<p>
-<span type="button" style="cursor:pointer; float:left" title = "Click to edit Branch" class="btn btn-default" >@Html.ActionLink("Edit", "Edit", new { id = Model.BranchId })</span>
-             <span  class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title = "Click to go back to branch list">@Html.ActionLink("Back to Branch list", "Index")</span>
-    
-   
-</p>
+                            <div class="row">
+                                <div class="display-label col-md-4">Branch Name</div>
+                                <div class="display-field col-md-8">@Model.BranchName</div>
+                            </div>
 
 
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+                            <div class="row">
+                                <div class="display-label col-md-4">Company Name</div>
+                                <div class="display-field col-md-8">@Model.CompanyName</div>
+                            </div>
 
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Location Name</div>
+                                <div class="display-field col-md-8">@Model.LocationName</div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Address1</div>
+                                <div class="display-field col-md-8">@Model.Address1</div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Address2</div>
+                                <div class="display-field col-md-8">@Model.Address2</div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Telephone</div>
+                                <div class="display-field col-md-8">@Model.Telephone</div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="display-label col-md-4">FAX</div>
+                                <div class="display-field col-md-8">@Model.FAX</div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="display-label col-md-4">Email</div>
+                                <div class="display-field col-md-8">@Model.Email</div>
+                            </div>
+
+
+
+
+                            <p class="m_btn_margin_left">
+                                <span type="button" style="cursor:pointer; float:left" title="Click to edit Branch" class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.BranchId })</span>
+                                <span class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px" title="Click to go back to branch list">@Html.ActionLink("Back to Branch list", "Index")</span>
+
+
+                            </p>
+
+
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+        </section>
     </div>
 </div>
 @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@

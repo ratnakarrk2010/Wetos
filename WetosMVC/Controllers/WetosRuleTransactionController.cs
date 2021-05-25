@@ -250,7 +250,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.RuleEngines.AddObject(RuleEngineTblObj);
+                    WetosDB.RuleEngines.Add(RuleEngineTblObj);
                 }
 
                 WetosDB.SaveChanges();

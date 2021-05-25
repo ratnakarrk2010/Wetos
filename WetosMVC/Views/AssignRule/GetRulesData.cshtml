@@ -6,6 +6,7 @@
 }
 @{var EmployeeGroupId = ViewBag.EmployeeGroupId;}
 <div style="height: 50%; overflow-y: scroll;">
+<div class="table-responsive">
     <table>
         <tr>
             <th colspan="2" style="font-size: 20px; text-align: center; border-bottom: solid 1px;">
@@ -47,22 +48,29 @@
                     i = i + 1;
         }
     </table>
+    </div>
 </div>
 <input type="hidden" id="hidvalue" name="hidvalue" value="@i" />
 <script type="text/javascript">
+
+    //$(document).ready(function () {
+    //    document.getElementById("chkusers").checked = true;
+    //});
 
     function GetSlectAll() {
 
         for (var j = 1; j <= $('#hidvalue').val(); j++) {
 
             if ($('#chkusers').is(':checked').toString() == 'true') {
-
+                //debugger;
                 //alert(j);
-                $('#chkuser-' + parseInt(j)).attr('checked', true);
+                //$('#chkuser-' + parseInt(j)).attr('checked', true);
+                document.getElementById("chkuser-" + parseInt(j)).checked = true;
             }
 
             else {
                 //alert(j);
+                //debugger;
                 $('#chkuser-' + parseInt(j)).attr('checked', false);
             }
         }
@@ -70,7 +78,6 @@
 
 
     function GetChekdata(i, RuleId) {
-
         $.ajax({
             url: '@Url.Content("~/AssignRule/GetCheckDatas")',
             data: JSON.stringify({ uid: RuleId }),

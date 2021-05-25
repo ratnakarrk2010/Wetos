@@ -1,36 +1,59 @@
-﻿<style type="text/css">
-   h1
-   {
-       font-size : 20px !important;
-       margin-top : 0px !important;
-   }
+﻿
+ <link href="~/Content/css/assign_rule_index.css" rel="stylesheet" />
+ <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+<style>
+	.margin_left_save_new{
+		margin-left:7.3%;
+		margin-top:2%;
+	}
+	.btn_ok_width{
+		
+	}
 </style>
+
 @using (Html.BeginForm("AssignRuleIndex", "AssignRule", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     @Html.ValidationSummary(true)
     <div class="page-content-wrapper">
         <div class="page-content">
         @*Added by Shalaka on 27th DEC 2017 -- Start*@
-           <h1>
-                Assign Rules
-                
-            </h1>
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li><i class="fa fa-home"></i><a href="@Url.Action("Index", "Home")">Home </a><i
-                            class="fa fa-angle-right"></i></li>
-                        <li><a href="#">Administration</a> <i class="fa fa-angle-right"></i></li>
-                        <li><a href="#">Assign Rules</a> </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
-                                <span style="cursor: pointer" class="back " id="goback"><i class="fa fa-arrow-left">
-                                </i></span><i class="fa fa-calendar"></i><span> @DateTime.Now.ToLongDateString()</span>
+         <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1" style="padding-top: 0.2%;">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                         <li class="li_margin"><a href="#">Administration</a> <i class="fa fa-angle-right"></i></li>
+                        <li class="li_margin"><a href="#">Assign Rules</a> </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @*@DateTime.Now.ToLongDateString()*@
+                                    @{
+                                        string timezoneId = System.Configuration.ConfigurationManager.AppSettings["TimeZoneId"];
+                                    }
+                                    @TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId)).ToString("dd/MM/yyyy HH:mm:ss")
+                                </span>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
+           <h1 style="margin-top: 2% !important;
+    margin-bottom: 1% !important;
+    text-shadow: -3px 0px 4px #6f88a2 !important;
+    margin-left: 1%;" class="margin_left_h1">
+                Assign Rules
+            </h1>
+           
           <br />
         @*Added by Shalaka on 27th DEC 2017 -- End*@
 
@@ -98,7 +121,7 @@
                                 </div>
                             </div>*@
                         </div>
-                        <div id="div_buttons" class="row-fluid span12" style="height: 60%;">
+                        <div id="div_buttons" class="margin_left_save_new row-fluid span12" style="height: 60%;">
                             <input type="button" value="Save" name="btnSave" id="btnSave" class="btn" />
                             @* Button save should come as a popup for save or message?*@
                             <input type="button" value="Reset" id="btncancel" class="btn" />
@@ -114,9 +137,8 @@
             Rules Assigned Successfully.
         </div>
         <div class="modal-footer">
-            <center>
-                <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="OkBtn">
-                    Ok</button>
+            
+                <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="OkBtn">Ok</button>
         </div>
     </div>
 
@@ -166,6 +188,8 @@
             //            NavMenuId = NavMenuId.replace(" ,", "");
             //            ParId = ParId.replace(" ,", "");
 
+            showloading();
+
             var Ruleid = " ";
             var UncheckRuleid = " ";
 
@@ -198,12 +222,14 @@
                     $('#AssignDiv').modal({ backdrop: 'static', keyboard: false })
                 .one('click', '#OkBtn', function () {
                     //alert(result);
+                    hideloading();
                 });
 
 
                 },
                 error: function (result) {
                     // alert("No data Available");
+                    hideloading();
                 }
             });
         });

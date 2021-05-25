@@ -722,7 +722,8 @@
                 <Style />
               </TextRun>
               <TextRun>
-                <Value>=Sum(IIf(Fields!Status.Value = "PPPP", 1, 0))</Value>
+                <!--<Value>=Sum(IIf(Fields!Status.Value = "PPPP", 1, 0))</Value>-->
+                <Value>=Sum(IIf((Fields!Status.Value = "PPPP") OR (Fields!Status.Value = "WPWP") OR (Fields!Status.Value = "ODOD") OR (Fields!Status.Value = "PPPP^") OR (Fields!Status.Value = "PPPP*"), 1, 0))</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -745,6 +746,123 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox14">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Half-day: </Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <!--<Value>=Sum(IIf(Fields!Status.Value = "PPPP", 1, 0))</Value>-->
+                <Value>=Sum(IIf((Fields!Status.Value = "PPAA") OR (Fields!Status.Value = "AAPP") OR (Fields!Status.Value = "PPAA^") OR (Fields!Status.Value = "AAPP^"), 1, 0))</Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox36</rd:DefaultName>
+        <Top>0.94444in</Top>
+        <Left>3.75708in</Left>
+        <Height>0.1875in</Height>
+        <Width>1.0208in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox19">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Holiday/ WeeklyOff: </Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <!--<Value>=Sum(IIf(Fields!Status.Value = "PPPP", 1, 0))</Value>-->
+                <Value>=Sum(IIf((Fields!Status.Value = "WOWO") OR (Fields!Status.Value = "HOHO"), 1, 0))</Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox36</rd:DefaultName>
+        <Top>0.94444in</Top>
+        <Left>4.75708in</Left>
+        <Height>0.1875in</Height>
+        <Width>1.0208in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox20">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>CL/PL/CO Leave: </Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <!--<Value>=Sum(IIf(Fields!Status.Value = "PPPP", 1, 0))</Value>-->
+                <Value>=Sum(IIf((Fields!Status.Value = "PLPL") OR (Fields!Status.Value = "CLCL") OR (Fields!Status.Value = "COCO"), 1, 0))</Value>
+                <Style>
+                  <FontSize>9pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox36</rd:DefaultName>
+        <Top>0.94444in</Top>
+        <Left>5.95708in</Left>
+        <Height>0.1875in</Height>
+        <Width>1.0208in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
       <Textbox Name="Textbox6">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -756,7 +874,8 @@
                 <Style />
               </TextRun>
               <TextRun>
-                <Value>=Sum(IIf(Fields!Status.Value = "AAAA", 1, 0))</Value>
+                <!--<Value>=Sum(IIf(Fields!Status.Value = "AAAA", 1, 0))</Value>-->
+                <Value>=Sum(IIf((Fields!Status.Value = "AAAA") OR (Fields!Status.Value = "WOWO") OR (Fields!Status.Value = "HOHO"), 1, 0))</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -779,7 +898,7 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox10">
+      <!--<Textbox Name="Textbox10">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
@@ -808,7 +927,7 @@
           <PaddingTop>2pt</PaddingTop>
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
-      </Textbox>
+      </Textbox>-->
     </ReportItems>
     <Height>0.89238in</Height>
     <Style />

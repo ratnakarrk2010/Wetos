@@ -2917,7 +2917,7 @@ namespace WetosMVC.Controllers
                     Opening.LeaveType = LFYOpening.LeaveType;
                     Opening.ApplicableEffectiveDate = LFYApplicableFrom;
                     //ADDED BY SHRADDHA ON 10 MAY 2017 END
-                    WetosDB.LeaveCredits.AddObject(Opening); // NEW CREDIT ENTRY FY
+                    WetosDB.LeaveCredits.Add(Opening); // NEW CREDIT ENTRY FY
                     WetosDB.SaveChanges();
 
                     // Update leave balance
@@ -3305,7 +3305,7 @@ namespace WetosMVC.Controllers
                     "DailyAttendance", "~/User_Data/download/", "Daily_Attedence_Report_", ref PdfFileName);
 
                 Response.AddHeader("Content-Disposition", "attachment; filename=" + GeneratedFileName + ";");
-
+                //Response.AddHeader("Content-Disposition", "attachment; filename=\"" + GeneratedFileName + "\"");
                 //ReturnStatus = true;
 
             }
@@ -3341,7 +3341,9 @@ namespace WetosMVC.Controllers
                 com1.CommandTimeout = 2000; // ADDED BY MSJ ON 29 JAN 2018
 
                 // ADDED BY MSJ ON 21 FEB 2020 START
-                DateTime CurrentDate = DateTime.Now.Date;
+                //DateTime CurrentDate = DateTime.Now.Date;
+                string timezoneId = System.Configuration.ConfigurationManager.AppSettings["TimeZoneId"];
+                DateTime CurrentDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId)).Date;
 
                 // ADDED BY MSJ ON 27 FEB 2020 START
                 ReportModel.FromDate = CurrentDate.ToString("dd/MM/yyyy");
@@ -3421,7 +3423,9 @@ namespace WetosMVC.Controllers
                 com1.CommandTimeout = 2000; // ADDED BY MSJ ON 29 JAN 2018
 
                 // ADDED BY MSJ ON 21 FEB 2020 START
-                DateTime CurrentDate = DateTime.Now.Date;
+                string timezoneId = System.Configuration.ConfigurationManager.AppSettings["TimeZoneId"];
+                DateTime CurrentDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId)).Date;
+                //DateTime CurrentDate = DateTime.Now.Date;
                 DateTime PrevDay = CurrentDate.AddDays(-1);
 
                 // ADDED BY MSJ ON 27 FEB 2020 START
@@ -4762,7 +4766,7 @@ namespace WetosMVC.Controllers
                 //ReturnStatus = true;
 
             }
-            catch (System.Exception)
+            catch (System.Exception ex1)
             {
                 //throw;
             }
@@ -4992,7 +4996,7 @@ namespace WetosMVC.Controllers
                 //ReturnStatus = true;
 
             }
-            catch (System.Exception)
+            catch (System.Exception ex1)
             {
                 //throw;
             }
@@ -5042,7 +5046,7 @@ namespace WetosMVC.Controllers
 
                 //ReturnStatus = true;                
             }
-            catch (System.Exception)
+            catch (System.Exception ex1)
             {
                 //throw;
             }
@@ -6184,7 +6188,7 @@ namespace WetosMVC.Controllers
 
                         // Prepare the response
                         //HttpResponse httpResponse = Response;
-                        Response.Clear();
+                        ///Response.Clear();
                         Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
                         // ADDED BY MSJ ON 16 JUNE 2017 START
@@ -6419,7 +6423,7 @@ namespace WetosMVC.Controllers
 
                         // Prepare the response
                         //HttpResponse httpResponse = Response;
-                        Response.Clear();
+                       // Response.Clear();
                         Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
                         // ADDED BY MSJ ON 16 JUNE 2017 START
@@ -6541,7 +6545,7 @@ namespace WetosMVC.Controllers
 
                     //FileStream fs = new FileStream(filePath, FileMode.Create);
                     //PdfFileName = Server.MapPath("~/User_Data/download/") + "Employee Performance Report.pdf";
-
+                    Response.Clear();
                     Response.AddHeader("Content-Disposition", "attachment; filename=" + GeneratedFileName + ";");
 
                     using (FileStream fs = new FileStream(PdfFileName, FileMode.Create))
@@ -6844,7 +6848,7 @@ namespace WetosMVC.Controllers
                     ReportModel.ReportFormat, ReportModel.ReportName, ReportModel.FromDate, ReportModel.ToDate, table5, "~/Reports/MonthlyPerformanceReport.rdlc",
                     "TimeCardDataset", "~/User_Data/download/", "Monthly_Performance_Report", ref PdfFileName);
 
-                //Response.AddHeader("Content-Disposition", "attachment; filename=" + GeneratedFileName + ";");
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + GeneratedFileName + ";");
 
             }
             catch (System.Exception ex)
@@ -7319,7 +7323,7 @@ namespace WetosMVC.Controllers
                         {
                             table5.Columns[DayStr].ColumnName = tableH.Rows[0][i - 1].ToString();
                         }
-                        catch (Exception)
+                        catch (Exception ex1)
                         {
                         }
                     }

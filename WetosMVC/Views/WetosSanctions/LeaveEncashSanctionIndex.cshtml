@@ -1,50 +1,56 @@
-﻿@model List<WetosDB.SP_LeaveEncashSanctionIndex_Result> 
+﻿@model List<WetosDB.SP_LeaveEncashSanctionIndex_Result>
 @*<WetosDB.SP_WetosGetEmployeeLeaveSanction_Result>*@
 @{
     ViewBag.Title = "LeaveEncashSanctionIndex";
 }
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
- <style type="text/css">
-    #page_content
-    {
-        padding: 7px !important;
-    }
-</style>
+@System.Web.Optimization.Styles.Render("~/Content/DataTable")
+@System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+<link href="~/Content/css/leave_encash_sanction_index.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-            <h1>Encashment Sanction
-        <small>List</small>
-            </h1>
-            
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Sanctions</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
-                        <li>
-                         <a href="#">Sanctions</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
+                        <li class="li_margin">
                             <a href="#">Encashment Sanction</a>
                         </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report" title="Today's date">
-                                <span style="cursor:pointer" class="back " title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @*@DateTime.Now.ToLongDateString()*@
+                                    @{
+                                        string timezoneId = System.Configuration.ConfigurationManager.AppSettings["TimeZoneId"];
+                                    }
+                                    @TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId)).ToLongDateString()
+                                </span>
                             </div>
-                        </li>              
+                        </li>
                     </ul>
                 </div>
             </div>
-
+            <h1 class="margin_left_h1">
+                Encashment Sanction
+                <small>List</small>
+            </h1>
             @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
             <div>
                 @*<span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>*@
@@ -61,56 +67,55 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12 col-md-12 col-lg-12">
-                    
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            @using (Html.BeginForm(null, null, FormMethod.Post))
-                            {
-                                <div style="color: Red; font-size: 12px">
-                                    @Html.ValidationSummary(true)
-                                    @{int LoginEmployee = Convert.ToInt32(Session["EmployeeNo"]);}
-                                </div>
-    
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="editor-label">
-                                            Select Criteria
-                                        </div>
-                                        <div class="editor-field">
-                                         @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-                                         <div class="input-group date">
-                                          <div class="input-group-addon">
-                                          <i  class="fa fa-list-ul"></i>
-  	                                            </div>
-                                                @*CODE REPLACED BY SHRADDHA ON 12 SEP 2017 START*@
-                                                @Html.DropDownList("StatusObj", (IEnumerable<SelectListItem>)@ViewBag.StatusList, "Select", new { @class = "form-control select2", @id = "Status", onchange = "getSanctionListPV()" })
-                                                @* @Html.DropDownList("StatusObj", new SelectList(ViewBag.StatusList), "Select", new { @class = "form-control select2", @id = "Status", onchange = "getSanctionListPV()" })*@
-                                                @*CODE REPLACED BY SHRADDHA ON 12 SEP 2017 END*@  
-                                            
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                <br />                               
-                                
-                                <div id="results">
-                                  @*  @Html.Partial("LeaveSanctionPV")*@
-                                </div>
-                                <center><input type="submit" class="btn btn-primary" value="Save"/> </center> 
-                            }
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
 
-                    <!-- /.box -->
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        @using (Html.BeginForm(null, null, FormMethod.Post))
+                        {
+                            <div style="color: Red; font-size: 12px">
+                                @Html.ValidationSummary(true)
+                                @{int LoginEmployee = Convert.ToInt32(Session["EmployeeNo"]);}
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="editor-label">
+                                        Select Criteria
+                                    </div>
+                                    <div class="editor-field">
+                                        @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-list-ul"></i>
+                                            </div>
+                                            @*CODE REPLACED BY SHRADDHA ON 12 SEP 2017 START*@
+                                            @Html.DropDownList("StatusObj", (IEnumerable<SelectListItem>)@ViewBag.StatusList, "Select", new { @class = "form-control select2", @id = "Status", onchange = "getSanctionListPV()" })
+                                            @* @Html.DropDownList("StatusObj", new SelectList(ViewBag.StatusList), "Select", new { @class = "form-control select2", @id = "Status", onchange = "getSanctionListPV()" })*@
+                                            @*CODE REPLACED BY SHRADDHA ON 12 SEP 2017 END*@
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+
+                            <div id="results">
+                                @Html.Partial("LeaveEncashSanctionPV")
+                            </div>
+                            <div class="row"></div><div class="col-sm-12"><input type="submit" class="btn btn-primary" value="Save" /> </div>
+                        
+                    }
+                    </div>
+                    <!-- /.box-body -->
                 </div>
-                <!-- /.col -->
-   
-    <!-- /.row -->
-    </section>
+            </section>
+            <!-- /.box -->
+            <!-- /.box -->
     </div>
-    </div>
+        <!-- /.col -->
+        <!-- /.row -->
+
+</div>
 
 
 
@@ -122,84 +127,85 @@
         $(".select2").select2();
         //Datemask dd/mm/yyyy
     });
-    </script>
-    @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
 
 
-    <script type="text/jscript">
-        $(document).ready(function () {
-            $('.back').click(function () {
-                parent.history.back();
-                return false;
-            });
+<script type="text/jscript">
+    $(document).ready(function () {
+        $('.back').click(function () {
+            parent.history.back();
+            return false;
         });
+    });
 
-        function goBack() {
-            window.history.back();
-        }
+    function goBack() {
+        window.history.back();
+    }
 
-        $("input[type=submit]").click(function () {
+    $("input[type=submit]").click(function () {
 
-            showloading();
-        });
+        showloading();
+    });
 
-    </script>
-    @*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ @*Added by Pushkar For datatable on 25 OCT 2016-------start*@
-    <script type="text/javascript">
-        $(function () {
+</script>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@ @*Added by Pushkar For datatable on 25 OCT 2016-------start*@
+<script type="text/javascript">
+    $(function () {
 
+        $("#LeaveSanctionabc").DataTable();
+
+
+    });
+</script>
+
+
+<script type="text/javascript">
+
+
+
+function getSanctionListPV() {
+    //--- ADDED BY SHALAKA ON 29th DEC 2017 TO DISPLAY PROGRESS RING
+    showloading();
+    debugger;
+    var selectCriteria = $("#Status").val();
+    //alert(selectCriteria);
+
+    //var ToDate = $("#ToDate").val();
+
+    $.ajax({
+        url: '@Url.Content("~/WetosSanctions/LeaveEncashSanctionPV")',
+        type: "POST",
+        data: { selectCriteria: selectCriteria },
+        success: function (data) {
+            debugger;
+            $("#results").html(data);
             $("#LeaveSanctionabc").DataTable();
+            // hideloading();  //--- ADDED BY SHALAKA ON 29th DEC 2017 TO HIDE PROGRESS RING
 
-
-        });
-    </script>
-   
-
-    <script type="text/javascript">
-
-        
-
-        function getSanctionListPV() {
-            //--- ADDED BY SHALAKA ON 29th DEC 2017 TO DISPLAY PROGRESS RING
-            showloading();
-
-            var selectCriteria = $("#Status").val();
-            //alert(selectCriteria);
-
-            //var ToDate = $("#ToDate").val();
-
-            $.ajax({
-                url: '@Url.Content("~/WetosSanctions/LeaveEncashSanctionPV")',
-                type: "POST",
-                data: { selectCriteria: selectCriteria },
-                success: function (data) {
-                    $("#results").html(data);
-                    $("#LeaveSanctionabc").DataTable();
-                    hideloading();  //--- ADDED BY SHALAKA ON 29th DEC 2017 TO HIDE PROGRESS RING
-
-                },
-                error: function (data) {
-                    hideloading();  //--- ADDED BY SHALAKA ON 29th DEC 2017 TO HIDE PROGRESS RING
-                }
-            });
+        },
+        error: function (data) {
             hideloading();  //--- ADDED BY SHALAKA ON 29th DEC 2017 TO HIDE PROGRESS RING
         }
+    });
+    //hideloading();  //--- ADDED BY SHALAKA ON 29th DEC 2017 TO HIDE PROGRESS RING
+}
 
-        $(document).ready(function () {
-            // alert();
-            $("#RejectReasonText").attr("disabled", true);
-            $("#RejectReasonText").attr("autocomplete", "off");
-        });
+$(document).ready(function () {
+    // alert();
+    $("#RejectReasonText").attr("disabled", true);
+    $("#RejectReasonText").attr("autocomplete", "off");
+});
 
-        $("#RejectReasonCheck").change(function () {
-            var RejectReasonCheck = $("#RejectReasonCheck").is(':checked') ? "1" : "0";
-            if (RejectReasonCheck == "1") {
-                $("#RejectReasonText").attr("disabled", false);
-            }
-            else {
-                $("#RejectReasonText").attr("disabled", true);
-            }
-        });
-    </script>
-@*Added by Pushkar For datatable on 25 OCT 2016-------end*@ 
+$("#RejectReasonCheck").change(function () {
+    var RejectReasonCheck = $("#RejectReasonCheck").is(':checked') ? "1" : "0";
+    if (RejectReasonCheck == "1") {
+        $("#RejectReasonText").attr("disabled", false);
+    }
+    else {
+        $("#RejectReasonText").attr("disabled", true);
+    }
+});
+</script>
+@*Added by Pushkar For datatable on 25 OCT 2016-------end*@
 

@@ -630,6 +630,7 @@ namespace WetosMVC.Controllers
         {
             try
             {
+                string timezoneId = System.Configuration.ConfigurationManager.AppSettings["TimeZoneId"];
                 MessageModel MessageModelObj = new MessageModel();
                 MessageModelObj.ToEmpTypeId = Convert.ToInt32(ToEmpTypeId == null ? "0" : ToEmpTypeId);
                 MessageModelObj.MessageSubject = Convert.ToInt32(MessageSubject == null ? "0" : MessageSubject);
@@ -656,11 +657,12 @@ namespace WetosMVC.Controllers
                         foreach (SP_GetHRList_Result HROj in HRList)
                         {
                             Notification nmsg = new Notification();
-                            nmsg.SendDate = System.DateTime.Now;
+                            //nmsg.SendDate = System.DateTime.Now;
+                            nmsg.SendDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId));
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = HROj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -676,11 +678,12 @@ namespace WetosMVC.Controllers
                         foreach (SP_GetLeaveApproverList_Result LeaveApproverObj in LeaveApproverList)
                         {
                             Notification nmsg = new Notification();
-                            nmsg.SendDate = System.DateTime.Now;
+                            //nmsg.SendDate = System.DateTime.Now;
+                            nmsg.SendDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId));
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = LeaveApproverObj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -695,11 +698,12 @@ namespace WetosMVC.Controllers
                         foreach (SP_GetSanctionerList_Result SanctionerObj in SanctionerList)
                         {
                             Notification nmsg = new Notification();
-                            nmsg.SendDate = System.DateTime.Now;
+                            //nmsg.SendDate = System.DateTime.Now;
+                            nmsg.SendDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId));
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = SanctionerObj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
                     }
@@ -712,11 +716,12 @@ namespace WetosMVC.Controllers
                         foreach (SP_GetEmployeeListReportingTome_Result EmpReportingToMeObj in EmpReportingToMeList)
                         {
                             Notification nmsg = new Notification();
-                            nmsg.SendDate = System.DateTime.Now;
+                            //nmsg.SendDate = System.DateTime.Now;
+                            nmsg.SendDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId));
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = EmpReportingToMeObj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -726,11 +731,12 @@ namespace WetosMVC.Controllers
                 else if (MessageModelObj.ToEmpTypeId == 5)
                 {
                     Notification nmsg = new Notification();
-                    nmsg.SendDate = System.DateTime.Now;
+                    //nmsg.SendDate = System.DateTime.Now;
+                    nmsg.SendDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId));
                     nmsg.FromID = SessionPersister.UserInfo.UserId;
                     nmsg.ToID = Convert.ToInt32(ToEmpId == null ? "0" : ToEmpId);
                     nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                    WetosDB.Notifications.AddObject(nmsg);
+                    WetosDB.Notifications.Add(nmsg);
                     WetosDB.SaveChanges();
                 }
 
@@ -777,7 +783,7 @@ namespace WetosMVC.Controllers
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = HROj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -797,7 +803,7 @@ namespace WetosMVC.Controllers
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = LeaveApproverObj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -817,7 +823,7 @@ namespace WetosMVC.Controllers
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = SanctionerObj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -837,7 +843,7 @@ namespace WetosMVC.Controllers
                             nmsg.FromID = SessionPersister.UserInfo.UserId;
                             nmsg.ToID = EmpReportingToMeObj.EmployeeId;
                             nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                            WetosDB.Notifications.AddObject(nmsg);
+                            WetosDB.Notifications.Add(nmsg);
                             WetosDB.SaveChanges();
                         }
 
@@ -853,7 +859,7 @@ namespace WetosMVC.Controllers
                     nmsg.FromID = SessionPersister.UserInfo.UserId;
                     nmsg.ToID = Convert.ToInt32(fc.GetValue("ToEmpId").AttemptedValue);
                     nmsg.NotificationContent = Message_Sub + " : " + MessageModelObj.MessageContent;
-                    WetosDB.Notifications.AddObject(nmsg);
+                    WetosDB.Notifications.Add(nmsg);
                     WetosDB.SaveChanges();
 
 

@@ -1,189 +1,206 @@
 ﻿@model WetosMVCMainApp.Models.LockUnlockData
-@{ 
+@{
     ViewBag.Title = "Lock/Unlock Database";
 }
 @System.Web.Optimization.Styles.Render("~/Content/DatePicker")
 @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
-   @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
-<style type="text/css">
-    .row
-    {
-        margin-bottom: 10px;
+@System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/css/lock_unlock.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<style>
+    @@media (min-width:320px) and (max-width:767px){
+        .input_width{
+            width:100% !important;
+        }
     }
 </style>
+
+
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-<h1>Lock/Unlock
- <small>Database</small>
-</h1>
-       
-      <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Administration</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
-                        <li>
-                         <a href="#">Administration</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
+                        <li class="li_margin">
                             <a href="#">Lock / Unlock</a>
                         </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip"  title="Today's date">
-                                <span style="cursor:pointer" class="back "  data-toggle="tooltip"  title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @*@DateTime.Now.ToLongDateString()*@
+                                    @{
+                                        string timezoneId = System.Configuration.ConfigurationManager.AppSettings["TimeZoneId"];
+                                    }
+                                    @TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId)).ToLongDateString()
+                                </span>
                             </div>
-                        </li>              
+                        </li>
                     </ul>
                 </div>
             </div>
-      <div style="clear: both;"></div>
+            <h1 class="margin_left_h1">
+                Lock/Unlock
+                <small>Database</small>
+            </h1>
+            <div style="clear: both;"></div>
 
- </section>
+        </section>
         <section class="content">
-<div class="row">
-<div class="col-xs-12 col-md-12 col-lg-12">         
-<div class="box">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box">
 
-<div class="box-body">
+                        <div class="box-body">
 
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(false)
-  
-     
-         <div class="row">
-         <div class="form-group col-md-12">
-   <div class="editor-label">
-            Company
-        </div>
-        <div class="editor-field">
-          <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-suitcase" aria-hidden="true"></i>
-                  </div> 
-         @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2", style = "width:250px", id = "CompanyddlList" })
-        </div>
-        </div>
-      </div>
-     </div>
-     
-       <div class="row">
-       <div class="form-group col-md-12">
-      <div class="editor-label">
-           Branch
-        </div>
-        <div class="editor-field" >
-          <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-university" aria-hidden="true"></i>
-                  </div> 
-         @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)ViewBag.BranchList, "Select", new { @class = "form-control select2", style = "width:250px", id = "BranchddlList" })
-        </div>
-       </div>
-       </div>
-    </div> 
-      
-   @* <div class="row">
-      <div class="editor-label">
-          Department
-        </div>
-        <div class="editor-field" >
-         @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.DepartmentList, "Select", new { @class = "form-control select2", style = "width:250px", id = "DepartmentddlList" })
-        </div>
-    </div> 
-     
-    
-    <div class="row">
-         <div class="editor-label">
-          Employee Type
-        </div>
-        <div class="editor-field" >
-         @Html.DropDownListFor(a => a.EmployeeTypeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeTypeNameList, "Select", new { @class = "form-control select2", style = "width:250px" })
-         
-        </div>
-     </div> *@
-    
-   @* <div class="row">
-         <div class="editor-label">
-          Employee
-        </div>
-        <div class="editor-field" >
-         @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", style = "width:250px", id = "EmployeeddlList" })
-         
-        </div>
-    </div> *@
+                            @using (Html.BeginForm())
+                            {
+                                @*@Html.ValidationSummary(false)*@
 
-        <div class="row">
-        <div class="col-md-3">
-          <div class="form-group">
-               From Date
-     <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                   @*@Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })*@
-                 @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
-                    <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" />
+
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <div class="editor-label">
+                                            Company
+                                        </div>
+                                        <div class="editor-field">
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-suitcase" aria-hidden="true"></i>
+                                                </div>
+                                                @Html.DropDownListFor(a => a.CompanyId, (IEnumerable<SelectListItem>)ViewBag.CompanyList, "Select", new { @class = "form-control select2", style = "width:250px", id = "CompanyddlList" })
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.CompanyId)
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <div class="editor-label">
+                                            Branch
+                                        </div>
+                                        <div class="editor-field">
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-university" aria-hidden="true"></i>
+                                                </div>
+                                                @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)ViewBag.BranchList, "Select", new { @class = "form-control select2", style = "width:250px", id = "BranchddlList" })
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.BranchId)
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @* <div class="row">
+                                      <div class="editor-label">
+                                          Department
+                                        </div>
+                                        <div class="editor-field" >
+                                         @Html.DropDownListFor(a => a.BranchId, (IEnumerable<SelectListItem>)@ViewBag.DepartmentList, "Select", new { @class = "form-control select2", style = "width:250px", id = "DepartmentddlList" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                         <div class="editor-label">
+                                          Employee Type
+                                        </div>
+                                        <div class="editor-field" >
+                                         @Html.DropDownListFor(a => a.EmployeeTypeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeTypeNameList, "Select", new { @class = "form-control select2", style = "width:250px" })
+
+                                        </div>
+                                     </div> *@
+
+                                @* <div class="row">
+                                         <div class="editor-label">
+                                          Employee
+                                        </div>
+                                        <div class="editor-field" >
+                                         @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeList, "Select", new { @class = "form-control select2", style = "width:250px", id = "EmployeeddlList" })
+
+                                        </div>
+                                    </div> *@
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            From Date
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                @*@Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })*@
+                                                @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+                                                <input type="text" class="form-control input_width datepicker" data-date-fomat="dd-MMM-yyyy" name="FromDate" id="FromDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.FromDate)" style = "width:250px" />
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            To Date
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                @*@Html.TextBoxFor(model => model.ToDate, new { @class = "form-control pull-right datepicker" })*@
+                                                @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+                                                <input type="text" class="form-control datepicker input_width" data-date-fomat="dd-MMM-yyyy" name="ToDate" id="ToDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ToDate)" style = "width:250px"/>
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <div class="editor-label">
+                                        </div>
+                                        @Html.RadioButtonFor(model => model.RadioButtonSelected, "Y", new { @checked = "checked" }) Lock
+                                        @Html.RadioButtonFor(model => model.RadioButtonSelected, "N") Unlock
+                                        @*<div class="editor-field">
+
+                                                <input type="radio" name="group1" id="DatabaseLock/Unlock" value="Lock" checked="checked" />&nbsp&nbsp Lock
+                                                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                            <input type="radio" name="group1" id="DatabaseLock/Unlock1" value="Unlock"  checked="checked"/>&nbsp&nbsp Unlock &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                            </div>*@
+                                    </div>
+                                </div>
+
+                                <p class="margin_left_save">
+                                    <input type="submit" value="Process and Save" />
+                                    <span class="btn btn-default" style="cursor: pointer; margin-left: 10px"
+                                          title="Click to go back to company list">@Html.ActionLink("Back to List", "Index")</span>
+                                </p>
+
+                            }
+                        </div>
+                    </div>
                 </div>
-                <!-- /.input group -->
-              </div>
-              </div>
-              </div> 
-
-        <div class="row">
-         <div class="col-md-3">
-         <div class="form-group">
-               To Date
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                   @*@Html.TextBoxFor(model => model.ToDate, new { @class = "form-control pull-right datepicker" })*@
-                 @* <input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
-                  <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ToDate" id="ToDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ToDate)" />
-                </div>
-                <!-- /.input group -->
-              </div>
-       </div>
-       </div> 
-
-         <div class="row">
-     <div class="form-group col-md-12">
-        <div class="editor-label">
-        </div>
-        @Html.RadioButtonFor(model => model.RadioButtonSelected, "Y", new { @checked = "checked" }) Lock
-        @Html.RadioButtonFor(model => model.RadioButtonSelected, "N") Unlock
-        @*<div class="editor-field">
-         
-            <input type="radio" name="group1" id="DatabaseLock/Unlock" value="Lock" checked="checked" />&nbsp&nbsp Lock
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="radio" name="group1" id="DatabaseLock/Unlock1" value="Unlock"  checked="checked"/>&nbsp&nbsp Unlock &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        </div>*@
-        </div>
-        </div>
-
-        <p>
-            <input type="submit" value="Process and Save" />
-        </p>
-   
-}
-</div>
-</div>
-    </div>
-</div>
-<div>
-</div>
-    @Html.ActionLink("Back to List", "Index")
-    </section>
+            </div>
+            <div>
+            </div>
+           
+        </section>
     </div>
 </div>
 @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
@@ -314,4 +331,4 @@
 @section Scripts {
     @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
 }
- 
+

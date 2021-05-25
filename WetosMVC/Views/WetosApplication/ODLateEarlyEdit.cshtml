@@ -7,6 +7,7 @@
 @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 
 <script src="@Url.Content("~/Scripts/jquery.inputmask.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.inputmask.date.extensions.js")" type="text/javascript"></script>
@@ -15,265 +16,282 @@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
- <h1>
-       OD/Travel Application
-        <small>Edit </small>
-      </h1>
-      
-      <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Applications</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
-                        <li>
-                         <a href="#">Applications</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
+                        <li class="li_margin">
                             <a href="#">OD/Travel</a>
                         </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor:pointer" class="back " data-toggle="tooltip"  title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
                             </div>
-                        </li>              
+                        </li>
                     </ul>
                 </div>
             </div>
-       
+            <h1 class="margin_left_h1">
+                OD/Travel Application
+                <small>Edit </small>
+            </h1>
 
-    </section>
+
+
+        </section>
         <section class="content">
-      <div class="row">
-        <div class="col-xs-12 col-md-12 col-lg-12">
-          <div class="box box-primary">
-           
-            <!-- /.box-header -->
-@using (Html.BeginForm())
-{
-     <div style="color:Red;font-size:12px">
-   
-   @Html.Raw(Server.HtmlDecode(Html.ValidationSummary(false).ToString()))  
-   </div>
-    <fieldset>
-        <div class="box-body">
-        @Html.HiddenFor(model => model.AppliedDay)
-        @Html.HiddenFor(model => model.ActualDay)
-        @Html.HiddenFor(model => model.StatusId)
-        @Html.HiddenFor(model => model.OdTourHeadCode)
-        @Html.HiddenFor(model => model.RejectReason)
-        @Html.HiddenFor(model => model.Branchid)
-        @Html.HiddenFor(model => model.CompanyId)
-      
-        @Html.HiddenFor(model => model.JourneyType)
-        @Html.HiddenFor(model => model.TransportType)
-        @Html.HiddenFor(model => model.ODTourId)
-
-        @Html.HiddenFor(model => model.ODLoginTime)
-        @Html.HiddenFor(model => model.ODLogOutTime)
-        @Html.HiddenFor(model => model.IsInPunchInNextDay)
-        @Html.HiddenFor(model => model.IsOutPunchInNextDay)
-
-          @if (@Model == null || @Model.MySelf == false)
-          {
-                    <div class="row">
-
-                        <div class="col-md-4">
-
-                            <div id="EmployeeName" class="form-group">
-                                Employee Name <span style="color: Red; font-size: 18px">*</span>
-
-                                @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeCodeAndNameList, "Select", new { @class = "form-control select2", id = "EmployeeName1", style = "width:500px" })
-
-                            </div>
-                        </div>
-                    </div>
-             
-          }
-          else
-          {
-              // Updated by Rajas on 29 AUGUST 2017
-              @Html.HiddenFor(model => model.EmployeeId)
-          }
-    
-   
-        <div class="row">
-        <div class="col-md-4">
-        <div class="editor-label">
-            Requisition Type  <span style="color:Red;font-size:18px" >*</span> @*Added * By Shraddha on 12 DEC 2016 to show required field *@
-        </div>
-        <div class="editor-field">
-         @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-         <div class="input-group date">
-        <div class="input-group-addon">
-        <i  class="fa fa-list-ul"></i>
-  	</div> 
-            @Html.DropDownListFor(a => a.ODTourType, (IEnumerable<SelectListItem>)@ViewBag.RequisitionTYpeListLE, "Select", new { @class = "form-control select2" })
-            @*@Html.EditorFor(model => model.ODTourType)
-            @Html.ValidationMessageFor(model => model.ODTourType)*@
-        </div>
-        </div>
-        </div>
-        </div>
-
-
-              <div id="ODRegion">
-              <div class="row" >
-        <div class="col-md-4">
-        <div class="editor-label">
-         @*Added * By Shraddha on 12 DEC 2016 to show required field *@
-            OD Date   <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="input-group date">
-            <div class="input-group-addon">
-                <i class="fa fa-calendar"></i>
-            </div>
-            <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ODDate" id="ODDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ODDate)" />
-           @* @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })*@
-             @*<input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
-        </div>
-         </div>
-       </div>
-        <div class="row" >
-        <div class="col-md-4">
-              <div class="form-group">
-              
-              OD Day Status   <span style="color:Red;font-size:18px" >*</span> @*Added * By Shraddha on 12 DEC 2016 to show required field *@
-          @*fav icon added by atul & Mithilesh on 26 june 2017----start*@     
-    <div class="input-group date">
-        <div class="input-group-addon">
-        <i  class="fa fa-clock-o"></i>
-  	</div> 
-
-
-              @Html.DropDownListFor(a => a.ODDayStatus2, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusListLE, "Select", new { @class = "form-control select2", id = "LeaveStatusListFromDate" })
-              </div>
-              </div>
-              </div>
-              </div>
-
-
-        </div>
-
             <div class="row">
-          <div class="col-md-4">
-          <div class="editor-label">
-           Place <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field">
-        <div class="input-group date">
-        <div class="input-group-addon">
-         <i class="fa fa-map-marker"></i></div>
-            @Html.TextBoxFor(model => model.Place, new { @class = "form-control" })
-          @*  @Html.ValidationMessageFor(model => model.Place)*@
-        </div>
-        </div>
-        </div>
-        </div>
-         <div class="row">
-        <div class="col-md-4">
-        <div class="editor-label">
-           Purpose <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field">
-      @*  Updated by Rajas on 19 MAY 2017*@
-       @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
-       <div class="input-group date">
-        <div class="input-group-addon">
-        <i  class="fa fa-list-ul"></i>
-  	</div> 
-         @Html.DropDownListFor(a => a.Purpose, (IEnumerable<SelectListItem>)@ViewBag.ODPurposeListLE, "Select", new { @class = "form-control select2" })
-            @*@Html.EditorFor(model => model.Purpose)
-            @Html.ValidationMessageFor(model => model.Purpose)*@
-        </div></div></div>
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box box-primary">
 
-        <div class="col-md-4">
-        <div class="editor-label">
-           Purpose Description 
-        </div>
-        <div class="editor-field">
-      
-       <div class="input-group date">
-        <div class="input-group-addon">
-        <i  class="fa fa-list-ul"></i>
-  	</div> 
-         @Html.TextAreaFor(a => a.PurposeDesc, new { @class = "form-control" })
-            
-        </div></div></div>
+                        <!-- /.box-header -->
+                        @using (Html.BeginForm())
+                        {
+                            <div style="color:Red;font-size:12px">
 
+                                @Html.Raw(Server.HtmlDecode(Html.ValidationSummary(false).ToString()))
+                            </div>
+                            <fieldset>
+                                <div class="box-body">
+                                    @Html.HiddenFor(model => model.AppliedDay)
+                                    @Html.HiddenFor(model => model.ActualDay)
+                                    @Html.HiddenFor(model => model.StatusId)
+                                    @Html.HiddenFor(model => model.OdTourHeadCode)
+                                    @Html.HiddenFor(model => model.RejectReason)
+                                    @Html.HiddenFor(model => model.Branchid)
+                                    @Html.HiddenFor(model => model.CompanyId)
 
-        </div>
+                                    @Html.HiddenFor(model => model.JourneyType)
+                                    @Html.HiddenFor(model => model.TransportType)
+                                    @Html.HiddenFor(model => model.ODTourId)
 
+                                    @Html.HiddenFor(model => model.ODLoginTime)
+                                    @Html.HiddenFor(model => model.ODLogOutTime)
+                                    @Html.HiddenFor(model => model.IsInPunchInNextDay)
+                                    @Html.HiddenFor(model => model.IsOutPunchInNextDay)
 
+                                    @if (@Model == null || @Model.MySelf == false)
+                                    {
+                                        <div class="row">
 
-        <div class="row">
-        <div id = "ClientDet">
-        <div class="col-md-4">
-        <div class="editor-label">
-           Client/Vendor Name 
-        </div>
-        <div class="editor-field">
-      
-       <div class="input-group date">
-        <div class="input-group-addon">
-        <i  class="fa fa-list-ul"></i>
-  	</div> 
-         @Html.TextBoxFor(a => a.ClientName, new { @class = "form-control" })
-            
-        </div></div></div>
-        </div>
+                                            <div class="col-md-4">
+
+                                                <div id="EmployeeName" class="form-group">
+                                                    Employee Name <span style="color: Red; font-size: 18px">*</span>
+
+                                                    @Html.DropDownListFor(a => a.EmployeeId, (IEnumerable<SelectListItem>)@ViewBag.EmployeeCodeAndNameList, "Select", new { @class = "form-control select2", id = "EmployeeName1", style = "width:500px" })
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+                                    else
+                                    {
+                                        // Updated by Rajas on 29 AUGUST 2017
+                                        @Html.HiddenFor(model => model.EmployeeId)
+                                    }
 
 
-        <div id = "CustomerDet">
-        <div class="col-md-4">
-        <div class="editor-label">
-           Customer Name
-        </div>
-        <div class="editor-field">
-      
-       <div class="input-group date">
-        <div class="input-group-addon">
-        <i  class="fa fa-list-ul"></i>
-  	</div> 
-         @Html.TextBoxFor(a => a.CustomerName, new { @class = "form-control" })
-            
-        </div></div></div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="editor-label">
+                                                Requisition Type  <span style="color:Red;font-size:18px">*</span> @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+                                            </div>
+                                            <div class="editor-field">
+                                                @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                                <div class="input-group date">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-list-ul"></i>
+                                                    </div>
+                                                    @Html.DropDownListFor(a => a.ODTourType, (IEnumerable<SelectListItem>)@ViewBag.RequisitionTYpeListLE, "Select", new { @class = "form-control select2" })
+                                                    @*@Html.EditorFor(model => model.ODTourType)
+                        @Html.ValidationMessageFor(model => model.ODTourType)*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
-        <div class="col-md-4">
-        <div class="editor-label">
-           CSR No.
-        </div>
-        <div class="editor-field">
-      
-       <div class="input-group date">
-        <div class="input-group-addon">
-        <i  class="fa fa-list-ul"></i>
-  	</div> 
-         @Html.TextBoxFor(a => a.CSRNo, new { @class = "form-control" })
-            
-        </div></div></div>
+                                    <div id="ODRegion">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="editor-label">
+                                                    @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+                                                    OD Date   <span style="color:Red;font-size:18px">*</span>
+                                                </div>
+                                                <div class="input-group date">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="ODDate" id="ODDate" value="@String.Format("{0:dd-MMM-yyyy}", @Model.ODDate)" />
+                                                    @* @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control pull-right datepicker" })*@
+                                                    @*<input type="text" class="form-control pull-right datepicker" id="FromDate" name="FromDate"/>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
 
-        </div>
-        </div>
+                                                    OD Day Status   <span style="color:Red;font-size:18px">*</span> @*Added * By Shraddha on 12 DEC 2016 to show required field *@
+                                                    @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-clock-o"></i>
+                                                        </div>
 
-          <br />
-        <p>
-            <input type="submit"  onclick="showloading();" value="Apply" class="btn btn-primary" />
-        </p>
-        </div>
-    </fieldset>
-}
-     
+
+                                                        @Html.DropDownListFor(a => a.ODDayStatus2, (IEnumerable<SelectListItem>)ViewBag.LeaveTypeStatusListLE, "Select", new { @class = "form-control select2", id = "LeaveStatusListFromDate" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="editor-label">
+                                                Place <span style="color:Red;font-size:18px">*</span>
+                                            </div>
+                                            <div class="editor-field">
+                                                <div class="input-group date">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-map-marker"></i>
+                                                    </div>
+                                                    @Html.TextBoxFor(model => model.Place, new { @class = "form-control" })
+                                                    @*  @Html.ValidationMessageFor(model => model.Place)*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="editor-label">
+                                                Purpose <span style="color:Red;font-size:18px">*</span>
+                                            </div>
+                                            <div class="editor-field">
+                                                @*  Updated by Rajas on 19 MAY 2017*@
+                                                @*fav icon added by atul & Mithilesh on 26 june 2017----start*@
+                                                <div class="input-group date">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-list-ul"></i>
+                                                    </div>
+                                                    @Html.DropDownListFor(a => a.Purpose, (IEnumerable<SelectListItem>)@ViewBag.ODPurposeListLE, "Select", new { @class = "form-control select2" })
+                                                    @*@Html.EditorFor(model => model.Purpose)
+                        @Html.ValidationMessageFor(model => model.Purpose)*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="editor-label">
+                                                Purpose Description
+                                            </div>
+                                            <div class="editor-field">
+
+                                                <div class="input-group date">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-list-ul"></i>
+                                                    </div>
+                                                    @Html.TextAreaFor(a => a.PurposeDesc, new { @class = "form-control" })
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div id="ClientDet">
+                                            <div class="col-md-4">
+                                                <div class="editor-label">
+                                                    Client/Vendor Name
+                                                </div>
+                                                <div class="editor-field">
+
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-list-ul"></i>
+                                                        </div>
+                                                        @Html.TextBoxFor(a => a.ClientName, new { @class = "form-control" })
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div id="CustomerDet">
+                                            <div class="col-md-4">
+                                                <div class="editor-label">
+                                                    Customer Name
+                                                </div>
+                                                <div class="editor-field">
+
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-list-ul"></i>
+                                                        </div>
+                                                        @Html.TextBoxFor(a => a.CustomerName, new { @class = "form-control" })
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <div class="editor-label">
+                                                    CSR No.
+                                                </div>
+                                                <div class="editor-field">
+
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-list-ul"></i>
+                                                        </div>
+                                                        @Html.TextBoxFor(a => a.CSRNo, new { @class = "form-control" })
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <p class="margin_left_save">
+                                        <input type="submit" onclick="showloading();" value="Apply" class="btn btn-primary" />
+                                    </p>
+                                </div>
+                            </fieldset>
+                        }
+
+                    </div>
+                </div>
             </div>
-            </div>
-            </div>
-            </section>
+        </section>
     </div>
 </div>
 

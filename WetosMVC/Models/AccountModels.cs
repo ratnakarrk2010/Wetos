@@ -25,7 +25,7 @@ namespace WetosMVCMainApp.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -122,7 +122,7 @@ namespace WetosMVCMainApp.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -373,49 +373,47 @@ namespace WetosMVCMainApp.Models
         [Display(Name = "Employee Name")]
         public int EmployeeId { get; set; }
         public string LeaveType { get; set; }
-
-
         public int CompanyId { get; set; }
-        //[Required]
-        [Display(Name = "From Date")]
-        //[DataType(DataType.DateTime)]
+
+        //[Required(ErrorMessage = "Please Enter FromDate")]
+        //[Display(Name = "FromDate")]
         public DateTime? FromDate { get; set; }
 
         [Display(Name = "Branch")]
         public int Branchid { get; set; }
-        //[Required]
-        [Display(Name = "To Date")]
+
+        
         //[DataType(DataType.DateTime)]
         public DateTime? ToDate { get; set; }
 
-
-
         public string OdTourHeadCode { get; set; }
-
         public double AppliedDay { get; set; }
-
         public double ActualDay { get; set; }
-
-
         public string RejectReason { get; set; }
 
         public int JourneyType { get; set; }
         //[Required]                                   //Validations added by Pushkar on 3 Nov
-        [Display(Name = "To Day Status")]
+        
         public int ODDayStatus1 { get; set; }     // Updated by Rajas on 19 AUGUST 2017 datatype changed from string to int
 
         public string TransportType { get; set; }
 
         //[Required]
-        [Display(Name = "From Day Status")]
+        //[Display(Name = "OD Day Status")]
+        //[Required(ErrorMessage = "Please Enter ODDay Status")]
         public int ODDayStatus { get; set; }  // Updated by Rajas on 19 AUGUST 2017 datatype changed from string to int
 
-        [Required]                                       //Validations added by Pushkar on 3 Nov
+                                            //Validations added by Pushkar on 3 Nov
         [Display(Name = "Requisition Type")]
+        [Required(ErrorMessage = "Please Select Requisition Type")]
         public string ODTourType { get; set; }
-        [Required]
+
+        [Display(Name = "Place")]
+        [Required(ErrorMessage = "Please Enter Place")]
         public string Place { get; set; }
-        [Required]
+
+        [Display(Name = "Purpose")]
+        [Required(ErrorMessage = "Please Select Purpose")]
         public string Purpose { get; set; }
 
         public int StatusId { get; set; }
@@ -425,10 +423,13 @@ namespace WetosMVCMainApp.Models
         public bool MySelf { get; set; }
 
         //CODE ADDED BY SHRADDHA ON 30 JAN 2018 START
-        [Display(Name = "OD Date")]
+        //[Display(Name = "OD Date")]
+        //[Required(ErrorMessage = "Please Enter OD Date")]
+       
         public DateTime? ODDate { get; set; }
         //[Required]
         [Display(Name = "OD Day Status")]
+        [Required(ErrorMessage = "Please Select OD Day Status")]
         public int ODDayStatus2 { get; set; }
         public DateTime? ODLoginTime { get; set; }
         public DateTime? ODLogOutTime { get; set; }
@@ -438,7 +439,8 @@ namespace WetosMVCMainApp.Models
 
         public DateTime? EffectiveDate { get; set; }  //CODE ADDED BY SHRADDHA ON 17 MAR 2018
 
-        [Required]
+        [Display(Name = "PurposeDesc")]
+        ////[Required(ErrorMessage = "Please Enter Purpose Description")]
         public string PurposeDesc { get; set; }
 
         public string ClientName { get; set; }
@@ -1624,8 +1626,12 @@ namespace WetosMVCMainApp.Models
 
         public double? LeaveUsed { get; set; }
 
+        [Required(ErrorMessage = "Please Select Branch")]
+        [Display(Name = "BranchId")]
         public int BranchId { get; set; }
 
+        [Required(ErrorMessage = "Please Select Company")]
+        [Display(Name = "CompanyId")]
         public int CompanyId { get; set; }
 
     }
@@ -1847,8 +1853,17 @@ namespace WetosMVCMainApp.Models
     public class SqlQueryModel
     {
         public int SqlQueryId { get; set; }
+
+        [Required(ErrorMessage = "Please Enter SqlQueryName")]
+        [Display(Name = "SqlQueryName")]
         public string SqlQueryName { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Description")]
+        [Display(Name = "SqlQueryDescription")]
         public string SqlQueryDescription { get; set; }
+
+        [Required(ErrorMessage = "Please Enter SqlQuery")]
+        [Display(Name = "SqlQuery")]
         public string SqlQuery { get; set; }
         public int Status { get; set; }
         public int Deleted { get; set; }

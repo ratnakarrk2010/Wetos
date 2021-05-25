@@ -1118,7 +1118,7 @@ namespace WetosMVC.Controllers
                         COMPOFFAPPLICATIONObj.Status = WetosDB.DropdownDatas.Where(a => a.TypeId == 3 && a.Value == CompOffModelObj.StatusId).Select(a => a.Text).FirstOrDefault();
                         //Added By Shraddha on 12 DEC 2016 for taking Status along with statusId End
 
-                        WetosDB.CompOffApplications.AddObject(COMPOFFAPPLICATIONObj);
+                        WetosDB.CompOffApplications.Add(COMPOFFAPPLICATIONObj);
 
                         WetosDB.SaveChanges();
 
@@ -1168,7 +1168,7 @@ namespace WetosMVC.Controllers
                         //NotificationObj.ReadFlag = false;
                         //NotificationObj.SendDate = DateTime.Now;
 
-                        //WetosDB.Notifications.AddObject(NotificationObj);
+                        //WetosDB.Notifications.Add(NotificationObj);
 
                         //WetosDB.SaveChanges();
 
@@ -1186,7 +1186,7 @@ namespace WetosMVC.Controllers
                         //    NotificationObj3.ReadFlag = false;
                         //    NotificationObj3.SendDate = DateTime.Now;
 
-                        //    WetosDB.Notifications.AddObject(NotificationObj3);
+                        //    WetosDB.Notifications.Add(NotificationObj3);
 
                         //    WetosDB.SaveChanges();
                         //}
@@ -1201,7 +1201,7 @@ namespace WetosMVC.Controllers
                         //NotificationObj2.ReadFlag = false;
                         //NotificationObj2.SendDate = DateTime.Now;
 
-                        //WetosDB.Notifications.AddObject(NotificationObj2);
+                        //WetosDB.Notifications.Add(NotificationObj2);
 
                         //WetosDB.SaveChanges();
 
@@ -1213,7 +1213,7 @@ namespace WetosMVC.Controllers
                         NotificationObj.ReadFlag = false;
                         NotificationObj.SendDate = DateTime.Now;
 
-                        WetosDB.Notifications.AddObject(NotificationObj);
+                        WetosDB.Notifications.Add(NotificationObj);
 
                         WetosDB.SaveChanges();
 
@@ -1969,7 +1969,7 @@ namespace WetosMVC.Controllers
 
                                     NewCompOffObj.ManualCompOffId = CumulativeManualCOObj.CMCompOffId;
 
-                                    WetosDB.CumulativeCompOffs.AddObject(NewCompOffObj);
+                                    WetosDB.CumulativeCompOffs.Add(NewCompOffObj);
                                     WetosDB.SaveChanges();
                                     #endregion
                                 }
@@ -2116,7 +2116,7 @@ namespace WetosMVC.Controllers
                         NotificationObj.ReadFlag = false;
                         NotificationObj.SendDate = DateTime.Now;
 
-                        WetosDB.Notifications.AddObject(NotificationObj);
+                        WetosDB.Notifications.Add(NotificationObj);
                         WetosDB.SaveChanges();
                         #endregion
 
@@ -2133,7 +2133,7 @@ namespace WetosMVC.Controllers
                             NotificationObj.ReadFlag = false;
                             NotificationObj.SendDate = DateTime.Now;
 
-                            WetosDB.Notifications.AddObject(NotificationObj2);
+                            WetosDB.Notifications.Add(NotificationObj2);
                             WetosDB.SaveChanges();
 
                         }

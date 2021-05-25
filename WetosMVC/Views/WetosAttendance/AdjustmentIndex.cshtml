@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "AdjustmentIndex";
 }
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 @System.Web.Optimization.Styles.Render("~/Content/DataTable")
  @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
 <h2>AdjustmentIndex</h2>
@@ -10,6 +11,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<div class="table-responive">
 <table>
     <tr>
         <th></th>
@@ -194,4 +196,5 @@
 }
 
 </table>
+</div>
 

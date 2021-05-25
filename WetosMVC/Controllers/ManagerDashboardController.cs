@@ -792,7 +792,7 @@ namespace WetosMVC.Controllers
                 LeaveApplicationObj.StatusId = 1;
                 LeaveApplicationObj.Status = "Pending";
             }
-            WetosDB.LeaveApplications.AddObject(LeaveApplicationObj);
+            WetosDB.LeaveApplications.Add(LeaveApplicationObj);
             WetosDB.SaveChanges();
 
             return RedirectToAction("Index");
@@ -817,7 +817,7 @@ namespace WetosMVC.Controllers
             COMPOFFAPPLICATIONObj.RejectReason = "";
             COMPOFFAPPLICATIONObj.Status = "Pending";
             COMPOFFAPPLICATIONObj.StatusId = 1;
-            WetosDB.CompOffApplications.AddObject(COMPOFFAPPLICATIONObj);
+            WetosDB.CompOffApplications.Add(COMPOFFAPPLICATIONObj);
             WetosDB.SaveChanges();
 
             return RedirectToAction("Index");
@@ -847,7 +847,7 @@ namespace WetosMVC.Controllers
             ODTOURObj.RejectReason = "";
             ODTOURObj.Status = "Pending";
             ODTOURObj.StatusId = 1;
-            WetosDB.ODTours.AddObject(ODTOURObj);
+            WetosDB.ODTours.Add(ODTOURObj);
             WetosDB.SaveChanges();
 
             return RedirectToAction("Index");

@@ -2,26 +2,41 @@
 @{
     ViewBag.Title = "Details";
 }
+<link href="~/Content/css/wetos_employee_details.css" rel="stylesheet" />
+ <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 <section class="content-header">
+      
+              
+      <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+                        
+                        <li class="li_margin"><a href="@Url.Action("Index", "WetosEmployee")">Employee</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
       <h1>
         Employee Master
         <small>Details</small>
       </h1>
-                <ol class="breadcrumb">
-              <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
-              <li class="active">Masters</li>
-        <li><a href="@Url.Action("Index","WetosCompany")"><i class="fa fa-arrow-left"></i>Employee</a></li>
-       @* <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>*@
-        @*<li><a href="#">Company Master</a></li>*@
-        <li class="active">Details</li>
-      </ol>
-
-          @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
-      <div>
-      <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>
-     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
-
-      </div>
       <div style="clear: both;"></div>
 
        @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@

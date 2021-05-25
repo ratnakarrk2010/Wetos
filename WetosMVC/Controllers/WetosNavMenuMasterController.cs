@@ -170,7 +170,7 @@ namespace WetosMVC.Controllers
                         NavMenuObj.Icon = DDObj.Text;
                     }
 
-                    WetosDB.NavMenus.AddObject(NavMenuObj);
+                    WetosDB.NavMenus.Add(NavMenuObj);
                     WetosDB.SaveChanges();
                     Success("Successfully Create Nav Menu Child Name are:  " + NavMenuModelObj.NavMenuName);
                     PopulateDropDown();
@@ -190,7 +190,7 @@ namespace WetosMVC.Controllers
                     {
                         NavMenuObj.Icon = DDObj.Text;
                     }
-                    WetosDB.NavMenus.AddObject(NavMenuObj);
+                    WetosDB.NavMenus.Add(NavMenuObj);
                     WetosDB.SaveChanges();
                     PopulateDropDown();
                     Success("Successfully Create Nav Menu Parent Name are:  " + NavMenuModelObj.NavMenuName);
@@ -320,7 +320,7 @@ namespace WetosMVC.Controllers
                 NavMenu NavMenuObj = WetosDB.NavMenus.Where(a => a.navmenuId == id).FirstOrDefault();
                 if (NavMenuObj != null)
                 {
-                    WetosDB.NavMenus.DeleteObject(NavMenuObj);
+                    WetosDB.NavMenus.Add(NavMenuObj);
                     WetosDB.SaveChanges();
                 }
 

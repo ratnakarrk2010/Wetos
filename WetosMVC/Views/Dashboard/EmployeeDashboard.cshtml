@@ -2,60 +2,24 @@
 @{
     ViewBag.Title = "Dashboard & Statistics";
 }
+<script src="~/Scripts/jquery.min.js"></script>
 @{var httpContext = HttpContext.Current;
-  System.Web.Mvc.UrlHelper Url = new System.Web.Mvc.UrlHelper(httpContext.Request.RequestContext);}
+    System.Web.Mvc.UrlHelper Url = new System.Web.Mvc.UrlHelper(httpContext.Request.RequestContext);}
 @System.Web.Optimization.Styles.Render("~/Content/Fullcalendar")
 @System.Web.Optimization.Scripts.Render("~/bundles/Fullcalendar")
 @System.Web.Optimization.Scripts.Render("~/bundles/LayoutTheme")
 @System.Web.Optimization.Styles.Render("~/Content/DatePicker")
 @System.Web.Optimization.Scripts.Render("~/bundles/DatePicker")
 @System.Web.Optimization.Scripts.Render("~/bundles/InputMask")
-<style type="text/css">
-    #page_content
-    {
-        padding: 5px;
-    }
-    h1
-    {
-        font-size: x-large !important;
-    }
-    
-    .feeds li .col1 > .cont
-    {
-        float: left;
-    }
-    
-    #ticker_container
-    {
-        margin-top: 6px;
-    }
-    #newscontent
-    {
-        margin-right: 10px;
-        float: left;
-    }
-    #newscontent a
-    {
-        color: #585858;
-    }
-    #news
-    {
-        display: none;
-    }
-    #controls
-    {
-        float: right;
-        height: 16px;
-    }
-    #news
-    {
-        display: none;
-    }
-    .news_tricker
-    {
-        width: 50%;
-    }
-</style>
+<link href="~/Content/allcss/empldash.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+    <style>
+       @@media screen and (min-width: 320px) and (max-width: 767px){
+            .li_margin {
+                 margin-top: 1.2%;
+            }
+       }
+    </style>
 <div>
     @{int UserRoleId = Convert.ToInt32(Session["UserRoleId"]);}
     @Html.Hidden("IsCalendarApplicationOn", @SessionPersister.IsCalendarApplicationOn)
@@ -65,457 +29,410 @@
     <div>
         <!-- Content Header (Page header) -->
         <div class="page-content-wrapper" id="page_content">
-            @* <div class="news_tricker">
-                    <div class="news_cover">
-                        News</div>
-                    <ul id="ticker">
-                        <li><a href='#'>Business heads back DTI bid for free mall space for MSMEs </a></li>
-                        <li><a href='#'>OECD-FAO Agricultural Outlook 2016-2025 </a></li>
-                        <li><a href='#'>President Mukherjee condoles passing away of A.C. Jose </a></li>
-                        <li><a href='#'>New International Standard to tackle Informal Economy </a></li>
-                        <li><a href='#'>Mandatory Energy Assessment by Dec 2015 </a></li>
-                        <li><a href='#'>South African Minister for Small Business Development Zulu's Maiden
-                            Budget Speech </a></li>
-                        <li><a href='#'>Small Businesses are the Big Deal not only for Economy but in Politics
-                            too </a></li>
-                        <li><a href='#'>AEC 2015 - Advantage SMEs </a></li>
-                        <li><a href='#'>Green Business Practice – Some Easy Steps for SMEs </a></li>
-                        <li><a href='#'>Small Business Impact Fund - Europe’s New Financial Plan for SMEs -
-                            Launched Recently </a></li>
-                        <li><a href='#'>New National Policy on MSMEs approved </a></li>
+            
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb">
+                <div class="col-sm-6">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="#">Home </a><i class="fa fa-angle-right"></i>
+
+                        </li>
+                        <li class="li_margin"><a href="#">Dashboard </a></li>
                     </ul>
                 </div>
-                <br />
-                 <br />*@
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @*@DateTime.Now.ToLongDateString()*@
+                                    @{ 
+                                        string timezoneId = System.Configuration.ConfigurationManager.AppSettings["TimeZoneId"];
+                                    }
+                                    @TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId)).ToLongDateString()
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                <div class="col-md-12 col-sm-12 col-xs-12 padding_right_0">
+                    
                     <h1 class="page-title">
-                        Dashboard <small>statistics and more @*  @if (UserRoleId == 1)
-                                {
-                                    <span id="btnusers" class="btn blue fa fa-users"  data-toggle="tooltip" title="Click to check Employee statistics"
-                                        style="float: right; color: white; margin: 5px" onclick="OnBtnUsersClick();">
-                                    </span>
-                                }
-                                <span id="btnSiteMap" class="btn blue fa fa-sitemap" data-toggle="tooltip" title="Click to check Employees reporting to logged in employee"
-                                    style="float: right; color: white; margin: 5px" onclick="OnBtnSiteMapClick();">
-                                </span><span id="btnclock" class="btn blue fa fa-clock-o" data-toggle="tooltip" title="Click to check logged in Employee attendance statistics"
-                                    style="float: right; cursor: pointer; color: white; margin: 5px" onclick="OnBtnClockclick();">
-                                </span>*@@* ADDED BY SHRADDHA ON 21 JULY 2017 START*@ @* <span id="btnchard" class="btn blue fa fa-bar-chart"
-                                    title="Click to check statistick of the month" style="float: right; cursor: pointer;
-                                    color: white; margin: 5px" onclick="OnBtnchartclick();"></span>*@ @* ADDED BY SHRADDHA ON 21 JULY 2017 END*@
-                        </small>
-                        <div class="btn-group pull-right">
+                        <i style="text-shadow: -3px 0px 4px #6f88a2;">Dashboard</i> <small><i>statistics and more</i> </small>
+                        <div class="btn-group pull-right btns_group">
                             @if (UserRoleId == 1)
                             {
-                                <button type="button" id="btnusers" class="btn btn-default btn-sm" title="Click to check Employee statistics"
-                                    onclick="OnBtnUsersClick();">
-                                    <i class="fa fa-users"></i>
+                                <button type="button" id="btnusers" class="btn btn-default btn-sm icon_btn btn_width" title="Click to check Employee statistics"
+                                        onclick="OnBtnUsersClick();" style="padding-left:0px;">
+                                    @*<i class="fa fa-users"></i>*@
+                                    <img src="~/Content/images/icon/imageedit_61.png" class="icon_width_height users_icon"/>
                                 </button>
                             }
                             <button type="button" id="btnSiteMap" data-placement="left" title="Click to check Employees reporting to logged in employee"
-                                onclick="OnBtnSiteMapClick();" class="btn btn-default btn-sm">
-                                <i class="fa fa-sitemap"></i>
+                                    onclick="OnBtnSiteMapClick();" class="btn btn-default btn-sm icon_btn btn_width">
+                                @*<i class="fa fa-sitemap"></i>*@
+                                <img src="~/Content/images/icon/tree.png" class="icon_width_height" />
                             </button>
-                            <button type="button" id="btnclock" class="btn btn-default btn-sm" data-placement="left"
-                                title="Click to check logged in Employee attendance statistics" onclick="OnBtnClockclick();">
-                                <i class="fa fa-clock-o"></i>
+                            <button type="button" id="btnclock" class="btn btn-default btn-sm icon_btn btn_width" data-placement="left"
+                                    title="Click to check logged in Employee attendance statistics" onclick="OnBtnClockclick();">
+                                @*<i class="fa fa-clock-o"></i>*@
+                                <img src="~/Content/images/icon/imageedit_49.png" class="icon_width_height" />
                             </button>
                             @* @if (ViewBag.ActiveEmployeeListCountVB > 0)*@
                             @if (UserRoleId == 1)
                             {
-                                <button type="button" id="btnAtten" class="btn btn-default btn-sm" data-placement="left"
-                                    title="Click to check Employee attendance statistics" onclick="OnBtnAttenclick();">
-                                    <i class="fa fa-clock-o"></i>
+                                <button type="button" id="btnAtten" class="btn btn-default btn-sm icon_btn btn_width" data-placement="left"
+                                        title="Click to check Employee attendance statistics" onclick="OnBtnAttenclick();">
+                                    @*<i class="fa fa-clock-o"></i>*@
+                                    <img src="~/Content/images/icon/imageedit_49.png" class="icon_width_height" />
                                 </button>
                             }
                             else
                             {
                                 if (ViewBag.ActiveEmployeeListCountVB > 0)
                                 {
-                                <button type="button" id="btnAtten" class="btn btn-default btn-sm" data-placement="left"
-                                    title="Click to check Employee attendance statistics" onclick="OnBtnAttenclick();">
-                                    <i class="fa fa-clock-o"></i>
-                                </button>
+                        <button type="button" id="btnAtten" class="btn btn-default btn-sm" data-placement="left"
+                                title="Click to check Employee attendance statistics" onclick="OnBtnAttenclick();">
+                            @*<i class="fa fa-clock-o"></i>*@
+                            <img src="~/Content/images/icon/imageedit_49.png" class="icon_width_height" />
+                        </button>
                                 }
                             }
                         </div>
                     </h1>
-                    <ul class="page-breadcrumb breadcrumb col-md-12 col-sm-12 col-xs-12">
-                        <li><i class="fa fa-home"></i><a href="#">Home </a><i class="fa fa-angle-right"></i>
-                        </li>
-                        <li><a href="#">Dashboard </a></li>
-                        <li class="pull-right">
-                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
-                                <i class="fa fa-calendar"></i><span>@DateTime.Now.ToLongDateString()
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
                     <!-- END PAGE TITLE & BREADCRUMB-->
                 </div>
             </div>
             <!-- Main content -->
             <section class="content">
-                    <div class="row ">
-                        <div id="caldiv" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                            <!-- BEGIN PORTLET-->
-                            <div class="portlet box blue-madison calendar">
-                           @*<span style="float:right;margin:7px"><text style="color:White"> Language: </text>
-		<select id='lang-selector'></select>
-
-	</span>
-*@
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <i class="fa fa-calendar"></i>Calendar
-                                        
+                
+                    <div id="caldiv" class="row cal_div">
+                        <!-- BEGIN PORTLET-->
+                        <div class="col-sm-7 portlet box blue-madison calendar" style="margin-left:1%;">
+                            <div class="portlet-title title_style" >
+                                <div class="caption">
+                                    <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                </div>
+                            </div>
+                            <div id="calendar"></div>
+                        </div>
+                        
+                        <div class="col-sm-4 portlet-body light-grey">
+                            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 padding_left_0">
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 padding_left_0">
+                                    <div class="row">
+                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2 m_padding_left_0">
+                                            <div class="red_div"></div>
+                                        </div>
+                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10 absent_div" >AAAA - Absent</div>
                                     </div>
                                 </div>
-                                <div class="portlet-body light-grey">
-                                    <div id="calendar">
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 m_padding_left_0">
+                                    <div class="row">
+                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2 m_padding_left_0">
+                                            <div class="green_div" ></div>
+                                        </div>
+                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10 present_div" >PPPP - Present</div>
                                     </div>
                                 </div>
                             </div>
-                           
-                            <!-- END PORTLET-->
-                            <!-- END PORTLET-->
-                        </div>
-                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                            <!-- BEGIN PORTLET-->
-                            <div class="portlet">
-                                <div class="portlet-title line">
-                                    <div class="caption">
-                                        <div class="btn-toolbar margin-bottom-10">
-                                            <div class="btn-toolbar margin-bottom-10 pull-left">
-                                                <i class="fa fa-bell"></i>Notification
-                                   
-                                            </div>
-                                            <button type="button" class="btn blue btn-xs" id="btnreadmore" name="btnreadmore" onclick="ReadMore()">Read More</button>
+                            <div class="col-md-12 padding_left_0">
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 padding_left_0">
+                                    <div class="row">
+                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2 m_padding_left_0">
+                                            <div class="slateblue_div"></div>
                                         </div>
+                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10 present_week" >WPWP - Present On Week Off</div>
                                     </div>
-                                    @*   <div class="tools">
-                            <a href="" class="collapse"></a>
-                            <a href="#portlet-config" data-toggle="modal" class="config"></a>
-                            <a href="" class="reload"></a>
-                            <a href="" class="remove"></a>
-                        </div>*@
                                 </div>
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="tab_1_1">
-                                        <div class="scroller" style="height: auto" data-always-visible="1" data-rail-visible="0">
-                                            <ul class="feeds">
-                                                @if (Model != null)
-                                                {
-                                                    foreach (var msg in Model.OrderByDescending(a => a.SendDate))
-                                                    {
-                                                    <li>
-                                                        
-                                                        <div class="col1">
-                                                            
-                                                                
-                                                            <div class="cont">
-                                                                
-                                                                <span style="margin-left:30px">
-                                                                @if (msg.readflag == 0)
-                                                                {
-                                                                <img alt="image" src="@Url.Content("~/images/new_icon_blink.gif")" width="20" height="10"/>
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 m_padding_left_0">
+                                    <div class="row">
+                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2 m_padding_left_0">
+                                            <div class="purple_div" ></div>
+                                        </div>
+                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10 Week_Off" >WOWO - Week Off</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 padding_left_0">
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 padding_left_0">
+                                    <div class="row m_padding_left_12">
+                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2 m_padding_left_0">
+                                            <div class="Orange_div"></div>
+                                        </div>
+                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10 holiday_div" >Holiday</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 m_padding_left_0">
+                                    <div class="row">
+                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2 m_padding_left_0">
+                                            <div class="blue_div"></div>
+                                        </div>
+                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10 leave_div" >PLPL - Leave</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 padding_left_0">
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 padding_left_0">
+                                    <div class="row m_padding_left_12">
+                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2 m_padding_left_0">
+                                            <div class="f_pink_div"></div>
+                                        </div>
+                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10 first_half_absent" >AAPP - First half absent</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 m_padding_left_0">
+                                    <div class="row">
+                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2 m_padding_left_0">
+                                            <div class="s_pink_div" ></div>
+                                        </div>
+                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10 second_half_absent">PPAA - Second half absent</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 padding_left_0">
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 padding_left_0">
+                                    <div class="row m_padding_left_12">
+                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2 m_padding_left_0">
+                                            <div class="duty_blue_div" ></div>
+                                        </div>
+                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10  On_duty" >ODOD - On Duty</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 m_padding_left_0">
+                                    <div class="row">
+                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2 m_padding_left_0">
+                                            <div class="tour_blue_div"></div>
+                                        </div>
+                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10 tour_div">TOTO - Tour</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 padding_left_0">
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 m_padding_left_0">
+                                    <div class="row">
+                                        
+                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10  early_go">EG : Early Go</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 m_padding_left_0">
+                                    <div class="row">
+                                        
+                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10 late_count m_padding_left_0">LC : Late Count</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END PORTLET-->
+                        <!-- END PORTLET-->
+                    </div>
+                  
 
-                                                                }
-                                                            </span>
+                    
+                   
+                    <!-- END PORTLET-->
+                    <!-- END PORTLET-->
+                
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 notification_div">
+                        <!-- BEGIN PORTLET-->
+                        <div class="portlet">
+                            <div class="portlet-title line">
+                                <div class="caption">
+                                    <div class="btn-toolbar margin-bottom-10">
+                                        <div class="btn-toolbar margin-bottom-10 pull-left bell_div">
+                                            <img src="~/Content/images/icon/bell-xxl.png" class="icon_width_height" />
+                                            <span class="notification_txt"><i>Notification</i></span>
+                                        </div>
+                                        <button type="button" class="btn blue btn-xs glass" id="btnreadmore" name="btnreadmore" onclick="ReadMore()">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab_1_1">
+                                    <div class="scroller scroller_div" data-always-visible="1" data-rail-visible="0">
+                                        <ul class="feeds">
+                                            @if (Model != null)
+                                            {
+                                                foreach (var msg in Model.OrderByDescending(a => a.SendDate))
+                                                {
+                                                    <li>
+                                                        <div class="col1">
+                                                            <div class="cont">
+                                                                <span style="margin-left:13px">
+                                                                    @if (msg.readflag == 0)
+                                                                    {
+                                                                        <img alt="image" src="@Url.Content("~/images/new_icon_blink.gif")" width="20" height="10" />
+                                                                    }
+                                                                </span>
                                                                 <div class="cont-col1">
                                                                     <div class="cont-col2">
-                                                                        <div class="label label-sm label-md label-info">
-                                                                           
-                                                                             <i class="fa fa-bell"></i>
-                                                                        </div>
+                                                                        <img src="~/Content/images/icon/bell-xxl.png" class="icon_width_height bell_img" />
                                                                     </div>
-
-
                                                                 </div>
                                                                 <div class="cont-col2">
                                                                     <div class="desc">
                                                                         @msg.NotificationContent
-                                                                        @* <span class="label label-sm label-danger ">
-                                                                Take action <i class="fa fa-share"></i>
-                                                            </span>*@
                                                                     </div>
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                         <div class="col2">
-                                                            
                                                             <div class="date">
-                                                                
+
                                                                 @string.Format("{0:dd-MM-yyyy}", msg.SendDate)
                                                             </div>
                                                         </div>
                                                     </li>
-
-                                                    }
                                                 }
-
-
-                                            </ul>
-                                        </div>
-                                       
-                                        
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-                              
- <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                    <div class="row">
-                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2">
-                                            <div style="background-color: Red; height: 10px; width: 10px"></div>
-                                        </div>
-                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10" style="padding: 0px; font-size: 11px">AAAA - Absent</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                    <div class="row">
-                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2">
-                                            <div style="background-color: Green; height: 10px; width: 10px"></div>
-                                        </div>
-                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10" style="padding: 0px; font-size: 11px">PPPP - Present</div>
+                                            }
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                          
-                            <div class="col-md-12">
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                    <div class="row">
-                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2">
-                                            <div style="background-color: slateblue; height: 10px; width: 10px"></div>
-                                        </div>
-                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10" style="padding: 0px; font-size: 11px">WPWP - Present On Week Off</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                    <div class="row">
-                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2">
-                                            <div style="background-color: Purple; height: 10px; width: 10px"></div>
-                                        </div>
-                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10" style="padding: 0px; font-size: 11px">WOWO - Week Off</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                           
-                            <div class="col-md-12">
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                    <div class="row">
-                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2">
-                                            <div style="background-color: Orange; height: 10px; width: 10px"></div>
-                                        </div>
-                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10" style="padding: 0px; font-size: 11px">Holiday</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                    <div class="row">
-                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2">
-                                            <div style="background-color: #1c325d; height: 10px; width: 10px"></div>
-                                        </div>
-                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10" style="padding: 0px; font-size: 11px">PLPL - Leave</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                          
-                            <div class="col-md-12">
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                    <div class="row">
-                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2">
-                                            <div style="background-color: #f91cb8; height: 10px; width: 10px"></div>
-                                        </div>
-                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10" style="padding: 0px; font-size: 11px">AAPP - First half absent</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2">
-                                            <div style="background-color: #f91cb8; height: 10px; width: 10px"></div>
-                                        </div>
-                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10" style="padding: 0px; font-size: 11px">PPAA - Second half absent</div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                             <div class="col-md-12">
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                    <div class="row">
-                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2">
-                                            <div style="background-color: #1c325d; height: 10px; width: 10px"></div>
-                                        </div>
-                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10" style="padding: 0px; font-size: 11px">ODOD - On Duty</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                    <div class="row">
-                                        <div class="col-md-1 col-lg-1 col-sm-1 col-xs-2">
-                                            <div style="background-color: #1c325d; height: 10px; width: 10px"></div>
-                                        </div>
-                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10" style="padding: 0px; font-size: 11px">TOTO - Tour</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                          
-                             <div class="col-md-12">
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-2" style="padding: 0px; font-size: 11px">EG : Early Go</div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                     <div class="col-md-9 col-lg-9 col-sm-9 col-xs-10" style="padding: 0px; font-size: 11px">LC : Late Count</div>
-                                </div>
-
-                            </div>
-                            </div>
-                            <!-- END PORTLET-->
-
-                            <!-- END PORTLET-->
                         </div>
                        
-                             <div class = "col-md-12">
-                        <div class="tab-content">
-                                             <h4>Leave Balance Details as on @DateTime.Now.ToString("MMM-yyyy")</h4>
-      
-      <table id="LeaveTypes" class="table table-bordered table-striped" style="width: 100%; height: auto;border:1px solid Black;border-collapse:inherit" >
-       @if (ViewBag.LeaveTableview == "1")
-       {
-        <thead>
-            <tr>
-                <td align="center">Leave Type</td>
-                @*<td align="center">Opening Balance</td>*@
-                <td align="center">Opening Balance for @DateTime.Now.ToString("MMM-yyyy")</td>
-                
-               <td align="center">Allowed Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
-                <td align="center">Applied Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
-                @*<td align="center">Pending Leaves</td>*@
-                <td align="center">Total Deductable Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
-                <td align="center">Paid Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
-                <td align="center">UnPaid Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
-                
-               @*  <td align="center">Pending Leaves</td>*@
-                 <td align="center">Closing Leave Balance @DateTime.Now.ToString("MMM-yyyy")</td>
-            </tr>
-        </thead>
-            <tbody>
-                @foreach (var LBItem in ViewBag.LeaveBalanceDetailsVB)
-                {
-                    <tr>
-                        <td align="center"> @LBItem.LeaveType</td>
-                        @* <td class = "quantity"> @LBItem.OpeningBalance</td>*@
-                         @{var OpeningLeavesOnCurrentDay = Convert.ToDouble(LBItem.OpeningBalance);}
-                         @if (LBItem.LeaveUsed == 0)
-                         {
-
-                             OpeningLeavesOnCurrentDay = (Convert.ToDouble(LBItem.OpeningBalance) - Convert.ToDouble(LBItem.LeaveUsed));
-                         }
-                         else
-                         {
-                             OpeningLeavesOnCurrentDay = (Convert.ToDouble(LBItem.OpeningBalance) - Convert.ToDouble(LBItem.LeaveUsed)) + Convert.ToDouble(LBItem.TotalPaidLeaves);
-
-                         }
-                    @* @{var OpeningLeavesOnCurrentDay = ((Convert.ToDouble(LBItem.OpeningBalance) - LeaveConsumed);}*@
-                         
-                       <td class = "quantity"> @OpeningLeavesOnCurrentDay</td>
-                         @*@{var AllowedLeavesOnCurrentDay = (LBItem.LeaveAllowed - Convert.ToDecimal(LBItem.LeaveUsed));}
-                         <td class = "quantity"> @AllowedLeavesOnCurrentDay</td>*@
-                        <td class = "quantity"> @Convert.ToDouble(LBItem.LeaveAllowed)</td>
-                         @{var PendingLeaves = Convert.ToDouble(LBItem.TotalDeductableDays) - Convert.ToDouble(LBItem.LeaveUsedAsOnDate);}
-                        @if (LBItem.TotalPaidLeaves == 0)
-                        {
-                            PendingLeaves = Convert.ToDouble(LBItem.TotalDeductableDays) - Convert.ToDouble(LBItem.TotalPaidLeaves);
-                        }
-                        
-                        @{}
-                         <td class = "quantity">  @Convert.ToDouble(LBItem.TotalAppliedDays)</td>
-                        @* @if (PendingLeaves == 0)
-                         {
-                          <td class = "quantity">@PendingLeaves</td>
-                         }
-                         else
-                         {
-                         <td  style="font-weight:800;color:Red" class = "quantity">@PendingLeaves</td>
-                         }*@
-                         @{var TotalDeductableDays = Convert.ToDouble(LBItem.TotalDeductableDays) - PendingLeaves;}
-                         <td class = "quantity">  @Convert.ToDouble(LBItem.TotalDeductableDays)</td> @*@TotalDeductableDays*@
-                         @{var TotalPaidLeaves = Convert.ToDouble(LBItem.TotalPaidLeaves) - PendingLeaves;}
-                         <td class = "quantity"> @Convert.ToDouble(LBItem.TotalPaidLeaves)</td> @*TotalPaidLeaves*@
-
-                         <td class = "quantity"> @Convert.ToDouble(LBItem.TotalUnPaidLeaves)</td>
-                         
-                        @*<td style ="color:Red" class = "quantity"> @LBItem.Pending</td>*@
-                        @{var ClosingLeavesOnCurrentDay = (Convert.ToDouble(LBItem.OpeningBalance) - Convert.ToDouble(LBItem.LeaveUsed));}
-                       @* <td class = "quantity">@LBItem.CurrentBalance</td>*@
-                       <td class = "quantity"> @ClosingLeavesOnCurrentDay</td>
-                    </tr>
-                }
-            </tbody>
-       }
-       else
-       {
-           <thead>
-            <tr>
-                <td align="center">
-                    Leave Type
-                </td>
-                <td align="center">
-                    Opening Balance
-                </td>
-                @* <td align="center">Allowed Leaves</td>*@
-                <td align="center">
-                    Leave consumed
-                </td>
-                <td align="center">
-                    Pending
-                </td>
-                <td align="center">
-                    Current Balance for @DateTime.Now.ToString("MMM-yyyy")
-                </td>
-            </tr>
-        </thead>
-                 <tbody>
-            @foreach (var LBItem in ViewBag.LeaveBalanceDetailsVB)
-            {
-                <tr>
-                    <td align="center">
-                        @LBItem.LeaveType
-                    </td>
-                    @*<td class="quantity">@LBItem.LeaveUsed</td>*@
-                    <td class="quantity">
-                        @LBItem.OpeningBalance
-                    </td>
-                    @*<td class="quantity">@LBItem.LeaveAllowed</td>*@
-                    <td class="quantity">
-                        @LBItem.LeaveUsed
-                    </td>
-                    <td class="quantity">
-                        @LBItem.Pending
-                    </td>
-                    @{var OpeningLeavesOnCurrentDay = (LBItem.OpeningBalance - (Convert.ToDouble(LBItem.LeaveUsed) + Convert.ToDouble(LBItem.Pending)));}
-                    @*<td class = "quantity">@LBItem.CurrentBalance</td>*@
-                    <td class="quantity">
-                        @OpeningLeavesOnCurrentDay
-                    </td>
-                </tr>
-            }
-        </tbody>
-       }
-        <tfoot></tfoot>
-      </table>
-       </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row leave_balance_row">
+                            <div class="col-sm-12 leave_balance_div">
+                                <h4>Leave Balance Details as on @DateTime.Now.ToString("MMM-yyyy")</h4>
+                            </div>
                         </div>
-    
-                        <!-- /.row -->
-          
+                        <div class="tab-content table-responsive">
+                            <table id="LeaveTypes" class="table table-bordered table-striped leave_types_table">
+                                @if (ViewBag.LeaveTableview == "1")
+                                {
+                                    <thead>
+                                        <tr>
+                                            <td align="center">Leave Type</td>
+                                            @*<td align="center">Opening Balance</td>*@
+                                            <td align="center">Opening Balance for @DateTime.Now.ToString("MMM-yyyy")</td>
+
+                                            <td align="center">Allowed Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                                            <td align="center">Applied Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                                            @*<td align="center">Pending Leaves</td>*@
+                                            <td align="center">Total Deductable Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                                            <td align="center">Paid Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+                                            <td align="center">UnPaid Leaves in @DateTime.Now.ToString("MMM-yyyy")</td>
+
+                                            @*  <td align="center">Pending Leaves</td>*@
+                                            <td align="center">Closing Leave Balance @DateTime.Now.ToString("MMM-yyyy")</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var LBItem in ViewBag.LeaveBalanceDetailsVB)
+                                        {
+                                            <tr>
+                                                <td align="center"> @LBItem.LeaveType</td>
+                                                @* <td class = "quantity"> @LBItem.OpeningBalance</td>*@
+                                                @{var OpeningLeavesOnCurrentDay = Convert.ToDouble(LBItem.OpeningBalance);}
+                                                @if (LBItem.LeaveUsed == 0)
+                                                {
+
+                                                    OpeningLeavesOnCurrentDay = (Convert.ToDouble(LBItem.OpeningBalance) - Convert.ToDouble(LBItem.LeaveUsed));
+                                                }
+                                                else
+                                                {
+                                                    OpeningLeavesOnCurrentDay = (Convert.ToDouble(LBItem.OpeningBalance) - Convert.ToDouble(LBItem.LeaveUsed)) + Convert.ToDouble(LBItem.TotalPaidLeaves);
+
+                                                }
+                                                @* @{var OpeningLeavesOnCurrentDay = ((Convert.ToDouble(LBItem.OpeningBalance) - LeaveConsumed);}*@
+
+                                                <td class="quantity"> @OpeningLeavesOnCurrentDay</td>
+                                                @*@{var AllowedLeavesOnCurrentDay = (LBItem.LeaveAllowed - Convert.ToDecimal(LBItem.LeaveUsed));}
+                                <td class = "quantity"> @AllowedLeavesOnCurrentDay</td>*@
+                                                <td class="quantity"> @Convert.ToDouble(LBItem.LeaveAllowed)</td>
+                                                @{var PendingLeaves = Convert.ToDouble(LBItem.TotalDeductableDays) - Convert.ToDouble(LBItem.LeaveUsedAsOnDate);}
+                                                @if (LBItem.TotalPaidLeaves == 0)
+                                                {
+                                                    PendingLeaves = Convert.ToDouble(LBItem.TotalDeductableDays) - Convert.ToDouble(LBItem.TotalPaidLeaves);
+                                                }
+
+                                                @{}
+                                                <td class="quantity">  @Convert.ToDouble(LBItem.TotalAppliedDays)</td>
+                                                @* @if (PendingLeaves == 0)
+                                {
+                                 <td class = "quantity">@PendingLeaves</td>
+                                }
+                                else
+                                {
+                                <td  style="font-weight:800;color:Red" class = "quantity">@PendingLeaves</td>
+                                }*@
+                                                @{var TotalDeductableDays = Convert.ToDouble(LBItem.TotalDeductableDays) - PendingLeaves;}
+                                                <td class="quantity">  @Convert.ToDouble(LBItem.TotalDeductableDays)</td> @*@TotalDeductableDays*@
+                                                @{var TotalPaidLeaves = Convert.ToDouble(LBItem.TotalPaidLeaves) - PendingLeaves;}
+                                                <td class="quantity"> @Convert.ToDouble(LBItem.TotalPaidLeaves)</td> @*TotalPaidLeaves*@
+
+                                                <td class="quantity"> @Convert.ToDouble(LBItem.TotalUnPaidLeaves)</td>
+
+                                                @*<td style ="color:Red" class = "quantity"> @LBItem.Pending</td>*@
+                                                @{var ClosingLeavesOnCurrentDay = (Convert.ToDouble(LBItem.OpeningBalance) - Convert.ToDouble(LBItem.LeaveUsed));}
+                                                @* <td class = "quantity">@LBItem.CurrentBalance</td>*@
+                                                <td class="quantity"> @ClosingLeavesOnCurrentDay</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                }
+                                else
+                                {
+                                    <thead>
+                                        <tr>
+                                            <td align="center">
+                                                Leave Type
+                                            </td>
+                                            <td align="center">
+                                                Opening Balance
+                                            </td>
+                                            @* <td align="center">Allowed Leaves</td>*@
+                                            <td align="center">
+                                                Leave consumed
+                                            </td>
+                                            <td align="center">
+                                                Pending
+                                            </td>
+                                            <td align="center">
+                                                Current Balance for @DateTime.Now.ToString("MMM-yyyy")
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var LBItem in ViewBag.LeaveBalanceDetailsVB)
+                                        {
+                                            <tr>
+                                                <td align="center">
+                                                    @LBItem.LeaveType
+                                                </td>
+                                                @*<td class="quantity">@LBItem.LeaveUsed</td>*@
+                                                <td class="quantity">
+                                                    @LBItem.OpeningBalance
+                                                </td>
+                                                @*<td class="quantity">@LBItem.LeaveAllowed</td>*@
+                                                <td class="quantity">
+                                                    @LBItem.LeaveUsed
+                                                </td>
+                                                <td class="quantity">
+                                                    @LBItem.Pending
+                                                </td>
+                                                @{var OpeningLeavesOnCurrentDay = (LBItem.OpeningBalance - (Convert.ToDouble(LBItem.LeaveUsed) + Convert.ToDouble(LBItem.Pending)));}
+                                                @*<td class = "quantity">@LBItem.CurrentBalance</td>*@
+                                                <td class="quantity">
+                                                    @OpeningLeavesOnCurrentDay
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                }
+                                <tfoot></tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
             </section>
             <!-- /.content -->
         </div>
@@ -523,7 +440,7 @@
         <!-- Control Sidebar -->
         <!-- /.control-sidebar -->
         <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
+        immediately after the control sidebar -->
         <div class="control-sidebar-bg">
         </div>
         <div id="popupEventForm" class="modal fade">
@@ -532,11 +449,12 @@
                     <div class="modal-body">
                         <input type="hidden" id="eventID">
                         <input type="hidden" id="OriginalToDate">
-                        <input type="hidden" value ="@ViewBag.EmployeeId" id="EmployeeID">
+                        <input type="hidden" value="@ViewBag.EmployeeId" id="EmployeeID">
                         <label>
-                            Select Application</label><span style="color: Red">*</span>
+                            Select Application
+                        </label><span style="color: Red">*</span>
                         <input type="radio" checked="checked" name="ApplicationType" id="LeaveApplication"
-                            value="LeaveApplication" />
+                               value="LeaveApplication" />
                         Leave Application
                         <input type="radio" name="ApplicationType" id="ODApplication" value="ODApplication" />
                         OD Application
@@ -545,45 +463,53 @@
                         <br />
                         <br />
                         <label>
-                            From Date</label>
+                            From Date
+                        </label>
                         @Html.TextBox("FromDate", "", new { @class = "datepicker", @disabled = "disabled" })
                         <br />
                         <br />
                         <label>
-                            To Date</label>
+                            To Date
+                        </label>
                         @Html.TextBox("ToDate", "", new { @class = "datepicker", @disabled = "disabled" })
                         <br />
                         <br />
                         <div id="LeaveContent">
                             <label>
-                                From Day Status</label>
+                                From Day Status
+                            </label>
                             @Html.DropDownList("FromDayStatus", (IEnumerable<SelectListItem>)@ViewBag.LeaveTypeStatusList)
                             <br />
                             <br />
                             <label>
-                                To Day Status</label>
+                                To Day Status
+                            </label>
                             @Html.DropDownList("ToDayStatus", (IEnumerable<SelectListItem>)@ViewBag.LeaveTypeStatusList)
                             <br />
                             <br />
                             <label>
-                                Leave Type <span style="color: Red; font-weight: 700">*</span></label>
-                           @Html.DropDownList("LeaveId", (IEnumerable<SelectListItem>)@ViewBag.LeaveTypeList)
+                                Leave Type <span style="color: Red; font-weight: 700">*</span>
+                            </label>
+                            @Html.DropDownList("LeaveId", (IEnumerable<SelectListItem>)@ViewBag.LeaveTypeList)
                             <br />
                             <br />
                             <label>
-                                Purpose</label>
+                                Purpose
+                            </label>
                             @Html.TextBox("Purpose", "")
                             <br />
                             <br />
                         </div>
                         <div id="ODContent" style="display: none">
                             <label>
-                                From Day Status</label>
+                                From Day Status
+                            </label>
                             @Html.DropDownList("ODDayStatus", (IEnumerable<SelectListItem>)@ViewBag.LeaveTypeStatusList)
                             <br />
                             <br />
                             <label>
-                                To Day Status</label>
+                                To Day Status
+                            </label>
                             @Html.DropDownList("ODDayStatus1", (IEnumerable<SelectListItem>)@ViewBag.LeaveTypeStatusList)
                             <br />
                             <br />
@@ -594,7 +520,8 @@
                             <br />
                             <br />
                             <label>
-                                Place</label>
+                                Place
+                            </label>
                             @Html.TextBox("Place", "")
                             <br />
                             <br />
@@ -608,49 +535,56 @@
                         <div id="ExceptionContent" style="display: none">
                             <input type="hidden" id="DailyTrnId">
                             <label>
-                                Shift <span style="color: Red; font-size: 18px">*</span></label>
+                                Shift <span style="color: Red; font-size: 18px">*</span>
+                            </label>
                             @Html.DropDownList("ShiftId", (IEnumerable<SelectListItem>)@ViewBag.ShiftList)
                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                             <label>
-                                Status <span style="color: Red; font-size: 18px">*</span></label>
+                                Status <span style="color: Red; font-size: 18px">*</span>
+                            </label>
                             @Html.TextBox("Status", "", new { disabled = "disabled" })
                             <br />
                             <br />
                             <label>
-                                Original Login Time</label>
+                                Original Login Time
+                            </label>
                             <input type="text" name="OriginalLogin" id="OriginalLogin" readonly="readonly" disabled="disabled"
-                                data-inputmask="'mask': ['', '99:99:99']" data-mask />
+                                   data-inputmask="'mask': ['', '99:99:99']" data-mask />
                             <br />
                             <br />
                             <label>
                                 Login Time <span style="color: Red; font-size: 18px">*</span> <span style="color: Red;
-                                    font-size: 10px">(In 24 hours format)</span></label>
+                                    font-size: 10px">(In 24 hours format)</span>
+                            </label>
                             <input type="text" name="Login" id="Login" value="" data-inputmask="'mask': ['', '99:99:99']"
-                                data-mask />
+                                   data-mask />
                             <br />
                             <br />
                             <label>
                                 Original LogOut Time
                             </label>
                             <input type="text" name="OringinalLogOut" id="OringinalLogOut" readonly="readonly"
-                                disabled="disabled" data-inputmask="'mask': ['', '99:99:99']" data-mask />
+                                   disabled="disabled" data-inputmask="'mask': ['', '99:99:99']" data-mask />
                             <br />
                             <br />
                             <label>
                                 LogOut Time <span style="color: Red; font-size: 18px">* </span><span style="color: Red;
-                                    font-size: 10px">(In 24 hours format)</span></label>
+                                    font-size: 10px">(In 24 hours format)</span>
+                            </label>
                             <input type="text" name="LogOut" id="LogOut" value="" data-inputmask="'mask': ['', '99:99:99']"
-                                data-mask />
+                                   data-mask />
                             <br />
                             <br />
                             <label>
-                                Reason <span style="color: Red; font-size: 18px">*</span></label>
+                                Reason <span style="color: Red; font-size: 18px">*</span>
+                            </label>
                             @Html.DropDownList("Reason", (IEnumerable<SelectListItem>)@ViewBag.ExceptionReasonList)
                             <br />
                             <br />
                             <div id="RemarkBox" style="display: none">
                                 <label>
-                                    Remark <span style="color: Red; font-size: 18px">*</span></label>
+                                    Remark <span style="color: Red; font-size: 18px">*</span>
+                                </label>
                                 @Html.TextBox("Remark", "")
                             </div>
                             <br />
@@ -659,9 +593,11 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" id="btnPopupCancel" data-dismiss="modal" class="btn">
-                            Cancel</button>
+                            Cancel
+                        </button>
                         <button type="button" id="btnPopupSave" class="btn btn-primary">
-                            Save event</button>
+                            Save event
+                        </button>
                     </div>
                 </div>
             </div>
@@ -673,10 +609,12 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="SubmitBtn"
-                            style="display: none">
-                            Submit</button>
+                                style="display: none">
+                            Submit
+                        </button>
                         <button type="button" data-dismiss="modal" class="col-md-2 btn">
-                            Cancel</button>
+                            Cancel
+                        </button>
                     </div>
                 </div>
             </div>
@@ -705,19 +643,21 @@
             success: function (result) {
                 //result = JSON.stringify(result);
                 //var obj = JSON.parse(result);
+                hideloading();
                 $("#div_readmore").html(result);
-
+                
             },
             error: function (result) {
+                hideloading();
                 //alert(result);
             }
         });
-        hideloading();  //--- ADDED BY SHALAKA ON 21st JUNE 2017 TO DISPLAY PROGRESS RING
+        /*hideloading();*/  //--- ADDED BY SHALAKA ON 21st JUNE 2017 TO DISPLAY PROGRESS RING
     }
 
     //--- ADDED BY SHALAKA ON 21st JUNE 2017 TO DISPLAY PROGRESS RING
     // Start
-    // OnBtnUsersClick function to check Employee statistics  
+    // OnBtnUsersClick function to check Employee statistics
     function OnBtnUsersClick() {
         showloading();
         window.location.href = '@Url.Action("HRDashboard", "Dashboard")';
@@ -755,8 +695,8 @@
         hideloading();
 
     }
-   
-    
+
+
 </script>
 <script type="text/javascript">
 
@@ -764,8 +704,8 @@
         jQuery('#ticker').tickerme();
     });
 
-    // js code for news ticker	
-    (function (e) { e.fn.tickerme = function (t) { var n = e.extend({}, e.fn.tickerme.defaults, t); return this.each(function () { function a() { e(t).hide(); e("body").prepend(r).prepend(i); var n = '<div id="ticker_container">'; n += '<div id="newscontent"><div id="news"></div></div>'; n += '<div id="controls">'; n += '<a href="#" id="pause_trigger"><svg class="icon icon-pause" viewBox="0 0 32 32"><use xlink:href="#icon-pause"></use></svg></a>'; n += '<a href="#" id="play_trigger" style="display:none"><svg class="icon icon-play" viewBox="0 0 32 32"><use xlink:href="#icon-play"></use></svg></a>'; n += '<a href="#" id="prev_trigger"><svg class="icon icon-prev" viewBox="0 0 32 32"><use xlink:href="#icon-prev"></use></svg></a>'; n += '<a href="#" id="next_trigger"><svg class="icon icon-next" viewBox="0 0 32 32"><use xlink:href="#icon-next"></use></svg></a>'; n += "</div>"; n += "</div>"; e(n).insertAfter(t); e(t).children().each(function (t) { s[t] = e(this).html() }); f() } function f() { if (o == s.length - 1) { o = 0 } else { o++ } if (n.type == "fade") { e("#news").fadeOut(n.fade_speed, function () { e("#newscontent").html('<div id="news">' + s[o] + "</div>"); e("#news").fadeIn(n.fade_speed) }) } u = setTimeout(f, n.duration) } var t = e(this); var r = '<svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="224" height="32" viewBox="0 0 224 32"><defs><g id="icon-play"><path class="path1" d="M6 4l20 12-20 12z"></path></g><g id="icon-pause"><path class="path1" d="M4 4h10v24h-10zM18 4h10v24h-10z"></path></g><g id="icon-prev"><path class="path1" d="M18 5v10l10-10v22l-10-10v10l-11-11z"></path></g><g id="icon-next"><path class="path1" d="M16 27v-10l-10 10v-22l10 10v-10l11 11z"></path></g></defs></svg>'; var i = '<style type="text/css">#ticker_container{width:100%}#newscontent{float:left}#news{display:none}#controls{float:right;height:16px}.icon{display:inline-block;width:16px;height:16px;fill:' + n.control_colour + "}.icon:hover{fill:" + n.control_rollover + "}</style>"; var s = []; var o = -1; var u; a(); e("a#pause_trigger").click(function () { clearTimeout(u); e(this).hide(); e("#play_trigger").show(); return false }); e("a#play_trigger").click(function () { f(); e(this).hide(); e("#pause_trigger").show(); return false }); e("a#prev_trigger").click(function () { if (o == 0) { o = s.length - 1 } else { o-- } e("#newscontent").html('<div id="news" style="display:block">' + s[o] + "</div>"); if (n.auto_stop) e("a#pause_trigger").trigger("click"); return false }); e("a#next_trigger").click(function () { if (o == s.length - 1) { o = 0 } else { o++ } e("#newscontent").html('<div id="news" style="display:block">' + s[o] + "</div>"); if (n.auto_stop) e("a#pause_trigger").trigger("click"); return false }) }) }; e.fn.tickerme.defaults = { fade_speed: 500, duration: 3e3, auto_stop: true, type: "fade", control_colour: "#333333", control_rollover: "#666666"} })(jQuery)
+    // js code for news ticker
+    (function (e) { e.fn.tickerme = function (t) { var n = e.extend({}, e.fn.tickerme.defaults, t); return this.each(function () { function a() { e(t).hide(); e("body").prepend(r).prepend(i); var n = '<div id="ticker_container">'; n += '<div id="newscontent"><div id="news"></div></div>'; n += '<div id="controls">'; n += '<a href="#" id="pause_trigger"><svg class="icon icon-pause" viewBox="0 0 32 32"><use xlink:href="#icon-pause"></use></svg></a>'; n += '<a href="#" id="play_trigger" style="display:none"><svg class="icon icon-play" viewBox="0 0 32 32"><use xlink:href="#icon-play"></use></svg></a>'; n += '<a href="#" id="prev_trigger"><svg class="icon icon-prev" viewBox="0 0 32 32"><use xlink:href="#icon-prev"></use></svg></a>'; n += '<a href="#" id="next_trigger"><svg class="icon icon-next" viewBox="0 0 32 32"><use xlink:href="#icon-next"></use></svg></a>'; n += "</div>"; n += "</div>"; e(n).insertAfter(t); e(t).children().each(function (t) { s[t] = e(this).html() }); f() } function f() { if (o == s.length - 1) { o = 0 } else { o++ } if (n.type == "fade") { e("#news").fadeOut(n.fade_speed, function () { e("#newscontent").html('<div id="news">' + s[o] + "</div>"); e("#news").fadeIn(n.fade_speed) }) } u = setTimeout(f, n.duration) } var t = e(this); var r = '<svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="224" height="32" viewBox="0 0 224 32"><defs><g id="icon-play"><path class="path1" d="M6 4l20 12-20 12z"></path></g><g id="icon-pause"><path class="path1" d="M4 4h10v24h-10zM18 4h10v24h-10z"></path></g><g id="icon-prev"><path class="path1" d="M18 5v10l10-10v22l-10-10v10l-11-11z"></path></g><g id="icon-next"><path class="path1" d="M16 27v-10l-10 10v-22l10 10v-10l11 11z"></path></g></defs></svg>'; var i = '<style type="text/css">#ticker_container{width:100%}#newscontent{float:left}#news{display:none}#controls{float:right;height:16px}.icon{display:inline-block;width:16px;height:16px;fill:' + n.control_colour + "}.icon:hover{fill:" + n.control_rollover + "}</style>"; var s = []; var o = -1; var u; a(); e("a#pause_trigger").click(function () { clearTimeout(u); e(this).hide(); e("#play_trigger").show(); return false }); e("a#play_trigger").click(function () { f(); e(this).hide(); e("#pause_trigger").show(); return false }); e("a#prev_trigger").click(function () { if (o == 0) { o = s.length - 1 } else { o-- } e("#newscontent").html('<div id="news" style="display:block">' + s[o] + "</div>"); if (n.auto_stop) e("a#pause_trigger").trigger("click"); return false }); e("a#next_trigger").click(function () { if (o == s.length - 1) { o = 0 } else { o++ } e("#newscontent").html('<div id="news" style="display:block">' + s[o] + "</div>"); if (n.auto_stop) e("a#pause_trigger").trigger("click"); return false }) }) }; e.fn.tickerme.defaults = { fade_speed: 500, duration: 3e3, auto_stop: true, type: "fade", control_colour: "#333333", control_rollover: "#666666" } })(jQuery)
 </script>
 <script type="text/javascript">
 
@@ -789,7 +729,7 @@
             //                }
             //            });
 
-            //           
+            //
             //            $('#lang-selector').append(
             //				$('<option/>')
             //					.attr('value', 'hi')
@@ -1451,5 +1391,5 @@
     //        hideloading();
     //        //alert("Hide Loading");
     //    });
-    
+
 </script>

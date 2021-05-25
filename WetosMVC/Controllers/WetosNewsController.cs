@@ -460,7 +460,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.News.AddObject(NewsTblObj);
+                    WetosDB.News.Add(NewsTblObj);
                 }
 
                 WetosDB.SaveChanges();

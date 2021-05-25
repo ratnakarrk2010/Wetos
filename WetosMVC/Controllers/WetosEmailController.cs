@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
+using System.Net.Mail;
+using System.Text;
 using System.Web.Mvc;
 using WetosDB;
 
@@ -27,11 +30,21 @@ namespace WetosMVC.Controllers
         /// </summary>
         /// <returns></returns>
         //public ActionResult SendEmail(FormCollection collection)
-        public ActionResult SendEmail(int ToEmail, string Subject, string Message)
+        public ActionResult SendEmail(int ToEmail, string Subject, string Message, string SubjectText)
         {
 
             //ADDED CODE FOR GETTING EMAIL ID FROM EMPLOYEEID BY SHRADDHA ON 23 JAN 2017
             string EmailId = WetosDB.Employees.Where(a => a.EmployeeId == ToEmail).Select(a => a.Email).FirstOrDefault();
+            EmailId = "devphp11@gmail.com";  //delete after testing
+
+            var SubjectInt = Convert.ToInt32(Subject);
+            string MsgSubject = WetosDB.DropdownDatas.Where(x => x.Value == SubjectInt && x.TypeId == 16).Select(x => x.Text).FirstOrDefault();
+
+            if (SubjectText != "PreSelect" && SubjectText != "")
+            {
+                MsgSubject = SubjectText;
+            }
+
             // SEND EMAIL START
             string SMTPServerName = ConfigurationManager.AppSettings["SMTPServerName"];
             string SMTPUsername = ConfigurationManager.AppSettings["SMTPUsername"];
@@ -52,51 +65,65 @@ namespace WetosMVC.Controllers
             {
                 try
                 {
-                    //MailMessage msg = new MailMessage();
-                    //SmtpClient smtp = new SmtpClient();
+                    MailMessage msg = new MailMessage();
+                    SmtpClient smtp = new SmtpClient();
                     //MailAddress from = new MailAddress(SMTPUsername); //"info@foodpatronservices.com");
-                    //StringBuilder sb = new StringBuilder();
+                    MailAddress from = new MailAddress("devphp11@gmail.com");
+                    StringBuilder sb = new StringBuilder();
 
-                    ////TO
+                    //TO
+                    msg.To.Add(new MailAddress(EmailId));
                     //msg.To.Add(EmailId); //"mjoshi@sushmatechnology.com");
-                    ////msg.To.Add(Contact1); //"mjoshi@sushmatechnology.com");
-                    ////msg.To.Add(email); //"mjoshi@sushmatechnology.com");
+                    //msg.To.Add(Contact1); //"mjoshi@sushmatechnology.com");
+                    //msg.To.Add(email); //"mjoshi@sushmatechnology.com");
 
-                    ////BCC
-                    ////msg.Bcc.Add(Support);
+                    //BCC
+                    //msg.Bcc.Add(Support);
                     //msg.Subject = Subject; // "Contact Us";
+                    msg.Subject = MsgSubject;
 
-                    //msg.IsBodyHtml = false;
+                    msg.IsBodyHtml = false;
+                    //msg.IsBodyHtml = true;  //to make message body as html  
 
-                    //msg.From = new MailAddress(SMTPUsername); //"info@foodpatronservices.com");
+                    msg.From = new MailAddress(SMTPUsername); //"info@foodpatronservices.com");
+                    //msg.From = new MailAddress("devphp11@gmail.com");
 
-                    //smtp.Host = SMTPServerName; // "smtpout.asia.secureserver.net";
+                    smtp.Port = SMTPPortInt;
+                    smtp.Host = SMTPServerName; // "smtpout.asia.secureserver.net";
+                    smtp.EnableSsl = true;
+                    smtp.UseDefaultCredentials = false;
 
-                    ////smtp.Credentials = new System.Net.NetworkCredential("info@foodpatronservices.com", "info@fps");
-                    //smtp.Credentials = new System.Net.NetworkCredential(SMTPUsername, SMTPPassword);//"info@foodpatronservices.com", "info@fps");
+                    //smtp.Credentials = new System.Net.NetworkCredential("info@foodpatronservices.com", "info@fps");
+                    //smtp.Credentials = new System.Net.NetworkCredential("devphp11@gmail.com", "php@2018");
+                    smtp.Credentials = new System.Net.NetworkCredential(SMTPUsername, SMTPPassword);
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
 
-                    //smtp.Port = SMTPPortInt; // 25;
 
+                    //sb.Append("Name: " + name);
+                    //sb.Append(Environment.NewLine);
+                    //sb.Append("Email: " + email);
+                    //sb.Append(Environment.NewLine);
+                    //sb.Append("Subject: " + subject);
+                    //sb.Append(Environment.NewLine);
+                    //sb.Append("Comments: " + message);
+                    //Message
 
-                    ////sb.Append("Name: " + name);
-                    ////sb.Append(Environment.NewLine);
-                    ////sb.Append("Email: " + email);
-                    ////sb.Append(Environment.NewLine);
-                    ////sb.Append("Subject: " + subject);
-                    ////sb.Append(Environment.NewLine);
-                    ////sb.Append("Comments: " + message);
-                    ////Message
+                    msg.Body = Message; // sb.ToString();
 
-                    //msg.Body = Message; // sb.ToString();
+                    smtp.Send(msg);
 
-                    //smtp.Send(msg);
+                    msg.Dispose();
 
-                    //msg.Dispose();
-
-                    return RedirectToAction("Index", "Home");
+                    return Json(new { status = "Success" }, JsonRequestBehavior.AllowGet);
+                    //return RedirectToAction("Index", "Home");
                 }
-                catch (System.Exception)
+                catch (Exception Ex)
                 {
+                    String path = System.Web.HttpContext.Current.Server.MapPath("~/ErrorLog/myFile.txt");
+                    using (StreamWriter writer = new StreamWriter(path, true))
+                    {
+                        writer.WriteLine("Error in SendEmail: " + Ex.Message.ToString() + " _ " + (Ex.InnerException == null ? string.Empty : Ex.InnerException.Message) + " Stack trace: " + Ex.StackTrace.ToString());
+                    }
                     return View("Error");
                 }
             }

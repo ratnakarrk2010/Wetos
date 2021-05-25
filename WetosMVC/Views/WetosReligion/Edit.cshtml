@@ -1,103 +1,89 @@
 ﻿@model WetosDB.Religion
+<link href="~/Content/css/wetosreligion_edit.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+<style>
+    .single-line {
+        border-color: #eee;
+        border-radius: 5px;
+        padding-left: 10px;
+    }
+</style>
 <section class="content-header">
-      <h1>
+    @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
+    <div>
+        @* <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>*@
+        @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
+
+    </div>
+    <div style="clear: both;"></div>
+    <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+        <div class="col-sm-6 ed_breadcrumb_div">
+            <ul>
+                <li class="li_margin1">
+                    <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                    <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+                </li>
+                <li class="li_margin"><a href="#">Masters </a> <i class="fa fa-angle-right"></i> </li>
+
+                <li class="li_margin"><a href="@Url.Action("Index", "WetosReligion")">Religion</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <ul style="float: right;">
+                <li class="">
+                    <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                        <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                        <span>
+                            @DateTime.Now.ToLongDateString()
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <h1 class="margin_left_h1">
         Religion Master
         <small>Edit</small>
-      </h1>
-@*      <ol class="breadcrumb">
-      <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Masters</li>
-        <li><a href="@Url.Action("Index", "WetosReligion")"><i class="fa fa-arrow-left"></i> Religion</a></li>
-        <li class="active">Edit</li>
-        @*<li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
-      
-      </ol>*@
-      
-        @*Added by Pushkar For back breadcrumb on 24 OCT 2016----------Start*@
-      <div>
-     @* <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span>*@
-     @* <span style="float:left">@Html.ActionLink("Add New Location", "Create")</span>*@
-
-      </div>
-      <div style="clear: both;"></div>
-@*
-    //Added by dhanashri on 3 june 2019 START*@
-         <div style="clear: both;"></div>
-          <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                         <a href="#">Masters</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Index", "WetosReligion")">Religion</a>
-                        </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report" class="dashboard-date"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor:pointer" class="back"  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i></span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()</span>                           
-                            </div>
-                        </li>              
-                    </ul>
-                </div>
-            </div>
-         @*   //Added by dhanashri on 3 june 2019 END*@
- </section>
+    </h1>
+    @*   //Added by dhanashri on 3 june 2019 END*@
+</section>
 <section class="content">
-      <div class="row">
+    <div class="row">
         <div class="col-xs-12 col-md-12 col-lg-12">
-         
-      <div class="box">
-            <div class="box-header">
-           
+            <div class="box">
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(model => model.ReligionId)
+                        <div class="editor-label col-md-2">
+                            Religion          @* @Html.LabelFor(model => model.ReligionName)*@
+                        </div>
+                        <div class="col-md-10 editor-field">
+                            @Html.EditorFor(model => model.ReligionName)
+                            @Html.ValidationMessageFor(model => model.ReligionName)
+                        </div>
+                        <br />
+                        <p class="margin_left_save">
+                            <input class="btn btn-default" type="submit" value="Save" style="cursor:pointer; float:left" />
+                            <span class="btn btn-default" style="cursor:pointer; float:left; margin-left:10px"> @Html.ActionLink("Back to List", "Index")</span>
+                        </p>
+                    }
+                   
+                </div>
+                <!-- /.box-body -->
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
-
-        @Html.HiddenFor(model => model.ReligionId)
-
-        <div class="editor-label col-md-4">
-  Religion          @* @Html.LabelFor(model => model.ReligionName)*@
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ReligionName)
-            @Html.ValidationMessageFor(model => model.ReligionName)
-        </div>
-         
-        <br />
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-</div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          <!-- /.box -->
+            <!-- /.box -->
+            <!-- /.box -->
         </div>
         <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
-
-    @*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
+    </div>
+    <!-- /.row -->
+</section>
+@*Added by Pushkar For back breadcrumb on 24 OCT 2016-------start*@
 <script type="text/jscript">
     $(document).ready(function () {
         $('a.back').click(function () {
@@ -105,17 +91,13 @@
             return false;
         });
     });
-
     function goBack() {
         window.history.back();
     }
-
-
-
 </script>
 @*Added by Pushkar For back breadcrumb on 24 OCT 2016---------end*@
 @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION START*@
 @section Scripts {
     @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
- }
- @*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@
+}
+@*ADDED BY SHRADDHA ON 08 SEP 2017 FOR CLIENT SIDE VALIDATION END*@

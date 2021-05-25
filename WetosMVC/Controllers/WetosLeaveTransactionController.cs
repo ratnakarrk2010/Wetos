@@ -582,7 +582,7 @@ namespace WetosMVC.Controllers
 
 
                     // ADD NEW LEAVE TO DATABASE 
-                    WetosDB.LeaveApplications.AddObject(LeaveApplicationObj);
+                    WetosDB.LeaveApplications.Add(LeaveApplicationObj);
                     WetosDB.SaveChanges();
 
 
@@ -626,7 +626,7 @@ namespace WetosMVC.Controllers
                     NotificationObj.SendDate = DateTime.Now;
 
                     // ADD TO NOTIFICATION REPORTING PERSON
-                    WetosDB.Notifications.AddObject(NotificationObj);
+                    WetosDB.Notifications.Add(NotificationObj);
                     WetosDB.SaveChanges();
 
                     //Check if both reporting person are are different
@@ -642,7 +642,7 @@ namespace WetosMVC.Controllers
                         NotificationObj3.SendDate = DateTime.Now;
 
                         // ADD TO NOTIFICATION
-                        WetosDB.Notifications.AddObject(NotificationObj3);
+                        WetosDB.Notifications.Add(NotificationObj3);
                         WetosDB.SaveChanges();
                     }
 
@@ -656,7 +656,7 @@ namespace WetosMVC.Controllers
                     NotificationObj2.ReadFlag = false;
                     NotificationObj2.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj2);
+                    WetosDB.Notifications.Add(NotificationObj2);
 
                     WetosDB.SaveChanges();
 
@@ -1105,7 +1105,7 @@ namespace WetosMVC.Controllers
                     //#endregion ADD AUDIT LOG
 
                     // ADD NEW LEAVE TO DATABASE 
-                    // WetosDB.LeaveApplications.AddObject(LeaveApplicationObj);
+                    // WetosDB.LeaveApplications.Add(LeaveApplicationObj);
                     WetosDB.SaveChanges();
 
                     //AUDIT LOG GENERATION ADDED BY PUSHKAR ON 9 SEPTEMBER 2017
@@ -1150,7 +1150,7 @@ namespace WetosMVC.Controllers
                     NotificationObj.SendDate = DateTime.Now;
 
                     // ADD TO NOTIFICATION REPORTING PERSON
-                    WetosDB.Notifications.AddObject(NotificationObj);
+                    WetosDB.Notifications.Add(NotificationObj);
                     WetosDB.SaveChanges();
 
                     //Check if both reporting person are are different
@@ -1166,7 +1166,7 @@ namespace WetosMVC.Controllers
                         NotificationObj3.SendDate = DateTime.Now;
 
                         // ADD TO NOTIFICATION
-                        WetosDB.Notifications.AddObject(NotificationObj3);
+                        WetosDB.Notifications.Add(NotificationObj3);
                         WetosDB.SaveChanges();
                     }
 
@@ -1181,7 +1181,7 @@ namespace WetosMVC.Controllers
                     NotificationObj2.ReadFlag = false;
                     NotificationObj2.SendDate = DateTime.Now;
 
-                    WetosDB.Notifications.AddObject(NotificationObj2);
+                    WetosDB.Notifications.Add(NotificationObj2);
 
                     WetosDB.SaveChanges();
 
@@ -3976,7 +3976,7 @@ namespace WetosMVC.Controllers
                             NotificationObj.ReadFlag = false;
                             NotificationObj.SendDate = DateTime.Now;
 
-                            WetosDB.Notifications.AddObject(NotificationObj);
+                            WetosDB.Notifications.Add(NotificationObj);
 
                             WetosDB.SaveChanges();
 
@@ -3993,7 +3993,7 @@ namespace WetosMVC.Controllers
                                 NotificationObj.ReadFlag = false;
                                 NotificationObj.SendDate = DateTime.Now;
 
-                                WetosDB.Notifications.AddObject(NotificationObj2);
+                                WetosDB.Notifications.Add(NotificationObj2);
 
                                 WetosDB.SaveChanges();
 

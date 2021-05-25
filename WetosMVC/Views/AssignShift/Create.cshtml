@@ -3,51 +3,10 @@
     int i = 0;
     var message = TempData["AlertMessage"] ?? string.Empty;
 }
-
-<style>
-    /*Here We will add some css for style our treeview*/
-    .collapse {
-        width: 15px;
-        background-image: url('../Images/ui-icons_454545_256x240.png');
-        background-repeat: no-repeat;
-        background-position: -36px -17px;
-        display: inline-block;
-        cursor: pointer;
-    }
-
-    .expand {
-        width: 15px;
-        background-image: url('../Images/ui-icons_454545_256x240.png');
-        background-repeat: no-repeat;
-        background-position: -50px -17px;
-        display: inline-block;
-        cursor: pointer;
-    }
-
-    .treeview ul {
-        font: 14px Arial, Sans-Serif;
-        margin: 0px;
-        padding-left: 20px;
-        list-style: none;
-    }
-
-    .treeview > li > a {
-        font-weight: bold;
-    }
-
-    .treeview li {
-    }
-
-        .treeview li a {
-            padding: 4px;
-            font-size: 12px;
-            display: inline-block;
-            text-decoration: none;
-            width: auto;
-        }
-</style>
+<link href="~/Content/css/asign_shift_create.css" rel="stylesheet" />
 
 
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
 @using (Html.BeginForm("Create", "AssignShift", FormMethod.Post, new { name = "Create", id = "Create" }))
 {
     <div class="page-content-wrapper">
@@ -73,6 +32,7 @@
                                 <div class="caption">Group List</div>
                             </div>
                             <div class="col-md- portlet-body">
+                            <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
@@ -107,6 +67,7 @@
                                         }
                                     </tbody>
                                 </table>
+                            </div>
                             </div>
 
                         </div>

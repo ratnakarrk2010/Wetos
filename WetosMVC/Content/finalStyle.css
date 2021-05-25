@@ -45,9 +45,20 @@ html, body
     border: none;
     box-shadow: none !important;
 }
-
-.sidebar-menu > li:hover > a
-{
+.row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+.single-line {
+    width: 100% !important;
+    border: 1px solid #d3d3d3 !important;
+    height: 35px;
+}
+textarea {
+    border: 1px solid #d3d3d3 !important;
+    width: 100%;
+}
+.sidebar-menu > li:hover > a {
     background-color: #94B716 !important;
     border-left: none;
 }
@@ -55,7 +66,7 @@ html, body
 .content
 {
     padding: 5px 0px !important;
-    margin-left: 5px;
+    /*margin-left: 5px;*/
 }
 
 
@@ -88,7 +99,7 @@ html, body
 /*layout.css*/
 .page-content-wrapper .page-content
 {
-    padding: 10px 10px !important;
+    padding: 10px 0px !important;
 }
 
 .page-breadcrumb.breadcrumb
@@ -208,10 +219,10 @@ font-size:10px;
     padding: 05px 15px;
     margin-bottom: 05px;
 } */
-.input-group-addon
+/*.input-group-addon
 {
     padding: 0px 0px;
-}
+}*/
 
 
 /*@media screen and (min-width:500px) and (max-width:960px)
@@ -265,7 +276,7 @@ font-size:10px;
 {
     .content-header
     {
-        padding-top: 80px;
+        padding-top: 0px;
     }
 }
 @media (min-width: 768px) and (max-width: 991px)

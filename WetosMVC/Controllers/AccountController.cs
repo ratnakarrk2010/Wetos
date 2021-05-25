@@ -12,7 +12,8 @@ using WetosMVC.Models;
 using WetosMVCMainApp.Models;
 using System.Data.Entity;
 using WetosMVCMainApp.Utilities;
-using System.Net.Http;
+using System.Globalization;
+//using System.Net.Http;
 
 namespace WetosMVC.Controllers
 {
@@ -132,7 +133,7 @@ namespace WetosMVC.Controllers
 
                 if (UserObj == null)
                 {
-                    ModelState.AddModelError("", "Please enter correct user id and password");
+                    ModelState.AddModelError("AddModelError", "Please enter correct user id and password");
                     return View(model);
                 }
 
@@ -237,7 +238,7 @@ namespace WetosMVC.Controllers
                 //ADDED BY SHRADDHA ON 07 FEB 2017 FOR SHOWING DIFFERENT IMAGES FOR DIFFERENT GENDER START
 
                 //string Gender = EmployeeObj.Sex;
-                Session["Gender"] = LoggedInEmp == null ? string.Empty : LoggedInEmp.Gender; // UPDATED BY MSJ ON 10 DEC 2018
+                Session["Gender1"] = LoggedInEmp == null ? string.Empty : LoggedInEmp.Gender; // UPDATED BY MSJ ON 10 DEC 2018
 
                 //ADDED BY SHRADDHA ON 07 FEB 2017 FOR SHOWING DIFFERENT IMAGES FOR DIFFERENT GENDER END
 
@@ -374,7 +375,11 @@ namespace WetosMVC.Controllers
                 //    }
                 //}
 
-                DateTime ExpireDate = new DateTime(2021, 04, 15);
+                //DateTime ExpireDate = new DateTime(2022, 04, 15);
+                int ExpireDateYear = Convert.ToInt32(ConfigurationManager.AppSettings["ExpiryDateYear"]);
+                int ExpireDateMonth = Convert.ToInt32(ConfigurationManager.AppSettings["ExpiryDateMonth"]);
+                int ExpireDateDay = Convert.ToInt32(ConfigurationManager.AppSettings["ExpiryDateDay"]);
+                DateTime ExpireDate = new DateTime(ExpireDateYear, ExpireDateMonth, ExpireDateDay);
 
                 //int VV = 0;
                 //int WW = 10 / VV;
@@ -962,7 +967,7 @@ namespace WetosMVC.Controllers
                     //CurrentFY.FinancialYearId = MaxFYId + 1;
                     CurrentFY.MarkedAsDelete = 0;
 
-                    WetosDB.FinancialYears.AddObject(CurrentFY);
+                    WetosDB.FinancialYears.Add(CurrentFY);
 
                     WetosDB.SaveChanges();
 
@@ -989,7 +994,7 @@ namespace WetosMVC.Controllers
                         GFY.SettingText = GlobalSettingsConstant.CurrentFinancialYear;
                         GFY.SettingType = 1;
                         GFY.SettingValue = CurrentFY.FinancialName.ToString();
-                        WetosDB.GlobalSettings.AddObject(GFY);
+                        WetosDB.GlobalSettings.Add(GFY);
                         WetosDB.SaveChanges();
                     }
                     else

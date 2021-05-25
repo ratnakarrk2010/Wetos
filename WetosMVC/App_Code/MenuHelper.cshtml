@@ -1,52 +1,65 @@
 ﻿@*ShowTreeViewMenu*@
 
 @helper ShowTreeViewMenu(List<WetosDB.sp_get_user_role_menu_Result> RoleInfo)
-{    
-        var httpContext = HttpContext.Current;
-        System.Web.Mvc.UrlHelper u = new System.Web.Mvc.UrlHelper(httpContext.Request.RequestContext);
-      
-    <ul class="sidebar-menu">
-        @if (RoleInfo != null)
-        {
-            foreach (WetosDB.sp_get_user_role_menu_Result ri in RoleInfo.Where(x => x.parId == 0 && x.y_id == SessionPersister.YearInfo.y_id))
+{
+    var httpContext = HttpContext.Current;
+    System.Web.Mvc.UrlHelper u = new System.Web.Mvc.UrlHelper(httpContext.Request.RequestContext);
+
+
+
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="ture">
+            @if (RoleInfo != null)
             {
-            <li class="treeview"><a href="#"><i class="@ri.Icon" style="width: 30px"></i><span>@ri.navmenuname</span>
-                <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-            </a>
-                <ul class="treeview-menu">
-                    @foreach (WetosDB.sp_get_user_role_menu_Result subri in RoleInfo.Where(x => x.parId == ri.navmenuId && x.y_id == SessionPersister.YearInfo.y_id))
-                    {   
-                        <li class="treeview active" ><a href="@u.Content("~" + @subri.navlink)" title="@subri.description"><i class="@subri.Icon">
-                        </i>@subri.navmenuname
-                        </a></li>
-                    }
-                </ul>
-            </li>
+                foreach (WetosDB.sp_get_user_role_menu_Result ri in RoleInfo.Where(x => x.parId == 0 && x.y_id == SessionPersister.YearInfo.y_id))
+                {
+                    <li class=" nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="@ri.Icon " style="width: 30px"></i>&nbsp;<span>@ri.navmenuname</span>
+                            <span class="pull-right-container"><i class="fa fa-angle-left right"></i></span>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @foreach (WetosDB.sp_get_user_role_menu_Result subri in RoleInfo.Where(x => x.parId == ri.navmenuId && x.y_id == SessionPersister.YearInfo.y_id))
+                            {
+                                <li class="nav-item has-treeview">
+                                    <a href="@u.Content("~" + @subri.navlink)" class="nav-link" title="@subri.description">
+                                        <i class="@subri.Icon">
+                                        </i> &nbsp;@subri.navmenuname
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
             }
+        </ul>
+
+    </nav>
         }
-    </ul>                 
-}
-@*ShowBreadCrum*@
-@helper ShowBreadCrum(string Param1, string Param2, string Param3)
-    {    
-        var httpContext = HttpContext.Current;
-        System.Web.Mvc.UrlHelper u = new System.Web.Mvc.UrlHelper(httpContext.Request.RequestContext);
-      
-    <div class="row">
-        <div class="col-md-12">
-            <ul class="page-breadcrumb breadcrumb">
-                <li><i class="fa fa-home"></i><a href="#">@Param1 </a><i class="fa fa-angle-right"></i>
-                </li>
-                <li><a href="#">@Param2</a> <i class="fa fa-angle-right"></i></li>
-                <li><a href="#">@Param3 </a></li>
-                <li class="pull-right">
-                    <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
-                        <span style="cursor: pointer" class="back " data-toggle="tooltip" title="Back" id="goback">
-                            <i class="fa fa-arrow-left"></i></span><i class="fa fa-calendar"></i><span>@DateTime.Now.ToLongDateString()
+        @*ShowBreadCrum*@
+        @helper ShowBreadCrum(string Param1, string Param2, string Param3)
+        {
+            var httpContext = HttpContext.Current;
+            System.Web.Mvc.UrlHelper u = new System.Web.Mvc.UrlHelper(httpContext.Request.RequestContext);
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i><a href="#">@Param1 </a><i class="fa fa-angle-right"></i>
+                        </li>
+                        <li><a href="#">@Param2</a> <i class="fa fa-angle-right"></i></li>
+                        <li><a href="#">@Param3 </a></li>
+                        <li class="pull-right">
+                            <div id="dashboard-report" data-toggle="tooltip" title="Today's date">
+                                <span style="cursor: pointer" class="back " data-toggle="tooltip" title="Back" id="goback">
+                                    <i class="fa fa-arrow-left"></i>
+                                </span><i class="fa fa-calendar"></i><span>
+                                    @DateTime.Now.ToLongDateString()
                             </span>
-                    </div>
-                </li>
-            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>      
-}
+        }

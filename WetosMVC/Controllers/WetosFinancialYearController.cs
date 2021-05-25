@@ -18,7 +18,7 @@ namespace WetosMVC.Controllers
         {
             try
             {
-                List<FinancialYear> FinancialYearListObj = WetosDB.FinancialYears.ToList();
+                List<FinancialYear> FinancialYearListObj = WetosDB.FinancialYears.Where(a => a.MarkedAsDelete == 0).ToList();
 
                 return View(FinancialYearListObj);
             }
@@ -258,7 +258,7 @@ namespace WetosMVC.Controllers
             try
             {
                 DateTime CurrentServerDate = DateTime.Now;
-                FinancialYear CurrentFY = WetosDB.FinancialYears.Where(a => a.StartDate <= CurrentServerDate && a.EndDate >= CurrentServerDate).FirstOrDefault();
+                FinancialYear CurrentFY = WetosDB.FinancialYears.Where(a => a.StartDate <= CurrentServerDate && a.EndDate >= CurrentServerDate && a.MarkedAsDelete == 0).FirstOrDefault();
                 string Series = string.Empty;
                 if (CurrentFY == null)
                 {
@@ -294,7 +294,7 @@ namespace WetosMVC.Controllers
 
                     if (IsNew)
                     {
-                        WetosDB.FinancialYears.AddObject(CurrentFY);
+                        WetosDB.FinancialYears.Add(CurrentFY);
                     }
 
                     WetosDB.SaveChanges();
@@ -371,7 +371,7 @@ namespace WetosMVC.Controllers
                 if (FinancialYearEditObj != null)
                 {
 
-                    //WetosDB.PayrollFinancialYears.DeleteObject(FinancialYearEditObj);
+                    //WetosDB.PayrollFinancialYears.Add(FinancialYearEditObj);
                     FinancialYearEditObj.MarkedAsDelete = 1;
                     WetosDB.SaveChanges();
 

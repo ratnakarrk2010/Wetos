@@ -69,7 +69,7 @@ namespace WetosMVC.Controllers
             try
             {
                 // TODO: Add insert logic here
-                //WetosDB.Religions.AddObject(ReligionObj);
+                //WetosDB.Religions.Add(ReligionObj);
                 Religion ReligionObj = new Religion();
                 Religion ExistingReligion = WetosDB.Religions.Where(a => a.ReligionName == ReligionModelObj.ReligionName && a.MarkedAsDelete !=1).FirstOrDefault();
                 if (ExistingReligion != null) // CHECKING
@@ -81,7 +81,7 @@ namespace WetosMVC.Controllers
                 {
 
                     ReligionObj.ReligionName = ReligionModelObj.ReligionName;
-                    WetosDB.Religions.AddObject(ReligionObj);
+                    WetosDB.Religions.Add(ReligionObj);
                     WetosDB.SaveChanges();
                     
                     // ADDED BY RAJAS FOR AuditLog ON 27 DEC 2016

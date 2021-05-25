@@ -1,232 +1,268 @@
 ﻿@model IEnumerable<WetosDB.SP_GetEncashmentList_Result>
-@{
-    ViewBag.Title = "EncashmentIndex";
-}
-@System.Web.Optimization.Styles.Render("~/Content/DataTable")
- @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
-<div class="page-content-wrapper" id="page_content">
-    <div class="page-content">
-        <section class="content-header">
-      @*<h1>
-        Leave Encashment Details
-        <small>List</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Other's Applications</li> @*Modified by Pushkar 0n 6 FEB 2017
-        <li class="active">Encashment</li>
-      <li> <span style="float:right"><a href="#" id="goback" class="fa fa-arrow-left back"></a></span></li>
-      </ol>*@
-
-        @*Above lines Commented and added by Shalaka on 22nd DEC 2017 ---Start *@
-     <h1> Leave Encashment 
-        <small>Details</small>
-        @*Added by Shalaka on 28th DEC 2017 --- Start*@
-             <span data-toggle="tooltip" title="Apply for Leave" onclick="showloading();" style="float: right; font-weight: 800">
-                    @Html.ActionLink(" ", "EncashmentApplication", new { Myself = true }, new { @class = "fa fa-plus-circle", title = "Apply Leave Encashment", style = "color:#428bca;font-size:19px" })</span>
-        @*Added by Shalaka on 28th DEC 2017 --- End*@
-                  
-            </h1>
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                            <a href="#">Other's Application</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-
-                        <li>
-                          <a href="#">Encashment</a>
-                            @*<a href="@Url.Action("Index", "EncashmentIndex")">Encashment</a>*@
-                        </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor: pointer" class="back " data-toggle="tooltip"  title="Back" id="goback"><i class="fa fa-arrow-left"></i>@*<a href="#" >Back</a>*@
-
-                                </span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()
-                                </span>
-
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-      <br />
-        @*Below lines Commented and added by Shalaka on 22nd DEC 2017 --- End*@
-     @* <div>
-     
-      <span class="btn btn-default" style="float:left;font-weight:200">@Html.ActionLink(" Apply Leave Encashment", "EncashmentApplication")</span>
-
-      </div>*@
-      <div style="clear: both;"></div>
-
-       @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
-
-
-    </section>
-        <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-          
-            <div class="box-body">
-
-
-<table id="LeaveEncashment" class="table table-bordered table-striped">  @*Added by Shraddha For datatable on 17 DEC 2016*@
-<thead>
-    <tr>
-      
-       @* <td>
-            LeaveEncashId
-        </td>*@
-       @* <td>
-            EmployeeId
-        </td>
-        <td>
-            FinancialYearId
-        </td>*@
-
-         <td>
-            Code
-        </td>
-        <td>
-            Name
-        </td>
-         <td>
-            Financial Year
-        </td>
-        <td>
-            Leave Type
-        </td>
-        <td>
-            Status
-        </td>
-        <td>
-            EncashValue
-        </td>
-       @* <td>
-            RejectReason
-        </td>*@
-       @* <td>
-            BranchId
-        </td>
-        <td>
-            CompanyId
-        </td>*@
-         <td align="center">
-         Action</td>
-       
-    </tr>
-     </thead>
-
-    <tbody>
-@foreach (var item in Model)
-{
-    <tr>
-       
-        @*<td>
-            @item.LeaveEncashId
-        </td>
-        <td>
-            @item.EmployeeId
-        </td>
-        <td>
-            @item.FinancialYearId
-        </td>*@
-        <td>
-            @item.EmployeeCode
-        </td>
-        <td>
-            @item.EmployeeName
-        </td>
-        <td>
-            @item.FinancialName
-        </td>
-        <td>
-            @item.LeaveCode
-        </td>
-        <td>
-            @item.StatusName
-        </td>
-        <td>
-            @String.Format("{0:F}", item.EncashValue)
-        </td>
-       @* <td>
-            @item.RejectReason
-        </td>*@
-       @* <td>
-            @item.BranchId
-        </td>
-        <td>
-            @item.CompanyId
-        </td>*@
-        
-         <td align="center">
-         @*   @Html.ActionLink("Edit", "EncashmentApplicationEdit", new { LeaveEncashId = item.LeaveEncashId }) |
-           @* @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "EncashmentApplicationDelete", new { LeaveEncashId = item.LeaveEncashId })*@
-            
-            @*Above code commented and below code added by Shalaka on 29th DEC 2017 -- Start*@
-             <span data-toggle="tooltip" title="Edit">
-             @Html.ActionLink(" ", "EncashmentApplicationEdit", new { LeaveEncashId = item.LeaveEncashId }, new { @class = "fa fa-pencil-square-o" })</span> |
-            @*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
-            <span data-toggle="tooltip" title="Delete">
-            @Html.ActionLink(" ", "EncashmentApplicationDelete", new { LeaveEncashId = item.LeaveEncashId }, new { @class = "fa fa-trash" })
-            @*Above code commented and below code added by Shalaka on 29th DEC 2017 -- End*@
-            
-            </span>
-        </td>
-    </tr>
-}
-</tbody>
-
-<tfoot>
-                
-                </tfoot>
-
-</table>
-</div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
-    </div>
-</div>
-@*Added by Shraddha For back breadcrumb on 17 DEC 2016-------start*@
-<script type="text/jscript">
-    $(document).ready(function () {
-        $('a.back').click(function () {
-            parent.history.back();
-            return false;
-        });
-    });
-
-    function goBack() {
-        window.history.back();
+    @{
+        ViewBag.Title = "EncashmentIndex";
     }
+    @System.Web.Optimization.Styles.Render("~/Content/DataTable")
+    @System.Web.Optimization.Scripts.Render("~/bundles/DataTable")
+    <link href="~/Content/css/enhancement_index1.css" rel="stylesheet" />
+    <link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
+    <div class="page-content-wrapper" id="page_content">
+        <div class="page-content">
+            <section class="content-header">
+
+                <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                    <div class="col-sm-6 ed_breadcrumb_div">
+                        <ul>
+                            <li class="li_margin1">
+                                <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                                <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
+
+                            </li>
+                            <li class="li_margin">
+                                <a href="#">Other's Application</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+
+                            <li class="li_margin">
+                                <a href="#">Encashment</a>
+                                @*<a href="@Url.Action("Index", "EncashmentIndex")">Encashment</a>*@
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <ul style="float: right;">
+                            <li class="">
+                                <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                    <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                    <span>
+                                        @*@DateTime.Now.ToLongDateString()*@
+                                        @{
+                                            string timezoneId = System.Configuration.ConfigurationManager.AppSettings["TimeZoneId"];
+                                        }
+                                        @TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId)).ToLongDateString()
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                @*Above lines Commented and added by Shalaka on 22nd DEC 2017 ---Start *@
+                <h1 class="margin_left_h1">
+                    Leave Encashment
+                    <small>Details</small>
+                    @*Added by Shalaka on 28th DEC 2017 --- Start*@
+                    <span data-toggle="tooltip" title="Apply for Leave" onclick="showloading();" style="float: right; font-weight: 800">
+                        @Html.ActionLink(" ", "EncashmentApplication", new { Myself = true }, new { @class = "fa fa-plus-circle circle1", title = "Apply Leave Encashment", style = "color:#428bca;font-size:19px" })
+                    </span>
+                    @*Added by Shalaka on 28th DEC 2017 --- End*@
+
+                </h1>
+                <!-- <div class="row">
+                    <div class="col-md-12">
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <i class="fa fa-home"></i>
+                                <a href="@Url.Action("Index", "Home")">Home </a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="#">Other's Application</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+
+                            <li>
+                              <a href="#">Encashment</a>
+                                @*<a href="@Url.Action("Index", "EncashmentIndex")">Encashment</a>*@
+                            </li>
+                            <li class="pull-right">
+                                <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
+                                    <span style="cursor: pointer" class="back " data-toggle="tooltip"  title="Back" id="goback"><i class="fa fa-arrow-left"></i>@*<a href="#" >Back</a>*@
+
+                                    </span>
+                                    <i class="fa fa-calendar"></i>
+                                    <span>@DateTime.Now.ToLongDateString()
+                                    </span>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+                <br />
+                @*Below lines Commented and added by Shalaka on 22nd DEC 2017 --- End*@
+                @* <div>
+
+                    <span class="btn btn-default" style="float:left;font-weight:200">@Html.ActionLink(" Apply Leave Encashment", "EncashmentApplication")</span>
+
+                    </div>*@
+                <div style="clear: both;"></div>
+
+                @*Added by Pushkar For back breadcrumb on 24 OCT 2016-----------End*@
+
+
+            </section>
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box">
+
+                            <div class="box-body">
+                                <div class="table-responsive">
+
+
+                                    <table id="LeaveEncashment" class="table table-bordered table-striped">
+                                        @*Added by Shraddha For datatable on 17 DEC 2016*@
+                                        <thead>
+                                            <tr>
+
+                                                @* <td>
+                                                        LeaveEncashId
+                                                    </td>*@
+                                                @* <td>
+                                                        EmployeeId
+                                                    </td>
+                                                    <td>
+                                                        FinancialYearId
+                                                    </td>*@
+
+                                                <td>
+                                                    Code
+                                                </td>
+                                                <td>
+                                                    Name
+                                                </td>
+                                                <td>
+                                                    Financial Year
+                                                </td>
+                                                <td>
+                                                    Leave Type
+                                                </td>
+                                                <td>
+                                                    Status
+                                                </td>
+                                                <td>
+                                                    EncashValue
+                                                </td>
+                                                @* <td>
+                                                        RejectReason
+                                                    </td>*@
+                                                @* <td>
+                                                        BranchId
+                                                    </td>
+                                                    <td>
+                                                        CompanyId
+                                                    </td>*@
+                                                <td align="center">
+                                                    Action
+                                                </td>
+
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+
+                                                    @*<td>
+                                                            @item.LeaveEncashId
+                                                        </td>
+                                                        <td>
+                                                            @item.EmployeeId
+                                                        </td>
+                                                        <td>
+                                                            @item.FinancialYearId
+                                                        </td>*@
+                                                    <td>
+                                                        @item.EmployeeCode
+                                                    </td>
+                                                    <td>
+                                                        @item.EmployeeName
+                                                    </td>
+                                                    <td>
+                                                        @item.FinancialName
+                                                    </td>
+                                                    <td>
+                                                        @item.LeaveCode
+                                                    </td>
+                                                    <td>
+                                                        @item.StatusName
+                                                    </td>
+                                                    <td>
+                                                        @String.Format("{0:F}", item.EncashValue)
+                                                    </td>
+                                                    @* <td>
+                                                            @item.RejectReason
+                                                        </td>*@
+                                                    @* <td>
+                                                            @item.BranchId
+                                                        </td>
+                                                        <td>
+                                                            @item.CompanyId
+                                                        </td>*@
+
+                                                    <td align="center">
+                                                        @*   @Html.ActionLink("Edit", "EncashmentApplicationEdit", new { LeaveEncashId = item.LeaveEncashId }) |
+                                                            @* @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                                             @Html.ActionLink("Delete", "EncashmentApplicationDelete", new { LeaveEncashId = item.LeaveEncashId })*@
+
+                                                        @*Above code commented and below code added by Shalaka on 29th DEC 2017 -- Start*@
+                                                        <span data-toggle="tooltip" title="Edit">
+                                                            @Html.ActionLink(" ", "EncashmentApplicationEdit", new { LeaveEncashId = item.LeaveEncashId }, new { @class = "fa fa-pencil-square-o" })
+                                                        </span> |
+                                                        @*@Html.ActionLink("Details", "Details", new { id = item.CompanyId }) |*@
+                                                        <span data-toggle="tooltip" title="Delete">
+                                                            @Html.ActionLink(" ", "EncashmentApplicationDelete", new { LeaveEncashId = item.LeaveEncashId }, new { @class = "fa fa-trash" })
+                                                            @*Above code commented and below code added by Shalaka on 29th DEC 2017 -- End*@
+
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+
+                                        <tfoot>
+
+                                        </tfoot>
+
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+        </div>
+    </div>
+    @*Added by Shraddha For back breadcrumb on 17 DEC 2016-------start*@
+    <script type="text/jscript">
+        $(document).ready(function () {
+            $('a.back').click(function () {
+                parent.history.back();
+                return false;
+            });
+        });
+
+        function goBack() {
+            window.history.back();
+        }
 
 
 
-</script>
-@*Added by Shraddha For back breadcrumb on 17 DEC 2016---------end*@ @*Added by Shraddha For datatable on 17 DEC 2016-------start*@
-<script>
-    $(function () {
+    </script>
+    @*Added by Shraddha For back breadcrumb on 17 DEC 2016---------end*@ @*Added by Shraddha For datatable on 17 DEC 2016-------start*@
+    <script>
+        $(function () {
 
-        $("#LeaveEncashment").DataTable();
+            $("#LeaveEncashment").DataTable();
 
-    });
-</script>
-@*Added by Shraddha For datatable on 17 DEC 2016-------End*@
+        });
+    </script>
+    @*Added by Shraddha For datatable on 17 DEC 2016-------End*@

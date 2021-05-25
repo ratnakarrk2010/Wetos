@@ -5,205 +5,170 @@
 @System.Web.Optimization.Styles.Render("~/Content/Select2")
 @System.Web.Optimization.Scripts.Render("~/bundles/Select2")
 @System.Web.Optimization.Scripts.Render("~/bundles/LayoutTheme")
-<style type="text/css">
-    .row
-    {
-        margin-bottom: 10px;
-    }
-</style>
+<link href="~/Content/css/navmenu_master_delete.css" rel="stylesheet" />
+<link href="~/Content/allcss/allcss.css" rel="stylesheet" />
+
 @*VIEW CREATED AND STARTED BY NANDINI ON 14 APRIL 2020*@
 <div class="page-content-wrapper" id="page_content">
     <div class="page-content">
         <section class="content-header">
-<h1>Nav Menu
- <small>Details</small>
-</h1>
+            <div class="row page-breadcrumb breadcrumb ed_breadcrumb ed_breadcrumb_row">
+                <div class="col-sm-6 ed_breadcrumb_div">
+                    <ul>
+                        <li class="li_margin1">
+                            <img src="~/Content/images/icon/home_1.png" class="home_width_height" />
+                            <a href="@Url.Action("Index", "Home")">Home</a><i class="fa fa-angle-right"></i>
 
-<div class="row">
-                <div class="col-md-12">
-                    <ul class="page-breadcrumb breadcrumb">
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="@Url.Action("Index", "Home")">Home </a>
+                        </li>
+                        <li class="li_margin">
+                            <a href="#">Masters</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
-                        <li>
-                         <a href="#">Masters</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
+                        <li class="li_margin">
                             <a href="@Url.Action("Index", "DropdownData")">Nav Menu</a>
                         </li>
-                        <li class="pull-right">
-                            <div id="dashboard-report"  data-toggle="tooltip" title="Today's date">
-                                <span style="cursor: pointer" class="back "  data-toggle="tooltip" title="Back" id="goback"><i class="fa fa-arrow-left"></i>
-
-                                </span>
-                                <i class="fa fa-calendar"></i>
-                                <span>@DateTime.Now.ToLongDateString()
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul style="float: right;">
+                        <li class="">
+                            <div id="dashboard-report margin_left" data-toggle="tooltip" title="Today's date">
+                                <img src="~/Content/images/icon/imageedit_42.png" class="icon_width_height" />
+                                <span>
+                                    @DateTime.Now.ToLongDateString()
                                 </span>
                             </div>
-                           
                         </li>
                     </ul>
                 </div>
             </div>
-      <div style="clear: both;"></div>
-
-       
-
-      </section>
+            <h1 class="margin_left_h1">
+                Nav Menu
+                <small>Details</small>
+            </h1>
+            <div style="clear: both;"></div>
+        </section>
         <section class="content">
-      <div class="row">
-        <div class="col-xs-12 col-md-12 col-lg-12">
-          <div class="box">
-         
-            <!-- /.box-header -->
-            <div class="box-body">
-            
-@using (Html.BeginForm("Delete", "WetosNavMenuMaster", FormMethod.Post, new { id = "CreateBranchForm" }))
-{
-    <div style="color: Red; font-size: 12px">
-    @Html.ValidationSummary(true)
-    </div>
-   @Html.HiddenFor(model => model.NavMenuId)
-   
-    <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessage("Error")
-            </div>
-   
-    <div class="row">
-             <div class="col-md-10">  
-            <input type="radio" id="opt1" name="opt" value="ParentWise"/> Parent Nav Menu
-            <input type="radio" id="opt2" name="opt" value="ChildWise" checked="checked"/> Child Nav Menu
-            
-            </div>
-            
-            </div>  
-  
-    <div class="row MeuNameId">
-        <div class="editor-label col-md-2">
-    Menu Name <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <div class="box">
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            @using (Html.BeginForm("Delete", "WetosNavMenuMaster", FormMethod.Post, new { id = "CreateBranchForm" }))
+                            {
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationSummary(true)
+                                </div>
+                                @Html.HiddenFor(model => model.NavMenuId)
 
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-             @Html.DropDownListFor(model => model.MenuNameId, (IEnumerable<SelectListItem>)@ViewBag.NavMenuParentList, "Select", new { @class = "form-control select2", @style = "width:300px;", @disabled = "disabled" })
-            <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.MenuNameId)
-            </div>
-            </div>
-        </div>
-   </div> 
-    
-     <div class="row NavMenuNameId">
-        <div class="editor-label col-md-2">
-    Nav Menu Name<span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-            
-            
-            <div class="input-group date">
-             <div class="input-group-addon">
-             <i class="fa fa-university" aria-hidden="true"></i>
-             </div> 
-            @Html.TextBoxFor(model => model.NavMenuName, new { @class = "form-control", @readonly = "readonly", @style = "width:300px;" })
-           
-        </div>
-      
-             <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.NavMenuName)
-            </div>
-       </div> 
-       </div>
-         
-    
-    <div class="row NavLinkId">
-        <div class="editor-label col-md-2">
-    Nav Link <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationMessage("Error")
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <input type="radio" id="opt1" name="opt" value="ParentWise" /> Parent Nav Menu
+                                        <input type="radio" id="opt2" name="opt" value="ChildWise" checked="checked" /> Child Nav Menu
+                                    </div>
+                                </div>
+                                <div class="row MeuNameId">
+                                    <div class="editor-label col-md-2">
+                                        Menu Name <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.MenuNameId, (IEnumerable<SelectListItem>)@ViewBag.NavMenuParentList, "Select", new { @class = "form-control select2", @style = "width:300px;", @disabled = "disabled" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.MenuNameId)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row NavMenuNameId">
+                                    <div class="editor-label col-md-2">
+                                        Nav Menu Name<span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-university" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.NavMenuName, new { @class = "form-control", @readonly = "readonly", @style = "width:300px;" })
 
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-            @Html.TextBoxFor(model => model.NavLink, new { @class = "form-control", @readonly = "readonly", @style = "width:300px;" })
-            <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.NavLink)
+                                        </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.NavMenuName)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row NavLinkId">
+                                    <div class="editor-label col-md-2">
+                                        Nav Link <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.NavLink, new { @class = "form-control", @readonly = "readonly", @style = "width:300px;" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.NavLink)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Sr.No.  <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.SrNo, new { @class = "form-control", @readonly = "readonly", @style = "width:300px;" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.SrNo)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="editor-label col-md-2">
+                                        Icon  <span style="color:Red;font-size:18px">*</span>
+                                    </div>
+                                    <div class="editor-field col-md-5">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-building-o" aria-hidden="true"></i>
+                                            </div>
+                                            @Html.DropDownListFor(model => model.NavMenuIcon, (IEnumerable<SelectListItem>)@ViewBag.NavMenuIconList, "Select", new { @class = "form-control select2", style = "width:300px;", @disabled = "disabled" })
+                                            <div style="color: Red; font-size: 12px">
+                                                @Html.ValidationMessageFor(model => model.NavMenuIcon)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <p class="margin_left_save">
+                                    <input type="button" id="Branchbtn" value="Delete" class="btn btn-default" style="cursor:pointer; float:left" title="Click to Delete Nav Menu" />
+                                    <span class="btn btn-default" style="cursor:pointer; float:left;margin-left:10px" title="Click to go back to Nav Menu List">@Html.ActionLink("Back to Nav Menu List", "Index")</span>
+
+                                </p>
+
+                            }
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
             </div>
-            </div>
-        </div>
-   </div> 
-
-         
-    <div class="row">
-        <div class="editor-label col-md-2">
-        Sr.No.  <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-        
-
-
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-            @Html.TextBoxFor(model => model.SrNo, new { @class = "form-control", @readonly = "readonly", @style = "width:300px;" })
-            <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.SrNo)
-            </div>
-            </div>
-        </div>
-   </div> 
-
-         
-    <div class="row">
-        <div class="editor-label col-md-2">
-        Icon  <span style="color:Red;font-size:18px" >*</span>
-        </div>
-        <div class="editor-field col-md-5">
-         <div class="input-group date">
-          <div class="input-group-addon">
-                   <i class="fa fa-building-o" aria-hidden="true"></i>
-                  </div> 
-            @Html.DropDownListFor(model => model.NavMenuIcon, (IEnumerable<SelectListItem>)@ViewBag.NavMenuIconList, "Select", new { @class = "form-control select2", style = "width:300px;", @disabled = "disabled" })
-            <div style="color: Red; font-size: 12px">
-            @Html.ValidationMessageFor(model => model.NavMenuIcon)
-            </div>
-            </div>
-        </div>
-   </div> 
-
-         
- 
- <hr />
-         
-       <p>
-            <input type="button" id="Branchbtn" value="Delete" class="btn btn-default" style="cursor:pointer; float:left" title = "Click to Delete Nav Menu"/>
-            <span  class="btn btn-default" style="cursor:pointer; float:left;margin-left:10px" title = "Click to go back to Nav Menu List">@Html.ActionLink("Back to Nav Menu List", "Index")</span>
-           
-        </p>
-    
-}
-
-
-</div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
+            <!-- /.row -->
+        </section>
     </div>
 </div>
 <div id="branchdiv" class="modal fade">
@@ -214,9 +179,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="col-md-2  btn btn-primary" id="DeleteBtn">
-                    Yes</button>
+                    Yes
+                </button>
                 <button type="button" data-dismiss="modal" class="col-md-2 btn">
-                    Cancel</button>
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
@@ -227,8 +194,8 @@
         $(".select2").select2();
     });
 
-    
-    
+
+
 </script>
 <script type="text/jscript">
     $(document).ready(function () {
@@ -249,12 +216,12 @@
 
         var $form = $(this).closest('form');
         $('#branchdiv').modal({ backdrop: 'static', keyboard: false })
-                .one('click', '#DeleteBtn', function () {
+            .one('click', '#DeleteBtn', function () {
 
 
 
-                    $("#CreateBranchForm").submit();
-                });
+                $("#CreateBranchForm").submit();
+            });
 
     });
 

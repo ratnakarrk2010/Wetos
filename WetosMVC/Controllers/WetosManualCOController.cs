@@ -254,7 +254,7 @@ namespace WetosMVC.Controllers
 
                 if (IsNew == true)
                 {
-                    WetosDB.ManualCompOffs.AddObject(ManualCompOffEditObj);
+                    WetosDB.ManualCompOffs.Add(ManualCompOffEditObj);
                 }
                 WetosDB.SaveChanges();
                 ReturnStatus = true;
@@ -345,7 +345,7 @@ namespace WetosMVC.Controllers
                         NotificationObj.SendDate = DateTime.Now;
 
                         // ADD TO NOTIFICATION REPORTING PERSON
-                        WetosDB.Notifications.AddObject(NotificationObj);
+                        WetosDB.Notifications.Add(NotificationObj);
                         WetosDB.SaveChanges();
 
                         //Check if both reporting person are are different
@@ -361,7 +361,7 @@ namespace WetosMVC.Controllers
                             NotificationObj3.SendDate = DateTime.Now;
 
                             // ADD TO NOTIFICATION
-                            WetosDB.Notifications.AddObject(NotificationObj3);
+                            WetosDB.Notifications.Add(NotificationObj3);
                             WetosDB.SaveChanges();
                         }
 
@@ -374,7 +374,7 @@ namespace WetosMVC.Controllers
                         NotificationObj2.ReadFlag = false;
                         NotificationObj2.SendDate = DateTime.Now;
 
-                        WetosDB.Notifications.AddObject(NotificationObj2);
+                        WetosDB.Notifications.Add(NotificationObj2);
 
                         WetosDB.SaveChanges();
 
@@ -1284,7 +1284,7 @@ namespace WetosMVC.Controllers
 
                                     NewCompOffObj.ManualCompOffId = ManualCOObj.ManualCompOffId;
 
-                                    WetosDB.CompOffs.AddObject(NewCompOffObj);
+                                    WetosDB.CompOffs.Add(NewCompOffObj);
                                     WetosDB.SaveChanges();
                                     #endregion
                                 }
@@ -1428,7 +1428,7 @@ namespace WetosMVC.Controllers
                         NotificationObj.ReadFlag = false;
                         NotificationObj.SendDate = DateTime.Now;
 
-                        WetosDB.Notifications.AddObject(NotificationObj);
+                        WetosDB.Notifications.Add(NotificationObj);
                         WetosDB.SaveChanges();
                         #endregion
 
@@ -1445,7 +1445,7 @@ namespace WetosMVC.Controllers
                             NotificationObj.ReadFlag = false;
                             NotificationObj.SendDate = DateTime.Now;
 
-                            WetosDB.Notifications.AddObject(NotificationObj2);
+                            WetosDB.Notifications.Add(NotificationObj2);
                             WetosDB.SaveChanges();
 
                         }

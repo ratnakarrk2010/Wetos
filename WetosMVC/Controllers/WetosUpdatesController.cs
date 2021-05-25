@@ -71,7 +71,7 @@ namespace WetosMVC.Controllers
                         UploadCompanyDocumentNewObj.DocPath = path;
                         UploadCompanyDocumentNewObj.FileName = Attachment;
 
-                        WetosDB.UploadCompanyDocuments.AddObject(UploadCompanyDocumentNewObj);
+                        WetosDB.UploadCompanyDocuments.Add(UploadCompanyDocumentNewObj);
                     }
                     else {
                         UploadCompanyDocumentTblObj.DocContentType = UploadCompanyDocumentObj.DocContentType;

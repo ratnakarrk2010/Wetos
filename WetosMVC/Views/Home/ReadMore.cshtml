@@ -43,17 +43,19 @@
                             @*<div class="scroller" style="height: 300px;" data-always-visible="1" data-rail-visible="0">*@
                             <div id="left_pane " class="scroller" style="overflow-y: scroll; height: 400px;">
                               <div class="form-group">
-                      
+                      @{ 
+                          string timezoneId = System.Configuration.ConfigurationManager.AppSettings["TimeZoneId"]; 
+                      }
                         <div class="col-md-2">
                             <div class="input-group input-medium date-picker input-daterange" data-date-format="dd-mm-yyyy">
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control datepicker" id="from" name="from" value="@DateTime.Now.ToString("dd-MM-yyyy")"/>
+                                <input type="text" class="form-control datepicker" id="from" name="from" value="@TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId)).ToString("dd-MM-yyyy")"/>
                                 <span class="input-group-addon">
                                    
                                     to </span>
-                                <input type="text" class="form-control datepicker" id="to" name="to" value="@DateTime.Now.ToString("dd-MM-yyyy")"/>
+                                <input type="text" class="form-control datepicker" id="to" name="to" value="@TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(timezoneId)).ToString("dd-MM-yyyy")"/>
                                  <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
@@ -61,33 +63,34 @@
                         </div>
                         </div>
                         <br />
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th id="th_left_pane_date" class="date">
-                                                Date
-                                            </th>
-                                            <th id="th_left_pane_message" class="longtext">
-                                                Message
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    @foreach (var item in Model.OrderByDescending(a => a.SendDate))
-                                    {
-                                        i++;
-                                        <tr>
-                                            <td>
-                                                @String.Format("{0:dd-MM-yyyy}", item.SendDate)
-                                            </td>
-                                            <td>
-                                            
-                                                <a class="detailsLink" href="javascript::" style="cursor:pointer" onclick="detailslink(@item.NotificationID)">@Html.Raw(@item.NotificationContent)</a>
-                                                @*@Html.ActionLink(@item.NotificationContent, "MessageDetails", "Home", new { id = item.NotificationID }, new { @class="detailsLink" })*@
-                                                @*<a id="msglink-@i" name="msglink-@i" onclick="ShowDetail(@item.msgid)" class = "detailsLink" >@item.msgsubject</a>*@
-                                            </td>
-                                        </tr>
-                                    }
-                                </table>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th id="th_left_pane_date" class="date">
+                                        Date
+                                    </th>
+                                    <th id="th_left_pane_message" class="longtext">
+                                        Message
+                                    </th>
+                                </tr>
+                            </thead>
+                            @*@foreach (var item in Model.OrderByDescending(a => a.SendDate))*@
+                            @foreach (var item in Model)
+                            {
+                                i++;
+                                <tr>
+                                    <td>
+                                        @String.Format("{0:dd-MM-yyyy}", item.SendDate)
+                                    </td>
+                                    <td>
+
+                                        <a class="detailsLink" href="javascript::" style="cursor:pointer" onclick="detailslink(@item.NotificationID)">@Html.Raw(@item.NotificationContent)</a>
+                                        @*@Html.ActionLink(@item.NotificationContent, "MessageDetails", "Home", new { id = item.NotificationID }, new { @class="detailsLink" })*@
+                                        @*<a id="msglink-@i" name="msglink-@i" onclick="ShowDetail(@item.msgid)" class = "detailsLink" >@item.msgsubject</a>*@
+                                    </td>
+                                </tr>
+                            }
+                        </table>
                             </div>
                         </div>
                     </div>

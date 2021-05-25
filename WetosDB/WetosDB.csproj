@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WetosDB</RootNamespace>
     <AssemblyName>WetosDB</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,11 +31,14 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -43,7 +48,518 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttendanceYear.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditLog.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditTrail.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BloodGroup.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Branch.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarStatus.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommanData.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompOff.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompOffApplication.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CondoneTrn.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CumulativeCompOff.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CumulativeCompOffApplication.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CumulativeManualCompOff.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DailyTransaction.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeclaredHoliday.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Designation.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Device.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Division.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DropdownData.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeExtraDetail.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeGroup.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeGroupDetail.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeGrouptype.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeLifeCycle.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeType.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExceptionEntry.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialYear.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSetting.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Grade.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HeadCode.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HeadType.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HoliDay.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveApplication.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveBalance.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveBalanceBackupData.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveCredit.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveEncash.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveMaster.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Location.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ManualCompOff.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MonthDetail.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NavMenu.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="News.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Notification.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ODLateEarly.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ODTour.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OtHr.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Religion.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleDef.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleNavMenu.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleType.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rule.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RuleEngine.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RuleFlag.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RulesMaster.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RuleTransaction.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Schedular.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shift.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShiftPatternRule.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShiftRotation.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShiftSchedule.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShiftSchedulePattern.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShiftSwapReplace.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ActiveEmployeeAsOnDate_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ActiveEmployeeInEmployeeMasterNew_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ActiveEmployeeInEmployeeMaster_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_BranchAdminList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CondoneTrnListView_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CumulativeManualCOSanctionIndex_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_DeclaredHolidayListView_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_DisplayShiftOnCalendar_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EmployeeDetailsOnEmployeeMaster_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EmployeeListForResignationAndConfirmationNew_Result_New_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EmployeeProfile_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EmployeeTimeLine_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ExceptionEntryListView_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ExceptionSanctionIndex_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetAssignedRuleForSelectedEmployeeGroup_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetAssignRuleData_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetAttendanceDetails_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetAttendanceIndex_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetBranchList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetCompanyList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetDailyTransactionListForCumulativeCompOffNew_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetDailyTransactionListForCumulativeCompOff_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetDailyTransactionList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetDepartmentwiseLateEmployeeCount_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetEmployeeCSVForReportFilterNew_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetEmployeeCSVForReportFilter_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetEmployeeCSVForReportNewDept_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetEmployeeCSVForReportNew_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetEmployeeCSVForReport_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetEmployeeGroupDetail_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetEmployeeListForMessaging_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetEmployeeListNotExistInLoginTable_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetEmployeeListReportingTome_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetEncashmentList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetFinancialYearDataList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetHRList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetLeaveApproverList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetLeaveCreditDataList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetManualCompOffList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetNotifications_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetProcessedSalaryList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetSanctionerList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_get_audit_trail_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_get_Notifications_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_get_RoleNavmenu_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_get_Roleuser_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_get_user_role_menu_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_HolidayListView_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_InsertExcelDataForEmployeeWithESSAndDeleteFlag_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_InsertExcelDataForEmployee_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LeaveApplicationDetailsList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LeaveBalanceDataList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LeaveCalculationSheetNew_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LeaveCalculationSheet_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LeaveEncashSanctionIndex_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LeaveSanctionIndex_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LeaveTableDataEX_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LeaveTableDataNew_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LeaveTableData_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ManualCOSanctionIndex_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_POSTINGGetRequiredEmployeeDetails_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ShiftScheduleList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_UserListForResetPassword_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_UserTableForView_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_VwActiveEmployee_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_VwCumulativeManualCompOffList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_VwLeaveApplicationIndex_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_VwManualCompOffList_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_VwODEarlyLateIndex_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_VwODTravelIndex_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Vw_CompOffApplicationIndex_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Vw_CumulativeCompOffApplicationIndex_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_WetosGetEmployeeCompOffSanction_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_WetosGetEmployeeCumulativeCompOffSanction_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_WetosGetEmployeeODLateEarlySanction_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_WetosGetEmployeeODTravelSanction_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SqlQuery.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblFamilyDetail.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UploadCompanyDocument.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UploadDocument.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRole.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_Report_EmployeeDetails_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_Rpt_GetTimeCard_Result.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIEWREPORT.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwActiveEmployee.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwBranchDetail.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwCumulativeManualCompOffList.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwDepartmentDetail.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwDesignationDetail.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwEmployeeGroupDetail.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwGradeDetail.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwLeaveApplicationIndex.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwLocationNameInCompany.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwNewsList.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwODTravelIndex.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwRuleTransaction.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwShiftDetail.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VwShiftGroupDetail.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vw_CompOffApplicationIndex.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vw_CumulativeCompOffApplicationIndex.cs">
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WetosDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WetosDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WetosDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WetosDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="WetosDBModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -51,15 +567,31 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="WetosDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>WetosDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="WetosDBModel.edmx.diagram">
+      <DependentUpon>WetosDBModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config">
-      <SubType>Designer</SubType>
-    </None>
+    <Content Include="WetosDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WetosDBModel.Context.cs</LastGenOutput>
+      <DependentUpon>WetosDBModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="WetosDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WetosDBModel.cs</LastGenOutput>
+      <DependentUpon>WetosDBModel.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -189,7 +189,7 @@ namespace WetosMVC.Controllers
             // Add new table object 
             if (IsNew)
             {
-                WetosDB.Devices.AddObject(DeviceTblObj);
+                WetosDB.Devices.Add(DeviceTblObj);
             }
 
             WetosDB.SaveChanges();

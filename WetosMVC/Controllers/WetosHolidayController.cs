@@ -627,7 +627,7 @@ namespace WetosMVC.Controllers
                 if (IsNew)
                 {
 
-                    WetosDB.HoliDays.AddObject(HolidayTblObj);
+                    WetosDB.HoliDays.Add(HolidayTblObj);
                 }
 
                 WetosDB.SaveChanges();

@@ -254,7 +254,7 @@ namespace WetosMVC.Controllers
                 //var WorkHoursMM = collection["WorkHoursMM"];
                 //NewShift.WorkingHours = new DateTime(2016, 01, 01, Convert.ToInt32(WorkHoursHH), Convert.ToInt32(WorkHoursMM), 0);
 
-                //WetosDB.Shifts.AddObject(NewShift);
+                //WetosDB.Shifts.Add(NewShift);
 
                 //WetosDB.SaveChanges();
 
@@ -1034,7 +1034,7 @@ namespace WetosMVC.Controllers
                 // Add new table object 
                 if (IsNew)
                 {
-                    WetosDB.Shifts.AddObject(ShiftTblObj);
+                    WetosDB.Shifts.Add(ShiftTblObj);
                 }
 
                 WetosDB.SaveChanges();
