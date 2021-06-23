@@ -59,9 +59,7 @@
                         <div class="box-body">
                             @using (Html.BeginForm())
                             {
-                                <div class="red_star" style="color:Red;font-size:12px">
-                                    @Html.ValidationSummary(false)
-                                </div>
+                                
                                 <fieldset>
                                     <div class="row">
                                         <div class="form-group col-md-5" id="BranchList">
@@ -74,8 +72,12 @@
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-university" aria-hidden="true"></i>
                                                     </div>
-                                                    @Html.DropDownListFor(a => a.Branchid, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList",style="width:100%" })
+                                                    @Html.DropDownListFor(a => a.Branchid, (IEnumerable<SelectListItem>)@ViewBag.BranchList, "Select", new { @class = "form-control select2", id = "BranchddlList", style = "width:100%" })
                                                     @*@Html.ValidationMessageFor(model => model.Branchid)*@
+                                                </div>
+                                                <div class="red_star" style="color:Red;font-size:12px">
+                                                    @*@Html.ValidationSummary(false)*@
+                                                    @Html.ValidationMessageFor(model => model.Branchid)
                                                 </div>
                                             </div>
 
@@ -164,6 +166,9 @@
                                             <div class="editor-field textarea_m">
                                                 @Html.TextAreaFor(model => model.Description, new { style = "width:415px;border-radius: 5px" })
                                                 @*@Html.ValidationMessageFor(model => model.Description)*@
+                                            </div>
+                                            <div class="red_star" style="color:Red;font-size:12px">
+                                                @Html.ValidationMessageFor(model => model.Description)
                                             </div>
                                         </div>
                                     </div>

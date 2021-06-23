@@ -686,6 +686,14 @@
         } else {
             $("#IsOutPunchInNextDay").attr('value', 'false');
         }
+
+        @*//to alert of other applications on that day
+        if ("@ViewBag.AlreadyApplicaiton" != null) {
+            if ("@ViewBag.AlreadyApplicaiton" == "Leave") {
+                alert("There is alrady a leave application..");
+            }
+        }*@
+        
     });
 </script>
 @section Scripts {

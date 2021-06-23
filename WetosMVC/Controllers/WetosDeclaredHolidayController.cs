@@ -347,8 +347,10 @@ namespace WetosMVC.Controllers
 
             try
             {
-                WetosDB.DeclaredHoliday DeclaredHolidayTblObj = WetosDB.DeclaredHolidays.Where(a => a.DeclaredHolidayId == DeclaredHolidayModelObj.HoliDayId
-                    && a.Branch.BranchId == DeclaredHolidayModelObj.Branchid).FirstOrDefault();
+                //WetosDB.DeclaredHoliday DeclaredHolidayTblObj = WetosDB.DeclaredHolidays.Where(a => a.DeclaredHolidayId == DeclaredHolidayModelObj.HoliDayId
+                //    && a.Branch.BranchId == DeclaredHolidayModelObj.Branchid).FirstOrDefault();
+                WetosDB.DeclaredHoliday DeclaredHolidayTblObj = WetosDB.DeclaredHolidays.Where(a => a.HolidayDate == DeclaredHolidayModelObj.HolidayDate
+                    && a.Branch.BranchId == DeclaredHolidayModelObj.Branchid && a.MarkASDelete != 1).FirstOrDefault();
 
                 // ADDED BY RAJAS ON 03 JUNE 2017 START
                 bool IsNew = false;

@@ -620,7 +620,15 @@ namespace WetosMVC.Controllers
                 {
                     LeaveMasterObj.IsAttachmentNeeded = LeaveEdit.IsAttachmentNeeded;
                 }
-                LeaveMasterObj.AttachmentRequiredForMinNoOfLeave = LeaveEdit.AttachmentRequiredForMinNoOfLeave;
+                
+                if (LeaveEdit.AttachmentRequiredForMinNoOfLeave == null)
+                {
+                    LeaveMasterObj.AttachmentRequiredForMinNoOfLeave = 0.00;
+                }
+                else
+                {
+                    LeaveMasterObj.AttachmentRequiredForMinNoOfLeave = LeaveEdit.AttachmentRequiredForMinNoOfLeave;
+                }
                 //CODE ADDED BY SHRADDHA ON 16 FEB 2018 END
 
                 LeaveMasterObj.MaxAccumulationDays = LeaveEdit.MaxAccumulationDays;

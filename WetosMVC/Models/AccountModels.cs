@@ -740,7 +740,8 @@ namespace WetosMVCMainApp.Models
         [StringLength(25, MinimumLength = 1, ErrorMessage = "Card number cannot be longer than 25 characters.")]
         public string CardNumber { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please select Default Shift")]
+        [Display(Name = "DefaultShift")]
         public string DefaultShift { get; set; }
 
         // Commented by Rajas as per point discussed in 5 MAY 2017 meeting at Eviska
@@ -767,7 +768,7 @@ namespace WetosMVCMainApp.Models
         [Range(1, int.MaxValue, ErrorMessage = "Please Select Reporting person")]
         public int? EmployeeReportingId { get; set; }
 
-        //[Required(ErrorMessage = "Please select Grade")]  // Added by Rajas on 16 MARCH 2017 //COMMENTED BY SHRADDHA ON 19 JULY 2017 AS PER SUGGESTED BY MSJ
+        [Required(ErrorMessage = "Please select Grade")]  // Added by Rajas on 16 MARCH 2017 //COMMENTED BY SHRADDHA ON 19 JULY 2017 AS PER SUGGESTED BY MSJ
         // Specify Range Validation for dropdwon 
         [Range(1, int.MaxValue, ErrorMessage = "Please Select Grade")]
         public int? GradeId { get; set; }
@@ -799,7 +800,7 @@ namespace WetosMVCMainApp.Models
         public DateTime? ConfirmDate { get; set; }
 
 
-        [Required(ErrorMessage = "Joining Date")]
+        [Required(ErrorMessage = "Please select Joining Date")]
         public DateTime? JoiningDate { get; set; }
 
         public DateTime? Leavingdate { get; set; }
@@ -861,6 +862,7 @@ namespace WetosMVCMainApp.Models
         public int EmployeeGroupId { get; set; }
 
         [Display(Name = "Company")]
+        [Required(ErrorMessage = "Please select Company Name")]
         // Specify Range Validation for dropdwon 
         [Range(1, int.MaxValue, ErrorMessage = "Please Select Company")]
         public int CompanyId { get; set; }
@@ -990,6 +992,7 @@ namespace WetosMVCMainApp.Models
         [StringLength(20, MinimumLength = 1, ErrorMessage = "Shift type cannot be longer than 20 characters.")]
         public string ShiftType { get; set; }
 
+        [Required(ErrorMessage = "ShiftName is mandatory")]
         [Display(Name = "Shift Name")]
         [StringLength(50, MinimumLength = 1, ErrorMessage = "Shift name cannot be longer than 50 characters.")]
         public string ShiftName { get; set; }
@@ -1024,10 +1027,12 @@ namespace WetosMVCMainApp.Models
         [Display(Name = "LunchEndTime")]
         public string LunchEndTime { get; set; }
 
+        [Required(ErrorMessage = "Please Enter Lunch Time")]
         public string LunchTime { get; set; }
 
         public bool? LunchTimeExcludeFlag { get; set; }
 
+        [Required(ErrorMessage = "Please Enter Working Hours")]
         public string WorkHours { get; set; }
 
         public bool? NightShiftFlag { get; set; }
@@ -1105,7 +1110,7 @@ namespace WetosMVCMainApp.Models
     // LeaveMasterModel added for validation of Leave master 
     public class LeaveMasterModel
     {
-        [StringLength(50, MinimumLength = 1, ErrorMessage = "Location Name cannot be longer than 50 characters.")]
+        [StringLength(4, MinimumLength = 1, ErrorMessage = "Location Name cannot be longer than 4 characters.")]
         [Required(ErrorMessage = "Please Enter Leave Code")]
         [Display(Name = "LeaveCode")]
         public string LeaveCode { get; set; }
@@ -1643,20 +1648,25 @@ namespace WetosMVCMainApp.Models
     {
         public int FinancialId { get; set; }
 
+        [Required(ErrorMessage = "Financial name is required")]
         public string FinancialName { get; set; }
 
+        [Required(ErrorMessage = "Please Select StartDate")]
         public DateTime StartDate { get; set; }
 
-
+        [Required(ErrorMessage = "Please Select EndDate")]
         public DateTime EndDate { get; set; }
 
+        [Required]
         public DateTime? FYStartDate { get; set; }
 
-
+        [Required]
         public DateTime? FYEndDate { get; set; }
 
+        [Required(ErrorMessage = "Please Select Company")]
         public int CompanyId { get; set; }
 
+        [Required(ErrorMessage = "Please Select Branch")]
         public int BranchId { get; set; }
 
     }
@@ -1681,6 +1691,7 @@ namespace WetosMVCMainApp.Models
         [Display(Name = "Branch")]
         public int Branchid { get; set; }
 
+        [Required(ErrorMessage = "The Holiday Description is required.")]
         public string Description { get; set; }
 
         public int HoliDayId { get; set; }  // Adde by Rajas on 14 MARCH 2017

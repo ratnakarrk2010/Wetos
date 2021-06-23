@@ -501,7 +501,7 @@ namespace WetosMVC.Controllers
                 Employee ExistingEmployee = WetosDB.Employees.Where(a => (a.FirstName.ToUpper() == EmployeeModelObj.FirstName.ToUpper()
                     //&& a.MiddleName.ToUpper() == EmployeeModelObj.MiddleName.ToUpper()
                     && a.LastName.ToUpper() == EmployeeModelObj.LastName.ToUpper()
-                    && a.Gender == EmployeeModelObj.Gender) || (a.EmployeeCode == EmployeeModelObj.EmployeeCode) || (a.Email == EmployeeModelObj.Email) //ADDED EMPLOYEE CODE AND EMPLOYEE EMAIL ID CONDITION BY SHRADDHA ON 16 JAN 2018
+                    && a.Gender == EmployeeModelObj.Gender) || (a.EmployeeCode == EmployeeModelObj.EmployeeCode) || (a.Email == EmployeeModelObj.Email && EmployeeModelObj.Email != null) //ADDED EMPLOYEE CODE AND EMPLOYEE EMAIL ID CONDITION BY SHRADDHA ON 16 JAN 2018
                     ).FirstOrDefault();
 
                 if (ExistingEmployee != null) // CHECKING

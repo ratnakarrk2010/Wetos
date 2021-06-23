@@ -180,9 +180,10 @@
                                         <i class="fa fa-list-ul"></i>
                                     </div>
                                     @Html.TextBoxFor(model => model.ShiftName, new { @class = "form-control pull-right" })
-                                    <div style="color: Red; font-size: 12px">
-                                        @Html.ValidationMessageFor(model => model.ShiftName)
-                                    </div>
+
+                                </div>
+                                <div style="color: Red; font-size: 12px">
+                                    @Html.ValidationMessageFor(model => model.ShiftName)
                                 </div>
                             </div>
                         </div>
@@ -341,6 +342,10 @@
                                 <input type="text" name="WorkHours" class="input_width" id="WorkHours" value="@Model.WorkHours" data-inputmask="'mask': ['', '99:99:99']" data-mask />
                             </div>
                         </div>
+                        <div style="color: Red; font-size: 12px">
+
+                            @Html.ValidationMessageFor(model => model.WorkHours)
+                        </div>
                     </div>
 
                     <div class="row">
@@ -396,6 +401,10 @@
                                 @*fav icon added by atul on 23 june 2017----end*@
                                 <input type="text" name="LunchTime" class="input_width" id="LunchTime" readonly="readonly" value="@Model.LunchTime" data-inputmask="'mask': ['', '99:99:99']" data-mask />
                             </div>
+                        </div>
+                        <div style="color: Red; font-size: 12px">
+
+                            @Html.ValidationMessageFor(model => model.LunchTime)
                         </div>
                     </div>
 

@@ -60,7 +60,7 @@
                     <div class="box box-primary">
                         @using (Html.BeginForm())
                         {
-                            @Html.ValidationSummary(true)
+                            @*@Html.ValidationSummary(true)*@
 
                             <div class="row">
 
@@ -116,6 +116,9 @@
 
                                             @Html.TextBoxFor(model => model.FinancialName, new { @class = "form-control pull-right" })
                                         </div>
+                                        <div style="color: Red; font-size: 12px">
+                                            @Html.ValidationMessageFor(model => model.FinancialName)
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -133,6 +136,9 @@
                                         </div>
                                         <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="StartDate" id="StartDate" />
                                     </div>
+                                    <div style="color: Red; font-size: 12px">
+                                        @Html.ValidationMessageFor(model => model.StartDate)
+                                    </div>
                                     @*@Html.ValidationMessageFor(model => model.FromDate)*@
                                     @*</div>*@
                                 </div>
@@ -148,6 +154,9 @@
                                             <i class="fa fa-calendar"></i>
                                         </div>
                                         <input type="text" class="form-control datepicker" data-date-fomat="dd-MMM-yyyy" name="EndDate" id="EndDate" />
+                                    </div>
+                                    <div style="color: Red; font-size: 12px">
+                                        @Html.ValidationMessageFor(model => model.EndDate)
                                     </div>
                                     @*@Html.ValidationMessageFor(model => model.FromDate)*@
                                 </div>

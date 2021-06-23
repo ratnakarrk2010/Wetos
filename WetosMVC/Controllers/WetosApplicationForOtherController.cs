@@ -1547,7 +1547,8 @@ namespace WetosMVC.Controllers
                 }
                 else
                 {
-                    Employee EmployeeObj = WetosDB.Employees.Where(a => a.EmployeeId == EmpId).FirstOrDefault();
+                    //Employee EmployeeObj = WetosDB.Employees.Where(a => a.EmployeeId == EmpId).FirstOrDefault();
+                    Employee EmployeeObj = WetosDB.Employees.Where(a => a.EmployeeId == CompOffModelObj.EmployeeId).FirstOrDefault();
                     AddAuditTrail("Error - New CompOff application failed");  // Updated by Rajas on 17 JAN 2017
                     CompOffApplicationNecessaryContent(CompOffModelObj.EmployeeId);
                     // Added by Rajas on 17 JAN 2017 START

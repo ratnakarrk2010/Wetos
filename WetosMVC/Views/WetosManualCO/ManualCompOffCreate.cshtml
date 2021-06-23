@@ -591,11 +591,13 @@
                     var CompanyId = $("#CompanyddlList").val();
                     var EmployeeId = $("#EmployeeddlList").val();
                     var ExtraWorkingHrs = $("#ExtraWorkingHrs").val();
+                    var date1 = $("#FromDate").val();
+                    debugger;
                     $.ajax({
                         url: '@Url.Content("~/WetosManualCO/CalculateManualCompOffBalance")',
                         type: "POST",
                         dataType: "json",
-                        data: { CompanyId: CompanyId, BranchId: BranchId, EmployeeId: EmployeeId, ExtraWorkingHours: ExtraWorkingHrs },
+                        data: { CompanyId: CompanyId, BranchId: BranchId, EmployeeId: EmployeeId, ExtraWorkingHours: ExtraWorkingHrs, TranDate1: date1 },
                         success: function (Mydata) {
                             $("#CompOffBalance").val(Mydata);
                         },
@@ -771,12 +773,13 @@
                 var CompanyId = $("#CompanyddlList").val();
                 var EmployeeId = $("#EmployeeddlList").val();
                 var ExtraWorkingHrs = $("#ExtraWorkingHrs").val();
+                var date1 = $("#FromDate").val();
                 //alert(ExtraWorkingHrs);
                 $.ajax({
                     url: '@Url.Content("~/WetosManualCO/CalculateManualCompOffBalance")',
                     type: "POST",
                     dataType: "json",
-                    data: { CompanyId: CompanyId, BranchId: BranchId, EmployeeId: EmployeeId, ExtraWorkingHours: ExtraWorkingHrs },
+                    data: { CompanyId: CompanyId, BranchId: BranchId, EmployeeId: EmployeeId, ExtraWorkingHours: ExtraWorkingHrs, TranDate1: date1 },
                     success: function (Mydata) {
                         $("#CompOffBalance").val(Mydata);
                         //alert(ExtraWorkingHrs);

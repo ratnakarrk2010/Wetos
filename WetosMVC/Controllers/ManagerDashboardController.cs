@@ -65,7 +65,8 @@ namespace WetosMVC.Controllers
 
                     List<SelectListItem> SelectListItemList = new List<SelectListItem>();
                     List<string> FinalFYStrList = FYStrList.Distinct().ToList();
-                    foreach (string CFYStr in FYStrList)
+                    //foreach (string CFYStr in FYStrList)
+                    foreach (string CFYStr in FinalFYStrList)
                     {
                         SelectListItemList.Add(new SelectListItem { Text = CFYStr, Value = CFYStr });
                     }
@@ -289,7 +290,8 @@ namespace WetosMVC.Controllers
 
                 List<SelectListItem> SelectListItemList = new List<SelectListItem>();
                 List<string> FinalFYStrList = FYStrList.Distinct().ToList();
-                foreach (string CFYStr in FYStrList)
+                //foreach (string CFYStr in FYStrList)
+                foreach (string CFYStr in FinalFYStrList)
                 {
                     SelectListItemList.Add(new SelectListItem { Text = CFYStr, Value = CFYStr });
                 }

@@ -496,8 +496,10 @@
         var EmployeeId = $("#EmployeeddlList").val();
         //alert(EmployeeId);
         showloading();
-        window.location.href = '/WetosApplicationForOther/CompOffApplication/?EmployeeId=' + EmployeeId;
-
+        //window.location.href = '/WetosApplicationForOther/CompOffApplication/?EmployeeId=' + EmployeeId;
+        var link = '@Url.Action("CompOffApplication", "WetosApplicationForOther", new { EmployeeId  = "-1"})';
+        link = link.replace("-1", EmployeeId);
+        window.location.href = link;
     });
 
 

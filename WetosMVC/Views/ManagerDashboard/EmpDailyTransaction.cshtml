@@ -62,9 +62,11 @@
                                     </div>
                                     <div class="editor-field col-md-8">
                                         @Html.DropDownList("SelEmployeeId", (IEnumerable<SelectListItem>)@ViewBag.ActiveEmployeeListVB, "Select", new { @class = "form-control select2", @id = "SelEmployeeId" })
+										<span id="EmployeeError" style="color:red"></span>
                                     </div>
                                 </div>
                             </div>
+                            <br/>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="col-md-3">
@@ -72,6 +74,7 @@
                                     </div>
                                     <div class="editor-field col-md-5">
                                         @Html.DropDownList("FinancialYearId", (IEnumerable<SelectListItem>)@ViewBag.YearListVB, "Select", new { @class = "form-control select2", style = "width:200px", @id = "FYid" })
+                                        <span id="YearError" style="color:red"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -80,6 +83,7 @@
                                     </div>
                                     <div class="editor-field col-md-5">
                                         @Html.DropDownList("MonthId", (IEnumerable<SelectListItem>)@ViewBag.MonthListVB, "Select", new { @class = "form-control select2", style = "width:200px", @id = "Month" })
+                                        <span id="MonthError" style="color:red"></span>
                                     </div>
                                 </div>
 
@@ -137,25 +141,52 @@
         var FYId = $("#FYid").val();
         var MonthId = $("#Month").val();
         var SelEmployeeId = $("#SelEmployeeId").val();
+        if (FYId != "" && MonthId != "" && SelEmployeeId != "" && FYId != null && MonthId != null && SelEmployeeId != null) {
+            $("#EmployeeError").html("");
+            $("#YearError").html("");
+            $("#MonthError").html("");
 
-        //alert(FYId);
-        //alert(MonthId);
-        $.ajax({
-            url: '@Url.Content("~/ManagerDashBoard/EmpDailyTransactionExPV")',
-            type: "POST",
-            //dataType: "json",
-            //data: { FromDate: FromDate, ToDate: ToDate },
-            data: {EmployeeId : SelEmployeeId,  FYId: FYId,  MonthId: MonthId },
-            success: function (data) {
-                //alert();
-                $("#results").html(data);
+            $.ajax({
+                url: '@Url.Content("~/ManagerDashBoard/EmpDailyTransactionExPV")',
+                type: "POST",
+                //dataType: "json",
+                //data: { FromDate: FromDate, ToDate: ToDate },
+                data: { EmployeeId: SelEmployeeId, FYId: FYId, MonthId: MonthId },
+                success: function (data) {
+                    hideloading();
+                    //alert();
+                    $("#results").html(data);
 
-            },
-            error: function (data) {
-                //alert("hello");
+                },
+                error: function (data) {
+                    hideloading();
+                    //alert("hello");
+                }
+            });
+        }
+        else {
+            if (SelEmployeeId == "" || SelEmployeeId == null) {
+                $("#EmployeeError").html("Please select employee");
             }
-        });
-        hideloading();  //--- ADDED BY SHALAKA ON 21st JUNE 2017 TO DISPLAY PROGRESS RING
+            else {
+                $("#EmployeeError").html("");
+            }
+
+            if (FYId == "" || FYId == null) {
+                $("#YearError").html("Please select year");
+            }
+            else {
+                $("#YearError").html("");
+            }
+
+            if (MonthId == "" || MonthId == null) {
+                $("#MonthError").html("Please select month");
+            }
+            else {
+                $("#MonthError").html("");
+            }
+            hideloading();
+        }
 
     });
 

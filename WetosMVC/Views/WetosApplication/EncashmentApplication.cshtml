@@ -112,7 +112,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-clock-o"></i>
                                             </div>
-                                            @Html.EditorFor(model => model.EncashValue)
+                                            @Html.EditorFor(model => model.EncashValue, new { htmlAttributes = new { @type = "number", @min = "1", @step = "1", @value = "0" }})
 
                                         </div>
                                     </div>

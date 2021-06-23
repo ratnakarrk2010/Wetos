@@ -117,6 +117,7 @@ namespace WetosMVC.Controllers
 
                     PopulateDropDown();
 
+                    Attention("Please select Proper requisition type");
                     return View(ODTourObj);
                 }
                 else
@@ -134,6 +135,7 @@ namespace WetosMVC.Controllers
 
                             PopulateDropDown();
 
+                            Attention("Please enter proper OD Date");
                             return View(ODTourObj);
                         }
                         //if (ODTourObj.ODLoginTime == null)
@@ -183,6 +185,7 @@ namespace WetosMVC.Controllers
 
                     PopulateDropDown();
 
+                    Attention("End Date should be Greater than or equal to From Date");
                     return View(ODTourObj);
 
                 }
@@ -199,6 +202,7 @@ namespace WetosMVC.Controllers
                         // FILL VIEW BAG AGAIN
                         PopulateDropDown();
 
+                        Attention("Select Proper day status");
                         return View(ODTourObj);
                     }
                 }
@@ -332,6 +336,9 @@ namespace WetosMVC.Controllers
 
                                     PopulateDropDown();
 
+                                    //ViewBag.AlreadyApplicaiton = "Leave";
+                                    Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
+
                                     return View(ODTourObj);
                                 }
                                 else
@@ -342,6 +349,7 @@ namespace WetosMVC.Controllers
 
                                         PopulateDropDown();
 
+                                        Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                         return View(ODTourObj);
                                     }
                                     else
@@ -352,6 +360,7 @@ namespace WetosMVC.Controllers
 
                                             PopulateDropDown();
 
+                                            Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                             return View(ODTourObj);
                                         }
                                     }
@@ -368,6 +377,7 @@ namespace WetosMVC.Controllers
 
                                     PopulateDropDown();
 
+                                    Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                     return View(ODTourObj);
                                 }
                                 else
@@ -378,6 +388,7 @@ namespace WetosMVC.Controllers
 
                                         PopulateDropDown();
 
+                                        Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                         return View(ODTourObj);
                                     }
                                     else
@@ -388,6 +399,7 @@ namespace WetosMVC.Controllers
 
                                             PopulateDropDown();
 
+                                            Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                             return View(ODTourObj);
                                         }
                                     }
@@ -401,6 +413,7 @@ namespace WetosMVC.Controllers
 
                                     PopulateDropDown();
 
+                                    Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                     return View(ODTourObj);
                                 }
                                 else
@@ -411,6 +424,7 @@ namespace WetosMVC.Controllers
 
                                         PopulateDropDown();
 
+                                        Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                         return View(ODTourObj);
                                     }
                                 }
@@ -421,6 +435,7 @@ namespace WetosMVC.Controllers
 
                                 PopulateDropDown();
 
+                                Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                 return View(ODTourObj);
                             }
                         }
@@ -447,6 +462,7 @@ namespace WetosMVC.Controllers
 
                                     PopulateDropDown();
 
+                                    Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                     return View(ODTourObj);
                                 }
                                 else
@@ -457,6 +473,7 @@ namespace WetosMVC.Controllers
 
                                         PopulateDropDown();
 
+                                        Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                         return View(ODTourObj);
                                     }
                                     else
@@ -467,6 +484,7 @@ namespace WetosMVC.Controllers
 
                                             PopulateDropDown();
 
+                                            Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                             return View(ODTourObj);
                                         }
                                     }
@@ -483,6 +501,7 @@ namespace WetosMVC.Controllers
 
                                     PopulateDropDown();
 
+                                    Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                     return View(ODTourObj);
                                 }
                                 else
@@ -493,6 +512,7 @@ namespace WetosMVC.Controllers
 
                                         PopulateDropDown();
 
+                                        Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                         return View(ODTourObj);
                                     }
                                     else
@@ -503,6 +523,7 @@ namespace WetosMVC.Controllers
 
                                             PopulateDropDown();
 
+                                            Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                             return View(ODTourObj);
                                         }
                                     }
@@ -516,6 +537,7 @@ namespace WetosMVC.Controllers
 
                                     PopulateDropDown();
 
+                                    Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                     return View(ODTourObj);
                                 }
                                 else
@@ -526,6 +548,7 @@ namespace WetosMVC.Controllers
 
                                         PopulateDropDown();
 
+                                        Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                         return View(ODTourObj);
                                     }
                                 }
@@ -536,6 +559,7 @@ namespace WetosMVC.Controllers
 
                                 PopulateDropDown();
 
+                                Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned leaves for this date range.");
                                 return View(ODTourObj);
                             }
                         }
@@ -569,6 +593,7 @@ namespace WetosMVC.Controllers
 
                                     PopulateDropDown();
 
+                                    Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned OD for this date range.");
                                     return View(ODTourObj);
                                 }
                                 else
@@ -579,6 +604,7 @@ namespace WetosMVC.Controllers
 
                                         PopulateDropDown();
 
+                                        Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned OD for this date range.");
                                         return View(ODTourObj);
                                     }
                                     else
@@ -589,6 +615,7 @@ namespace WetosMVC.Controllers
 
                                             PopulateDropDown();
 
+                                            Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned OD for this date range.");
                                             return View(ODTourObj);
                                         }
                                     }
@@ -605,6 +632,7 @@ namespace WetosMVC.Controllers
 
                                     PopulateDropDown();
 
+                                    Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned OD for this date range.");
                                     return View(ODTourObj);
                                 }
                                 else
@@ -615,6 +643,7 @@ namespace WetosMVC.Controllers
 
                                         PopulateDropDown();
 
+                                        Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned OD for this date range.");
                                         return View(ODTourObj);
                                     }
                                     else
@@ -625,6 +654,7 @@ namespace WetosMVC.Controllers
 
                                             PopulateDropDown();
 
+                                            Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned OD for this date range.");
                                             return View(ODTourObj);
                                         }
                                     }
@@ -638,6 +668,7 @@ namespace WetosMVC.Controllers
 
                                     PopulateDropDown();
 
+                                    Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned OD for this date range.");
                                     return View(ODTourObj);
                                 }
                                 else
@@ -648,6 +679,7 @@ namespace WetosMVC.Controllers
 
                                         PopulateDropDown();
 
+                                        Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned OD for this date range.");
                                         return View(ODTourObj);
                                     }
                                 }
@@ -658,6 +690,7 @@ namespace WetosMVC.Controllers
 
                                 PopulateDropDown();
 
+                                Attention("You Can not Apply OD For " + ODTourObj.FromDate.Value.ToString("dd-MMM-yyyy") + " To " + ODTourObj.ToDate.Value.ToString("dd-MMM-yyyy") + " Range." + "You may already have pending or approved/sanctioned OD for this date range.");
                                 return View(ODTourObj);
                             }
                         }
@@ -679,6 +712,7 @@ namespace WetosMVC.Controllers
 
                     PopulateDropDown();
 
+                    Attention("You Can not apply leave for this range as Data is Locked");
                     return View(ODTourObj);
                 }
                 // Added by Rajas on 10 MARCH 2017 to Validate if data is locked, can not apply leave END
@@ -5128,8 +5162,9 @@ namespace WetosMVC.Controllers
                     LeaveEncashObj.CompanyId = CompanyObj.CompanyId;
                     LeaveEncashObj.EmployeeId = EmpObj.EmployeeId;
 
-                    FinancialYear FinancialYearObj = WetosDB.FinancialYears.Where(a => a.Company.CompanyId == CompanyObj.CompanyId && a.Branch.BranchId == BranchObj.BranchId).FirstOrDefault();
-                    LeaveEncashObj.FinancialYearId = FinancialYearObj.FinancialYearId;
+                    //commented to remove error in assigning year id
+                    //FinancialYear FinancialYearObj = WetosDB.FinancialYears.Where(a => a.Company.CompanyId == CompanyObj.CompanyId && a.Branch.BranchId == BranchObj.BranchId).FirstOrDefault();
+                    //LeaveEncashObj.FinancialYearId = FinancialYearObj.FinancialYearId;
                     //Added by Shalaka on 28th DEC 2017 --- End
 
                     LeaveEncashObj.StatusId = 1;
@@ -5389,7 +5424,8 @@ namespace WetosMVC.Controllers
         public ActionResult EncashmentApplicationDelete(WetosDB.LeaveEncash LeaveEncashDeleteObj)
         {
             LeaveEncash LeaveEncashObj = WetosDB.LeaveEncashes.Where(a => a.LeaveEncashId == LeaveEncashDeleteObj.LeaveEncashId).FirstOrDefault();
-            WetosDB.LeaveEncashes.Add(LeaveEncashObj);
+            //WetosDB.LeaveEncashes.Remove(LeaveEncashObj);
+            LeaveEncashObj.MarkedAsDelete = 1;
             WetosDB.SaveChanges();
 
 

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using WetosDB;
 using WetosMVCMainApp.Models;
 using System.Globalization;
+using System.Data.Entity;
 
 namespace WetosMVC.Controllers
 {
@@ -285,8 +286,19 @@ namespace WetosMVC.Controllers
                     if (ExistingCompOffAvailableOrnot != null)
                     {
                         Employee EmployeeObj = WetosDB.Employees.Where(a => a.EmployeeId == ExistingCompOffAvailableOrnot.EmployeeId).FirstOrDefault();
-                        Error("You Can not Apply Manual CompOff For " + ExistingCompOffAvailableOrnot.FromDate.ToString("dd-MMM-yyyy") + " for selected employee " + EmployeeObj.EmployeeCode + " - " + EmployeeObj.FirstName + " " + EmployeeObj.LastName
-                                            + "<br/>" + "You may already have pending or approved/sanctioned Manual CompOff for this date range.");
+                        Attention("You Can not Apply Manual CompOff For " + ExistingCompOffAvailableOrnot.FromDate.ToString("dd-MMM-yyyy") + " for selected employee " + EmployeeObj.EmployeeCode + " - " + EmployeeObj.FirstName + " " + EmployeeObj.LastName
+                                            + "You may already have pending or approved/sanctioned Manual CompOff for this date range.");
+                        PopulateDropDownManualCompOff();
+                        return View(ManualCompOffObj);
+                    }
+
+                    int EmployeeGroupId = WetosDB.EmployeeGroupDetails.Where(a => a.Employee.EmployeeId == ManualCompOffObj.EmployeeId).Select(a => a.EmployeeGroup.EmployeeGroupId).FirstOrDefault();
+                    //to check for max. comp-off limit
+                    var totalAppliedCompOffs = WetosDB.ManualCompOffs.Where(a => a.EmployeeId == ManualCompOffObj.EmployeeId && (a.StatusId == 1 || a.StatusId == 2 || a.StatusId == 4) && (a.MarkedAsDelete == 0 || a.MarkedAsDelete == null)).Count();
+                    var maxAllowedObj = WetosDB.RuleTransactions.Where(a => a.CompanyId == ManualCompOffObj.CompanyId && a.BranchId == ManualCompOffObj.BranchId && a.EmployeeGroupId == EmployeeGroupId && a.RuleId == 26).FirstOrDefault();
+                    if (totalAppliedCompOffs >= Convert.ToInt32(maxAllowedObj.Formula))
+                    {
+                        Attention("You have already reached max. Comp-off limit");
                         PopulateDropDownManualCompOff();
                         return View(ManualCompOffObj);
                     }
@@ -294,19 +306,19 @@ namespace WetosMVC.Controllers
                     if (ManualCompOffObj.CompOffBalance < 0.5)
                     {
 
-                        Error("Extra working time is less than required time limit");
+                        Attention("Extra working time is less than required time limit");
                         PopulateDropDownManualCompOff();
                         return View(ManualCompOffObj);
                     }
 
-                    int EmployeeGroupId = WetosDB.EmployeeGroupDetails.Where(a => a.Employee.EmployeeId == ManualCompOffObj.EmployeeId).Select(a => a.EmployeeGroup.EmployeeGroupId).FirstOrDefault();
+                    //int EmployeeGroupId = WetosDB.EmployeeGroupDetails.Where(a => a.Employee.EmployeeId == ManualCompOffObj.EmployeeId).Select(a => a.EmployeeGroup.EmployeeGroupId).FirstOrDefault();
                     RuleTransaction RuleTransactionObj = WetosDB.RuleTransactions.Where(a => a.CompanyId == ManualCompOffObj.CompanyId
                         && a.BranchId == ManualCompOffObj.BranchId && a.EmployeeGroupId == EmployeeGroupId && a.RuleId == 9).FirstOrDefault();
                     if (RuleTransactionObj != null)
                     {
                         if (RuleTransactionObj.Formula.Trim().ToUpper() != "TRUE")
                         {
-                            Error("Comp off is not allowed for selected employee");
+                            Attention("Comp off is not allowed for selected employee");
                             PopulateDropDownManualCompOff();
                             return View(ManualCompOffObj);
 
@@ -315,7 +327,7 @@ namespace WetosMVC.Controllers
 
                     if (ManualCompOffObj.FromDate >= DateTime.Now)
                     {
-                        Error("Extra working Date should be earlier than Today.");
+                        Attention("Extra working Date should be earlier than Today.");
                         AddAuditTrail("Manual Comp Off Entry addition failed for ManualCompOffId:" + ManualCompOffObj.ManualCompOffId);
                         PopulateDropDownManualCompOff();
                         return View(ManualCompOffObj);
@@ -426,7 +438,7 @@ namespace WetosMVC.Controllers
                     }
                     else
                     {
-                        Error("Manual Comp Off Entry failed");
+                        Attention("Manual Comp Off Entry failed");
                         AddAuditTrail("Manual Comp Off Entry addition failed for ManualCompOffId:" + ManualCompOffObj.ManualCompOffId);
                         PopulateDropDownManualCompOff();
                         return View(ManualCompOffObj);
@@ -791,9 +803,10 @@ namespace WetosMVC.Controllers
         /// <param name="CompanyId"></param>
         /// <param name="BranchId"></param>
         /// <returns></returns>
-        public JsonResult CalculateManualCompOffBalance(int CompanyId, int BranchId, int EmployeeId, string ExtraWorkingHours)
+        public JsonResult CalculateManualCompOffBalance(int CompanyId, int BranchId, int EmployeeId, string ExtraWorkingHours, string TranDate1)
         {
             double CompOffBalance = 0;
+            DateTime TranDate = Convert.ToDateTime(TranDate1);
             try
             {
                 int EmployeeGroupId = WetosDB.EmployeeGroupDetails.Where(a => a.Employee.EmployeeId == EmployeeId).Select(a => a.EmployeeGroup.EmployeeGroupId).FirstOrDefault();
@@ -847,6 +860,24 @@ namespace WetosMVC.Controllers
                                 //ExtraWoHoursSecondInt = Convert.ToInt32(ExtraWorkingHoursSplitValue[2]);
                             }
 
+                            //to check if the tranDate falls on Holiday, WeekOff
+                            var isHoliday = WetosDB.HoliDays.Where(x => (DbFunctions.TruncateTime(x.FromDate) == DbFunctions.TruncateTime(TranDate) || DbFunctions.TruncateTime(x.ToDate) == DbFunctions.TruncateTime(TranDate)) && x.MarkedAsDelete != 1).FirstOrDefault();
+                            var currentEmp = WetosDB.Employees.Where(x => x.EmployeeId == EmployeeId).FirstOrDefault();
+                            var isWeekOff = false;
+                            var weekOfMonth = WetosAdministrationController.GetWeekOfMonth(TranDate);
+                            if (TranDate.DayOfWeek.ToString().ToUpper() == currentEmp.WeeklyOff1.ToUpper())
+                            {
+                                isWeekOff = true;
+                            }
+                            else if (TranDate.DayOfWeek.ToString().ToUpper() == currentEmp.WeeklyOff2.ToUpper())
+                            {
+                                if (weekOfMonth == 1 && currentEmp.First == true) { isWeekOff = true; }
+                                else if (weekOfMonth == 2 && currentEmp.Second == true) { isWeekOff = true; }
+                                else if (weekOfMonth == 3 && currentEmp.Third == true) { isWeekOff = true; }
+                                else if (weekOfMonth == 4 && currentEmp.Fourth == true) { isWeekOff = true; }
+                                else if (weekOfMonth == 5 && currentEmp.Fifth == true) { isWeekOff = true; }
+                            }
+
                             if (ExtraWoHoursHourInt > 0)
                             {
                                 if (FullDayRuleHourInt > 0)
@@ -856,11 +887,44 @@ namespace WetosMVC.Controllers
                                     HalfDayRuleTotalTime = (60 * HalfDayRuleHourInt) + HalfDayRuleMinuteInt;
                                     if (ExtraWoHoursTotalTime >= FullDayRuleTotalTime)
                                     {
-                                        CompOffBalance = 1;
+                                        //CompOffBalance = 1;
+                                        if (isHoliday != null)
+                                        {
+                                            RuleTransaction RuleTransactionObj1 = RuleTransactionList.Where(a => a.RuleId == 38).FirstOrDefault();
+                                            CompOffBalance = Convert.ToDouble(RuleTransactionObj1.Formula.Trim());
+                                        }
+                                        else if (isWeekOff == true)
+                                        {
+                                            RuleTransaction RuleTransactionObj1 = RuleTransactionList.Where(a => a.RuleId == 37).FirstOrDefault();
+                                            CompOffBalance = Convert.ToDouble(RuleTransactionObj1.Formula.Trim());
+                                        }
+                                        else
+                                        {
+                                            RuleTransaction RuleTransactionObj1 = RuleTransactionList.Where(a => a.RuleId == 36).FirstOrDefault();
+                                            CompOffBalance = Convert.ToDouble(RuleTransactionObj1.Formula.Trim());
+                                        }
                                     }
                                     else if (ExtraWoHoursTotalTime >= HalfDayRuleTotalTime)
                                     {
-                                        CompOffBalance = 0.5;
+                                        //CompOffBalance = 0.5;
+                                        if (isHoliday != null)
+                                        {
+                                            RuleTransaction RuleTransactionObj1 = RuleTransactionList.Where(a => a.RuleId == 38).FirstOrDefault();
+                                            var value = Convert.ToDouble(RuleTransactionObj1.Formula.Trim()) * 0.5;
+                                            CompOffBalance = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2; //to round-off
+                                        }
+                                        else if (isWeekOff == true)
+                                        {
+                                            RuleTransaction RuleTransactionObj1 = RuleTransactionList.Where(a => a.RuleId == 37).FirstOrDefault();
+                                            var value = Convert.ToDouble(RuleTransactionObj1.Formula.Trim()) * 0.5;
+                                            CompOffBalance = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
+                                        }
+                                        else
+                                        {
+                                            RuleTransaction RuleTransactionObj1 = RuleTransactionList.Where(a => a.RuleId == 36).FirstOrDefault();
+                                            var value = Convert.ToDouble(RuleTransactionObj1.Formula.Trim()) * 0.5;
+                                            CompOffBalance = Math.Round(value * 2, MidpointRounding.AwayFromZero) / 2;
+                                        }
                                     }
                                     else if (ExtraWoHoursTotalTime < HalfDayRuleTotalTime) //FullDayRuleTotalTime)
                                     {
@@ -879,7 +943,7 @@ namespace WetosMVC.Controllers
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 CompOffBalance = 0;
             }
