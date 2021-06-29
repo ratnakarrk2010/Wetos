@@ -5098,7 +5098,7 @@ namespace WetosMVC.Controllers
                 //ReturnStatus = true;
 
             }
-            catch (System.Exception)
+            catch (System.Exception Ex)
             {
                 //throw;
             }

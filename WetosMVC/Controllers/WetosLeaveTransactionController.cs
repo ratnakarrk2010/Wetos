@@ -1888,6 +1888,10 @@ namespace WetosMVC.Controllers
                 {
                     IsLeaveCombine = true;
                     ErrorMessage = Message;
+                    //if (Message == "")
+                    //{
+                    //    ErrorMessage = LeaveMasterObj.LeaveCode + " - " + AppliedLeaveType + " combination is not allowed.";
+                    //}
                     return ReturnStatus = false;
                 }
                 // Added by Rajas on 14 AUGUST 2017 END
@@ -2067,7 +2071,7 @@ namespace WetosMVC.Controllers
                     {
                         //MODIFIED BY PUSHKAR ON 28 NOV 2017 FOR CHECKING MARK AS DELETE CONDITION
                         var LeaveMasterList = WetosDB.LeaveMasters.Where(a => a.Company.CompanyId == EmployeeObj.CompanyId && a.BranchId == EmployeeObj.BranchId
-                            && a.EmployeeGroup.EmployeeGroupId == EmployeeGroupDetailObj.EmployeeGroup.EmployeeGroupId
+                            && a.EmployeeGroup.EmployeeGroupId == EmployeeGroupDetailObj.EmployeeGroup.EmployeeGroupId && (a.ApplicableToMaleFemale.Trim().ToUpper() == "B" || a.ApplicableToMaleFemale.ToUpper() == "F")
                             && (a.MarkedAsDelete == 0 || a.MarkedAsDelete == null))
                             .Select(a => new { LeaveTypeID = a.LeaveId, LeaveType = a.LeaveCode }).ToList();
 
@@ -2079,7 +2083,7 @@ namespace WetosMVC.Controllers
                     {
                         //MODIFIED BY PUSHKAR ON 28 NOV 2017 FOR CHECKING MARK AS DELETE CONDITION
                         var LeaveMasterList = WetosDB.LeaveMasters.Where(a => a.Company.CompanyId == EmployeeObj.CompanyId && a.BranchId == EmployeeObj.BranchId
-                            && a.EmployeeGroup.EmployeeGroupId == EmployeeGroupDetailObj.EmployeeGroup.EmployeeGroupId && a.ApplicableToMaleFemale.ToUpper() == "B"
+                            && a.EmployeeGroup.EmployeeGroupId == EmployeeGroupDetailObj.EmployeeGroup.EmployeeGroupId && (a.ApplicableToMaleFemale.Trim().ToUpper() == "B" || a.ApplicableToMaleFemale.ToUpper() == "M")
                             && (a.MarkedAsDelete == 0 || a.MarkedAsDelete == null))
                             .Select(a => new { LeaveTypeID = a.LeaveId, LeaveType = a.LeaveCode }).ToList();
 
@@ -2397,7 +2401,12 @@ namespace WetosMVC.Controllers
                             //THERE IS UNDERSTANDING PROBLEM IN THIS RULE CODE THAT IF RULL VALUE IS FALSE THEN COMBINATION CASE SHOULD BE NOT ALLOWED
                             //if (!IsAppOk && (LeaveMasterObj.IsLeaveCombination == true || LeaveMasterObj.IsLeaveCombination == null)
                             //    && LeaveMasterObj.LeaveCode.ToUpper().Trim() != AppliedLeaveType)
-                            if (!IsAppOk && (LeaveMasterObj.IsLeaveCombination == false)
+
+                            //to check if the previously applied leave has IsLeaveCombination == false
+                            int EmployeeGroupId1 = WetosDB.EmployeeGroupDetails.Where(a => a.Employee.EmployeeId == LeaveTypeObj.EmployeeId).Select(a => a.EmployeeGroup.EmployeeGroupId).FirstOrDefault();
+                            var CombinationCaseLeaveMaster = WetosDB.LeaveMasters.Where(a => a.LeaveCode == AppliedLeaveType && a.EmployeeGroup.EmployeeGroupId == EmployeeGroupId1).FirstOrDefault();
+
+                            if (!IsAppOk && (LeaveMasterObj.IsLeaveCombination == false || CombinationCaseLeaveMaster.IsLeaveCombination == false)
                             && LeaveMasterObj.LeaveCode.ToUpper().Trim() != AppliedLeaveType)
                             {
                                 MessageString = LeaveMasterObj.LeaveCode + " - " + AppliedLeaveType + " combination is not allowed.";
@@ -2408,7 +2417,8 @@ namespace WetosMVC.Controllers
                             //ADDED BY PUSHKAR ON 26 MAY 2018 FOR PREFIX AND SUFFIX
                             if (LeaveMasterObj.IsLeaveCombination == true && LeaveMasterObj.LeaveCode.ToUpper().Trim() != AppliedLeaveType.ToUpper().Trim())
                             {
-                                if (PrefixOrSuffix != null || PrefixOrSuffix != "")
+                                //if (PrefixOrSuffix != null || PrefixOrSuffix != "")
+                                if (PrefixOrSuffix != null && PrefixOrSuffix != "")
                                 {
                                     if (PrefixOrSuffix.Contains(','))
                                     {
@@ -2584,7 +2594,7 @@ namespace WetosMVC.Controllers
 
                 //}
             }
-            catch
+            catch(Exception Ex)
             {
                 IsSuccess = false;
             }
@@ -2675,17 +2685,17 @@ namespace WetosMVC.Controllers
                     }
 
                     var TotalNoOfTimesSelectedLeavesTakenInYear = WetosDB.LeaveApplications.Where(a => a.EmployeeId == EmpId && a.LeaveType == LeaveMasterData.LeaveCode
-                        && a.StatusId == 2 && a.FromDate.Year == FinancialYearObj.StartDate.Year && (a.MarkedAsDelete == null || a.MarkedAsDelete == 0)).Count();
+                        && (a.StatusId == 2 || a.StatusId == 1 || a.StatusId == 4) && a.FromDate.Year == FinancialYearObj.StartDate.Year && (a.MarkedAsDelete == null || a.MarkedAsDelete == 0)).Sum(a => a.AppliedDays);
 
                     if (TotalNoOfTimesSelectedLeavesTakenInYear >= LeaveMasterData.MaxNoOfTimesAllowedInYear)
                     {
                         IsFormSubmittable = false;
-                        ErrorMessage = string.Format("You have already taken leave for no. of times allowed in year {0} for leave type {1}", LeaveMasterData.MaxNoOfTimesAllowedInYear, LeaveMasterData.LeaveName);
+                        ErrorMessage = string.Format("You have already taken leave for no. of times allowed in year: {0} for leave type {1}", LeaveMasterData.MaxNoOfTimesAllowedInYear, LeaveMasterData.LeaveName);
                     }
 
                     //CODE ADDED BY SHRADDHA ON 17 JAN 2018 TO GET TOTAL NO. OF LEAVES TAKEN IN MONTH START
                     var TotalNoOfLeavesTakenInMonth = Convert.ToDouble(WetosDB.LeaveApplications.Where(a => a.EmployeeId == EmpId && a.LeaveType == LeaveMasterData.LeaveCode
-                       && a.StatusId == 2 && a.FromDate.Year == FromDate.Year && a.FromDate.Month == FromDate.Month && (a.MarkedAsDelete == null || a.MarkedAsDelete == 0) && a.LeaveApplicationId != LeaveApplicationId).Select(a => a.ActualDays).FirstOrDefault());
+                       && (a.StatusId == 2 || a.StatusId == 1 || a.StatusId == 4) && a.FromDate.Year == FromDate.Year && a.FromDate.Month == FromDate.Month && (a.MarkedAsDelete == null || a.MarkedAsDelete == 0) && a.LeaveApplicationId != LeaveApplicationId).Sum(a => a.AppliedDays));
                     //CODE ADDED BY SHRADDHA ON 17 JAN 2018 TO GET TOTAL NO. OF LEAVES TAKEN IN MONTH END
 
 
@@ -2761,6 +2771,24 @@ namespace WetosMVC.Controllers
                             IsFormSubmittable = false;
                             ErrorMessage = "Attach Medical Certificate while Applying for Sick Leave.";
                         }
+
+                        #region To check if applicable to male or female or both 
+                        try
+                        {
+                            if (LeaveMasterObj.ApplicableToMaleFemale != "B")
+                            {
+                                if (EmpObj.Gender.Trim().ToUpper() != LeaveMasterObj.ApplicableToMaleFemale.Trim().ToUpper())
+                                {
+                                    IsFormSubmittable = false;
+                                    ErrorMessage = string.Format("The leave type {0} is not applicable to gender {1}", LeaveMasterData.LeaveName, EmpObj.Gender);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            
+                        }
+                        #endregion
                     }
 
                     RetStat = IsFormSubmittable; // ADDED BY MSJ ON 14 DEC 2017
